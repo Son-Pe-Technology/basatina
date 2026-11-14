@@ -43,9 +43,8 @@ La ley pide informar **en el momento** de recoger los datos, de forma breve, con
 2. **Aceptar las condiciones de tratamiento de datos de Firebase/Google Cloud** en la consola (Configuración del proyecto → Privacidad). Es el «contrato de encargado» que exige el RGPD (art. 28).
 3. Activar la **verificación en dos pasos** en vuestras cuentas de Google.
 4. Revisar que Cloudinary y Web3Forms tengan sus condiciones de protección de datos (DPA) aceptadas, por las fotos y el buzón.
-5. **Confirmar quién es el responsable** (ver la nota de abajo).
 
 ## E. Notas que conviene confirmar
-- **Responsable del tratamiento.** He puesto a **Pedro Iglesias Goñi**, porque la marca y el dominio no son una empresa: el RGPD exige poner el nombre de una persona o entidad. Si queréis que figure también Sonia (como **corresponsables**), hay que añadir su nombre completo en `docs/privacidad.html`, `docs/aviso-legal.html` y en el documento 1.
+- **Responsable del tratamiento:** Pedro Iglesias Goñi (confirmado el 14 nov. 2026).
 - **NIF y domicilio en el aviso legal.** La ley de servicios de internet (LSSI, art. 10) los pide a quien presta servicios como actividad económica. Al ser un proyecto sin ánimo de lucro y sin ingresos, es discutible que os obligue, y por eso no los he puesto (protege vuestra intimidad). Si algún día hay ingresos, publicidad o una asociación, habría que añadirlos.
 - No soy abogado. Esto está preparado con cuidado y siguiendo la normativa y las guías de la AEPD, pero si queréis tranquilidad total, la **AEPD atiende consultas gratis** (aepd.es → Atención a la ciudadanía) y su herramienta gratuita **Facilita RGPD** os puede servir para comprobarlo.
