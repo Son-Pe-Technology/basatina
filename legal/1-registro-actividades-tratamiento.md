@@ -17,9 +17,9 @@
 | Finalidad | Recibir, moderar y publicar avisos de la gente (árboles caídos, desprendimientos, lluvia intensa, cebos envenenados, accidentes…); gestionar confirmaciones, denuncias y bloqueos; evitar abusos; informar al autor del estado de su aviso. |
 | Base jurídica | Consentimiento al enviar (art. 6.1.a RGPD). Moderación, antiabuso y registro de denuncias: interés legítimo (art. 6.1.f) y cumplimiento del Reglamento de Servicios Digitales (arts. 16 y 17). |
 | Personas afectadas | Usuarios de 14 años o más que envían, confirman o denuncian avisos. |
-| Datos | Tipo de aviso, texto libre (máx. 300 caracteres), coordenadas del suceso, fecha/hora, código de colaborador aleatorio (seudónimo generado en el móvil). **No** se piden nombre, correo, teléfono ni la ubicación de la persona. |
+| Datos | Tipo de aviso, texto libre (máx. 300 caracteres), coordenadas del suceso, fecha/hora, código de colaborador aleatorio (seudónimo: identificador de acceso anónimo de Firebase Authentication). **No** se piden nombre, correo, teléfono ni la ubicación de la persona. |
 | Datos especiales | Ninguno a propósito. Si en un texto aparecen datos de terceros o especiales, se borran en la moderación. |
-| Destinatarios | Público en general (solo el aviso publicado, sin el código). Encargado: Google Ireland Ltd. (Firebase / Cloud Firestore). |
+| Destinatarios | Público en general (solo el aviso publicado, sin el código). Encargado: Google Ireland Ltd. (Firebase Authentication con acceso anónimo y Cloud Firestore). |
 | Transferencias internacionales | Datos alojados en la región europe-southwest1 (Madrid). Google puede acceder desde fuera de la UE para dar soporte; cubierto por las Cláusulas Contractuales Tipo y el Marco de Privacidad de Datos UE‑EE. UU. incluidos en sus condiciones de tratamiento. |
 | Plazos | Visible: 6 h – 7 días según el tipo. Borrado total: 30 días tras caducar. Denuncias y decisiones de moderación: 6 meses. Códigos bloqueados: 12 meses. |
 | Seguridad | Ver documento 2. |

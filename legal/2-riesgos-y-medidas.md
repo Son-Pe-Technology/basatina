@@ -5,7 +5,7 @@
 
 ## Privacidad desde el diseño (lo más importante)
 1. **Sin cuentas.** No hay nombre, correo ni contraseña de los usuarios. Lo que no se recoge no se puede perder.
-2. **Código de colaborador al azar.** Lo genera el móvil (`crypto.getRandomValues`) y se guarda en el móvil. No sale de ningún dato del teléfono.
+2. **Código de colaborador al azar.** Es el identificador del «acceso anónimo» de Firebase Authentication: lo asigna Firebase al azar y se queda en el móvil. No sale de ningún dato del teléfono ni de la persona. Si se borran los datos de la app, se pierde y se crea otro.
 3. **La ubicación es la del suceso, no la de la persona.** La persona marca el punto en el mapa. Aunque use «mi ubicación» para centrarlo, solo se envía el punto marcado, redondeado a 4 decimales (~10 m).
 4. **Texto corto** (300 caracteres) y **sin fotos** en la primera fase.
 5. **Caducidad automática** y borrado total a los 30 días.
@@ -26,8 +26,8 @@
 
 ## Medidas técnicas (resumen para Firebase)
 - Base de datos en **europe-southwest1 (Madrid)**.
-- Colecciones separadas: `avisos` (lo público), `avisos_priv` (código y estado, solo administradores), `denuncias`, `bloqueados`.
-- **Reglas de seguridad** que no dejen leer nada privado (se prepararán con la función).
+- Colecciones separadas: `avisos` (lo público), `avisos_priv` (quién lo envió: solo administradores y el propio autor), `limites` (un aviso cada 2 minutos), `votos`, `denuncias`, `bloqueados`.
+- **Reglas de seguridad** en `firestore.rules`: el público solo lee avisos publicados; solo se crean avisos con el formato correcto, dentro de Navarra y de hasta 300 caracteres; veneno, accidentes, «otro» y los textos con matrículas, teléfonos o correos van siempre a revisión; un voto por móvil y aviso; los bloqueados no pueden escribir; solo la cuenta administracion@sonpe-technology.es (con contraseña) puede moderar.
 - Borrado automático: una tarea programada (GitHub Actions, gratis) borra cada noche lo caducado hace más de 30 días.
 - HTTPS en todo.
 

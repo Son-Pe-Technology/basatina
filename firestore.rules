@@ -1,0 +1,119 @@
+rules_version = '2';
+// Reglas de seguridad de la Comunidad de avisos de BasatiNA (proyecto basatina-9a8b5).
+// Se copian en Firebase → Firestore → Reglas → Publicar. Todo lo que no se permite aquí, está prohibido.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- ayudas ----------
+    function esAdmin() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'password'
+        && request.auth.token.email == 'administracion@sonpe-technology.es';
+    }
+    // cada móvil entra como usuario anónimo: su uid es el «código de colaborador»
+    function usuario() { return request.auth != null; }
+    function doc(col, id) { return /databases/$(database)/documents/$(col)/$(id); }
+    function bloqueado() { return exists(/databases/$(database)/documents/bloqueados/$(request.auth.uid)); }
+    // horas que dura cada tipo de aviso (la caducidad se calcula con «creado» + estas horas)
+    function horas() {
+      return {'arbol': 72, 'desprendimiento': 72, 'camino': 72, 'lluvia': 6, 'crecida': 24,
+              'animal': 6, 'accidente': 6, 'veneno': 168, 'otro': 24};
+    }
+    // tipos que siempre revisa un administrador antes de publicarse
+    function conRevision() { return ['accidente', 'veneno', 'otro']; }
+    // dentro de Navarra (un poco de margen)
+    function enNavarra(d) {
+      return d.lat is number && d.lon is number
+        && d.lat > 41.85 && d.lat < 43.35 && d.lon > -2.55 && d.lon < -0.70;
+    }
+    // textos que parecen llevar una matrícula, un teléfono o un correo → a revisión
+    function textoDudoso(t) {
+      return t.matches('(?s).*[0-9]{4}[ -]?[BCDFGHJKLMNPRSTVWXYZbcdfghjklmnprstvwxyz]{3}.*')
+        || t.matches('(?s).*([0-9][ .-]?){9}.*')
+        || t.matches('(?s).*@.*');
+    }
+
+    // ---------- administradores: pueden todo ----------
+    match /{todo=**} {
+      allow read, write: if esAdmin();
+    }
+
+    // ---------- avisos (lo que ve la gente) ----------
+    match /avisos/{id} {
+      // lista pública: solo publicados (la app pide where estado == 'publicado')
+      allow list: if resource.data.estado == 'publicado';
+      // uno suelto: publicados, o el tuyo propio para ver si está pendiente o retirado («Mis avisos»)
+      allow get: if resource.data.estado == 'publicado'
+        || (usuario() && get(doc('avisos_priv', id)).data.autor == request.auth.uid);
+
+      allow create: if usuario() && !bloqueado()
+        && request.resource.data.keys().hasOnly(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no'])
+        && request.resource.data.keys().hasAll(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no'])
+        && request.resource.data.tipo in horas()
+        && request.resource.data.texto is string && request.resource.data.texto.size() <= 300
+        && enNavarra(request.resource.data)
+        && request.resource.data.creado == request.time
+        && request.resource.data.si == 0 && request.resource.data.no == 0
+        && (request.resource.data.estado == 'pendiente'
+            || (request.resource.data.estado == 'publicado'
+                && !(request.resource.data.tipo in conRevision())
+                && !textoDudoso(request.resource.data.texto)))
+        // se crea a la vez que su ficha privada (con el autor) y que el control de «un aviso cada 2 minutos»
+        && getAfter(doc('avisos_priv', id)).data.autor == request.auth.uid
+        && getAfter(doc('limites', request.auth.uid)).data.ultimo == request.time;
+
+      // votos «sigue ahí» (si) / «ya no está» (no): +1, una sola vez por móvil
+      allow update: if usuario() && !bloqueado()
+        && resource.data.estado == 'publicado' && request.time < resource.data.creado + duration.value(horas()[resource.data.tipo], 'h')
+        && !exists(doc('votos', id + '_' + request.auth.uid))
+        && getAfter(doc('votos', id + '_' + request.auth.uid)).data.v in ['si', 'no']
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly([getAfter(doc('votos', id + '_' + request.auth.uid)).data.v])
+        && request.resource.data[getAfter(doc('votos', id + '_' + request.auth.uid)).data.v]
+             == resource.data[getAfter(doc('votos', id + '_' + request.auth.uid)).data.v] + 1;
+    }
+
+    // ---------- ficha privada del aviso: quién lo envió (solo administradores y el propio autor) ----------
+    match /avisos_priv/{id} {
+      allow get: if usuario() && resource.data.autor == request.auth.uid;
+      allow create: if usuario() && !bloqueado()
+        && request.resource.data.keys().hasOnly(['autor'])
+        && request.resource.data.autor == request.auth.uid
+        && existsAfter(doc('avisos', id));
+    }
+
+    // ---------- control antispam: como mucho un aviso cada 2 minutos por móvil ----------
+    match /limites/{uid} {
+      allow get: if usuario() && request.auth.uid == uid;
+      allow create: if usuario() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['ultimo'])
+        && request.resource.data.ultimo == request.time;
+      allow update: if usuario() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['ultimo'])
+        && request.resource.data.ultimo == request.time
+        && request.time > resource.data.ultimo + duration.value(2, 'm');
+    }
+
+    // ---------- votos: uno por aviso y móvil (id = idAviso_uid) ----------
+    match /votos/{vid} {
+      allow get: if usuario() && vid.matches('.*_' + request.auth.uid);
+      allow create: if usuario() && !bloqueado()
+        && request.resource.data.keys().hasOnly(['aviso', 'v'])
+        && request.resource.data.v in ['si', 'no']
+        && vid == request.resource.data.aviso + '_' + request.auth.uid;
+    }
+
+    // ---------- denuncias 🚩: las crea cualquiera, solo las leen los administradores ----------
+    match /denuncias/{d} {
+      allow create: if usuario() && !bloqueado()
+        && request.resource.data.keys().hasOnly(['aviso', 'motivo', 'texto', 'creado', 'autor'])
+        && request.resource.data.autor == request.auth.uid
+        && request.resource.data.creado == request.time
+        && request.resource.data.motivo in ['datos', 'acusa', 'falso', 'ofensivo', 'ilegal', 'yano', 'otro']
+        && request.resource.data.texto is string && request.resource.data.texto.size() <= 300
+        && exists(doc('avisos', request.resource.data.aviso));
+    }
+
+    // ---------- bloqueados: solo administradores (regla de arriba) ----------
+  }
+}
