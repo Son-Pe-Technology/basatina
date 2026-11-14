@@ -1,0 +1,9 @@
+{
+ "nota": "Configuración pública de Firebase (proyecto basatina-9a8b5, Firestore en europe-southwest1 Madrid, plan Spark gratuito). No es secreta: la seguridad la ponen las reglas de Firestore.",
+ "apiKey": "AIzaSyBkD97y7lqjMS0sA7zClhQkqZlEgXtkeqk",
+ "authDomain": "basatina-9a8b5.firebaseapp.com",
+ "projectId": "basatina-9a8b5",
+ "storageBucket": "basatina-9a8b5.firebasestorage.app",
+ "messagingSenderId": "325546593808",
+ "appId": "1:325546593808:web:59b551c7bdb003b3378495"
+}
