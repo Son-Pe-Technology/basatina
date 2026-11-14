@@ -1,0 +1,20 @@
+# Limpieza nocturna de la Comunidad de avisos (tools/comunidad_limpieza.py).
+# Necesita los secretos CM_ADMIN_EMAIL y CM_ADMIN_PASS (Settings → Secrets and variables → Actions).
+name: Limpieza de la comunidad
+on:
+  schedule:
+    - cron: '23 2 * * *'
+  workflow_dispatch:
+jobs:
+  limpiar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Limpiar avisos caducados
+        env:
+          CM_ADMIN_EMAIL: ${{ secrets.CM_ADMIN_EMAIL }}
+          CM_ADMIN_PASS: ${{ secrets.CM_ADMIN_PASS }}
+        run: python3 tools/comunidad_limpieza.py

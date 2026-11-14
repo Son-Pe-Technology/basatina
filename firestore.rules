@@ -47,13 +47,15 @@ service cloud.firestore {
         || (usuario() && get(doc('avisos_priv', id)).data.autor == request.auth.uid);
 
       allow create: if usuario() && !bloqueado()
-        && request.resource.data.keys().hasOnly(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no'])
-        && request.resource.data.keys().hasAll(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no'])
+        && request.resource.data.keys().hasOnly(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no', 'ah'])
+        && request.resource.data.keys().hasAll(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no', 'ah'])
         && request.resource.data.tipo in horas()
         && request.resource.data.texto is string && request.resource.data.texto.size() <= 300
         && enNavarra(request.resource.data)
         && request.resource.data.creado == request.time
         && request.resource.data.si == 0 && request.resource.data.no == 0
+        // marca anónima del autor (para que cada uno pueda ocultar en su móvil los avisos de un colaborador)
+        && request.resource.data.ah is string && request.resource.data.ah.size() == 12
         && (request.resource.data.estado == 'pendiente'
             || (request.resource.data.estado == 'publicado'
                 && !(request.resource.data.tipo in conRevision())
