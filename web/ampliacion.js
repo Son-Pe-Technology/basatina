@@ -56,7 +56,7 @@ const GCOL={'El tiempo':['#4fb3f6','#1565c0'],'Ríos':['#26c6da','#00697a'],'Vid
 (function(){let css='';Object.entries(GCOL).forEach(([k,[a,b]])=>{const sel=`#drawer .dgroup span[data-k="${k}"] .bt`,sub=`#drawer .dgroup:has(span[data-k="${k}"])+.dsub .bt`;
     css+=`body.bna ${sel},body.bna ${sub}{background:linear-gradient(150deg,${a} 0%,${b} 100%)!important;--sh:${b}88}`;
     css+=`body:not(.bna) #drawer .dgroup span[data-k="${k}"]{color:${b}}`;});
-  css+=`.amCua{display:inline-flex;flex-direction:column;line-height:1.1}.amCua small{font-size:11px;font-weight:600;text-transform:none;letter-spacing:0;opacity:.75;color:var(--acc)}
+  css+=`.amCua{display:inline-flex!important;flex-direction:column!important;align-items:flex-start!important;gap:0!important;line-height:1.1}.amCua>span{display:inline!important;gap:0!important}.amCua .na{display:inline!important;margin:0!important;position:static!important}.amCua small{font-size:11px;font-weight:600;text-transform:none;letter-spacing:0;opacity:.75;color:var(--acc)}
   body.bna #bnaDGrid>.dgroup span .amCua small{color:#7b1fa2}
   .amSeg{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}.amSeg .btn{flex:1 1 auto;min-width:0;white-space:nowrap}
   .amRow{display:flex;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--line)}.amRow:first-child{border-top:0}
@@ -78,7 +78,8 @@ try{Object.assign(BNI,{
  'i-refran':'<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H14l-6 5v-5H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" fill="currentColor" fill-opacity=".12"/><path d="M10 13h3M10 17h3M18 13h4M18 17h4"/></g>',
  'i-vias3':'<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 28l3-18M22 28l-3-18M16 13v3M16 20v3"/><path d="M8 8a4 4 0 0 1 8-1 3 3 0 1 1 3 5H9a2.5 2.5 0 0 1-1-4z" fill="currentColor" fill-opacity=".14"/></g>'});}catch(e){}
 function nuevo(t,grupoK,label,scene,ic,fam,first){svBtn(svDsub(grupoK),t,label,first);title(t,label);try{PVS_ESC[t]=scene;}catch(e){}
-  try{if(ic){BNK[t]=ic;BNF[t]=fam||'g';}BNL[t]=label.replace(/^\S+\s/,'').split(':')[0];}catch(e){}}
+  try{if(ic){BNK[t]=ic;BNF[t]=fam||'g';}if(!ICK[t]){ICK[t]='map-pin';ICC[t]={g:'#2e7d32',b:'#1565c0',r:'#e53935'}[fam||'g'];}BNL[t]=label.replace(/^\S+\s/,'').split(':')[0];}catch(e){}
+  try{if(typeof applyIcons==='function')applyIcons((CFG.iconos||'pro')==='pro');}catch(e){}}
 window.amNuevo=nuevo;
 
 /* ---------- 2. EL TIEMPO ---------- */
