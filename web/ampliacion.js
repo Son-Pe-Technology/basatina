@@ -64,8 +64,7 @@ const GCOL={'El tiempo':['#4fb3f6','#1565c0'],'Ríos':['#26c6da','#00697a'],'Vid
   .amMap{width:100%;height:340px;border-radius:12px;display:block;touch-action:none;background:#dfe6ec}
   .amHr{display:grid;grid-template-columns:44px 34px 1fr auto;gap:6px;align-items:center;padding:6px 0;border-top:1px solid var(--line);font-size:14px}
   .amHr .t{font-weight:800;font-size:16px;text-align:right}.amDay{margin:10px 0 2px;font-weight:800;text-transform:capitalize;color:var(--acc)}
-  .amBaro{display:flex;gap:6px;align-items:flex-start;justify-content:center}.amBaro>div{flex:1;min-width:0;max-width:240px;text-align:center}
-  .amBaro .lbl{font-size:12px;opacity:.75;margin-top:2px}`;
+  `;
   const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);})();
 
 // iconos nuevos
@@ -84,38 +83,33 @@ window.amNuevo=nuevo;
 
 /* ---------- 2. EL TIEMPO ---------- */
 // 2a · barómetro antiguo (aguja negra = ahora; aguja dorada = hace 3 horas, como la «aguja de referencia» de los barómetros de pared)
-const BARO_W=[[959,'TEMPESTAD'],[981,'LLUVIA · VIENTO'],[1003,'VARIABLE'],[1023,'BUEN TIEMPO'],[1041,'MUY SECO']];
-const baroWord=p=>p<973?'TEMPESTAD':p<994?'LLUVIA O VIENTO':p<1015?'VARIABLE':p<1034?'BUEN TIEMPO':'MUY SECO';
-function baroSvg(p,p3){const ang=v=>(135+270*(Math.max(950,Math.min(1050,v))-950)/100)*Math.PI/180,cx=110,cy=110,R=86;
-  const pt=(v,r)=>[cx+r*Math.cos(ang(v)),cy+r*Math.sin(ang(v))];let ticks='';
-  for(let v=950;v<=1050;v+=2.5){const big=v%10===0,[x1,y1]=pt(v,R-(big?11:6)),[x2,y2]=pt(v,R-1);ticks+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#3b2a14" stroke-width="${big?1.6:.8}"/>`;
-    if(big){const [tx,ty]=pt(v,R-20);ticks+=`<text x="${tx.toFixed(1)}" y="${(ty+3).toFixed(1)}" font-size="8" text-anchor="middle" fill="#3b2a14" font-family="Georgia,serif">${v}</text>`;}}
-  const rw=R-31,arcL=rw*1.5*Math.PI,[sx,sy]=pt(950,rw),[ex2,ey2]=pt(1050,rw);
-  const words=`<path id="amBaP" d="M${sx.toFixed(1)} ${sy.toFixed(1)} A${rw} ${rw} 0 1 1 ${ex2.toFixed(1)} ${ey2.toFixed(1)}" fill="none"/>`+BARO_W.map(([v,w])=>
-    `<text font-size="6.1" font-weight="700" fill="${v<1000?'#8a1c0c':v>1017?'#1f5a1b':'#3b2a14'}" font-family="Georgia,serif" letter-spacing="0"><textPath href="#amBaP" startOffset="${((v-950)/100*arcL).toFixed(1)}" text-anchor="middle">${w}</textPath></text>`).join('');
-  const nd=(v,len,col,w)=>{const [x,y]=pt(v,len),[bx,by]=[cx-(x-cx)*.22,cy-(y-cy)*.22];return `<line x1="${bx.toFixed(1)}" y1="${by.toFixed(1)}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`;};
-  return `<svg viewBox="0 0 220 220" style="width:100%;max-width:230px;display:block;margin:auto" role="img" aria-label="Barómetro: ${baroWord(p)}">
-   <defs><radialGradient id="amBr" cx="40%" cy="35%"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".55" stop-color="#c9952f"/><stop offset="1" stop-color="#7a5413"/></radialGradient>
-   <radialGradient id="amFc" cx="45%" cy="40%"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#eadcbc"/></radialGradient></defs>
-   <circle cx="${cx}" cy="${cy}" r="106" fill="url(#amBr)"/><circle cx="${cx}" cy="${cy}" r="97" fill="#5a3d0e" opacity=".55"/><circle cx="${cx}" cy="${cy}" r="94" fill="url(#amFc)"/>
-   <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#3b2a14" stroke-width=".8"/>${ticks}${words}
-   <text x="${cx}" y="${cy+30}" font-size="7.5" text-anchor="middle" fill="#6b5326" font-family="Georgia,serif" letter-spacing="2">BARÓMETRO</text>
-   <text x="${cx}" y="${cy+42}" font-size="6.5" text-anchor="middle" fill="#6b5326" font-family="Georgia,serif">hPa</text>
-   ${p3!=null?nd(p3,R-26,'#c9952f',2.4):''}${nd(p,R-8,'#141414',2.8)}
-   <circle cx="${cx}" cy="${cy}" r="7" fill="url(#amBr)" stroke="#3b2a14" stroke-width=".8"/><circle cx="${cx}" cy="${cy}" r="2" fill="#3b2a14"/>
-   <circle cx="${cx}" cy="${cy}" r="94" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/></svg>`;}
-let BARO=null;
+const BARO_S=[[950,970,'Tempestad','⛈️','#3949ab'],[970,990,'Lluvia','🌧️','#1e88e5'],[990,1010,'Variable','⛅','#78909c'],[1010,1030,'Buen tiempo','☀️','#f9a825'],[1030,1050,'Muy seco','🌵','#ef6c00']];
+const baroSec=p=>BARO_S.find(x=>p<x[1])||BARO_S[4];
+// barómetro de esfera: semicírculo con 5 zonas de color y la aguja (negra = ahora, dorada = hace 3 h)
+function baroSvg(p,p3){const cx=160,cy=168,R=138,ang=v=>Math.PI*(1-(Math.max(950,Math.min(1050,v))-950)/100),pt=(v,r)=>[cx+r*Math.cos(ang(v)),cy-r*Math.sin(ang(v))];
+  const arc=(v0,v1,r0,r1,c)=>{const [a,b]=pt(v0,r1),[c2,d]=pt(v1,r1),[e,f]=pt(v1,r0),[g,h]=pt(v0,r0);return `<path d="M${a} ${b} A${r1} ${r1} 0 0 1 ${c2} ${d} L${e} ${f} A${r0} ${r0} 0 0 0 ${g} ${h}Z" fill="${c}"/>`;};
+  let h=BARO_S.map(x=>arc(x[0],x[1],78,R,x[4]+(baroSec(p)===x?'':'b3'))).join('');
+  h+=BARO_S.map(x=>{const m=(x[0]+x[1])/2,[tx,ty]=pt(m,108);return `<text x="${tx.toFixed(1)}" y="${(ty-4).toFixed(1)}" font-size="17" text-anchor="middle">${x[3]}</text><text x="${tx.toFixed(1)}" y="${(ty+13).toFixed(1)}" font-size="${x[2].length>8?8.6:10.5}" font-weight="800" text-anchor="middle" fill="#fff">${x[2].toUpperCase()}</text>`;}).join('');
+  for(let v=950;v<=1050;v+=10){const [x1,y1]=pt(v,R+2),[x2,y2]=pt(v,R+9),[tx,ty]=pt(v,R+19);h+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="1.5" opacity=".6"/><text x="${tx.toFixed(1)}" y="${(ty+3).toFixed(1)}" font-size="9" text-anchor="middle" fill="currentColor" opacity=".7">${v}</text>`;}
+  const nd=(v,len,col,w,dash)=>{const [x,y]=pt(v,len);return `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"${dash?' stroke-dasharray="5 4"':''}/>`;};
+  if(p3!=null)h+=nd(p3,R-6,'#c9952f',3,1);h+=nd(p,R-4,'currentColor',4.5)+`<circle cx="${cx}" cy="${cy}" r="9" fill="currentColor"/><circle cx="${cx}" cy="${cy}" r="3.5" fill="#c9952f"/>`;
+  return `<svg viewBox="-16 -12 352 195" style="width:100%;max-width:380px;display:block;margin:6px auto 0" role="img" aria-label="Barómetro: ${baroSec(p)[2]}">${h}</svg>`;}
+function baroTxt(p,d3){const s=baroSec(p)[2].toLowerCase();
+  if(d3<=-3)return `La presión baja deprisa (${fmtN(d3,1)} hPa en 3 h): lo más probable es que empeore pronto, con viento o lluvia.`;
+  if(d3<=-1)return `La presión va bajando: el tiempo tiende a empeorar. Ahora marca «${s}».`;
+  if(d3>=1)return `La presión va subiendo: el tiempo tiende a mejorar. Ahora marca «${s}».`;
+  return `La presión está estable: seguirá parecido. Marca «${s}».`;}
 if(typeof ppRender==='function'){const _pp=ppRender;ppRender=async function(){const r=await _pp.apply(this,arguments);try{await amBaro();}catch(e){}return r;};}
-async function amBaro(){const el=$('tPP');if(!el)return;const g=el.querySelector('svg');if(!g||el.querySelector('.amBaro'))return;const t=TOWNS[TOWN];
-  let p=null,p3=null;
+async function amBaro(){const pp=$('tPP');if(!pp)return;let el=$('amBaroC');if(!el){pp.insertAdjacentHTML('afterend','<div class="card" id="amBaroC"><b>🕰️ Barómetro</b><div class="note">Cargando…</div></div>');el=$('amBaroC');}
+  const t=TOWNS[TOWN];let p=null,p3=null;
   try{const w=await getJSON(`${OM}?latitude=${t[1]}&longitude=${t[2]}&current=pressure_msl&hourly=pressure_msl&past_days=1&forecast_days=1${TZ}`);
     if(w&&w.current){p=w.current.pressure_msl;const H=w.hourly,now=new Date(),i=Math.max(0,H.time.findIndex(s=>new Date(s)>now)-1);p3=H.pressure_msl[Math.max(0,i-3)];}}catch(e){}
-  if(p==null)return;
-  const wrap=document.createElement('div');wrap.className='amBaro';g.parentNode.insertBefore(wrap,g);
-  const a=document.createElement('div');a.appendChild(g);a.insertAdjacentHTML('beforeend','<div class="lbl">Presión ahora</div>');
-  const b=document.createElement('div');b.innerHTML=baroSvg(p,p3)+`<div class="lbl"><b>${baroWord(p).toLowerCase().replace(/^./,c=>c.toUpperCase())}</b> · aguja dorada: hace 3 h</div>`;
-  wrap.appendChild(a);wrap.appendChild(b);
-  if(!el.querySelector('.amBaroN'))wrap.insertAdjacentHTML('afterend','<div class="note amBaroN" style="margin-top:4px">🕰️ El barómetro de pared «predice» con la presión: si baja hacia la izquierda suele venir lluvia o viento; si sube hacia la derecha, buen tiempo. Si la aguja negra se aleja de la dorada hacia la izquierda, el tiempo empeora.</div>');}
+  if(p==null){el.innerHTML='<b>🕰️ Barómetro</b><div class="note">No se pudo leer la presión ahora.</div>';return;}
+  const S=baroSec(p);
+  el.innerHTML=`<b>🕰️ Barómetro</b>${baroSvg(p,p3)}
+   <div style="text-align:center;margin-top:-4px"><span class="amPill" style="background:${S[4]};font-size:15px;padding:4px 14px">${S[3]} ${S[2]}</span><div class="note" style="margin-top:4px">${fmtN(p,0)} hPa en ${esc(t[0])}</div></div>
+   <div style="margin-top:8px">${baroTxt(p,p3!=null?p-p3:0)}</div>
+   <div class="note" style="margin-top:6px">Aguja negra: ahora · aguja dorada de rayas: hace 3 horas. Como los barómetros de pared de toda la vida: lo que importa es hacia dónde se mueve la aguja.</div>`;}
 
 // 2b · pronóstico por horas (la gráfica sigue; se elige con dos botones)
 let HMODE=lsGet('amHm','g'),HX=null;
