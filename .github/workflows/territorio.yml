@@ -1,0 +1,36 @@
+# Territorio: comarcas, ayuntamientos, sanidad y bares (tools/territorio.py). Se ejecuta el día 7 de cada mes, cuando cambia tools/territorio.py, o a mano desde la pestaña Actions.
+name: Territorio (comarcas, ayuntamientos, sanidad)
+on:
+  push:
+    paths: ['tools/territorio.py']
+  schedule:
+    - cron: '23 5 7 * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  territorio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preparar
+        run: pip install pyshp pyproj shapely
+      - name: Descargar
+        run: python3 tools/territorio.py
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          for f in tools/territorio_info.txt web/territorio.js; do [ -f "$f" ] && git add "$f"; done
+          git commit -m "Territorio actualizado" || exit 0
+          git pull --rebase
+          python3 tools/make_version.py
+          git add web/version.json
+          git commit -m "Nueva versión de la pantalla" || true
+          for i in 1 2 3 4 5 6; do
+            git push && break
+            sleep $((i*15))
+            git pull --rebase -X theirs || true
+            python3 tools/make_version.py && git add web/version.json && git commit -m "Nueva versión de la pantalla" || true
+          done
