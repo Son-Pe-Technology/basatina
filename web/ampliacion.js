@@ -288,7 +288,7 @@ function amSimL(){const L=SIPTS().map(t=>{const d=km(SIMQ.pt[0],SIMQ.pt[1],t[1],
 svHook('sismo',()=>{if(SIT!=='q')amSiShow();});
 
 /* ---------- 5. NA SALUD: centros de salud y urgencias ---------- */
-svSec('centros',`<div class="card"><b>🏥 Centros de salud y urgencias</b><div class="note">Centros de salud, consultorios, hospitales y urgencias de Navarra. En una emergencia llama siempre al <b>112</b>.</div>
+svSec('centros',`<div class="card"><b>🏥 Centros de salud y urgencias</b><div class="note">Centros de salud, consultorios, hospitales y urgencias de Navarra. En una emergencia llama siempre al <b>112</b>. Fuera del horario de tu centro de salud, para dudas: Consejo Sanitario <a href="tel:948290290">948 290 290</a>.</div>
  <div class="seg amSeg" id="ceT"><button class="btn on" data-k="">Todo</button><button class="btn" data-k="urg">🚑 Urgencias</button><button class="btn" data-k="hosp">🏥 Hospitales</button><button class="btn" data-k="cs">🩺 Centros de salud</button><button class="btn" data-k="cons">🏠 Consultorios</button></div>
  <div class="row"><input id="ceQ" class="town" placeholder="🔎 Buscar pueblo o centro…" style="flex:1;box-sizing:border-box"><button class="btn" id="ceYo">📍 Cerca de mí</button></div></div>
  <div class="card" style="padding:6px"><canvas id="ceMap" class="amMap"></canvas></div>
