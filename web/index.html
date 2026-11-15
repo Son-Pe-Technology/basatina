@@ -488,7 +488,7 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
   <div class="dgroup"><span>Participa</span><i>▸</i></div>
   <div class="dsub">
     <button data-t="enviar" class="tech" style="display:none">📤 Envía tu foto</button>
-    <button data-t="fotos">🖼️ Fotos de la gente y reto del mes</button>
+    <button data-t="fotos">🖼️ Fotos y reto del mes</button>
     <button data-t="buzon">💬 Buzón de sugerencias</button>
   </div>
   <div class="dgroup"><span>Configuración</span><i>▸</i></div>
@@ -688,7 +688,7 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
  <div class="note" style="margin-top:8px">Los mensajes se envían a través del servicio Web3Forms. No guardamos ningún dato que te identifique y borramos los mensajes una vez leídos.</div>
 </div>
 <div class="card tech" style="display:none"><b>🔧 Clave del buzón (Web3Forms)</b>
- <div class="note">Créala gratis en web3forms.com poniendo participa@sonpe-technology.es: la clave llega a ese correo (los mensajes del buzón y los avisos de fotos llegarán ahí). Al guardarla se envía un mensaje de prueba.</div>
+ <div class="note">Créala gratis en web3forms.com poniendo participa@basatina.es: la clave llega a ese correo (los mensajes del buzón y los avisos de fotos llegarán ahí). Al guardarla se envía un mensaje de prueba.</div>
  <input id="kyW3" class="town" autocomplete="off" placeholder="Pega aquí la clave (access key)" style="width:100%;box-sizing:border-box;margin-top:6px">
  <div class="row"><button class="btn pri" id="kyW3S">💾 Guardar clave del buzón</button></div><div class="note" id="kyW3M"></div></div>
 </section>
@@ -704,9 +704,9 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
 <b>Al consultar datos</b> (tiempo, radar, tráfico, mapas, ríos…), el móvil se conecta directamente con esos servicios (Open‑Meteo, AEMET, TomTom, IGN, Gobierno de Navarra, GitHub…), que, como cualquier web, ven la dirección IP de tu conexión. Nosotros no la recogemos.<br>
 <b>Buzón de sugerencias:</b> es anónimo: solo envía el tipo de mensaje y lo que escribas, a través de Web3Forms. Borramos los mensajes una vez atendidos.<br>
 <b>Envía tu foto:</b> es la única parte en la que nos das datos (foto, alias, comentario y, si quieres, tu correo y el sitio aproximado). Lo explicamos en sus condiciones, que aceptas antes de enviarla.<br>
-<b>Tus derechos:</b> puedes pedirnos ver, corregir o borrar tus datos por el buzón o en participa@sonpe-technology.es, y reclamar ante la Agencia Española de Protección de Datos (aepd.es).<br>
+<b>Tus derechos:</b> puedes pedirnos ver, corregir o borrar tus datos por el buzón o en participa@basatina.es, y reclamar ante la Agencia Española de Protección de Datos (aepd.es).<br>
 <b>Textos completos:</b> <a href="#" onclick="foOpenUrl('https://basatina.es/privacidad.html');return false" style="color:var(--acc)">Política de privacidad</a> · <a href="#" onclick="foOpenUrl('https://basatina.es/normas-comunidad.html');return false" style="color:var(--acc)">Normas de la comunidad</a> · <a href="#" onclick="foOpenUrl('https://basatina.es/aviso-legal.html');return false" style="color:var(--acc)">Aviso legal</a></div></div>
-<div class="card"><b>⚖️ Aviso legal</b><div class="note">BasatiNA es un proyecto personal, gratuito y sin ánimo de lucro de Sonia y Pedro (Son&amp;Pe Technology Systems). Contacto: el buzón de sugerencias de la app o <a href="mailto:participa@sonpe-technology.es" style="color:var(--acc)">participa@sonpe-technology.es</a>.<br>
+<div class="card"><b>⚖️ Aviso legal</b><div class="note">BasatiNA es un proyecto personal, gratuito y sin ánimo de lucro de Sonia y Pedro (Son&amp;Pe Technology Systems). Contacto: el buzón de sugerencias de la app o <a href="mailto:participa@basatina.es" style="color:var(--acc)">participa@basatina.es</a>.<br>
 La información se muestra tal como la publican sus fuentes oficiales, puede tener retrasos o errores y es solo orientativa. <b>No sustituye a los avisos oficiales</b>: ante cualquier riesgo, sigue siempre las indicaciones de SOS Navarra 112, AEMET y la Confederación Hidrográfica del Ebro. No nos hacemos responsables de las decisiones que se tomen con ella.<br>
 Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres que cambiemos o quitemos algo, escríbenos.</div></div>
 <div class="card"><b>✉️ Contacto</b><div class="note">¿Eres dueño de algún dato o imagen y quieres que lo cambiemos o lo quitemos? Escríbenos desde el <a href="#" onclick="showTab('buzon');return false" style="color:var(--acc)">buzón de sugerencias</a> (indica qué dato o imagen es) y lo revisamos.</div></div>
@@ -4089,7 +4089,7 @@ const FO_COND=`<b>Condiciones para enviar fotos (${FO_VER})</b><br>
 <b>Dónde:</b> la foto se guarda en Cloudinary (alojamiento de imágenes) y el aviso nos llega por correo con Web3Forms. Estos servicios pueden guardar datos fuera de la Unión Europea. La app borra antes los datos ocultos de la foto (GPS exacto, modelo de móvil).<br>
 <b>Cuánto tiempo:</b> mientras la foto esté publicada o hasta que nos pidas borrarla. Las que no publicamos las borramos.<br>
 <b>Tus derechos:</b> ver, corregir o borrar tus datos, escribiéndonos al buzón de sugerencias. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).`;
-Object.assign(TITLES,{enviar:'📤 Envía tu foto',fotos:'🖼️ Fotos de la gente'});
+Object.assign(TITLES,{enviar:'📤 Envía tu foto',fotos:'🖼️ Fotos'});
 let FOG=null,FOSHA=null,FOM=null,FOCAT='',FOVISTA='g',ENCAT='rio',ENFOTO=null,CLD=null;
 const foCat=k=>FO_CATS.find(c=>c[0]===k)||['otro','📷','Foto'];
 const foOpenUrl=u=>{if(APP&&window.AndroidNet.openUrl)window.AndroidNet.openUrl(u);else window.open(u,'_blank');};
@@ -4168,7 +4168,7 @@ async function enSend(){const m=document.getElementById('enMsg'),b=document.getE
         autorizacion:'Aceptó las condiciones '+FO_VER+':\n- '+FO_OKS.join('\n- '),fecha:new Date().toLocaleString('es-ES'),app:APP?'Android':'Web',botcheck:false},
         mail?{email:mail,replyto:mail}:{}));}catch(x){}
     hist.push({id:j.public_id,u:j.secure_url,d:foHoy(),t:Date.now(),l:lugar});lsSet('enMias',hist.slice(-40));lsSet('enYo',{a:alias,e:mail});
-    m.innerHTML='✅ <b>¡Gracias!</b> Hemos recibido tu foto. La revisaremos y, si sale publicada, la verás en «Fotos de la gente».';
+    m.innerHTML='✅ <b>¡Gracias!</b> Hemos recibido tu foto. La revisaremos y, si sale publicada, la verás en «Fotos y reto del mes».';
     ENFOTO=null;document.getElementById('enPrev').style.display='none';document.getElementById('enD').value='';document.getElementById('enL').value='';
     document.querySelectorAll('.enOk').forEach(x=>x.checked=false);enMias();}
   catch(x){m.textContent='❌ No se pudo enviar ('+x.message+'). Revisa la conexión e inténtalo de nuevo.';}
@@ -5116,6 +5116,9 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="rutas-ui.js"></script>
 <script src="mejoras.js"></script>
 <script src="comunidad.js"></script>
+<script src="ampliacion.js"></script>
+<script src="rios-plus.js"></script>
+<script src="ocio-ui.js"></script>
 
 </body>
 </html>

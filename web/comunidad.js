@@ -76,7 +76,7 @@ let PBL=null;function pueblo(la,lo){if(!PBL){const P=window.PUEBLOS;if(!P)return
 /* ---------- pantalla ---------- */
 svSec('comunidad',`<div class="card" style="background:#fdecea;border-left:5px solid #e53935"><b style="color:#b71c1c">🚨 Si hay heridos o peligro, llama primero al 112.</b>
   <div class="note" style="color:#5d4037">Esto no es un servicio de emergencias. Los avisos los escribe la gente: úsalos como una pista y sigue siempre los avisos oficiales.</div></div>
- <div class="card"><b>📣 Avisos de la gente</b><div class="note">Árboles caídos, desprendimientos, caminos cortados, lluvias muy fuertes, cebos envenenados… Avisa a los demás y mira lo que pasa cerca de ti. Es anónimo.</div>
+ <div class="card"><b>📣 Alertas ciudadanas</b><div class="note">Árboles caídos, desprendimientos, caminos cortados, lluvias muy fuertes, cebos envenenados… Avisa a los demás y mira lo que pasa cerca de ti. Es anónimo.</div>
   <div class="seg" id="cmSeg" style="margin-top:8px;flex-wrap:wrap"><button class="btn on" data-v="mapa">🗺️ Avisos</button><button class="btn" data-v="nuevo">➕ Avisar</button><button class="btn" data-v="mios">📋 Mis avisos</button><button class="btn" data-v="mod" id="cmModB" style="display:none">🛡️ Moderar</button></div></div>
  <div id="cmBody"></div>
  <div class="note" style="margin:0 6px 12px"><a href="#" id="cmNor">Normas de la comunidad</a> · <a href="#" id="cmPri">Privacidad</a> · Mapa © IGN</div>`);
@@ -179,13 +179,14 @@ async function cmEnviar(){const msg=$('cmMsg'),tx=$('cmTx').value.trim(),ok=lsGe
       {update:{name:nom('limites',u.uid),fields:{}},updateTransforms:[{fieldPath:'ultimo',setToServerValue:'REQUEST_TIME'}]}],u.it);
     if(!ok)lsSet('cmNormas',CM_NORMAS);
     const M=lsGet('cmMios',[]);M.unshift({id,t:CMTIPO,f:Date.now()});lsSet('cmMios',M.slice(0,50));
+    try{const k=window.amKey&&await window.amKey('alertas');if(k)w3Send(k,{subject:'BasatiNA · '+t[1]+' Alerta ciudadana: '+t[2]+(rev?' (pendiente de revisar)':''),from_name:'Alertas BasatiNA',tipo:t[2],texto:tx||'—',sitio:(pueblo(CMPT[0],CMPT[1])||'')+' · https://www.google.com/maps?q='+CMPT[0]+','+CMPT[1],estado:rev?'pendiente: entrad en Alertas ciudadanas → Moderar':'publicado',botcheck:false}).catch(()=>{});}catch(e){}
     toast(rev?'✅ Aviso enviado. Lo revisaremos antes de publicarlo':'✅ ¡Aviso publicado! Gracias por avisar');CMV=rev?'mios':'mapa';cmRender();}
   catch(e){$('cmEnv').disabled=false;msg.textContent=e.status===403?'❌ No se ha podido enviar. Espera 2 minutos entre un aviso y otro y comprueba que el sitio está en Navarra.':'❌ No se ha podido enviar. Revisa la conexión y prueba otra vez.';console.log('comunidad',e);}}
 
 /* ---- 📋 mis avisos ---- */
 async function cmMios(){const el=$('cmBody'),M=lsGet('cmMios',[]),a=lsGet('cmAuth',null);
   el.innerHTML=`<div class="card"><b>📋 Mis avisos</b><div id="cmML" class="note" style="margin-top:6px">${M.length?'Cargando…':'Todavía no has enviado ningún aviso desde este móvil.'}</div></div>
-   <div class="card"><b>🔑 Tu código de colaborador</b><div class="note" style="margin-top:4px">${a?`<code style="user-select:all;word-break:break-all">${esc(a.uid)}</code><br>Es anónimo. Solo lo necesitas si nos pides ver o borrar tus avisos (participa@sonpe-technology.es).`:'Se crea la primera vez que envías un aviso, votas o denuncias.'}</div>
+   <div class="card"><b>🔑 Tu código de colaborador</b><div class="note" style="margin-top:4px">${a?`<code style="user-select:all;word-break:break-all">${esc(a.uid)}</code><br>Es anónimo. Solo lo necesitas si nos pides ver o borrar tus avisos (participa@basatina.es).`:'Se crea la primera vez que envías un aviso, votas o denuncias.'}</div>
    ${a?'<div class="row" style="margin-top:6px"><button class="btn" id="cmNew">Generar código nuevo</button></div>':''}</div>`;
   if($('cmNew'))$('cmNew').onclick=()=>{if(!confirm('Se creará un código nuevo y este móvil dejará de ver el estado de los avisos que ya enviaste. ¿Seguir?'))return;lsSet('cmAuth',null);lsSet('cmMios',[]);cmMios();};
   if(!M.length)return;let u=null;try{u=await cmTok();}catch(e){}
@@ -197,7 +198,7 @@ async function cmMios(){const el=$('cmBody'),M=lsGet('cmMios',[]),a=lsGet('cmAut
     else est=vigente(r)?`✅ Publicado · 👍 ${r.si} · 👎 ${r.no}`:'⌛ Ya ha caducado';
     return `<div class="st" style="align-items:flex-start"><div style="font-size:22px">${t[1]}</div><div style="flex:1"><b>${t[2]}</b><div class="s">${new Date(r.f).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</div>
       ${r.texto?`<div class="s">${esc(r.texto)}</div>`:''}<div style="margin-top:2px">${est}</div></div></div>`;}).join('')
-    +'<div class="note" style="margin-top:6px">Si no estás de acuerdo con una retirada, escríbenos a participa@sonpe-technology.es con tu código de colaborador.</div>';}
+    +'<div class="note" style="margin-top:6px">Si no estás de acuerdo con una retirada, escríbenos a participa@basatina.es con tu código de colaborador.</div>';}
 
 /* ---- 🛡️ moderar (solo modo Administrador) ---- */
 async function cmMod(){const el=$('cmBody');const tok=await admTok();
@@ -240,8 +241,8 @@ async function cmMod(){const el=$('cmBody');const tok=await admTok();
 
 svHook('comunidad',()=>{CMSEL=null;cmRender();});
 // menú: el primero de «Participa»
-svBtn(svDsub('Participa'),'comunidad','📣 Avisos de la gente',true);
-Object.assign(TITLES,{comunidad:'📣 Avisos de la gente'});
+svBtn(svDsub('Participa'),'comunidad','📣 Alertas ciudadanas',true);
+Object.assign(TITLES,{comunidad:'📣 Alertas ciudadanas'});
 try{PVS_ESC.comunidad='pueblo';}catch(e){}
 try{ICK.comunidad='broadcast';ICC.comunidad='#e53935';BNK.comunidad='i-chat';BNF.comunidad='r';}catch(e){}
 try{if(typeof applyIcons==='function')applyIcons((CFG.iconos||'pro')==='pro');}catch(e){}

@@ -2051,3 +2051,22 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
   "Mi calendario deportivo": "Mon calendrier sportif", "Para los peques": "Pour les petits", "Dónde comer": "Où manger", "Flores": "Fleurs", "Solo en la app del móvil": "Uniquement dans l'appli mobile",
   "Descargar la app": "Télécharger l'appli", "Recetas": "Recettes", "Productos típicos": "Produits typiques", "Supermercados": "Supermarchés", "Mercados": "Marchés", "Mercadillos": "Marchés hebdomadaires",
   "Sitios": "Lieux", "Parques": "Aires de jeux", "Paseos": "Balades faciles", "Agenda": "Agenda", "Mis equipos y ligas": "Mes équipes et ligues", "Próximos partidos": "Prochains matchs"});
+/* ---- 15 nov. 2026: ampliacion.js, rios-plus.js y ocio-ui.js ---- */
+(function(){const T={
+ "Cuadrilla BasatiNA":["BasatiNA kuadrilla","BasatiNA Crew","La bande BasatiNA"],"únete":["batu zaitez","join us","rejoins-nous"],
+ "Alertas ciudadanas":["Herritarren alertak","Citizen alerts","Alertes citoyennes"],"Fotos y reto del mes":["Argazkiak eta hilabeteko erronka","Photos and challenge of the month","Photos et défi du mois"],
+ "NA a Pie: rutas, cuevas, baño…":["NA oinez: ibilbideak, kobazuloak, bainua…","NA on Foot: trails, caves, swimming…","NA à pied : randonnées, grottes, baignade…"],"NA a Pie":["NA oinez","NA on Foot","NA à pied"],
+ "Mi calendario":["Nire egutegia","My calendar","Mon calendrier"],"Centros de salud y urgencias":["Osasun etxeak eta larrialdiak","Health centres and emergencies","Centres de santé et urgences"],
+ "El tiempo en las carreteras (3 días)":["Eguraldia errepideetan (3 egun)","Road weather (3 days)","Météo des routes (3 jours)"],"Mis carreteras":["Nire errepideak","My roads","Mes routes"],
+ "Refranes de tu pueblo":["Zure herriko esaerak","Sayings from your village","Dictons de ton village"],"Cartelera de cine":["Zinema kartelera","Cinema listings","Programme des cinémas"],
+ "NA en Moto":["NA motoz","NA by Motorbike","NA à moto"],"NA Pedalea":["NA pedalka","NA by Bike","NA à vélo"],"NA de Picnic":["NA piknikean","NA Picnic","NA pique-nique"],
+ "Comarcas, valles y merindades":["Eskualdeak, ibarrak eta merinaldeak","Districts, valleys and merindades","Comarques, vallées et merindades"],
+ "Comarcas y valles":["Eskualdeak eta ibarrak","Districts and valleys","Comarques et vallées"],"Gráfica":["Grafikoa","Chart","Graphique"],"Por horas":["Orduka","Hourly","Par heure"],
+ "Terremotos":["Lurrikarak","Earthquakes","Séismes"],"Fallas":["Failak","Faults","Failles"],"Simulador":["Simulagailua","Simulator","Simulateur"],
+ "Previsión de los ríos · próximos 3 días":["Ibaien iragarpena · hurrengo 3 egunak","River forecast · next 3 days","Prévision des rivières · 3 prochains jours"],
+ "Aviso de terremotos":["Lurrikaren abisua","Earthquake alerts","Alerte séismes"],"Presión ahora":["Presioa orain","Pressure now","Pression actuelle"],
+ "Urgencias":["Larrialdiak","Emergencies","Urgences"],"Hospitales":["Ospitaleak","Hospitals","Hôpitaux"],"Centros de salud":["Osasun etxeak","Health centres","Centres de santé"],"Consultorios":["Kontsultategiak","Local surgeries","Cabinets médicaux"],
+ "Cerca de mí":["Nire inguruan","Near me","Près de moi"],"Con barbacoa":["Barbakoarekin","With barbecue","Avec barbecue"],"Con sombra":["Itzalarekin","With shade","Avec ombre"],
+ "Todas":["Denak","All","Toutes"],"Carretera":["Errepidea","Road","Route"],"Vías verdes":["Bide berdeak","Greenways","Voies vertes"],"Fácil":["Erraza","Easy","Facile"],"Media":["Ertaina","Medium","Moyenne"],"Difícil":["Zaila","Hard","Difficile"],
+ "Cualquier dificultad":["Edozein zailtasun","Any difficulty","Toute difficulté"],"Abrir en el navegador":["Nabigatzailean ireki","Open in navigation","Ouvrir dans le GPS"],"Tiempo en la ruta":["Eguraldia ibilbidean","Weather on the route","Météo sur le parcours"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();

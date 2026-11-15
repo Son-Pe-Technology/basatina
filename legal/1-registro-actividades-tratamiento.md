@@ -4,7 +4,7 @@
 > No se manda a ningún sitio: se guarda y se enseña a la Agencia Española de Protección de Datos (AEPD) solo si lo pide.
 > **Revisarlo** cada vez que la app empiece a recoger algo nuevo y, como mínimo, una vez al año.
 
-**Responsable:** Pedro Iglesias Goñi (Son&Pe Technology Systems) · participa@sonpe-technology.es · Navarra (España)
+**Responsable:** Pedro Iglesias Goñi (Son&Pe Technology Systems) · participa@basatina.es · Navarra (España)
 **Delegado de protección de datos:** no hay (no es obligatorio para este proyecto).
 **Última revisión:** 14 de noviembre de 2026
 
@@ -43,7 +43,7 @@
 | Finalidad | Recibir sugerencias, errores y peticiones (incluidas las de derechos y las de contenido ilegal). |
 | Base jurídica | Consentimiento. |
 | Datos | Tipo de mensaje y texto libre. Anónimo, salvo que la persona escriba algo que la identifique. |
-| Destinatarios | Encargado: Web3Forms → buzón participa@sonpe-technology.es (OVH, Zimbra, UE). |
+| Destinatarios | Encargado: Web3Forms → buzón participa@basatina.es (OVH, Zimbra, UE). |
 | Plazos | Se borran una vez atendidos (como máximo, 6 meses). |
 
 ## Tratamiento 4 · Peticiones de derechos y de retirada de contenidos

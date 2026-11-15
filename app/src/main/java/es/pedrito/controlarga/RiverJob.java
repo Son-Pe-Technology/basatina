@@ -65,6 +65,7 @@ public class RiverJob extends JobService {
             try { checkSnow(this); } catch (Exception ignored) {}
             try { checkFinde(this); } catch (Exception ignored) {}
             try { checkDato(this); } catch (Exception ignored) {}
+            try { checkSismo(this); } catch (Exception ignored) {}
             jobFinished(p, false);
         }).start();
         return true;   // el trabajo sigue en otro hilo
@@ -315,6 +316,65 @@ public class RiverJob extends JobService {
                 .setStyle(new android.app.Notification.BigTextStyle().bigText(text))
                 .setContentIntent(pi).setAutoCancel(true);
         try { nm.notify(500, b.build()); } catch (SecurityException ignored) {}
+    }
+
+    /** Avisa de los terremotos nuevos en Navarra y alrededores (datos del IGN a través del EMSC).
+     *  Se activa en Ajustes → «Aviso de terremotos» (por defecto sí, desde magnitud 2,5). */
+    static final String CH_SISMO = "avisos_sismo";
+    static void checkSismo(Context c) throws Exception {
+        JSONObject cfg = cfg(c);
+        if (!cfg.optBoolean("sismo", true)) return;
+        double minM = cfg.optDouble("sismoM", 2.5);
+        java.text.SimpleDateFormat f = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", java.util.Locale.US);
+        f.setTimeZone(java.util.TimeZone.getTimeZone("UTC"));
+        String t0 = f.format(new java.util.Date(System.currentTimeMillis() - 3 * 3600 * 1000L));
+        String url = "https://www.seismicportal.eu/fdsnws/event/1/query?format=json&starttime=" + t0
+                + "&minlat=41.9&maxlat=43.4&minlon=-2.6&maxlon=-0.6&minmag=" + minM + "&limit=20";
+        org.json.JSONArray F = new JSONObject(get(url)).optJSONArray("features");
+        if (F == null) return;
+        SharedPreferences sp = c.getSharedPreferences("rio", MODE_PRIVATE);
+        boolean first = !sp.contains("sisSeen");
+        String seen = sp.getString("sisSeen", ",");
+        StringBuilder keep = new StringBuilder(",");
+        int n = 0;
+        for (int i = 0; i < F.length(); i++) {
+            JSONObject x = F.getJSONObject(i), p = x.optJSONObject("properties");
+            if (p == null) continue;
+            String id = p.optString("unid", p.optString("source_id", "" + i));
+            keep.append(id).append(",");
+            if (first || seen.contains("," + id + ",")) continue;
+            double mag = p.optDouble("mag", Double.NaN);
+            if (Double.isNaN(mag) || mag < minM) continue;
+            org.json.JSONArray g = x.optJSONObject("geometry") != null ? x.getJSONObject("geometry").optJSONArray("coordinates") : null;
+            String donde = "";
+            if (g != null && g.length() >= 2) {
+                double lo = g.optDouble(0), la = g.optDouble(1), prof = g.length() > 2 ? Math.abs(g.optDouble(2)) : Double.NaN;
+                double dy = (la - 42.8125) * 111.2, dx = (lo + 1.6458) * 111.2 * Math.cos(Math.toRadians(42.8));
+                donde = String.format(java.util.Locale.forLanguageTag("es-ES"), "A %.0f km de Pamplona", Math.hypot(dx, dy))
+                        + (Double.isNaN(prof) ? "" : String.format(java.util.Locale.forLanguageTag("es-ES"), ", %.0f km de profundidad", prof)) + ". ";
+            }
+            String mg = String.format(java.util.Locale.forLanguageTag("es-ES"), "%.1f", mag);
+            notifyCh(c, CH_SISMO, "Terremotos", "Aviso cuando hay un terremoto en Navarra o alrededores",
+                    "🌍 Terremoto de magnitud " + mg,
+                    donde + (mag < 3 ? "Casi nadie lo habrá notado." : mag < 4 ? "Se ha podido notar cerca del epicentro." : "Se ha notado en una zona amplia.")
+                            + " Datos: IGN / EMSC. Toca para verlo en la app.", 600 + (n++ % 10));
+        }
+        sp.edit().putString("sisSeen", keep.toString()).apply();
+    }
+
+    static void notifyCh(Context c, String ch, String chName, String chDesc, String title, String text, int id) {
+        NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(ch) == null) {
+            NotificationChannel nc = new NotificationChannel(ch, chName, NotificationManager.IMPORTANCE_HIGH);
+            nc.setDescription(chDesc);
+            nm.createNotificationChannel(nc);
+        }
+        PendingIntent pi = PendingIntent.getActivity(c, 0, new Intent(c, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
+        android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, ch) : new android.app.Notification.Builder(c);
+        b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(title).setContentText(text)
+                .setStyle(new android.app.Notification.BigTextStyle().bigText(text))
+                .setContentIntent(pi).setAutoCancel(true);
+        try { nm.notify(id, b.build()); } catch (SecurityException ignored) {}
     }
 
     static void notify(Context c, String title, String text, int id) {
