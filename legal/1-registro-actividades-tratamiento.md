@@ -6,7 +6,7 @@
 
 **Responsable:** Pedro Iglesias Goñi (Son&Pe Technology Systems) · participa@basatina.es · Navarra (España)
 **Delegado de protección de datos:** no hay (no es obligatorio para este proyecto).
-**Última revisión:** 14 de noviembre de 2026
+**Última revisión:** 15 de noviembre de 2026
 
 ---
 
@@ -19,7 +19,7 @@
 | Personas afectadas | Usuarios de 14 años o más que envían, confirman o denuncian avisos. |
 | Datos | Tipo de aviso, texto libre (máx. 300 caracteres), coordenadas del suceso, fecha/hora, código de colaborador aleatorio (seudónimo: identificador de acceso anónimo de Firebase Authentication). **No** se piden nombre, correo, teléfono ni la ubicación de la persona. |
 | Datos especiales | Ninguno a propósito. Si en un texto aparecen datos de terceros o especiales, se borran en la moderación. |
-| Destinatarios | Público en general (solo el aviso publicado, sin el código). Encargado: Google Ireland Ltd. (Firebase Authentication con acceso anónimo y Cloud Firestore). |
+| Destinatarios | Público en general (solo el aviso publicado, sin el código). Encargados: Google Ireland Ltd. (Firebase Authentication con acceso anónimo y Cloud Firestore) y Web3Forms (aviso por correo a alertas@basatina.es con el tipo, el texto y el sitio de cada alerta nueva; **nunca** el código de colaborador). |
 | Transferencias internacionales | Datos alojados en la región europe-southwest1 (Madrid). Google puede acceder desde fuera de la UE para dar soporte; cubierto por las Cláusulas Contractuales Tipo y el Marco de Privacidad de Datos UE‑EE. UU. incluidos en sus condiciones de tratamiento. |
 | Plazos | Visible: 6 h – 7 días según el tipo. Borrado total: 30 días tras caducar. Denuncias y decisiones de moderación: 6 meses. Códigos bloqueados: 12 meses. |
 | Seguridad | Ver documento 2. |
@@ -45,6 +45,16 @@
 | Datos | Tipo de mensaje y texto libre. Anónimo, salvo que la persona escriba algo que la identifique. |
 | Destinatarios | Encargado: Web3Forms → buzón participa@basatina.es (OVH, Zimbra, UE). |
 | Plazos | Se borran una vez atendidos (como máximo, 6 meses). |
+
+## Tratamiento 3 bis · Refranes de tu pueblo (desde el 15 nov. 2026)
+
+| Campo | Contenido |
+|---|---|
+| Finalidad | Recibir refranes y dichos para publicarlos en la app. |
+| Base jurídica | Consentimiento (casillas de 14 años o más y sin datos personales). |
+| Datos | Refrán, significado (opcional) y pueblo. Anónimo: no se pide nombre ni correo. |
+| Destinatarios | Encargado: Web3Forms → participa@basatina.es. Si se publica, sale sin ningún dato de quien lo envió (`participa/refranes.json`). |
+| Plazos | Los correos se borran una vez revisados. El refrán publicado, mientras siga en la app. |
 
 ## Tratamiento 4 · Peticiones de derechos y de retirada de contenidos
 
