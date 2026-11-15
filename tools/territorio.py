@@ -59,7 +59,7 @@ def shp(nombre):
     names = z.namelist(); s = [n[:-4] for n in names if n.lower().endswith(".shp")]
     if not s: log("##", nombre, "-> sin .shp"); return [], []
     g = lambda ext: io.BytesIO(z.read([n for n in names if n.lower() == (s[0] + ext).lower()][0]))
-    sf = shapefile.Reader(shp=g(".shp"), dbf=g(".dbf"), encoding="cp1252")
+    sf = shapefile.Reader(shp=g(".shp"), dbf=g(".dbf"), encoding="cp1252", encodingErrors="replace")
     campos = [f[0] for f in sf.fields[1:]]; out = []
     for sr in sf.iterShapeRecords():
         at = {k: (v.strip() if isinstance(v, str) else v) for k, v in zip(campos, sr.record)}
@@ -206,7 +206,8 @@ if "partido" in GRUPOS:
     for z in GRUPOS["partido"]["z"]:
         for c in z["m"]: MUN[c]["pj"] = z["n"]
 # teléfono, correo y web de los ayuntamientos: dependencias municipales de atención ciudadana (IDENA)
-rows, campos = shp("IDEMUN_Sym_DepenMun")
+try: rows, campos = shp("IDEMUN_Sym_DepenMun")
+except Exception as e: log("DepenMun: error", e); rows = []
 def campo(at, *k):
     for kk, v in at.items():
         if any(kk.upper().startswith(x) for x in k) and str(v).strip() not in ("", "None", "-"): return str(v).strip()
