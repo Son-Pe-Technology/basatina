@@ -1,6 +1,129 @@
-no se pudo leer web/ocio.js [Errno 2] No such file or directory: 'web/ocio.js'
 cartelera: cines encontrados [('193', 'Golem Baiona'), ('194', 'Golem La Morea'), ('195', 'Golem Yamaguchi'), ('198', 'Cines Los Llanos Zinemak'), ('199', 'Cines Itaroa'), ('200', 'Ocine Tudela'), ('350', 'Cines Viana Las Cañas')]
+---- HTML de ejemplo (193) ----
+arch"><div class="form" id="busc-header">
+				<form method="get" id="busqueda" action="https://www.ecartelera.com/buscar/">
+			<input type="text" name="q" autocomplete="off" id="inputString" onfocus="this.value=''" value="Buscar..."/>
+		</form>
+		<div id="resultados"></div>
+				</div></div>
+		<div class="user" id="user"><div class="login" onclick="mainlogin();"><span>Login</span></div></div>
+	</div>
+<nav>
+	<ul>
+		<li><a href="https://www.ecartelera.com/noticias/">Noticias</a></li>
+		<li><a href="https://www.ecartelera.com/cartelera/">Cartelera</a></li>
+		<li><a href="https://www.ecartelera.com/peliculas/">Pel&iacute;culas</a></li>
+		<li><a href="https://www.ecartelera.com/series/">Series</a></li>
+		<li><a href="https://www.ecartelera.com/videos/">Vídeos</a></li>
+		<li><a href="https://www.ecartelera.com/premios/">Premios</a></li>
+		<li><a href="https://www.ecartelera.com/personas/">Rostros</a></li>
+				<li><a href="https://www.ecartelera.com/criticas/">Críticas</a></li>
+		<li><a href="https://www.ecartelera.com/entradas/">Entradas</a></li>
+			</ul>
+</nav>	
+</div>
+</header>
+<div id="overlay-menu"><div class="cnt">
+	<div class="search">
+		<div class="form" id="busc-overlay"></div>
+	</div>
+	<ul>
+		<li><a href="https://www.ecartelera.com/noticias/">Noticias</a></li>
+		<li><a href="https://www.ecartelera.com/cartelera/">Cartelera</a></li>
+		<li><a href="https://www.ecartelera.com/peliculas/">Pel&iacute;culas</a></li>
+		<li><a href="https://www.ecartelera.com/series/">Series</a></li>
+		<li><a href="https://www.ecartelera.com/videos/">Vídeos</a></li>
+		<li><a href="https://www.ecartelera.com/taquilla/">Taquilla</a></li>
+		<li><a href="https://www.ecartelera.com/fotos/">Fotos</a></li>
+		<li><a href="https://www.ecartelera.com/premios/">Premios</a></li>
+		<li><a href="https://www.ecartelera.com/personas/">Rostros</a></li>
+				<li><a href="https://www.ecartelera.com/criticas/">Críticas</a></li>
+		<li><a href="https://www.ecartelera.com/entradas/">Entradas</a></li>
+			</ul>
+</div></div>
+<div id="overlay-user"></div>
+<div class="trends" data-country="NULL">
+	<div class="cnt"><div class="scrollable">
+		<strong class="trend-tit">Tendencias</strong>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/gira-las-guerreras-k-pop-huntrix-saja-boys-espana-84108/" title="Gira Huntrix">Gira Huntrix</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/adults-renovada-tercera-temporada-doble-capitulos-84107/" title="Adults">Adults</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/la-bola-negra-aguantando-numero-1-taquilla-84106/" title="Taquilla España">Taquilla España</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/final-visionquest-sorprende-escena-post-creditos-84105/" title="Final VisionQuest">Final VisionQuest</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/james-gunn-peter-safran-despedidos-dc-studios-jeremy-latcham-84104/" title="James Gunn despedido">James Gunn despedido</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/godzilla-minus-zero-da-la-sorpresa-y-se-impone-a-el-gato-84103/" title="Taquilla EE.UU.">Taquilla EE.UU.</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/vuelve-stranger-things-netflix-prepara-precuela-84102/" title="Other Worlds">Other Worlds</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/dafne-keen-asegura-que-le-ofrecian-cocaina-fiestas-cine-84101/" title="Dafne Keen">Dafne Keen</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/maya-hawke-protagonista-magic-the-gathering-84099/" title="Magic: The Gathering">Magic: The Gathering</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/derechos-trans-boicot-harry-potter-londres-84098/" title="Tienda Harry Potter">Tienda Harry Potter</a></span>
+			</div></div>
+</div>
+<main>
+			<style>
+.crow { font-size:17px; margin:0 0 8px 0; line-height:1.08em; }
+----
    193 Golem Baiona 8 películas
+---- HTML de ejemplo (194) ----
+arch"><div class="form" id="busc-header">
+				<form method="get" id="busqueda" action="https://www.ecartelera.com/buscar/">
+			<input type="text" name="q" autocomplete="off" id="inputString" onfocus="this.value=''" value="Buscar..."/>
+		</form>
+		<div id="resultados"></div>
+				</div></div>
+		<div class="user" id="user"><div class="login" onclick="mainlogin();"><span>Login</span></div></div>
+	</div>
+<nav>
+	<ul>
+		<li><a href="https://www.ecartelera.com/noticias/">Noticias</a></li>
+		<li><a href="https://www.ecartelera.com/cartelera/">Cartelera</a></li>
+		<li><a href="https://www.ecartelera.com/peliculas/">Pel&iacute;culas</a></li>
+		<li><a href="https://www.ecartelera.com/series/">Series</a></li>
+		<li><a href="https://www.ecartelera.com/videos/">Vídeos</a></li>
+		<li><a href="https://www.ecartelera.com/premios/">Premios</a></li>
+		<li><a href="https://www.ecartelera.com/personas/">Rostros</a></li>
+				<li><a href="https://www.ecartelera.com/criticas/">Críticas</a></li>
+		<li><a href="https://www.ecartelera.com/entradas/">Entradas</a></li>
+			</ul>
+</nav>	
+</div>
+</header>
+<div id="overlay-menu"><div class="cnt">
+	<div class="search">
+		<div class="form" id="busc-overlay"></div>
+	</div>
+	<ul>
+		<li><a href="https://www.ecartelera.com/noticias/">Noticias</a></li>
+		<li><a href="https://www.ecartelera.com/cartelera/">Cartelera</a></li>
+		<li><a href="https://www.ecartelera.com/peliculas/">Pel&iacute;culas</a></li>
+		<li><a href="https://www.ecartelera.com/series/">Series</a></li>
+		<li><a href="https://www.ecartelera.com/videos/">Vídeos</a></li>
+		<li><a href="https://www.ecartelera.com/taquilla/">Taquilla</a></li>
+		<li><a href="https://www.ecartelera.com/fotos/">Fotos</a></li>
+		<li><a href="https://www.ecartelera.com/premios/">Premios</a></li>
+		<li><a href="https://www.ecartelera.com/personas/">Rostros</a></li>
+				<li><a href="https://www.ecartelera.com/criticas/">Críticas</a></li>
+		<li><a href="https://www.ecartelera.com/entradas/">Entradas</a></li>
+			</ul>
+</div></div>
+<div id="overlay-user"></div>
+<div class="trends" data-country="NULL">
+	<div class="cnt"><div class="scrollable">
+		<strong class="trend-tit">Tendencias</strong>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/gira-las-guerreras-k-pop-huntrix-saja-boys-espana-84108/" title="Gira Huntrix">Gira Huntrix</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/adults-renovada-tercera-temporada-doble-capitulos-84107/" title="Adults">Adults</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/la-bola-negra-aguantando-numero-1-taquilla-84106/" title="Taquilla España">Taquilla España</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/final-visionquest-sorprende-escena-post-creditos-84105/" title="Final VisionQuest">Final VisionQuest</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/james-gunn-peter-safran-despedidos-dc-studios-jeremy-latcham-84104/" title="James Gunn despedido">James Gunn despedido</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/godzilla-minus-zero-da-la-sorpresa-y-se-impone-a-el-gato-84103/" title="Taquilla EE.UU.">Taquilla EE.UU.</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/vuelve-stranger-things-netflix-prepara-precuela-84102/" title="Other Worlds">Other Worlds</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/dafne-keen-asegura-que-le-ofrecian-cocaina-fiestas-cine-84101/" title="Dafne Keen">Dafne Keen</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/maya-hawke-protagonista-magic-the-gathering-84099/" title="Magic: The Gathering">Magic: The Gathering</a></span>
+				<span class="trend-item"><a href="https://www.ecartelera.com/noticias/derechos-trans-boicot-harry-potter-londres-84098/" title="Tienda Harry Potter">Tienda Harry Potter</a></span>
+			</div></div>
+</div>
+<main>
+			<style>
+.crow { font-size:17px; margin:0 0 8px 0; line-height:1.08em; }
+----
    194 Golem La Morea 16 películas
    195 Golem Yamaguchi 5 películas
    198 Cines Los Llanos Zinemak 4 películas
@@ -10,8 +133,7 @@ cartelera: cines encontrados [('193', 'Golem Baiona'), ('194', 'Golem La Morea')
 moto: Valle de Roncal y Belagua
     82.6 km · 80 min · sube 1951 m · máx 1770 m
 moto: Selva de Irati y puerto de Larrau
-   ⚠️ no encuentro Arive
-    78.6 km · 96 min · sube 2112 m · máx 1578 m
+    83.1 km · 103 min · sube 2223 m · máx 1578 m
 moto: Camino de Roncesvalles e Ibañeta
     53.4 km · 91 min · sube 989 m · máx 1058 m
 moto: Belate, Baztan y Otxondo
@@ -19,7 +141,6 @@ moto: Belate, Baztan y Otxondo
 moto: Sierras de Urbasa y Andía
     94.3 km · 89 min · sube 1212 m · máx 1005 m
 moto: Foces, Yesa y Leyre
-   ⚠️ no encuentro Leyre
     70.7 km · 80 min · sube 724 m · máx 714 m
 moto: Zona Media: Olite y Ujué
     59.5 km · 75 min · sube 611 m · máx 799 m
@@ -28,4 +149,4 @@ moto: Aralar y Leitzaran
 moto: Ribera y Bardenas
     56.7 km · 61 min · sube 456 m · máx 426 m
 moto: Sierra del Perdón y Camino
-    47.6 km · 55 min · sube 671 m · máx 674 m
+    47.6 km · 55 min · sube None m · máx None m
