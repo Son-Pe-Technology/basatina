@@ -273,6 +273,7 @@ def cls(t, n):
     nm = n.lower()
     if re.search(r"urgenc|s\.?u\.?a\.?p\b|\bsue\b|\bpac\b|atenci[oó]n continuada", nm): return "urg"
     if re.search(r"salud mental|osasun mental|psiqui", nm): return "sm"
+    if re.search(r"salud sexual|reproductiva|atenci[oó]n a la mujer", nm): return "otro"
     if re.search(r"centro de salud|centro salud|osasun etxe|osasun zentro", nm): return "cs"
     if re.search(r"consultorio|kontsultategi", nm): return "cons"
     if re.search(r"hospital|ospitale|cl[ií]nica universi|unibertsitate klinika|complejo hospitalario", nm) or t.get("amenity") == "hospital" or t.get("healthcare") == "hospital": return "hosp"
@@ -304,9 +305,13 @@ for capa, titulo in cand_salud[:12]:
                       "t": campo(at, "TIPO")})
 # quitar repetidos (mismo tipo a menos de 120 m)
 OUT = []
+pal = lambda n: {w for w in norm(n).split() if len(w) >= 5 and w not in ("centro", "salud", "hospital", "consultorio", "medico", "navarra", "osasun")}
 for s in sorted(SALUD, key=lambda s: (s["src"] == "osm", s["n"])):
-    if any(o["k"] == s["k"] and abs(o["pt"][0] - s["pt"][0]) < .0011 and abs(o["pt"][1] - s["pt"][1]) < .0015 for o in OUT): continue
+    if any(o["k"] == s["k"] and abs(o["pt"][0] - s["pt"][0]) < .0011 and abs(o["pt"][1] - s["pt"][1]) < .0015 and (pal(o["n"]) & pal(s["n"]) or not pal(o["n"]) or not pal(s["n"])) for o in OUT): continue
     OUT.append(s)
+# hospitales públicos con urgencias las 24 horas (y la Clínica Universidad de Navarra)
+for s in OUT:
+    if s["k"] == "hosp" and re.search(r"universitario de navarra|ospitale unibertsitarioa|reina sof[ií]a|garc[ií]a orcoyen|cl[ií]nica universidad de navarra|unibertsitate klinika", s["n"], re.I): s["urg"] = 1
 SALUD = sorted(OUT, key=lambda s: (s["p"], s["n"]))
 log("sanidad:", len(SALUD), dict(collections.Counter(s["k"] for s in SALUD)))
 
