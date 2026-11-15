@@ -35,6 +35,7 @@ def leer_js(path):
 ANT = leer_js("web/ocio.js") or {}
 
 # ------------------------------------------------------------------ 🎬 cines
+DEBUG = 0
 def cartelera():
     base = "https://www.ecartelera.com"
     prov = get(base + "/cines/0,34,0.html")
@@ -57,8 +58,10 @@ def cartelera():
             if not mt: continue
             t = html.unescape(mt.group(2)).strip()
             if re.match(r"(?i)^(ver tr[aá]iler|sinopsis|fotos|cr[ií]tica)", t): continue
-            ses = re.findall(r'/cines/comprar/\d+/?"[^>]*>\s*(\d{1,2}:\d\d)', bq)
-            meta = re.search(r"(\d{2,3}) min\.\s*([^<+]{0,60}?)(\+\d+|TP|Apta)?\s*<", bq)
+            ses = re.findall(r'<a[^>]*>\s*(?:<[^>]+>\s*)*(\d{1,2}:\d\d)\s*(?:<[^>]+>\s*)*</a>', bq)
+            if not ses: ses = re.findall(r'comprar[^>]*>\s*(?:<[^>]+>\s*)*(\d{1,2}:\d\d)', bq)
+            txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", bq))
+            meta = re.search(r"(\d{2,3}) min\.?\s*([^+]{0,60}?)\s*(\+\d+|TP|Apta)?(?=\s|$)", txt)
             img = re.search(r'<img[^>]+(?:data-src|src)="([^"]+\.(?:jpg|webp|png))"', bq)
             if not any(p["t"] == t for p in pelis):
                 pelis.append({"t": t, "u": (base + mt.group(1)) if mt.group(1).startswith("/") else mt.group(1), "s": ses[:14],
@@ -66,6 +69,8 @@ def cartelera():
                               "img": img.group(1) if img else ""})
             else:
                 p = next(p for p in pelis if p["t"] == t); p["s"] = sorted(set(p["s"] + ses))[:14]
+        if DEBUG < 2:
+            i = h.find("/peliculas/"); log("---- HTML de ejemplo (" + cid + ") ----\n" + h[max(0, i - 600):i + 3500] + "\n----"); globals()["DEBUG"] = DEBUG + 1
         pelis = [p for p in pelis if p["s"]] or pelis[:30]
         out.append({"id": cid, "n": html.unescape(tit.group(1)).strip() if tit else nombre, "d": dire.group(1).strip() if dire else "",
                     "tel": tel.group(1).strip() if tel else "", "u": url, "p": pelis[:40]})
@@ -79,7 +84,7 @@ RUTAS_MOTO = [
      "via": ["Lumbier", "Burgui", "Roncal", "Isaba", "Col de la Pierre Saint-Martin"],
      "txt": "Del desfiladero de la Foz de Lumbier al valle de Roncal, con sus pueblos de piedra (Burgui, Roncal, Isaba) y la subida final por Belagua hasta la frontera. Curvas enlazadas y paisaje de alta montaña."},
     {"id": "irati", "n": "Selva de Irati y puerto de Larrau", "zona": "Pirineo",
-     "via": ["Aoiz", "Arive", "Garralda", "Ochagavía", "Puerto de Larrau"],
+     "via": ["Aoiz", "Aribe", "Garralda", "Ochagavía", "Puerto de Larrau"],
      "txt": "Por el valle de Arce y Aezkoa hasta Ochagavía, en el valle de Salazar. Desde allí se sube al puerto de Larrau, uno de los más altos de Navarra, con vistas al hayedo-abetal de Irati."},
     {"id": "roncesvalles", "n": "Camino de Roncesvalles e Ibañeta", "zona": "Pirineo",
      "via": ["Pamplona", "Zubiri", "Alto Erro", "Burguete", "Orreaga", "Puerto de Ibañeta"],
@@ -91,7 +96,7 @@ RUTAS_MOTO = [
      "via": ["Estella", "Urbasa", "Olazagutía", "Etxarri-Aranatz", "Puerto de Lizarraga", "Estella"],
      "txt": "Vuelta circular desde Estella: meseta de Urbasa con sus hayedos y rasos, bajada a la Sakana y regreso por el puerto de Lizarraga y su túnel."},
     {"id": "leyre", "n": "Foces, Yesa y Leyre", "zona": "Prepirineo",
-     "via": ["Pamplona", "Monreal", "Lumbier", "Yesa", "Leyre", "Javier", "Sangüesa"],
+     "via": ["Pamplona", "Monreal", "Lumbier", "Yesa", "Javier", "Sangüesa"],
      "txt": "Hacia el este por Monreal hasta Lumbier y su foz, el embalse de Yesa, el monasterio de Leyre y el castillo de Javier, terminando en Sangüesa."},
     {"id": "ujue", "n": "Zona Media: Olite y Ujué", "zona": "Zona Media",
      "via": ["Tafalla", "Olite", "Pitillas", "Ujué", "San Martín de Unx", "Tafalla"],
