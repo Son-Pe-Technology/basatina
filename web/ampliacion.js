@@ -144,7 +144,7 @@ async function amHoras(){const el=$('amHL');if(!el||typeof TW==='undefined'||!TW
    Mientras llega una tesela se pinta ampliada la del nivel anterior. Si el WMTS fallara, se vuelve al sistema de antes. */
 const TILE=(z,x,y)=>`https://www.ign.es/wmts/ign-base?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=IGNBaseTodo&STYLE=default&TILEMATRIXSET=GoogleMapsCompatible&TILEMATRIX=${z}&TILEROW=${y}&TILECOL=${x}&FORMAT=image/jpeg`;
 const TC=new Map();let TFAIL=0;
-function tImg(z,x,y,cb){const u=TILE(z,x,y);let im=TC.get(u);if(!im){im=new Image();im.onload=()=>{TFAIL=0;cb&&cb();};im.onerror=()=>{TFAIL++;};im.src=u;TC.set(u,im);if(TC.size>900)TC.delete(TC.keys().next().value);}return im;}
+function tImg(z,x,y,cb){const u=TILE(z,x,y);let im=TC.get(u);if(!im){im=new Image();im.onload=()=>{TFAIL=0;cb&&cb();};im.onerror=()=>{TFAIL++;const n=(im.n||0)+1;setTimeout(()=>{if(TC.get(u)===im)TC.delete(u);cb&&cb();},1500*n);};im.src=u;TC.set(u,im);if(TC.size>900)TC.delete(TC.keys().next().value);}return im;}
 function tilesDraw(x,P,b,redraw){const dpr=Math.min(2,window.devicePixelRatio||1),z=Math.max(6,Math.min(18,Math.round(Math.log2(360*b.W*dpr*.75/(256*(b.e-b.w)))))),n=2**z;
   const tx=lo=>Math.floor((lo+180)/360*n),ty=la=>{const r=la*Math.PI/180;return Math.floor((1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*n);};
   const lon=(X,m)=>X/m*360-180,lat=(Y,m)=>{const k=Math.PI-2*Math.PI*Y/m;return 180/Math.PI*Math.atan(.5*(Math.exp(k)-Math.exp(-k)));};
@@ -169,13 +169,17 @@ if(typeof NavMap==='function'){const _NM=NavMap;NavMap=function(id,draw,tap){con
 // el mapa del Inicio también con teselas (antes: una imagen WMS grande de una vez)
 if(typeof mtBase==='function'){const _mb=mtBase;mtBase=function(){if(mtImg)return;if(TFAIL>6)return _mb();
   const c=document.createElement('canvas');c.width=900;c.height=960;c.complete=false;c.naturalWidth=0;mtImg=c;const x=c.getContext('2d');x.fillStyle='#dfe6ec';x.fillRect(0,0,900,960);
-  const z=10,n=2**z,tx=lo=>Math.floor((lo+180)/360*n),ty=la=>{const r=la*Math.PI/180;return Math.floor((1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*n);};
-  const lon=X=>X/n*360-180,lat=Y=>{const k=Math.PI-2*Math.PI*Y/n;return 180/Math.PI*Math.atan(.5*(Math.exp(k)-Math.exp(-k)));};
-  const P=(la,lo)=>[900*(lo-NB.w)/(NB.e-NB.w),960*(NB.n-la)/(NB.n-NB.s)];let tot=0,ok=0,bad=0,t=0;
-  const upd=()=>{if(t)return;t=setTimeout(()=>{t=0;try{mtDraw();}catch(e){}},120);};
-  for(let X=tx(NB.w);X<=tx(NB.e);X++)for(let Y=ty(NB.n);Y<=ty(NB.s);Y++){tot++;const im=new Image(),[ax,ay]=P(lat(Y),lon(X)),[bx,by]=P(lat(Y+1),lon(X+1));
-    im.onload=()=>{x.drawImage(im,ax,ay,bx-ax,by-ay);ok++;c.complete=true;c.naturalWidth=900;upd();};
-    im.onerror=()=>{bad++;if(bad>tot*.4&&!ok){mtImg=null;TFAIL=99;_mb();}};im.src=TILE(z,X,Y);}};}
+  const P=(la,lo)=>[900*(lo-NB.w)/(NB.e-NB.w),960*(NB.n-la)/(NB.n-NB.s)];let ok=0,bad=0,t=0;
+  const upd=()=>{if(t)return;t=setTimeout(()=>{t=0;try{mtDraw();}catch(e){}},150);};
+  const capa=(z,cb)=>{const n=2**z,tx=lo=>Math.floor((lo+180)/360*n),ty=la=>{const r=la*Math.PI/180;return Math.floor((1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*n);};
+    const lon=X=>X/n*360-180,lat=Y=>{const k=Math.PI-2*Math.PI*Y/n;return 180/Math.PI*Math.atan(.5*(Math.exp(k)-Math.exp(-k)));};
+    const L=[];for(let X=tx(NB.w);X<=tx(NB.e);X++)for(let Y=ty(NB.n);Y<=ty(NB.s);Y++)L.push([X,Y]);let pend=L.length;
+    L.forEach(([X,Y])=>{const [ax,ay]=P(lat(Y),lon(X)),[bx,by]=P(lat(Y+1),lon(X+1));let intento=0;
+      const pide=()=>{const im=new Image();im.onload=()=>{x.drawImage(im,ax,ay,bx-ax,by-ay);ok++;c.complete=true;c.naturalWidth=900;upd();if(--pend===0&&cb)cb();};
+        im.onerror=()=>{if(++intento<4)setTimeout(pide,1200*intento);else{bad++;if(--pend===0&&cb)cb();if(bad>L.length*.5&&!ok){mtImg=null;TFAIL=99;_mb();}}};
+        im.src=TILE(z,X,Y)+(intento?'&r='+intento:'');};pide();});};
+  // fondo rápido (pocas teselas) y encima el detallado: si alguna detallada falla, se ve la de debajo y nunca un cuadro gris
+  capa(9,()=>capa(10));};}
 
 /* ---------- 4. NA SÍSMICA: aviso, fallas y simulador ---------- */
 // 4a · aviso en el móvil (la app lo comprueba cada 15 min en segundo plano, como los avisos del río)
