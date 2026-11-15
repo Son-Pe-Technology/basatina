@@ -1,5 +1,5 @@
 {
- "version": 298,
+ "version": 299,
  "apk": 25,
  "files": {
   "abiertos.js": "8e33d748e61b9dfc44bd6cfc83ff222345e546fd",
@@ -51,7 +51,7 @@
   "sonpe3_ico.jpg": "566285e1373e631847647a7a33c61e12b27b7ea4",
   "territorio.js": "f455bd22b2af0b175bbf07e9831f5f0d740bff60",
   "tiendas.js": "d8d5dcd6de9edf6ff6ef313f34ddd0d2b44d8418",
-  "viaje.js": "94332749dd1836f7a399133b8efe98ac93a940ad"
+  "viaje.js": "6841b0bf05b94ef8a29a26d8f047bd76c189e3da"
  },
  "apkUrl": "https://github.com/suapedrito-z/basatina/releases/latest/download/BasatiNA.apk"
 }
