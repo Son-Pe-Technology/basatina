@@ -1,0 +1,185 @@
+## DIADMI_Pol_Municipio 272 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'ALTCAPITAL', 'ALTMEDIA', 'HABIT2003', 'HABIT2004', 'HABIT2005', 'HABIT2006', 'HABIT2007', 'HABIT2008', 'HABIT2010', 'HABIT2011', 'HABIT2012', 'HABIT2013', 'HABIT2014', 'HABIT2015', 'HABIT2016', 'HABIT2017', 'HABIT2018', 'HABIT2019', 'HABIT2020', 'HABIT2021', 'HABIT2022', 'HABIT2023', 'HABIT2024', 'HABIT2025', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "1000025", "CMUNICIPIO": "4", "MUNICIPIO": "Abaurrepea / Abaurrea Baja", "ALTCAPITAL": "855", "ALTMEDIA": "1061", "HABIT2003": "44", "HABIT2004": "42", "HABIT2005": "41", "HABIT2006": "40", "HABIT2007": "39", "HABIT2008": "41", "HABIT2010": "41", "HABIT2011": "40", "HABIT2012": "39", "HABIT2013": "38", "HABIT2014": "38", "HABIT2015": "35", "HABIT2016": "35", "HABIT2017": "34", "HABIT2018": "33", "HABIT2019": "32", "HABIT2020": "31", "HABIT2021": "29", "HABIT2022": "31", "HABIT2023": 
+municipios: 272
+catálogo WMS: 1303 capas
+
+# Capas del catálogo que pueden servir:
+  zona : ADMLOC_Pol_MapaLocalS :: Mapa local de Navarra. Subcomarcas
+  zona : ADMLOC_Pol_MapaLocalC :: Mapa local de Navarra. Comarcas
+  zona : DOTACI_Pol_PartidoJud :: Delimitación de la jurisdicción de los Partidos Judiciales
+  zona : PATRIM_Pol_Zonifling :: Delimitación de la Zonificación Lingüística
+  zona : PATRIM_Pol_Merindades :: Merindades
+  zona : ESTADI_Pol_AreaNav2000 :: Áreas de la Zonificación Navarra 2000
+  zona : ESTADI_Pol_SzonNav2000 :: Subzonas de la Zonificación Navarra 2000
+  zona : ESTADI_Pol_ZonNav2000 :: Zonas de la Zonificación Navarra 2000
+  zona : AGRICU_Pol_ComAgrarias :: Comarcas agrarias
+  zona : HIDROG_Pol_SubcuencaHi :: Subcuencas de la red hidrográfica
+  zona : HIDROG_Pol_CuencaHi :: Cuencas de la red hidrográfica
+  zona : PARFLU_Pol_Vegetacion :: Zonificación de la vegetación del Parque Fluvial
+  zona : POLUCI_Pol_ZAire :: Zonificación de la calidad del aire: NOx, SO2, CO, PM10 y PM 2,5
+  zona : POLUCI_Pol_ZOzono :: Zonificación de la calidad del aire: ozono
+  zona : POLUCI_Pol_ZMetBenzopireno :: Zonificación de la calidad del aire: metales y benzopireno
+  zona : FOREST_Pol_ZonUsoFuego :: Zonificación de uso de fuego
+  zona : FOREST_Pol_ComForestales :: Comarcas forestales
+  zona : RUIDOS_Pol_AgloAMPF4 :: Delimitación de la Aglomeración de la Comarca de Pamplona para los Mapas de Ruidos. Fase 4
+  zona : RUIDOS_Pol_FerLdenF4 :: MER Comarca de Pamplona. Ferrocarril. Lden. Fase 4
+  zona : RUIDOS_Pol_FerLnocheF4 :: MER Comarca de Pamplona. Ferrocarril. Lnoche. Fase 4
+  zona : RUIDOS_Pol_FerLtardeF4 :: MER Comarca de Pamplona. Ferrocarril. Ltarde. Fase 4
+  zona : RUIDOS_Pol_FerLdiaF4 :: MER Comarca de Pamplona. Ferrocarril. Ldia. Fase 4
+  zona : RUIDOS_Pol_IndLdenF4 :: MER Comarca de Pamplona. Industria. Lden. Fase 4
+  zona : RUIDOS_Pol_IndLnocheF4 :: MER Comarca de Pamplona. Industria. Lnoche. Fase 4
+  zona : RUIDOS_Pol_IndLtardeF4 :: MER Comarca de Pamplona. Industria. Ltarde. Fase 4
+  zona : RUIDOS_Pol_IndLdiaF4 :: MER Comarca de Pamplona. Industria. Ldia. Fase 4
+  zona : RUIDOS_Pol_TraLdenF4 :: MER Comarca de Pamplona. Tráfico. Lden. Fase 4
+  zona : RUIDOS_Pol_TraLnocheF4 :: MER Comarca de Pamplona. Tráfico. Lnoche. Fase 4
+  zona : RUIDOS_Pol_TraLtardeF4 :: MER Comarca de Pamplona. Tráfico. Ltarde. Fase 4
+  zona : RUIDOS_Pol_TraLdiaF4 :: MER Comarca de Pamplona. Tráfico. Ldia. Fase 4
+  zona : RUIDOS_Pol_AMPLdenF4 :: Mapa de Ruido Total de la Aglomeración de la Comarca de Pamplona. Lden. Fase 4
+  zona : RUIDOS_Pol_AMPLnocheF4 :: Mapa de Ruido Total de la Aglomeración de la Comarca de Pamplona. Lnoche. Fase 4
+  zona : RUIDOS_Pol_AMPLtardeF4 :: Mapa de Ruido Total de la Aglomeración de la Comarca de Pamplona. Ltarde. Fase 4
+  zona : RUIDOS_Pol_AMPLdiaF4 :: Mapa de Ruido Total de la Aglomeración de la Comarca de Pamplona. Ldia. Fase 4
+  zona : RUIDOS_Pol_ZIADF4CP :: Mapas de Zonas de Incompatibilidad Acústica diurnas (ZI) de la Comarca de Pamplona. Fase 4
+  zona : RUIDOS_Pol_ZIANF4CP :: Mapas de Zonas de Incompatibilidad Acústica nocturnas (ZI) de la Comarca de Pamplona. Fase 4
+  zona : RUIDOS_Pol_ZTRANF4CP :: Mapas de Zonas Tranquilas (ZT) de la Comarca de Pamplona. Fase 4
+  zona : RUIDOS_Pol_ZACP :: Zonificación Acústica de la comarca de Pamplona (ZA). Fase 4
+  zona : RUIDOS_Pol_ZAA1F4 :: Zonificación Acústica (ZA) de la A-1. Fase 4
+  zona : RUIDOS_Pol_ZAA10F4 :: Zonificación Acústica (ZA) de la A-10. Fase 4
+  zona : RUIDOS_Pol_ZAA12F4 :: Zonificación Acústica (ZA) de la A-12. Fase 4
+  zona : RUIDOS_Pol_ZAA15F4 :: Zonificación Acústica (ZA) de la A-15. Fase 4
+  zona : RUIDOS_Pol_ZAA21F4 :: Zonificación Acústica (ZA) de la A-21. Fase 4
+  zona : RUIDOS_Pol_ZAAP15F4 :: Zonificación Acústica (ZA) de la AP-15. Fase 4
+  zona : RUIDOS_Pol_ZAA68F4 :: Zonificación Acústica (ZA) de la A-68. Fase 4
+  zona : RUIDOS_Pol_ZAAP68F4 :: Zonificación Acústica (ZA) de la AP-68. Fase 4
+  zona : RUIDOS_Pol_ZAN121AF4 :: Zonificación Acústica (ZA) de la N-121-A. Fase 4
+  zona : RUIDOS_Pol_ZAN121F4 :: Zonificación Acústica (ZA) de la N-121. Fase 4
+  zona : RUIDOS_Pol_ZAN240AF4 :: Zonificación Acústica (ZA) de la N-240-A. Fase 4
+  zona : RUIDOS_Pol_ZANA134F4 :: Zonificación Acústica (ZA) de la NA-134. Fase 4
+  zona : RUIDOS_Pol_ZANA150F4 :: Zonificación Acústica (ZA) de la NA-150. Fase 4
+  zona : RUIDOS_Pol_ZANA6531F4 :: Zonificación Acústica (ZA) de la NA-6531. Fase 4
+  zona : RUIDOS_Pol_ZANA700F4 :: Zonificación Acústica (ZA) de la NA-700. Fase 4
+  zona : RUIDOS_Pol_ZAPA34F4 :: Zonificación Acústica (ZA) de la PA-34. Fase 4
+  zona : SOCIAL_Pol_Zonificacion :: Zonificación de la Atención a mujeres víctimas de la violencia de género
+  zona : DOTACI_Pol_SNSZonas :: Delimitación de las Zonas Básicas de Salud
+  zona : DOTACI_Pol_SNSAreas :: Delimitación de las Áreas de Salud
+  salud: FOREST_Sym_REFINA :: Red de Evaluación Fitosanitaria (REFINA)
+  salud: DOTACI_Sym_SNSMental :: Centros de Salud Mental
+## PATRIM_Pol_Merindades 5 elementos · campos ['FEATURE', 'CMERINDAD', 'MERINDAD', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "9100003", "CMERINDAD": "3", "MERINDAD": "ESTELLA", "GEOM_AREA": "2068419182.13", "GEOM_PERI": "334160.04", "BEGINLIFE": "01/04/2003"}
+  ✔ PATRIM_Pol_Merindades -> merindad 5 zonas
+## ADMLOC_Pol_MapaLocalS 4 elementos · campos ['FEATURE', 'SUBCOMARCA', 'AZPIESKUAL', 'HABIT2017', 'NUMMUNICIP', 'CCOMARCA', 'COMARCA', 'ESKUALDEAK', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7600024", "SUBCOMARCA": "Área Metropolitana / Metropolialdea", "AZPIESKUAL": "Área Metropolitana / Metropolialdea", "HABIT2017": "348337", "NUMMUNICIP": "17", "CCOMARCA": "4", "COMARCA": "Comarca de Pamplona / Iruñerria", "ESKUALDEAK": "Comarca de Pamplona / Iruñerria", "GEOM_AREA": "335281657.68", "GEOM_PERI": "121949.65", "BEGINLIFE": "23/04/2019"}
+  ✔ ADMLOC_Pol_MapaLocalS -> mapalocaldenavarrasu 2 zonas
+## ADMLOC_Pol_MapaLocalC 12 elementos · campos ['FEATURE', 'CCOMARCA', 'COMARCA', 'ESKUALDEA', 'HABIT2017', 'NUMMUNICIP', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7600023", "CCOMARCA": "1", "COMARCA": "Baztan - Bisasoa", "ESKUALDEA": "Baztan - Bisasoa", "HABIT2017": "22355", "NUMMUNICIP": "21", "GEOM_AREA": "830722737.84", "GEOM_PERI": "162429.76", "BEGINLIFE": "23/04/2019"}
+  ✔ ADMLOC_Pol_MapaLocalC -> mapalocaldenavarraco 12 zonas
+## DOTACI_Pol_PartidoJud 5 elementos · campos ['FEATURE', 'CPARJUDIC', 'PARJUDIC', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7400022", "CPARJUDIC": "1", "PARJUDIC": "Aoiz / Agoitz", "GEOM_AREA": "2974553158.78", "GEOM_PERI": "393125.78", "BEGINLIFE": "29/09/2025"}
+  ✔ DOTACI_Pol_PartidoJud -> delimitaciondelajuri 5 zonas
+## PATRIM_Pol_Zonifling 4 elementos · campos ['FEATURE', 'CZONALING', 'ZONALINGUI', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "9100004", "CZONALING": "1", "ZONALINGUI": "Euskalduna / Vascófona", "GEOM_AREA": "2332462084.41", "GEOM_PERI": "507648.09", "BEGINLIFE": "24/10/2018"}
+  ✔ PATRIM_Pol_Zonifling -> delimitaciondelazoni 3 zonas
+## ESTADI_Pol_AreaNav2000 68 elementos · campos ['FEATURE', 'CAREA', 'AREAS', 'CZONA', 'ZONA', 'CSUBZONA', 'SUBZONA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "5000005", "CAREA": "1", "AREAS": "Baztan", "CZONA": "1", "ZONA": "Noroeste", "CSUBZONA": "1", "SUBZONA": "Baztán", "GEOM_AREA": "384109189.39", "GEOM_PERI": "108477.58", "BEGINLIFE": "01/04/2003"}
+  ✔ ESTADI_Pol_AreaNav2000 -> areasdelazonificacio 19 zonas
+## ESTADI_Pol_SzonNav2000 19 elementos · campos ['FEATURE', 'CSUBZONA', 'SUBZONA', 'CZONA', 'ZONA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "5000004", "CSUBZONA": "3", "SUBZONA": "Alto Bidasoa", "CZONA": "1", "ZONA": "Noroeste", "GEOM_AREA": "262075522.3", "GEOM_PERI": "82347.0", "BEGINLIFE": "01/04/2003"}
+  ✔ ESTADI_Pol_SzonNav2000 -> subzonasdelazonifica 19 zonas
+## ESTADI_Pol_ZonNav2000 7 elementos · campos ['FEATURE', 'CZONA', 'ZONA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "5000003", "CZONA": "5", "ZONA": "Navarra Media Oriental", "GEOM_AREA": "1302091102.81", "GEOM_PERI": "254436.9", "BEGINLIFE": "01/04/2003"}
+  ✔ ESTADI_Pol_ZonNav2000 -> zonasdelazonificacio 7 zonas
+## AGRICU_Pol_ComAgrarias 7 elementos · campos ['FEATURE', 'IDCOMARCA', 'COMARCA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "40500001", "IDCOMARCA": "III", "COMARCA": "Cuenca de Pamplona", "GEOM_AREA": "777810859.22", "GEOM_PERI": "171037.53", "BEGINLIFE": "01/01/2004"}
+  ✔ AGRICU_Pol_ComAgrarias -> comarcasagrarias 7 zonas
+## HIDROG_Pol_SubcuencaHi 38 elementos · campos ['FEATURE', 'CCUENCA', 'CUENCA', 'CSUBCUENCA', 'SUBCUENCA', 'VERTIENTE', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30500009", "CCUENCA": "11", "CUENCA": "Queiles", "CSUBCUENCA": "23", "SUBCUENCA": "Queiles", "VERTIENTE": "Mediterránea", "GEOM_AREA": "193530026.16", "GEOM_PERI": "66793.3", "BEGINLIFE": "01/01/2002"}
+  ✔ HIDROG_Pol_SubcuencaHi -> subcuencasdelaredhid 15 zonas
+## HIDROG_Pol_CuencaHi 13 elementos · campos ['FEATURE', 'CCUENCA', 'CUENCA', 'VERTIENTE', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30500008", "CCUENCA": "0", "CUENCA": "Alhama", "VERTIENTE": "Mediterranea", "GEOM_AREA": "268576091.01", "GEOM_PERI": "96506.53", "BEGINLIFE": "03/08/2002"}
+  ✔ HIDROG_Pol_CuencaHi -> cuencasdelaredhidrog 13 zonas
+## PARFLU_Pol_Vegetacion 280 elementos · campos ['FEATURE', 'CRECINTO', 'MEZCLA', 'ARBOL1', 'PORCARBOL1', 'ARBOL2', 'PORCARBOL2', 'OTRASESPEC', 'PREEXOTICA', 'EXOTICA', 'GRADOCOLON', 'ANCHURA', 'CAPACIDAD', 'OBSTACULOS', 'ESTADOCON', 'ESTADODES', 'COMPLEVEGE', 'DIAMETRO', 'ALTURAARBO', 'DENSIDAD', 'VALORACION', 'CABIDA', 'PREARBUSTO', 'ARBUSTO1', 'ARBUSTO2', 'ARBUSTO3', 'ALTURAARBU', 'PORCECOBER', 'VALORPAISA', 'ELEMENTO', 'FAUNA', 'PATOLOGIA', 'SITUACION', 'ESTADO1929', 'EVOLUCION', 'DESCRIPCIO', 'ACCESO', 'TIPO', 'SUBTIPO', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "35300015", "CRECINTO": "78", "MEZCLA": "Raso", "ARBOL1": "", "PORCARBOL1": "0", "ARBOL2": "", "PORCARBOL2": "0", "OTRASESPEC": "", "PREEXOTICA": "Inexistente", "EXOTICA": "", "GRADOCOLON": "sin especies exóticas", "ANCHURA": "18", "CAPACIDAD": "Media", "OBSTACULOS": "", "ESTADOCON": "Bajo", "ESTADODES": "", "COMPLEVEGE": "", "DIAMETRO": "0", "ALTURAARBO": "0", "DENSIDAD": "< 200", "VALORACION": "", "CABIDA": "0", "PREARBUSTO": "Si", "ARBUSTO1": "Rosa sp.", "ARBUSTO2": "Crataegus mon
+  (se descarta PARFLU_Pol_Vegetacion con 250 zonas)
+## POLUCI_Pol_ZAire 4 elementos · campos ['FEATURE', 'IDZONA', 'ZONA', 'KILOMETRO2', 'HABIT2025', 'URL', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7500030", "IDZONA": "ES1501", "ZONA": "MONTAÑA DE LA COMUNIDAD DE NAVARRA", "KILOMETRO2": "3208.71532", "HABIT2025": "45428", "URL": "https://www.navarra.es/es/calidaddelaire", "GEOM_AREA": "3208715316.06", "GEOM_PERI": "462788.73", "BEGINLIFE": "12/06/2026"}
+  ✔ POLUCI_Pol_ZAire -> zonificaciondelacali 4 zonas
+## POLUCI_Pol_ZOzono 3 elementos · campos ['FEATURE', 'IDZONA', 'ZONA', 'KILOMETRO2', 'HABIT2025', 'URL', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7500028", "IDZONA": "ES1506", "ZONA": "RIBERA DE LA COMUNIDAD DE NAVARRA O3", "KILOMETRO2": "2247.36546", "HABIT2025": "146580", "URL": "https://www.navarra.es/es/calidaddelaire", "GEOM_AREA": "2247365458.45", "GEOM_PERI": "327891.64", "BEGINLIFE": "12/06/2026"}
+  ✔ POLUCI_Pol_ZOzono -> zonificaciondelacali 3 zonas
+## POLUCI_Pol_ZMetBenzopireno 1 elementos · campos ['FEATURE', 'IDZONA', 'ZONA', 'KILOMETRO2', 'HABIT2025', 'URL', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7500029", "IDZONA": "ES1505", "ZONA": "Comunidad de Navarra", "KILOMETRO2": "10391.0", "HABIT2025": "683854", "URL": "https://www.navarra.es/es/calidaddelaire", "GEOM_AREA": "10391390056.83", "GEOM_PERI": "792894.31", "BEGINLIFE": "12/06/2026"}
+  (se descarta POLUCI_Pol_ZMetBenzopireno con 1 zonas)
+## FOREST_Pol_ZonUsoFuego 2 elementos · campos ['FEATURE', 'CZONA', 'ZONA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30200012", "CZONA": "1", "ZONA": "norte", "GEOM_AREA": "3175178412.26", "GEOM_PERI": "541319.97", "BEGINLIFE": "01/09/2009"}
+  ✔ FOREST_Pol_ZonUsoFuego -> zonificaciondeusodef 2 zonas
+## FOREST_Pol_ComForestales 3 elementos · campos ['FEATURE', 'COMARCA', 'FECHAREF', 'SUPERFICIE', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30200054", "COMARCA": "PIRENAICA", "FECHAREF": "18/06/2021", "SUPERFICIE": "231775.52", "GEOM_AREA": "2317755235.51", "GEOM_PERI": "290642.28", "BEGINLIFE": "02/11/2020"}
+  ✔ FOREST_Pol_ComForestales -> comarcasforestales 3 zonas
+## RUIDOS_Pol_AgloAMPF4 1 elementos · campos ['FEATURE', 'DELIMITACI', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100115", "DELIMITACI": "Delimitación de la Aglomeración de la Co", "GEOM_AREA": "66051685.37", "GEOM_PERI": "48419.93", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_AgloAMPF4 con 1 zonas)
+## RUIDOS_Pol_FerLdenF4 15 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100120", "RUIDODB": "5 - 10", "DBLOW": "5.0", "DBHIGH": "10.0", "GEOM_AREA": "22067.56", "GEOM_PERI": "44736.81", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_FerLdenF4 con 0 zonas)
+## RUIDOS_Pol_FerLnocheF4 13 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100122", "RUIDODB": "5 - 10", "DBLOW": "5.0", "DBHIGH": "10.0", "GEOM_AREA": "475561.73", "GEOM_PERI": "57824.75", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_FerLnocheF4 con 0 zonas)
+## RUIDOS_Pol_FerLtardeF4 14 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100123", "RUIDODB": "5 - 10", "DBLOW": "5.0", "DBHIGH": "10.0", "GEOM_AREA": "336782.96", "GEOM_PERI": "53294.77", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_FerLtardeF4 con 0 zonas)
+## RUIDOS_Pol_FerLdiaF4 14 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100121", "RUIDODB": "5 - 10", "DBLOW": "5.0", "DBHIGH": "10.0", "GEOM_AREA": "202185.62", "GEOM_PERI": "48375.51", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_FerLdiaF4 con 0 zonas)
+## RUIDOS_Pol_IndLdenF4 19 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100124", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "945233.83", "GEOM_PERI": "110740.25", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_IndLdenF4 con 0 zonas)
+## RUIDOS_Pol_IndLnocheF4 18 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100126", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "787555.01", "GEOM_PERI": "127183.58", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_IndLnocheF4 con 0 zonas)
+## RUIDOS_Pol_IndLtardeF4 18 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100127", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "1087612.91", "GEOM_PERI": "119468.19", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_IndLtardeF4 con 0 zonas)
+## RUIDOS_Pol_IndLdiaF4 18 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100125", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "1085512.3", "GEOM_PERI": "120515.96", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_IndLdiaF4 con 0 zonas)
+## RUIDOS_Pol_TraLdenF4 19 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100128", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "2428.88", "GEOM_PERI": "1633.58", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_TraLdenF4 con 0 zonas)
+## RUIDOS_Pol_TraLnocheF4 17 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100130", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "2520.25", "GEOM_PERI": "1730.7", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_TraLnocheF4 con 0 zonas)
+## RUIDOS_Pol_TraLtardeF4 19 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100131", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "2446.78", "GEOM_PERI": "1634.67", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_TraLtardeF4 con 0 zonas)
+## RUIDOS_Pol_TraLdiaF4 19 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100129", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "2443.29", "GEOM_PERI": "1634.65", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_TraLdiaF4 con 0 zonas)
+## RUIDOS_Pol_AMPLdenF4 19 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100116", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "2112.24", "GEOM_PERI": "1450.57", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_AMPLdenF4 con 0 zonas)
+## RUIDOS_Pol_AMPLnocheF4 18 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100118", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "2114.97", "GEOM_PERI": "1450.7", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_AMPLnocheF4 con 0 zonas)
+## RUIDOS_Pol_AMPLtardeF4 19 elementos · campos ['FEATURE', 'RUIDODB', 'DBLOW', 'DBHIGH', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100119", "RUIDODB": "0 - 5", "DBLOW": "0.0", "DBHIGH": "5.0", "GEOM_AREA": "2113.04", "GEOM_PERI": "1450.63", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_AMPLtardeF4 con 0 zonas)
+## RUIDOS_Pol_AMPLdiaF4 19 elementos · campos ['FEATURE', 'DBLOW', 'DBHIGH', 'RUIDODB', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100117", "DBLOW": "0.0", "DBHIGH": "5.0", "RUIDODB": "0 - 5", "GEOM_AREA": "2112.9", "GEOM_PERI": "1450.62", "BEGINLIFE": "30/11/2022"}
+  (se descarta RUIDOS_Pol_AMPLdiaF4 con 0 zonas)
+## RUIDOS_Pol_ZIADF4CP 1227 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'TIPO', 'CLASE', 'DBLOW', 'DBHIGH', 'RUIDODB', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100132", "CMUNICIPIO": "23", "MUNICIPIO": "Aranguren", "TIPO": "Industrial", "CLASE": "Area urbanizada existente", "DBLOW": "76.0", "DBHIGH": "79.0", "RUIDODB": "76-79", "GEOM_AREA": "404.05", "GEOM_PERI": "104.63", "BEGINLIFE": "10/09/2024"}
+  (se descarta RUIDOS_Pol_ZIADF4CP : no casa con los municipios)
+## RUIDOS_Pol_ZIANF4CP 1444 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'TIPO', 'CLASE', 'DBLOW', 'DBHIGH', 'RUIDODB', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100133", "CMUNICIPIO": "23", "MUNICIPIO": "Aranguren", "TIPO": "Industrial", "CLASE": "Area urbanizada existente", "DBLOW": "66.0", "DBHIGH": "68.0", "RUIDODB": "66-68", "GEOM_AREA": "557.56", "GEOM_PERI": "152.04", "BEGINLIFE": "10/09/2024"}
+  (se descarta RUIDOS_Pol_ZIANF4CP : no casa con los municipios)
+## RUIDOS_Pol_ZTRANF4CP 31 elementos · campos ['FEATURE', 'NOMBRE', 'CMUNICIPIO', 'MUNICIPIO', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100134", "NOMBRE": "Parque fluvial del Arga", "CMUNICIPIO": "901", "MUNICIPIO": "Barañáin / Barañain", "GEOM_AREA": "111973.64", "GEOM_PERI": "5125.54", "BEGINLIFE": "10/09/2024"}
+  ✔ RUIDOS_Pol_ZTRANF4CP -> mapasdezonastranquil 2 zonas
+## RUIDOS_Pol_ZACP 599 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'TIPO', 'ETIQUETA', 'CLASE', 'IDTIPO', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100076", "CMUNICIPIO": "16", "MUNICIPIO": "Ansoáin / Antsoain", "TIPO": "Area urbanizada existente", "ETIQUETA": "IND", "CLASE": "Industrial", "IDTIPO": "AUE", "GEOM_AREA": "95295.56", "GEOM_PERI": "1593.07", "BEGINLIFE": "10/09/2024"}
+  ✔ RUIDOS_Pol_ZACP -> zonificacionacustica 8 zonas
+## RUIDOS_Pol_ZAA1F4 45 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100199", "CMUNICIPIO": "10", "MUNICIPIO": "Altsasu / Alsasua", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_A-1", "GEOM_AREA": "105637.63", "GEOM_PERI": "1681.77", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAA1F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAA10F4 105 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100200", "CMUNICIPIO": "10", "MUNICIPIO": "Altsasu / Alsasua", "IDUSO": "a", "USO": "Residencial", "CODUME": "C_NAV_31_A-10", "GEOM_AREA": "353273.86", "GEOM_PERI": "3980.56", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAA10F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAA12F4 24 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100201", "CMUNICIPIO": "41", "MUNICIPIO": "Ayegui / Aiegi", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_A-12_002", "GEOM_AREA": "19239.68", "GEOM_PERI": "2298.82", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAA12F4 con 1 zonas)
+## RUIDOS_Pol_ZAA15F4 28 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100202", "CMUNICIPIO": "25", "MUNICIPIO": "Arakil", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_A-15_002", "GEOM_AREA": "117993.52", "GEOM_PERI": "2109.13", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAA15F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAA21F4 113 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100203", "CMUNICIPIO": "23", "MUNICIPIO": "Aranguren", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_A-21", "GEOM_AREA": "38326.57", "GEOM_PERI": "1016.69", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAA21F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAAP15F4 213 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100205", "CMUNICIPIO": "70", "MUNICIPIO": "Castejón", "IDUSO": "a", "USO": "Residencial", "CODUME": "C_NAV_31_AP-15_001", "GEOM_AREA": "79519.12", "GEOM_PERI": "1409.02", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAAP15F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAA68F4 54 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100204", "CMUNICIPIO": "78", "MUNICIPIO": "Cortes", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_A-68", "GEOM_AREA": "26195.54", "GEOM_PERI": "927.88", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAA68F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAAP68F4 104 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100206", "CMUNICIPIO": "0", "MUNICIPIO": "", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_AP-68", "GEOM_AREA": "96635.12", "GEOM_PERI": "1694.67", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAAP68F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAN121AF4 287 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100208", "CMUNICIPIO": "17", "MUNICIPIO": "Anue", "IDUSO": "a", "USO": "Residencial", "CODUME": "C_NAV_31_N-121-A", "GEOM_AREA": "28615.37", "GEOM_PERI": "752.65", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAN121AF4 : no casa con los municipios)
+## RUIDOS_Pol_ZAN121F4 16 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100207", "CMUNICIPIO": "228", "MUNICIPIO": "Tiebas-Muruarte de Reta", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_N-121", "GEOM_AREA": "43368.39", "GEOM_PERI": "1339.51", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAN121F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAN240AF4 32 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100209", "CMUNICIPIO": "902", "MUNICIPIO": "Berrioplano / Berriobeiti", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_N-240-A", "GEOM_AREA": "8572.41", "GEOM_PERI": "380.64", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAN240AF4 : no casa con los municipios)
+## RUIDOS_Pol_ZANA134F4 54 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100210", "CMUNICIPIO": "215", "MUNICIPIO": "San Adrián", "IDUSO": "a", "USO": "Residencial", "CODUME": "C_NAV_31_NA-134", "GEOM_AREA": "118289.76", "GEOM_PERI": "1945.33", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZANA134F4 : no casa con los municipios)
+## RUIDOS_Pol_ZANA150F4 29 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100211", "CMUNICIPIO": "122", "MUNICIPIO": "Huarte / Uharte", "IDUSO": "f", "USO": "Infraestructuras", "CODUME": "C_NAV_31_NA-150_002", "GEOM_AREA": "20335.13", "GEOM_PERI": "1449.28", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZANA150F4 : no casa con los municipios)
+## RUIDOS_Pol_ZANA6531F4 7 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100212", "CMUNICIPIO": "215", "MUNICIPIO": "San Adrián", "IDUSO": "a", "USO": "Residencial", "CODUME": "C_NAV_31_NA-6531", "GEOM_AREA": "977.38", "GEOM_PERI": "183.05", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZANA6531F4 con 1 zonas)
+## RUIDOS_Pol_ZANA700F4 11 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100213", "CMUNICIPIO": "906", "MUNICIPIO": "Orkoien", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_NA-700_002", "GEOM_AREA": "10091.01", "GEOM_PERI": "438.6", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZANA700F4 : no casa con los municipios)
+## RUIDOS_Pol_ZAPA34F4 42 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'IDUSO', 'USO', 'CODUME', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "30100214", "CMUNICIPIO": "902", "MUNICIPIO": "Berrioplano / Berriobeiti", "IDUSO": "b", "USO": "Industrial", "CODUME": "C_NAV_31_PA-34_002", "GEOM_AREA": "8572.41", "GEOM_PERI": "380.64", "BEGINLIFE": "05/03/2024"}
+  (se descarta RUIDOS_Pol_ZAPA34F4 : no casa con los municipios)
+## SOCIAL_Pol_Zonificacion 342 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'AJURIDICA', 'AINTEGRAL', 'TEMATICO', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "94100010", "CMUNICIPIO": "4", "MUNICIPIO": "Abaurrepea / Abaurrea Baja", "AJURIDICA": "SERVICIO DE ATENCIÓN JUR-DICA A LA MUJER", "AINTEGRAL": "EQUIPO DE ATENCIÓN INTEGRAL A V-CTIMAS D", "TEMATICO": "3", "GEOM_AREA": "11107631.13", "GEOM_PERI": "32356.55", "BEGINLIFE": "20/09/2021"}
+  (se descarta SOCIAL_Pol_Zonificacion con 342 zonas)
+## DOTACI_Pol_SNSZonas 58 elementos · campos ['FEATURE', 'CZONA', 'ZONA', 'AREAS', 'SECTOR', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7400015", "CZONA": "3", "ZONA": "Irurtzun", "AREAS": "PAMPLONA", "SECTOR": "IA - CASCO VIEJO", "GEOM_AREA": "349839883.28", "GEOM_PERI": "108309.66", "BEGINLIFE": "23/11/2022"}
+  ✔ DOTACI_Pol_SNSZonas -> delimitaciondelaszon 3 zonas
+## DOTACI_Pol_SNSAreas 4 elementos · campos ['FEATURE', 'AREAS', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7400013", "AREAS": "ESTELLA", "GEOM_AREA": "1727007414.7", "GEOM_PERI": "319455.94", "BEGINLIFE": "01/08/2004"}
+  ✔ DOTACI_Pol_SNSAreas -> delimitaciondelasare 3 zonas
+Wikidata: 273 filas · 121 con web · 1 con teléfono · 11 con partido judicial
+Ningún servidor de Overpass contestó
+## FOREST_Sym_REFINA 82 elementos · campos ['FEATURE', 'NOMBRERED', 'CPARCELA', 'SISTEMAFOR', 'ESPECIE', 'FECHAINSTA', 'FECHAMODIF', 'X25830', 'Y25830', 'CMUNICIPIO', 'MUNICIPIO', 'PORDEFOL18', 'PORDEFOL19', 'PORDEFOL20', 'PORDEFOL21', 'PORDEFOL22', 'PORDEFOL23', 'PORDEFOL24', 'PORDEFOL25', 'OBSERVACIO', 'SERIE', 'ALTITUD', 'PENDIENTE', 'ORIENTACIO', 'BEGINLIFE'] · ejemplo {"FEATURE": "30200041", "NOMBRERED": "REFINA", "CPARCELA": "1", "SISTEMAFOR": "Hayedo", "ESPECIE": "Fagus sylvatica", "FECHAINSTA": "2018", "FECHAMODIF": "2018", "X25830": "619018", "Y25830": "4781337", "CMUNICIPIO": "50", "MUNICIPIO": "Baztan", "PORDEFOL18": "12,5", "PORDEFOL19": "10,6", "PORDEFOL20": "11,3", "PORDEFOL21": "15,2", "PORDEFOL22": "15,0", "PORDEFOL23": "20,0", "PORDEFOL24": "20,0", "PORDEFOL25": "11,0", "OBSERVACIO": "", "SERIE": "Serie de los hayedos ombrófilos y acidóf", "ALTITU
+## DOTACI_Sym_SNSMental 18 elementos · campos ['FEATURE', 'IDCENSAN', 'CENSAN', 'TELEFONO', 'TFNOCITA', 'CENTSINGDP', 'POBLACION', 'DIRECCION', 'CODPOSTAL', 'TIPO', 'X25830', 'Y25830', 'BEGINLIFE'] · ejemplo {"FEATURE": "7400028", "IDCENSAN": "00053", "CENSAN": "Centro Salud Mental Tudela", "TELEFONO": "948848187", "TFNOCITA": "", "CENTSINGDP": "802", "POBLACION": "TUDELA", "DIRECCION": "GAYARRE, S/N", "CODPOSTAL": "31500", "TIPO": "Público", "X25830": "614954.25", "Y25830": "4657616.12", "BEGINLIFE": "23/11/2022"}
+sanidad: 100 {'otro': 82, 'cs': 14, 'hosp': 4}
+Ningún servidor de Overpass contestó
+bares, cafés y restaurantes: 0
