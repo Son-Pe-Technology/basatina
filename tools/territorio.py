@@ -112,7 +112,8 @@ ZONA_RE = re.compile(r"merindad|comarca|zonificaci[oó]n|partido[s]? judicial|\b
 SALUD_RE = re.compile(r"centro[s]? de salud|consultorio|hospital|urgencia|atenci[oó]n continuada|sanitari|ambulatori|salud mental", re.I)
 log("\n# Capas del catálogo que pueden servir:")
 cand_zona = [(n, t) for n, t in CAT if ZONA_RE.search(t) and "_Pol_" in n]
-cand_salud = [(n, t) for n, t in CAT if SALUD_RE.search(t) and ("_Sym_" in n or "_Pto_" in n or "_Pun_" in n)]
+cand_salud = [(n, t) for n, t in CAT if (SALUD_RE.search(t) or n.startswith("DOTACI_Sym_SNS")) and ("_Sym_" in n or "_Pto_" in n or "_Pun_" in n) and not n.startswith(("FOREST", "AGRICU", "GANADE"))]
+log("\n# Capas DOTACI del catálogo:"); [log("   ", n, "::", t) for n, t in CAT if n.startswith("DOTACI_")]
 for n, t in cand_zona: log("  zona :", n, "::", t)
 for n, t in cand_salud: log("  salud:", n, "::", t)
 
@@ -154,11 +155,25 @@ def agrupa(capa, titulo, clave=None):
     GRUPOS[k] = {"t": titulo, "capa": capa, "z": [{"n": z["n"], "m": sorted(z["m"], key=lambda c: MUN[c]["n"]), "r": z["r"]} for z in sorted(zonas, key=lambda z: norm(z["n"]))]}
     log("  ✔", capa, "->", k, len(zonas), "zonas en", round(time.time() - t0), "s")
 
-agrupa("PATRIM_Pol_Merindades", "Merindades", "merindad")
-for n, t in cand_zona[:10]:
-    if n == "PATRIM_Pol_Merindades" or "Municipio" in n or "Concejo" in n: continue
-    try: agrupa(n, t)
-    except Exception as e: log("  error en", n, e)
+# capas elegidas a mano (clave, capa, campo con el nombre, título en la app), en el orden en que salen
+CAPAS_ZONA = [("comarca", "ADMLOC_Pol_MapaLocalC", "COMARCA", "Comarcas"),
+              ("area", "ESTADI_Pol_AreaNav2000", "AREAS", "Valles y áreas"),
+              ("merindad", "PATRIM_Pol_Merindades", "MERINDAD", "Merindades"),
+              ("partido", "DOTACI_Pol_PartidoJud", "PARJUDIC", "Partidos judiciales"),
+              ("subzona", "ESTADI_Pol_SzonNav2000", "SUBZONA", "Subzonas"),
+              ("zona", "ESTADI_Pol_ZonNav2000", "ZONA", "Zonas de Navarra")]
+def bonito(n):
+    n = re.sub(r"\s+", " ", n or "").strip()
+    return n.title().replace(" Y ", " y ").replace(" De ", " de ").replace(" Del ", " del ") if n.isupper() else n
+_nombre_de = nombre_de
+for k, capa, campo, tit in CAPAS_ZONA:
+    nombre_de = (lambda c: (lambda at: bonito(at.get(c)) if at.get(c) else None))(campo)
+    try: agrupa(capa, tit, k)
+    except Exception as e: log("  error en", capa, e)
+nombre_de = _nombre_de
+log("\n# Otras capas de zonas que hay en IDENA (no se usan):")
+for n, t in cand_zona:
+    if n not in [c[1] for c in CAPAS_ZONA]: log("   ", n, "::", t)
 
 # ---------------------------------------------------------------- 3. Wikidata: web, teléfono, correo y partido judicial
 Q = """SELECT ?ine ?mLabel ?web ?tel ?mail ?pjLabel WHERE {
@@ -187,10 +202,27 @@ if b:
 log("Wikidata:", nwd, "filas ·", sum(1 for m in MUN.values() if "web" in m), "con web ·", sum(1 for m in MUN.values() if "tel" in m), "con teléfono ·",
     sum(1 for m in MUN.values() if "pj" in m), "con partido judicial")
 # partido judicial: si no viene en Wikidata y hay capa de partidos, se usa la capa
-for k, G in GRUPOS.items():
-    if "judicial" in norm(G["t"]):
-        for z in G["z"]:
-            for c in z["m"]: MUN[c].setdefault("pj", re.sub(r"(?i)^partido judicial de\s*", "", z["n"]))
+if "partido" in GRUPOS:
+    for z in GRUPOS["partido"]["z"]:
+        for c in z["m"]: MUN[c]["pj"] = z["n"]
+# teléfono, correo y web de los ayuntamientos: dependencias municipales de atención ciudadana (IDENA)
+rows, campos = shp("IDEMUN_Sym_DepenMun")
+def campo(at, *k):
+    for kk, v in at.items():
+        if any(kk.upper().startswith(x) for x in k) and str(v).strip() not in ("", "None", "-"): return str(v).strip()
+    return ""
+nd = 0
+for at, s_ in rows:
+    cm = campo(at, "CMUNICIPIO", "CMUNI"); nom = campo(at, "DEPENDENC", "NOMBRE", "DENOMIN", "DESCRIP")
+    c = cm if cm in MUN else next((k for k, m in MUN.items() if norm(m["n"]) == norm(campo(at, "MUNICIPIO"))), None)
+    if not c: continue
+    m = MUN[c]; prio = bool(re.search(r"ayuntamiento|casa consistorial|udaletxea|udala", nom, re.I))
+    tel, mail, web = campo(at, "TELEF", "TFNO"), campo(at, "EMAIL", "CORREO", "MAIL"), campo(at, "WEB", "URL", "PAGINA")
+    if tel and (prio or "tel" not in m): m["tel"] = tel; nd += 1
+    if mail and (prio or "mail" not in m): m["mail"] = mail
+    if web and not m.get("web"): m["web"] = web if web.startswith("http") else "https://" + web
+    if s_.points and prio: m["ay"] = ll(*s_.points[0][:2])
+log("dependencias municipales:", nd, "teléfonos ·", sum(1 for m in MUN.values() if "tel" in m), "municipios con teléfono ·", sum(1 for m in MUN.values() if "mail" in m), "con correo")
 
 # ---------------------------------------------------------------- 4. OpenStreetMap: sanidad y bares
 SERVIDORES = ["https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter",
@@ -242,17 +274,19 @@ for e in els:
                   "h": t.get("opening_hours") or "", "d": " ".join(x for x in [t.get("addr:street", ""), t.get("addr:housenumber", "")] if x).strip(),
                   "urg": 1 if t.get("emergency") == "yes" else 0, "src": "osm"})
 # capas sanitarias de IDENA (si existen): mandan sobre OSM en nombre y teléfono
-for capa, titulo in cand_salud[:6]:
+for capa, titulo in cand_salud[:12]:
     rows, _ = shp(capa)
     for at, s in rows:
         if not s.points: continue
         pt = ll(*s.points[0][:2])
-        n = nombre_de(at) or titulo
-        tel = next((str(v) for k, v in at.items() if k.upper().startswith("TELEF") and v), "")
+        n = campo(at, "CENSAN", "NOMBRE", "DENOMIN") or nombre_de(at) or titulo
+        tel = campo(at, "TELEF", "TFNO")
         dire = next((str(v) for k, v in at.items() if k.upper().startswith(("DIRECC", "DOMICIL")) and v), "")
-        k = cls({}, n + " " + titulo)
+        k = cls({}, n + " " + titulo + " " + campo(at, "TIPO"))
+        if "Mental" in capa: k = "sm"
         if k == "otro": k = "cs" if re.search(r"salud", titulo, re.I) else "hosp" if re.search(r"hospital", titulo, re.I) else "otro"
-        SALUD.append({"n": n, "k": k, "pt": pt, "p": pueblo(*pt), "tel": tel, "web": "", "h": "", "d": dire, "urg": 1 if k == "urg" else 0, "src": capa})
+        SALUD.append({"n": n, "k": k, "pt": pt, "p": campo(at, "POBLACION") or pueblo(*pt), "tel": tel, "cita": campo(at, "TFNOCITA"), "web": "", "h": campo(at, "HORARIO"), "d": dire, "urg": 1 if k == "urg" else 0, "src": capa,
+                      "t": campo(at, "TIPO")})
 # quitar repetidos (mismo tipo a menos de 120 m)
 OUT = []
 for s in sorted(SALUD, key=lambda s: (s["src"] == "osm", s["n"])):
