@@ -482,19 +482,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "pacongresointernacionaldepelotavasca20261111",
-   "t": "Congreso Internacional de Pelota Vasca",
-   "cat": "charla",
-   "f": "2026-11-11",
-   "ff": "2026-11-12",
-   "h": "",
-   "lugar": "Frontón Labrit",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/congreso-internacional-de-pelota-vasca",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "paexposicionkanthoriaetaautotuneaunviajepo20261111",
    "t": "Kanthoria eta auto-tunea: un viaje por la historia de la música en euskera",
    "cat": "concierto",
@@ -506,175 +493,6 @@
    "url": "https://www.pamplona.es/actualidad/eventos/exposicion-kanthoria-eta-auto-tunea-un-viaje-por-la-historia-de-la-musica-en",
    "desc": "Exposición",
    "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "patallerbizitxokoreparatubicinoviembremuse20261112",
-   "t": "Bizitxoko, repara tu bici - Noviembre",
-   "cat": "otros",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Museo de Educación Ambiental del Ayuntamiento de Pamplona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/taller-bizitxoko-repara-tu-bici-noviembre-museo-de-educacion-ambiental",
-   "desc": "Taller",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pacuentacuentossuenosdecuentobibliotecamil20261112",
-   "t": "Sueños de Cuento",
-   "cat": "teatro",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Biblioteca Pública de la Milagrosa",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/cuentacuentos-suenos-de-cuento-biblioteca-milagrosa",
-   "desc": "Cuentacuentos",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paxiciclodecineacogimientoenfamiliabetirak20261112",
-   "t": "Betirako",
-   "cat": "cine",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Cine Golem Baiona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/xi-ciclo-de-cine-acogimiento-en-familia-betirako",
-   "desc": "XI Ciclo de Cine Acogimiento en Familia",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "papresentaciondelibropamplonadosorillasbib20261112",
-   "t": "Pamplona dos orillas",
-   "cat": "charla",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Biblioteca Pública de San Pedro",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/presentacion-de-libro-pamplona-dos-orillas-biblioteca-san-pedro",
-   "desc": "Presentación de libro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paconferenciaalrescatedebarojabibliotecait20261112",
-   "t": "¡Al rescate de Baroja!",
-   "cat": "charla",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Biblioteca Pública de Iturrama",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/conferencia-al-rescate-de-baroja-biblioteca-iturrama",
-   "desc": "Conferencia",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "papresentaciondelibrolasvocesdelarepublica20261112",
-   "t": "Las voces de la República",
-   "cat": "charla",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Biblioteca Pública de San Pedro",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/presentacion-de-libro-las-voces-de-la-republica-biblioteca-de-san-jorge",
-   "desc": "Presentación de libro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cncrianzapositiva36anos420261112",
-   "t": "Crianza positiva 3-6 años",
-   "cat": "otros",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "",
-   "lugar": "Biblioteca de Navarra. Sala Planta 1",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-12/taller/crianza-positiva-3-6-anos-4",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "paicertameninternacionalpelotavasca20261112",
-   "t": "I Certamen Internacional Pelota Vasca",
-   "cat": "otros",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "",
-   "lugar": "Frontón Labrit",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/i-certamen-internacional-pelota-vasca",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cntreintacastanuelasparalondres20261112",
-   "t": "Treinta castañuelas para Londres",
-   "cat": "charla",
-   "f": "2026-11-12",
-   "ff": "",
-   "h": "",
-   "lugar": "Biblioteca de Navarra. Sala Planta 1",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-12/presentacion/treinta-castanuelas-para-londres",
-   "desc": "Presentación de libro",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "paviianiversariodelacasadelasmujeres20261113",
-   "t": "VII Aniversario de la Casa de las Mujeres",
-   "cat": "otros",
-   "f": "2026-11-13",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Casa de las Mujeres de Pamplona / Iruñeko Emakumeen Etxea",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/vii-aniversario-de-la-casa-de-las-mujeres",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paciclodehumordateprisagilipollasporelmund20261113",
-   "t": "Gilipollas por el mundo",
-   "cat": "otros",
-   "f": "2026-11-13",
-   "ff": "",
-   "h": "20:00",
-   "lugar": "Escuela Navarra de Teatro (ENT)",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-de-humor-date-prisa-gilipollas-por-el-mundo-ent",
-   "desc": "Ciclo de humor Date pRisa",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cnajou20261113",
-   "t": "Ajou!",
-   "cat": "concierto",
-   "f": "2026-11-13",
-   "ff": "",
-   "h": "21:00",
-   "lugar": "Centro Cultural / Kultur Gunea",
-   "pueblo": "Tafalla",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-13/conciertos/ajou",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "cnvocesdemujerenlapoesiaactualcreatividade20261113",
-   "t": "Voces de mujer en la poesía actual: creatividad en un proceso personal de cambio",
-   "cat": "otros",
-   "f": "2026-11-13",
-   "ff": "",
-   "h": "",
-   "lugar": "Biblioteca de Navarra. Sala Planta 1",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-13/taller/voces-de-mujer-en-la-poesia-actual-creatividad-en-un-proceso-personal-de-cambio",
-   "desc": "",
-   "src": "Cultura Navarra"
   },
   {
    "id": "paencuentroclubesdelecturaeneuskeradenavar20261114",
@@ -716,19 +534,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "cnpuntutakoma20261114",
-   "t": "Puntu Takoma",
-   "cat": "concierto",
-   "f": "2026-11-14",
-   "ff": "",
-   "h": "20:00",
-   "lugar": "Sala Multiusos del Ayuntamiento de Etxauri / Etxauri Udaleko Erabilera Anitzeko Aretoa",
-   "pueblo": "Etxauri",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-14/conciertos/puntu-takoma",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
    "id": "pateatroderosasodeliriosent20261114",
    "t": "De rosas o de lirios",
    "cat": "teatro",
@@ -766,19 +571,6 @@
    "url": "https://www.pamplona.es/actualidad/eventos/teatro-la-opera-de-los-tres-centavos-teatro-gayarre",
    "desc": "Teatro",
    "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cnnafarroakoirakurketaklubentopaketa202620261114",
-   "t": "Nafarroako Irakurketa Kluben Topaketa 2026",
-   "cat": "charla",
-   "f": "2026-11-14",
-   "ff": "",
-   "h": "",
-   "lugar": "Biblioteca de Navarra. Sala de preoyecciones",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-14/encuentro/nafarroako-irakurketa-kluben-topaketa-2026",
-   "desc": "",
-   "src": "Cultura Navarra"
   },
   {
    "id": "pafestivalcivivoxinthemappingcortometrajes20261115",
@@ -2029,5 +1821,5 @@
    "src": "Ayuntamiento de Pamplona"
   }
  ],
- "act": "2026-11-12 06:27"
+ "act": "2026-11-15 06:17"
 }
