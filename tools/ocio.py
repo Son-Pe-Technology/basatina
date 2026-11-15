@@ -70,7 +70,7 @@ def cartelera():
             else:
                 p = next(p for p in pelis if p["t"] == t); p["s"] = sorted(set(p["s"] + ses))[:14]
         if DEBUG < 2:
-            i = h.find("/peliculas/"); log("---- HTML de ejemplo (" + cid + ") ----\n" + h[max(0, i - 600):i + 3500] + "\n----"); globals()["DEBUG"] = DEBUG + 1
+            m0 = re.search(r'/peliculas/[a-z0-9\-]+/"', h); i = m0.start() if m0 else 0; log("---- HTML de ejemplo (" + cid + ") ----\n" + h[max(0, i - 1500):i + 4000] + "\n----"); globals()["DEBUG"] = DEBUG + 1
         pelis = [p for p in pelis if p["s"]] or pelis[:30]
         out.append({"id": cid, "n": html.unescape(tit.group(1)).strip() if tit else nombre, "d": dire.group(1).strip() if dire else "",
                     "tel": tel.group(1).strip() if tel else "", "u": url, "p": pelis[:40]})
