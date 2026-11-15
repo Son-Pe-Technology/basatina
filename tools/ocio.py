@@ -35,7 +35,6 @@ def leer_js(path):
 ANT = leer_js("web/ocio.js") or {}
 
 # ------------------------------------------------------------------ 🎬 cines
-DEBUG = 0
 def cartelera():
     base = "https://www.ecartelera.com"
     prov = get(base + "/cines/0,34,0.html")
@@ -45,36 +44,34 @@ def cartelera():
         if m.group(1) not in [i for i, _ in ids]: ids.append((m.group(1), html.unescape(m.group(2)).strip()))
     log("cartelera: cines encontrados", ids)
     out = []
+    def pelis_de(h):
+        L = []
+        for bq in re.split(r'<div class="titem"', h)[1:]:
+            bq = bq.split('<div class="tdata">')[0]
+            mt = re.search(r'<p class="tit"><a href="([^"]+)"[^>]*>([^<]+)</a>', bq)
+            if not mt: continue
+            data = [html.unescape(x).strip() for x in re.findall(r"<span>([^<]*)</span>", (re.search(r'<p class="data">(.*?)</p>', bq, re.S) or [None, ""])[1] if re.search(r'<p class="data">(.*?)</p>', bq, re.S) else "")]
+            mins = next((int(re.match(r"\d+", x).group()) for x in data if re.match(r"\d+ min", x)), None)
+            edad = next((x for x in data if re.match(r"^(\+\d+|TP|Apta)", x)), "")
+            gen = ", ".join(x for x in data if x and not re.match(r"^(\d+ min|\+\d+|TP|Apta)", x))
+            L.append({"t": html.unescape(mt.group(2)).strip(), "u": mt.group(1), "min": mins, "g": gen, "e": edad,
+                      "s": sorted(set(re.findall(r'data-session-time="(\d{1,2}:\d\d)"', bq)))})
+        return L
     for cid, nombre in ids[:20]:
         url = f"{base}/cines/{cid},0,1.html"; h = get(url)
         if not h: continue
-        dire = re.search(r"Direcci[oó]n:\s*</?[^>]*>?\s*([^<]+)", h); tel = re.search(r"Tel[eé]fono:\s*</?[^>]*>?\s*([0-9 ]{9,})", h)
+        dire = re.search(r"Direcci[oó]n:</b>\s*([^<]+)", h); tel = re.search(r"Tel[eé]fono:</b>\s*([0-9 ]{9,})", h)
         tit = re.search(r"<h1[^>]*>([^<]+)</h1>", h)
-        pelis = []
-        # cada película: enlace /peliculas/slug/ con su título y, después, las sesiones /cines/comprar/ID/
-        bloques = re.split(r'(?=<a[^>]+href="(?:https://www\.ecartelera\.com)?/peliculas/[^"/]+/"[^>]*>[^<]{2,})', h)
-        for bq in bloques[1:]:
-            mt = re.match(r'<a[^>]+href="((?:https://www\.ecartelera\.com)?/peliculas/[^"/]+/)"[^>]*>([^<]{2,})<', bq)
-            if not mt: continue
-            t = html.unescape(mt.group(2)).strip()
-            if re.match(r"(?i)^(ver tr[aá]iler|sinopsis|fotos|cr[ií]tica)", t): continue
-            ses = re.findall(r'<a[^>]*>\s*(?:<[^>]+>\s*)*(\d{1,2}:\d\d)\s*(?:<[^>]+>\s*)*</a>', bq)
-            if not ses: ses = re.findall(r'comprar[^>]*>\s*(?:<[^>]+>\s*)*(\d{1,2}:\d\d)', bq)
-            txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", bq))
-            meta = re.search(r"(\d{2,3}) min\.?\s*([^+]{0,60}?)\s*(\+\d+|TP|Apta)?(?=\s|$)", txt)
-            img = re.search(r'<img[^>]+(?:data-src|src)="([^"]+\.(?:jpg|webp|png))"', bq)
-            if not any(p["t"] == t for p in pelis):
-                pelis.append({"t": t, "u": (base + mt.group(1)) if mt.group(1).startswith("/") else mt.group(1), "s": ses[:14],
-                              "min": int(meta.group(1)) if meta else None, "g": (meta.group(2).strip() if meta else ""), "e": (meta.group(3) or "") if meta else "",
-                              "img": img.group(1) if img else ""})
-            else:
-                p = next(p for p in pelis if p["t"] == t); p["s"] = sorted(set(p["s"] + ses))[:14]
-        if DEBUG < 2:
-            m0 = re.search(r'/peliculas/[a-z0-9\-]+/"', h); i = m0.start() if m0 else 0; log("---- HTML de ejemplo (" + cid + ") ----\n" + h[max(0, i - 1500):i + 4000] + "\n----"); globals()["DEBUG"] = DEBUG + 1
-        pelis = [p for p in pelis if p["s"]] or pelis[:30]
+        pelis = pelis_de(h)
+        h1 = get(f"{base}/cines/{cid},1,1.html")
+        if h1:
+            for q in pelis_de(h1):
+                p = next((x for x in pelis if x["t"] == q["t"]), None)
+                if p: p["s1"] = q["s"]
+                else: q["s1"] = q["s"]; q["s"] = []; pelis.append(q)
         out.append({"id": cid, "n": html.unescape(tit.group(1)).strip() if tit else nombre, "d": dire.group(1).strip() if dire else "",
                     "tel": tel.group(1).strip() if tel else "", "u": url, "p": pelis[:40]})
-        log("  ", cid, out[-1]["n"], len(pelis), "películas")
+        log("  ", cid, out[-1]["n"], len(pelis), "películas,", sum(len(p["s"]) for p in pelis), "sesiones hoy")
         time.sleep(2)
     return out or ANT.get("cines", [])
 
