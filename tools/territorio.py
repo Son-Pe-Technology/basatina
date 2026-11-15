@@ -108,7 +108,7 @@ def catalogo():
     L = [(m.group(1).strip(), m.group(2).strip()) for m in re.finditer(r"<Layer[^>]*>\s*<Name>([^<]+)</Name>\s*<Title>([^<]*)</Title>", t)]
     log("catálogo WMS:", len(L), "capas"); return L
 CAT = catalogo()
-ZONA_RE = re.compile(r"merindad|comarca|zonificaci|partido[s]? judicial|valle[s]? |valles|mancomunidad(es)? de (servicios|agua|residuos)|[áa]rea[s]? de salud|zona[s]? b[áa]sica|zona[s]? de salud|cuenca", re.I)
+ZONA_RE = re.compile(r"merindad|comarca|zonificaci[oó]n|partido[s]? judicial|\bvalles?\b|zona[s]? b[áa]sica[s]? de salud|[áa]rea[s]? de salud", re.I)
 SALUD_RE = re.compile(r"centro[s]? de salud|consultorio|hospital|urgencia|atenci[oó]n continuada|sanitari|ambulatori|salud mental", re.I)
 log("\n# Capas del catálogo que pueden servir:")
 cand_zona = [(n, t) for n, t in CAT if ZONA_RE.search(t) and "_Pol_" in n]
@@ -128,8 +128,10 @@ def nombre_de(at):
 
 GRUPOS = {}
 def agrupa(capa, titulo, clave=None):
+    t0 = time.time()
     rows, _ = shp(capa)
     if not rows: return
+    if len(rows) > 400: log("  (se descarta", capa, "con", len(rows), "polígonos: demasiados)"); return
     zonas = []
     for at, s in rows:
         n = nombre_de(at)
@@ -139,21 +141,21 @@ def agrupa(capa, titulo, clave=None):
     # varias filas con el mismo nombre (islas) -> se juntan
     J = {}
     for z in zonas:
-        if z["n"] in J: J[z["n"]]["g"] = J[z["n"]]["g"].union(z["g"]); J[z["n"]]["r"] += z["r"]
-        else: J[z["n"]] = z
+        if z["n"] in J: J[z["n"]]["gs"].append(z["g"]); J[z["n"]]["r"] += z["r"]
+        else: z["gs"] = [z["g"]]; J[z["n"]] = z
     zonas = list(J.values())
     if len(zonas) < 2 or len(zonas) > 120: log("  (se descarta", capa, "con", len(zonas), "zonas)"); return
     for c, (g, rp) in GEOM.items():
-        z = next((z for z in zonas if z["g"].contains(rp)), None)
+        z = next((z for z in zonas if any(g.contains(rp) for g in z["gs"])), None)
         if z: z["m"].append(c)
     zonas = [z for z in zonas if z["m"]]
     if len(zonas) < 2: log("  (se descarta", capa, ": no casa con los municipios)"); return
     k = clave or re.sub(r"[^a-z]", "", norm(titulo))[:20]
     GRUPOS[k] = {"t": titulo, "capa": capa, "z": [{"n": z["n"], "m": sorted(z["m"], key=lambda c: MUN[c]["n"]), "r": z["r"]} for z in sorted(zonas, key=lambda z: norm(z["n"]))]}
-    log("  ✔", capa, "->", k, len(zonas), "zonas")
+    log("  ✔", capa, "->", k, len(zonas), "zonas en", round(time.time() - t0), "s")
 
 agrupa("PATRIM_Pol_Merindades", "Merindades", "merindad")
-for n, t in cand_zona:
+for n, t in cand_zona[:10]:
     if n == "PATRIM_Pol_Merindades" or "Municipio" in n or "Concejo" in n: continue
     try: agrupa(n, t)
     except Exception as e: log("  error en", n, e)
@@ -198,7 +200,7 @@ def overpass(q):
         for intento in range(2):
             try:
                 print("Overpass:", s, flush=True)
-                r = urllib.request.urlopen(urllib.request.Request(s, data=urllib.parse.urlencode({"data": q}).encode(), headers=UA), timeout=600)
+                r = urllib.request.urlopen(urllib.request.Request(s, data=urllib.parse.urlencode({"data": q}).encode(), headers=UA), timeout=360)
                 return json.loads(r.read())
             except Exception as e:
                 print("  falló:", e, flush=True); time.sleep(20)
@@ -214,7 +216,7 @@ def pueblo(la, lo):
         if d < bd: bd, best = d, n
     return best
 
-AREA = 'area["ISO3166-2"="ES-NA"][admin_level=4]->.na;'
+AREA = '[out:json][timeout:300];area["ISO3166-2"="ES-NA"]->.na;'
 QS = AREA + """(
   nwr["amenity"~"^(hospital|clinic|doctors)$"](area.na);
   nwr["healthcare"~"^(hospital|clinic|centre|doctor)$"](area.na);
@@ -240,7 +242,7 @@ for e in els:
                   "h": t.get("opening_hours") or "", "d": " ".join(x for x in [t.get("addr:street", ""), t.get("addr:housenumber", "")] if x).strip(),
                   "urg": 1 if t.get("emergency") == "yes" else 0, "src": "osm"})
 # capas sanitarias de IDENA (si existen): mandan sobre OSM en nombre y teléfono
-for capa, titulo in cand_salud:
+for capa, titulo in cand_salud[:6]:
     rows, _ = shp(capa)
     for at, s in rows:
         if not s.points: continue
