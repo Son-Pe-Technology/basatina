@@ -223,6 +223,17 @@ for at, s_ in rows:
     if mail and (prio or "mail" not in m): m["mail"] = mail
     if web and not m.get("web"): m["web"] = web if web.startswith("http") else "https://" + web
     if s_.points and prio: m["ay"] = ll(*s_.points[0][:2])
+try: rows2, _ = shp("DOTACI_Sym_CasaConsis")
+except Exception as e: log("CasaConsis: error", e); rows2 = []
+for at, s_ in rows2:
+    cm = campo(at, "CMUNICIPIO", "CMUNI")
+    c = cm if cm in MUN else next((k for k, m in MUN.items() if norm(m["n"]) == norm(campo(at, "MUNICIPIO", "ENTIDAD"))), None)
+    if not c: continue
+    m = MUN[c]; tel, mail, web = campo(at, "TELEF", "TFNO"), campo(at, "EMAIL", "CORREO", "MAIL"), campo(at, "WEB", "URL", "PAGINA")
+    if tel: m["tel"] = tel; nd += 1
+    if mail: m["mail"] = mail
+    if web and not m.get("web"): m["web"] = web if web.startswith("http") else "https://" + web
+    if s_.points: m["ay"] = ll(*s_.points[0][:2])
 log("dependencias municipales:", nd, "teléfonos ·", sum(1 for m in MUN.values() if "tel" in m), "municipios con teléfono ·", sum(1 for m in MUN.values() if "mail" in m), "con correo")
 
 # ---------------------------------------------------------------- 4. OpenStreetMap: sanidad y bares
@@ -259,10 +270,13 @@ els = overpass(QS)["elements"]
 SALUD = []
 def cls(t, n):
     s = (n + " " + " ".join(f"{k}={v}" for k, v in t.items())).lower()
-    if re.search(r"urgenc|s\.?u\.?a\.?p|\bsue\b|\bpac\b|atenci[oó]n continuada|emergency=yes", s): return "urg"
-    if t.get("amenity") == "hospital" or t.get("healthcare") == "hospital" or re.search(r"hospital|cl[ií]nica universidad|complejo hospitalario", s): return "hosp"
-    if re.search(r"centro de salud|osasun etxe|osasun zentro|ambulatorio", s): return "cs"
-    if re.search(r"consultorio|kontsultategi", s): return "cons"
+    nm = n.lower()
+    if re.search(r"urgenc|s\.?u\.?a\.?p\b|\bsue\b|\bpac\b|atenci[oó]n continuada", nm): return "urg"
+    if re.search(r"salud mental|osasun mental|psiqui", nm): return "sm"
+    if re.search(r"centro de salud|centro salud|osasun etxe|osasun zentro", nm): return "cs"
+    if re.search(r"consultorio|kontsultategi", nm): return "cons"
+    if re.search(r"hospital|ospitale|cl[ií]nica universi|unibertsitate klinika|complejo hospitalario", nm) or t.get("amenity") == "hospital" or t.get("healthcare") == "hospital": return "hosp"
+    if re.search(r"ambulatorio", nm): return "cs"
     return "otro"
 for e in els:
     t = e.get("tags", {}); n = (t.get("name") or t.get("name:es") or "").strip()
@@ -273,7 +287,7 @@ for e in els:
     SALUD.append({"n": n, "k": k, "pt": [round(la, 5), round(lo, 5)], "p": pueblo(la, lo),
                   "tel": t.get("phone") or t.get("contact:phone") or "", "web": t.get("website") or t.get("contact:website") or "",
                   "h": t.get("opening_hours") or "", "d": " ".join(x for x in [t.get("addr:street", ""), t.get("addr:housenumber", "")] if x).strip(),
-                  "urg": 1 if t.get("emergency") == "yes" else 0, "src": "osm"})
+                  "urg": 1 if (t.get("emergency") == "yes" and k == "hosp") or k == "urg" else 0, "src": "osm"})
 # capas sanitarias de IDENA (si existen): mandan sobre OSM en nombre y teléfono
 for capa, titulo in cand_salud[:12]:
     rows, _ = shp(capa)
@@ -286,7 +300,7 @@ for capa, titulo in cand_salud[:12]:
         k = cls({}, n + " " + titulo + " " + campo(at, "TIPO"))
         if "Mental" in capa: k = "sm"
         if k == "otro": k = "cs" if re.search(r"salud", titulo, re.I) else "hosp" if re.search(r"hospital", titulo, re.I) else "otro"
-        SALUD.append({"n": n, "k": k, "pt": pt, "p": campo(at, "POBLACION") or pueblo(*pt), "tel": tel, "cita": campo(at, "TFNOCITA"), "web": "", "h": campo(at, "HORARIO"), "d": dire, "urg": 1 if k == "urg" else 0, "src": capa,
+        SALUD.append({"n": n, "k": k, "pt": pt, "p": bonito(campo(at, "POBLACION")) or pueblo(*pt), "tel": tel, "cita": campo(at, "TFNOCITA"), "web": "", "h": campo(at, "HORARIO"), "d": dire, "urg": 1 if k == "urg" else 0, "src": capa,
                       "t": campo(at, "TIPO")})
 # quitar repetidos (mismo tipo a menos de 120 m)
 OUT = []
