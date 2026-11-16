@@ -148,7 +148,7 @@ function ojos(el){el.querySelectorAll('[data-ver]').forEach(b=>b.onclick=()=>{co
 async function cuRender(){const el=$('cuBody');if(!el)return;const a=ses();
   if(!a)return cuFuera(el);
   if(!verif()){const email=jwt(a.it).email;
-    el.innerHTML=`<div class="card"><b>📧 Confirma tu correo</b><div class="note" style="margin-top:4px;line-height:1.5">Te hemos enviado un correo a <b>${esc(email)}</b> con un enlace. Púlsalo y vuelve aquí.<br>Si no lo ves, mira en <b>spam</b> o «Promociones». Lo envía <i>noreply@basatina-9a8b5.firebaseapp.com</i>.</div>
+    el.innerHTML=`<div class="card"><b>📧 Confirma tu correo</b><div class="note" style="margin-top:4px;line-height:1.5">Te hemos enviado un correo a <b>${esc(email)}</b> con un enlace. Púlsalo y vuelve aquí.<br>Si no lo ves, mira en <b>spam</b> o «Promociones». Lo envía <i>noreply@basatina-9a8b5.firebaseapp.com</i>.<br>⏳ Si no lo confirmas en <b>30 días</b>, la cuenta se borra sola.</div>
       <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px"><button class="btn pri" id="cuYa">✅ Ya lo he confirmado</button><button class="btn" id="cuRe">📨 Enviar otra vez</button></div><div class="note" id="cuM"></div></div>
      <div class="card"><div class="row"><button class="btn" id="cuOut">Cerrar sesión</button></div></div>`;
     $('cuYa').onclick=async()=>{$('cuM').textContent='Comprobando…';try{await tok(1);if(verif()){await cargaPerfil().catch(()=>{});await cuSync(1).catch(()=>{});toast('✅ ¡Correo confirmado!');cuRender();}else $('cuM').textContent='Todavía no consta como confirmado. Pulsa el enlace del correo y prueba otra vez.';}catch(e){$('cuM').textContent='❌ '+msg(e);}};

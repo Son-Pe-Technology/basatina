@@ -21,7 +21,7 @@
 | Datos especiales | Ninguno a propósito. El diario de dolores queda fuera de la cuenta precisamente por ser datos de salud. |
 | Destinatarios | Público: solo el apodo, en los avisos. Encargado: Google Ireland Ltd. (Firebase Authentication para correo y contraseña; Cloud Firestore en Madrid para `usuarios`, `apodos` y `espacio`). Los correos de confirmación y de contraseña los envía Firebase. Firebase Authentication registra la IP y el agente de usuario al darse de alta y al entrar (antiabuso) y guarda la IP unas semanas. |
 | Transferencias internacionales | Firebase Authentication puede tratar los datos en EE. UU.: cubierto por las Cláusulas Contractuales Tipo y el Marco de Privacidad de Datos UE‑EE. UU. de las condiciones de Google. |
-| Plazos | Mientras exista la cuenta. Al borrarla (app, basatina.es/borrar-cuenta.html o correo a participa@) se borra todo al momento; por correo, en 30 días como máximo. Bloqueos: 12 meses. |
+| Plazos | Mientras exista la cuenta. Robot nocturno (`tools/cuentas_limpieza.py`): cuentas sin confirmar a los 30 días, cuentas sin uso en 2 años (con todos sus datos) y anónimos sin uso en 1 año. Al borrarla (app, basatina.es/borrar-cuenta.html o correo a participa@) se borra todo al momento; por correo, en 30 días como máximo. Bloqueos: 12 meses. |
 | Seguridad | Reglas de Firestore: cada uno solo lee y escribe su perfil y su Mi Espacio; apodos únicos; avisar y votar solo con correo confirmado. Contraseña mínima de 8 caracteres. Ver documento 2. |
 
 ## Tratamiento 0 bis · Contador anónimo de uso (desde el 16 nov. 2026)
