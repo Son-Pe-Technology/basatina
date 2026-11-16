@@ -46,7 +46,7 @@
 | Datos especiales | Ninguno a propósito. Si en un texto aparecen datos de terceros o especiales, se borran en la moderación. |
 | Destinatarios | Público en general (el aviso publicado con el apodo, sin correo ni identificador). Encargados: Google Ireland Ltd. (Firebase Authentication con acceso anónimo y Cloud Firestore) y Web3Forms (aviso por correo a alertas@basatina.es con el tipo, el texto y el sitio de cada alerta nueva; **nunca** el código de colaborador). |
 | Transferencias internacionales | Datos alojados en la región europe-southwest1 (Madrid). Google puede acceder desde fuera de la UE para dar soporte; cubierto por las Cláusulas Contractuales Tipo y el Marco de Privacidad de Datos UE‑EE. UU. incluidos en sus condiciones de tratamiento. |
-| Plazos | Visible: 6 h – 7 días según el tipo. Borrado total: 30 días tras caducar. Denuncias y decisiones de moderación: 6 meses. Códigos bloqueados: 12 meses. Registro de moderación (`moderacion`: acción, aviso, quién de los administradores y cuándo): 12 meses. |
+| Plazos | Visible: 6 h – 7 días según el tipo. Borrado total: 30 días tras caducar. Denuncias: 6 meses. Códigos bloqueados: 12 meses. Registro de moderación (`moderacion`: acción, aviso, quién de los administradores y cuándo): 12 meses. |
 | Seguridad | Ver documento 2. |
 
 ## Tratamiento 2 · Fotos de la gente
