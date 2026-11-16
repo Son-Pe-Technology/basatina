@@ -2070,3 +2070,16 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Todas":["Denak","All","Toutes"],"Carretera":["Errepidea","Road","Route"],"Vías verdes":["Bide berdeak","Greenways","Voies vertes"],"Fácil":["Erraza","Easy","Facile"],"Media":["Ertaina","Medium","Moyenne"],"Difícil":["Zaila","Hard","Difficile"],
  "Cualquier dificultad":["Edozein zailtasun","Any difficulty","Toute difficulté"],"Abrir en el navegador":["Nabigatzailean ireki","Open in navigation","Ouvrir dans le GPS"],"Tiempo en la ruta":["Eguraldia ibilbidean","Weather on the route","Météo sur le parcours"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
+
+// 👤 Mi cuenta (web/cuenta.js, 16 nov. 2026): etiquetas principales
+(function(){const T={
+ "Mi cuenta":["Nire kontua","My account","Mon compte"],"Mi cuenta de BasatiNA":["Nire BasatiNA kontua","My BasatiNA account","Mon compte BasatiNA"],
+ "Entrar":["Sartu","Sign in","Se connecter"],"Crear cuenta":["Kontua sortu","Create account","Créer un compte"],"Crear mi cuenta":["Nire kontua sortu","Create my account","Créer mon compte"],
+ "¿Olvidaste la contraseña?":["Pasahitza ahaztu duzu?","Forgot your password?","Mot de passe oublié ?"],"Enviar enlace":["Esteka bidali","Send link","Envoyer le lien"],
+ "Confirma tu correo":["Berretsi zure posta","Confirm your email","Confirme ton e-mail"],"Ya lo he confirmado":["Berretsi dut","I've confirmed it","Je l'ai confirmé"],"Enviar otra vez":["Berriro bidali","Send again","Renvoyer"],
+ "Cerrar sesión":["Saioa itxi","Sign out","Se déconnecter"],"Cambiar apodo":["Ezizena aldatu","Change nickname","Changer de pseudo"],"Elige tu apodo":["Aukeratu zure ezizena","Choose your nickname","Choisis ton pseudo"],
+ "Cambiar contraseña":["Pasahitza aldatu","Change password","Changer le mot de passe"],"Borrar mi cuenta":["Nire kontua ezabatu","Delete my account","Supprimer mon compte"],"Borrar para siempre":["Betiko ezabatu","Delete forever","Supprimer définitivement"],
+ "Mi Espacio en la cuenta":["Nire Gunea kontuan","My Space in the account","Mon Espace dans le compte"],"Guardar y traer ahora":["Gorde eta ekarri orain","Save and fetch now","Enregistrer et récupérer"],
+ "Para avisar necesitas una cuenta":["Abisatzeko kontu bat behar duzu","You need an account to post alerts","Il faut un compte pour signaler"],"Crear cuenta o entrar":["Kontua sortu edo sartu","Create an account or sign in","Créer un compte ou se connecter"],
+ "Terminar mi cuenta":["Nire kontua amaitu","Finish my account","Terminer mon compte"],"Borrar":["Ezabatu","Delete","Supprimer"],"Quitar apodo ofensivo":["Ezizen iraingarria kendu","Remove offensive nickname","Retirer le pseudo offensant"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();

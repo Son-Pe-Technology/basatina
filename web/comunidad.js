@@ -4,6 +4,9 @@
    - Base de datos: Firebase Cloud Firestore (proyecto basatina-9a8b5, Madrid), por su interfaz web (REST),
      sin librerías. Reglas de seguridad: firestore.rules (se pegan a mano en la consola de Firebase).
    - Cada móvil entra con el «acceso anónimo» de Firebase: su uid es el «código de colaborador».
+   - Desde el 16 nov. 2026, para avisar y votar hace falta una cuenta (web/cuenta.js): correo confirmado + apodo.
+     Al crear la cuenta se «enlaza» el usuario anónimo, así que el uid no cambia y no se pierden los avisos.
+     La sesión (anónima o de cuenta) se guarda en localStorage «cmAuth». Denunciar sigue sin cuenta.
    - Los administradores moderan desde la pestaña 🛡️ Moderar (solo en modo Administrador),
      entrando con administracion@sonpe-technology.es y su contraseña (solo dura la sesión).
    - Textos legales: docs/privacidad.html, docs/normas-comunidad.html, legal/*.md
@@ -21,7 +24,7 @@ const CM_T=[['arbol','🌳','Árbol caído',72],['desprendimiento','🪨','Despr
 const CMT=Object.fromEntries(CM_T.map(t=>[t[0],t]));
 const CM_MOT={datos:'Contiene datos personales de otra persona',acusa:'Acusa a una persona concreta',falso:'Aviso falso o no comprobable',
   yano:'Ya no está / desactualizado',ofensivo:'Lenguaje ofensivo o contenido inapropiado',notema:'No es un aviso (publicidad, política, otro tema)',ilegal:'Contenido ilegal',otro:'Otro motivo'};
-const CM_NORMAS=1;   // versión de las normas aceptadas
+const CM_NORMAS=2;   // versión de las normas aceptadas (2 = con cuentas, 16 nov. 2026)
 const NORMAS_URL='https://basatina.es/normas-comunidad.html',PRIV_URL='https://basatina.es/privacidad.html#comunidad';
 const abre=u=>{try{if(typeof foOpenUrl==='function')return foOpenUrl(u);}catch(e){}window.open(u,'_blank');};
 const dudoso=t=>/[0-9]{4}[ -]?[BCDFGHJKLMNPRSTVWXYZ]{3}/i.test(t)||/([0-9][ .-]?){9}/.test(t)||/@/.test(t);
@@ -63,6 +66,13 @@ const nom=(col,id)=>`${DOCS}/${col}/${id}`;
 const fsPatch=(col,id,obj,tok)=>fs(`/${col}/${id}?`+Object.keys(obj).map(k=>'updateMask.fieldPaths='+encodeURIComponent(k)).join('&'),{method:'PATCH',body:JSON.stringify({fields:encF(obj)})},tok);
 const fsDel=(col,id,tok)=>fs(`/${col}/${id}`,{method:'DELETE'},tok);
 
+// herramientas compartidas con web/cuenta.js
+window.CMX={FB,DOCS,fbAuthPost,refresca,cmTok,fs,fsQuery,fsCommit,fsPatch,fsDel,nom,enc,encF,dec,decD,rnd,abre};
+const CU=()=>window.CU||{ok:()=>false,perfil:()=>null,ir:()=>showTab('cuenta')};
+// pide cuenta confirmada; si no la hay, explica y lleva a «Mi cuenta»
+function pideCuenta(que){if(CU().ok()&&CU().perfil())return true;
+  if(confirm('Para '+que+' necesitas una cuenta de BasatiNA (gratis, con tu correo y un apodo).'+(CU().sesion&&CU().sesion()?' Te falta confirmar el correo o elegir el apodo.':'')+'\n\n¿Ir a «Mi cuenta»?'))CU().ir();return false;}
+
 /* ---------- estado local ---------- */
 let CMV='mapa',CMA=[],CMSEL=null,CMM=null,CMF=null,CMPT=null,CMTIPO=null,CMCARGA=0;
 const ocultos=()=>Object.assign({ids:[],ah:[]},lsGet('cmOcultos',{}));
@@ -76,14 +86,18 @@ let PBL=null;function pueblo(la,lo){if(!PBL){const P=window.PUEBLOS;if(!P)return
 /* ---------- pantalla ---------- */
 svSec('comunidad',`<div class="card" style="background:#fdecea;border-left:5px solid #e53935"><b style="color:#b71c1c">🚨 Si hay heridos o peligro, llama primero al 112.</b>
   <div class="note" style="color:#5d4037">Esto no es un servicio de emergencias. Los avisos los escribe la gente: úsalos como una pista y sigue siempre los avisos oficiales.</div></div>
- <div class="card"><b>📣 Alertas ciudadanas</b><div class="note">Árboles caídos, desprendimientos, caminos cortados, lluvias muy fuertes, cebos envenenados… Avisa a los demás y mira lo que pasa cerca de ti. Es anónimo.</div>
+ <div class="card"><b>📣 Alertas ciudadanas</b><div class="note">Árboles caídos, desprendimientos, caminos cortados, lluvias muy fuertes, cebos envenenados… Avisa a los demás y mira lo que pasa cerca de ti. Ver los avisos es libre; para avisar y votar hace falta una cuenta (sale tu apodo, nunca tu correo).</div>
+  <div class="note" id="cmQuien" style="margin-top:4px"></div>
   <div class="seg" id="cmSeg" style="margin-top:8px;flex-wrap:wrap"><button class="btn on" data-v="mapa">🗺️ Avisos</button><button class="btn" data-v="nuevo">➕ Avisar</button><button class="btn" data-v="mios">📋 Mis avisos</button><button class="btn" data-v="mod" id="cmModB" style="display:none">🛡️ Moderar</button></div></div>
  <div id="cmBody"></div>
  <div class="note" style="margin:0 6px 12px"><a href="#" id="cmNor">Normas de la comunidad</a> · <a href="#" id="cmPri">Privacidad</a> · Mapa © IGN</div>`);
 $('cmNor').onclick=e=>{e.preventDefault();abre(NORMAS_URL);};$('cmPri').onclick=e=>{e.preventDefault();abre(PRIV_URL);};
 $('cmSeg').querySelectorAll('button').forEach(b=>b.onclick=()=>{CMV=b.dataset.v;cmRender();});
 
-function cmRender(){$('cmSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===CMV));
+function cmQuien(){const el=$('cmQuien');if(!el)return;const p=CU().perfil();
+  el.innerHTML=CU().ok()&&p?`👤 Avisas como <b>${esc(p.apodo)}</b>`:`👤 <a href="#" id="cmIrC">Crea tu cuenta o entra</a> para avisar y votar.`;
+  if($('cmIrC'))$('cmIrC').onclick=e=>{e.preventDefault();CU().ir();};}
+function cmRender(){cmQuien();$('cmSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===CMV));
   $('cmModB').style.display=(typeof TECH!=='undefined'&&TECH)?'':'none';if(CMV==='mod'&&!TECH)CMV='mapa';
   CMM=null;CMF=null;({mapa:cmMapa,nuevo:cmNuevo,mios:cmMios,mod:cmMod})[CMV]();}
 
@@ -105,7 +119,7 @@ async function cmMapa(){const el=$('cmBody');
   await cmCargar();if(CMV!=='mapa')return;CMM.draw();cmLista();}
 function cmFila(a){const t=CMT[a.tipo],sel=CMSEL===a.id,v=lsGet('cmVotos',{})[a.id],p=pueblo(a.lat,a.lon),k=MYPOS?km(MYPOS.la,MYPOS.lo,a.lat,a.lon):null;
   return `<div class="st" data-a="${a.id}" style="cursor:pointer;align-items:flex-start;${sel?'background:rgba(255,235,59,.18);border-radius:8px':''}"><div style="font-size:26px">${t[1]}</div><div style="flex:1">
-    <b>${t[2]}</b>${p?` · <span class="note">${esc(p)}</span>`:''}<div class="s">${hace(a.creado)}${k!=null?` · ${fmtN(k,k<10?1:0)} km`:''}${a.si||a.no?` · 👍 ${a.si} · 👎 ${a.no}`:''}</div>
+    <b>${t[2]}</b>${p?` · <span class="note">${esc(p)}</span>`:''}<div class="s">${a.apodo?'👤 '+esc(a.apodo)+' · ':''}${hace(a.creado)}${k!=null?` · ${fmtN(k,k<10?1:0)} km`:''}${a.si||a.no?` · 👍 ${a.si} · 👎 ${a.no}`:''}</div>
     ${a.texto?`<div style="margin-top:3px;white-space:pre-line">${esc(a.texto)}</div>`:''}
     ${sel?`<div class="row" style="margin-top:6px;flex-wrap:wrap;gap:4px">
       <button class="btn" data-vt="si" ${v?'disabled':''}>👍 Sigue ahí${v==='si'?' ✓':''}</button><button class="btn" data-vt="no" ${v?'disabled':''}>👎 Ya no está${v==='no'?' ✓':''}</button>
@@ -130,7 +144,7 @@ function cmLista(){const el=$('cmL');if(!el)return;
       <textarea id="cmDt" class="town" maxlength="300" rows="2" placeholder="Explícalo si quieres (opcional, sin datos personales)" style="width:100%;box-sizing:border-box;margin-top:6px"></textarea>
       <div class="row" style="margin-top:6px"><button class="btn pri" id="cmDe">Enviar denuncia</button></div></div>`;
     $('cmDe').onclick=()=>cmDenunciar(a,$('cmDm').value,$('cmDt').value.trim());});}
-async function cmVotar(a,v){try{const u=await cmTok();
+async function cmVotar(a,v){if(!pideCuenta('votar'))return;try{const u=await cmTok();
     await fsCommit([{update:{name:nom('votos',a.id+'_'+u.uid),fields:encF({aviso:a.id,v})},currentDocument:{exists:false}},
       {transform:{document:nom('avisos',a.id),fieldTransforms:[{fieldPath:v,increment:{integerValue:'1'}}]},currentDocument:{exists:true}}],u.it);
     const V=lsGet('cmVotos',{});V[a.id]=v;lsSet('cmVotos',V);a[v]++;toast(v==='si'?'👍 Gracias por confirmarlo':'👎 Gracias: si más gente lo confirma, desaparecerá');cmLista();}
@@ -142,6 +156,11 @@ async function cmDenunciar(a,motivo,texto){try{const u=await cmTok();
 
 /* ---- ➕ dar un aviso ---- */
 function cmNuevo(){const el=$('cmBody'),ok=lsGet('cmNormas',0)>=CM_NORMAS;CMPT=null;CMTIPO=null;
+  if(!(CU().ok()&&CU().perfil())){const s=CU().sesion&&CU().sesion();
+    el.innerHTML=`<div class="card"><b>👤 Para avisar necesitas una cuenta</b><div class="note" style="margin-top:4px;line-height:1.5">Es gratis: tu correo, una contraseña y un apodo. En los avisos solo sale el apodo, nunca tu correo.<br>Pedimos cuenta para que no se cuelen avisos falsos y para poder bloquear a quien abuse.</div>
+      ${s?'<div class="note" style="margin-top:6px">⚠️ Ya has entrado, pero te falta '+(CU().ok()?'elegir tu apodo':'confirmar tu correo')+'.</div>':''}
+      <div class="row" style="margin-top:8px"><button class="btn pri" id="cmCu" style="flex:1">${s?'Terminar mi cuenta':'Crear cuenta o entrar'}</button></div></div>`;
+    $('cmCu').onclick=()=>CU().ir();return;}
   el.innerHTML=`<div class="card"><b>1. ¿Qué pasa?</b><div id="cmTp" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px">${CM_T.map(t=>`<button class="btn" data-t="${t[0]}" style="flex-direction:column;padding:8px 4px;font-size:12px;line-height:1.2;white-space:normal"><span style="font-size:24px">${t[1]}</span>${t[2]}</button>`).join('')}</div>
      <div class="note" id="cmTpN" style="margin-top:6px"></div></div>
    <div class="card"><b>2. ¿Dónde?</b><div class="note">Toca el mapa en el sitio exacto (puedes acercarte con ＋ o con dos dedos).</div>
@@ -149,7 +168,7 @@ function cmNuevo(){const el=$('cmBody'),ok=lsGet('cmNormas',0)>=CM_NORMAS;CMPT=n
      <div class="row" style="margin-top:6px"><button class="btn" id="cmPIn">＋</button><button class="btn" id="cmPOut">－</button><button class="btn" id="cmPYo">📍 Estoy aquí</button></div><div class="note" id="cmPN">Sin marcar todavía.</div></div>
    <div class="card"><b>3. Cuéntalo (opcional)</b><textarea id="cmTx" class="town" maxlength="300" rows="3" placeholder="Ej.: Pino caído que corta el camino a 200 m de la ermita" style="width:100%;box-sizing:border-box;margin-top:6px"></textarea>
      <div class="note"><span id="cmTxN">0</span>/300 · ⚠️ Sin nombres, matrículas, teléfonos ni acusaciones a nadie.</div></div>
-   <div class="card"><div class="note" style="line-height:1.5">ℹ️ <b>Tu aviso es anónimo.</b> Se guarda en Google Firebase (Madrid) para revisarlo y publicarlo. Lo verá cualquiera que use BasatiNA, sin saber quién lo envía. Desaparece solo y se borra del todo a los 30 días. Puedes pedir que lo borremos cuando quieras. <a href="#" id="cmPr">Más información</a></div>
+   <div class="card"><div class="note" style="line-height:1.5">ℹ️ <b>Tu aviso sale con tu apodo (${esc((CU().perfil()||{}).apodo||'')}).</b> Tu correo no lo ve nadie más que los administradores, si hiciera falta. Se guarda en Google Firebase (Madrid) para revisarlo y publicarlo. Lo verá cualquiera que use BasatiNA. Desaparece solo y se borra del todo a los 30 días. Puedes pedir que lo borremos cuando quieras. <a href="#" id="cmPr">Más información</a></div>
      ${ok?'':`<label class="note" style="display:flex;gap:8px;align-items:flex-start;margin-top:8px"><input type="checkbox" id="cmC1"> <span>Tengo <b>14 años o más</b>.</span></label>
      <label class="note" style="display:flex;gap:8px;align-items:flex-start;margin-top:6px"><input type="checkbox" id="cmC2"> <span>He leído y acepto las <a href="#" id="cmNo">Normas de la comunidad</a>. Mi aviso no incluye nombres, matrículas ni datos de otras personas.</span></label>`}
      <div style="margin-top:8px;color:#b71c1c;font-weight:600">🚨 Si hay heridos o peligro, llama primero al 112.</div>
@@ -172,33 +191,42 @@ async function cmEnviar(){const msg=$('cmMsg'),tx=$('cmTx').value.trim(),ok=lsGe
   if(!(CMPT[0]>41.85&&CMPT[0]<43.35&&CMPT[1]>-2.55&&CMPT[1]<-0.70))return msg.textContent='El sitio tiene que estar en Navarra.';
   if(!ok&&!($('cmC1').checked&&$('cmC2').checked))return msg.textContent='Marca las dos casillas para poder enviarlo.';
   const t=CMT[CMTIPO],rev=!!t[4]||dudoso(tx);msg.textContent='Enviando…';$('cmEnv').disabled=true;
-  try{const u=await cmTok(),id=rnd(20);
+  try{const u=await cmTok(),id=rnd(20),pf=(await CU().cargaPerfil().catch(()=>null))||CU().perfil();if(!pf)throw Object.assign(new Error('sin perfil'),{status:403});
     await fsCommit([
-      {update:{name:nom('avisos',id),fields:encF({tipo:CMTIPO,texto:tx,lat:CMPT[0]+(Number.isInteger(CMPT[0])?1e-6:0),lon:CMPT[1]+(Number.isInteger(CMPT[1])?1e-6:0),estado:rev?'pendiente':'publicado',si:0,no:0,ah:cmAh(u.uid)})},currentDocument:{exists:false},updateTransforms:[{fieldPath:'creado',setToServerValue:'REQUEST_TIME'}]},
+      {update:{name:nom('avisos',id),fields:encF({tipo:CMTIPO,texto:tx,lat:CMPT[0]+(Number.isInteger(CMPT[0])?1e-6:0),lon:CMPT[1]+(Number.isInteger(CMPT[1])?1e-6:0),estado:rev?'pendiente':'publicado',si:0,no:0,ah:cmAh(u.uid),apodo:pf.apodo})},currentDocument:{exists:false},updateTransforms:[{fieldPath:'creado',setToServerValue:'REQUEST_TIME'}]},
       {update:{name:nom('avisos_priv',id),fields:encF({autor:u.uid})},currentDocument:{exists:false}},
       {update:{name:nom('limites',u.uid),fields:{}},updateTransforms:[{fieldPath:'ultimo',setToServerValue:'REQUEST_TIME'}]}],u.it);
     if(!ok)lsSet('cmNormas',CM_NORMAS);
     const M=lsGet('cmMios',[]);M.unshift({id,t:CMTIPO,f:Date.now()});lsSet('cmMios',M.slice(0,50));
-    try{const k=window.amKey&&await window.amKey('alertas');if(k)w3Send(k,{subject:'BasatiNA · '+t[1]+' Alerta ciudadana: '+t[2]+(rev?' (pendiente de revisar)':''),from_name:'Alertas BasatiNA',tipo:t[2],texto:tx||'—',sitio:(pueblo(CMPT[0],CMPT[1])||'')+' · https://www.google.com/maps?q='+CMPT[0]+','+CMPT[1],estado:rev?'pendiente: entrad en Alertas ciudadanas → Moderar':'publicado',botcheck:false}).catch(()=>{});}catch(e){}
+    try{const k=window.amKey&&await window.amKey('alertas');if(k)w3Send(k,{subject:'BasatiNA · '+t[1]+' Alerta ciudadana: '+t[2]+(rev?' (pendiente de revisar)':''),from_name:'Alertas BasatiNA',tipo:t[2],apodo:pf.apodo,texto:tx||'—',sitio:(pueblo(CMPT[0],CMPT[1])||'')+' · https://www.google.com/maps?q='+CMPT[0]+','+CMPT[1],estado:rev?'pendiente: entrad en Alertas ciudadanas → Moderar':'publicado',botcheck:false}).catch(()=>{});}catch(e){}
     toast(rev?'✅ Aviso enviado. Lo revisaremos antes de publicarlo':'✅ ¡Aviso publicado! Gracias por avisar');CMV=rev?'mios':'mapa';cmRender();}
-  catch(e){$('cmEnv').disabled=false;msg.textContent=e.status===403?'❌ No se ha podido enviar. Espera 2 minutos entre un aviso y otro y comprueba que el sitio está en Navarra.':'❌ No se ha podido enviar. Revisa la conexión y prueba otra vez.';console.log('comunidad',e);}}
+  catch(e){$('cmEnv').disabled=false;msg.textContent=e.status===403?'❌ No se ha podido enviar. Espera 2 minutos entre un aviso y otro, comprueba que el sitio está en Navarra y que tu correo está confirmado (👤 Mi cuenta).':'❌ No se ha podido enviar. Revisa la conexión y prueba otra vez.';console.log('comunidad',e);}}
 
 /* ---- 📋 mis avisos ---- */
-async function cmMios(){const el=$('cmBody'),M=lsGet('cmMios',[]),a=lsGet('cmAuth',null);
-  el.innerHTML=`<div class="card"><b>📋 Mis avisos</b><div id="cmML" class="note" style="margin-top:6px">${M.length?'Cargando…':'Todavía no has enviado ningún aviso desde este móvil.'}</div></div>
-   <div class="card"><b>🔑 Tu código de colaborador</b><div class="note" style="margin-top:4px">${a?`<code style="user-select:all;word-break:break-all">${esc(a.uid)}</code><br>Es anónimo. Solo lo necesitas si nos pides ver o borrar tus avisos (participa@basatina.es).`:'Se crea la primera vez que envías un aviso, votas o denuncias.'}</div>
-   ${a?'<div class="row" style="margin-top:6px"><button class="btn" id="cmNew">Generar código nuevo</button></div>':''}</div>`;
+async function cmMios(){const el=$('cmBody'),a=lsGet('cmAuth',null),cu=CU().ok()&&CU().perfil();let M=lsGet('cmMios',[]);
+  el.innerHTML=`<div class="card"><b>📋 Mis avisos</b><div id="cmML" class="note" style="margin-top:6px">${M.length||cu?'Cargando…':'Todavía no has enviado ningún aviso desde este móvil.'}</div></div>
+   <div class="card">${cu?`<b>👤 Tu cuenta</b><div class="note" style="margin-top:4px">Tus avisos van con tu cuenta (<b>${esc(CU().perfil().apodo)}</b>): los verás en cualquier móvil en el que entres. Si nos escribes por un aviso (participa@basatina.es), dinos tu apodo.</div>`
+     :`<b>🔑 Tu código de colaborador</b><div class="note" style="margin-top:4px">${a?`<code style="user-select:all;word-break:break-all">${esc(a.uid)}</code><br>Es anónimo. Solo lo necesitas si nos pides ver o borrar tus avisos antiguos (participa@basatina.es).`:'Se crea la primera vez que denuncias o entras.'}</div>
+     ${a?'<div class="row" style="margin-top:6px"><button class="btn" id="cmNew">Generar código nuevo</button></div>':''}`}</div>`;
   if($('cmNew'))$('cmNew').onclick=()=>{if(!confirm('Se creará un código nuevo y este móvil dejará de ver el estado de los avisos que ya enviaste. ¿Seguir?'))return;lsSet('cmAuth',null);lsSet('cmMios',[]);cmMios();};
-  if(!M.length)return;let u=null;try{u=await cmTok();}catch(e){}
+  let u=null;try{if(M.length||cu)u=await cmTok();}catch(e){}
+  // con cuenta: también los avisos enviados desde otros móviles
+  if(cu&&u){try{const S=await fsQuery('avisos_priv','autor',u.uid,u.it),ids=new Set(M.map(m=>m.id));S.forEach(x=>{if(!ids.has(x.id))M.push({id:x.id,t:'otro',f:0});});}catch(e){console.log('mios',e);}}
+  if(!M.length){$('cmML').textContent='Todavía no has enviado ningún aviso.';return;}
   const R=await Promise.all(M.map(async m=>{try{return Object.assign({ok:1},m,decD(await fs(`/avisos/${m.id}`,{},u&&u.it)));}catch(e){return Object.assign({ok:0,st:e.status},m);}}));
+  R.sort((x,y)=>(y.creado||y.f)-(x.creado||x.f));
   $('cmML').innerHTML=R.map(r=>{const t=CMT[r.tipo||r.t]||CMT.otro;let est;
     if(!r.ok)est=(r.st===404||r.st===403)?'🗑️ Ya no está (caducado y borrado)':'⚪ No se puede consultar ahora';
     else if(r.estado==='pendiente')est='⏳ Pendiente de revisar';
     else if(r.estado==='retirado')est='❌ Retirado'+(r.motivo?': '+esc(CM_MOT[r.motivo]||r.motivo):'');
     else est=vigente(r)?`✅ Publicado · 👍 ${r.si} · 👎 ${r.no}`:'⌛ Ya ha caducado';
-    return `<div class="st" style="align-items:flex-start"><div style="font-size:22px">${t[1]}</div><div style="flex:1"><b>${t[2]}</b><div class="s">${new Date(r.f).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</div>
-      ${r.texto?`<div class="s">${esc(r.texto)}</div>`:''}<div style="margin-top:2px">${est}</div></div></div>`;}).join('')
-    +'<div class="note" style="margin-top:6px">Si no estás de acuerdo con una retirada, escríbenos a participa@basatina.es con tu código de colaborador.</div>';}
+    return `<div class="st" style="align-items:flex-start"><div style="font-size:22px">${t[1]}</div><div style="flex:1"><b>${t[2]}</b><div class="s">${new Date(r.creado||r.f).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</div>
+      ${r.texto?`<div class="s">${esc(r.texto)}</div>`:''}<div style="margin-top:2px">${est}</div>
+      ${r.ok?`<div class="row" style="margin-top:4px"><button class="btn" data-bo="${r.id}">🗑️ Borrar</button></div>`:''}</div></div>`;}).join('')
+    +'<div class="note" style="margin-top:6px">Puedes borrar tus avisos cuando quieras. Si no estás de acuerdo con una retirada, escríbenos a participa@basatina.es.</div>';
+  el.querySelectorAll('[data-bo]').forEach(b=>b.onclick=async()=>{if(!confirm('¿Borrar este aviso? Desaparecerá para todo el mundo.'))return;const id=b.dataset.bo;
+    try{const v=await cmTok();await fsCommit([{delete:nom('avisos',id)},{delete:nom('avisos_priv',id)}],v.it);lsSet('cmMios',lsGet('cmMios',[]).filter(m=>m.id!==id));toast('🗑️ Aviso borrado');cmMios();}
+    catch(e){toast('❌ No se pudo borrar ('+e.message+')');}});}
 
 /* ---- 🛡️ moderar (solo modo Administrador) ---- */
 async function cmMod(){const el=$('cmBody');const tok=await admTok();
@@ -215,11 +243,11 @@ async function cmMod(){const el=$('cmBody');const tok=await admTok();
   catch(e){el.innerHTML=`<div class="card"><div class="note">❌ No se pudo cargar (${esc(e.message)}). ¿Están publicadas las reglas?</div><div class="row"><button class="btn" id="cmSal">Salir</button></div></div>`;$('cmSal').onclick=()=>{admSet(null);cmMod();};return;}
   const todos={};[...P,...U].forEach(a=>todos[a.id]=a);P.sort((a,b)=>a.creado-b.creado);D.sort((a,b)=>a.creado-b.creado);U.sort((a,b)=>b.creado-a.creado);
   const motSel=id=>`<select class="town" data-ms="${id}" style="flex:1;min-width:0">${Object.entries(CM_MOT).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>`;
-  const tarj=(a,pend)=>{const t=CMT[a.tipo]||CMT.otro;return `<div class="st" style="align-items:flex-start;display:block"><div><b>${t[1]} ${t[2]}</b> <span class="note">· ${a.creado?hace(a.creado):''} · ${esc(pueblo(a.lat,a.lon))} · <a href="#" data-map="${a.lat},${a.lon}">ver sitio</a></span></div>
+  const tarj=(a,pend)=>{const t=CMT[a.tipo]||CMT.otro;return `<div class="st" style="align-items:flex-start;display:block"><div><b>${t[1]} ${t[2]}</b> <span class="note">· ${a.apodo?'👤 '+esc(a.apodo)+' · ':''}${a.creado?hace(a.creado):''} · ${esc(pueblo(a.lat,a.lon))} · <a href="#" data-map="${a.lat},${a.lon}">ver sitio</a></span></div>
       <textarea class="town" data-tx="${a.id}" maxlength="300" rows="2" style="width:100%;box-sizing:border-box;margin-top:4px">${esc(a.texto||'')}</textarea>
       <div class="row" style="margin-top:4px;flex-wrap:wrap;gap:4px">${pend?`<button class="btn pri" data-ok="${a.id}">✅ Publicar</button>`:''}<button class="btn" data-ed="${a.id}">✏️ Guardar texto</button></div>
       <div class="row" style="margin-top:4px;gap:4px">${motSel(a.id)}<button class="btn" data-no="${a.id}">❌ Retirar</button></div>
-      <div class="row" style="margin-top:4px"><button class="btn" data-bl="${a.id}">⛔ Bloquear al autor (12 meses)</button></div></div>`;};
+      <div class="row" style="margin-top:4px;flex-wrap:wrap;gap:4px"><button class="btn" data-bl="${a.id}">⛔ Bloquear al autor (12 meses)</button>${a.apodo?`<button class="btn" data-ap="${a.id}">🏷️ Quitar apodo ofensivo</button>`:''}</div></div>`;};
   el.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between;align-items:center"><b>🛡️ Moderación</b><span><button class="btn" id="cmRf">🔄</button> <button class="btn" id="cmSal">Salir</button></span></div>
      <div class="note">Quitar datos personales: editar el texto y «Guardar texto». Al retirar, el autor verá el motivo en «Mis avisos». Guía: legal/3-moderacion-y-derechos.md</div></div>
    <div class="card"><b>⏳ Pendientes (${P.length})</b>${P.length?P.map(a=>tarj(a,1)).join(''):'<div class="note">Nada pendiente. 🎉</div>'}</div>
@@ -236,6 +264,12 @@ async function cmMod(){const el=$('cmBody');const tok=await admTok();
   el.querySelectorAll('[data-bl]').forEach(b=>b.onclick=async()=>{if(!confirm('¿Bloquear al autor de este aviso durante 12 meses? No podrá enviar más avisos, votos ni denuncias.'))return;const id=b.dataset.bl;
     try{const p=decD(await fs(`/avisos_priv/${id}`,{},tok));await fsPatch('bloqueados',p.autor,{desde:new Date().toISOString(),aviso:id},tok);
       await fsPatch('avisos',id,{estado:'retirado',motivo:el.querySelector(`[data-ms="${id}"]`).value},tok);hecho('⛔ Autor bloqueado y aviso retirado');}catch(e){err(e);}});
+  // apodo ofensivo: se cambia por «VecinoNNNN» en su perfil y en este aviso
+  el.querySelectorAll('[data-ap]').forEach(b=>b.onclick=async()=>{if(!confirm('¿Cambiar el apodo de este autor por uno automático («Vecino» + números)? Se le avisará la próxima vez que abra su cuenta.'))return;const id=b.dataset.ap;
+    try{const p=decD(await fs(`/avisos_priv/${id}`,{},tok)),us=decD(await fs(`/usuarios/${p.autor}`,{},tok)),nv='Vecino'+(1000+Math.floor(Math.random()*9000)),k=nv.toLowerCase();
+      await fsCommit([{update:{name:nom('usuarios',p.autor),fields:encF({apodo:nv,apodoK:k,quitado:us.apodo||''})},updateMask:{fieldPaths:['apodo','apodoK','quitado']},updateTransforms:[{fieldPath:'cambiado',setToServerValue:'REQUEST_TIME'}]},
+        {update:{name:nom('apodos',k),fields:encF({uid:p.autor})},currentDocument:{exists:false}},...(us.apodoK?[{delete:nom('apodos',us.apodoK)}]:[])],tok);
+      await fsPatch('avisos',id,{apodo:nv},tok);hecho('🏷️ Apodo cambiado a '+nv);}catch(e){err(e);}});
   el.querySelectorAll('[data-dr]').forEach(b=>b.onclick=async()=>{try{await fsPatch('avisos',b.dataset.av,{estado:'retirado',motivo:CM_MOT[b.dataset.mo]?b.dataset.mo:'otro'},tok);await fsDel('denuncias',b.dataset.dr,tok);hecho('❌ Aviso retirado');}catch(e){err(e);}});
   el.querySelectorAll('[data-dx]').forEach(b=>b.onclick=async()=>{try{await fsDel('denuncias',b.dataset.dx,tok);hecho('✔️ Denuncia cerrada');}catch(e){err(e);}});}
 

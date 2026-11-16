@@ -39,7 +39,9 @@
 
 ## C. Peticiones de derechos (RGPD)
 - **Plazo: 1 mes** (ampliable 2 más si es complicado, avisando).
-- Como no hay cuentas, la persona nos dará su **código de colaborador** (lo ve en «Mis avisos»). Con el código buscamos sus avisos.
+- **Con cuenta (desde el 16 nov. 2026):** la persona puede ver y borrar sus avisos y borrar su cuenta ella misma (app o basatina.es/borrar-cuenta.html). Si nos escribe, que lo haga **desde el correo de la cuenta** (así sabemos que es suya) y nos diga su apodo.
+  - **Borrar una cuenta a mano** (si no recuerda la contraseña): Firebase → Authentication → Usuarios → buscar el correo → copiar su «UID de usuario» → ⋮ → Eliminar cuenta. Después, en Firestore, borrar `usuarios/UID`, `espacio/UID`, `limites/UID`, su apodo en `apodos` y, en `avisos_priv`, los que tengan `autor` = UID (y el aviso del mismo código en `avisos`). Contestar con la plantilla 4.
+- **Sin cuenta (avisos antiguos o denuncias):** la persona nos dará su **código de colaborador** (lo ve en «Mis avisos»). Con el código buscamos sus avisos.
 - **Acceso:** mandarle sus avisos (tipo, texto, punto, fecha, estado).
 - **Supresión:** borrar sus avisos y su código de `avisos_priv`. Si el código estaba bloqueado por abusos, se puede mantener el bloqueo hasta los 12 meses (interés legítimo), explicándolo.
 - Apuntar cada petición en una carpeta del correo «Derechos RGPD» y guardarla 3 años.

@@ -2,14 +2,15 @@
 
 > **Por qué.** El RGPD pide pensar antes qué puede salir mal con los datos y poner medidas (art. 24, 25 y 32). Esto es eso, en sencillo.
 > **¿Hace falta una «evaluación de impacto» (EIPD) formal?** Con este diseño, creemos que **no**: no hay datos sensibles, ni perfiles, ni seguimiento de personas, ni vigilancia, y los avisos son anónimos. La EIPD haría falta si algún día se añadieran fotos de personas, la ubicación en tiempo real de los usuarios o cuentas con perfil. **Si cambia el diseño, revisar esto.**
+> **Revisado el 16 nov. 2026 (cuentas):** las cuentas solo guardan correo, apodo y Mi Espacio, sin datos de salud (el diario de dolores no se sube), sin perfiles de comportamiento ni seguimiento, y es un proyecto pequeño. Seguimos creyendo que la EIPD **no** es obligatoria, pero como ya hay cuentas, conviene confirmarlo con la herramienta gratuita **Gestiona EIPD / Facilita RGPD** de la AEPD.
 
 ## Privacidad desde el diseño (lo más importante)
-1. **Sin cuentas.** No hay nombre, correo ni contraseña de los usuarios. Lo que no se recoge no se puede perder.
+1. **Cuentas mínimas (desde el 16 nov. 2026).** Solo correo, contraseña (la guarda Firebase; no la vemos) y apodo. No se piden nombre, teléfono ni fecha de nacimiento (solo la casilla de 14 años). Ver los avisos no necesita cuenta. Mi Espacio en la cuenta deja fuera las fotos y el diario de dolores.
 2. **Código de colaborador al azar.** Es el identificador del «acceso anónimo» de Firebase Authentication: lo asigna Firebase al azar y se queda en el móvil. No sale de ningún dato del teléfono ni de la persona. Si se borran los datos de la app, se pierde y se crea otro.
 3. **La ubicación es la del suceso, no la de la persona.** La persona marca el punto en el mapa. Aunque use «mi ubicación» para centrarlo, solo se envía el punto marcado, redondeado a 4 decimales (~10 m).
 4. **Texto corto** (300 caracteres) y **sin fotos** en la primera fase.
 5. **Caducidad automática** y borrado total a los 30 días.
-6. **El código no se publica nunca**: el público ve solo tipo, texto, punto y hora.
+6. **El correo y el identificador no se publican nunca**: el público ve tipo, texto, punto, hora y el apodo.
 
 ## Riesgos y medidas
 
@@ -22,12 +23,15 @@
 | R5 | Se pierde el control de la cuenta de Google/Firebase | Baja / Alta | Verificación en dos pasos en las cuentas de Pedro y Sonia. Nadie más tiene acceso. |
 | R6 | Un menor de 14 años envía avisos | Media / Baja | Casilla obligatoria «Tengo 14 años o más». No se piden datos que identifiquen. |
 | R7 | Se identifica a quien avisa por la hora y el sitio (p. ej., en un pueblo pequeño) | Baja / Baja | No se publica quién lo envía. El código no es público. Se puede mostrar la hora redondeada («hace 2 h»). |
-| R8 | Spam masivo con bots | Baja / Media | Límite por código y por tiempo en las reglas. Firebase App Check (comprueba que la petición viene de la app de verdad) si hiciera falta. |
+| R8 | Spam masivo con bots | Baja / Media | Avisar y votar exigen cuenta con **correo confirmado**. Límite por cuenta y por tiempo en las reglas. Firebase App Check (comprueba que la petición viene de la app de verdad) si hiciera falta. |
+| R9 | Alguien entra en la cuenta de otra persona (contraseña robada o repetida) | Baja / Media | Contraseña de 8 caracteres o más. Firebase frena los intentos seguidos. Activar en Firebase la **protección contra la enumeración de correos** (no dice si un correo tiene cuenta). Lo que hay dentro es poco sensible. |
+| R10 | El apodo identifica a la persona o es ofensivo | Media / Baja | Normas: nada de nombre y apellidos, correos ni teléfonos; filtro de palabras; los administradores lo cambian por «VecinoNNNN». |
+| R11 | Se filtra el correo de los usuarios | Baja / Media | El correo está solo en Firebase Authentication, que no se puede leer desde la app. Los perfiles de Firestore no llevan el correo. |
 
 ## Medidas técnicas (resumen para Firebase)
 - Base de datos en **europe-southwest1 (Madrid)**.
 - Colecciones separadas: `avisos` (lo público), `avisos_priv` (quién lo envió: solo administradores y el propio autor), `limites` (un aviso cada 2 minutos), `votos`, `denuncias`, `bloqueados`.
-- **Reglas de seguridad** en `firestore.rules`: el público solo lee avisos publicados; solo se crean avisos con el formato correcto, dentro de Navarra y de hasta 300 caracteres; veneno, accidentes, «otro» y los textos con matrículas, teléfonos o correos van siempre a revisión; un voto por móvil y aviso; los bloqueados no pueden escribir; solo la cuenta administracion@sonpe-technology.es (con contraseña) puede moderar.
+- **Reglas de seguridad** en `firestore.rules`: el público solo lee avisos publicados; solo se crean avisos con el formato correcto, dentro de Navarra y de hasta 300 caracteres; veneno, accidentes, «otro» y los textos con matrículas, teléfonos o correos van siempre a revisión; avisar y votar solo con cuenta de correo confirmado; un voto por cuenta y aviso; cada uno solo lee y escribe su propio perfil (`usuarios`) y su Mi Espacio (`espacio`); los apodos son únicos (`apodos`); los bloqueados no pueden escribir; solo la cuenta administracion@sonpe-technology.es (con contraseña) puede moderar.
 - Borrado automático: una tarea programada (GitHub Actions, gratis) borra cada noche lo caducado hace más de 30 días.
 - HTTPS en todo.
 
