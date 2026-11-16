@@ -30,11 +30,12 @@ jobs:
           keytool -list -v -keystore "$RUNNER_TEMP/k/arga2.jks" -storepass "$KEYSTORE_PASS" -alias arga | grep -E "SHA256|SHA-256" || true
           ARGS="--keystore=$RUNNER_TEMP/k/arga2.jks --alias=arga --output=salida/llave-cifrada-para-play.zip --include-cert --rsa-aes-encryption --encryption-key-path=tools/play/clave_cifrado_google.pem"
           # Las contraseñas se pasan desde el secreto, nunca se escriben en el registro
-          java -jar "$RUNNER_TEMP/pepk.jar" --help 2>&1 | grep -i -B1 -A4 "pass" | head -40 || true
           java -jar "$RUNNER_TEMP/pepk.jar" $ARGS --keystore-pass="pass:$KEYSTORE_PASS" --key-pass="pass:$KEYSTORE_PASS" \
             || java -jar "$RUNNER_TEMP/pepk.jar" $ARGS --keystore-pass="$KEYSTORE_PASS" --key-pass="$KEYSTORE_PASS"
           rm -rf "$RUNNER_TEMP/k"
           ls -l salida
+          echo "--- contenido del zip (solo nombres) ---"
+          unzip -l salida/llave-cifrada-para-play.zip
       - uses: actions/upload-artifact@v4
         with:
           name: Llave-cifrada-para-Google-Play
