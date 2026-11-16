@@ -15,7 +15,7 @@ rural  casas-rurales-en-activo-del-registro-de-turismo-de-navarra
 ================================================================================
 apart  apartamentos-turisticos-en-activo-del-registro-de-turismo-de-navarra
   - Apartamentos turísticos en activo del Registro de Turismo de Navarra | CSV | datastore=True | e761b1ec-23ed-4523-bf56-d8f7a338ae3c | https://datosabiertos.navarra.es/dataset/73dbe8fb-bc45-4d47-bc1a-d08dd7d601db/resource/e761b1ec-23ed-4523-bf56-d8f7a338ae3c/download/downloadfile.aspxcodigoaccesoopendataficheroturismoopendata_resultados_dd_establecimientos_apart.csv
-    filas: 1632
+    filas: 1637
     {"_id": 1, "COD_INSCRIPCION": "UVTR1422", "NOMBRE": "Ainariak", "MODALIDAD": "Vivienda Turística Rural", "CATEGORIA": "Segunda/2 Llaves", "DIRECCION": "Nueva-Karrika Berria 37 bajo", "CODIGO_POSTAL": "31412", "LOCALIDAD": "Burgui / Burgi", "MUNICIPIO": "Burgui / Burgi", "SUB_ZONA": "Pirineo", "PLAZAS": "8", "SUPLETORIAS": "2", "FECHA_DE_INSCRIPCION": "27/04/2023", "EMAIL": "No se consiente la publicación", "WEB": "No se consiente la publicación", "TELEFONO_RESERVAS_1": "No se consiente la publicación"}
     {"_id": 2, "COD_INSCRIPCION": "UAT01418", "NOMBRE": "Voila Catedral", "MODALIDAD": "Apartamento Turístico", "CATEGORIA": "Primera/3 Llaves", "DIRECCION": "Gaztambide Carrera 15 3ºE", "CODIGO_POSTAL": "31500", "LOCALIDAD": "Tudela", "MUNICIPIO": "Tudela", "SUB_ZONA": "La Ribera", "PLAZAS": "4", "SUPLETORIAS": "2", "FECHA_DE_INSCRIPCION": "27/04/2023", "EMAIL": "No se consiente la publicación", "WEB": "No se consiente la publicación", "TELEFONO_RESERVAS_1": "No se consiente la publicación"}
   - Apartamentos turísticos en activo del Registro de Turismo de Navarra | XSD | datastore=False | 434157a5-e7f2-40ab-862d-2d0ced378c1d | https://datosabiertos.navarra.es/dataset/73dbe8fb-bc45-4d47-bc1a-d08dd7d601db/resource/434157a5-e7f2-40ab-862d-2d0ced378c1d/download/downloadfile.aspxcodigoaccesoopendataficheroturismoopendata_resultados_dd_establecimientos_apart.xsd
@@ -75,5 +75,5 @@ recetas  productos-t-picos-y-recetas
 
 ================================================================================
 RESUMEN
-alojamientos 2846 · restaurantes 552 · museos 10 · arte 95 · festivos {'2026': 655, '2025': 655} · recetas 43
+alojamientos 2851 · restaurantes 552 · museos 10 · arte 95 · festivos {'2026': 655, '2025': 655} · recetas 43
 Sin situar (0): 
