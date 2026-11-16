@@ -1,0 +1,36 @@
+# Copia de seguridad semanal de Firestore (acción A1 de la EIPD, legal/5).
+# Necesita los secretos FIREBASE_SA (llave de la cuenta de servicio) y BACKUP_PASS (contraseña para cifrar).
+# La copia se guarda CIFRADA 35 días como «artifact» de esta ejecución (Actions → Copia de seguridad).
+# Restaurar: ver tools/firestore_restaurar.py.
+name: Copia de seguridad
+on:
+  schedule:
+    - cron: '17 3 * * 0'
+  workflow_dispatch:
+jobs:
+  copia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Descargar y cifrar la base de datos
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
+          BACKUP_PASS: ${{ secrets.BACKUP_PASS }}
+        run: |
+          if [ -z "$BACKUP_PASS" ]; then echo "Falta el secreto BACKUP_PASS: no se hace copia."; exit 1; fi
+          pip install --quiet google-auth requests
+          umask 077
+          python3 tools/firestore_copia.py "$RUNNER_TEMP/copia.json"
+          gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --symmetric --cipher-algo AES256 \
+              -o "$RUNNER_TEMP/copia.json.gpg" "$RUNNER_TEMP/copia.json" <<< "$BACKUP_PASS"
+          shred -u "$RUNNER_TEMP/copia.json"
+          ls -l "$RUNNER_TEMP/copia.json.gpg"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: copia-firestore-${{ github.run_number }}
+          path: ${{ runner.temp }}/copia.json.gpg
+          retention-days: 35
+          if-no-files-found: error

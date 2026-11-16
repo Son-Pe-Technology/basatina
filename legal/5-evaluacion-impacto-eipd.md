@@ -78,6 +78,7 @@ App gratuita, sin publicidad y sin ánimo de lucro, con información de Navarra 
 | **Almacenamiento** | Cloud Firestore en **europe-southwest1 (Madrid)**. Correo y contraseña en Firebase Authentication (Google; puede tratarlos en EE. UU.). Todo con HTTPS. |
 | **Uso** | Mostrar avisos publicados; revisar los delicados; votar; sincronizar Mi Espacio; moderar. |
 | **Comunicación** | Público: solo el aviso publicado con su apodo. Nadie recibe correos ni identificadores. Encargado: Google (Firebase). Los correos de confirmación y contraseña los envía Firebase. |
+| **Copias** | Copia semanal cifrada de Firestore (sin correos ni contraseñas) guardada 35 días en GitHub; lo borrado puede seguir en ellas hasta que caducan. |
 | **Borrado** | El usuario borra sus avisos y su cuenta cuando quiere (app o basatina.es/borrar-cuenta.html). Robot nocturno: avisos 30 días después de caducar, denuncias a los 6 meses, bloqueos a los 12, cuentas sin confirmar a los 30 días, cuentas sin uso a los 2 años y códigos anónimos sin uso al año. |
 
 ### 2.5 Sistemas e intervinientes
@@ -122,7 +123,7 @@ Escala: Probabilidad e Impacto = Baja / Media / Alta. Riesgo residual = después
 | R4 | **Usurpación de cuenta** o de identidad (contraseña robada, apodo que imita a otro o a una autoridad) | Baja | Bajo | Contraseña de 8+ caracteres; Firebase frena intentos; protección contra la enumeración de correos activada; apodos únicos; apodos «oficiales» prohibidos en las reglas; administradores cambian apodos ofensivos. | **Bajo** |
 | R5 | **Acceso indebido** a datos ajenos (correos, Mi Espacio, avisos pendientes) por fallo en las reglas | Baja | Medio | Reglas de Firestore: cada uno solo lee y escribe lo suyo; el correo no está en Firestore. Revisadas a mano y probadas con un simulador propio. **Pendiente:** probarlas con el simulador oficial (acción A2). | **Bajo-medio** |
 | R6 | **Filtración de la llave de administración** (cuenta de servicio o contraseña de moderación) | Baja | Alto | Secretos cifrados de GitHub; nunca en archivos ni registros; verificación en dos pasos en Google, GitHub y OVH; solo Pedro y Sonia. | **Bajo** |
-| R7 | **Pérdida de datos** (Mi Espacio, avisos) por fallo o error | Baja | Bajo | Mi Espacio sigue en el móvil aunque falle la nube; Google con servidores redundantes. **Pendiente:** copias de seguridad (acción A1). | **Bajo-medio** |
+| R7 | **Pérdida de datos** (Mi Espacio, avisos) por fallo o error | Baja | Bajo | Mi Espacio sigue en el móvil aunque falle la nube; Google con servidores redundantes; **copia semanal cifrada** (AES‑256) de Firestore, guardada 35 días fuera de Google (GitHub) y con guía para restaurarla. | **Bajo** |
 | R8 | **Robot que borra de más** por un error | Baja | Medio | Modo simulación; se para si fuera a borrar más de la mitad de las cuentas; no toca la de administración; las cuentas bloqueadas a mano no se borran solas. | **Bajo** |
 | R9 | **Menores de 14** que crean cuenta mintiendo | Media | Bajo | Casilla obligatoria; no se piden datos que identifiquen; revisión de avisos delicados; si se detecta, se borra la cuenta. | **Bajo** |
 | R10 | **Bloqueo injusto** de una cuenta (impide avisar) | Baja | Bajo | Lo deciden personas, no una máquina; se informa del motivo; se puede reclamar en participa@; ver los avisos sigue siendo libre; bloqueo máximo de 12 meses. | **Bajo** |
@@ -137,7 +138,7 @@ Escala: Probabilidad e Impacto = Baja / Media / Alta. Riesgo residual = después
 
 | # | Medida | Para qué riesgo | Prioridad | Estado |
 |---|---|---|---|---|
-| A1 | Copia de seguridad **semanal** de Firestore hecha por el robot y guardada fuera de Google | R7 | Media | Pendiente |
+| A1 | Copia de seguridad **semanal** de Firestore hecha por el robot y guardada fuera de Google | R7 | Media | ✅ Hecha (16/11/2026): `copia.yml`, cifrada, 35 días |
 | A2 | Probar las reglas con el **simulador de reglas** de la consola de Firebase (casos: leer perfil ajeno, avisar sin correo confirmado, votar dos veces, leer pendientes) | R5 | Media | Pendiente |
 | A3 | Activar **Firebase App Check** si aparece spam automático | R1, R4 | Baja | Solo si hace falta |
 | A4 | Guardar en cada retirada **qué administrador** la hizo y cuándo | R12 | Baja | Pendiente |
@@ -181,3 +182,4 @@ Antes de la fecha prevista (16/11/2027) si pasa cualquiera de estas cosas:
 | Versión | Fecha | Cambio |
 |---|---|---|
 | 1 | 16/11/2026 | Primera EIPD, tras el resultado de «Evalúa Riesgo RGPD» (riesgo intrínseco muy alto, residual bajo). |
+| 1.1 | 16/11/2026 | Hecha la acción A1 (copias de seguridad semanales cifradas). |
