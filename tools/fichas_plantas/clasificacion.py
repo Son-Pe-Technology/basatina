@@ -60,8 +60,21 @@ NO_ARBOL = {
  'Sorbus semipinnata Borbás': 'Híbrido de serbales (1 cita).', 'Sorbus sudetica (Tausch) Bluff, Nees & Schauer': 'Híbrido de serbales (1 cita).',
 }
 
+# FASE 2 (arbustos). Objetivo = taxones de NO_ARBOL marcados 'Fase de arbustos' + todos los taxones del inventario
+# de SHRUB_GENERA (géneros leñosos no arbóreos) y de SHRUB_MIXTOS (géneros con especies leñosas y herbáceas, que se
+# revisan taxón a taxón). Cada uno debe acabar con ficha en arbustos_fichas.py o con motivo en NO_ARBUSTO.
+SHRUB_GENERA = set('''Arctostaphylos Berberis Calicotome Calluna Cistus Clematis Colutea Cytisus Daphne Dorycnium Dryas
+Echinospartum Empetrum Ephedra Erinacea Genista Halimium Hedera Jasminum Lavandula Lonicera Lycium Osyris Retama
+Rhododendron Ribes Rosa Rosmarinus Rubus Ruscus Santolina Smilax Spartium Staehelina Ulex Vaccinium Vitis'''.split())
+SHRUB_MIXTOS = set('''Anthyllis Argyrolobium Artemisia Asparagus Astragalus Atriplex Bupleurum Coronilla Fumana Globularia
+Helianthemum Helichrysum Hippocrepis Hormathophylla Lavatera Lithodora Ononis Polygala Rubia Ruta Salsola Salvia
+Satureja Sideritis Teucrium Thymus'''.split())
+# Taxones objetivo de la fase de arbustos que no llevan ficha de arbusto (híbridos, nombres ambiguos, herbáceas…).
+NO_ARBUSTO = {
+}
+
 FASES = {
  'arboles': {'estado': 'completa', 'texto': 'Fase 1 completa: árboles autóctonos, naturalizados y cultivados u ornamentales documentados en Navarra.'},
- 'arbustos': {'estado': 'pendiente', 'texto': 'Fase 2 en preparación: los arbustos se irán añadiendo por tandas, cada uno con sus fuentes.'},
+ 'arbustos': {'estado': 'en curso', 'texto': 'Fase 2 en curso: los arbustos se añaden por tandas, cada uno con sus fuentes; la lista se comprueba contra el Catálogo Florístico Histórico de Navarra.'},
  'flores': {'estado': 'pendiente', 'texto': 'Fase 3 pendiente: empezará cuando termine la de arbustos.'},
 }

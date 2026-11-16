@@ -21,6 +21,7 @@ try:
 except ImportError:
     FL = None
 from clasificacion import TREE_GENERA, NO_ARBOL, FASES  # noqa: E402
+from clasificacion import SHRUB_GENERA, SHRUB_MIXTOS, NO_ARBUSTO  # noqa: E402
 
 CFH = ('Catálogo Florístico Histórico de Navarra (Gobierno de Navarra, GBIF)', 'https://doi.org/10.15468/nf54bd')
 ARBOLAPP = ('Arbolapp (CSIC/FECYT, CC BY-NC-ND 4.0)', 'https://www.arbolapp.es/especies/ficha/%s/')
@@ -106,7 +107,29 @@ def verificar(fichas, inv):
     for n in NO_ARBOL:
         if n not in inv:
             err.append('Clasificación de un nombre que no está en el inventario: %s' % n)
-    return err, avisos
+    # Fase de arbustos
+    obj = objetivo_arbustos(inv)
+    cub_ab = [n for f in fichas if f['categoria'] == 'arbustos' for n in f['nombresCFH']]
+    for n in sorted(set(x for x in cub_ab if cub_ab.count(x) > 1)):
+        err.append('Nombre del inventario en dos fichas de arbusto: %s' % n)
+    for n in sorted(set(cub_ab) & cubiertos):
+        err.append('Nombre del inventario con ficha de árbol y de arbusto: %s' % n)
+    for n in NO_ARBUSTO:
+        if n not in inv:
+            err.append('Clasificación de arbusto de un nombre que no está en el inventario: %s' % n)
+        if n in cub_ab:
+            err.append('Taxón con ficha de arbusto y a la vez excluido en NO_ARBUSTO: %s' % n)
+    pend_ab = sorted(n for n in obj if n not in cub_ab and n not in NO_ARBUSTO)
+    if FASES['arbustos']['estado'] == 'completa':
+        for n in pend_ab:
+            err.append('Fase de arbustos marcada completa, pero falta: %s (%d citas)' % (n, inv[n]))
+    return err, avisos, pend_ab
+
+
+def objetivo_arbustos(inv):
+    obj = {n for n, v in NO_ARBOL.items() if 'arbustos' in v and n in inv}
+    obj |= {n for n in inv if n.split()[0] in SHRUB_GENERA | SHRUB_MIXTOS}
+    return obj
 
 
 def main():
@@ -116,12 +139,15 @@ def main():
         fichas += [ficha(f, 'arbustos', inv) for f in AB.ARBUSTOS]
     if FL:
         fichas += [ficha(f, 'flores', inv) for f in FL.FLORES]
-    err, avisos = verificar(fichas, inv)
+    err, avisos, pend_ab = verificar(fichas, inv)
     n = {c: sum(1 for f in fichas if f['categoria'] == c) for c in ('arboles', 'arbustos', 'flores')}
     fases = json.loads(json.dumps(FASES))
     for c in fases:
         fases[c]['fichas'] = n[c]
-    fases['arbustos']['pendientesDesdeArboles'] = sorted(k for k, v in NO_ARBOL.items() if 'arbustos' in v)
+    cub_ab = {x for f in fichas if f['categoria'] == 'arbustos' for x in f['nombresCFH']}
+    fases['arbustos']['pendientesDesdeArboles'] = sorted(k for k, v in NO_ARBOL.items() if 'arbustos' in v and k not in cub_ab)
+    fases['arbustos']['objetivo'] = len(objetivo_arbustos(inv))
+    fases['arbustos']['pendientes'] = len(pend_ab)
     data = dict(version=1, nota='Textos redactados para BasatiNA a partir de las fuentes citadas en cada ficha. Los dibujos son esquemas del tipo de hoja, no ilustraciones de la especie. Sin fotografías ni mapas.',
                 fases={c: dict(estado=v['estado'], texto=v['texto']) for c, v in fases.items()}, fichas=fichas)
     if '--check' not in sys.argv:
@@ -142,8 +168,18 @@ def main():
         md += ['', '## Fichas de árboles', '', '| Nombre | Científico | Origen | Citas en el catálogo |', '|---|---|---|---:|']
         for f in sorted((f for f in fichas if f['categoria'] == 'arboles'), key=lambda f: f['nombre']):
             md.append('| %s | %s | %s | %d |' % (f['nombre'], f['cientifico'], f['origen'], f['citasCFH']))
+        md += ['', '## Fase de arbustos', '', 'Objetivo: %d taxones del inventario (los pasados desde la fase de árboles y todos los de géneros arbustivos). Pendientes: %d.' % (fases['arbustos']['objetivo'], len(pend_ab)), '']
+        md += ['| Nombre | Científico | Origen | Citas en el catálogo |', '|---|---|---|---:|']
+        for f in sorted((f for f in fichas if f['categoria'] == 'arbustos'), key=lambda f: f['nombre']):
+            md.append('| %s | %s | %s | %d |' % (f['nombre'], f['cientifico'], f['origen'], f['citasCFH']))
+        if NO_ARBUSTO:
+            md += ['', '| Taxón sin ficha de arbusto | Citas | Motivo |', '|---|---:|---|']
+            for k, v in sorted(NO_ARBUSTO.items()):
+                md.append('| %s | %d | %s |' % (k, inv.get(k, 0), v))
+        md += ['', 'Pendientes de ficha: ' + (', '.join('%s (%d)' % (n, inv[n]) for n in pend_ab) or 'ninguno')]
         open(os.path.join(ROOT, 'docs', 'fichas-flora-estado.md'), 'w', encoding='utf-8').write('\n'.join(md) + '\n')
     print('Fichas: %s' % n)
+    print('Arbustos pendientes: %d de %d' % (len(pend_ab), fases['arbustos']['objetivo']))
     for a in avisos:
         print('AVISO:', a)
     for e in err:
