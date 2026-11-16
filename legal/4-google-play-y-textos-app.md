@@ -14,22 +14,39 @@ Google Play llama a esto «contenido generado por usuarios» (UGC). Si falta alg
 
 **Consejo:** cuando se suba la versión con la comunidad, en las notas para el revisor de Google poned dónde están las dos funciones: «Comunidad → cualquier aviso → 🚩 Denunciar / 🙈 Ocultar avisos de este colaborador».
 
+## A bis. Cuentas de usuario (desde el 16 nov. 2026) · lo que pide Google
+Google exige a toda app que deje **crear cuentas** que también deje **borrarlas**, de dos formas:
+
+| Requisito de Google | Cómo lo cumple BasatiNA |
+|---|---|
+| Borrar la cuenta **dentro de la app** | Mi Espacio → 👤 Mi cuenta → 🗑️ Borrar mi cuenta (pide la contraseña). |
+| Un **enlace web** para pedir el borrado sin la app | https://basatina.es/borrar-cuenta.html (borra al momento con correo y contraseña, o explica cómo pedirlo por correo). |
+| Decir qué se borra y qué se guarda | Está en esa página y en la política de privacidad (apartado 3.0). |
+
+**En Play Console:** Contenido de la app → **Eliminación de cuentas** → «Sí, la app permite crear cuentas» → pegar el enlace `https://basatina.es/borrar-cuenta.html`.
+**Acceso para el revisor de Google:** Contenido de la app → **Acceso a la app** → «Hay funciones restringidas» → dadle una cuenta de prueba ya confirmada (por ejemplo `revisor@basatina.es` con su contraseña) y explicad: «Para avisar en Menú → Participa → Alertas ciudadanas hace falta cuenta. Ver los avisos es libre».
+
 ## B. Formulario «Seguridad de los datos» de Google Play Console
 Hay que **actualizarlo** cuando salga la comunidad (Play Console → Contenido de la app → Seguridad de los datos):
 
 - **¿Recoge o comparte datos?** Sí, recoge.
 - **Ubicación → Ubicación aproximada:** Sí (el punto del aviso, redondeado a ~10 m). *Recogida*, no compartida. Finalidad: **Funcionalidad de la app**. **Opcional** (solo si envías un aviso).
 - **Mensajes → Otro contenido generado por el usuario:** Sí (texto del aviso). Recogida. Finalidad: Funcionalidad de la app. Opcional.
-- **Identificadores de dispositivo u otros:** Sí (código de colaborador aleatorio). Recogida. Finalidad: **Funcionalidad de la app** y **Prevención de fraude, seguridad y cumplimiento**. Opcional.
+- **Información personal → Dirección de correo electrónico:** Sí. Recogida, no compartida. Finalidad: **Gestión de la cuenta** y **Prevención de fraude, seguridad y cumplimiento**. Opcional (solo si creas cuenta).
+- **Información personal → ID de usuario:** Sí (identificador interno de la cuenta y apodo). Recogida. Finalidad: Funcionalidad de la app, Gestión de la cuenta, Prevención de fraude. Opcional.
+- **Actividad en la app → Otro contenido generado por el usuario:** Sí (Mi Espacio guardado en la cuenta: sitios, diario sin fotos, notas, calendarios). Recogida. Finalidad: Funcionalidad de la app. Opcional.
+- **Identificadores de dispositivo u otros:** Sí (código de colaborador aleatorio, solo para denunciar sin cuenta). Recogida. Finalidad: **Funcionalidad de la app** y **Prevención de fraude, seguridad y cumplimiento**. Opcional.
 - **Fotos y vídeos:** Sí (solo las fotos que se envían para publicar). Recogida. Funcionalidad. Opcional.
 - **¿Datos cifrados en tránsito?** Sí.
-- **¿Se puede pedir que se borren?** Sí (correo a participa@).
+- **¿Se puede pedir que se borren?** Sí: en la app (Mi cuenta → Borrar mi cuenta), en https://basatina.es/borrar-cuenta.html o por correo a participa@.
 - **Enlace a la política de privacidad:** https://basatina.es/privacidad.html
 
 ## C. Textos para la pantalla de enviar aviso (primera capa de información)
 La ley pide informar **en el momento** de recoger los datos, de forma breve, con un enlace al resto. Este texto va justo encima del botón «Enviar»:
 
-> ℹ️ **Tu aviso es anónimo.** Se guarda en Google Firebase (Madrid) para revisarlo y publicarlo. Lo verá cualquiera que use BasatiNA (sin saber quién lo envía). Desaparece solo y se borra del todo a los 30 días. Puedes pedir que lo borremos cuando quieras. [Más información](privacidad.html#comunidad)
+> ℹ️ **Tu aviso sale con tu apodo.** Tu correo no lo ve nadie más que los administradores, si hiciera falta. Se guarda en Google Firebase (Madrid) para revisarlo y publicarlo. Lo verá cualquiera que use BasatiNA. Desaparece solo y se borra del todo a los 30 días. Puedes borrarlo cuando quieras. [Más información](privacidad.html#comunidad)
+
+*(Desde el 16 nov. 2026 las casillas de abajo se marcan al crear la cuenta, en 👤 Mi cuenta.)*
 
 **Casillas obligatorias (las dos):**
 - ☐ Tengo **14 años o más**.

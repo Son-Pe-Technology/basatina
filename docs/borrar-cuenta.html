@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BasatiNA · Borrar mi cuenta</title>
+<link rel="icon" href="img/icono-basatina.png">
+<meta name="robots" content="noindex">
+<style>
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0d151d;color:#e9f1f7;line-height:1.6}
+.w{max-width:620px;margin:0 auto;padding:24px 18px 48px}a{color:#29c6f2}h1{font-size:26px;margin:10px 0 4px}h2{font-size:18px;margin:26px 0 6px}
+.m{color:#9fb0c0;font-size:14px}.na{color:#DD4826}header{display:flex;gap:12px;align-items:center}header img{width:48px;height:48px;border-radius:12px}
+.box{background:#16222d;border-left:4px solid #29c6f2;padding:12px 14px;border-radius:6px;margin:14px 0}
+.peligro{border-left-color:#ff5252}
+input{width:100%;box-sizing:border-box;padding:11px 12px;margin-top:8px;border-radius:8px;border:1px solid #2c3e50;background:#0f1b25;color:#e9f1f7;font-size:16px}
+button{margin-top:12px;padding:11px 18px;border:0;border-radius:8px;background:#c62828;color:#fff;font-size:16px;font-weight:600;cursor:pointer}
+button:disabled{opacity:.6}
+#msg{margin-top:10px;font-weight:600}
+</style>
+</head>
+<body><div class="w">
+<header><img src="img/icono-basatina.png" alt=""><b style="font-size:20px">Basati<span class="na">NA</span></b></header>
+<h1>Borrar mi cuenta</h1>
+<div class="m">BasatiNA · Son&amp;Pe Technology Systems</div>
+
+<h2>Desde la app (lo más fácil)</h2>
+<p>Menú → <b>Mi Espacio</b> → <b>👤 Mi cuenta</b> → <b>Borrar mi cuenta</b>, y escribe tu contraseña.</p>
+
+<h2>Desde aquí, sin la app</h2>
+<div class="box peligro">
+<p style="margin:0 0 6px">Escribe el correo y la contraseña de tu cuenta de BasatiNA. Se borra <b>al momento y para siempre</b>:</p>
+<ul style="margin:0 0 6px;padding-left:20px">
+<li>tu cuenta (correo y contraseña),</li>
+<li>tu apodo y tu perfil,</li>
+<li>Mi Espacio guardado en la cuenta (sitios, diario, notas, calendarios, carreteras…),</li>
+<li>tus avisos de «Alertas ciudadanas».</li>
+</ul>
+<p style="margin:0" class="m">Lo que tengas guardado dentro de tu móvil no se toca. Las denuncias que hayas enviado se guardan sin tu cuenta hasta 6 meses, como dice la política de privacidad, y los votos se borran con sus avisos.</p>
+<input id="e" type="email" placeholder="Correo de tu cuenta" autocomplete="email">
+<input id="p" type="password" placeholder="Contraseña" autocomplete="current-password">
+<button id="b">🗑️ Borrar mi cuenta para siempre</button>
+<div id="msg"></div>
+</div>
+
+<h2>¿No recuerdas la contraseña?</h2>
+<p>Pide una nueva en la app (👤 Mi cuenta → ¿Olvidaste la contraseña?) o escríbenos a <a href="mailto:participa@basatina.es?subject=Borrar%20mi%20cuenta%20de%20BasatiNA">participa@basatina.es</a> desde el correo de tu cuenta, con el asunto «Borrar mi cuenta». La borraremos en un plazo máximo de 30 días y te lo confirmaremos.</p>
+<p class="m">Más información en la <a href="privacidad.html#cuentas">política de privacidad</a>.</p>
+</div>
+<script>
+(function(){
+const KEY='AIzaSyBkD97y7lqjMS0sA7zClhQkqZlEgXtkeqk',P='basatina-9a8b5';
+const DOCS=`projects/${P}/databases/(default)/documents`,FS='https://firestore.googleapis.com/v1/'+DOCS;
+const $=id=>document.getElementById(id),M=t=>$('msg').textContent=t;
+const MSG={INVALID_LOGIN_CREDENTIALS:'Correo o contraseña incorrectos.',INVALID_PASSWORD:'Correo o contraseña incorrectos.',EMAIL_NOT_FOUND:'Correo o contraseña incorrectos.',
+  INVALID_EMAIL:'Ese correo no es válido.',TOO_MANY_ATTEMPTS_TRY_LATER:'Demasiados intentos. Espera unos minutos.',USER_DISABLED:'Esta cuenta está desactivada. Escríbenos a participa@basatina.es.'};
+async function api(url,body,tok,method){const h={'Content-Type':'application/json'};if(tok)h.Authorization='Bearer '+tok;
+  const r=await fetch(url,{method:method||'POST',headers:h,body:body?JSON.stringify(body):undefined});const j=await r.json().catch(()=>({}));
+  if(!r.ok){const e=new Error((j.error&&j.error.message)||('HTTP '+r.status));e.status=r.status;throw e;}return j;}
+const nom=(c,i)=>`${DOCS}/${c}/${i}`;
+$('b').onclick=async()=>{const email=$('e').value.trim(),pass=$('p').value;if(!email||!pass)return M('Escribe tu correo y tu contraseña.');
+  if(!confirm('¿Seguro? Tu cuenta de BasatiNA se borrará para siempre.'))return;
+  $('b').disabled=true;M('Borrando…');
+  try{const j=await api('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+KEY,{email,password:pass,returnSecureToken:true});
+    const tok=j.idToken,uid=j.localId;
+    // sus avisos
+    const q=await api(FS+':runQuery',{structuredQuery:{from:[{collectionId:'avisos_priv'}],where:{fieldFilter:{field:{fieldPath:'autor'},op:'EQUAL',value:{stringValue:uid}}},limit:500}},tok);
+    const ids=(q||[]).filter(x=>x.document).map(x=>x.document.name.split('/').pop());
+    let k=null;try{const u=await api(FS+'/usuarios/'+uid,null,tok,'GET');k=u.fields&&u.fields.apodoK&&u.fields.apodoK.stringValue;}catch(e){}
+    const W=[];ids.forEach(i=>W.push({delete:nom('avisos',i)},{delete:nom('avisos_priv',i)}));
+    W.push({delete:nom('espacio',uid)},{delete:nom('usuarios',uid)},{delete:nom('limites',uid)});if(k)W.push({delete:nom('apodos',k)});
+    for(let i=0;i<W.length;i+=400)await api(FS+':commit',{writes:W.slice(i,i+400)},tok);
+    await api('https://identitytoolkit.googleapis.com/v1/accounts:delete?key='+KEY,{idToken:tok});
+    $('e').value='';$('p').value='';M('✅ Tu cuenta y sus datos se han borrado. Si tenías la app abierta con la sesión iniciada, se cerrará sola.');}
+  catch(e){$('b').disabled=false;const c=e.message.split(/[ :]/)[0];M('❌ '+(MSG[c]||('No se ha podido borrar ('+e.message+'). Escríbenos a participa@basatina.es.')));}};
+})();
+</script>
+</body>
+</html>

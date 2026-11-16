@@ -6,9 +6,23 @@
 
 **Responsable:** Pedro Iglesias Goñi (Son&Pe Technology Systems) · participa@basatina.es · Navarra (España)
 **Delegado de protección de datos:** no hay (no es obligatorio para este proyecto).
-**Última revisión:** 15 de noviembre de 2026
+**Última revisión:** 16 de noviembre de 2026 (cuentas de usuario)
 
 ---
+
+## Tratamiento 0 · Cuentas de usuario (desde el 16 nov. 2026)
+
+| Campo | Contenido |
+|---|---|
+| Finalidad | Dar acceso con cuenta; confirmar el correo y recuperar la contraseña; mostrar el apodo en los avisos; evitar cuentas falsas y bloquear a quien abuse; guardar «Mi Espacio» en la cuenta para tenerlo en varios móviles. |
+| Base jurídica | Prestación del servicio que la persona pide al crear la cuenta (art. 6.1.b RGPD) y consentimiento (casillas de 14 años y normas, art. 6.1.a). Antiabuso: interés legítimo (art. 6.1.f). |
+| Personas afectadas | Usuarios de 14 años o más que crean una cuenta (voluntaria; solo es necesaria para avisar y votar). |
+| Datos | Correo, contraseña (la guarda Firebase con hash; no la vemos), correo confirmado sí/no, apodo, fechas de alta y del último cambio de apodo, versión de normas aceptada. Si hay apodo retirado por moderación, el anterior. Mi Espacio: sitios secretos, diario de salidas (sin fotos), notas, calendario, equipos y calendario deportivo, Mis carreteras, lista de avisos propios, votos y colaboradores ocultos. **No** se sube el diario de dolores (datos de salud) ni las fotos. |
+| Datos especiales | Ninguno a propósito. El diario de dolores queda fuera de la cuenta precisamente por ser datos de salud. |
+| Destinatarios | Público: solo el apodo, en los avisos. Encargado: Google Ireland Ltd. (Firebase Authentication para correo y contraseña; Cloud Firestore en Madrid para `usuarios`, `apodos` y `espacio`). Los correos de confirmación y de contraseña los envía Firebase. |
+| Transferencias internacionales | Firebase Authentication puede tratar los datos en EE. UU.: cubierto por las Cláusulas Contractuales Tipo y el Marco de Privacidad de Datos UE‑EE. UU. de las condiciones de Google. |
+| Plazos | Mientras exista la cuenta. Al borrarla (app, basatina.es/borrar-cuenta.html o correo a participa@) se borra todo al momento; por correo, en 30 días como máximo. Bloqueos: 12 meses. |
+| Seguridad | Reglas de Firestore: cada uno solo lee y escribe su perfil y su Mi Espacio; apodos únicos; avisar y votar solo con correo confirmado. Contraseña mínima de 8 caracteres. Ver documento 2. |
 
 ## Tratamiento 1 · Comunidad de avisos
 
@@ -17,9 +31,9 @@
 | Finalidad | Recibir, moderar y publicar avisos de la gente (árboles caídos, desprendimientos, lluvia intensa, cebos envenenados, accidentes…); gestionar confirmaciones, denuncias y bloqueos; evitar abusos; informar al autor del estado de su aviso. |
 | Base jurídica | Consentimiento al enviar (art. 6.1.a RGPD). Moderación, antiabuso y registro de denuncias: interés legítimo (art. 6.1.f) y cumplimiento del Reglamento de Servicios Digitales (arts. 16 y 17). |
 | Personas afectadas | Usuarios de 14 años o más que envían, confirman o denuncian avisos. |
-| Datos | Tipo de aviso, texto libre (máx. 300 caracteres), coordenadas del suceso, fecha/hora, código de colaborador aleatorio (seudónimo: identificador de acceso anónimo de Firebase Authentication). **No** se piden nombre, correo, teléfono ni la ubicación de la persona. |
+| Datos | Tipo de aviso, texto libre (máx. 300 caracteres), coordenadas del suceso, fecha/hora, apodo e identificador interno de la cuenta (desde el 16 nov. 2026 hace falta cuenta para avisar y votar; ver Tratamiento 0). Denuncias sin cuenta: código de colaborador aleatorio (acceso anónimo de Firebase). **No** se pide la ubicación de la persona. |
 | Datos especiales | Ninguno a propósito. Si en un texto aparecen datos de terceros o especiales, se borran en la moderación. |
-| Destinatarios | Público en general (solo el aviso publicado, sin el código). Encargados: Google Ireland Ltd. (Firebase Authentication con acceso anónimo y Cloud Firestore) y Web3Forms (aviso por correo a alertas@basatina.es con el tipo, el texto y el sitio de cada alerta nueva; **nunca** el código de colaborador). |
+| Destinatarios | Público en general (el aviso publicado con el apodo, sin correo ni identificador). Encargados: Google Ireland Ltd. (Firebase Authentication con acceso anónimo y Cloud Firestore) y Web3Forms (aviso por correo a alertas@basatina.es con el tipo, el texto y el sitio de cada alerta nueva; **nunca** el código de colaborador). |
 | Transferencias internacionales | Datos alojados en la región europe-southwest1 (Madrid). Google puede acceder desde fuera de la UE para dar soporte; cubierto por las Cláusulas Contractuales Tipo y el Marco de Privacidad de Datos UE‑EE. UU. incluidos en sus condiciones de tratamiento. |
 | Plazos | Visible: 6 h – 7 días según el tipo. Borrado total: 30 días tras caducar. Denuncias y decisiones de moderación: 6 meses. Códigos bloqueados: 12 meses. |
 | Seguridad | Ver documento 2. |

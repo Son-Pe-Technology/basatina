@@ -10,8 +10,18 @@ service cloud.firestore {
         && request.auth.token.firebase.sign_in_provider == 'password'
         && request.auth.token.email == 'administracion@sonpe-technology.es';
     }
-    // cada móvil entra como usuario anónimo: su uid es el «código de colaborador»
+    // cada móvil entra como usuario anónimo (su uid es el «código de colaborador»)
+    // o con su cuenta de correo y contraseña (nov. 2026)
     function usuario() { return request.auth != null; }
+    // cuenta de verdad: con correo y correo ya confirmado (los anónimos no tienen correo)
+    function conCorreo() { return request.auth != null && request.auth.token.email is string; }
+    function cuenta() { return conCorreo() && request.auth.token.email_verified == true; }
+    // apodo: 3 a 20 letras, números, punto, guion o guion bajo; sin nombres que parezcan oficiales
+    function apodoOk(a, k) {
+      return a is string && a.matches('[\\p{L}0-9_.-]{3,20}') && k == a.lower()
+        && !k.matches('.*(basatina|admin|moderad|oficial|sonpe|policia|guardiacivil|sos112|112).*');
+    }
+    function perfil() { return get(doc('usuarios', request.auth.uid)).data; }
     function doc(col, id) { return /databases/$(database)/documents/$(col)/$(id); }
     function bloqueado() { return exists(/databases/$(database)/documents/bloqueados/$(request.auth.uid)); }
     // horas que dura cada tipo de aviso (la caducidad se calcula con «creado» + estas horas)
@@ -46,9 +56,11 @@ service cloud.firestore {
       allow get: if resource.data.estado == 'publicado'
         || (usuario() && get(doc('avisos_priv', id)).data.autor == request.auth.uid);
 
-      allow create: if usuario() && !bloqueado()
-        && request.resource.data.keys().hasOnly(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no', 'ah'])
-        && request.resource.data.keys().hasAll(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no', 'ah'])
+      // solo con cuenta confirmada; el aviso lleva el apodo de su perfil
+      allow create: if cuenta() && !bloqueado()
+        && request.resource.data.keys().hasOnly(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no', 'ah', 'apodo'])
+        && request.resource.data.keys().hasAll(['tipo', 'texto', 'lat', 'lon', 'creado', 'estado', 'si', 'no', 'ah', 'apodo'])
+        && request.resource.data.apodo == perfil().apodo
         && request.resource.data.tipo in horas()
         && request.resource.data.texto is string && request.resource.data.texto.size() <= 300
         && enNavarra(request.resource.data)
@@ -64,8 +76,8 @@ service cloud.firestore {
         && getAfter(doc('avisos_priv', id)).data.autor == request.auth.uid
         && getAfter(doc('limites', request.auth.uid)).data.ultimo == request.time;
 
-      // votos «sigue ahí» (si) / «ya no está» (no): +1, una sola vez por móvil
-      allow update: if usuario() && !bloqueado()
+      // votos «sigue ahí» (si) / «ya no está» (no): +1, una sola vez por cuenta
+      allow update: if cuenta() && !bloqueado()
         && resource.data.estado == 'publicado' && request.time < resource.data.creado + duration.value(horas()[resource.data.tipo], 'h')
         && !exists(doc('votos', id + '_' + request.auth.uid))
         && getAfter(doc('votos', id + '_' + request.auth.uid)).data.v in ['si', 'no']
@@ -73,12 +85,18 @@ service cloud.firestore {
              .hasOnly([getAfter(doc('votos', id + '_' + request.auth.uid)).data.v])
         && request.resource.data[getAfter(doc('votos', id + '_' + request.auth.uid)).data.v]
              == resource.data[getAfter(doc('votos', id + '_' + request.auth.uid)).data.v] + 1;
+
+      // el autor puede borrar su aviso cuando quiera (junto con su ficha privada)
+      allow delete: if usuario() && get(doc('avisos_priv', id)).data.autor == request.auth.uid;
     }
 
     // ---------- ficha privada del aviso: quién lo envió (solo administradores y el propio autor) ----------
     match /avisos_priv/{id} {
       allow get: if usuario() && resource.data.autor == request.auth.uid;
-      allow create: if usuario() && !bloqueado()
+      // «mis avisos» de la cuenta (la consulta tiene que filtrar por autor == mi uid)
+      allow list: if usuario() && resource.data.autor == request.auth.uid;
+      allow delete: if usuario() && resource.data.autor == request.auth.uid && !existsAfter(doc('avisos', id));
+      allow create: if cuenta() && !bloqueado()
         && request.resource.data.keys().hasOnly(['autor'])
         && request.resource.data.autor == request.auth.uid
         && existsAfter(doc('avisos', id));
@@ -94,12 +112,13 @@ service cloud.firestore {
         && request.resource.data.keys().hasOnly(['ultimo'])
         && request.resource.data.ultimo == request.time
         && request.time > resource.data.ultimo + duration.value(2, 'm');
+      allow delete: if usuario() && request.auth.uid == uid;
     }
 
     // ---------- votos: uno por aviso y móvil (id = idAviso_uid) ----------
     match /votos/{vid} {
       allow get: if usuario() && vid.matches('.*_' + request.auth.uid);
-      allow create: if usuario() && !bloqueado()
+      allow create: if cuenta() && !bloqueado()
         && request.resource.data.keys().hasOnly(['aviso', 'v'])
         && request.resource.data.v in ['si', 'no']
         && vid == request.resource.data.aviso + '_' + request.auth.uid;
@@ -114,6 +133,45 @@ service cloud.firestore {
         && request.resource.data.motivo in ['datos', 'acusa', 'falso', 'ofensivo', 'ilegal', 'yano', 'otro']
         && request.resource.data.texto is string && request.resource.data.texto.size() <= 300
         && exists(doc('avisos', request.resource.data.aviso));
+    }
+
+    // ---------- cuentas (nov. 2026) ----------
+    // perfil: solo lo ve su dueño. El apodo se copia en cada aviso, que es lo único público.
+    match /usuarios/{uid} {
+      allow get: if usuario() && request.auth.uid == uid;
+      allow create: if conCorreo() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['apodo', 'apodoK', 'creado', 'cambiado', 'normas'])
+        && apodoOk(request.resource.data.apodo, request.resource.data.apodoK)
+        && request.resource.data.creado == request.time && request.resource.data.cambiado == request.time
+        && request.resource.data.normas is int
+        && getAfter(doc('apodos', request.resource.data.apodoK)).data.uid == uid;
+      // cambiar el apodo: como mucho una vez al día
+      // («quitado» lo pone un administrador cuando cambia un apodo ofensivo)
+      allow update: if conCorreo() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['apodo', 'apodoK', 'creado', 'cambiado', 'normas', 'quitado'])
+        && request.resource.data.creado == resource.data.creado
+        && apodoOk(request.resource.data.apodo, request.resource.data.apodoK)
+        && request.resource.data.normas is int
+        && ((request.resource.data.apodoK == resource.data.apodoK && request.resource.data.cambiado == resource.data.cambiado)
+            || (request.resource.data.cambiado == request.time
+                && request.time > resource.data.cambiado + duration.value(1, 'd')
+                && getAfter(doc('apodos', request.resource.data.apodoK)).data.uid == uid));
+      allow delete: if usuario() && request.auth.uid == uid;
+    }
+    // reserva de apodos (para que no haya dos iguales). Cualquiera puede mirar si uno está libre.
+    match /apodos/{k} {
+      allow get: if true;
+      allow create: if conCorreo()
+        && request.resource.data.keys().hasOnly(['uid'])
+        && request.resource.data.uid == request.auth.uid
+        && getAfter(doc('usuarios', request.auth.uid)).data.apodoK == k;
+      allow delete: if usuario() && resource.data.uid == request.auth.uid
+        && (!existsAfter(doc('usuarios', request.auth.uid)) || getAfter(doc('usuarios', request.auth.uid)).data.apodoK != k);
+    }
+    // Mi Espacio guardado en la cuenta: solo su dueño
+    match /espacio/{uid} {
+      allow get, delete: if usuario() && request.auth.uid == uid;
+      allow create, update: if cuenta() && request.auth.uid == uid;
     }
 
     // ---------- bloqueados: solo administradores (regla de arriba) ----------
