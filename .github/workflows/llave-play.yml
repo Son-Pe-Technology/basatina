@@ -36,8 +36,11 @@ jobs:
           ls -l salida
           echo "--- contenido del zip (solo nombres) ---"
           unzip -l salida/llave-cifrada-para-play.zip
+          # GitHub mete el artifact en un zip: subimos los dos archivos sueltos para que
+          # el zip que se descarga sea DIRECTAMENTE el que pide Google (sin extraer nada)
+          mkdir directo && unzip -q salida/llave-cifrada-para-play.zip -d directo
       - uses: actions/upload-artifact@v4
         with:
-          name: Llave-cifrada-para-Google-Play
-          path: salida/llave-cifrada-para-play.zip
+          name: SUBIR-ESTE-ZIP-A-GOOGLE-PLAY
+          path: directo/
           retention-days: 2
