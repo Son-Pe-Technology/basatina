@@ -225,7 +225,36 @@ try{PVS_ESC.cuenta='pueblo';}catch(e){}
 try{ICK.cuenta='user-circle';ICC.cuenta='#5e35b1';BNK.cuenta='i-libro';BNF.cuenta='b';}catch(e){}
 try{if(typeof applyIcons==='function')applyIcons((CFG.iconos||'pro')==='pro');}catch(e){}
 
-window.CU={ok:verif,sesion:ses,perfil,cargaPerfil,sync:cuSync,ir:()=>{showTab('cuenta');try{menu(false);}catch(e){}}};
+window.CU={ok:verif,sesion:ses,perfil,cargaPerfil,sync:cuSync,ir:v=>{if(v&&!ses())CUV=v;showTab('cuenta');try{menu(false);}catch(e){}}};
+
+/* ---------- 👋 bienvenida (una sola vez por móvil, si no hay sesión) ---------- */
+function bienvenida(){if(ses()||lsGet('cuBienv',0)||$('cuBv'))return;
+  if(document.querySelector('#muBox,#nvLang,#pinBox[style*="flex"]'))return setTimeout(bienvenida,8000);   // si hay otra ventana abierta, más tarde
+  lsSet('cuBienv',1);const o=document.createElement('div');o.id='cuBv';o.className='nvMu';
+  o.innerHTML=`<div><div style="text-align:center"><img src="logo.png" alt="" style="width:72px;height:auto;object-fit:contain"><h2 style="margin:6px 0 2px">Bienvenido a Basati<span style="color:#DD4826">NA</span></h2><div class="note">Navarra en tu bolsillo</div></div>
+    <div class="note" style="margin-top:12px;line-height:1.5">Crea tu cuenta gratis y podrás:</div>
+    <ul class="note" style="margin:4px 0 0;padding-left:20px;line-height:1.5"><li>📣 <b>Avisar y votar</b> en las Alertas ciudadanas.</li><li>☁️ Tener <b>Mi Espacio</b> (sitios, diario, calendarios…) en todos tus móviles.</li></ul>
+    <div class="note" style="margin-top:8px">Los ríos, el tiempo y todo lo demás funcionan igual sin cuenta.</div>
+    <button class="btn pri" id="cuBvA" style="width:100%;margin-top:14px">Crear cuenta</button>
+    <button class="btn" id="cuBvE" style="width:100%;margin-top:8px">Ya tengo cuenta: entrar</button>
+    <button class="btn" id="cuBvN" style="width:100%;margin-top:8px;background:transparent;box-shadow:none;opacity:.8">Seguir sin cuenta</button></div>`;
+  document.body.appendChild(o);const fin=v=>{o.remove();if(v)CU.ir(v);};
+  $('cuBvA').onclick=()=>fin('alta');$('cuBvE').onclick=()=>fin('entrar');$('cuBvN').onclick=()=>fin(null);o.onclick=e=>{if(e.target===o)fin(null);};}
+setTimeout(bienvenida,2500);
+
+/* ---------- 📊 contador anónimo de uso ----------
+   Cada móvil (o navegador) suma +1 la primera vez que abre BasatiNA cada día y cada mes, en
+   estadisticas/AAAA-MM-DD y estadisticas/AAAA-MM: «activos», «app» o «web» y, la primera vez de todas, «nuevos».
+   No se envía ningún identificador: el móvil solo recuerda en qué día y mes ya contó. Lo leen los administradores
+   en Alertas ciudadanas → 🛡️ Moderar → 📊 Usuarios. */
+async function cuenta1(){const d=new Date(),p=n=>String(n).padStart(2,'0'),dia=`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`,mes=dia.slice(0,7);
+  const st=Object.assign({dia:'',mes:'',ya:0},lsGet('stUso',{})),tipo=(typeof APP!=='undefined'&&APP)?'app':'web',W=[];
+  const inc=(doc,campos)=>({transform:{document:X.nom('estadisticas',doc),fieldTransforms:campos.map(f=>({fieldPath:f,increment:{integerValue:'1'}}))}});
+  if(st.dia!==dia)W.push(inc(dia,['activos',tipo,...(st.ya?[]:['nuevos'])]));
+  if(st.mes!==mes)W.push(inc(mes,['activos',tipo,...(st.ya?[]:['nuevos'])]));
+  if(!W.length)return;
+  try{await X.fsCommit(W);lsSet('stUso',{dia,mes,ya:1});}catch(e){console.log('uso',e);}}
+setTimeout(cuenta1,5000);
 // si un administrador ha cambiado el apodo, que se entere al abrir la app
 setTimeout(()=>{if(verif())cargaPerfil().catch(()=>{});},6000);
 })();

@@ -241,7 +241,16 @@ async function cmMod(){const el=$('cmBody');const tok=await admTok();
   el.innerHTML='<div class="card"><div class="note">Cargando…</div></div>';
   let P=[],D=[],U=[];try{[P,D,U]=await Promise.all([fsQuery('avisos','estado','pendiente',tok),fsQuery('denuncias',null,null,tok),fsQuery('avisos','estado','publicado',tok)]);}
   catch(e){el.innerHTML=`<div class="card"><div class="note">❌ No se pudo cargar (${esc(e.message)}). ¿Están publicadas las reglas?</div><div class="row"><button class="btn" id="cmSal">Salir</button></div></div>`;$('cmSal').onclick=()=>{admSet(null);cmMod();};return;}
-  const todos={};[...P,...U].forEach(a=>todos[a.id]=a);P.sort((a,b)=>a.creado-b.creado);D.sort((a,b)=>a.creado-b.creado);U.sort((a,b)=>b.creado-a.creado);
+  const todos={};[...P,...U].forEach(a=>todos[a.id]=a);
+  // 📊 usuarios: contador anónimo (estadisticas/) y cuentas creadas
+  let ES=[],NC=null;try{ES=await fsQuery('estadisticas',null,null,tok);}catch(e){}
+  try{const j=await fs(':runAggregationQuery',{method:'POST',body:JSON.stringify({structuredAggregationQuery:{structuredQuery:{from:[{collectionId:'usuarios'}]},aggregations:[{alias:'n',count:{}}]}})},tok);NC=+(j[0].result.aggregateFields.n.integerValue);}catch(e){}
+  const ED={};ES.forEach(x=>ED[x.id]=x);const p2=n=>String(n).padStart(2,'0'),dd=k=>{const d=new Date(Date.now()-k*864e5);return `${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`;};
+  const g=(id,f)=>(ED[id]&&ED[id][f])||0,mes=dd(0).slice(0,7),mesA=(()=>{const d=new Date();d.setDate(1);d.setMonth(d.getMonth()-1);return `${d.getFullYear()}-${p2(d.getMonth()+1)}`;})();
+  const med7=Math.round([1,2,3,4,5,6,7].reduce((s,k)=>s+g(dd(k),'activos'),0)/7),nuev30=[...Array(30).keys()].reduce((s,k)=>s+g(dd(k),'nuevos'),0);
+  const est=`<div class="card"><b>📊 Usuarios</b><div class="kpi" style="margin-top:6px;flex-wrap:wrap"><div><span class="note">Hoy</span><b>${g(dd(0),'activos')}</b></div><div><span class="note">Ayer</span><b>${g(dd(1),'activos')}</b></div><div><span class="note">Media 7 días</span><b>${med7}</b></div></div>
+     <div class="kpi" style="margin-top:6px;flex-wrap:wrap"><div><span class="note">Este mes</span><b>${g(mes,'activos')}</b></div><div><span class="note">Mes pasado</span><b>${g(mesA,'activos')}</b></div><div><span class="note">Nuevos (30 días)</span><b>${nuev30}</b></div></div>
+     <div class="note" style="margin-top:6px">Este mes: 📱 app ${g(mes,'app')} · 🌐 web ${g(mes,'web')}${NC!=null?` · 👤 cuentas creadas en total: <b>${NC}</b>`:''}<br>Cuenta móviles y navegadores distintos (anónimo: sin saber quién). Quien borra los datos de la app cuenta como nuevo.</div></div>`;P.sort((a,b)=>a.creado-b.creado);D.sort((a,b)=>a.creado-b.creado);U.sort((a,b)=>b.creado-a.creado);
   const motSel=id=>`<select class="town" data-ms="${id}" style="flex:1;min-width:0">${Object.entries(CM_MOT).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>`;
   const tarj=(a,pend)=>{const t=CMT[a.tipo]||CMT.otro;return `<div class="st" style="align-items:flex-start;display:block"><div><b>${t[1]} ${t[2]}</b> <span class="note">· ${a.apodo?'👤 '+esc(a.apodo)+' · ':''}${a.creado?hace(a.creado):''} · ${esc(pueblo(a.lat,a.lon))} · <a href="#" data-map="${a.lat},${a.lon}">ver sitio</a></span></div>
       <textarea class="town" data-tx="${a.id}" maxlength="300" rows="2" style="width:100%;box-sizing:border-box;margin-top:4px">${esc(a.texto||'')}</textarea>
@@ -250,6 +259,7 @@ async function cmMod(){const el=$('cmBody');const tok=await admTok();
       <div class="row" style="margin-top:4px;flex-wrap:wrap;gap:4px"><button class="btn" data-bl="${a.id}">⛔ Bloquear al autor (12 meses)</button>${a.apodo?`<button class="btn" data-ap="${a.id}">🏷️ Quitar apodo ofensivo</button>`:''}</div></div>`;};
   el.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between;align-items:center"><b>🛡️ Moderación</b><span><button class="btn" id="cmRf">🔄</button> <button class="btn" id="cmSal">Salir</button></span></div>
      <div class="note">Quitar datos personales: editar el texto y «Guardar texto». Al retirar, el autor verá el motivo en «Mis avisos». Guía: legal/3-moderacion-y-derechos.md</div></div>
+   ${est}
    <div class="card"><b>⏳ Pendientes (${P.length})</b>${P.length?P.map(a=>tarj(a,1)).join(''):'<div class="note">Nada pendiente. 🎉</div>'}</div>
    <div class="card"><b>🚩 Denuncias (${D.length})</b>${D.length?D.map(d=>{const a=todos[d.aviso];return `<div class="st" style="display:block"><div><b>${esc(CM_MOT[d.motivo]||d.motivo)}</b> <span class="note">· ${d.creado?hace(d.creado):''}</span></div>${d.texto?`<div class="s">«${esc(d.texto)}»</div>`:''}
        <div class="s" style="margin-top:3px">Aviso: ${a?`${CMT[a.tipo][1]} ${esc(a.texto||CMT[a.tipo][2])} (${a.estado})`:'ya no está publicado'}</div>
