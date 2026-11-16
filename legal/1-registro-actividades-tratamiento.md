@@ -24,6 +24,16 @@
 | Plazos | Mientras exista la cuenta. Al borrarla (app, basatina.es/borrar-cuenta.html o correo a participa@) se borra todo al momento; por correo, en 30 días como máximo. Bloqueos: 12 meses. |
 | Seguridad | Reglas de Firestore: cada uno solo lee y escribe su perfil y su Mi Espacio; apodos únicos; avisar y votar solo con correo confirmado. Contraseña mínima de 8 caracteres. Ver documento 2. |
 
+## Tratamiento 0 bis · Contador anónimo de uso (desde el 16 nov. 2026)
+
+| Campo | Contenido |
+|---|---|
+| Finalidad | Saber cuántos móviles y navegadores usan la app cada día y cada mes, y cuántos son nuevos. |
+| Datos | Ninguno personal: se suma +1 a unos totales (`estadisticas/AAAA-MM-DD` y `AAAA-MM`: activos, app, web, nuevos). Sin identificadores. El móvil guarda solo la fecha en que contó (`stUso`). |
+| Base jurídica | Interés legítimo (art. 6.1.f), con impacto mínimo. |
+| Destinatarios | Encargado: Google (Cloud Firestore, Madrid). Google ve la IP de la conexión; no se guarda. |
+| Plazos | Los totales se guardan sin límite (no son datos personales). |
+
 ## Tratamiento 1 · Comunidad de avisos
 
 | Campo | Contenido |

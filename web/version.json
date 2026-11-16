@@ -1,5 +1,5 @@
 {
- "version": 300,
+ "version": 301,
  "apk": 25,
  "files": {
   "abiertos.js": "8e33d748e61b9dfc44bd6cfc83ff222345e546fd",
@@ -15,8 +15,8 @@
   "c12.jpg": "ac3fa4c4bc823c0b64c7c69990cf891eb00e6319",
   "c14.jpg": "00f5a26af1b6c701d5ffd8b64b9832f8c3b3fe03",
   "caza.js": "1dc720ba2afab96bb26e7a969959b414c67966a8",
-  "comunidad.js": "6366adc70ea48258e5dbc4ee19b6d42c24804b41",
-  "cuenta.js": "02f6cc62e21e8791ca5c58b3c7184677a028e022",
+  "comunidad.js": "e155231aa939130cc4f7be211e79ebcdcd43cef1",
+  "cuenta.js": "6d4abf9f49c463b3a91e1b935f2bf8624573100b",
   "efemerides.js": "b4dea96ea7390c02d0e634b7f745f9f463bdba7a",
   "energia.js": "583a7cdcd4b5a6aa85ebe16ec3a84cb59708e08c",
   "especies.js": "c0f1c253cfeafc60516fd71f52ae7b58c811e970",

@@ -37,6 +37,7 @@ Hay que **actualizarlo** cuando salga la comunidad (Play Console → Contenido d
 - **Actividad en la app → Otro contenido generado por el usuario:** Sí (Mi Espacio guardado en la cuenta: sitios, diario sin fotos, notas, calendarios). Recogida. Finalidad: Funcionalidad de la app. Opcional.
 - **Identificadores de dispositivo u otros:** Sí (código de colaborador aleatorio, solo para denunciar sin cuenta). Recogida. Finalidad: **Funcionalidad de la app** y **Prevención de fraude, seguridad y cumplimiento**. Opcional.
 - **Fotos y vídeos:** Sí (solo las fotos que se envían para publicar). Recogida. Funcionalidad. Opcional.
+- **Contador anónimo de uso** (estadisticas/): solo totales, sin identificador. Según Google, los datos anonimizados de verdad no hace falta declararlos; si el revisor pregunta: «Actividad en la app → Interacciones con la app: no recogido (solo un contador agregado sin identificadores)».
 - **¿Datos cifrados en tránsito?** Sí.
 - **¿Se puede pedir que se borren?** Sí: en la app (Mi cuenta → Borrar mi cuenta), en https://basatina.es/borrar-cuenta.html o por correo a participa@.
 - **Enlace a la política de privacidad:** https://basatina.es/privacidad.html
