@@ -27,6 +27,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "paexposiciontercerpaisajemuseodenavarra20260515",
+   "t": "Tercer Paisaje",
+   "cat": "expo",
+   "f": "2026-05-15",
+   "ff": "2027-04-04",
+   "h": "",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-tercer-paisaje-museo-de-navarra",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "cnromanzenlengoagedenavarra20260619",
    "t": "Romanz. En lengoage de Navarra",
    "cat": "expo",
@@ -53,19 +66,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paexposicionalbadelaportillalaciudadela20260911",
-   "t": "Alba de la Portilla",
-   "cat": "expo",
-   "f": "2026-09-11",
-   "ff": "2026-11-15",
-   "h": "",
-   "lugar": "Sala del Pabellón de Mixtos de la Ciudadela - Sala de Exposiciones Municipal",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-alba-de-la-portilla-la-ciudadela",
-   "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "paexposicionradixlarealidaddeunautopiamuse20260911",
    "t": "Radix: la realidad de una utopía",
    "cat": "expo",
@@ -75,6 +75,19 @@
    "lugar": "Museo de Navarra",
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/exposicion-radix-la-realidad-de-una-utopia-museo-de-navarra",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paexposicionfragmentosdelovisiblemuseodena20260916",
+   "t": "Fragmentos de lo visible",
+   "cat": "expo",
+   "f": "2026-09-16",
+   "ff": "2027-03-07",
+   "h": "",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-fragmentos-de-lo-visible-museo-de-navarra",
    "desc": "Exposición",
    "src": "Ayuntamiento de Pamplona"
   },
@@ -105,29 +118,16 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paencuentrosdepamplonaexposicionmuseumbatt20261001",
-   "t": "Exposición - Is the museum a battlefield?",
-   "cat": "expo",
+   "id": "patalleresiniciacionalteatroescuelanavarra20261001",
+   "t": "Iniciación al Teatro",
+   "cat": "teatro",
    "f": "2026-10-01",
-   "ff": "2026-11-15",
+   "ff": "2027-04-30",
    "h": "",
-   "lugar": "Sala del Polvorín de la Ciudadela - Sala de Exposiciones Municipal",
+   "lugar": "Escuela Navarra de Teatro (ENT)",
    "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/encuentros-de-pamplona-exposicion-museum-battlefield-la-ciudadela",
-   "desc": "Encuentros de Pamplona",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paencuentrosdepamplonaexposicionweblaciuda20261001",
-   "t": "Exposición - Web",
-   "cat": "expo",
-   "f": "2026-10-01",
-   "ff": "2026-11-15",
-   "h": "",
-   "lugar": "Sala del Horno de la Ciudadela - Sala de Exposiciones Municipal",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/encuentros-de-pamplona-exposicion-web-la-ciudadela",
-   "desc": "Encuentros de Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/talleres-iniciacion-al-teatro-escuela-navarra-de-teatro",
+   "desc": "Talleres",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -155,19 +155,6 @@
    "url": "https://www.pamplona.es/actualidad/eventos/taller-bash-pamplona-en-movimiento-casa-de-la-juventud-0",
    "desc": "Taller",
    "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cnmirendoiz20261019",
-   "t": "Miren Doiz",
-   "cat": "expo",
-   "f": "2026-10-19",
-   "ff": "2026-11-15",
-   "h": "",
-   "lugar": "Casa de Cultura y exteriores",
-   "pueblo": "Auritz/Burguete",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-10-19/arte-contemporaneo/miren-doiz",
-   "desc": "NUDO 2 Instalación",
-   "src": "Cultura Navarra"
   },
   {
    "id": "paxxxconcursodefotografiarinconesdepamplon20261021",
@@ -339,19 +326,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paiifestivalirunaldia20261105",
-   "t": "II Festival Iruñaldia",
-   "cat": "otros",
-   "f": "2026-11-05",
-   "ff": "2026-11-14",
-   "h": "",
-   "lugar": "Teatro Gayarre",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ii-festival-irunaldia",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "paexposicion600anosunahistoriacompartidaca20261106",
    "t": "600 años, una historia compartida",
    "cat": "expo",
@@ -401,32 +375,6 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/exposicion-mariano-royo",
    "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paconcursodepintxospelotaenmanopilotazuree20261106",
-   "t": "Pelota en mano / Pilota zure esku",
-   "cat": "otros",
-   "f": "2026-11-06",
-   "ff": "2026-11-15",
-   "h": "",
-   "lugar": "",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/concurso-de-pintxos-pelota-en-mano-pilota-zure-esku",
-   "desc": "Concurso de pintxos",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paxxivsemanadelpintxotxantrea20261107",
-   "t": "Txantrea",
-   "cat": "otros",
-   "f": "2026-11-07",
-   "ff": "2026-11-15",
-   "h": "",
-   "lugar": "",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/xxiv-semana-del-pintxo-txantrea",
-   "desc": "XXIV Semana del Pintxo",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -492,123 +440,6 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/exposicion-kanthoria-eta-auto-tunea-un-viaje-por-la-historia-de-la-musica-en",
    "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paencuentroclubesdelecturaeneuskeradenavar20261114",
-   "t": "Clubes de lectura en euskera de Navarra 2026",
-   "cat": "charla",
-   "f": "2026-11-14",
-   "ff": "",
-   "h": "10:15",
-   "lugar": "Biblioteca de Navarra",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/encuentro-clubes-de-lectura-en-euskera-de-navarra-2026-biblioteca-de-navarra",
-   "desc": "Encuentro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pacicloconfluenciasencuentrobombificadasla20261114",
-   "t": "Encuentro - Bombificadas",
-   "cat": "charla",
-   "f": "2026-11-14",
-   "ff": "",
-   "h": "14:00",
-   "lugar": "Sala de Armas de la Ciudadela - Sala de Exposiciones Municipal",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-confluencias-encuentro-bombificadas-la-ciudadela",
-   "desc": "Ciclo Confluencias",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paiiiciclopompaeloantiquaconciertolegrand20261114",
-   "t": "Concierto",
-   "cat": "concierto",
-   "f": "2026-11-14",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Catedral de Santa María de Pamplona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/iii-ciclo-pompaelo-antiqua-concierto-le-grand",
-   "desc": "III Ciclo Pompaelo Antiqua",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pateatroderosasodeliriosent20261114",
-   "t": "De rosas o de lirios",
-   "cat": "teatro",
-   "f": "2026-11-14",
-   "ff": "2026-11-15",
-   "h": "",
-   "lugar": "Escuela Navarra de Teatro (ENT)",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/teatro-de-rosas-o-de-lirios-ent",
-   "desc": "Teatro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pafestivalcivivoxinthemappinginstalacionin20261114",
-   "t": "Instalación interactiva - Polen",
-   "cat": "expo",
-   "f": "2026-11-14",
-   "ff": "",
-   "h": "",
-   "lugar": "Civivox Mendillorri",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/festival-civivoxinthemapping-instalacion-interactiva-polen-civivox-mendillorri",
-   "desc": "Festival #CivivoxInTheMapping",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pateatrolaoperadelostrescentavosteatrogaya20261114",
-   "t": "La ópera de los tres centavos",
-   "cat": "teatro",
-   "f": "2026-11-14",
-   "ff": "2026-11-15",
-   "h": "",
-   "lugar": "Teatro Gayarre",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/teatro-la-opera-de-los-tres-centavos-teatro-gayarre",
-   "desc": "Teatro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pafestivalcivivoxinthemappingcortometrajes20261115",
-   "t": "Cortometrajes - Mi primer festival de cine",
-   "cat": "cine",
-   "f": "2026-11-15",
-   "ff": "",
-   "h": "10:30",
-   "lugar": "Civivox Mendillorri",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/festival-civivoxinthemapping-cortometrajes-mi-primer-festival-de-cine-civivox",
-   "desc": "Festival #CivivoxInTheMapping",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "padanzalamerbaluarte20261115",
-   "t": "La Mer",
-   "cat": "danza",
-   "f": "2026-11-15",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Baluarte - Palacio de Congresos y Auditorio de Navarra",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/danza-la-mer-baluarte",
-   "desc": "Danza",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "padianacionaldeenfermedadesneuromusculares20261115",
-   "t": "Día Nacional de Enfermedades Neuromusculares 2026",
-   "cat": "otros",
-   "f": "2026-11-15",
-   "ff": "",
-   "h": "",
-   "lugar": "",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/dia-nacional-de-enfermedades-neuromusculares-2026",
-   "desc": "",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -1064,6 +895,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/ciclo-cinetag-cine-lost-translation-casa-de-la-juventud",
    "desc": "Ciclo CineTag",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paviconciertoderaicesyflores20261121",
+   "t": "VI Concierto de raíces y flores",
+   "cat": "concierto",
+   "f": "2026-11-21",
+   "ff": "",
+   "h": "18:30",
+   "lugar": "Parroquia San Nicolás",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/vi-concierto-de-raices-y-flores",
+   "desc": "",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -1730,6 +1574,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "patalleresdepinturacreaciondeproyectosdesd20261221",
+   "t": "Creación de proyectos desde la narrativa - Escuela Municipal Arte - Catalina de Oscáriz",
+   "cat": "expo",
+   "f": "2026-12-21",
+   "ff": "2027-03-22",
+   "h": "",
+   "lugar": "Escuela Municipal de Arte - Catalina de Oscáriz",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/talleres-de-pintura-creacion-de-proyectos-desde-la-narrativa-escuela-municipal",
+   "desc": "Talleres de Pintura",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "panavidad2026conciertodenavidadbaluarte20261222",
    "t": "Concierto de Navidad",
    "cat": "concierto",
@@ -1740,6 +1597,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/navidad-2026-concierto-de-navidad-baluarte",
    "desc": "Navidad 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "patalleresdedibujoilusitracionnaturalistab20261222",
+   "t": "Ilusitración naturalista a bolígrafo - Escuela Municipal Arte - Catalina de Oscáriz",
+   "cat": "otros",
+   "f": "2026-12-22",
+   "ff": "2027-03-18",
+   "h": "",
+   "lugar": "Escuela Municipal de Arte - Catalina de Oscáriz",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/talleres-de-dibujo-ilusitracion-naturalista-boligrafo-escuela-municipal-arte",
+   "desc": "Talleres de Dibujo",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -1819,7 +1689,98 @@
    "url": "https://www.pamplona.es/actualidad/eventos/festival-santaspascuas-2026-concierto-sal-del-coche-akauzazte",
    "desc": "Festival SantasPascuas 2026",
    "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pateatrolabelladurmienteelmusicaldetusrecu20261228",
+   "t": "La Bella durmiente. El musical de tus recuerdos",
+   "cat": "concierto",
+   "f": "2026-12-28",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Teatro Gayarre",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/teatro-la-bella-durmiente-el-musical-de-tus-recuerdos-teatro-gayarre",
+   "desc": "Teatro",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pafestivalsantaspascuas2026conciertoenaute20261228",
+   "t": "Concierto",
+   "cat": "concierto",
+   "f": "2026-12-28",
+   "ff": "",
+   "h": "20:30",
+   "lugar": "Zentral Café Teatro",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/festival-santas-pascuas-2026-concierto-enaut-elorrieta",
+   "desc": "Festival Santas Pascuas 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "panavidad2026campusdefutbolnavidenofundaci20261228",
+   "t": "Campus de Fútbol Navideño",
+   "cat": "otros",
+   "f": "2026-12-28",
+   "ff": "2027-01-08",
+   "h": "",
+   "lugar": "Centro Privado de Enseñanza Secundaria Salesianos (SARRIGUREN (VALLE DE EGÜÉS))",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/navidad-2026-campus-de-futbol-navideno-fundacion-osasuna",
+   "desc": "Navidad 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pateatroflymemoonteatrogayarre20261229",
+   "t": "Fly me to the Moon",
+   "cat": "teatro",
+   "f": "2026-12-29",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Teatro Gayarre",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/teatro-fly-me-moon-teatro-gayarre",
+   "desc": "Teatro",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pafestivalsantaspascuas2026conciertorepion20261229",
+   "t": "Concierto",
+   "cat": "concierto",
+   "f": "2026-12-29",
+   "ff": "",
+   "h": "20:45",
+   "lugar": "Zentral Café Teatro",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/festival-santas-pascuas-2026-concierto-repion-puno-dragon",
+   "desc": "Festival Santas Pascuas 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pafestivalsantaspascuas2026conciertojumela20261230",
+   "t": "Concierto",
+   "cat": "concierto",
+   "f": "2026-12-30",
+   "ff": "",
+   "h": "19:30",
+   "lugar": "Zentral Café Teatro",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/festival-santaspascuas-2026-concierto-jumelage-sedimentos-de-cumbia",
+   "desc": "Festival SantasPascuas 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paconciertosuakaiylacomparsanavarraarena20261230",
+   "t": "Suakai y La Comparsa",
+   "cat": "concierto",
+   "f": "2026-12-30",
+   "ff": "",
+   "h": "20:30",
+   "lugar": "Navarra Arena",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/concierto-suakai-y-la-comparsa-navarra-arena",
+   "desc": "Concierto",
+   "src": "Ayuntamiento de Pamplona"
   }
  ],
- "act": "2026-11-15 06:17"
+ "act": "2026-11-16 07:00"
 }
