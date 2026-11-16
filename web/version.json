@@ -1,5 +1,5 @@
 {
- "version": 299,
+ "version": 300,
  "apk": 25,
  "files": {
   "abiertos.js": "8e33d748e61b9dfc44bd6cfc83ff222345e546fd",
@@ -44,7 +44,7 @@
   "servicios-ui.js": "f3c5495f4bafa074ec3a120ed637bb2f696334c1",
   "servicios.js": "722f589c59fd4860d3ad6d39361a1a1da88ff97a",
   "seta.svg": "35a4b97d267a6d106f67b400620c70cd79609803",
-  "sismo.js": "f5b7a905ffce923004cd0ddd254db9754eee13df",
+  "sismo.js": "d2b06e798aeb9de0085e284e2451d97ba0d32790",
   "sonpe2.jpg": "b15402e1a817968b2389f507df4408c69ab47047",
   "sonpe2_ico.jpg": "9da2bcf822019ade2b5114a48b020d4586486325",
   "sonpe3.jpg": "0f31794604b30913105ca6205697811fa64826f7",
