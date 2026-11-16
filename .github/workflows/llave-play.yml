@@ -1,0 +1,41 @@
+# Se lanza a mano UNA vez: prepara la llave de firma de la app para Google Play.
+# Google Play firma las apps con su propia copia de la llave. Para que los móviles que ya
+# tienen BasatiNA (instalada desde basatina.es) puedan actualizarse desde Play, Play tiene
+# que usar NUESTRA llave, no una nueva. Esto la exporta CIFRADA con la clave pública de
+# Google (tools/play/clave_cifrado_google.pem): solo Google puede abrir el zip resultante.
+name: Llave para Google Play
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  llave:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Exportar la llave cifrada (PEPK de Google)
+        env:
+          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
+        run: |
+          set -e
+          mkdir -p "$RUNNER_TEMP/k" salida
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/k/arga2.jks"
+          curl -sSfL -o "$RUNNER_TEMP/pepk.jar" https://www.gstatic.com/play-apps-publisher-rapid/signing-tool/prod/pepk.jar
+          # Huella de nuestra llave (es pública, sirve para comprobar después en Play Console)
+          keytool -list -v -keystore "$RUNNER_TEMP/k/arga2.jks" -storepass "$KEYSTORE_PASS" -alias arga | grep -E "SHA256|SHA-256" || true
+          ARGS="--keystore=$RUNNER_TEMP/k/arga2.jks --alias=arga --output=salida/llave-cifrada-para-play.zip --include-cert --rsa-aes-encryption --encryption-key-path=tools/play/clave_cifrado_google.pem"
+          # Las contraseñas se pasan desde el secreto, nunca se escriben en el registro
+          java -jar "$RUNNER_TEMP/pepk.jar" $ARGS --keystore-pass=env:KEYSTORE_PASS --key-pass=env:KEYSTORE_PASS \
+            || printf '%s\n%s\n' "$KEYSTORE_PASS" "$KEYSTORE_PASS" | java -jar "$RUNNER_TEMP/pepk.jar" $ARGS
+          rm -rf "$RUNNER_TEMP/k"
+          ls -l salida
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Llave-cifrada-para-Google-Play
+          path: salida/llave-cifrada-para-play.zip
+          retention-days: 2
