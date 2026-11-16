@@ -1,0 +1,20 @@
+# Prueba de las reglas de Firestore contra la base de datos real (tools/probar_reglas.py).
+# Se lanza a mano: Actions → «Probar reglas» → Run workflow. Repetirla cada vez que cambien firestore.rules.
+# Necesita el secreto FIREBASE_SA. Crea cuentas de prueba y las borra al terminar.
+name: Probar reglas
+on:
+  workflow_dispatch:
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probar las reglas
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
+        run: |
+          pip install --quiet google-auth requests
+          python3 tools/probar_reglas.py
