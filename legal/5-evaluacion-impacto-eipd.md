@@ -11,7 +11,7 @@
 | **Delegado de protección de datos** | No hay (no es obligatorio para este proyecto) |
 | **Tratamientos evaluados** | Cuentas de usuario (Tratamiento 0), Comunidad de avisos «Alertas ciudadanas» (Tratamiento 1) y Mi Espacio en la cuenta, del registro de actividades (documento 1). El contador anónimo de uso (0 bis) se incluye solo como referencia: no trata datos personales. |
 | **Fuera de esta EIPD** | Fotos de la gente, buzón de sugerencias y refranes (Tratamientos 2, 3 y 3 bis): son ocasionales, sin cuentas ni ubicación, y no salieron como alto riesgo. |
-| **Versión y fecha** | Versión 1 · 16 de noviembre de 2026 |
+| **Versión y fecha** | Versión 1.2 · 16 de noviembre de 2026 |
 | **Próxima revisión** | 16 de noviembre de 2027, o antes si cambia algo de lo del apartado 8 |
 
 ---
@@ -35,7 +35,7 @@ Factores que se marcaron, todos con mitigación significativa salvo donde se ind
 - **Efectos:** desinformación por avisos falsos; daño reputacional; usurpación de identidad; reidentificación por inferencia; pérdida de control en el encargado; impedir el acceso al servicio (bloqueos).
 - **Responsable:** servicio de la sociedad de la información.
 - **Otros (propios):** avisos que lleven a alguien a ponerse en peligro; datos de terceros en el texto libre; filtración de la llave de administración.
-- **Seguridad:** confidencialidad, integridad, disponibilidad (mitigación media: no hay copias de seguridad), trazabilidad (mitigación media), autenticidad, resiliencia, fallos técnicos (mitigación media: reglas no probadas con el simulador oficial) y errores de operación.
+- **Seguridad:** confidencialidad, integridad, disponibilidad (mitigación media: no hay copias de seguridad), trazabilidad (mitigación media), autenticidad, resiliencia, fallos técnicos (mitigación media en el test; después se probaron las reglas contra la base real, ver R5) y errores de operación.
 
 > **Conclusión de este apartado:** el riesgo alto viene de que se **juntan** varios criterios (ubicación + identificadores + sistemático + regional + posibles menores), no de que se traten datos especialmente sensibles. Con las medidas actuales el riesgo queda **bajo**.
 
@@ -121,7 +121,7 @@ Escala: Probabilidad e Impacto = Baja / Media / Alta. Riesgo residual = después
 | R2 | **Datos de terceros** en el texto (nombres, matrículas, teléfonos, acusaciones) → daño reputacional | Baja | Medio | Filtro automático que manda a revisión textos con matrículas, teléfonos, correos o expresiones de culpa. Normas que lo prohíben. 🚩 Denunciar sin cuenta. Los administradores editan o retiran en menos de 24 h. | **Bajo** |
 | R3 | **Reidentificación** de quien avisa (apodo + sitio + hora en un pueblo pequeño) | Baja | Bajo | Recomendación de no usar el nombre real en el apodo; apodos con nombre o correo bloqueados; correo e identificador nunca públicos; hora mostrada como «hace X»; avisos que caducan. | **Bajo** |
 | R4 | **Usurpación de cuenta** o de identidad (contraseña robada, apodo que imita a otro o a una autoridad) | Baja | Bajo | Contraseña de 8+ caracteres; Firebase frena intentos; protección contra la enumeración de correos activada; apodos únicos; apodos «oficiales» prohibidos en las reglas; administradores cambian apodos ofensivos. | **Bajo** |
-| R5 | **Acceso indebido** a datos ajenos (correos, Mi Espacio, avisos pendientes) por fallo en las reglas | Baja | Medio | Reglas de Firestore: cada uno solo lee y escribe lo suyo; el correo no está en Firestore. Revisadas a mano y probadas con un simulador propio. **Pendiente:** probarlas con el simulador oficial (acción A2). | **Bajo-medio** |
+| R5 | **Acceso indebido** a datos ajenos (correos, Mi Espacio, avisos pendientes) por fallo en las reglas | Baja | Medio | Reglas de Firestore: cada uno solo lee y escribe lo suyo; el correo no está en Firestore. **Probadas contra la base de datos real** el 16/11/2026 con `tools/probar_reglas.py` (25 de 25 pruebas correctas: perfiles y Mi Espacio ajenos, apodos, avisos sin cuenta o sin confirmar, límite de envío, avisos pendientes, denuncias, bloqueos y contador). | **Bajo** |
 | R6 | **Filtración de la llave de administración** (cuenta de servicio o contraseña de moderación) | Baja | Alto | Secretos cifrados de GitHub; nunca en archivos ni registros; verificación en dos pasos en Google, GitHub y OVH; solo Pedro y Sonia. | **Bajo** |
 | R7 | **Pérdida de datos** (Mi Espacio, avisos) por fallo o error | Baja | Bajo | Mi Espacio sigue en el móvil aunque falle la nube; Google con servidores redundantes; **copia semanal cifrada** (AES‑256) de Firestore, guardada 35 días fuera de Google (GitHub) y con guía para restaurarla. | **Bajo** |
 | R8 | **Robot que borra de más** por un error | Baja | Medio | Modo simulación; se para si fuera a borrar más de la mitad de las cuentas; no toca la de administración; las cuentas bloqueadas a mano no se borran solas. | **Bajo** |
@@ -139,7 +139,7 @@ Escala: Probabilidad e Impacto = Baja / Media / Alta. Riesgo residual = después
 | # | Medida | Para qué riesgo | Prioridad | Estado |
 |---|---|---|---|---|
 | A1 | Copia de seguridad **semanal** de Firestore hecha por el robot y guardada fuera de Google | R7 | Media | ✅ Hecha (16/11/2026): `copia.yml`, cifrada, 35 días |
-| A2 | Probar las reglas con el **simulador de reglas** de la consola de Firebase (casos: leer perfil ajeno, avisar sin correo confirmado, votar dos veces, leer pendientes) | R5 | Media | Pendiente |
+| A2 | Probar las reglas contra la base real | R5 | Media | ✅ Hecha (16/11/2026): robot «Probar reglas», 25/25. Repetir cada vez que cambien las reglas. |
 | A3 | Activar **Firebase App Check** si aparece spam automático | R1, R4 | Baja | Solo si hace falta |
 | A4 | Guardar en cada retirada **qué administrador** la hizo y cuándo | R12 | Baja | Pendiente |
 | A5 | Formularios de Google Play: Seguridad de los datos, Eliminación de cuentas y cuenta de prueba para el revisor (documento 4) | Transparencia | Alta | Cuando Google verifique la identidad |
@@ -183,3 +183,4 @@ Antes de la fecha prevista (16/11/2027) si pasa cualquiera de estas cosas:
 |---|---|---|
 | 1 | 16/11/2026 | Primera EIPD, tras el resultado de «Evalúa Riesgo RGPD» (riesgo intrínseco muy alto, residual bajo). |
 | 1.1 | 16/11/2026 | Hecha la acción A1 (copias de seguridad semanales cifradas). |
+| 1.2 | 16/11/2026 | Hecha la acción A2 (reglas probadas contra la base real: 25/25). |
