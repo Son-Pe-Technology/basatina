@@ -2,6 +2,7 @@
 Limpieza nocturna de la Comunidad de avisos (lo que promete la política de privacidad):
   · avisos (y su ficha privada y sus votos) → se borran 30 días después de caducar
   · denuncias → 6 meses · bloqueos → 12 meses · controles antispam («limites») → 30 días
+  · registro de moderación («moderacion») → 12 meses
 Entra como administrador con los secretos de GitHub CM_ADMIN_EMAIL y CM_ADMIN_PASS
 (Settings → Secrets and variables → Actions). Lo lanza .github/workflows/comunidad.yml cada noche.
 Si no hay secretos, no hace nada.
@@ -52,7 +53,7 @@ def main():
         print('Sin secretos CM_ADMIN_EMAIL / CM_ADMIN_PASS: no se limpia nada.'); return
     tok = pide('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + KEY,
                {'email': mail, 'password': clave, 'returnSecureToken': True})['idToken']
-    n = {'avisos': 0, 'votos': 0, 'denuncias': 0, 'bloqueados': 0, 'limites': 0}
+    n = {'avisos': 0, 'votos': 0, 'denuncias': 0, 'bloqueados': 0, 'limites': 0, 'moderacion': 0}
     viejos = set()
     for d in todos('avisos', tok):
         f = d.get('fields', {})
@@ -68,7 +69,7 @@ def main():
     for d in todos('votos', tok):
         a = d.get('fields', {}).get('aviso', {}).get('stringValue')
         if a in viejos: borra(d['name'], tok); n['votos'] += 1
-    for col, campo, dias in [('denuncias', 'creado', 183), ('bloqueados', 'desde', 365), ('limites', 'ultimo', 30)]:
+    for col, campo, dias in [('denuncias', 'creado', 183), ('bloqueados', 'desde', 365), ('limites', 'ultimo', 30), ('moderacion', 'cuando', 365)]:
         for d in todos(col, tok):
             c = fecha(d.get('fields', {}).get(campo))
             if c and AHORA > c + dias * DIA: borra(d['name'], tok); n[col] += 1

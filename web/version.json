@@ -1,5 +1,5 @@
 {
- "version": 306,
+ "version": 307,
  "apk": 25,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -15,7 +15,7 @@
   "c12.jpg": "ac3fa4c4bc823c0b64c7c69990cf891eb00e6319",
   "c14.jpg": "00f5a26af1b6c701d5ffd8b64b9832f8c3b3fe03",
   "caza.js": "1dc720ba2afab96bb26e7a969959b414c67966a8",
-  "comunidad.js": "e155231aa939130cc4f7be211e79ebcdcd43cef1",
+  "comunidad.js": "d9894af7ae8bd4e6e7201d979504ed3ae89070ca",
   "cuenta.js": "635ac6dca4d5e8a2af280cdd7422f62ceb249b98",
   "efemerides.js": "b4dea96ea7390c02d0e634b7f745f9f463bdba7a",
   "energia.js": "cb31d05685a2fa6730c6e0670833cbf078ac2479",

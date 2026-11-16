@@ -11,7 +11,7 @@
 | **Delegado de protección de datos** | No hay (no es obligatorio para este proyecto) |
 | **Tratamientos evaluados** | Cuentas de usuario (Tratamiento 0), Comunidad de avisos «Alertas ciudadanas» (Tratamiento 1) y Mi Espacio en la cuenta, del registro de actividades (documento 1). El contador anónimo de uso (0 bis) se incluye solo como referencia: no trata datos personales. |
 | **Fuera de esta EIPD** | Fotos de la gente, buzón de sugerencias y refranes (Tratamientos 2, 3 y 3 bis): son ocasionales, sin cuentas ni ubicación, y no salieron como alto riesgo. |
-| **Versión y fecha** | Versión 1.2 · 16 de noviembre de 2026 |
+| **Versión y fecha** | Versión 1.3 · 16 de noviembre de 2026 |
 | **Próxima revisión** | 16 de noviembre de 2027, o antes si cambia algo de lo del apartado 8 |
 
 ---
@@ -66,7 +66,7 @@ App gratuita, sin publicidad y sin ánimo de lucro, con información de Navarra 
 | Cuenta | Correo, contraseña (hash; no la vemos), correo confirmado sí/no, IP y agente de usuario al entrar (Firebase, unas semanas) | Firebase Authentication |
 | Perfil | Apodo, fecha de alta, fecha del último cambio de apodo, versión de normas aceptada, apodo retirado por moderación (si lo hay) | Firestore `usuarios`, `apodos` (Madrid) |
 | Avisos | Tipo, texto (máx. 300 caracteres), punto del suceso (redondeado a ~10 m), fecha, apodo, votos; en la ficha privada, el identificador del autor | Firestore `avisos`, `avisos_priv`, `votos` |
-| Moderación | Denuncias (motivo y código de quien denuncia), bloqueos, límite antispam | Firestore `denuncias`, `bloqueados`, `limites` |
+| Moderación | Denuncias (motivo y código de quien denuncia), bloqueos, límite antispam, registro de acciones de moderación (acción, aviso, administrador, fecha) | Firestore `denuncias`, `bloqueados`, `limites`, `moderacion` |
 | Mi Espacio | Sitios secretos, diario de salidas **sin fotos**, notas, calendario, equipos y calendario deportivo, Mis carreteras, lista de avisos propios, votos, colaboradores ocultos | Firestore `espacio` |
 | **No se tratan** | Nombre y apellidos, teléfono, fecha de nacimiento, ubicación de la persona, fotos de personas, **diario de dolores (salud, se queda en el móvil)** | — |
 
@@ -79,7 +79,7 @@ App gratuita, sin publicidad y sin ánimo de lucro, con información de Navarra 
 | **Uso** | Mostrar avisos publicados; revisar los delicados; votar; sincronizar Mi Espacio; moderar. |
 | **Comunicación** | Público: solo el aviso publicado con su apodo. Nadie recibe correos ni identificadores. Encargado: Google (Firebase). Los correos de confirmación y contraseña los envía Firebase. |
 | **Copias** | Copia semanal cifrada de Firestore (sin correos ni contraseñas) guardada 35 días en GitHub; lo borrado puede seguir en ellas hasta que caducan. |
-| **Borrado** | El usuario borra sus avisos y su cuenta cuando quiere (app o basatina.es/borrar-cuenta.html). Robot nocturno: avisos 30 días después de caducar, denuncias a los 6 meses, bloqueos a los 12, cuentas sin confirmar a los 30 días, cuentas sin uso a los 2 años y códigos anónimos sin uso al año. |
+| **Borrado** | El usuario borra sus avisos y su cuenta cuando quiere (app o basatina.es/borrar-cuenta.html). Robot nocturno: avisos 30 días después de caducar, denuncias a los 6 meses, bloqueos y registro de moderación a los 12, cuentas sin confirmar a los 30 días, cuentas sin uso a los 2 años y códigos anónimos sin uso al año. |
 
 ### 2.5 Sistemas e intervinientes
 - **App Android** (WebView) y **web basatina.es** (GitHub Pages), mismo código.
@@ -128,7 +128,7 @@ Escala: Probabilidad e Impacto = Baja / Media / Alta. Riesgo residual = después
 | R9 | **Menores de 14** que crean cuenta mintiendo | Media | Bajo | Casilla obligatoria; no se piden datos que identifiquen; revisión de avisos delicados; si se detecta, se borra la cuenta. | **Bajo** |
 | R10 | **Bloqueo injusto** de una cuenta (impide avisar) | Baja | Bajo | Lo deciden personas, no una máquina; se informa del motivo; se puede reclamar en participa@; ver los avisos sigue siendo libre; bloqueo máximo de 12 meses. | **Bajo** |
 | R11 | **Encargado (Google)** que trate los datos de otra forma o los transfiera | Baja | Medio | Condiciones de tratamiento de datos de Firebase; Firestore en Madrid; Marco de Privacidad de Datos UE‑EE. UU. | **Bajo** |
-| R12 | **Falta de registro** de quién retiró o editó cada aviso (trazabilidad) | Media | Bajo | Motivo de retirada guardado en el aviso y visible para su autor. **Pendiente:** registro de acciones de moderación (acción A4). | **Bajo** |
+| R12 | **Falta de registro** de quién retiró o editó cada aviso (trazabilidad) | Media | Bajo | Motivo de retirada guardado en el aviso y visible para su autor. **Registro de moderación** (`moderacion`): qué acción, sobre qué aviso, quién de los dos administradores y cuándo; solo lo ven los administradores y se borra a los 12 meses. | **Bajo** |
 
 **Riesgo residual global: BAJO** (coincide con la herramienta: 0,412).
 
@@ -141,7 +141,7 @@ Escala: Probabilidad e Impacto = Baja / Media / Alta. Riesgo residual = después
 | A1 | Copia de seguridad **semanal** de Firestore hecha por el robot y guardada fuera de Google | R7 | Media | ✅ Hecha (16/11/2026): `copia.yml`, cifrada, 35 días |
 | A2 | Probar las reglas contra la base real | R5 | Media | ✅ Hecha (16/11/2026): robot «Probar reglas», 25/25. Repetir cada vez que cambien las reglas. |
 | A3 | Activar **Firebase App Check** si aparece spam automático | R1, R4 | Baja | Solo si hace falta |
-| A4 | Guardar en cada retirada **qué administrador** la hizo y cuándo | R12 | Baja | Pendiente |
+| A4 | Guardar en cada retirada **qué administrador** la hizo y cuándo | R12 | Baja | ✅ Hecha (16/11/2026): registro de moderación, 12 meses |
 | A5 | Formularios de Google Play: Seguridad de los datos, Eliminación de cuentas y cuenta de prueba para el revisor (documento 4) | Transparencia | Alta | Cuando Google verifique la identidad |
 | A6 | Repetir «Evalúa Riesgo RGPD» y esta EIPD si se cumple algo del apartado 8 | Todos | — | Programado |
 
@@ -184,3 +184,4 @@ Antes de la fecha prevista (16/11/2027) si pasa cualquiera de estas cosas:
 | 1 | 16/11/2026 | Primera EIPD, tras el resultado de «Evalúa Riesgo RGPD» (riesgo intrínseco muy alto, residual bajo). |
 | 1.1 | 16/11/2026 | Hecha la acción A1 (copias de seguridad semanales cifradas). |
 | 1.2 | 16/11/2026 | Hecha la acción A2 (reglas probadas contra la base real: 25/25). |
+| 1.3 | 16/11/2026 | Hecha la acción A4 (registro de moderación). |

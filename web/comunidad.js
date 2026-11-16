@@ -17,6 +17,7 @@ const $=id=>document.getElementById(id);
 const FB={key:'AIzaSyBkD97y7lqjMS0sA7zClhQkqZlEgXtkeqk',p:'basatina-9a8b5'};
 const DOCS=`projects/${FB.p}/databases/(default)/documents`, FS='https://firestore.googleapis.com/v1/'+DOCS;
 const ADMIN_MAIL='administracion@sonpe-technology.es';
+const CM_MODS=['Pedro','Sonia'];   // quién modera (para el registro de moderación)
 // [clave, icono, nombre, horas que dura, ¿revisión previa?]
 const CM_T=[['arbol','🌳','Árbol caído',72],['desprendimiento','🪨','Desprendimiento',72],['camino','🚧','Camino o carretera cortada',72],
   ['lluvia','🌧️','Lluvia muy intensa o granizo',6],['crecida','🌊','Crecida del río',24],['animal','🐗','Animal suelto en la carretera',6],
@@ -233,15 +234,19 @@ async function cmMod(){const el=$('cmBody');const tok=await admTok();
   if(!tok){el.innerHTML=`<div class="card"><b>🛡️ Entrar a moderar</b><div class="note">Usuario de administración de Firebase. La sesión se cierra al cerrar la app.</div>
      <input id="cmAe" class="town" type="email" value="${ADMIN_MAIL}" style="width:100%;box-sizing:border-box;margin-top:8px">
      <input id="cmAp" class="town" type="password" placeholder="Contraseña" style="width:100%;box-sizing:border-box;margin-top:6px">
+     <select id="cmAq" class="town" style="width:100%;box-sizing:border-box;margin-top:6px"><option value="">¿Quién eres?</option>${CM_MODS.map(n=>`<option>${n}</option>`).join('')}</select>
      <div class="row" style="margin-top:8px"><button class="btn pri" id="cmAok">Entrar</button></div><div class="note" id="cmAm"></div></div>`;
     $('cmAp').onkeydown=e=>{if(e.key==='Enter')$('cmAok').click();};
-    $('cmAok').onclick=async()=>{$('cmAm').textContent='Entrando…';try{const j=await fbAuthPost('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+FB.key,{email:$('cmAe').value.trim(),password:$('cmAp').value,returnSecureToken:true});
-        admSet({it:j.idToken,rt:j.refreshToken,exp:Date.now()+(+j.expiresIn-60)*1000,email:j.email});cmMod();}
+    $('cmAok').onclick=async()=>{if(!$('cmAq').value)return $('cmAm').textContent='Elige quién eres (para el registro de moderación).';$('cmAm').textContent='Entrando…';try{const j=await fbAuthPost('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+FB.key,{email:$('cmAe').value.trim(),password:$('cmAp').value,returnSecureToken:true});
+        admSet({it:j.idToken,rt:j.refreshToken,exp:Date.now()+(+j.expiresIn-60)*1000,email:j.email,quien:$('cmAq').value});cmMod();}
       catch(e){$('cmAm').textContent='❌ No se ha podido entrar ('+e.message+').';}};return;}
   el.innerHTML='<div class="card"><div class="note">Cargando…</div></div>';
   let P=[],D=[],U=[];try{[P,D,U]=await Promise.all([fsQuery('avisos','estado','pendiente',tok),fsQuery('denuncias',null,null,tok),fsQuery('avisos','estado','publicado',tok)]);}
   catch(e){el.innerHTML=`<div class="card"><div class="note">❌ No se pudo cargar (${esc(e.message)}). ¿Están publicadas las reglas?</div><div class="row"><button class="btn" id="cmSal">Salir</button></div></div>`;$('cmSal').onclick=()=>{admSet(null);cmMod();};return;}
   const todos={};[...P,...U].forEach(a=>todos[a.id]=a);
+  // 📜 registro de moderación (acción A4 de la EIPD): quién hizo qué y cuándo. Solo administradores; se borra a los 12 meses.
+  const quien=(admGet()||{}).quien||'';let LG=[];try{LG=(await fsQuery('moderacion',null,null,tok)).sort((a,b)=>(b.cuando||'').localeCompare(a.cuando||'')).slice(0,15);}catch(e){}
+  const reg=async(accion,aviso,detalle)=>{try{await fsPatch('moderacion',rnd(20),{accion,aviso:aviso||'',quien:quien||'?',cuando:new Date().toISOString(),detalle:(detalle||'').slice(0,120)},tok);}catch(e){console.log('registro',e);}};
   // 📊 usuarios: contador anónimo (estadisticas/) y cuentas creadas
   let ES=[],NC=null;try{ES=await fsQuery('estadisticas',null,null,tok);}catch(e){}
   try{const j=await fs(':runAggregationQuery',{method:'POST',body:JSON.stringify({structuredAggregationQuery:{structuredQuery:{from:[{collectionId:'usuarios'}]},aggregations:[{alias:'n',count:{}}]}})},tok);NC=+(j[0].result.aggregateFields.n.integerValue);}catch(e){}
@@ -259,29 +264,33 @@ async function cmMod(){const el=$('cmBody');const tok=await admTok();
       <div class="row" style="margin-top:4px;flex-wrap:wrap;gap:4px"><button class="btn" data-bl="${a.id}">⛔ Bloquear al autor (12 meses)</button>${a.apodo?`<button class="btn" data-ap="${a.id}">🏷️ Quitar apodo ofensivo</button>`:''}</div></div>`;};
   el.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between;align-items:center"><b>🛡️ Moderación</b><span><button class="btn" id="cmRf">🔄</button> <button class="btn" id="cmSal">Salir</button></span></div>
      <div class="note">Quitar datos personales: editar el texto y «Guardar texto». Al retirar, el autor verá el motivo en «Mis avisos». Guía: legal/3-moderacion-y-derechos.md</div></div>
+   ${quien?'':`<div class="card"><b>👤 ¿Quién eres?</b><div class="note">Para apuntar quién hace cada acción.</div><div class="row" style="margin-top:6px;gap:6px">${CM_MODS.map(n=>`<button class="btn" data-yo="${n}">${n}</button>`).join('')}</div></div>`}
    ${est}
    <div class="card"><b>⏳ Pendientes (${P.length})</b>${P.length?P.map(a=>tarj(a,1)).join(''):'<div class="note">Nada pendiente. 🎉</div>'}</div>
    <div class="card"><b>🚩 Denuncias (${D.length})</b>${D.length?D.map(d=>{const a=todos[d.aviso];return `<div class="st" style="display:block"><div><b>${esc(CM_MOT[d.motivo]||d.motivo)}</b> <span class="note">· ${d.creado?hace(d.creado):''}</span></div>${d.texto?`<div class="s">«${esc(d.texto)}»</div>`:''}
        <div class="s" style="margin-top:3px">Aviso: ${a?`${CMT[a.tipo][1]} ${esc(a.texto||CMT[a.tipo][2])} (${a.estado})`:'ya no está publicado'}</div>
        <div class="row" style="margin-top:4px;flex-wrap:wrap;gap:4px">${a&&a.estado==='publicado'?`<button class="btn" data-dr="${d.id}" data-av="${a.id}" data-mo="${esc(d.motivo==='yano'?'yano':d.motivo)}">❌ Retirar el aviso</button>`:''}<button class="btn" data-dx="${d.id}">✔️ Revisada, se mantiene</button></div></div>`;}).join(''):'<div class="note">Sin denuncias.</div>'}</div>
-   <div class="card"><b>✅ Publicados (${U.length})</b>${U.length?U.map(a=>tarj(a,0)).join(''):'<div class="note">Ninguno.</div>'}</div>`;
+   <div class="card"><b>✅ Publicados (${U.length})</b>${U.length?U.map(a=>tarj(a,0)).join(''):'<div class="note">Ninguno.</div>'}</div>
+   <div class="card"><b>📜 Últimas acciones de moderación</b>${LG.length?LG.map(l=>`<div class="s" style="margin-top:4px">${new Date(l.cuando).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})} · <b>${esc(l.quien)}</b> · ${esc(l.accion)}${l.detalle?' · '+esc(l.detalle):''}</div>`).join(''):'<div class="note">Todavía no hay ninguna.</div>'}
+     <div class="note" style="margin-top:6px">Se guarda 12 meses. Solo lo veis los administradores.</div></div>`;
   const hecho=t=>{toast(t);cmMod();},err=e=>toast('❌ '+e.message);
+  el.querySelectorAll('[data-yo]').forEach(b=>b.onclick=()=>{const a=admGet();if(a){a.quien=b.dataset.yo;admSet(a);}cmMod();});
   $('cmRf').onclick=cmMod;$('cmSal').onclick=()=>{admSet(null);cmMod();};
   el.querySelectorAll('[data-map]').forEach(a=>a.onclick=e=>{e.preventDefault();const [la,lo]=a.dataset.map.split(',');abre(abMapsPt(+la,+lo));});
-  el.querySelectorAll('[data-ok]').forEach(b=>b.onclick=async()=>{const id=b.dataset.ok;try{await fsPatch('avisos',id,{estado:'publicado',texto:el.querySelector(`[data-tx="${id}"]`).value.trim()},tok);hecho('✅ Publicado');}catch(e){err(e);}});
-  el.querySelectorAll('[data-ed]').forEach(b=>b.onclick=async()=>{const id=b.dataset.ed;try{await fsPatch('avisos',id,{texto:el.querySelector(`[data-tx="${id}"]`).value.trim()},tok);hecho('✏️ Texto guardado');}catch(e){err(e);}});
-  el.querySelectorAll('[data-no]').forEach(b=>b.onclick=async()=>{const id=b.dataset.no;try{await fsPatch('avisos',id,{estado:'retirado',motivo:el.querySelector(`[data-ms="${id}"]`).value},tok);hecho('❌ Retirado');}catch(e){err(e);}});
+  el.querySelectorAll('[data-ok]').forEach(b=>b.onclick=async()=>{const id=b.dataset.ok;try{await fsPatch('avisos',id,{estado:'publicado',texto:el.querySelector(`[data-tx="${id}"]`).value.trim()},tok);await reg('✅ Publicar',id,todos[id]&&todos[id].tipo);hecho('✅ Publicado');}catch(e){err(e);}});
+  el.querySelectorAll('[data-ed]').forEach(b=>b.onclick=async()=>{const id=b.dataset.ed;try{await fsPatch('avisos',id,{texto:el.querySelector(`[data-tx="${id}"]`).value.trim()},tok);await reg('✏️ Editar texto',id,todos[id]&&todos[id].tipo);hecho('✏️ Texto guardado');}catch(e){err(e);}});
+  el.querySelectorAll('[data-no]').forEach(b=>b.onclick=async()=>{const id=b.dataset.no;try{await fsPatch('avisos',id,{estado:'retirado',motivo:el.querySelector(`[data-ms="${id}"]`).value},tok);await reg('❌ Retirar',id,CM_MOT[el.querySelector(`[data-ms="${id}"]`).value]);hecho('❌ Retirado');}catch(e){err(e);}});
   el.querySelectorAll('[data-bl]').forEach(b=>b.onclick=async()=>{if(!confirm('¿Bloquear al autor de este aviso durante 12 meses? No podrá enviar más avisos, votos ni denuncias.'))return;const id=b.dataset.bl;
     try{const p=decD(await fs(`/avisos_priv/${id}`,{},tok));await fsPatch('bloqueados',p.autor,{desde:new Date().toISOString(),aviso:id},tok);
-      await fsPatch('avisos',id,{estado:'retirado',motivo:el.querySelector(`[data-ms="${id}"]`).value},tok);hecho('⛔ Autor bloqueado y aviso retirado');}catch(e){err(e);}});
+      await fsPatch('avisos',id,{estado:'retirado',motivo:el.querySelector(`[data-ms="${id}"]`).value},tok);await reg('⛔ Bloquear autor (12 meses)',id,CM_MOT[el.querySelector(`[data-ms="${id}"]`).value]);hecho('⛔ Autor bloqueado y aviso retirado');}catch(e){err(e);}});
   // apodo ofensivo: se cambia por «VecinoNNNN» en su perfil y en este aviso
   el.querySelectorAll('[data-ap]').forEach(b=>b.onclick=async()=>{if(!confirm('¿Cambiar el apodo de este autor por uno automático («Vecino» + números)? Se le avisará la próxima vez que abra su cuenta.'))return;const id=b.dataset.ap;
     try{const p=decD(await fs(`/avisos_priv/${id}`,{},tok)),us=decD(await fs(`/usuarios/${p.autor}`,{},tok)),nv='Vecino'+(1000+Math.floor(Math.random()*9000)),k=nv.toLowerCase();
       await fsCommit([{update:{name:nom('usuarios',p.autor),fields:encF({apodo:nv,apodoK:k,quitado:us.apodo||''})},updateMask:{fieldPaths:['apodo','apodoK','quitado']},updateTransforms:[{fieldPath:'cambiado',setToServerValue:'REQUEST_TIME'}]},
         {update:{name:nom('apodos',k),fields:encF({uid:p.autor})},currentDocument:{exists:false}},...(us.apodoK?[{delete:nom('apodos',us.apodoK)}]:[])],tok);
-      await fsPatch('avisos',id,{apodo:nv},tok);hecho('🏷️ Apodo cambiado a '+nv);}catch(e){err(e);}});
-  el.querySelectorAll('[data-dr]').forEach(b=>b.onclick=async()=>{try{await fsPatch('avisos',b.dataset.av,{estado:'retirado',motivo:CM_MOT[b.dataset.mo]?b.dataset.mo:'otro'},tok);await fsDel('denuncias',b.dataset.dr,tok);hecho('❌ Aviso retirado');}catch(e){err(e);}});
-  el.querySelectorAll('[data-dx]').forEach(b=>b.onclick=async()=>{try{await fsDel('denuncias',b.dataset.dx,tok);hecho('✔️ Denuncia cerrada');}catch(e){err(e);}});}
+      await fsPatch('avisos',id,{apodo:nv},tok);await reg('🏷️ Quitar apodo ofensivo',id,'→ '+nv);hecho('🏷️ Apodo cambiado a '+nv);}catch(e){err(e);}});
+  el.querySelectorAll('[data-dr]').forEach(b=>b.onclick=async()=>{try{await fsPatch('avisos',b.dataset.av,{estado:'retirado',motivo:CM_MOT[b.dataset.mo]?b.dataset.mo:'otro'},tok);await fsDel('denuncias',b.dataset.dr,tok);await reg('❌ Retirar por denuncia',b.dataset.av,CM_MOT[b.dataset.mo]||b.dataset.mo);hecho('❌ Aviso retirado');}catch(e){err(e);}});
+  el.querySelectorAll('[data-dx]').forEach(b=>b.onclick=async()=>{try{await fsDel('denuncias',b.dataset.dx,tok);await reg('✔️ Denuncia revisada, se mantiene','',b.dataset.dx);hecho('✔️ Denuncia cerrada');}catch(e){err(e);}});}
 
 svHook('comunidad',()=>{CMSEL=null;cmRender();});
 // menú: el primero de «Participa»

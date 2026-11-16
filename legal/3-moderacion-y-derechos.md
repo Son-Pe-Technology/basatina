@@ -31,6 +31,8 @@
 - Publicar solo si es útil para el tráfico o para quien pasa (carretera cortada, retenciones). Nada de heridos, nombres ni matrículas.
 - Caducan en 6 horas.
 
+**📜 Registro de moderación.** Al entrar en 🛡️ Moderar, cada uno elige quién es (Pedro o Sonia). Cada publicar, editar, retirar, bloquear, quitar apodo o cerrar denuncia queda apuntado con quién y cuándo, y se ve abajo en «Últimas acciones». Sirve para contestar si alguien reclama («¿quién retiró mi aviso y por qué?»). Se borra solo a los 12 meses.
+
 ## B. Cuando alguien escribe por un contenido ilegal (art. 16 DSA)
 1. Contestar **acusando recibo** (plantilla 1).
 2. Mirarlo y decidir. Si es ilegal o incumple las normas → retirar.
