@@ -2,7 +2,7 @@
 
 > **Por qué.** El RGPD pide pensar antes qué puede salir mal con los datos y poner medidas (art. 24, 25 y 32). Esto es eso, en sencillo.
 > **¿Hace falta una «evaluación de impacto» (EIPD) formal?** Con este diseño, creemos que **no**: no hay datos sensibles, ni perfiles, ni seguimiento de personas, ni vigilancia, y los avisos son anónimos. La EIPD haría falta si algún día se añadieran fotos de personas, la ubicación en tiempo real de los usuarios o cuentas con perfil. **Si cambia el diseño, revisar esto.**
-> **Revisado el 16 nov. 2026 (cuentas):** las cuentas solo guardan correo, apodo y Mi Espacio, sin datos de salud (el diario de dolores no se sube), sin perfiles de comportamiento ni seguimiento, y es un proyecto pequeño. Seguimos creyendo que la EIPD **no** es obligatoria, pero como ya hay cuentas, conviene confirmarlo con la herramienta gratuita **Gestiona EIPD / Facilita RGPD** de la AEPD.
+> **Actualizado el 16 nov. 2026 (cuentas):** la herramienta oficial de la AEPD «Evalúa Riesgo RGPD» dio riesgo intrínseco **muy alto** (se juntan ubicación, identificadores, tratamiento sistemático, alcance regional y posibles menores), así que la EIPD **sí es obligatoria**. Está hecha en el **documento 5** (`5-evaluacion-impacto-eipd.md`): riesgo residual **bajo**, sin necesidad de consulta previa a la AEPD.
 
 ## Privacidad desde el diseño (lo más importante)
 1. **Cuentas mínimas (desde el 16 nov. 2026).** Solo correo, contraseña (la guarda Firebase; no la vemos) y apodo. No se piden nombre, teléfono ni fecha de nacimiento (solo la casilla de 14 años). Ver los avisos no necesita cuenta. Mi Espacio en la cuenta deja fuera las fotos y el diario de dolores.

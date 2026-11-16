@@ -6,6 +6,7 @@
 
 **Responsable:** Pedro Iglesias Goñi (Son&Pe Technology Systems) · participa@basatina.es · Navarra (España)
 **Delegado de protección de datos:** no hay (no es obligatorio para este proyecto).
+**Evaluación de impacto (EIPD):** hecha el 16/11/2026 para cuentas, alertas ciudadanas y Mi Espacio → documento 5.
 **Última revisión:** 16 de noviembre de 2026 (cuentas de usuario)
 
 ---
