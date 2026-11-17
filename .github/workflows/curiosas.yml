@@ -1,0 +1,29 @@
+# 😄 Noticias curiosas (tools/curiosas.py). Mañana, tarde y noche (hora de Madrid), al cambiar el script o a mano desde Actions.
+# Se lanza dos veces por turno (6:23 y 7:23, 12:23 y 13:23, 18:23 y 19:23 UTC) porque GitHub va en hora UTC
+# y España cambia de hora en verano: así siempre hay noticia antes de las 9, las 15 y las 21 h.
+# La noticia de cada turno se elige en la primera pasada y ya no cambia.
+name: Noticias curiosas
+on:
+  push:
+    paths: ['tools/curiosas.py', 'noticias/curiosas_ocultas.json']
+  schedule:
+    - cron: '23 6,7,12,13,18,19 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: noticias
+jobs:
+  curiosas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Buscar noticias curiosas
+        run: python3 tools/curiosas.py
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add noticias/curiosas.json noticias/curiosas_info.txt
+          git commit -m "Noticias curiosas" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs && git push && break; sleep $((i*10)); done

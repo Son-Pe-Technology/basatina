@@ -392,7 +392,7 @@ public class MainActivity extends Activity {
             getSharedPreferences("rio", MODE_PRIVATE).edit().putString("alerts", json).apply();
             try {
                 JSONObject jj = new JSONObject(json);
-                if ((jj.optBoolean("on") || jj.optBoolean("dato")) && android.os.Build.VERSION.SDK_INT >= 33
+                if ((jj.optBoolean("on") || jj.optBoolean("dato") || jj.optBoolean("curiosa")) && android.os.Build.VERSION.SDK_INT >= 33
                         && checkSelfPermission("android.permission.POST_NOTIFICATIONS") != android.content.pm.PackageManager.PERMISSION_GRANTED)
                     runOnUiThread(() -> requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 7));
             } catch (Exception ignored) {}

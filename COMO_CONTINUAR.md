@@ -182,3 +182,11 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
   - 🐾 **Las sombras** (`psombras`): sombra de un animal (el dibujo con `filter:brightness(0)`) y 3 opciones. Animales en `PQ_AN` (añadir = una línea).
   - 🔢 **A contar** (`pcontar`): hasta 5 o hasta 10; se pueden tocar los animales para contarlos uno a uno.
   - 🐟 **Atrapa las truchas** (`ptruchas`): 30 s, 9 pozas; la bota vieja resta 2. Va más rápido al final.
+
+- **😄 Noticias curiosas (17 nov. 2026, APK 4.6 / código 26)** (`web/curiosas.js`, se carga el último, después de `juegos-peques.js`):
+  - Pantalla `curiosas` (grupo Servicios), tarjeta en el Inicio «La noticia curiosa de la mañana / tarde / noche» (`#cuCard`, debajo de la palabra del día) y aviso en el móvil a las **9, 15 y 21 h** (Ajustes → «😄 Noticia curiosa», `CFG.curiosa`; lo manda `RiverJob.checkCuriosa` y al tocarlo se abre la noticia).
+  - Robot `tools/curiosas.py` (`curiosas.yml`, 6 veces al día: dos pasadas por turno porque GitHub va en UTC y España cambia de hora) → `noticias/curiosas.json` (`dest` = la elegida de cada turno, `k` = `AAAA-MM-DD-m|t|n`; `items` = todas). Resumen en `noticias/curiosas_info.txt`.
+  - Casi ningún medio tiene RSS solo de curiosidades (comprobado el 17 nov. 2026): se leen canales generales o de sociedad de muchos medios (`MEDIOS`) y se eligen por la sección del enlace (`SECCION`: /curioso/, /curiosidades/…) y por palabras del titular (`FUERTE` 2 puntos, `SUAVE` 1; hacen falta 2). Fuera política (`NO`) y temas tristes (`TRISTE`). Nunca Navarra.com, OKdiario ni El Mundo (`FUERA`).
+  - Turnos (hora de Madrid): mañana 5–12 h, tarde 13–18 h, noche 19–4 h. **El cálculo debe ser igual** en `turno_de()` (robot), `cuTurno()` (web) y `checkCuriosa` (Java).
+  - Modo Administrador: 🙈 en cada noticia la oculta para todos y «Palabra prohibida» la añade; las dos van a `noticias/curiosas_ocultas.json` (al guardarlo, el robot vuelve a pasar solo).
+  - Solo titular + enlace + medio + hora (art. 129 bis LPI), como en Titulares.

@@ -66,6 +66,7 @@ public class RiverJob extends JobService {
             try { checkFinde(this); } catch (Exception ignored) {}
             try { checkDato(this); } catch (Exception ignored) {}
             try { checkSismo(this); } catch (Exception ignored) {}
+            try { checkCuriosa(this); } catch (Exception ignored) {}
             jobFinished(p, false);
         }).start();
         return true;   // el trabajo sigue en otro hilo
@@ -316,6 +317,50 @@ public class RiverJob extends JobService {
                 .setStyle(new android.app.Notification.BigTextStyle().bigText(text))
                 .setContentIntent(pi).setAutoCancel(true);
         try { nm.notify(500, b.build()); } catch (SecurityException ignored) {}
+    }
+
+    /* ---------- 😄 Noticia curiosa (APK 4.6 / código 26) ----------
+       A las 9, 15 y 21 h (hora de Madrid) manda la noticia curiosa elegida para ese turno.
+       Lee noticias/curiosas.json (robot tools/curiosas.py): dest = [{k:"AAAA-MM-DD-m|t|n", t, u, f}].
+       Mismo turno que turno_de() del robot y cuTurno() de web/curiosas.js. Al tocar el aviso se abre la noticia.
+       Se activa en Ajustes → «😄 Noticia curiosa» (cfg.curiosa). */
+    static final String CUR_URL = "https://raw.githubusercontent.com/suapedrito-z/basatina/main/noticias/curiosas.json";
+    static final String CH_CUR = "noticia_curiosa";
+
+    static void checkCuriosa(Context c) throws Exception {
+        if (!cfg(c).optBoolean("curiosa", false)) return;
+        java.util.Calendar cal = java.util.Calendar.getInstance(java.util.TimeZone.getTimeZone("Europe/Madrid"));
+        int h = cal.get(java.util.Calendar.HOUR_OF_DAY);
+        // solo dentro de cada turno, desde su hora: mañana 9-12, tarde 15-18, noche 21-23 (de madrugada no se avisa)
+        String t = h >= 9 && h < 13 ? "m" : h >= 15 && h < 19 ? "t" : h >= 21 ? "n" : null;
+        if (t == null) return;
+        String k = String.format(java.util.Locale.US, "%04d-%02d-%02d-%s", cal.get(java.util.Calendar.YEAR), cal.get(java.util.Calendar.MONTH) + 1, cal.get(java.util.Calendar.DAY_OF_MONTH), t);
+        SharedPreferences sp = c.getSharedPreferences("rio", MODE_PRIVATE);
+        if (k.equals(sp.getString("curK", ""))) return;           // ya avisado en este turno
+        JSONObject D = new JSONObject(get(CUR_URL + "?t=" + (System.currentTimeMillis() / 600000L)));
+        org.json.JSONArray dest = D.optJSONArray("dest");
+        JSONObject x = null;
+        if (dest != null) for (int i = 0; i < dest.length(); i++) { JSONObject y = dest.optJSONObject(i); if (y != null && k.equals(y.optString("k"))) x = y; }
+        if (x == null || x.optString("t").isEmpty()) return;      // el robot aún no la ha elegido: se mira otra vez en 15 min
+        sp.edit().putString("curK", k).apply();
+        String cuando = t.equals("m") ? "de la mañana" : t.equals("t") ? "de la tarde" : "de la noche";
+        NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(CH_CUR) == null) {
+            NotificationChannel ch = new NotificationChannel(CH_CUR, "Noticia curiosa", NotificationManager.IMPORTANCE_DEFAULT);
+            ch.setDescription("Una noticia simpática por la mañana, por la tarde y por la noche");
+            nm.createNotificationChannel(ch);
+        }
+        Intent it;
+        String u = x.optString("u");
+        if (u.startsWith("https://") || u.startsWith("http://")) it = new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(u));
+        else it = new Intent(c, MainActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(c, 501, it, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+        String text = x.optString("t") + " (" + x.optString("f") + ")";
+        android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, CH_CUR) : new android.app.Notification.Builder(c);
+        b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle("😄 La noticia curiosa " + cuando).setContentText(text)
+                .setStyle(new android.app.Notification.BigTextStyle().bigText(text))
+                .setContentIntent(pi).setAutoCancel(true);
+        try { nm.notify(510, b.build()); } catch (SecurityException ignored) {}
     }
 
     /** Avisa de los terremotos nuevos en Navarra y alrededores (datos del IGN a través del EMSC).
