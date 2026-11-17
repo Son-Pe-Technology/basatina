@@ -1,0 +1,8 @@
+Pistas de pádel 2026-11-17
+Sitios: 1 (municipales 0, clubes 1)
+Pistas: 0 (cubiertas 0)
+Clubes de pádel sin pistas dibujadas en OSM: 1
+Sitios privados quitados: 0
+
+Pueblos con más sitios:
+  Mutilva / Mutiloa: 1
