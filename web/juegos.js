@@ -59,7 +59,7 @@ const st=document.createElement('style');st.textContent=`
 .jgBox{border-radius:16px;padding:12px;margin:10px 0;display:flex;flex-direction:column;gap:10px}
 .jgNut{background:linear-gradient(180deg,#0f3b4a,#0a2a35);color:#e6f6f8}
 .jgNut .jgHud{display:flex;justify-content:space-between;align-items:center;font-size:15px}.jgNut .jgHud b{font-size:20px;color:#ffd54f}
-.jgNut canvas{width:100%;max-width:420px;align-self:center;border-radius:12px;touch-action:none;display:block;box-shadow:0 0 0 3px #6d8f3a,0 0 0 6px #4e6b26}
+.jgNut canvas{width:min(100%,420px,calc(58vh * .8));align-self:center;border-radius:12px;touch-action:none;display:block;box-shadow:0 0 0 3px #6d8f3a,0 0 0 6px #4e6b26}
 .jgPad{display:grid;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(2,54px);gap:8px;justify-content:center}
 .jgPad button{border:0;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;font-size:24px;cursor:pointer;touch-action:manipulation}
 .jgPad button:active{background:rgba(255,255,255,.3)}
@@ -222,10 +222,10 @@ sec('jcadenas',`<div class="jgCad" id="jcBox">
    ===================================================================== */
 sec('jnutria',`<div class="jgBox jgNut" data-noswipe>
  <div class="jgHud"><span>🐟 Truchas: <b id="jnPts">0</b></span><span>🏆 Récord: <b id="jnRec">0</b></span></div>
- <canvas id="jnC" width="400" height="500"></canvas>
  <button class="jgBig" id="jnGo">▶️ Empezar</button>
+ <canvas id="jnC" width="400" height="500"></canvas>
  <div class="jgPad"><span></span><button data-d="u" aria-label="Arriba">▲</button><span></span><button data-d="l" aria-label="Izquierda">◀</button><button data-d="d" aria-label="Abajo">▼</button><button data-d="r" aria-label="Derecha">▶</button></div>
- <div class="jgNota">Desliza el dedo sobre el río o usa las flechas. Come truchas 🐟 y no choques con la orilla, las piedras ni tu propia cola. Cada trucha te hace más larga y más rápida.</div>
+ <div class="jgNota">Toca el río a un lado de la nutria para que gire hacia allí, desliza el dedo o usa las flechas. Come truchas 🐟 y no choques con la orilla, las piedras ni tu propia cola. Cada trucha te hace más larga y más rápida.</div>
 </div>`);
 (function(){
  const C=$('jnC'),x=C.getContext('2d'),W=16,H=20,T=25;   // 16×20 casillas de 25 px
@@ -272,15 +272,22 @@ sec('jnutria',`<div class="jgBox jgNut" data-noswipe>
    x.strokeStyle='rgba(255,255,255,.7)';x.lineWidth=1;[1,-1].forEach(s=>{x.beginPath();x.moveTo(hx+dir.x*7+px*3*s,hy+dir.y*7+py*3*s);x.lineTo(hx+dir.x*9+px*11*s,hy+dir.y*9+py*11*s);x.stroke();});}
  function gira(d){const D={u:{x:0,y:-1},d:{x:0,y:1},l:{x:-1,y:0},r:{x:1,y:0}}[d];if(!D||!vivo)return;const u=cola.length?cola[cola.length-1]:dir;
    if((D.x===u.x&&D.y===u.y)||(D.x===-u.x&&D.y===-u.y))return;if(cola.length<3)cola.push(D);}
- function empieza(){nueva();vivo=true;pausa=false;t0=Date.now();$('jnGo').style.display='none';dibuja();clearTimeout(tm);tm=setTimeout(paso,400);}
+ function empieza(){try{C.scrollIntoView({block:'center',behavior:'smooth'});}catch(e){}nueva();vivo=true;pausa=false;t0=Date.now();$('jnGo').style.display='none';dibuja();clearTimeout(tm);tm=setTimeout(paso,400);}
  function para(){if(vivo){clearTimeout(tm);pausa=true;dibuja();x.fillStyle='rgba(5,25,32,.6)';x.fillRect(0,0,C.width,C.height);x.fillStyle='#fff';x.textAlign='center';
    x.font='bold 26px system-ui,sans-serif';x.fillText('⏸️ En pausa',200,250);$('jnGo').textContent='▶️ Seguir';$('jnGo').style.display='';}}
  $('jnGo').onclick=()=>{if(vivo&&pausa){pausa=false;$('jnGo').style.display='none';tm=setTimeout(paso,300);}else empieza();};
  document.querySelectorAll('#t-jnutria .jgPad button').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();gira(b.dataset.d);}));
- let sx=null,sy=0;C.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
- C.addEventListener('touchmove',e=>{if(sx===null)return;const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.max(Math.abs(dx),Math.abs(dy))<22)return;
-   gira(Math.abs(dx)>Math.abs(dy)?(dx>0?'r':'l'):(dy>0?'d':'u'));sx=t.clientX;sy=t.clientY;},{passive:true});
- C.addEventListener('touchend',()=>sx=null,{passive:true});
+ // sobre el río: deslizar el dedo = girar; tocar = girar hacia el lado donde tocas (respecto a la cabeza)
+ let sx=null,sy=0,des=false;
+ C.addEventListener('pointerdown',e=>{e.preventDefault();sx=e.clientX;sy=e.clientY;des=false;try{C.setPointerCapture(e.pointerId);}catch(_){}});
+ C.addEventListener('pointermove',e=>{if(sx===null)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.max(Math.abs(dx),Math.abs(dy))<18)return;
+   gira(Math.abs(dx)>Math.abs(dy)?(dx>0?'r':'l'):(dy>0?'d':'u'));des=true;sx=e.clientX;sy=e.clientY;});
+ C.addEventListener('pointerup',e=>{if(sx===null)return;sx=null;if(des)return;
+   if(!vivo||pausa){$('jnGo').click();return;}             // tocar el río también empieza o sigue la partida
+   const r=C.getBoundingClientRect(),px=(e.clientX-r.left)*C.width/r.width,py=(e.clientY-r.top)*C.height/r.height;
+   const u=cola.length?cola[cola.length-1]:dir,hx=nut[0].x*T+T/2,hy=nut[0].y*T+T/2;
+   if(u.y!==0)gira(px<hx?'l':'r');else gira(py<hy?'u':'d');});
+ C.addEventListener('pointercancel',()=>sx=null);
  document.addEventListener('keydown',e=>{if(ACT!=='jnutria')return;const d={ArrowUp:'u',ArrowDown:'d',ArrowLeft:'l',ArrowRight:'r'}[e.key];if(d){e.preventDefault();gira(d);}});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)para();});
  window.jnPara=para;

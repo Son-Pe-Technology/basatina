@@ -159,7 +159,7 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 
 - **🎮 NA Juega (17 nov. 2026)** (`web/juegos.js`, se carga el último, después de `ocio-ui.js`): grupo nuevo del menú, antes de «Mi Espacio». Todo funciona sin internet; récords y avance solo en el móvil (localStorage `bnJgCadenas`, `bnJgNutria`, `bnJgRaya`).
   - 🔗 **Las Cadenas** (`jcadenas`): preguntas de Navarra; 8 categorías = 8 cadenas del escudo, 3 aciertos por cadena y luego la pregunta de la esmeralda. **Para añadir preguntas**: una línea más en `JC_CATS` (o en `JC_GEMA`): `[pregunta, correcta, [3 falsas], explicación]`.
-  - 🦦 **La Nutria del Arga** (`jnutria`): la culebra de los Nokia. Truchas = puntos, cada 4 sale una piedra, se acelera con cada trucha. Se para sola al salir de la pantalla.
+  - 🦦 **La Nutria del Arga** (`jnutria`): la culebra de los Nokia. Botón Empezar encima del río; se controla tocando el río a un lado de la cabeza (gira hacia allí), deslizando el dedo (eventos `pointer*`) o con las flechas. Truchas = puntos, cada 4 sale una piedra, se acelera con cada trucha. Se para sola al salir de la pantalla.
   - ⭕ **Tres en raya** (`jraya`): contra la máquina (minimax), niveles Fácil / Normal / Imbatible.
   - Juegos propios: no usar nombres ni diseños de marcas (Trivial Pursuit, Monopoly…).
 - **📷 Instagram @basatina.es**: botón «Síguenos en Instagram» en Cuadrilla BasatiNA y tarjeta en Acerca de (`IG` en `juegos.js`), `"instagram"` en `fotos/galeria.json` (lo usa «Fotos y reto del mes»; se cambia también desde el modo administrador) y enlace en el pie de basatina.es (`docs/index.html`).
