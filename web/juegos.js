@@ -5,7 +5,6 @@
      Para añadir preguntas: una línea más en JC_CATS (pregunta, correcta, [3 falsas], explicación).
    - 🦦 La Nutria del Arga (`jnutria`): la culebra de los Nokia. La nutria come truchas;
      cada 4 truchas sale una piedra. Se juega deslizando el dedo o con las flechas.
-   - ⭕ Tres en raya (`jraya`): contra la máquina, tres niveles (Fácil, Normal, Imbatible).
    Todo funciona sin internet. Récords y avance en localStorage (claves bnJg*), solo en el móvil.
    Nombres y diseños propios: no copiar marcas (Trivial Pursuit, Monopoly…).
    ===================================================================== */
@@ -65,12 +64,6 @@ const st=document.createElement('style');st.textContent=`
 .jgPad button{border:0;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;font-size:24px;cursor:pointer;touch-action:manipulation}
 .jgPad button:active{background:rgba(255,255,255,.3)}
 .jgBig{border:0;border-radius:10px;background:#ffd54f;color:#2b2100;font-weight:800;font-size:17px;padding:12px;cursor:pointer}
-.jgRaya{background:linear-gradient(180deg,#1f4d2b,#14341d);color:#eef7ee}
-.jgRaya .jgTab{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:min(82vw,330px);align-self:center;aspect-ratio:1}
-.jgRaya .jgTab button{border:0;border-radius:12px;background:rgba(255,255,255,.1);font-size:min(14vw,58px);font-weight:900;color:#fff;cursor:pointer;line-height:1;touch-action:manipulation}
-.jgRaya .jgTab button.x{color:#ff8a80}.jgRaya .jgTab button.o{color:#b9f6ca}.jgRaya .jgTab button.win{background:rgba(255,213,79,.35)}
-.jgRaya .jgMk{display:flex;justify-content:space-around;text-align:center;font-size:13px}.jgRaya .jgMk b{display:block;font-size:22px}
-.jgRaya .jgMsg{text-align:center;font-weight:700;font-size:17px;min-height:24px}
 .jgNiv{display:flex;gap:6px}.jgNiv button{flex:1;border:1.5px solid rgba(255,255,255,.3);background:none;color:inherit;border-radius:10px;padding:8px 4px;font:inherit;font-size:14px;cursor:pointer}
 .jgNiv button.on{background:#ffd54f;color:#2b2100;border-color:#ffd54f;font-weight:700}
 .jgNota{font-size:13px;opacity:.8;text-align:center}
@@ -296,45 +289,6 @@ sec('jnutria',`<div class="jgBox jgNut" data-noswipe>
 })();
 
 /* =====================================================================
-   ⭕ TRES EN RAYA contra la máquina
-   ===================================================================== */
-sec('jraya',`<div class="jgBox jgRaya" data-noswipe>
- <div class="jgNiv" id="jrNiv"><button data-n="0">😊 Fácil</button><button data-n="1">🤔 Normal</button><button data-n="2">🤖 Imbatible</button></div>
- <div class="jgMk"><div>Tú (✕)<b id="jrT">0</b></div><div>Empates<b id="jrE">0</b></div><div>BasatiNA (◯)<b id="jrM">0</b></div></div>
- <div class="jgMsg" id="jrMsg"></div>
- <div class="jgTab" id="jrTab"></div>
- <button class="jgBig" id="jrOtra">🔄 Otra partida</button>
- <div class="jgNota">Empieza una vez cada uno. En «Imbatible» la máquina no pierde nunca: a ver si le sacas el empate.</div>
-</div>`);
-(function(){
- const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
- let tab,turno,fin,empiezaYo=true,M=ls.get('bnJgRaya',{t:0,e:0,m:0,n:1});
- const gana=b=>{for(const l of L)if(b[l[0]]&&b[l[0]]===b[l[1]]&&b[l[0]]===b[l[2]])return l;return null;};
- const lleno=b=>b.every(Boolean);
- function mm(b,yo){const w=gana(b);if(w)return b[w[0]]==='o'?10:-10;if(lleno(b))return 0;   // minimax: o = máquina
-   let best=yo?-99:99;for(let i=0;i<9;i++)if(!b[i]){b[i]=yo?'o':'x';const v=mm(b,!yo);b[i]=null;best=yo?Math.max(best,v):Math.min(best,v);}return best;}
- function jugadaMaquina(){const lib=tab.map((v,i)=>v?null:i).filter(i=>i!==null);
-   const azar=()=>lib[Math.floor(Math.random()*lib.length)];
-   if(M.n===0&&Math.random()<.75)return azar();
-   if(M.n===1&&Math.random()<.3)return azar();
-   let best=-99,op=[];lib.forEach(i=>{tab[i]='o';const v=mm(tab,false);tab[i]=null;if(v>best){best=v;op=[i];}else if(v===best)op.push(i);});
-   return op[Math.floor(Math.random()*op.length)];}
- function pinta(win){$('jrTab').innerHTML=tab.map((v,i)=>`<button data-i="${i}" class="${v||''}${win&&win.includes(i)?' win':''}" aria-label="Casilla ${i+1}">${v==='x'?'✕':v==='o'?'◯':''}</button>`).join('');
-   $('jrTab').querySelectorAll('button').forEach(b=>b.onclick=()=>toca(+b.dataset.i));
-   $('jrT').textContent=M.t;$('jrE').textContent=M.e;$('jrM').textContent=M.m;
-   document.querySelectorAll('#jrNiv button').forEach(b=>b.classList.toggle('on',+b.dataset.n===M.n));}
- function cierra(){const w=gana(tab);if(w){fin=true;if(tab[w[0]]==='x'){M.t++;$('jrMsg').textContent='🎉 ¡Has ganado!';}else{M.m++;$('jrMsg').textContent='🤖 Gana BasatiNA';}ls.set('bnJgRaya',M);pinta(w);return true;}
-   if(lleno(tab)){fin=true;M.e++;ls.set('bnJgRaya',M);$('jrMsg').textContent='🤝 Empate';pinta();return true;}return false;}
- function toca(i){if(fin||turno!=='x'||tab[i])return;tab[i]='x';pinta();if(cierra())return;turno='o';$('jrMsg').textContent='BasatiNA está pensando…';
-   setTimeout(()=>{tab[jugadaMaquina()]='o';turno='x';pinta();if(!cierra())$('jrMsg').textContent='Te toca';},450);}
- function nueva(){tab=Array(9).fill(null);fin=false;turno=empiezaYo?'x':'o';pinta();$('jrMsg').textContent=empiezaYo?'Empiezas tú':'Empieza BasatiNA';
-   if(!empiezaYo)setTimeout(()=>{tab[jugadaMaquina()]='o';turno='x';pinta();$('jrMsg').textContent='Te toca';},500);empiezaYo=!empiezaYo;}
- document.querySelectorAll('#jrNiv button').forEach(b=>b.onclick=()=>{M.n=+b.dataset.n;ls.set('bnJgRaya',M);nueva();});
- $('jrOtra').onclick=nueva;
- window.jrInit=()=>{if(!tab)nueva();};
-})();
-
-/* =====================================================================
    🧩 Menú: grupo «NA Juega» antes de «Mi Espacio», títulos, escenas e iconos
    ===================================================================== */
 (function(){const dr=$('drawer');if(!dr||$('dgJuega'))return;
@@ -343,28 +297,28 @@ sec('jraya',`<div class="jgBox jgRaya" data-noswipe>
   if(ref)ref.insertAdjacentHTML('beforebegin',html);else (($('bnaDGrid')||dr)).insertAdjacentHTML('beforeend',html);
   const gr=$('dgJuega'),sub=$('dsJuega');
   gr.onclick=()=>{const o=!gr.classList.contains('open');dr.querySelectorAll('.dgroup').forEach(z=>z.classList.remove('open'));if(o)gr.classList.add('open');};
-  const J=[['jcadenas','🔗 Las Cadenas (preguntas de Navarra)','i-cadena'],['jnutria','🦦 La Nutria del Arga','i-nutria'],['jraya','⭕ Tres en raya','i-raya']];
+  const J=[['jcadenas','🔗 Las Cadenas (preguntas de Navarra)','i-cadena'],['jnutria','🦦 La Nutria del Arga','i-nutria']];
   J.forEach(([t,l])=>{const b=document.createElement('button');b.dataset.t=t;b.textContent=l;b.onclick=()=>{showTab(t);menu(false);};sub.appendChild(b);});
-  try{Object.assign(TITLES,{jcadenas:'🔗 Las Cadenas',jnutria:'🦦 La Nutria del Arga',jraya:'⭕ Tres en raya'});}catch(e){}
-  try{Object.assign(PVS_ESC,{jcadenas:'fiesta',jnutria:'agua',jraya:'bosque'});}catch(e){}
+  try{Object.assign(TITLES,{jcadenas:'🔗 Las Cadenas',jnutria:'🦦 La Nutria del Arga'});}catch(e){}
+  try{Object.assign(PVS_ESC,{jcadenas:'fiesta',jnutria:'agua'});}catch(e){}
   try{ICP['game-controller']='<path fill-rule="evenodd" d="M176,64H80a56,56,0,0,0,0,112h96a56,56,0,0,0,0-112ZM104,128H88v16a8,8,0,0,1-16,0V128H56a8,8,0,0,1,0-16H72V96a8,8,0,0,1,16,0v16h16a8,8,0,0,1,0,16Zm48-8a12,12,0,1,1,12-12A12,12,0,0,1,152,120Zm24,32a12,12,0,1,1,12-12A12,12,0,0,1,176,152Z"/>';
-    Object.assign(ICK,{'g:NA Juega':'game-controller',jcadenas:'game-controller',jnutria:'game-controller',jraya:'game-controller'});
-    Object.assign(ICC,{'g:NA Juega':'#f4511e',jcadenas:'#c62828',jnutria:'#00838f',jraya:'#2e7d32'});}catch(e){}
+    Object.assign(ICK,{'g:NA Juega':'game-controller',jcadenas:'game-controller',jnutria:'game-controller'});
+    Object.assign(ICC,{'g:NA Juega':'#f4511e',jcadenas:'#c62828',jnutria:'#00838f'});}catch(e){}
   try{BNI['i-juego']='<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 9h12a7 7 0 0 1 0 14H10A7 7 0 0 1 10 9z" fill="currentColor" fill-opacity=".12"/><path d="M10 13v6M7 16h6"/><circle cx="20" cy="15" r="1.2" fill="currentColor"/><circle cx="23" cy="18" r="1.2" fill="currentColor"/></g>';
-    Object.assign(BNK,{'g:NA Juega':'i-juego',jcadenas:'i-juego',jnutria:'i-juego',jraya:'i-juego'});Object.assign(BNF,{'g:NA Juega':'r',jcadenas:'r',jnutria:'b',jraya:'g'});
-    Object.assign(BNL,{jcadenas:'Las Cadenas',jnutria:'La Nutria',jraya:'Tres en raya'});}catch(e){}
+    Object.assign(BNK,{'g:NA Juega':'i-juego',jcadenas:'i-juego',jnutria:'i-juego'});Object.assign(BNF,{'g:NA Juega':'r',jcadenas:'r',jnutria:'b'});
+    Object.assign(BNL,{jcadenas:'Las Cadenas',jnutria:'La Nutria'});}catch(e){}
   // color del grupo, como los demás (GCOL de ampliacion.js)
   const c=document.createElement('style');c.textContent='body:not(.bna) #drawer .dgroup span[data-k="NA Juega"]{color:#e64a19}';document.head.appendChild(c);
   try{if(typeof applyIcons==='function')applyIcons((CFG.iconos||'pro')==='pro');}catch(e){}
   // textos del menú en otros idiomas (eu.js los usa si están)
-  try{Object.assign(I18N.eu,{'NA Juega':'NA Jolasean','Las Cadenas (preguntas de Navarra)':'Kateak (Nafarroari buruzko galderak)','La Nutria del Arga':'Argako igaraba','Tres en raya':'Hiru lerroan'});
-    Object.assign(I18N.en,{'NA Juega':'NA Plays','Las Cadenas (preguntas de Navarra)':'The Chains (Navarre quiz)','La Nutria del Arga':'The Arga Otter','Tres en raya':'Tic-tac-toe'});
-    Object.assign(I18N.fr,{'NA Juega':'NA Joue','Las Cadenas (preguntas de Navarra)':'Les Chaînes (quiz de Navarre)','La Nutria del Arga':'La Loutre de l’Arga','Tres en raya':'Morpion'});}catch(e){}
+  try{Object.assign(I18N.eu,{'NA Juega':'NA Jolasean','Las Cadenas (preguntas de Navarra)':'Kateak (Nafarroari buruzko galderak)','La Nutria del Arga':'Argako igaraba'});
+    Object.assign(I18N.en,{'NA Juega':'NA Plays','Las Cadenas (preguntas de Navarra)':'The Chains (Navarre quiz)','La Nutria del Arga':'The Arga Otter'});
+    Object.assign(I18N.fr,{'NA Juega':'NA Joue','Las Cadenas (preguntas de Navarra)':'Les Chaînes (quiz de Navarre)','La Nutria del Arga':'La Loutre de l’Arga'});}catch(e){}
 })();
 
 // abrir / cerrar cada juego
 const _stJ=showTab;showTab=function(t){_stJ(t);if(ACT==='jnutria'&&t!=='jnutria'&&window.jnPara)jnPara();ACT=t;
-  if(t==='jcadenas')setTimeout(()=>window.jcInit&&jcInit(),30);if(t==='jnutria')setTimeout(()=>window.jnInit&&jnInit(),30);if(t==='jraya')setTimeout(()=>window.jrInit&&jrInit(),30);};
+  if(t==='jcadenas')setTimeout(()=>window.jcInit&&jcInit(),30);if(t==='jnutria')setTimeout(()=>window.jnInit&&jnInit(),30);};
 
 /* =====================================================================
    📷 INSTAGRAM @basatina.es: botón en «Cuadrilla BasatiNA» y tarjeta en «Acerca de»

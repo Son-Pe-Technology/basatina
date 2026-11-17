@@ -73,6 +73,8 @@ for nombre, art in LUGARES:
     m = ii.get("extmetadata", {})
     lic = limpia((m.get("LicenseShortName") or {}).get("value"))
     autor = limpia((m.get("Artist") or {}).get("value"))[:80] or "Desconocido"
+    if re.search(r"cojon|joder|mierda|puta|polla|co[ñn]o", autor, re.I):   # app para todas las edades: fuera autores con tacos en el nombre
+        info.append("AUTOR     %s (nombre no apto)" % nombre); continue
     if not LIBRES.match(lic) or re.search(r"\bnc\b|\bnd\b", lic, re.I):
         info.append("LICENCIA  %s: %s" % (nombre, lic)); continue
     w, h = ii.get("thumbwidth", 0), ii.get("thumbheight", 0)
