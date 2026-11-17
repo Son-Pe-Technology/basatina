@@ -8,7 +8,7 @@ Qué hace:
      ni El Mundo). Casi ningún medio tiene un RSS solo de «noticias graciosas» (comprobado el
      17 nov. 2026), así que se leen sus canales generales o de sociedad y nos quedamos con las curiosas:
        - por la SECCIÓN de la web en el enlace (/curioso/, /viral/, /curiosidades/…)  -> SECCION
-       - o por PALABRAS del titular (curioso, insólito, se hace viral, divertido…)       -> GRACIA
+       - o por PALABRAS del titular (curioso, insólito, se hace viral, divertido…)       -> FUERTE y SUAVE
   2. Quita política (lista NO, la misma idea que los «Titulares») y los temas tristes (lista TRISTE:
      muertes, accidentes, enfermedades, violencia…). Una noticia «curiosa» triste no es graciosa.
   3. Quita las que hayáis ocultado desde la app (noticias/curiosas_ocultas.json, modo Administrador)
@@ -47,14 +47,14 @@ MEDIOS = [
 FUERA = ("navarra.com", "okdiario", "elmundo.es")
 # secciones de curiosidades en la dirección de la noticia
 SECCION = r"/(curioso|curiosidades?|viral|virales|insolito|tremending|sorprendente|trending|redes-sociales|curiosa)/"
-# palabras del titular que suelen ser de noticia simpática
-GRACIA = ["curios", "insolit", "viral", "se hace viral", "divertid", "gracios", "surrealista", "hilarante", "risas", " rie ", "carcajada",
-          "peculiar", "record", "hazana", "sorprendente", "sorprende", "inesperad", "ingenios", "anecdota", "record guinness", "guinness", "extravagan",
-          "no daba credito", "no te lo vas a creer", "el motivo", "la razon por la que", "por que los", "por que las", "truco",
-          "mascota", "perro", "perrit", "gato", "gatit", "loro", "pinguino", "oso panda", "cabra", "burro", "erizo", "nutria",
-          "abuela", "abuelo", "anos y", "centenari", "boda", "tarta", "pizza", "croqueta", "tortilla", "churro", "jamon",
-          "tiktok", "tiktoker", "influencer", "meme", "broma", "disfraz", "huevo de pascua", "ovni", "dinosaurio", "tesoro", "loteria"]
-NO = ["elecci", "electoral", "candidat", "mitin", "partido politico", "parlament", "gobierno", "consejer", "diputacion", "congreso", "senado",
+# palabras del titular (se buscan al principio de palabra: «gato» no salta con «obligatoria»)
+# FUERTE = casi seguro que es simpática (2 puntos); SUAVE = ayuda, pero sola no basta (1 punto)
+FUERTE = ["curios", "insolit", "viral", "divertid", "gracios", "surrealista", "hilarante", "carcajada", "risas", "peculiar",
+          "record guinness", "guinness", "record mundial", "hazana", "extravagan", "no daba credito", "no te lo vas a creer", "ingenios", "anecdota", "meme", "memes"]
+SUAVE = ["sorprend", "inesperad", "el motivo", "la razon por la que", "truco", "mascota", "perro", "perrit", "gato", "gatit", "loro", "pinguino", "panda",
+         "cabra", "burro", "erizo", "nutria", "abuela", "abuelo", "centenari", "boda", "tarta", "pizza", "croqueta", "tortilla", "churro", "jamon",
+         "broma", "disfraz", "ovni", "dinosaurio", "tesoro", "record", "records"]
+NO = ["politic", "democrac", "derecha", "izquierda", "ultra", "elecci", "electoral", "candidat", "mitin", "partido politico", "parlament", "gobierno", "consejer", "diputacion", "congreso", "senado",
       "ministr", "alcald", "concejal", "pleno", "votacion", "voto", "referendum", "presupuesto", "moncloa", " ley ", "decreto", "tribunal", "juez", "juzgado", "fiscal",
       "upn", "psn", "psoe", "pnv", "bildu", "geroa", "podemos", "vox", " pp ", "sumar", "contigo navarra", " erc ", "junts",
       "sanchez", "feijoo", "chivite", "asiron", "abascal", "puigdemont", "ayuso", " illa ", "yolanda diaz", "trump", "putin", "netanyahu", "milei", "maduro",
@@ -65,7 +65,7 @@ TRISTE = ["muere", "muerte", "muerto", "fallec", " mata ", "asesin", "homicid", 
           "violen", "agresi", "maltrat", "abuso", "acoso", "viola", "machis", "deten", "arrest", "carcel", "prision", "condena", " robo ", " robos ", " roba ", "estafa", "fraude",
           "polic", "guardia civil", "disparo", "tiroteo", " arma", "explosi", "bomba", "incendio", "fuego", "inundac", "dana", "terremoto", "tragedia", "catastrofe",
           "desapareci", "rescat", "ahog", "naufrag", "victima", "sangre", "cruel", "abandon", "sacrific", "envenen", "veneno", " odio", "racis", "insult", "amenaz",
-          "crisis", "despid", "desahuc", "pobreza", "hambre", "drog", "alcohol", "porno", "sexual", "desnud", "infiel", "polemic", "denuncia", "multa"]
+          "crisis", "despid", "desahuc", "pobreza", "hambre", "drog", "alcohol", "porno", "sexual", "pederast", "pedofil", "parkinson", "alzheimer", "demencia", "desnud", "infiel", "polemic", "denuncia", "multa"]
 TURNOS = (("m", "mañana"), ("t", "tarde"), ("n", "noche"))
 OCULTAS = "noticias/curiosas_ocultas.json"
 SALIDA = "noticias/curiosas.json"
@@ -146,13 +146,15 @@ for nombre, dom, feeds in MEDIOS:
         nt = " " + re.sub(r"[^a-z0-9]+", " ", nrm(x["t"])) + " "   # sin signos: «Irán:» -> « iran »
         if tiene(nt, NO) or tiene(nt, TRISTE) or tiene(nt, extra): continue
         sec = bool(re.search(SECCION, nrm(u)))
-        g = tiene(nt, GRACIA)
-        if not sec and not g: continue
+        fu, su = tiene(nt, [" " + w for w in FUERTE]), tiene(nt, [" " + w for w in SUAVE])
+        p = (3 if sec else 0) + 2 * min(len(fu), 2) + min(len(su), 2)
+        if p < 2: continue          # una sola palabra suave («perro», «boda»…) no basta
+        g = [w.strip() for w in fu + su]
         k = clave(x["t"])
         if k in vistos: continue
         vistos.add(k)
-        # puntos: la sección de curiosidades vale más que una palabra suelta; un poco más si es reciente
-        p = (3 if sec else 0) + min(len(g), 3) + (1 if (ahora - x["d"]).total_seconds() < 24 * 3600 else 0)
+        # puntos: sección de curiosidades 3, palabra fuerte 2, suave 1; +1 si es de las últimas 24 h
+        p += 1 if (ahora - x["d"]).total_seconds() < 24 * 3600 else 0
         todo.append({"t": x["t"][:200], "u": u, "f": nombre, "d": x["d"].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "p": p})
         nsel += 1
         print("   +", nombre, p, "SEC" if sec else "", g[:3], "|", x["t"][:90], flush=True)
