@@ -177,3 +177,8 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
   - 🖼️ **Parejas de Navarra** (`jparejas`): 6, 8 o 10 parejas con fotos de lugares; sin fotos, usa dibujos (`PA_DIB`). Al acabar, autores y licencias de las fotos.
   - 🔍 **Descubre el lugar** (`jlugar`): foto tapada en 4×4; se abre una casilla, se cierra y se abre otra (modo fácil: se quedan abiertas). 4 opciones; 100 puntos con la primera casilla, −6 por cada casilla más. 8 fotos por partida. Debajo sale el nombre del lugar y el crédito de la foto.
   - **Fotos**: robot `tools/fotos_juego.py` (`fotosjuego.yml`, día 13) → `web/fotosjuego.js`: foto principal del artículo de es.wikipedia de cada lugar de `LUGARES`, solo con licencia libre (PD, CC0, CC BY, CC BY-SA) y siempre con autor y licencia a la vista. Descarta mapas, banderas y escudos. Resumen en `tools/fotosjuego_info.txt` (qué lugares no tienen foto válida). Más adelante se pueden sumar las fotos de «Fotos de la gente» con permiso.
+
+- **🧸 Juegos para los peques (17 nov. 2026)** (`web/juegos-peques.js`, se carga después de `juegos2.js`). En «NA Juega» (con «🧸 Peques:» delante) y en una tarjeta de la pantalla 🧸 Para los peques. Sin internet, botones grandes; si el móvil lo permite, lee en voz alta (`speechSynthesis`, botón 🔊/🔇, `bnPqVoz`).
+  - 🐾 **Las sombras** (`psombras`): sombra de un animal (el dibujo con `filter:brightness(0)`) y 3 opciones. Animales en `PQ_AN` (añadir = una línea).
+  - 🔢 **A contar** (`pcontar`): hasta 5 o hasta 10; se pueden tocar los animales para contarlos uno a uno.
+  - 🐟 **Atrapa las truchas** (`ptruchas`): 30 s, 9 pozas; la bota vieja resta 2. Va más rápido al final.
