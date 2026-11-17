@@ -11,7 +11,7 @@ Se guarda el texto oficial tal cual (AEMET permite reutilizarlo citando la fuent
 Lo ejecuta GitHub Actions (.github/workflows/aludes.yml) cada mañana y cada tarde.
 Los datos van fuera de web/: no cambian la versión de la pantalla.
 """
-import json, os, time, datetime, urllib.request, urllib.parse
+import json, os, re, time, datetime, urllib.request, urllib.parse
 
 KEY = (json.load(open("config/aemet.json")) or {}).get("key", "")
 API = "https://opendata.aemet.es/opendata/api/"
@@ -47,7 +47,14 @@ def limpia(t):
         t = plano(j)
     except Exception:
         pass
-    return "\n".join(l.rstrip() for l in t.replace("\r", "").split("\n")).strip()[:9000]
+    L = []
+    for l in t.replace("\r", "").split("\n"):
+        l = l.rstrip()
+        # fuera las etiquetas internas del JSON de AEMET («pcp», «nubosidad», «es», enlaces…)
+        if re.fullmatch(r"[a-z_0-9]{1,20}", l.strip()) or l.strip().startswith("http"): continue
+        if L and l == L[-1]: continue
+        L.append(l)
+    return "\n".join(L).strip()[:9000]
 
 
 out = {"t": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "aludes": "", "montana": []}

@@ -75,7 +75,11 @@ def items(xml):
     for it in re.findall(r"<(?:item|entry)\b.*?</(?:item|entry)>", xml, re.S | re.I):
         def tag(n):
             m = re.search(r"<%s\b[^>]*>(.*?)</%s>" % (n, n), it, re.S | re.I)
-            return html.unescape(re.sub(r"<!\[CDATA\[|\]\]>|<[^>]+>", "", m.group(1))).strip() if m else ""
+            if not m: return ""
+            v = m.group(1)
+            for _ in range(2):   # a veces el CDATA viene escapado (&lt;![CDATA[…): se limpia dos veces
+                v = html.unescape(re.sub(r"<!\[CDATA\[|\]\]>|<[^>]+>", "", v))
+            return v.strip()
         t = tag("title")
         u = tag("link") or (re.search(r'<link[^>]+href=["\']([^"\']+)', it) or [None, ""])[1]
         d = tag("pubDate") or tag("published") or tag("updated") or tag("dc:date")

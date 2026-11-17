@@ -9,7 +9,7 @@ Qué descarga (Overpass), dentro de Navarra:
   · amenity=animal_shelter  -> protectoras y refugios
   · shop=pet                -> tiendas de animales
 Cada punto se sitúa en su pueblo más cercano con web/pueblos.js.
-Lo ejecuta GitHub Actions (.github/workflows/mascotas.yml) el día 11 de cada mes.
+Lo ejecuta GitHub Actions (.github/workflows/mascotas.yml) el día 11 de cada mes (y al cambiar este archivo o el robot).
 """
 import json, math, time, urllib.parse, urllib.request, datetime, collections
 

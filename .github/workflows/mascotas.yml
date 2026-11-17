@@ -1,8 +1,8 @@
 # Mascotas: veterinarios, zonas para perros y protectoras (tools/mascotas.py). Se ejecuta el día 11 de cada mes, cuando cambia tools/mascotas.py, o a mano desde la pestaña Actions.
-name: Mascotas: veterinarios, zonas para perros y protectoras
+name: "Mascotas (veterinarios, zonas para perros y protectoras)"
 on:
   push:
-    paths: ['tools/mascotas.py']
+    paths: ['tools/mascotas.py', '.github/workflows/mascotas.yml']
   schedule:
     - cron: '23 5 11 * *'
   workflow_dispatch:

@@ -163,3 +163,11 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
   - ⭕ **Tres en raya** (`jraya`): contra la máquina (minimax), niveles Fácil / Normal / Imbatible.
   - Juegos propios: no usar nombres ni diseños de marcas (Trivial Pursuit, Monopoly…).
 - **📷 Instagram @basatina.es**: botón «Síguenos en Instagram» en Cuadrilla BasatiNA y tarjeta en Acerca de (`IG` en `juegos.js`), `"instagram"` en `fotos/galeria.json` (lo usa «Fotos y reto del mes»; se cambia también desde el modo administrador) y enlace en el pie de basatina.es (`docs/index.html`).
+
+- **🧩 Temas nuevos (17 nov. 2026)** (`web/temas.js`, se carga el último, después de `juegos.js`):
+  - 📰 **Titulares de Navarra** (`noticias`, grupo Servicios) y tarjeta en el Inicio con los 3 últimos (sin Sucesos). Robot `tools/noticias.py` (`noticias.yml`, cada 2 h) → `noticias/noticias.json` (fuera de `web/`: no cambia la versión de la pantalla). **Sin política** (lista `NO` del robot). Solo titular + enlace + medio + hora; la noticia se lee en la web del medio. Medios en `MEDIOS` (nunca Navarra.com, OKdiario ni El Mundo: `FUERA`). Resumen en `noticias/noticias_info.txt` (qué medio da datos y de dónde).
+  - 🏔️ **Nieve y aludes** (`nieve`, grupo El tiempo): nieve en el suelo, cota 0 °C y nevadas de 3 días con Open‑Meteo en los puntos `NV_P` + boletín de peligro de aludes y predicción de montaña del Pirineo navarro de AEMET. Robot `tools/aludes.py` (`aludes.yml`, 2 veces al día, usa `config/aemet.json`) → `nieve/aludes.json`. Fuera de temporada AEMET deja el último boletín («finalizada la campaña») y la app lo dice.
+  - 🗣️ **Palabra del día en euskera**: tarjeta en el Inicio debajo de «Tal día como hoy». Lista `PD_L` (añadir = una línea). El día 1 de cada mes sale el nombre del mes.
+  - 🐾 **Mascotas** (`mascotas`, grupo Servicios): veterinarios (24 h si OSM lo dice), zonas para perros, protectoras, tiendas y consejos (`MA_C`). Robot `tools/mascotas.py` (`mascotas.yml`, día 11) → `web/mascotas.js`.
+  - 🧺 **Productos de temporada** (`temporada`, grupo Localidades): calendario `TP_L` (orientativo) y ferias/jornadas gastronómicas de `agenda/cultura.json` (palabras `TP_KW`).
+  - 📍 **¿Dónde está?** (`jdonde`, grupo NA Juega): 10 rondas, toca en el mapa de municipios (`web/territorio.js`) dónde está cada uno; 100 puntos a 0 km, 0 a 50 km. Niveles por habitantes (≥3.000, ≥800, todos).
