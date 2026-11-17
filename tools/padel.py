@@ -27,7 +27,7 @@ area["ISO3166-2"="ES-NA"]->.a;
 (nwr["sport"~"padel"](area.a);
  nwr["leisure"~"^(sports_centre|sports_hall)$"](area.a);
  nwr["club"="sport"](area.a););
-out center bb tags;"""
+out tags bb;"""
 
 
 def overpass(q):
@@ -62,7 +62,10 @@ def metros(a, b, c, d):
 
 
 def punto(e):
+    """Nodos: su punto. Vías y relaciones: el centro de su recuadro («out bb»: Overpass no deja pedir a la vez center y bb)."""
     if "lat" in e: return e["lat"], e["lon"]
+    b = e.get("bounds")
+    if b: return (b["minlat"] + b["maxlat"]) / 2, (b["minlon"] + b["maxlon"]) / 2
     c = e.get("center") or {}
     return c.get("lat"), c.get("lon")
 
@@ -74,7 +77,10 @@ privada = lambda t: t.get("access") in ("private", "no")
 MUNI = re.compile(r"ayuntamiento|municipal|udal|concejo|polideportivo|kiroldegi|upna|universidad|deporte navarro|gobierno de navarra", re.I)
 
 pistas, centros = [], []
-for e in overpass(Q).get("elements", []):
+R = overpass(Q)
+if R.get("remark"): print("Aviso de Overpass:", R["remark"])
+print("Elementos recibidos:", len(R.get("elements", [])))
+for e in R.get("elements", []):
     t = e.get("tags", {})
     la, lo = punto(e)
     if la is None: continue
