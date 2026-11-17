@@ -1,10 +1,8 @@
-Titulares 2026-11-17T11:11
-Diario de Navarra    122 leídos ·  15 publicados · https://www.diariodenavarra.es/rss/contenidos.xml
-Noticias de Navarra  100 leídos ·  15 publicados · Google Noticias
-Pamplona Actual       74 leídos ·  15 publicados · Google Noticias
-Navarra Capital       35 leídos ·  11 publicados · Google Noticias
-EITB                   1 leídos ·   0 publicados · Google Noticias
-Europa Press          10 leídos ·   8 publicados · https://www.europapress.es/rss/rss.aspx?ch=293
-Cadena SER           100 leídos ·  12 publicados · Google Noticias
-RTVE                 100 leídos ·   6 publicados · Google Noticias
-Total: 82
+Titulares 2026-11-17T13:15
+Diario de Navarra    121 leídos ·  15 publicados · https://www.diariodenavarra.es/rss/contenidos.xml
+Pamplona Actual       25 leídos ·  15 publicados · https://pamplonaactual.com/feed/
+Navarra Capital       10 leídos ·   7 publicados · https://navarracapital.es/feed/
+Europa Press          10 leídos ·   5 publicados · https://www.europapress.es/rss/rss.aspx?ch=293
+Cadena SER           100 leídos ·   2 publicados · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
+COPE                 128 leídos ·  15 publicados · https://www.cope.es/rss/emisoras/navarra.xml
+Total: 59
