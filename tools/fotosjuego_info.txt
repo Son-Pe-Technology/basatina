@@ -1,8 +1,8 @@
-Fotos para juegos 2026-11-17: 31 de 50
+Fotos para juegos 2026-11-17: 29 de 50
 OK        Selva de Irati · CC BY-SA 4.0 · Fernando Domínguez Cerejido
 NO ES FOTO Bardenas Reales (Navarra_municipalities_Bardenas.png)
 SIN FOTO  Castildetierra (Bardenas)
-OK        Palacio Real de Olite · CC BY 2.0 · Turol Jones, un artista de cojones from 
+AUTOR     Palacio Real de Olite (nombre no apto)
 OK        Castillo de Javier · CC BY-SA 3.0 es · Rayle026
 OK        Monasterio de Leyre · CC BY-SA 4.0 · Pacodonderis
 OK        Foz de Lumbier · CC BY-SA 3.0 · The original uploader was Jsanchezes at 
@@ -14,7 +14,7 @@ SIN FOTO  Puente de Puente la Reina
 OK        Catedral de Pamplona · CC BY-SA 4.0 · Fernando
 OK        Ciudadela de Pamplona · Public domain · Jorab
 OK        Plaza del Castillo (Pamplona) · CC BY-SA 4.0 · hotelesenpamplona
-OK        Ayuntamiento de Pamplona · CC BY-SA 3.0 · Desconocido
+AUTOR     Ayuntamiento de Pamplona (nombre no apto)
 OK        Monasterio de Irache · CC BY-SA 3.0 es · El tio cachi2
 OK        Santa María de Eunate · CC BY 2.0 · Jule_Berlin from Berlin, Germany
 OK        Santuario de Ujué · CC BY-SA 4.0 · Millars
