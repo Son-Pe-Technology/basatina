@@ -1,5 +1,5 @@
 {
- "version": 310,
+ "version": 311,
  "apk": 25,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -29,6 +29,7 @@
   "juegos.js": "ac7202b7d9204ff58a160ecab044f2f3bdb076b8",
   "logo.jpg": "442927f2c4c5495089c0bd56e454ddc6a4223411",
   "logo.png": "5a4acff3ebac8e7b2e2be74d99bf5a3652086fe3",
+  "mascotas.js": "6ab382c2006ac3031e900c04c16f070ef40b7317",
   "mejoras.js": "fc317f141e0a7b5ad08fc3c351648fb5e75d2cca",
   "monte.js": "2b741add1b44de67b14e1270508956974812b15f",
   "naturaleza-catalogo.js": "d0b255c1220641a4c60ca0430c7ac66c43e87b12",
