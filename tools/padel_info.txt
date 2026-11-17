@@ -1,8 +1,22 @@
 Pistas de pádel 2026-11-17
-Sitios: 1 (municipales 0, clubes 1)
-Pistas: 0 (cubiertas 0)
-Clubes de pádel sin pistas dibujadas en OSM: 1
-Sitios privados quitados: 0
+Sitios: 34 (municipales 15, clubes 19)
+Pistas: 40 (cubiertas 15)
+Clubes de pádel sin pistas dibujadas en OSM: 6
+Sitios privados quitados: 1
 
 Pueblos con más sitios:
-  Mutilva / Mutiloa: 1
+  Mutilva / Mutiloa: 3
+  Olite / Erriberri: 3
+  Alzuza: 2
+  San Adrián: 2
+  Zuasti: 2
+  Ansoáin / Antsoain: 1
+  Barañáin / Barañain: 1
+  Barañáin/Barañain: 1
+  Berriozar: 1
+  Burlada / Burlata: 1
+  Cizur: 1
+  Cordovilla: 1
+  Eltso: 1
+  Esquíroz / Ezkirotz: 1
+  Estella-Lizarra: 1
