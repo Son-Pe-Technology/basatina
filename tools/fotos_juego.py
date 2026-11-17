@@ -54,11 +54,15 @@ def limpia(s):
 
 out, info = [], []
 for nombre, art in LUGARES:
-    s = get("https://es.wikipedia.org/api/rest_v1/page/summary/" + urllib.parse.quote(art.replace(" ", "_")))
-    img = s and (s.get("originalimage") or {}).get("source")
-    if not img:
+    # nombre del archivo de la foto principal del artículo (pageimages), siguiendo redirecciones
+    s = get("https://es.wikipedia.org/w/api.php?" + urllib.parse.urlencode({"action": "query", "prop": "pageimages", "piprop": "name",
+                                                                           "titles": art, "redirects": 1, "format": "json"}))
+    try:
+        fichero = list(s["query"]["pages"].values())[0]["pageimage"]
+    except Exception:
         info.append("SIN FOTO  " + nombre); continue
-    fichero = urllib.parse.unquote(img.rsplit("/", 1)[-1])
+    if re.search(r"\.(png|svg|gif|tif+)$", fichero, re.I):      # mapas, escudos y dibujos: no valen
+        info.append("NO ES FOTO %s (%s)" % (nombre, fichero)); continue
     q = urllib.parse.urlencode({"action": "query", "titles": "File:" + fichero, "prop": "imageinfo", "iiprop": "url|extmetadata",
                                 "iiurlwidth": 800, "format": "json"})
     j = get("https://commons.wikimedia.org/w/api.php?" + q)
