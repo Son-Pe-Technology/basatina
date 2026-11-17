@@ -30,6 +30,14 @@ const st=document.createElement('style');st.textContent=`
 .tmNews b{display:block;font-size:15px;line-height:1.3}.tmNews span{font-size:12.5px;color:var(--mut)}
 .tmChips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px}.tmChips button{flex:none;border:1px solid var(--line);background:none;color:inherit;border-radius:18px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
 .tmChips button.on{background:var(--acc,#2e7d32);color:#fff;border-color:transparent}
+#nwTk{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:0 0 10px;cursor:pointer;box-shadow:0 2px 8px rgba(29,45,35,.05);overflow:hidden}
+.nwTkL{flex:none;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#1565c0;background:#e3f2fd;border-radius:8px;padding:4px 7px}
+.nwTkV{flex:1;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent);mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent)}
+.nwTkC{display:inline-block;white-space:nowrap;font-size:14.5px;color:var(--txt,#1d2b23);animation:nwTk 60s linear infinite;will-change:transform}
+.nwTkC b{color:#1565c0;font-weight:800;margin-right:4px}.nwTkC i{font-style:normal;color:#9aa;margin:0 12px}
+#nwTk:active .nwTkC,#nwTk:hover .nwTkC{animation-play-state:paused}
+@keyframes nwTk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.nwTkC{animation:none}.nwTkV{overflow-x:auto}}
 .tmPal{font-size:28px;font-weight:900;letter-spacing:.01em;margin:6px 0 0}
 .tmNv{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line)}.tmNv:first-child{border-top:0}
 .tmNv .big{font-size:20px;font-weight:800;text-align:right}
@@ -49,7 +57,12 @@ const st=document.createElement('style');st.textContent=`
    ===================================================================== */
 const NW_CAT=['Todo','Navarra','Deportes','El tiempo','Cultura','Economía','Sucesos'];
 let NW=null,NWC='Todo',NWF='';
-async function nwLoad(force){if(NW&&!force)return NW;try{NW=await jsLoad('noticias/noticias.json',{items:[]},force);}catch(e){NW={items:[]};}return NW;}
+// mezcla los medios: el más reciente de cada medio, luego el segundo de cada uno… (así no salen todos seguidos los del mismo diario)
+function nwMezcla(L){const G={};L.slice().sort((a,b)=>b.d.localeCompare(a.d)).forEach(x=>(G[x.f]=G[x.f]||[]).push(x));
+  const K=Object.keys(G).sort(()=>Math.random()-.5),out=[];   // cada vez empieza un medio distinto
+  for(let i=0;out.length<L.length;i++)K.forEach(k=>{if(G[k][i])out.push(G[k][i]);});return out;}
+async function nwLoad(force){if(NW&&!force)return NW;try{NW=await jsLoad('noticias/noticias.json',{items:[]},force);}catch(e){NW={items:[]};}
+  NW=Object.assign({},NW,{items:nwMezcla(NW.items||[])});return NW;}
 const nwRow=x=>`<a class="tmNews" data-u="${E(x.u)}"><b>${E(x.t)}</b><span>${E(x.f)} · ${hace(x.d)}${x.c&&x.c!=='Navarra'?' · '+E(x.c):''}</span></a>`;
 const nwBind=el=>el.querySelectorAll('[data-u]').forEach(a=>a.onclick=e=>{e.preventDefault();abre(a.dataset.u);});
 svSec('noticias',`<div class="card"><b>📰 Titulares de Navarra</b><div class="note">Lo último de los medios de Navarra, <b>sin noticias de política</b>. Toca un titular para leer la noticia en la web del medio.</div>
@@ -102,10 +115,16 @@ function pdDraw(){const el=$('pdCard');if(!el)return;const p=pdHoy();
 
 /* tarjetas del Inicio: palabra del día + titulares */
 (function(){const ref=$('efHome')||$('seHome');if(!ref||$('pdCard'))return;
-  ref.insertAdjacentHTML('afterend','<div id="pdCard" class="tmCard"></div><div id="nwHome" class="tmCard"><div class="tmH"><div class="tmI" style="background:#e3f2fd">📰</div><div style="flex:1"><div class="tmK" style="color:#1565c0">Titulares de Navarra</div></div><a href="#" id="nwMas" class="note">Ver todos ›</a></div><div id="nwHL" style="margin-top:6px"><div class="note">Cargando…</div></div></div>');
-  pdDraw();$('nwMas').onclick=e=>{e.preventDefault();showTab('noticias');};})();
-async function nwHome(force){const el=$('nwHL');if(!el)return;const D=await nwLoad(force);const L=(D.items||[]).filter(x=>x.c!=='Sucesos').slice(0,3);
-  el.innerHTML=L.length?L.map(nwRow).join(''):'<div class="note">Los titulares llegan en un rato.</div>';nwBind(el);}
+  ref.insertAdjacentHTML('afterend','<div id="pdCard" class="tmCard"></div>');pdDraw();})();
+/* 📰 cinta de titulares arriba del Inicio: van pasando solos; al tocarla se abre «Titulares de Navarra» */
+(function(){const sec=$('t-mtiempo');if(!sec||$('nwTk'))return;
+  sec.insertAdjacentHTML('afterbegin','<div id="nwTk" role="button" aria-label="Titulares de Navarra: toca para verlos todos"><span class="nwTkL">📰 Titulares</span><div class="nwTkV"><div class="nwTkC" id="nwTkC"><span>Cargando titulares…</span></div></div></div>');
+  $('nwTk').onclick=()=>showTab('noticias');})();
+async function nwHome(force){const el=$('nwTkC');if(!el)return;const D=await nwLoad(force);const L=(D.items||[]).filter(x=>x.c!=='Sucesos').slice(0,15);
+  if(!L.length){el.innerHTML='<span>Los titulares llegan en un rato</span>';el.style.animation='none';return;}
+  const h=L.map(x=>`<span><b>${E(x.f)}</b> ${E(x.t)}</span>`).join('<i>•</i>');
+  el.innerHTML=h+'<i>•</i>'+h+'<i>•</i>';   // dos veces seguidas: así la cinta da la vuelta sin saltos
+  requestAnimationFrame(()=>{const w=el.scrollWidth/2;el.style.animationDuration=Math.max(20,w/45)+'s';el.style.animation='none';void el.offsetWidth;el.style.animation='';el.style.animationDuration=Math.max(20,w/45)+'s';});}
 setTimeout(()=>nwHome(),1800);
 let PDDAY=new Date().getDate();setInterval(()=>{if(new Date().getDate()!==PDDAY){PDDAY=new Date().getDate();pdDraw();nwHome(true);}},10*60e3);
 const _stHome=showTab;showTab=function(t){_stHome(t);if(t==='mtiempo'){pdDraw();if(NW&&Date.now()-(NW._t||0)>30*60e3){NW._t=Date.now();nwHome(true);}}};
