@@ -1,4 +1,7 @@
-plugins { id 'com.android.application' }
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'   // para Salud.kt (Health Connect)
+}
 
 android {
     namespace 'es.pedrito.controlarga'
@@ -7,10 +10,10 @@ android {
         // Identificador en Google Play: es.sonpe.basatina (desde la versión 4.0). NO SE PUEDE CAMBIAR NUNCA MÁS.
         // La app anterior era es.pedrito.controlarga: para el móvil es otra app (ver «Copia de mis datos» en Ajustes).
         applicationId "es.sonpe.basatina"
-        minSdk 24
+        minSdk 26   // Android 8.0: lo exige la librería de Health Connect (antes 24)
         targetSdk 36  // Android 16: lo exige Google Play desde el 31/08/2026
-        versionCode 25
-        versionName "4.5"
+        versionCode 26
+        versionName "4.6"
     }
     // Firma fija: así cada versión nueva se instala encima de la anterior sin desinstalar.
     // La contraseña NO está aquí: GitHub la pasa desde el secreto KEYSTORE_PASS del repositorio.
@@ -35,4 +38,16 @@ android {
     androidResources { noCompress 'jpg', 'png' }
     // Los archivos de la pantalla (simulador, fotos, mapas) están en la carpeta web/ del repositorio
     sourceSets { main { assets { srcDirs = ['../web'] } } }
+}
+
+// Kotlin compila para la misma versión de Java que el resto (17)
+kotlin {
+    compilerOptions { jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17 }
+}
+
+dependencies {
+    // ❤️ Mi actividad: leer pasos y pulsaciones (Samsung Health, Fitbit, Garmin…) desde Health Connect
+    implementation 'androidx.health.connect:connect-client:1.1.0'
+    // para hacer las lecturas en segundo plano desde Salud.kt
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
 }

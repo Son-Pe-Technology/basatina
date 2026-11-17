@@ -33,6 +33,8 @@ public class MainActivity extends Activity {
     private static final int PICK = 41;
     private static final int GEO = 42;
     private static final int CAM = 43;
+    private static final int SALUD = 44;   // pantalla de permisos de Health Connect («Mi actividad»)
+    private String saludId;                // a quién contestar cuando vuelva de esa pantalla
     private Uri camUri; private File camFile; private boolean camMulti, pickImg = true;
     private android.webkit.GeolocationPermissions.Callback geoCb;   // «Qué hay cerca de mí»
     private String geoOrigin;
@@ -223,6 +225,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int req, int res, Intent data) {
         super.onActivityResult(req, res, data);
+        // vuelve de la pantalla de permisos de Health Connect: preguntamos qué nos ha dejado leer
+        if (req == SALUD) {
+            final String id = saludId; saludId = null;
+            if (id != null) Salud.concedidos(this, json -> callback(id, 200, json));
+            return;
+        }
         if (req != PICK || fileCb == null) return;
         Uri[] out = null;
         boolean camOk = camFile != null && camFile.exists() && camFile.length() > 0;
@@ -245,6 +253,37 @@ public class MainActivity extends Activity {
 
     /** Lo que la página puede llamar como AndroidNet.get(url, id) y AndroidNet.share(texto). */
     public class Net {
+        // ---------- ❤️ Mi actividad (pasos y pulsaciones del reloj, vía Health Connect) ----------
+        /** "ok", "instalar" o "no" (ver Salud.estado) */
+        @JavascriptInterface
+        public String saludEstado() {
+            try { return Salud.estado(MainActivity.this); } catch (Throwable e) { return "no"; }
+        }
+        /** Abre la pantalla de Android para dar permiso; contesta {"ok":true,"pasos":..,"pulso":..} */
+        @JavascriptInterface
+        public void saludPermisos(final String id) {
+            runOnUiThread(() -> {
+                try { saludId = id; startActivityForResult(Salud.intentPermisos(MainActivity.this), SALUD); }
+                catch (Exception e) { saludId = null; callback(id, 0, "{\"ok\":false,\"error\":\"no-abre\"}"); }
+            });
+        }
+        /** Qué permisos tenemos ya (sin preguntar nada al usuario) */
+        @JavascriptInterface
+        public void saludConcedidos(final String id) { Salud.concedidos(MainActivity.this, json -> callback(id, 200, json)); }
+        /** Pasos y pulsaciones de hoy + pasos de los 7 últimos días */
+        @JavascriptInterface
+        public void saludHoy(final String id) { Salud.hoy(MainActivity.this, json -> callback(id, 200, json)); }
+        /** Lleva a Google Play para instalar o actualizar Health Connect (Android 13 o anterior) */
+        @JavascriptInterface
+        public void saludInstalar() {
+            try {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.android.apps.healthdata"));
+                i.setPackage("com.android.vending"); startActivity(i);
+            } catch (Exception e) {
+                try { startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata"))); } catch (Exception ignored) {}
+            }
+        }
+
         @JavascriptInterface
         public void get(final String url, final String id) {
             // Seguridad: solo direcciones de internet (nunca archivos del propio móvil)
