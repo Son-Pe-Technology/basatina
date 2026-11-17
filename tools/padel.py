@@ -5,7 +5,7 @@
 
 Qué hace:
   1. Descarga de Overpass, dentro de Navarra:
-       · las pistas de pádel (leisure=pitch con sport=padel, también «tennis;padel»…)
+       · las pistas de pádel (leisure=pitch con sport=padel, también «tennis;padel», «paddle_tennis»…)
        · los clubes y polideportivos (leisure=sports_centre / sports_hall / club=sport)
   2. Mete cada pista en el club o polideportivo donde está (si cae dentro de su recuadro o a menos de 120 m).
      Las pistas sueltas que están juntas (a menos de 80 m) se agrupan en un mismo sitio.
@@ -24,7 +24,7 @@ SERVIDORES = ["https://overpass-api.de/api/interpreter",
               "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]
 Q = """[out:json][timeout:600];
 area["ISO3166-2"="ES-NA"]->.a;
-(nwr["sport"~"padel"](area.a);
+(nwr["sport"~"padel|pádel|paddle",i](area.a);
  nwr["leisure"~"^(sports_centre|sports_hall)$"](area.a);
  nwr["club"="sport"](area.a););
 out tags bb;"""
@@ -70,7 +70,8 @@ def punto(e):
     return c.get("lat"), c.get("lon")
 
 
-es_padel = lambda t: "padel" in (t.get("sport") or "").lower().replace("pádel", "padel")
+# En España «paddle_tennis» o «paddle» casi siempre es pádel mal etiquetado
+es_padel = lambda t: any(k in (t.get("sport") or "").lower() for k in ("padel", "pádel", "paddle"))
 es_pista = lambda t: t.get("leisure") == "pitch"
 cubierta = lambda t: t.get("covered") in ("yes", "roof") or t.get("indoor") == "yes" or t.get("building") not in (None, "no")
 privada = lambda t: t.get("access") in ("private", "no")
@@ -146,7 +147,7 @@ for g, ps in grupos.items():
     else: la, lo = sum(p["la"] for p in ps) / len(ps), sum(p["lo"] for p in ps) / len(ps)
     nom = ct.get("name") or next((p["t"]["name"] for p in ps if p["t"].get("name") and not re.fullmatch(r"(pista\s*)?\d+|pista.*\d", p["t"]["name"], re.I)), "")
     op = tag(ct, pt0, k="operator")
-    pue = tag(ct, pt0, k="addr:city") or pueblo(la, lo)
+    pue = pueblo(la, lo)  # siempre el nombre de pueblos.js, para que no salga el mismo pueblo escrito de dos maneras
     x = {"n": nom or ("Polideportivo" if ct.get("leisure") in ("sports_centre", "sports_hall") else "Pistas de pádel"),
          "pt": [round(la, 5), round(lo, 5)], "p": pue, "pi": len(ps),
          "cu": sum(1 for p in ps if cubierta(p["t"]) or ct.get("leisure") == "sports_hall")}
