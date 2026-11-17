@@ -1,4 +1,4 @@
-Titulares 2026-11-17T13:13
+Titulares 2026-11-17T13:14
 Diario de Navarra    121 leídos ·  15 publicados · https://www.diariodenavarra.es/rss/contenidos.xml
 Noticias de Navarra    0 leídos ·   0 publicados · SIN RSS (medio saltado)
 Pamplona Actual       25 leídos ·  15 publicados · https://pamplonaactual.com/feed/
@@ -7,4 +7,6 @@ EITB                  19 leídos ·   0 publicados · https://www.eitb.eus/es/rs
 Europa Press          10 leídos ·   5 publicados · https://www.europapress.es/rss/rss.aspx?ch=293
 Cadena SER           100 leídos ·   2 publicados · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
 RTVE                  60 leídos ·   0 publicados · https://api2.rtve.es/rss/temas_navarra.xml
-Total: 44
+Navarra Televisión     0 leídos ·   0 publicados · SIN RSS (medio saltado)
+COPE                 128 leídos ·  15 publicados · https://www.cope.es/rss/emisoras/navarra.xml
+Total: 59
