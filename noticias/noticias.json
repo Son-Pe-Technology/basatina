@@ -1,6 +1,62 @@
 {
-"t": "2026-11-17T17:13Z",
+"t": "2026-11-17T19:10Z",
 "items": [
+{
+"t": "Mujer de 46 años resulta herida en accidente vehicular en Huarte",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-huarte/una-mujer-de-46-anos-herida-tras-una-colision-entre-dos-vehiculos-en-huarte/",
+"f": "Pamplona Actual",
+"d": "2026-11-17T18:54Z",
+"c": "Sucesos"
+},
+{
+"t": "La Red Explora Navarra suma 100 entidades y planifica su programación hasta 2027",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-merindad-de-estella/la-red-explora-navarra-alcanza-las-100-entidades-y-prepara-su-programacion-para-2027/",
+"f": "Pamplona Actual",
+"d": "2026-11-17T18:50Z",
+"c": "Navarra"
+},
+{
+"t": "El Gobierno eleva el SMI a 1.286 euros y sorprende a los trabajadores",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-nacional/el-gobierno-sube-el-smi-a-1286-euros/",
+"f": "Pamplona Actual",
+"d": "2026-11-17T18:46Z",
+"c": "Economía"
+},
+{
+"t": "Empresas navarras presentan innovaciones médicas en Düsseldorf con andadores inteligentes y simuladores",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/ocho-empresas-navarras-llevan-a-dsseldorf-su-tecnologia-sanitaria-de-andadores-inteligentes-a-simuladores-medicos/",
+"f": "Pamplona Actual",
+"d": "2026-11-17T18:41Z",
+"c": "Economía"
+},
+{
+"t": "Gazte Berriak y Bidezarra se llevan los premios de la jornada",
+"u": "https://www.diariodenavarra.es/noticias/deportes/futbol/futbol-navarra/2026/11/17/gazte-berriak-bidezarra-llevan-premios-jornada-842816-37.html",
+"f": "Diario de Navarra",
+"d": "2026-11-17T18:27Z",
+"c": "Navarra"
+},
+{
+"t": "Propuesta de sanción a Osasuna de otros 30.000 euros",
+"u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/17/propuesta-sancion-osasuna-otros-30-000-euros-842814-32.html",
+"f": "Diario de Navarra",
+"d": "2026-11-17T18:09Z",
+"c": "Deportes"
+},
+{
+"t": "Nicolás Imízcoz y Xabier Catalán, de Voltis Energía: “Estamos duplicando la facturación trimestral y queremos expandirnos por toda España”",
+"u": "https://www.cope.es/emisoras/navarra/noticias/nicolas-imizcoz-xabier-catalan-voltis-energia-duplicando-facturacion-trimestral-queremos-expandirnos-toda-espana-20261117_3477037.html",
+"f": "COPE",
+"d": "2026-11-17T18:04Z",
+"c": "Navarra"
+},
+{
+"t": "Pamplona obtiene 446.000 euros para restaurar el Palacio del Condestable",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-recibe-mas-de-446000-euros-del-ministerio-de-vivienda-para-las-obras-de-restauracion-del-palacio-del-condestable/",
+"f": "Pamplona Actual",
+"d": "2026-11-17T17:18Z",
+"c": "Economía"
+},
 {
 "t": "Equipos PROA optimizan uso de antibióticos en faringoamigdalitis e infecciones cutáneas",
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/navarra-optimiza-los-tratamientos-con-antibioticos-de-las-faringoamigdalitis-y-las-infecciones-de-la-piel-en-atencion/",
@@ -72,27 +128,6 @@
 "c": "Navarra"
 },
 {
-"t": "Las educadoras infantiles continúan los paros con alto seguimiento y piden negociación urgente",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-educacion/las-educadoras-infantiles-mantienen-los-paros-de-los-martes-con-un-seguimiento-del-90-95-y-exigen-negociar/",
-"f": "Pamplona Actual",
-"d": "2026-11-17T16:02Z",
-"c": "Economía"
-},
-{
-"t": "Julia Navarro hablará en CIVICAN sobre su carrera literaria este viernes",
-"u": "https://pamplonaactual.com/negocios-al-dia/julia-navarro-conversara-en-civican-este-viernes-sobre-su-trayectoria-literaria/",
-"f": "Pamplona Actual",
-"d": "2026-11-17T15:53Z",
-"c": "Deportes"
-},
-{
-"t": "Los Secretos llevan su gira 'Nada es como antes' al Baluarte el 16 de abril",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/los-secretos-actuaran-en-el-baluarte-el-16-de-abril-con-su-gira-nada-es-como-antes/",
-"f": "Pamplona Actual",
-"d": "2026-11-17T15:48Z",
-"c": "Cultura"
-},
-{
 "t": "15:25H | 17 NOVIEMBRE | DEPORTES COPE EN NAVARRA",
 "u": "https://www.cope.es/emisoras/navarra/podcast/episodios/15-25h-17-noviembre-deportes-cope-navarra-20261117_3476921.html",
 "f": "COPE",
@@ -114,38 +149,10 @@
 "c": "Navarra"
 },
 {
-"t": "\"Sigo vivo, que ya es un avance\": el día a día de un enfermo de cáncer de pulmón",
-"u": "https://cadenaser.com/navarra/2026/11/17/dia-del-cancer-de-pulmon-tercero-en-incidencia-en-navarra-sigo-vivo-que-ya-es-un-avance-radio-pamplona/",
-"f": "Cadena SER",
-"d": "2026-11-17T14:22Z",
-"c": "Navarra"
-},
-{
-"t": "Frente Amplio busca asegurar 0,7 % para cooperación y priorizar paz en política exterior",
-"u": "https://pamplonaactual.com/elecciones-29n/frente-amplio-propone-blindar-el-07-para-cooperacion-y-poner-la-politica-exterior-al-servicio-de-la-paz/",
-"f": "Pamplona Actual",
-"d": "2026-11-17T13:44Z",
-"c": "Navarra"
-},
-{
 "t": "La ‘home stager’ navarra Irene Echeverría se despide de la neerlandesa Cubiqz",
 "u": "https://navarracapital.es/la-home-stager-navarra-irene-echeverria-se-despide-de-la-neerlandesa-cubiqz/",
 "f": "Navarra Capital",
 "d": "2026-11-17T13:43Z",
-"c": "Navarra"
-},
-{
-"t": "ANEL destaca el modelo de economía social como ejemplo de democracia en el XII Día de la Economía Social",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-economia/anel-reivindica-en-el-xii-dia-de-la-economia-social-este-modelo-como-profundamente-democratico/",
-"f": "Pamplona Actual",
-"d": "2026-11-17T13:40Z",
-"c": "Navarra"
-},
-{
-"t": "Fundación Dédalo recibe el reconocimiento 'Compromiso FUNDENA' por sus 20 años de lucha contra la brecha digital",
-"u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/fundacion-dedalo-recibe-reconocimiento-compromiso-fundena-20-anos-lucha-brecha-digital-20261117_3476548.html",
-"f": "COPE",
-"d": "2026-11-17T13:31Z",
 "c": "Navarra"
 },
 {
@@ -219,13 +226,6 @@
 "c": "Economía"
 },
 {
-"t": "Vuelos de Pamplona a Canarias por 85 euros con la promoción Flight Friday de Binter",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/17/binter-lanza-promocion-flight-friday-volar-canarias-85-euros-842766-15.html",
-"f": "Diario de Navarra",
-"d": "2026-11-17T10:51Z",
-"c": "Economía"
-},
-{
 "t": "Nueve meses después, siguen igual: los vecinos de Iturrama denuncian el abandono de sus soportales",
 "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/17/nueve-meses-siguen-igual-vecinos-iturrama-denuncian-abandono-soportales-842760-16.html",
 "f": "Diario de Navarra",
@@ -259,13 +259,6 @@
 "f": "COPE",
 "d": "2026-11-17T09:36Z",
 "c": "Economía"
-},
-{
-"t": "Policía Foral detiene a dos menores en Beriáin acusados de robar en el interior de siete autocaravanas",
-"u": "https://www.europapress.es/navarra/noticia-policia-foral-detiene-dos-menores-beriain-acusados-robar-interior-siete-autocaravanas-20261117101330.html",
-"f": "Europa Press",
-"d": "2026-11-17T09:13Z",
-"c": "Sucesos"
 },
 {
 "t": "Cuatro detenidos por realizar 24 robos de dinero y joyas en viviendas de Navarra",
@@ -384,13 +377,6 @@
 "u": "https://www.diariodenavarra.es/noticias/vivir/gastronomia/2026/11/16/restaurante-pamplona-mejores-bares-tapas-espana-guia-michelin-barra-siempre-rebosar-842638-109.html",
 "f": "Diario de Navarra",
 "d": "2026-11-16T11:55Z",
-"c": "Navarra"
-},
-{
-"t": "Una quesería navarra, premiada entre los mejores quesos del mundo",
-"u": "https://www.diariodenavarra.es/noticias/vivir/gastronomia/2026/11/16/queseria-navarra-premiada-mejores-quesos-mundo-842630-109.html",
-"f": "Diario de Navarra",
-"d": "2026-11-16T11:10Z",
 "c": "Navarra"
 },
 {
