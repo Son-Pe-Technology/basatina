@@ -443,32 +443,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paciclodecinerusobendicelamujercivivoxcond20261116",
-   "t": "Bendice a la mujer",
-   "cat": "cine",
-   "f": "2026-11-16",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Civivox Condestable",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-de-cine-ruso-bendice-la-mujer-civivox-condestable",
-   "desc": "Ciclo de Cine Ruso",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paciclodecinecuentanellascuentanlejosdelci20261116",
-   "t": "Lejos del Cielo",
-   "cat": "cine",
-   "f": "2026-11-16",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Biblioteca Pública de la Txantrea",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-de-cine-cuentan-ellas-cuentan-lejos-del-cielo-biblioteca-txantrea",
-   "desc": "Ciclo de cine Cuentan, ellas cuentan",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "paexposicionempoderandopersonassanandoment20261116",
    "t": "Empoderando personas, sanando mentes",
    "cat": "expo",
@@ -482,19 +456,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "panavarrefa20212027eventofinalbaluarte20261116",
-   "t": "Evento final",
-   "cat": "otros",
-   "f": "2026-11-16",
-   "ff": "",
-   "h": "",
-   "lugar": "Baluarte - Palacio de Congresos y Auditorio de Navarra",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/navarrefa-2021-2027-evento-final-baluarte",
-   "desc": "Navarrefa 2021-2027",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "paiisemananavarradelaciberseguridad20261116",
    "t": "II Semana Navarra de la Ciberseguridad",
    "cat": "otros",
@@ -505,32 +466,6 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/ii-semana-navarra-de-la-ciberseguridad",
    "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cnintroduccionalclimateriocomprenderlaperi20261116",
-   "t": "Introducción al climaterio: comprender la perimenopausia y la menopausia",
-   "cat": "otros",
-   "f": "2026-11-16",
-   "ff": "",
-   "h": "",
-   "lugar": "Biblioteca de Navarra. Sala Polivalente",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-16/taller/introduccion-al-climaterio-comprender-la-perimenopausia-y-la-menopausia",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "patallermujeresqueinspiranemprendenytransf20261116",
-   "t": "Mujeres que inspiran, emprenden y transforman",
-   "cat": "otros",
-   "f": "2026-11-16",
-   "ff": "2026-11-20",
-   "h": "",
-   "lugar": "Centro Comunitario Casco Viejo",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/taller-mujeres-que-inspiran-emprenden-y-transforman-plazara",
-   "desc": "Taller",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -599,6 +534,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "pajornadaidiomaidentidadydiversidadhaciala20261117",
+   "t": "Idioma, identidad y diversidad: hacia la convivencia desde múltiples miradas",
+   "cat": "charla",
+   "f": "2026-11-17",
+   "ff": "",
+   "h": "",
+   "lugar": "Campus Universidad Pública de Navarra (UPNA)",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/jornada-idioma-identidad-y-diversidad-hacia-la-convivencia-desde-multiples",
+   "desc": "Jornada",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "cnlosdeseosnosejubilansexualidadyclimateri20261117",
    "t": "Los deseos no se jubilan: sexualidad y climaterio",
    "cat": "charla",
@@ -664,6 +612,32 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "paentregadepremiosempresariadirectivayempr20261118",
+   "t": "Entrega de premios Empresaria, Directiva y Emprendedora Navarra 2026",
+   "cat": "otros",
+   "f": "2026-11-18",
+   "ff": "",
+   "h": "19:00",
+   "lugar": "Hotel Tres Reyes Pamplona",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/entrega-de-premios-empresaria-directiva-y-emprendedora-navarra-2026",
+   "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paespectaculohowdancemuseodenavarra20261118",
+   "t": "How to Dance",
+   "cat": "otros",
+   "f": "2026-11-18",
+   "ff": "",
+   "h": "19:30",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/espectaculo-how-dance-museo-de-navarra",
+   "desc": "Espectáculo",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "paconferencialasaludmentalactualamenazada20261118",
    "t": "La salud mental actual, amenazada",
    "cat": "charla",
@@ -688,6 +662,19 @@
    "url": "https://www.culturanavarra.es/es/agenda/2026-11-18/charlas-y-conferencias/buscar-la-distancia-adecuada",
    "desc": "Charla",
    "src": "Cultura Navarra"
+  },
+  {
+   "id": "pafestivaldemusicahamaika202620261118",
+   "t": "Festival de música Hamaika 2026",
+   "cat": "concierto",
+   "f": "2026-11-18",
+   "ff": "2026-11-24",
+   "h": "",
+   "lugar": "Conservatorio Superior de Música de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/festival-de-musica-hamaika-2026",
+   "desc": "",
+   "src": "Ayuntamiento de Pamplona"
   },
   {
    "id": "pajornadasgobernanzafeministaenlasadminist20261118",
@@ -1782,5 +1769,5 @@
    "src": "Ayuntamiento de Pamplona"
   }
  ],
- "act": "2026-11-16 07:00"
+ "act": "2026-11-17 06:26"
 }
