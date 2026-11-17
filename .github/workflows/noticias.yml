@@ -1,0 +1,26 @@
+# Titulares de Navarra sin política (tools/noticias.py). Cada 2 horas, al cambiar el script o a mano desde Actions.
+name: Titulares de Navarra
+on:
+  push:
+    paths: ['tools/noticias.py']
+  schedule:
+    - cron: '17 */2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: noticias
+jobs:
+  noticias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar titulares
+        run: python3 tools/noticias.py
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add noticias/
+          git commit -m "Titulares de Navarra" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs && git push && break; sleep $((i*10)); done

@@ -1,0 +1,26 @@
+# Aludes y montaña de AEMET para el Pirineo navarro (tools/aludes.py). A las 7:43 y 15:43 UTC, al cambiar el script o a mano desde Actions.
+name: Aludes y montaña
+on:
+  push:
+    paths: ['tools/aludes.py']
+  schedule:
+    - cron: '43 7,15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: aludes
+jobs:
+  aludes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar de AEMET
+        run: python3 tools/aludes.py
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add nieve/
+          git commit -m "Aludes y montaña (AEMET)" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs && git push && break; sleep $((i*10)); done
