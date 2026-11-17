@@ -1,0 +1,3 @@
+Mascotas 2026-11-17
+{'vet': 31, 'tienda': 12, 'park': 66, 'prot': 6}
+Urgencias/24 h: 1
