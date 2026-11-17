@@ -1,0 +1,34 @@
+# Fotos de Navarra para los juegos (tools/fotos_juego.py). Se ejecuta el día 13 de cada mes, cuando cambia tools/fotos_juego.py, o a mano desde la pestaña Actions.
+name: "Fotos para los juegos (Wikimedia Commons)"
+on:
+  push:
+    paths: ['tools/fotos_juego.py', '.github/workflows/fotosjuego.yml']
+  schedule:
+    - cron: '37 5 13 * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fotosjuego:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar
+        run: python3 tools/fotos_juego.py
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          for f in tools/fotosjuego_info.txt web/fotosjuego.js; do [ -f "$f" ] && git add "$f"; done
+          git commit -m "Fotos de Navarra para los juegos actualizados" || exit 0
+          git pull --rebase
+          python3 tools/make_version.py
+          git add web/version.json
+          git commit -m "Nueva versión de la pantalla" || true
+          for i in 1 2 3 4 5 6; do
+            git push && break
+            sleep $((i*15))
+            git pull --rebase -X theirs || true
+            python3 tools/make_version.py && git add web/version.json && git commit -m "Nueva versión de la pantalla" || true
+          done

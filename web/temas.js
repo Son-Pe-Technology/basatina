@@ -39,7 +39,7 @@ const st=document.createElement('style');st.textContent=`
 .tmMes button.on{background:#e09b00;color:#fff;border-color:transparent;font-weight:700}
 .tmProd{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line)}.tmProd:first-child{border-top:0}.tmProd .e{font-size:24px;width:32px;text-align:center}
 .jdBox{background:linear-gradient(180deg,#e9f1e3,#dbe7d2);color:#1d2b23;border-radius:16px;padding:12px;margin:10px 0;display:flex;flex-direction:column;gap:10px}
-.jdBox canvas{width:100%;max-width:440px;align-self:center;border-radius:12px;background:#cfe3ef;touch-action:none}
+.jdBox canvas{width:100%;max-width:440px;align-self:center;border-radius:12px;background:#dfe4e2;touch-action:none}
 .jdQ{font-size:20px;font-weight:800;text-align:center;min-height:28px}.jdR{text-align:center;font-size:15px;min-height:22px}
 .jdBox .jgNiv button{border-color:rgba(0,0,0,.2)}
 `;document.head.appendChild(st);
@@ -261,7 +261,7 @@ svSec('jdonde',`<div class="jdBox" data-noswipe>
  let G=ls('bnJgDonde',{n:0,rec:[0,0,0]}),POOL=[],ronda=0,pts=0,act=null,res=null,usadas=[];
  function ls(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
  function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
- function mapa(hl){x.clearRect(0,0,W,H);x.fillStyle='#cfe3ef';x.fillRect(0,0,W,H);if(!window.TERRI)return;
+ function mapa(hl){x.clearRect(0,0,W,H);x.fillStyle='#dfe4e2';x.fillRect(0,0,W,H);if(!window.TERRI)return;
    Object.values(TERRI.mun).forEach(m=>{if(!m.r)return;x.beginPath();m.r.forEach(ring=>ring.forEach((q,i)=>{const [a,b]=P(q[0],q[1]);i?x.lineTo(a,b):x.moveTo(a,b);}));
      x.fillStyle=m===hl?'#ffd54f':'#eef3e6';x.fill('evenodd');x.strokeStyle='rgba(90,110,80,.35)';x.lineWidth=.6;x.stroke();});}
  function pool(){const n=G.n,L=Object.values(TERRI.mun).filter(m=>m.pt&&m.n&&(n===2||(n===1?(m.hab||0)>=800:(m.hab||0)>=3000)));return L;}
