@@ -11,7 +11,7 @@
 - DIA: 20 · [('', 36), ('400E/2018 (BON 06/08/2018)', 4), ('1470E/2020 (BON 16/02/2021)', 4), ('332/2002 (BON 22/03/2002)', 3), ('1208E/2016 (BON 04/11/2016)', 2), ('664E/2022 (BON 27/07/2022)', 2), ('1378E/2020 (BON 21/01/2021)', 1), ('863/2012 (BON 18/10/2012), 757E/2017 (22/02/2018)', 1)]
 - EVACUACION: 20 · [('LA SERNA 400 kV', 7), ('TAFALLA 220 KV', 6), ('DISTRIBUCION 66 KV (AFECC. TAFALLA 220 KV)', 6), ('SANGÜESA 220 KV', 6), ('MURUARTE 220 KV', 6), ('DISTRIBUCIÓN 66 KV (AFECC. CORDOVILLA 220 KV)', 5), ('OLITE 220 kV', 4), ('LA SERNA 220 KV', 4)]
 - GEOM_LONG: 65 · [('2458.26', 1), ('1665.24', 1), ('3266.67', 1), ('518.26', 1), ('556.48', 1), ('338.15', 1), ('1819.9', 1), ('4253.36', 1)]
-- BEGINLIFE: 1 · [('19/05/2026', 65)]
+- BEGINLIFE: 1 · [('29/10/2026', 65)]
 
 ## ENERGI_Sym_AeroGen: 1422 · campos ['FEATURE', 'NOMBRE', 'MODELO', 'POT_MW', 'PARQUE', 'DIAMET_M', 'ALTURA_M', 'BEGINLIFE']
 - FEATURE: 1 · [('8200014', 1422)]
@@ -21,21 +21,21 @@
 - PARQUE: 65 · [('SAN ESTEBAN', 72), ('PEÑABLANCA 2ª FASE', 54), ('LAS LLANAS DE CODÉS 1ª FASE - AGUILAR', 52), ('AIBAR', 52), ('SIERRA DE SELVA', 50), ('IZCO', 50), ('ALAIZ', 50), ('LA BANDERA', 44)]
 - DIAMET_M: 30 · [('47', 466), ('77', 168), ('48', 167), ('42', 115), ('44', 90), ('132', 89), ('52', 79), ('50', 51)]
 - ALTURA_M: 26 · [('45', 412), ('55', 386), ('80', 134), ('50', 89), ('120', 59), ('39', 55), ('40', 45), ('61', 33)]
-- BEGINLIFE: 1 · [('19/05/2026', 1422)]
+- BEGINLIFE: 1 · [('29/10/2026', 1422)]
 
-## ENERGI_Pol_PSolar: 59 · campos ['FEATURE', 'NOMBRE', 'PROMOTOR', 'POT_MW', 'PUESTSERV', 'EXPEDIENTE', 'RAIPEE', 'DIA', 'EVACUACION', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE']
-- FEATURE: 1 · [('8200011', 59)]
-- NOMBRE: 59 · [('BARDENAS - HONDO ESPARTOSA', 1), ('CÁSEDA 2', 1), ('MENDAVIA - EL ENCIMERO', 1), ('PSFV TAFALLA', 1), ('ARGUEDAS I - EL COMÚN', 1), ('VALTIERRA', 1), ('CABANILLAS - CORRALIZA DEL VECINO', 1), ('OJO DE VALDELAFUENTE', 1)]
-- PROMOTOR: 26 · [('ACCIONA SOLAR', 9), ('OPDE', 8), ('TUDELA SOLAR', 6), ('ASURMENDI SISTEMAS DE ENERGÍA', 3), ('HELIOSOLAR', 3), ('SOLARTIA', 3), ('RÍOS RENOVABLES', 3), ('FOTONA', 2)]
-- POT_MW: 53 · [('1.26', 3), ('0.99', 2), ('4.5', 2), ('1.44', 2), ('45.0', 2), ('7.49', 1), ('0.24', 1), ('1.591', 1)]
-- PUESTSERV: 14 · [('2008', 15), ('2006', 9), ('2007', 7), ('2026', 6), ('2005', 4), ('2025', 4), ('2023', 3), ('2011', 3)]
-- EXPEDIENTE: 57 · [('3554-CE', 3), ('3695-CE', 1), ('3629-CE', 1), ('5172-CE', 1), ('2212-CE', 1), ('3877-3878-3879-3880-3882-CE', 1), ('3284-CE', 1), ('3665-CE', 1)]
-- RAIPEE: 16 · [('HUERTA SOLAR', 39), ('PENDIENTE', 6), ('RE-100267-100268-102821-102822-102823', 1), ('RE-114319', 1), ('RE-114858', 1), ('RE-115373', 1), ('RE-115828', 1), ('RE-114920', 1)]
-- DIA: 14 · [('', 44), ('242E/2022 (Informe Afecciones Ambientales)', 2), ('397E/2021 (BON 25/05/2021)', 2), ('253E/2022 (Informe Afecciones Ambientales)', 1), ('173E/2021 (BON 30/07/2021) AAA', 1), ('127E/2022 (Informe Afecciones Ambientales)', 1), ('49E/2023 (BON 28/02/2023)', 1), ('40E/2022 (BON 21/03/2022) AAA', 1)]
-- EVACUACION: 9 · [('DISTRIBUCION 13,2 KV', 37), ('DISTRIBUCION 66 KV', 10), ('LA SERNA 400 KV', 3), ('DISTRIBUCION 66 KV (AFECC. TAFALLA 220 KV)', 2), ('CASTEJON 400 KV', 2), ('DISTRIBUCION 66 KV (AFECC. LA SERNA 220 KV)', 2), ('DISTRIBUCION 13,2 KV (AFECC. TAFALLA 220 KV)', 1), ('DISTRIBUCION 13,2 KV (AFECC. TUDELA 220 KV)', 1)]
-- GEOM_AREA: 59 · [('486133.25', 1), ('17251.13', 1), ('142889.27', 1), ('38129.83', 1), ('43893.75', 1), ('631924.97', 1), ('109776.98', 1), ('253088.89', 1)]
-- GEOM_PERI: 59 · [('4233.54', 1), ('661.12', 1), ('1893.77', 1), ('1047.39', 1), ('1701.57', 1), ('3356.55', 1), ('2584.07', 1), ('3262.16', 1)]
-- BEGINLIFE: 1 · [('19/05/2026', 59)]
+## ENERGI_Pol_PSolar: 84 · campos ['FEATURE', 'NOMBRE', 'PROMOTOR', 'POT_MW', 'PUESTSERV', 'EXPEDIENTE', 'RAIPEE', 'DIA', 'EVACUACION', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE']
+- FEATURE: 1 · [('8200011', 84)]
+- NOMBRE: 84 · [('BARDENAS - HONDO ESPARTOSA', 1), ('CÁSEDA 2', 1), ('ASO P2', 1), ('AUTOCONSUMO NODI RECUBRIMIENTOS', 1), ('GRANJA LEGARIA', 1), ('MENDAVIA - EL ENCIMERO', 1), ('FONTELLAS', 1), ('TAFALLA', 1)]
+- PROMOTOR: 48 · [('ACCIONA SOLAR', 9), ('OPDE', 7), ('TUDELA SOLAR', 6), ('ASURMENDI SISTEMAS DE ENERGÍA', 3), ('HELIOSOLAR', 3), ('', 3), ('SOLARTIA', 3), ('RÍOS RENOVABLES', 3)]
+- POT_MW: 67 · [('0.5', 4), ('0.7', 3), ('0.99', 3), ('1.0', 3), ('1.26', 3), ('0.3', 2), ('4.5', 2), ('1.44', 2)]
+- PUESTSERV: 21 · [('2008', 16), ('2006', 11), ('2026', 10), ('2023', 8), ('2007', 7), ('2020', 6), ('2005', 4), ('2025', 4)]
+- EXPEDIENTE: 82 · [('3554-CE', 3), ('3695-CE', 1), ('5143-CE', 1), ('5079-CE', 1), ('4042-CE', 1), ('3629-CE', 1), ('3827-3828-3829-3830-CE', 1), ('5172-CE', 1)]
+- RAIPEE: 40 · [('HUERTA SOLAR', 38), ('PENDIENTE', 8), ('RE-113303', 1), ('RE-109803', 1), ('RE-106094-106095-106096-106097', 1), ('RE-100267-100268-102821-102822-102823', 1), ('RE-055503-055504-055505-100599-100600', 1), ('RE-112614', 1)]
+- DIA: 16 · [('', 66), ('322E/2024 (Informe Afecciones Ambientales)', 2), ('242E/2022 (Informe Afecciones Ambientales)', 2), ('397E/2021 (BON 25/05/2021)', 2), ('253E/2022 (Informe Afecciones Ambientales)', 1), ('173E/2021 (BON 30/07/2021) AAA', 1), ('127E/2022 (Informe Afecciones Ambientales)', 1), ('49E/2023 (BON 28/02/2023)', 1)]
+- EVACUACION: 12 · [('DISTRIBUCION 13,2 KV', 40), ('', 12), ('DISTRIBUCION 66 KV', 11), ('DISTRIBUCIÓN 13,2 KV', 8), ('LA SERNA 400 KV', 3), ('DISTRIBUCION 66 KV (AFECC. TAFALLA 220 KV)', 2), ('CASTEJON 400 KV', 2), ('DISTRIBUCION 66 KV (AFECC. LA SERNA 220 KV)', 2)]
+- GEOM_AREA: 84 · [('486133.25', 1), ('17251.13', 1), ('31293.64', 1), ('4538.1', 1), ('9943.27', 1), ('142889.27', 1), ('392991.02', 1), ('38129.83', 1)]
+- GEOM_PERI: 84 · [('4233.54', 1), ('661.12', 1), ('859.45', 1), ('326.75', 1), ('587.83', 1), ('1893.77', 1), ('3123.37', 1), ('1047.39', 1)]
+- BEGINLIFE: 1 · [('29/10/2026', 84)]
 
 ## OSM centrales: Counter({'hydro': 100, 'solar': 75, 'wind': 53, 'biomass': 3, 'gas': 3, 'biogas': 2, '?': 2})
  * {'src': 'hydro', 'n': 'Electra Cárcar', 'mw': '', 'op': '', 'pt': [42.4615, -2.338], 'w': ''}
@@ -156,4 +156,6 @@ REE fallo generacion/potencia-instalada?start_date=2025-01-01T00:00&end_date=202
 ## REE potencia instalada: {}
 open-meteo reintento 0 <urlopen error _ssl.c:1063: The handshake operation timed out>
 ## calibración eólica {'eol': 1.043, 'eolMW': 1775.2} [('2025-11', 355893, 390571.9), ('2025-12', 155101, 215047.6), ('2026-01', 292132, 310122.9), ('2026-02', 294375, 266250.0), ('2026-03', 359444, 301917.5), ('2026-04', 258566, 240368.8), ('2026-05', 162121, 169512.7), ('2026-06', 201179, 206508.3), ('2026-07', 250218, 261649.7), ('2026-08', 163556, 237102.1), ('2026-09', 211222, None), ('2026-10', 175775, None)]
-## calibración solar {'eol': 1.043, 'eolMW': 1775.2, 'sol': 0.752, 'solMW': 437.4}
+open-meteo reintento 0 <urlopen error _ssl.c:1063: The handshake operation timed out>
+open-meteo reintento 0 <urlopen error _ssl.c:1063: The handshake operation timed out>
+## calibración solar {'eol': 1.043, 'eolMW': 1775.2, 'sol': 0.726, 'solMW': 453.9}
