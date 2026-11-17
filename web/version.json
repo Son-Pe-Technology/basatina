@@ -1,5 +1,5 @@
 {
- "version": 315,
+ "version": 316,
  "apk": 25,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -23,7 +23,7 @@
   "eu.js": "8e229a636cb951e1bd9586b969d6e0270e38e9a6",
   "flood.png": "6d4fa0d5fbc339db9a3c4ffe14e433dc989066fc",
   "flood2.png": "712a7b22803bcae9b052cece1bdbe3c4ccae177e",
-  "fotosjuego.js": "7af3abf26c0eafc9fd620bc72c4a054e38d2363b",
+  "fotosjuego.js": "31fe03fe81c21281e98df5c5d7d6bce8e092a3e1",
   "idiomas.js": "6b26c7439c68a6b11337045b13d1a95677dad63c",
   "index.html": "c554a3cdbf08d7469b731c6e7efdb4260130a3c1",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
