@@ -2083,3 +2083,15 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Para avisar necesitas una cuenta":["Abisatzeko kontu bat behar duzu","You need an account to post alerts","Il faut un compte pour signaler"],"Crear cuenta o entrar":["Kontua sortu edo sartu","Create an account or sign in","Créer un compte ou se connecter"],
  "Terminar mi cuenta":["Nire kontua amaitu","Finish my account","Terminer mon compte"],"Borrar":["Ezabatu","Delete","Supprimer"],"Quitar apodo ofensivo":["Ezizen iraingarria kendu","Remove offensive nickname","Retirer le pseudo offensant"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
+
+// 🎾 NA Pádel (web/padel-ui.js, 17 nov. 2026)
+(function(){const T={
+ "NA Pádel":["NA Padela","NA Padel","NA Padel"],"Pádel":["Padela","Padel","Padel"],"Pistas":["Pistak","Courts","Terrains"],"Competición":["Lehiaketa","Competition","Compétition"],
+ "Cubiertas":["Estaliak","Indoor","Couverts"],"Municipales":["Udalekoak","Public","Municipaux"],"Clubes":["Klubak","Clubs","Clubs"],"Municipal":["Udalekoa","Public","Municipal"],"Cubierta":["Estalia","Indoor","Couvert"],
+ "sitios":["leku","places","lieux"],"pistas":["pista","courts","terrains"],"Ordenado por cercanía":["Hurbiltasunaren arabera","Sorted by distance","Trié par distance"],
+ "Pádel navarro por equipos":["Nafarroako padela taldeka","Navarrese team padel","Padel navarrais par équipes"],"Federación Navarra de Pádel":["Nafarroako Padel Federazioa","Navarre Padel Federation","Fédération navarraise de padel"],
+ "Últimos resultados":["Azken emaitzak","Latest results","Derniers résultats"],
+ "Va a llover: mejor una pista cubierta.":["Euria egingo du: hobe pista estalia.","Rain is coming: better an indoor court.","Il va pleuvoir : mieux vaut un terrain couvert."],
+ "Puede caer algún chaparrón: si juegas fuera, mira el cielo.":["Zaparradaren bat egin dezake: kanpoan jokatzen baduzu, begiratu zerura.","There may be a shower: if you play outdoors, keep an eye on the sky.","Une averse est possible : si tu joues dehors, surveille le ciel."],
+ "Buen tiempo para jugar fuera.":["Eguraldi ona kanpoan jokatzeko.","Good weather to play outdoors.","Beau temps pour jouer dehors."]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
