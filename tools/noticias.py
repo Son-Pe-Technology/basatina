@@ -4,12 +4,18 @@
   python3 tools/noticias.py   ->  noticias/noticias.json  y  noticias/noticias_info.txt
 
 Qué hace:
-  1. Para cada medio de MEDIOS busca su canal RSS en su propia web (la etiqueta <link rel="alternate">).
-     Si no lo encuentra o viene vacío, usa la búsqueda de Google Noticias limitada a ese medio.
+  1. Para cada medio de MEDIOS usa SOLO su propio canal RSS: primero las direcciones conocidas (FEEDS),
+     luego las que anuncia su web (etiqueta <link rel="alternate">) y luego las habituales (/feed/, /rss…).
+     Si un medio no tiene RSS, ese medio se salta.
+     POR QUÉ (legalidad, 17 nov. 2026): el RSS es lo que el propio medio publica para que otros lo
+     enlacen. Ya NO se usa Google Noticias: reutilizar su buscador dentro de otra app es más dudoso.
   2. Se queda con los titulares de las últimas 48 horas.
   3. Quita los de política (lista NO, la misma idea que el «Dato del día») y los repetidos.
-  4. Guarda SOLO el titular, el enlace, el medio y la hora. Nunca el texto de la noticia:
-     la noticia se lee en la web del medio.
+  4. Guarda SOLO el titular, el enlace directo al medio, el nombre del medio y la hora.
+     Nunca el texto, el resumen ni las fotos: la noticia se lee en la web del medio.
+     Base legal: art. 129 bis LPI (RDL 24/2021): los enlaces y los extractos muy breves (un titular)
+     no necesitan licencia del editor. Fotos y textos SÍ: no añadirlos nunca.
+     Si un medio pide que no se le enlace, se quita de MEDIOS y listo.
 
 Para añadir un medio: una línea más en MEDIOS (nombre, web, dominio, palabra que debe salir si el medio es nacional).
 Para quitar temas: una palabra más en NO (sin tildes, en minúsculas).
@@ -20,16 +26,28 @@ import json, re, html, time, datetime, email.utils, urllib.request, urllib.parse
 
 UA = {"User-Agent": "Mozilla/5.0 (BasatiNA/1.0; +https://basatina.es)"}
 # (nombre, web donde buscar el RSS, dominio, palabra obligatoria para medios nacionales)
+# Quitados el 17 nov. 2026 (comprobado desde GitHub Actions):
+#   - Noticias de Navarra y Navarra Televisión: su web bloquea a los robots → se respeta, no se insiste.
+#   - EITB y RTVE: no tienen RSS de Navarra al día (el de RTVE es de 2022, el de EITB de 2025).
+#   Si algún día publican RSS que funcione, se vuelven a añadir aquí y en FEEDS.
 MEDIOS = [
     ("Diario de Navarra", "https://www.diariodenavarra.es/", "diariodenavarra.es", ""),
-    ("Noticias de Navarra", "https://www.noticiasdenavarra.com/", "noticiasdenavarra.com", ""),
     ("Pamplona Actual", "https://pamplonaactual.com/", "pamplonaactual.com", ""),
     ("Navarra Capital", "https://navarracapital.es/", "navarracapital.es", ""),
-    ("EITB", "https://www.eitb.eus/es/noticias/navarra/", "eitb.eus", "navarra"),
     ("Europa Press", "https://www.europapress.es/navarra/", "europapress.es", "navarra"),
     ("Cadena SER", "https://cadenaser.com/navarra/", "cadenaser.com", "navarra"),
-    ("RTVE", "https://www.rtve.es/noticias/navarra/", "rtve.es", "navarra"),
+    ("COPE", "https://www.cope.es/emisoras/navarra/", "cope.es", "navarra"),
 ]
+# canales RSS conocidos de cada medio (se prueban antes que los que anuncie su web)
+FEEDS = {
+    "Diario de Navarra": ["https://www.diariodenavarra.es/rss/contenidos.xml"],
+    "Pamplona Actual": ["https://pamplonaactual.com/feed/"],
+    "Navarra Capital": ["https://navarracapital.es/feed/"],
+    "Europa Press": ["https://www.europapress.es/rss/rss.aspx?ch=293"],
+    "COPE": ["https://www.cope.es/rss/emisoras/navarra.xml"],
+    "Cadena SER": ["https://cadenaser.com/arc/outboundfeeds/rss/category/navarra/?outputType=xml",
+                   "https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml"],
+}
 # medios que no se usan nunca
 FUERA = ("navarra.com", "okdiario", "elmundo.es")
 NO = ["elecci", "electoral", "partido politico", "partidos politicos", "parlament", "gobierno de espana", "consejer", "diputacion", "congreso", "senado",
@@ -92,37 +110,31 @@ def items(xml):
     return out
 
 
-def google(dominio, palabra):
-    q = "site:%s %s when:2d" % (dominio, palabra)
-    u = "https://news.google.com/rss/search?" + urllib.parse.urlencode({"q": q.strip(), "hl": "es", "gl": "ES", "ceid": "ES:es"})
-    L = items(get(u))
-    for x in L: x["t"] = re.sub(r"\s+-\s+[^-]+$", "", x["t"])   # «Titular - Medio»
-    return L
-
-
 ahora = datetime.datetime.now(datetime.timezone.utc)
 todo, info, vistos = [], [], set()
 for nombre, home, dom, palabra in MEDIOS:
     print("·", nombre, flush=True)
     L, origen = [], ""
-    for f in rss_de(home)[:3]:
+    base = home.split("/", 3); base = base[0] + "//" + base[2] + "/"
+    probar = FEEDS.get(nombre, []) + rss_de(home)[:3] + [base + "feed/", base + "rss/", base + "rss.xml"]
+    for f in dict.fromkeys(probar):
         try:
             L = items(get(f)); origen = f
             if L: break
         except Exception as e:
             print("   RSS falló:", f, e)
-    if not L:
-        try:
-            L = google(dom, palabra); origen = "Google Noticias"
-        except Exception as e:
-            print("   Google Noticias falló:", e)
+    if not L: origen = ""
+    # si el canal ya es el de la sección de Navarra, no hace falta que el titular diga «Navarra»
+    pal = "" if "navarra" in origen.lower() else palabra
     n0 = len(L)
     sel = []
+    if L: print("   ejemplo:", L[0]["d"], L[0]["u"][:90], flush=True)   # para revisar en el registro de Actions
     for x in L:
         if not x["d"] or (ahora - x["d"]).total_seconds() > 48 * 3600: continue
         if any(b in x["u"] for b in FUERA): continue
+        if not x["u"].startswith("http") or dom not in x["u"]: continue   # solo enlaces directos al propio medio
         nt = " " + nrm(x["t"]) + " "
-        if palabra and palabra not in nt and palabra not in nrm(x["u"]): continue
+        if pal and pal not in nt and pal not in nrm(x["u"]): continue
         if any(w in nt for w in NO): continue
         k = re.sub(r"\W+", "", nt)[:70]
         if k in vistos: continue
@@ -130,7 +142,7 @@ for nombre, home, dom, palabra in MEDIOS:
         cat = next((c for c, rx in CAT if re.search(rx, nt)), "Navarra")
         sel.append({"t": x["t"][:200], "u": x["u"], "f": nombre, "d": x["d"].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "c": cat})
         if len(sel) >= 15: break
-    info.append("%-20s %3d leídos · %3d publicados · %s" % (nombre, n0, len(sel), origen or "SIN DATOS"))
+    info.append("%-20s %3d leídos · %3d publicados · %s" % (nombre, n0, len(sel), origen or "SIN RSS (medio saltado)"))
     print("  ", info[-1], flush=True)
     todo += sel
     time.sleep(1)
