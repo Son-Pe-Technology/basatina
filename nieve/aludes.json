@@ -1,0 +1,14 @@
+{
+ "t": "2026-11-17T04:42Z",
+ "aludes": "Agencia Estatal de Meteorología\n\nInformación nivológica para el Pirineo navarro y aragonés\n\nElaborado el día 4 de mayo de 2026\n\nA fecha 4 de mayo se da por finalizada la campaña de predicción\nde peligro de aludes en el Pirineo navarro y aragonés. No\nobstante, si las condiciones meteorológicas así lo requirieran,\nse emitiría una predicción especial. Se recuerda que, siempre\nque haya nieve, la ausencia total de peligro no existe. Hay que\ntener presente que, en circunstancias desfavorables, con aludes\nde tamaño 1 (alud pequeño o colada) y tamaño 2 (alud mediano) se\npueden sufrir severos daños personales.",
+ "montana": [
+  {
+   "dia": 0,
+   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nhttp://www.aemet.es\nPredicción de montaña\nes\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nhttp://www.aemet.es/es/nota_legal\nEstado del cielo\nPredominio de cielos muy nubosos o cubiertos. Visibilidad localmente reducida.\nnubosidad\nPrecipitaciones\nSe esperan lluvias y chubascos, débiles o localmente moderados, que tenderán a remitir al final del día.\npcp\nTormentas\nNo se descarta alguna acompañando a los chubascos.\ntormentas\nTemperaturas\nEn ligero ascenso, o moderado de las mínimas. Las mínimas podrían darse al final del día.\ntemperatura\nViento\nFuerte del oeste y sudoeste, con rachas muy fuertes en cotas altas y zonas expuestas.\nviento\nprediccion\nAltitud de la isoterma de 0 ºC en la atmósfera libre\n3900 m\nisocero\nAltitud de la isoterma de -10 ºC en la atmósfera libre\n5400 m\niso10\nViento en atmósfera libre a 1500 metros\nSW 60 km/h\nv1500\nViento en atmósfera libre a 3000 metros\nSW 100 km/h\nv3000\natmosferalibre\n9\n7\n11\n11\nRoncesvalles\n940 m\n10\n10\n12\n12\nIsaba\n820 m\n4\n-5\n8\n1\nPico Ori\n2021 m\n-9\n6\n-2\nMesa de los Tres Reyes\n2428 m\nsensacion_termica\nnav1\nPredicción"
+  },
+  {
+   "dia": 1,
+   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nhttp://www.aemet.es\nPredicción de montaña\nes\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nhttp://www.aemet.es/es/nota_legal\nEstado del cielo\nPredominio de cielos muy nubosos o cubiertos, aunque con posible apertura de claros ocasionales. Visibilidad localmente reducida.\nnubosidad\nPrecipitaciones\nSe esperan precipitaciones débiles o localmente moderadas a lo largo del día.\npcp\nTormentas\nNo se esperan.\ntormentas\nTemperaturas\nMínimas con pocos cambios. Máximas en ligero o moderado ascenso.\ntemperatura\nViento\nGeneralmente fuerte del oeste y sudoeste, con rachas muy fuertes en cotas altas y zonas expuestas.\nviento\nprediccion\nnav1\nPredicción"
+  }
+ ]
+}
