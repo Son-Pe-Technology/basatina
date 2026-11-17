@@ -8,4 +8,4 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - run: python3 tools/sonda_curiosas.py
+      - run: python3 tools/curiosas.py && cat noticias/curiosas_info.txt && head -c 3000 noticias/curiosas.json
