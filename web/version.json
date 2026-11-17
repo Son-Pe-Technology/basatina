@@ -1,5 +1,5 @@
 {
- "version": 323,
+ "version": 324,
  "apk": 25,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -38,7 +38,7 @@
   "naturaleza-catalogo.js": "d0b255c1220641a4c60ca0430c7ac66c43e87b12",
   "novedades.js": "1410d6edeecfbc8c319651fb21bde8d9c052eeb1",
   "ocio-ui.js": "64d1c8a74c219eee42a2670d26b92576a75d4111",
-  "ocio.js": "114a0a41922f4031ee39032ddc9da43f42f8ee59",
+  "ocio.js": "a0f2f4b89262fb9ce32a59e0dd6bc133819754bb",
   "pesca.js": "6ffc2183d1edcbecf1d0dfa9f9b4f5aa6010f986",
   "pnoa.jpg": "2ace269ed17d224cdca74f3033d27f5306e56dee",
   "pnoa14.jpg": "f0f3b88c53d5b4d1b7c3c4c6a46279842323a159",
