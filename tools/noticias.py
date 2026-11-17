@@ -35,6 +35,8 @@ MEDIOS = [
     ("Europa Press", "https://www.europapress.es/navarra/", "europapress.es", "navarra"),
     ("Cadena SER", "https://cadenaser.com/navarra/", "cadenaser.com", "navarra"),
     ("RTVE", "https://www.rtve.es/noticias/navarra/", "rtve.es", "navarra"),
+    ("Navarra Televisión", "https://www.natv.es/", "natv.es", ""),
+    ("COPE", "https://www.cope.es/emisoras/navarra/", "cope.es", "navarra"),
 ]
 # canales RSS conocidos de cada medio (se prueban antes que los que anuncie su web)
 FEEDS = {
@@ -128,6 +130,7 @@ for nombre, home, dom, palabra in MEDIOS:
     pal = "" if "navarra" in origen.lower() else palabra
     n0 = len(L)
     sel = []
+    if L: print("   ejemplo:", L[0]["d"], L[0]["u"][:90], flush=True)   # para revisar en el registro de Actions
     for x in L:
         if not x["d"] or (ahora - x["d"]).total_seconds() > 48 * 3600: continue
         if any(b in x["u"] for b in FUERA): continue
