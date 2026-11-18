@@ -144,7 +144,7 @@ let HR='arga';
   // tarjeta nueva del Arga (enero 2013), detrás de la de 2024
   const cs=[...sec.querySelectorAll('.card.hist')];if(cs.length)cs[cs.length-1].insertAdjacentHTML('afterend',HIST.arga2.map(h=>`<div class="card hist"><h3>${h[0]} · ${h[1]}</h3><div class="note">${h[2]}</div></div>`).join(''));
   sec.querySelectorAll('#hiR button').forEach(b=>b.onclick=()=>{HR=b.dataset.r;sec.querySelectorAll('#hiR button').forEach(x=>x.classList.toggle('on',x===b));
-    [...sec.children].forEach(c=>{if(c.id!=='hiR'&&c.id!=='hiO'&&!/^pv/.test(c.id)&&!c.classList.contains('rwMsg'))c.style.display=HR==='arga'?'':'none';});const o=$('hiO');o.style.display=HR==='arga'?'none':'';if(HR!=='arga')hiRender();});})();
+    [...sec.children].forEach(c=>{if(c.id!=='hiR'&&c.id!=='hiO'&&!/^pv/.test(c.id)&&!c.classList.contains('rwMsg')&&!c.classList.contains('bnaSrc'))c.style.display=HR==='arga'?'':'none';});const o=$('hiO');o.style.display=HR==='arga'?'none':'';if(HR!=='arga')hiRender();});})();
 async function hiRender(){const H=HIST[HR],o=$('hiO');
   o.innerHTML=`${H.c.map(c=>`<div class="card hist"><h3>${c[0]} · ${c[1]}</h3><div class="note">${c[2]}</div></div>`).join('')}
    <div class="card"><b>Fases de aviso de las estaciones del SAIH Ebro</b><div class="note">Igual que en el Arga, cada estación tiene tres umbrales de nivel: 🟡 aviso amarillo, 🟠 aviso naranja y 🔴 aviso rojo.</div><div id="hiU"><div class="note">${APP?'Cargando los umbrales…':'📱 Los umbrales de cada estación salen en la app del móvil.'}</div></div></div>

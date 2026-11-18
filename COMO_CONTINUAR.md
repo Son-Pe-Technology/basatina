@@ -41,6 +41,7 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 6. **No pongas contraseñas ni claves en el código.** Las claves van en `config/*.json` y se guardan desde la app (modo administrador). La firma de la APK usa los secretos de GitHub `KEYSTORE_B64` (la llave .jks en base64) y `KEYSTORE_PASS` (su contraseña). La llave NO va en el repositorio (es público). No crear nunca una llave nueva: los móviles dejarían de poder actualizar.
 7. **Siempre en español**, y si puedes añade el texto en `web/idiomas.js` (euskera, inglés y francés). Pon cada palabra traducible en su propio `<span>` si va mezclada con números. Mensajes claros, sin tecnicismos.
 8. **Aviso que debe seguir saliendo**: «⚠️ ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES».
+9. **App no oficial (exigido por Google Play, 18 nov. 2026)**: `web/oficial.js` pone el aviso de «app no oficial» (al abrir la app, en Inicio y en «Acerca de»), la pantalla «🏛️ Fuentes oficiales» y una franja con el enlace a la fuente oficial arriba de cada pantalla con datos públicos. **No quitarlo.** Si añades una pantalla con datos de un organismo público, añádela en `SRC_TAB` de ese archivo. La descripción de Google Play también debe llevar el aviso y los enlaces.
 
 ## 4. Funciones útiles que ya existen en `index.html`
 
