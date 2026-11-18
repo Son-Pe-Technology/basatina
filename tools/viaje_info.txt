@@ -1,13 +1,1 @@
-gasolineras 257 18/11/2026 7:20:28
-overpass https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
-overpass https://overpass.private.coffee/api/interpreter The read operation timed out
-overpass https://overpass.kumi.systems/api/interpreter The read operation timed out
-overpass https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
-overpass https://overpass.private.coffee/api/interpreter The read operation timed out
-overpass https://overpass.kumi.systems/api/interpreter The read operation timed out
-overpass https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
-overpass https://overpass.private.coffee/api/interpreter The read operation timed out
-overpass https://overpass.kumi.systems/api/interpreter The read operation timed out
-overpass https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
-overpass https://overpass.private.coffee/api/interpreter The read operation timed out
-overpass https://overpass.kumi.systems/api/interpreter HTTP Error 504: Gateway Timeout
+gasolineras 257 18/11/2026 13:12:39
