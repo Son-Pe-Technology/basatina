@@ -38,7 +38,7 @@
     mapa:['saih','che','sos'], libre:['saih','che','sos'], sim:['saih','che','aemet'], juego:['saih','che'],
     ciencia:['saih','cnig'], hist:['che','saih'], prev:['saih','aemet','che'], caudal:['saih','che','sos'],
     emb:['saih','miteco'], saih:['saih','che'],
-    tiempo:['aemet'], mtiempo:['aemet','saih'], radar:['aemet'], clima:['aemet'],
+    tiempo:['aemet'], radar:['aemet'], clima:['aemet'],
     incid:['carreteras','dgt'], camaras:['carreteras','dgt'], puertos:['carreteras','dgt'],
     sismo:['ign'], gas:['minetur'],
     caza:['idena','lexnavarra'], pesca:['idena','lexnavarra'], natura:['lexnavarra','espacios'],
@@ -60,6 +60,7 @@
 .bnaOfi b{display:block;margin-bottom:4px}.bnaOfiBtn{margin-top:8px;border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:700;background:#ffb020;color:#1b1b1b;cursor:pointer}
 #bnaOfiModal{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:18px}
 #bnaOfiModal>div{max-width:440px;background:var(--bg,#fff);color:var(--txt,#111);border-radius:16px;padding:18px;box-shadow:0 10px 40px rgba(0,0,0,.4);font-size:15px;line-height:1.5}
+.bnaPie{margin:18px 14px 6px;padding:8px 10px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.5;opacity:.85;text-align:center}
 .bnaFList a{display:block;padding:10px 0;border-bottom:1px solid var(--line);color:var(--acc);text-decoration:none}.bnaFList small{display:block;color:var(--txt);opacity:.75}`;
   document.head.appendChild(st);
 
@@ -88,8 +89,13 @@
     let d=s.querySelector(':scope>.bnaSrc');if(!d){d=document.createElement('div');d.className='bnaSrc';s.prepend(d);}
     d.innerHTML=`🏛️ <b>Fuente oficial:</b> ${k.map(enlace).join(' · ')}<br><span style="opacity:.8">ℹ️ BasatiNA no es una app oficial. <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc)">Más información</a></span>`;}
 
-  const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo')tarjeta('t-mtiempo');if(t==='about')tarjeta('t-about');franja(t);}catch(e){}};
-  tarjeta('t-mtiempo');tarjeta('t-about');
+  // Inicio: aviso pequeño abajo del todo (petición de Pedro, 18 nov. 2026)
+  function pie(){const s=document.getElementById('t-mtiempo');if(!s)return;let d=s.querySelector(':scope>.bnaPie');
+    if(!d){d=document.createElement('div');d.className='bnaPie';
+      d.innerHTML=`ℹ️ ${AVISO} Fuentes oficiales: ${['aemet','saih','navarra'].map(enlace).join(' · ')} · <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">ver todas</a>`;}
+    s.appendChild(d);}
+  const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo')pie();if(t==='about')tarjeta('t-about');franja(t);}catch(e){}};
+  pie();setTimeout(pie,1500);setTimeout(pie,5000);tarjeta('t-about');
   const on=document.querySelector('section.on');if(on)franja(on.id.slice(2));
 
   // aviso la primera vez que se abre la app
