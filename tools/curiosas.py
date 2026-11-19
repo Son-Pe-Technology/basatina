@@ -44,6 +44,37 @@ MEDIOS = [
     ("El Correo", "elcorreo.com", ["https://www.elcorreo.com/rss/2.0/?section="]),
     ("Diario de Navarra", "diariodenavarra.es", ["https://www.diariodenavarra.es/rss/contenidos.xml"]),
 ]
+# Canales que son SOLO de curiosidades: todas sus noticias cuentan como de la sección curiosa (+3 puntos)
+CANAL_CURIOSO = ("https://www.telecinco.es/noticias/curioso/rss.xml", "https://www.elespanol.com/rss/curiosidades/")
+MEDIOS.insert(0, ("Telecinco", "telecinco.es", ["https://www.telecinco.es/noticias/curioso/rss.xml"]))   # 19 nov 2026: canal propio de «Curioso»
+# 🔎 Google Noticias (19 nov 2026): búsquedas de noticias curiosas en cientos de medios españoles (gl=ES).
+# Con los canales de arriba solo salían 2-3 curiosas al día. De aquí solo se guarda titular, enlace y medio.
+# El medio va en <source url="…">: así se quitan Navarra.com, OKdiario y El Mundo, los deportivos y los de fuera de España.
+GN = "https://news.google.com/rss/search?hl=es&gl=ES&ceid=ES:es&q="
+GOOGLE = [GN + urllib.parse.quote(q) for q in (
+    'curioso OR insólito OR "se hace viral" when:2d',
+    '"récord Guinness" when:3d',
+    'curiosa OR divertida OR surrealista OR hilarante when:2d',
+    '"historia curiosa" OR "noticias curiosas" OR "nunca visto" OR "no daba crédito" when:3d',
+    'Navarra (curioso OR insólito OR viral OR "récord") when:7d',   # un toque de casa
+)]
+# Solo medios de España: dominios .es/.eus/.cat/.gal y esta lista de medios españoles con .com
+# (Google Noticias mete muchos de América aunque se pida España). Para añadir uno: una palabra más aquí.
+GN_COM = ("elconfidencial.com", "eldebate.com", "antena3.com", "lasexta.com", "cuatro.com", "cadenaser.com", "elperiodico.com", "lavanguardia.com",
+          "elcorreo.com", "diariovasco.com", "larioja.com", "noticiasdenavarra.com", "elespanol.com", "elpais.com", "levante-emv.com", "elplural.com",
+          "vozpopuli.com", "theobjective.com", "lainformacion.com", "granadahoy.com", "elperiodicodearagon.com", "elperiodicoextremadura.com",
+          "elperiodicomediterraneo.com", "revistaque.com", "vocesdecuenca.com", "xataka.com", "genbeta.com", "directoalpaladar.com", "trendencias.com",
+          "microsiervos.com", "muyinteresante.com", "hogarmania.com", "eltiempo.es", "meteored.com", "europapress.es", "lavozdeasturias.com",
+          "nationalgeographic.com.es", "infosalus.com", "elcorreogallego.com", "laopinioncoruna.com", "diariodeleon.com", "elnortedecastilla.com")
+GN_FUERA = ("sport.es", "superdeporte.es", "estadiodeportivo.com", "eldesmarque.com", "relevo.com", "defensacentral.com", "futbolfantasy.com")
+# temas de Google que no son «noticias graciosas» (críticas de cine, fútbol, videojuegos…); solo para Google Noticias
+GN_NO = ["critica", "comedia", "cine", "resena", "pelicula", "serie", "temporada", "estreno", "netflix", "prime video", "disney", "hbo", "album", "disco", "concierto",
+         "gta", "videojuego", "fichaje", "partido", "liga", "champions", "gol", "entrenador", "selección", "seleccion", "real madrid", "barca", "atletico",
+         "famos", "reality", "casa de los famosos", "gran hermano", "supervivientes", "oferta", "descuento", "black friday", "chollo"]
+def gn_fuera(u):
+    h = (urllib.parse.urlparse(u).hostname or "").lower()
+    es = h.endswith((".es", ".eus", ".cat", ".gal")) or any(h == d or h.endswith("." + d) for d in GN_COM)
+    return not h or not es or fuera(u) or any(h == d or h.endswith("." + d) for d in GN_FUERA)
 # Diario de Noticias: quitado 19 nov 2026, su servidor responde 406 (WAF) a GitHub Actions. No insistir ni cambiar el User-Agent.
 JUNTAR = ()
 FUERA = ("navarra.com", "okdiario.com", "elmundo.es")   # dominios exactos (noticiasdenavarra.com NO es navarra.com)
@@ -66,7 +97,7 @@ NO = ["politic", "democrac", "derecha", "izquierda", "ultra", "elecci", "elector
       "sanchez", "feijoo", "chivite", "asiron", "abascal", "puigdemont", "ayuso", " illa ", "yolanda diaz", "trump", "putin", "netanyahu", "milei", "maduro",
       "independentis", "nacionalis", " eta ", "terroris", "atentad", "guerra", "ejercito", "militar", "misil", "israel", "gaza", "ucrania", "rusia", " iran ",
       "franquis", "manifestacion", "huelga", "inmigra", " ice ", "aranceles", "sindicato", "corrupcion", "abalos", "cerdan", "koldo", " uco "]
-TRISTE = ["muere", "muerte", "muerto", "fallec", " mata ", "asesin", "homicid", "cadaver", "fallecid", "luto", "funeral", "suicid", "accidente", "atropell", "choque",
+TRISTE = ["muere", "morgue", "resucit", "velatorio", "muerte", "muerto", "fallec", " mata ", "asesin", "homicid", "cadaver", "fallecid", "luto", "funeral", "suicid", "accidente", "atropell", "choque",
           "herid", "grave", "hospital", " uci ", "cancer", "enferm", "brote", "virus", "legionel", "sarampion", "pandemi", "infart", "ictus", "tumor", "dolor",
           "violen", "agresi", "maltrat", "abuso", "acoso", "viola", "machis", "deten", "arrest", "carcel", "prision", "condena", " robo ", " robos ", " roba ", "estafa", "fraude",
           "polic", "guardia civil", "disparo", "tiroteo", " arma", "explosi", "bomba", "incendio", "fuego", "inundac", "dana", "terremoto", "tragedia", "catastrofe",
@@ -104,7 +135,9 @@ def items(xml):
             if f.tzinfo is None: f = f.replace(tzinfo=datetime.timezone.utc)
         except Exception:
             f = None
-        if t and u: out.append({"t": re.sub(r"\s+", " ", t), "u": u.strip(), "d": f})
+        so = re.search(r'<source[^>]*url=["\']([^"\']+)["\'][^>]*>(.*?)</source>', it, re.S | re.I)
+        if t and u: out.append({"t": re.sub(r"\s+", " ", t), "u": u.strip(), "d": f,
+                                "su": so.group(1).strip() if so else "", "sn": html.unescape(re.sub(r"<!\[CDATA\[|\]\]>", "", so.group(2))).strip() if so else ""})
     return out
 
 
@@ -136,6 +169,26 @@ except Exception:
     ANT = {}
 
 todo, info, vistos = [], [], set()
+
+
+def puntuar(x, nombre, sec_canal=False):
+    """Devuelve la noticia lista para guardar, o None si no es curiosa / es política / es triste."""
+    if not x["d"] or (ahora - x["d"]).total_seconds() > 72 * 3600: return None
+    nt = " " + re.sub(r"[^a-z0-9]+", " ", nrm(x["t"])) + " "   # sin signos: «Irán:» -> « iran »
+    if tiene(nt, NO) or tiene(nt, TRISTE) or tiene(nt, extra): return None
+    sec = sec_canal or bool(re.search(SECCION, nrm(x["u"])))
+    fu, su = tiene(nt, [" " + w for w in FUERTE]), tiene(nt, [" " + w for w in SUAVE])
+    p = (3 if sec else 0) + 2 * min(len(fu), 2) + min(len(su), 2)
+    if p < 2: return None          # una sola palabra suave («perro», «boda»…) no basta
+    k = clave(x["t"])
+    if k in vistos: return None
+    vistos.add(k)
+    # puntos: sección de curiosidades 3, palabra fuerte 2, suave 1; +1 si es de las últimas 24 h
+    p += 1 if (ahora - x["d"]).total_seconds() < 24 * 3600 else 0
+    print("   +", nombre, p, "SEC" if sec else "", [w.strip() for w in fu + su][:3], "|", x["t"][:90], flush=True)
+    return {"t": x["t"][:200], "u": x["u"], "f": nombre, "d": x["d"].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "p": p}
+
+
 for nombre, dom, feeds in MEDIOS:
     L, origen = [], ""
     for f in feeds:
@@ -150,27 +203,34 @@ for nombre, dom, feeds in MEDIOS:
             print("   RSS falló:", nombre, f, e)
     n0, nsel = len(L), 0
     for x in L:
-        if not x["d"] or (ahora - x["d"]).total_seconds() > 72 * 3600: continue
         u = x["u"]
         if fuera(u) or any(q in u.lower() for q in PATH_NO) or not u.startswith("http") or dom not in u or u in ocultas: continue
-        nt = " " + re.sub(r"[^a-z0-9]+", " ", nrm(x["t"])) + " "   # sin signos: «Irán:» -> « iran »
-        if tiene(nt, NO) or tiene(nt, TRISTE) or tiene(nt, extra): continue
-        sec = bool(re.search(SECCION, nrm(u)))
-        fu, su = tiene(nt, [" " + w for w in FUERTE]), tiene(nt, [" " + w for w in SUAVE])
-        p = (3 if sec else 0) + 2 * min(len(fu), 2) + min(len(su), 2)
-        if p < 2: continue          # una sola palabra suave («perro», «boda»…) no basta
-        g = [w.strip() for w in fu + su]
-        k = clave(x["t"])
-        if k in vistos: continue
-        vistos.add(k)
-        # puntos: sección de curiosidades 3, palabra fuerte 2, suave 1; +1 si es de las últimas 24 h
-        p += 1 if (ahora - x["d"]).total_seconds() < 24 * 3600 else 0
-        todo.append({"t": x["t"][:200], "u": u, "f": nombre, "d": x["d"].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "p": p})
-        nsel += 1
-        print("   +", nombre, p, "SEC" if sec else "", g[:3], "|", x["t"][:90], flush=True)
+        y = puntuar(x, nombre, origen in CANAL_CURIOSO)
+        if y: todo.append(y); nsel += 1
     info.append("%-18s %3d leídos · %3d curiosas · %s" % (nombre, n0, nsel, origen or "SIN RSS"))
     print(info[-1], flush=True)
     time.sleep(1)
+
+# ---- Google Noticias: muchas más curiosas, como mucho 3 por medio para que haya variedad ----
+porMedio, n0, nsel = {}, 0, 0
+for f in GOOGLE:
+    try:
+        L = items(get(f))
+    except Exception as e:
+        print("   Google Noticias falló:", f, e); L = []
+    n0 += len(L)
+    for x in L:
+        su, sn = x.get("su", ""), x.get("sn", "") or "Google Noticias"
+        if gn_fuera(su) or x["u"] in ocultas: continue
+        if sn and x["t"].endswith(" - " + sn): x["t"] = x["t"][: -len(" - " + sn)].strip()   # «Titular - Medio» -> «Titular»
+        if porMedio.get(sn, 0) >= 3: continue
+        nt = " " + re.sub(r"[^a-z0-9]+", " ", nrm(x["t"])) + " "
+        if tiene(nt, [" " + w for w in GN_NO]): continue
+        y = puntuar(x, sn)
+        if y: todo.append(y); nsel += 1; porMedio[sn] = porMedio.get(sn, 0) + 1
+    time.sleep(1)
+info.append("%-18s %3d leídos · %3d curiosas · %d búsquedas (%d medios)" % ("Google Noticias", n0, nsel, len(GOOGLE), len(porMedio)))
+print(info[-1], flush=True)
 
 todo.sort(key=lambda x: (x["p"], x["d"]), reverse=True)
 

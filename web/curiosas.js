@@ -38,10 +38,13 @@ function cuDelTurno(D){const k=cuTurno();const d=(D.dest||[]).find(x=>x.k===k);i
   return x?{x,k}:null;}
 
 const st=document.createElement('style');st.textContent=`
-#cuCard{background:linear-gradient(135deg,#fff8e1,#fff3e0);border:1px solid #ffe0b2;border-radius:16px;padding:12px 13px;margin:10px 0;cursor:pointer;color:#3e2723}
-#cuCard .cuK{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#e65100}
-#cuCard .cuT{font-size:17px;font-weight:800;line-height:1.3;margin:6px 0 4px}
-#cuCard .cuM{font-size:12.5px;color:#8d6e63;display:flex;justify-content:space-between;gap:8px}
+#cuCard{display:flex;align-items:center;gap:9px;background:linear-gradient(135deg,#fff8e1,#fff3e0);border:1px solid #ffe0b2;border-radius:14px;padding:7px 8px 7px 10px;margin:8px 0;cursor:pointer;color:#3e2723}
+#cuCard .cuI{flex:none;font-size:20px;line-height:1}
+#cuCard .cuX{flex:1;min-width:0}
+#cuCard .cuK{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#e65100}
+#cuCard .cuT{font-size:14px;font-weight:700;line-height:1.25;margin-top:1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#cuCard .cuM{font-size:11px;color:#8d6e63;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#cuCard .cuO{flex:none;border:1px solid #ffcc80;background:#fff;color:#e65100;border-radius:10px;padding:5px 8px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
 .cuRow{display:flex;gap:8px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}.cuRow:first-child{border-top:0}
 .cuRow a{flex:1;color:inherit;text-decoration:none;cursor:pointer}.cuRow a b{display:block;font-size:15px;line-height:1.3}.cuRow a span{font-size:12.5px;color:var(--mut)}
 .cuRow .cuOcu{flex:none;border:1px solid var(--line);background:none;border-radius:10px;padding:5px 8px;font-size:13px;cursor:pointer;color:inherit}
@@ -83,13 +86,17 @@ hook('curiosas',()=>cuRender(true));
 /* ---------- tarjeta del Inicio ---------- */
 (function(){const ref=$('pdCard')||$('efHome')||$('seHome');if(!ref||$('cuCard'))return;
   ref.insertAdjacentHTML('afterend','<div id="cuCard" role="button" style="display:none"></div>');})();
+/* Tarjeta pequeña (19 nov. 2026): la elegida del turno y, con «Otra ›», van pasando las demás curiosas */
+let CUI=-1;
 async function cuHome(force){const el=$('cuCard');if(!el)return;const D=await cuLoad(force);const r=cuDelTurno(D);
   if(!r){el.style.display='none';return;}
-  const t=r.k.slice(-1);el.style.display='';
-  el.innerHTML=`<div class="cuK">😄 La noticia curiosa ${TURNO[t]}</div><div class="cuT">${E(r.x.t)}</div><div class="cuM"><span>${E(r.x.f)} · ${hace(r.x.d)}</span><span>Ver más curiosas ›</span></div>`;
-  el.onclick=e=>{if(e.target.closest('.cuM span:last-child'))showTab('curiosas');else abre(r.x.u);};}
+  const t=r.k.slice(-1),L=[r.x].concat((D.items||[]).filter(x=>x.u!==r.x.u));
+  const x=CUI<0?r.x:L[CUI%L.length];el.style.display='';
+  el.innerHTML=`<div class="cuI">😄</div><div class="cuX"><div class="cuK">${CUI<0?'Noticia curiosa '+TURNO[t]:'Otra curiosa'}</div><div class="cuT">${E(x.t)}</div><div class="cuM">${E(x.f)} · ${hace(x.d)}</div></div>${L.length>1?'<button class="cuO" aria-label="Otra noticia curiosa">Otra ›</button>':''}`;
+  el.onclick=e=>{if(e.target.closest('.cuO')){CUI=(CUI<0?1:CUI+1)%L.length;cuHome();return;}abre(x.u);};
+  el.oncontextmenu=e=>{e.preventDefault();showTab('curiosas');};}
 setTimeout(()=>cuHome(),2200);
-let CUK=cuTurno();setInterval(()=>{const k=cuTurno();if(k!==CUK){CUK=k;cuHome(true);}},5*60e3);   // cambia sola al pasar de turno
+let CUK=cuTurno();setInterval(()=>{const k=cuTurno();if(k!==CUK){CUK=k;CUI=-1;cuHome(true);}},5*60e3);   // cambia sola al pasar de turno
 const _stCu=showTab;showTab=function(t){_stCu(t);if(t==='mtiempo'&&CU&&Date.now()-(CU._t||0)>30*60e3){CU._t=Date.now();cuHome(true);}};
 
 /* ---------- Ajustes: aviso en el móvil ---------- */
@@ -106,9 +113,9 @@ if(typeof ajustesRender==='function'){const _aj=ajustesRender;window.ajustesRend
   const c=$('ajCur');if(c)c.onchange=()=>{CFG.curiosa=c.checked;cfgSave();};};}
 
 /* ---------- traducciones del menú y la tarjeta ---------- */
-try{Object.assign(I18N.eu,{'Noticias curiosas':'Albiste bitxiak','Noticia curiosa':'Albiste bitxia'});
-  Object.assign(I18N.en,{'Noticias curiosas':'Fun news','Noticia curiosa':'Fun news'});
-  Object.assign(I18N.fr,{'Noticias curiosas':'Insolite','Noticia curiosa':'Insolite'});}catch(e){}
+try{Object.assign(I18N.eu,{'Noticias curiosas':'Albiste bitxiak','Noticia curiosa':'Albiste bitxia','Otra ›':'Beste bat ›','Otra curiosa':'Beste albiste bitxi bat'});
+  Object.assign(I18N.en,{'Noticias curiosas':'Fun news','Noticia curiosa':'Fun news','Otra ›':'Next ›','Otra curiosa':'More fun news'});
+  Object.assign(I18N.fr,{'Noticias curiosas':'Insolite','Noticia curiosa':'Insolite','Otra ›':'Suivante ›','Otra curiosa':'Encore de l’insolite'});}catch(e){}
 
 window.CURIOSAS={cuLoad,cuHome,cuTurno};
 })();

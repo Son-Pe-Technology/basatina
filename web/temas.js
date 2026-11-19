@@ -24,6 +24,11 @@ const hace=d=>{const m=Math.round((Date.now()-new Date(d))/60000);return m<60?'h
 
 const st=document.createElement('style');st.textContent=`
 .tmCard{background:var(--panel,#fff);border:1px solid var(--line);border-radius:16px;padding:12px 13px;margin:10px 0}
+#pdCard{display:flex;align-items:center;gap:9px;padding:7px 10px;margin:8px 0;border-radius:14px;cursor:pointer}
+#pdCard .pdI{flex:none;font-size:20px;line-height:1}#pdCard .pdX{flex:1;min-width:0}
+#pdCard .pdK{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2e7d32}
+#pdCard .pdP{font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#pdCard .pdP b{font-size:16px;color:#1b5e20}
+#pdCard .pdN{font-size:12.5px;color:var(--mut);margin-top:3px;display:none}#pdCard.abierta .pdN{display:block}#pdCard .pdF{flex:none;color:#9aa;font-size:13px}
 .tmH{display:flex;align-items:center;gap:10px}.tmI{font-size:22px;width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:none}
 .tmK{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .tmNews{display:block;padding:9px 0;border-top:1px solid var(--line);cursor:pointer;color:inherit;text-decoration:none}.tmNews:first-child{border-top:0}
@@ -111,9 +116,10 @@ const MESES_EU=['urtarrila','otsaila','martxoa','apirila','maiatza','ekaina','uz
 function pdHoy(){const d=new Date(),n=Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))/864e5);
   if(d.getDate()===1)return [MESES_EU[d.getMonth()],'nombre de este mes','Hoy empieza '+MESES_EU[d.getMonth()]+'.'];
   return PD_L[(n*7)%PD_L.length];}
+/* Tarjeta pequeña (19 nov. 2026): una sola línea; si tiene explicación, se abre al tocarla */
 function pdDraw(){const el=$('pdCard');if(!el)return;const p=pdHoy();
-  el.innerHTML=`<div class="tmH"><div class="tmI" style="background:#e8f5e9">🗣️</div><div style="flex:1"><div class="tmK" style="color:#2e7d32">Palabra del día en euskera</div></div></div>
-   <div class="tmPal">${E(p[0])}</div><div style="font-size:15px">= ${E(p[1])}</div>${p[2]?`<div class="note" style="margin-top:4px">${E(p[2])}</div>`:''}`;}
+  el.innerHTML=`<div class="pdI">🗣️</div><div class="pdX"><div class="pdK">Palabra del día en euskera</div><div class="pdP"><b>${E(p[0])}</b> = ${E(p[1])}</div>${p[2]?`<div class="pdN">${E(p[2])}</div>`:''}</div>${p[2]?'<div class="pdF">💡</div>':''}`;
+  el.onclick=()=>{if(p[2])el.classList.toggle('abierta');};}
 
 /* tarjetas del Inicio: palabra del día + titulares */
 (function(){const ref=$('efHome')||$('seHome');if(!ref||$('pdCard'))return;
