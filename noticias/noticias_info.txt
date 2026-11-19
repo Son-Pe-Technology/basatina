@@ -1,8 +1,9 @@
-Titulares 2026-11-19T13:26
+Titulares 2026-11-19T13:56
 Diario de Navarra    121 leídos ·  15 publicados · https://www.diariodenavarra.es/rss/contenidos.xml
 Pamplona Actual       25 leídos ·  15 publicados · https://pamplonaactual.com/feed/
 Navarra Capital       10 leídos ·  10 publicados · https://navarracapital.es/feed/
 Europa Press          10 leídos ·   2 publicados · https://www.europapress.es/rss/rss.aspx?ch=293
-Cadena SER           100 leídos ·   2 publicados · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
+Cadena SER           100 leídos ·   3 publicados · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
 COPE                 126 leídos ·  15 publicados · https://www.cope.es/rss/emisoras/navarra.xml
-Total: 59
+Diario de Noticias     0 leídos ·   0 publicados · SIN RSS (medio saltado)
+Total: 60
