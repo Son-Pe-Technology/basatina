@@ -84,7 +84,7 @@ if($('cuPalB'))$('cuPalB').onclick=async()=>{const w=$('cuPal').value.trim().toL
 hook('curiosas',()=>cuRender(true));
 
 /* ---------- tarjeta del Inicio ---------- */
-(function(){const ref=$('pdCard')||$('efHome')||$('seHome');if(!ref||$('cuCard'))return;
+(function(){const ref=$('rfCard')||$('pdCard')||$('efHome')||$('seHome');if(!ref||$('cuCard'))return;
   ref.insertAdjacentHTML('afterend','<div id="cuCard" role="button" style="display:none"></div>');})();
 /* Tarjeta pequeña (19 nov. 2026): la elegida del turno y, con «Otra ›», van pasando las demás curiosas */
 let CUI=-1;
@@ -113,9 +113,9 @@ if(typeof ajustesRender==='function'){const _aj=ajustesRender;window.ajustesRend
   const c=$('ajCur');if(c)c.onchange=()=>{CFG.curiosa=c.checked;cfgSave();};};}
 
 /* ---------- traducciones del menú y la tarjeta ---------- */
-try{Object.assign(I18N.eu,{'Noticias curiosas':'Albiste bitxiak','Noticia curiosa':'Albiste bitxia','Otra ›':'Beste bat ›','Otra curiosa':'Beste albiste bitxi bat'});
-  Object.assign(I18N.en,{'Noticias curiosas':'Fun news','Noticia curiosa':'Fun news','Otra ›':'Next ›','Otra curiosa':'More fun news'});
-  Object.assign(I18N.fr,{'Noticias curiosas':'Insolite','Noticia curiosa':'Insolite','Otra ›':'Suivante ›','Otra curiosa':'Encore de l’insolite'});}catch(e){}
+try{Object.assign(I18N.eu,{'Noticias curiosas':'Albiste bitxiak','Noticia curiosa':'Albiste bitxia','Otra ›':'Beste bat ›','Otra curiosa':'Beste albiste bitxi bat','Refrán del día':'Eguneko esaera','Envía el tuyo ›':'Bidali zurea ›'});
+  Object.assign(I18N.en,{'Noticias curiosas':'Fun news','Noticia curiosa':'Fun news','Otra ›':'Next ›','Otra curiosa':'More fun news','Refrán del día':'Saying of the day','Envía el tuyo ›':'Send yours ›'});
+  Object.assign(I18N.fr,{'Noticias curiosas':'Insolite','Noticia curiosa':'Insolite','Otra ›':'Suivante ›','Otra curiosa':'Encore de l’insolite','Refrán del día':'Dicton du jour','Envía el tuyo ›':'Envoie le tien ›'});}catch(e){}
 
 window.CURIOSAS={cuLoad,cuHome,cuTurno};
 })();

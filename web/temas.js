@@ -29,6 +29,12 @@ const st=document.createElement('style');st.textContent=`
 #pdCard .pdK{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2e7d32}
 #pdCard .pdP{font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#pdCard .pdP b{font-size:16px;color:#1b5e20}
 #pdCard .pdN{font-size:12.5px;color:var(--mut);margin-top:3px;display:none}#pdCard.abierta .pdN{display:block}#pdCard .pdF{flex:none;color:#9aa;font-size:13px}
+#rfCard{display:flex;align-items:center;gap:9px;background:linear-gradient(135deg,#f3e5f5,#ede7f6);border:1px solid #d1c4e9;border-radius:14px;padding:7px 8px 7px 10px;margin:8px 0;cursor:pointer;color:#311b92}
+#rfCard .rfI{flex:none;font-size:20px;line-height:1}#rfCard .rfX{flex:1;min-width:0}
+#rfCard .rfK{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#6a1b9a}
+#rfCard .rfT{font-family:Georgia,serif;font-size:14.5px;line-height:1.25;margin-top:1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#rfCard .rfM{font-size:11px;color:#7e57c2;margin-top:1px}
+#rfCard .rfB{flex:none;border:1px solid #b39ddb;background:#fff;color:#6a1b9a;border-radius:10px;padding:5px 8px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
 .tmH{display:flex;align-items:center;gap:10px}.tmI{font-size:22px;width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:none}
 .tmK{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .tmNews{display:block;padding:9px 0;border-top:1px solid var(--line);cursor:pointer;color:inherit;text-decoration:none}.tmNews:first-child{border-top:0}
@@ -121,9 +127,21 @@ function pdDraw(){const el=$('pdCard');if(!el)return;const p=pdHoy();
   el.innerHTML=`<div class="pdI">🗣️</div><div class="pdX"><div class="pdK">Palabra del día en euskera</div><div class="pdP"><b>${E(p[0])}</b> = ${E(p[1])}</div>${p[2]?`<div class="pdN">${E(p[2])}</div>`:''}</div>${p[2]?'<div class="pdF">💡</div>':''}`;
   el.onclick=()=>{if(p[2])el.classList.toggle('abierta');};}
 
+/* 🗣️ Refrán del día (19 nov. 2026): sale de los refranes que manda la gente desde «Refranes de tu pueblo»
+   (Cuadrilla BasatiNA → participa@basatina.es) y que publicáis desde el modo Administrador (participa/refranes.json).
+   Todos ven el mismo refrán cada día. Si aún no hay ninguno publicado, la franja invita a mandar el primero. */
+async function rfHoyDraw(){const el=$('rfCard');if(!el||typeof jsLoad!=='function')return;let L=[];
+  try{L=((await jsLoad('participa/refranes.json',{refranes:[]}))||{}).refranes||[];}catch(e){}
+  const env='<button class="rfB" aria-label="Envía el refrán de tu pueblo">Envía el tuyo ›</button>';
+  if(!L.length){el.innerHTML=`<div class="rfI">🗣️</div><div class="rfX"><div class="rfK">Refrán del día</div><div class="rfT">¿Qué se dice en tu pueblo? Manda tu refrán y saldrá aquí para toda Navarra.</div></div>${env}`;}
+  else{const d=new Date(),n=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),r=L[(n*5)%L.length];
+    el.innerHTML=`<div class="rfI">🗣️</div><div class="rfX"><div class="rfK">Refrán del día</div><div class="rfT">«${E(r.t)}»</div><div class="rfM">📍 ${E(r.p||'Navarra')} · lo mandó la cuadrilla</div></div>${env}`;}
+  el.onclick=()=>showTab('refranes');}
+
 /* tarjetas del Inicio: palabra del día + titulares */
 (function(){const ref=$('efHome')||$('seHome');if(!ref||$('pdCard'))return;
-  ref.insertAdjacentHTML('afterend','<div id="pdCard" class="tmCard"></div>');pdDraw();})();
+  ref.insertAdjacentHTML('afterend','<div id="pdCard" class="tmCard"></div><div id="rfCard" role="button"></div>');pdDraw();setTimeout(rfHoyDraw,1800);})();
+const _stRf=showTab;showTab=function(t){_stRf(t);if(t==='mtiempo')rfHoyDraw();};
 /* 📰 cinta de titulares arriba del Inicio: van pasando solos; al tocarla se abre «Titulares de Navarra» */
 (function(){const sec=$('t-mtiempo');if(!sec||$('nwTk'))return;
   sec.insertAdjacentHTML('afterbegin','<div id="nwTk" role="button" aria-label="Titulares de Navarra: toca para verlos todos"><span class="nwTkL">📰 Titulares</span><div class="nwTkV"><div class="nwTkC" id="nwTkC"><span>Cargando titulares…</span></div></div></div>');
