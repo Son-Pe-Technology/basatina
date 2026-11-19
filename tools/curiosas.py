@@ -22,7 +22,7 @@ Para añadir un medio: una línea más en MEDIOS. Para quitar temas: una palabra
 (sin tildes y en minúsculas), o sin programar en "prohibidas" de noticias/curiosas_ocultas.json.
 Lo ejecuta GitHub Actions (.github/workflows/curiosas.yml) varias veces al día.
 """
-import json, re, html, time, datetime, email.utils, urllib.request, unicodedata, os, sys
+import json, re, html, time, datetime, email.utils, urllib.request, urllib.parse, unicodedata, os, sys
 from zoneinfo import ZoneInfo
 
 UA = {"User-Agent": "Mozilla/5.0 (BasatiNA/1.0; +https://basatina.es)"}
@@ -43,8 +43,15 @@ MEDIOS = [
     ("Cadena SER", "cadenaser.com", ["https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml"]),
     ("El Correo", "elcorreo.com", ["https://www.elcorreo.com/rss/2.0/?section="]),
     ("Diario de Navarra", "diariodenavarra.es", ["https://www.diariodenavarra.es/rss/contenidos.xml"]),
+    # Diario de Noticias: sus canales RSS propios (rss.html), se juntan todos
+    ("Diario de Noticias", "noticiasdenavarra.com", ["https://www.noticiasdenavarra.com/rss/section/20117", "https://www.noticiasdenavarra.com/rss/section/20008"]),
 ]
-FUERA = ("navarra.com", "okdiario", "elmundo.es")
+JUNTAR = ("Diario de Noticias",)
+FUERA = ("navarra.com", "okdiario.com", "elmundo.es")   # dominios exactos (noticiasdenavarra.com NO es navarra.com)
+PATH_NO = ("/politica/", "/opinion/", "/esquelas/", "/obituarios/", "/comunicacion/", "/elecciones")
+def fuera(u):
+    h = (urllib.parse.urlparse(u).hostname or "").lower()
+    return any(h == d or h.endswith("." + d) for d in FUERA)
 # secciones de curiosidades en la dirección de la noticia
 SECCION = r"/(curioso|curiosidades?|viral|insolito|tremending|sorprendente|trending|redes-sociales|curiosa)/"
 # palabras del titular (se buscan al principio de palabra: «gato» no salta con «obligatoria»)
@@ -134,6 +141,10 @@ for nombre, dom, feeds in MEDIOS:
     L, origen = [], ""
     for f in feeds:
         try:
+            if nombre in JUNTAR:
+                vu = {y["u"] for y in L}
+                L += [y for y in items(get(f)) if y["u"] not in vu]; origen = "%d canales RSS" % len(feeds); time.sleep(1)
+                continue
             L = items(get(f)); origen = f
             if L: break
         except Exception as e:
@@ -142,7 +153,7 @@ for nombre, dom, feeds in MEDIOS:
     for x in L:
         if not x["d"] or (ahora - x["d"]).total_seconds() > 72 * 3600: continue
         u = x["u"]
-        if any(b in u for b in FUERA) or not u.startswith("http") or dom not in u or u in ocultas: continue
+        if fuera(u) or any(q in u.lower() for q in PATH_NO) or not u.startswith("http") or dom not in u or u in ocultas: continue
         nt = " " + re.sub(r"[^a-z0-9]+", " ", nrm(x["t"])) + " "   # sin signos: «Irán:» -> « iran »
         if tiene(nt, NO) or tiene(nt, TRISTE) or tiene(nt, extra): continue
         sec = bool(re.search(SECCION, nrm(u)))

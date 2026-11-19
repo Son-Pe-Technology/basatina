@@ -27,9 +27,13 @@ import json, re, html, time, datetime, email.utils, urllib.request, urllib.parse
 UA = {"User-Agent": "Mozilla/5.0 (BasatiNA/1.0; +https://basatina.es)"}
 # (nombre, web donde buscar el RSS, dominio, palabra obligatoria para medios nacionales)
 # Quitados el 17 nov. 2026 (comprobado desde GitHub Actions):
-#   - Noticias de Navarra y Navarra Televisión: su web bloquea a los robots → se respeta, no se insiste.
+#   - Navarra Televisión: su web bloquea a los robots → se respeta, no se insiste.
 #   - EITB y RTVE: no tienen RSS de Navarra al día (el de RTVE es de 2022, el de EITB de 2025).
 #   Si algún día publican RSS que funcione, se vuelven a añadir aquí y en FEEDS.
+# Diario de Noticias (noticiasdenavarra.com) se vuelve a añadir el 19 nov. 2026, ahora con las direcciones exactas
+# de su página pública de RSS (https://www.noticiasdenavarra.com/rss.html) en JUNTAR, y se ha pedido permiso por
+# correo. El 17 nov. su web bloqueaba a este robot al buscar el RSS por su cuenta: si vuelve a dar error 403 o
+# similar en el registro de Actions, se QUITA de MEDIOS y no se insiste (ni se cambia el User-Agent para colarse).
 MEDIOS = [
     ("Diario de Navarra", "https://www.diariodenavarra.es/", "diariodenavarra.es", ""),
     ("Pamplona Actual", "https://pamplonaactual.com/", "pamplonaactual.com", ""),
@@ -37,6 +41,7 @@ MEDIOS = [
     ("Europa Press", "https://www.europapress.es/navarra/", "europapress.es", "navarra"),
     ("Cadena SER", "https://cadenaser.com/navarra/", "cadenaser.com", "navarra"),
     ("COPE", "https://www.cope.es/emisoras/navarra/", "cope.es", "navarra"),
+    ("Diario de Noticias", "https://www.noticiasdenavarra.com/", "noticiasdenavarra.com", ""),
 ]
 # canales RSS conocidos de cada medio (se prueban antes que los que anuncie su web)
 FEEDS = {
@@ -48,8 +53,21 @@ FEEDS = {
     "Cadena SER": ["https://cadenaser.com/arc/outboundfeeds/rss/category/navarra/?outputType=xml",
                    "https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml"],
 }
-# medios que no se usan nunca
-FUERA = ("navarra.com", "okdiario", "elmundo.es")
+# medios que publican un canal RSS por sección: se juntan TODOS los de la lista (no solo el primero que responda)
+# Diario de Noticias, secciones de su página de RSS: Navarra, Pamplona, Sociedad, Cultura y Deportes
+JUNTAR = {
+    "Diario de Noticias": ["https://www.noticiasdenavarra.com/rss/section/%s" % n for n in ("20000", "20153", "20008", "20013", "20017")],
+}
+# medios que no se usan nunca (dominios: «navarra.com» NO incluye noticiasdenavarra.com, que es otro medio)
+FUERA = ("navarra.com", "okdiario.com", "elmundo.es")
+# secciones que no se publican, por la ruta de la dirección (política, opinión, esquelas y la propaganda del propio medio)
+PATH_NO = ("/politica/", "/opinion/", "/esquelas/", "/obituarios/", "/comunicacion/", "/elecciones")
+
+
+def fuera(u):
+    """True si el enlace es de un medio de FUERA. Se compara el dominio completo, no un trozo del texto."""
+    h = (urllib.parse.urlparse(u).hostname or "").lower()
+    return any(h == d or h.endswith("." + d) for d in FUERA)
 NO = ["elecci", "electoral", "partido politico", "partidos politicos", "parlament", "gobierno de espana", "consejer", "diputacion", "congreso", "senado",
       "ministr", "alcald", "concejal", "pleno", "votacion", "referendum", "presupuestos generales", "moncloa",
       "upn", "psn", "psoe", "pnv", "bildu", "geroa", "podemos", "vox", " pp ", "sumar", "contigo navarra",
@@ -116,13 +134,26 @@ for nombre, home, dom, palabra in MEDIOS:
     print("·", nombre, flush=True)
     L, origen = [], ""
     base = home.split("/", 3); base = base[0] + "//" + base[2] + "/"
-    probar = FEEDS.get(nombre, []) + rss_de(home)[:3] + [base + "feed/", base + "rss/", base + "rss.xml"]
-    for f in dict.fromkeys(probar):
-        try:
-            L = items(get(f)); origen = f
-            if L: break
-        except Exception as e:
-            print("   RSS falló:", f, e)
+    if nombre in JUNTAR:
+        # un canal por sección: se leen todos y se juntan, sin repetir enlaces
+        enlaces = set()
+        for f in JUNTAR[nombre]:
+            try:
+                for x in items(get(f)):
+                    if x["u"] not in enlaces:
+                        enlaces.add(x["u"]); L.append(x)
+                origen = "%d canales RSS propios (JUNTAR)" % len(JUNTAR[nombre])
+            except Exception as e:
+                print("   RSS falló:", f, e)
+            time.sleep(1)
+    else:
+        probar = FEEDS.get(nombre, []) + rss_de(home)[:3] + [base + "feed/", base + "rss/", base + "rss.xml"]
+        for f in dict.fromkeys(probar):
+            try:
+                L = items(get(f)); origen = f
+                if L: break
+            except Exception as e:
+                print("   RSS falló:", f, e)
     if not L: origen = ""
     # si el canal ya es el de la sección de Navarra, no hace falta que el titular diga «Navarra»
     pal = "" if "navarra" in origen.lower() else palabra
@@ -131,7 +162,7 @@ for nombre, home, dom, palabra in MEDIOS:
     if L: print("   ejemplo:", L[0]["d"], L[0]["u"][:90], flush=True)   # para revisar en el registro de Actions
     for x in L:
         if not x["d"] or (ahora - x["d"]).total_seconds() > 48 * 3600: continue
-        if any(b in x["u"] for b in FUERA): continue
+        if fuera(x["u"]) or any(p in x["u"].lower() for p in PATH_NO): continue
         if not x["u"].startswith("http") or dom not in x["u"]: continue   # solo enlaces directos al propio medio
         nt = " " + nrm(x["t"]) + " "
         if pal and pal not in nt and pal not in nrm(x["u"]): continue
