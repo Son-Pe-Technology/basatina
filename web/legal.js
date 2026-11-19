@@ -6,7 +6,7 @@
      Accesibilidad · Preferencias de privacidad · Agradecimientos
    Por qué así: Google Play pide que la información legal sea fácil de encontrar dentro de la app,
    y un desplegable no ocupa sitio en la pantalla.
-   Cómo cambiar un texto: edita su apartado en LEG (título y html). Los textos completos
+   Cómo cambiar un texto: edita su apartado en LEG (icono, título y html). Se ven en rejilla de 4 por fila; al tocar uno, su texto se abre debajo. Los textos completos
    siguen en la web (docs/privacidad.html, docs/aviso-legal.html, docs/normas-comunidad.html).
    Se carga después de oficial.js (que pone el aviso de «app no oficial»).
    ===================================================================== */
@@ -84,16 +84,16 @@
 
   ['⚙️','Preferencias de privacidad',()=>`
 <p>Aquí decides tú:</p>
-<div class="bnaLegOpt"><label><input type="checkbox" id="bnaLegUso" ${noUso()?'':'checked'}> <b>Contar mi visita en el contador anónimo de uso</b></label>
+<div class="bnaLegOpt"><label><input type="checkbox" class="bnaLegUso" ${noUso()?'':'checked'}> <b>Contar mi visita en el contador anónimo de uso</b></label>
 <small>Suma +1 a un total el primer día que abres la app cada día y cada mes. No envía ningún dato tuyo ni de tu móvil. Nos ayuda a saber si la app se usa.</small></div>
 <div class="bnaLegOpt"><b>📍 Ubicación, 📷 cámara y 🔔 notificaciones</b>
 <small>Son permisos del móvil: los das o los quitas en <b>Ajustes del móvil → Aplicaciones → BasatiNA → Permisos</b> (y Notificaciones).</small></div>
 <div class="bnaLegOpt"><b>📦 Mis datos guardados en este móvil</b>
 <small>Puedes llevártelos a un archivo (es tuyo, no se envía a nadie). Para borrarlos todos: Ajustes del móvil → Aplicaciones → BasatiNA → Almacenamiento → Borrar datos.</small>
-<button class="bnaOfiBtn" id="bnaLegCopia">📦 Hacer copia de mis datos</button></div>
+<button class="bnaOfiBtn" data-a="copia">📦 Hacer copia de mis datos</button></div>
 <div class="bnaLegOpt"><b>👤 Mi cuenta</b>
 <small>Puedes borrarla cuando quieras, con todo lo que guarda: Mi Espacio → 👤 Mi cuenta → Borrar mi cuenta.</small>
-<button class="bnaOfiBtn" id="bnaLegBorrar" style="background:none;color:var(--acc);border:1px solid var(--acc)">Cómo borrar mi cuenta ↗</button></div>
+<button class="bnaOfiBtn" data-a="borrar" style="background:none;color:var(--acc);border:1px solid var(--acc)">Cómo borrar mi cuenta ↗</button></div>
 <div class="bnaLegOpt"><b>🔕 Publicidad y seguimiento</b><small>No hay nada que desactivar: BasatiNA no tiene ni publicidad ni seguimiento.</small></div>`],
 
   ['💚','Agradecimientos',()=>`
@@ -111,40 +111,46 @@
   ];
 
   const st=document.createElement('style');
-  st.textContent=`.bnaLeg{margin:6px 12px 18px;font-size:13.5px;line-height:1.55}
-.bnaLeg h4{margin:0 0 6px;font-size:13px;opacity:.75;text-align:center;font-weight:700;letter-spacing:.3px}
-.bnaLeg details{border-bottom:1px solid var(--line)}
-.bnaLeg summary{list-style:none;cursor:pointer;padding:11px 4px;font-weight:700;display:flex;align-items:center;gap:8px}
-.bnaLeg summary::-webkit-details-marker{display:none}
-.bnaLeg summary::after{content:'▾';margin-left:auto;transition:transform .2s;opacity:.7}
-.bnaLeg details[open] summary::after{transform:rotate(180deg)}
-.bnaLeg .bnaLegTxt{padding:0 4px 12px}.bnaLeg .bnaLegTxt p{margin:6px 0}.bnaLeg ul{margin:6px 0;padding-left:20px}.bnaLeg li{margin:3px 0}
+  st.textContent=`.bnaLeg{margin:6px 10px 18px;font-size:12.5px;line-height:1.5}
+.bnaLeg h4{margin:0 0 8px;font-size:12px;opacity:.75;text-align:center;font-weight:700;letter-spacing:.3px}
+.bnaLegGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+@media(max-width:300px){.bnaLegGrid{grid-template-columns:repeat(3,1fr)}}
+.bnaLegBtn{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;padding:8px 3px;min-height:58px;border:1px solid var(--line);border-radius:10px;background:transparent;color:inherit;font:inherit;font-size:10.5px;font-weight:700;line-height:1.2;text-align:center;cursor:pointer}
+.bnaLegBtn .ic{font-size:17px;line-height:1}
+.bnaLegBtn.on{border-color:var(--acc);background:rgba(127,127,127,.12)}
+.bnaLegPanel{margin-top:8px;padding:10px 12px;border:1px solid var(--line);border-radius:12px}
+.bnaLegPanel h5{margin:0 0 4px;font-size:13px}
+.bnaLeg .bnaLegTxt p{margin:5px 0}.bnaLeg ul{margin:5px 0;padding-left:18px}.bnaLeg li{margin:3px 0}
 .bnaLeg a{color:var(--acc);text-decoration:underline}
-.bnaLegOpt{margin:8px 0;padding:10px;border:1px solid var(--line);border-radius:10px}.bnaLegOpt small{display:block;opacity:.8;margin-top:3px}
-.bnaLegOpt input{width:20px;height:20px;vertical-align:middle}
-.bnaLeg .bnaLegFecha{text-align:center;font-size:11px;opacity:.6;margin-top:8px}`;
+.bnaLegOpt{margin:8px 0;padding:9px;border:1px solid var(--line);border-radius:10px}.bnaLegOpt small{display:block;opacity:.8;margin-top:3px}
+.bnaLegOpt input{width:18px;height:18px;vertical-align:middle}
+.bnaLegOpt label{font-size:12.5px;color:inherit;opacity:1}.bnaLegOpt b{font-size:12.5px}
+.bnaLeg .bnaOfiBtn{font-size:12px;padding:6px 10px;margin-top:6px}
+.bnaLeg .bnaLegFecha{text-align:center;font-size:10.5px;opacity:.6;margin-top:8px}`;
   document.head.appendChild(st);
 
+  // rejilla de 4 por fila; al tocar un apartado su texto se abre debajo, a todo el ancho
   function bloque(){const d=document.createElement('div');d.className='bnaLeg';
-    d.innerHTML=`<h4>⚖️ Información legal</h4>`+LEG.map(([ic,t,h])=>`<details><summary><span>${ic}</span><span>${t}</span></summary><div class="bnaLegTxt">${h()}</div></details>`).join('')+
-      `<div class="bnaLegFecha">Actualizado el ${FECHA} · BasatiNA · Son&amp;Pe Technology Systems</div>`;
-    // solo un apartado abierto a la vez, para que no se haga eterno
-    d.querySelectorAll('details').forEach(x=>x.addEventListener('toggle',()=>{if(x.open)d.querySelectorAll('details').forEach(y=>{if(y!==x)y.open=false;});}));
-    const u=d.querySelector('#bnaLegUso');if(u)u.onchange=()=>{try{u.checked?localStorage.removeItem('bnaNoUso'):localStorage.setItem('bnaNoUso','1');}catch(e){}
-      if(typeof toast==='function')toast(u.checked?'Contador anónimo activado':'Contador anónimo desactivado');};
-    const c=d.querySelector('#bnaLegCopia');if(c)c.onclick=()=>{if(typeof muGuardar==='function')muGuardar();else showTab('ajustes');};
-    const b=d.querySelector('#bnaLegBorrar');if(b)b.onclick=()=>{(window.bnaAbrirFuente||(x=>window.open(x,'_blank')))(W+'borrar-cuenta.html');};
-    // los id deben ser únicos: en «Acerca de» se les cambia el nombre
+    d.innerHTML=`<h4>⚖️ Información legal</h4><div class="bnaLegGrid">`+LEG.map(([ic,t],i)=>`<button class="bnaLegBtn" data-i="${i}" aria-expanded="false"><span class="ic">${ic}</span><span>${t}</span></button>`).join('')+
+      `</div><div class="bnaLegPanel" hidden></div><div class="bnaLegFecha">Actualizado el ${FECHA} · BasatiNA · Son&amp;Pe Technology Systems</div>`;
+    const panel=d.querySelector('.bnaLegPanel');
+    d.querySelectorAll('.bnaLegBtn').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,abierto=b.classList.contains('on');
+      d.querySelectorAll('.bnaLegBtn').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-expanded','false');});
+      if(abierto){panel.hidden=true;panel.innerHTML='';return;}
+      b.classList.add('on');b.setAttribute('aria-expanded','true');
+      const [ic,t,h]=LEG[i];panel.innerHTML=`<h5>${ic} ${t}</h5><div class="bnaLegTxt">${h()}</div>`;panel.hidden=false;
+      const u=panel.querySelector('.bnaLegUso');if(u)u.onchange=()=>{try{u.checked?localStorage.removeItem('bnaNoUso'):localStorage.setItem('bnaNoUso','1');}catch(e){}
+        if(typeof toast==='function')toast(u.checked?'Contador anónimo activado':'Contador anónimo desactivado');};
+      const c=panel.querySelector('[data-a="copia"]');if(c)c.onclick=()=>{if(typeof muGuardar==='function')muGuardar();else showTab('ajustes');};
+      const br=panel.querySelector('[data-a="borrar"]');if(br)br.onclick=()=>{(window.bnaAbrirFuente||(x=>window.open(x,'_blank')))(W+'borrar-cuenta.html');};
+      try{panel.scrollIntoView({block:'nearest',behavior:'smooth'});}catch(e){}});
     return d;}
 
   // Inicio: siempre lo último, debajo del aviso de «app no oficial» (oficial.js lo vuelve a poner al final cada vez)
   function enInicio(){const s=document.getElementById('t-mtiempo');if(!s)return;let d=s.querySelector(':scope>.bnaLeg');if(!d)d=bloque();s.appendChild(d);}
-  function enAbout(){const s=document.getElementById('t-about');if(!s||s.querySelector('.bnaLeg'))return;const d=bloque();
-    d.querySelectorAll('[id]').forEach(x=>x.id+='2');const u=d.querySelector('#bnaLegUso2');
-    if(u)u.onchange=()=>{try{u.checked?localStorage.removeItem('bnaNoUso'):localStorage.setItem('bnaNoUso','1');}catch(e){}if(typeof toast==='function')toast(u.checked?'Contador anónimo activado':'Contador anónimo desactivado');};
-    s.appendChild(d);}
+  function enAbout(){const s=document.getElementById('t-about');if(!s||s.querySelector('.bnaLeg'))return;s.appendChild(bloque());}
   // al volver a una pantalla, que la casilla del contador enseñe el estado real
-  function refresca(){document.querySelectorAll('#bnaLegUso,#bnaLegUso2').forEach(x=>x.checked=!noUso());}
+  function refresca(){document.querySelectorAll('.bnaLegUso').forEach(x=>x.checked=!noUso());}
   const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo')enInicio();if(t==='about')enAbout();refresca();}catch(e){}};
   enInicio();setTimeout(enInicio,1600);setTimeout(enInicio,5100);enAbout();
 })();
