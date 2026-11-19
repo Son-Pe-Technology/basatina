@@ -1,5 +1,5 @@
 {
- "version": 341,
+ "version": 342,
  "apk": 27,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -31,7 +31,7 @@
   "juegos-peques.js": "1c6b2124ed7b40dbe00032cc76db9b33003c0a11",
   "juegos.js": "27423182707be559e410d7040120c88ad7cf9a67",
   "juegos2.js": "a6391aacfba802fe8e7eb11298c1494beeb8e619",
-  "legal.js": "45d15d83762e890030e241bb3b983510d1d6e9bf",
+  "legal.js": "17e414d1980bbf505e0b17b895058cdace5699ce",
   "logo.jpg": "442927f2c4c5495089c0bd56e454ddc6a4223411",
   "logo.png": "5a4acff3ebac8e7b2e2be74d99bf5a3652086fe3",
   "mascotas.js": "6ab382c2006ac3031e900c04c16f070ef40b7317",
