@@ -1,4 +1,4 @@
-Noticias curiosas 2026-11-19T14:57 (turno 2026-11-19-t)
+Noticias curiosas 2026-11-19T14:59 (turno 2026-11-19-t)
 Telecinco           30 leídos ·   0 curiosas · https://www.telecinco.es/noticias/rss.xml
 Cuatro              30 leídos ·   0 curiosas · https://www.cuatro.com/noticias/rss.xml
 Antena 3            20 leídos ·   0 curiosas · https://www.antena3.com/noticias/rss/4043815.xml
@@ -13,6 +13,5 @@ elDiario.es        131 leídos ·   0 curiosas · https://www.eldiario.es/rss/
 Cadena SER         100 leídos ·   1 curiosas · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
 El Correo          100 leídos ·   0 curiosas · https://www.elcorreo.com/rss/2.0/?section=
 Diario de Navarra  121 leídos ·   1 curiosas · https://www.diariodenavarra.es/rss/contenidos.xml
-Diario de Noticias   0 leídos ·   0 curiosas · SIN RSS
 Total: 6
 Noticia del turno: HuffPost · Los Javis enfrían el regreso de 'Paquita Salas' tras el éxito de 'La bola negra': "Si volviésemos, no seríamos tan graciosos"
