@@ -104,7 +104,8 @@
 <li><b>A quienes publican datos abiertos:</b> Gobierno de Navarra (Datos abiertos, IDENA), SAIH Ebro y Confederación Hidrográfica del Ebro, AEMET, IGN y CNIG, IGME, MITECO, DGT y Red Eléctrica.</li>
 <li><b>A los proyectos libres y colaborativos:</b> Open‑Meteo, OpenStreetMap y sus colaboradores (© ODbL), EMSC, GBIF, Pl@ntNet, Wikipedia, RainViewer y TomTom.</li>
 <li><b>A las herramientas que usamos:</b> GitHub, Google Firebase, Cloudinary, Web3Forms, jsPDF y las fuentes Lato y Montserrat (licencia SIL OFL).</li>
-<li><b>A los fotógrafos y fotógrafas</b> que nos dejáis enseñar vuestras fotos de Navarra, y al refugio de Belagua por su cámara.</li>
+<li><b>A los fotógrafos y fotógrafas</b> que nos dejáis enseñar vuestras fotos de Navarra.</li>
+<li><b>Y queremos agradecer especialmente al guarda del refugio de Belagua</b> su trabajo y todas las facilidades que nos ha dado, como poder enseñar las imágenes de su cámara.</li>
 </ul>
 <p>La lista completa de fuentes y licencias está en <a href="#" onclick="showTab('creditos');return false">📚 Fuentes y créditos</a> y en <a href="#" onclick="showTab('fuentes');return false">🏛️ Fuentes oficiales</a>.</p>`]
   ];
