@@ -1,6 +1,6 @@
 {
-"t": "2026-11-19T07:41Z",
-"turno": "2026-11-19-m",
+"t": "2026-11-19T13:38Z",
+"turno": "2026-11-19-t",
 "dest": [
 {
 "k": "2026-11-17-t",
@@ -43,22 +43,36 @@
 "u": "https://www.20minutos.es/cinemania/noticias/mejores-memes-robert-pattinson-nuevo-james-bond-agente-007_7062030_0.html",
 "f": "20minutos",
 "d": "2026-11-17T12:18Z"
+},
+{
+"k": "2026-11-19-t",
+"t": "Los Javis enfrían el regreso de 'Paquita Salas' tras el éxito de 'La bola negra': \"Si volviésemos, no seríamos tan graciosos\"",
+"u": "https://www.huffingtonpost.es/life/los-javis-enfrian-regreso-paquita-salas-exito-la-bola-negra-si-volviesemosiamos-graciosos-f202611.html",
+"f": "HuffPost",
+"d": "2026-11-19T02:11Z"
 }
 ],
 "items": [
-{
-"t": "Llega el frío pero hay un truco viral que dispara el calor de tus radiadores y reduce tu factura",
-"u": "https://www.diariodenavarra.es/noticias/vivir/consumo/2026/11/18/llega-frio-hay-truco-viral-dispara-calor-tus-radiadores-reduce-factura-842879-121.html",
-"f": "Diario de Navarra",
-"d": "2026-11-18T10:02Z",
-"p": 4
-},
 {
 "t": "Robert Pattinson arrasa con sus memes como James Bond: de vampiro en 'Crepúsculo' a agente 007 y sucesor de Daniel Craig",
 "u": "https://www.20minutos.es/cinemania/noticias/mejores-memes-robert-pattinson-nuevo-james-bond-agente-007_7062030_0.html",
 "f": "20minutos",
 "d": "2026-11-17T12:18Z",
 "p": 4
+},
+{
+"t": "La tradición centenaria de Cuenca que termina con vecinos disfrazados de osos",
+"u": "https://cadenaser.com/castillalamancha/2026/11/19/la-tradicion-centenaria-de-cuenca-que-termina-con-vecinos-disfrazados-de-osos-ser-cuenca/",
+"f": "Cadena SER",
+"d": "2026-11-19T13:17Z",
+"p": 3
+},
+{
+"t": "La viral reacción de Hailey, mujer de Justin Bieber, al escuchar el nombre de la cantante Selena Gómez",
+"u": "https://www.20minutos.es/gente/viral-reaccion-hailey-mujer-justin-bieber-escuchar-nombre-selena-gomez-que-reaviva-los-rumores-rivalidad_7063005_0.html",
+"f": "20minutos",
+"d": "2026-11-19T09:46Z",
+"p": 3
 },
 {
 "t": "Los Javis enfrían el regreso de 'Paquita Salas' tras el éxito de 'La bola negra': \"Si volviésemos, no seríamos tan graciosos\"",
@@ -68,10 +82,10 @@
 "p": 3
 },
 {
-"t": "El peculiar regalo de David Jiménez a Broncano en 'La Revuelta' para protegerse de las críticas: \"Para la que te está cayendo\"",
-"u": "https://www.20minutos.es/television/peculiar-regalo-david-jimenez-broncano-revuelta-para-protegerse-las-criticas-para-que-te-esta-cayendo_7062884_0.html",
-"f": "20minutos",
-"d": "2026-11-18T22:28Z",
+"t": "Llega el frío pero hay un truco viral que dispara el calor de tus radiadores y reduce tu factura",
+"u": "https://www.diariodenavarra.es/noticias/vivir/consumo/2026/11/18/llega-frio-hay-truco-viral-dispara-calor-tus-radiadores-reduce-factura-842879-121.html",
+"f": "Diario de Navarra",
+"d": "2026-11-18T10:02Z",
 "p": 3
 },
 {
