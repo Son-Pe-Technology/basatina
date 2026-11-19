@@ -30,10 +30,10 @@ UA = {"User-Agent": "Mozilla/5.0 (BasatiNA/1.0; +https://basatina.es)"}
 #   - Navarra Televisión: su web bloquea a los robots → se respeta, no se insiste.
 #   - EITB y RTVE: no tienen RSS de Navarra al día (el de RTVE es de 2022, el de EITB de 2025).
 #   Si algún día publican RSS que funcione, se vuelven a añadir aquí y en FEEDS.
-# Diario de Noticias (noticiasdenavarra.com) se vuelve a añadir el 19 nov. 2026, ahora con las direcciones exactas
+# Diario de Noticias (noticiasdenavarra.com): probado el 19 nov. 2026 con las direcciones exactas
 # de su página pública de RSS (https://www.noticiasdenavarra.com/rss.html) en JUNTAR, y se ha pedido permiso por
-# correo. El 17 nov. su web bloqueaba a este robot al buscar el RSS por su cuenta: si vuelve a dar error 403 o
-# similar en el registro de Actions, se QUITA de MEDIOS y no se insiste (ni se cambia el User-Agent para colarse).
+# correo, pero su servidor respondió 406 (WAF) a Actions, igual que el 17 nov. Se QUITA y no se insiste (ni se cambia
+# el User-Agent). Si algún día contestan dando permiso o una dirección para robots, se vuelve a añadir (ver git log).
 MEDIOS = [
     ("Diario de Navarra", "https://www.diariodenavarra.es/", "diariodenavarra.es", ""),
     ("Pamplona Actual", "https://pamplonaactual.com/", "pamplonaactual.com", ""),
@@ -41,7 +41,6 @@ MEDIOS = [
     ("Europa Press", "https://www.europapress.es/navarra/", "europapress.es", "navarra"),
     ("Cadena SER", "https://cadenaser.com/navarra/", "cadenaser.com", "navarra"),
     ("COPE", "https://www.cope.es/emisoras/navarra/", "cope.es", "navarra"),
-    ("Diario de Noticias", "https://www.noticiasdenavarra.com/", "noticiasdenavarra.com", ""),
 ]
 # canales RSS conocidos de cada medio (se prueban antes que los que anuncie su web)
 FEEDS = {
@@ -55,9 +54,8 @@ FEEDS = {
 }
 # medios que publican un canal RSS por sección: se juntan TODOS los de la lista (no solo el primero que responda)
 # Diario de Noticias, secciones de su página de RSS: Navarra, Pamplona, Sociedad, Cultura y Deportes
-JUNTAR = {
-    "Diario de Noticias": ["https://www.noticiasdenavarra.com/rss/section/%s" % n for n in ("20000", "20153", "20008", "20013", "20017")],
-}
+# Diario de Noticias quitado 19 nov 2026: su servidor responde 406 (WAF) a GitHub Actions. No insistir ni cambiar el User-Agent.
+JUNTAR = {}
 # medios que no se usan nunca (dominios: «navarra.com» NO incluye noticiasdenavarra.com, que es otro medio)
 FUERA = ("navarra.com", "okdiario.com", "elmundo.es")
 # secciones que no se publican, por la ruta de la dirección (política, opinión, esquelas y la propaganda del propio medio)
