@@ -1,5 +1,5 @@
 {
-"t": "2026-11-19T20:18Z",
+"t": "2026-11-19T20:21Z",
 "turno": "2026-11-19-n",
 "dest": [
 {
@@ -124,31 +124,10 @@
 "p": 4
 },
 {
-"t": "El Museo del Prado celebra sus 207 años con un curioso juego: descubre qué obras de arte corresponden a tu edad",
-"u": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQemRpX3h3NWtKNnZzcGsyOTF4bklJcTZhamhtSEVMN1JNQ3lPcHBMMWtVSlF6cWFlUndBUWY5Rk9TOXIyRFZHOVdxMXNXVy1UVGpDUDI0WXlfQUNMVl9NMEVnV2Z2c3Rub1pUcTdMUGdFR1c4LUZQZnRtUkZLbFFQaFlDcklfeXN3bDdfMGRoWE12eE9fTzNHcVJxUmlzbllmb3RvV3BxdXNodGtHcDVEcDZqSWpuTjZNaGtkMm5PWklqRTFHU2JFLXp5bHdmQ2F5SDlWU3J4Z0ZiR205MUIydGNiVV9MVHd6UGNpUC1KONIB9AFBVV95cUxQNFFQeExXb2NHT0gwNjVlTDNiWnpUNEtiM1dLQTBRS05fTU5VejIxTWtSdG5YS1RReENjLU9jRHNSMU8taUlKWlJJSXNaVWtjempWdjhzTVRFWlozU0xrVUd6blZaZm91MHpQaHR1b3Z1QkV1S0FSbzVhUlhZWWhmMWd2U1ZVWEw3QllDM2FZWGxkOHlCWVk0bmIxYmZmTnYtd0RrbzJNTGM1UTU2LTJnNDZpVTZBejROMEFCQ0tvbExUWmp0YnNEdnFqZ0FBdHMxbkxWbWtGVVJ4eDlqSFlrc0tQajhmZ1JiZmlBZnptOFh1X2ph?oc=5",
-"f": "Estrella Digital",
-"d": "2026-11-19T17:48Z",
-"p": 3
-},
-{
-"t": "La Redonda se brinda como 'insólito' escenario de Actual",
-"u": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdjV4OHZUdFN2V1hvbWtqb3U4OVBCaEVoWnp3b0ZYT2d3T0NmSWxSclhic2xDZmJ6TkNtTGl6TWh2QXhwZGg2c3pjNnJzRkRNSVhRUmZ6OW5waEVZemIwVktRbk5ZYjUxeFRpMUsyS3ZDSW1VYk9EMFJ1eDAteGh4WjNsaWZvZWxuRURrWTI4c1hSalNNRjV6dkxiMkRXZDF1bTg2T1cwRHJiWmZyVTFN0gG0AUFVX3lxTFBzTHI0RWxSZEVHaGxpUVFDYTVjOVQzUU5QTlplb3YtRXc2Q3RyR1V3OEptVkM2LUZFMXduMGtFVTdjcGpKNmR3THZmRU5ySVVhekpMMDhDT05VVFFJUHNKOS1hYWxBU1BDM0JtcmcxOGlrcUJwci11VGdQVDYtTkpfbW14ekxsQ1ZJdThBUTJoa3o3Wl9vMjlkRG9yVThUZDlpSThYNmRuSFhyd01ndkR0THNVWA?oc=5",
-"f": "La Rioja",
-"d": "2026-11-19T16:36Z",
-"p": 3
-},
-{
 "t": "De nazarenos a flamencas: la curiosa tienda de juguetes que abre en Granada al 50%",
 "u": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQa0c1UlE2eDdlY3hNU3ZTNVNFS3dLb292Um1lNDlfYnVWMmpiVGV4eGVTY2FuRkRmMm9YNEdZYXNHZkdxVFdON1k5Wm5tNXRXQ2x5d3kzOG50NFlCY1l6N3RGaElad25iTHpZdGlqTWpvanJ5cnVxaWpGNlhHR0lUazdJdlhLNHhFOXFTMDRrUTVIM1libmNsbjNR0gGfAUFVX3lxTFAtWDc1OTFEcEVkalEzTXN2UGNpTG1lampUaXFxbXZGX0dXd1lCN0ZOVWhKMnEycXF0aEZPNDc3TXkxenBqTlZETkJUNzExN0gzZWI3cEN0eEJNN1E3c2VHLWpJcWgwT2VMVVBQc0xhZFdWT1Zjbng0aDBYMmRjNWNLMlJ1Ukdkc0tYNU9BeFlmcUI0RzNOV01oWk1UVjFMVQ?oc=5",
 "f": "Granada Hoy",
 "d": "2026-11-19T05:03Z",
-"p": 3
-},
-{
-"t": "De estar al borde de la extinción a la alta cocina: la vaca de Granada que se hace 'viral' en las mesas",
-"u": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOdDh6VTNPWDg3YzRBalJxTWhRbTRCdi1hVkotWW9Fd0hWWEFtdjJRMjJrZlNUa3dHbjNnc2tKS1FFQnJMS3BSWGcyeXFWdXJrS1NGQThNekdhQk5VZXktcmpjYnQ2VF9naGVnNDVQU1ctVXh2ZlAxV2VQS2NtQkFYcDYzbV9hT1hMclVmVjR4dU5Yd9IBlwFBVV95cUxQcVAzOXVuWGF2RVhLTUxud0RUZjVhbDR0N3BOeTFkdmM1UEF1QVZSYUk4UnBkTHJBa2lBQnNLSFQ0NVZqajVzbGFwcXBOMnRZVDdUUC12YkwzMVhvNU1LQ1p2NXA5dWt4b1BrWmhiWFdkUmlKVk5MRlc2dWNfdEZPTzdnRE13dnB0Zzdnd2tOeDI2eUhtRWNz?oc=5",
-"f": "Granada Hoy",
-"d": "2026-11-19T05:02Z",
 "p": 3
 },
 {
@@ -194,24 +173,10 @@
 "p": 2
 },
 {
-"t": "Un columpio y un banco, de los mejores lugares para contemplar esta sierra andaluza de pinos y un curioso terreno rojizo",
-"u": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOelhYQ2JTb0hyTUQ5ODVwZ3hzSGhvNjFhVTIwT0FBNmdMQmJtZjVqSGtiZEdvRHd6ZnJNbldnQng3SFJ0dGgxVllFOFN4dm1KTzhjX3pfWXAtSTdoMkRyVzFwZnVHWFhqTDlMRWxEcTlqMFpJZGlYTkFQTzBBOGlMVHh0R3oxa0pCak5IT2c0eEt0TGM1ODZzaWJhY01PTHFvdTZYTGlDNWhwa0VURzhCalVJcm81cW5NVHpxcVphUjdnak85Y29EMk5TbFBoS2ltTmfSAdcBQVVfeXFMTVYzTTh6bFJPVUthN25POGdVTjU5WDBEVkZ0Ry1QNGxlVHkyTkZ1Z1hoRU8tdE1PZmFnN2ZXWUxiZ3hPbXU3XzcxZlB4SzBERzd1YlFyZTVOU2tGRkRWeUlBRGVMdE1XeF9Bbm5oUFV2T2xkbTV6VEpMMzJMdVNhM0o0THJ4UkZCbmlnUnZRU1JhcGNCdUw0MkRWWTZqWFVRRTlJRTNaT29YTUNDby1WN0duYWdrLVRETWlCaVFhSElHSEpDZ3lYVXlxQk9fbTJKdG14V1djTUE?oc=5",
-"f": "elDiario.es",
-"d": "2026-11-18T11:04Z",
-"p": 2
-},
-{
 "t": "La surrealista entrevista para ser camarera en un bar de León: «No es lo primero que preguntaría»",
 "u": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPaTVLdzlnUEdLUkNRNUJEam1fMVpPaXJ3cjd1ZnUtMkRwQW8yZDdaR21NdDFjVEZSVDQ1eXl2VnVFRExhbkktRTRVS0VDVWZlQWhjaDNWVXJDUXFFR2ZQaGhlUkJoaHQxOU02cXdFRjBIbHFTZEZDZGZicklaUW1MVGhNZi1ucllkLUNXSHpTMWtUWVlXNXlmVXFsVkdwSUlvaXRUcm5ESEl1UWJFZnJvSHExTDdudHNhOF9SMUhiUHhNckZfSlM2M08zLTjSAdIBQVVfeXFMTTgySWdhUEVyS0dDWm9RWnAxWFVDd2x0ZjJyT2xtZTMzT2NhTGo0ZUpsMFVRNy1UX3pMLXEwNTBkZmZZbDR0WVJsU3pPUzBwc2x0QzNwbzdOSEt2TUZHcG9udU1EcUlpNG1WaENENFBMamUwY0lWU3psenRyYkVRQzhRWmFNZldqSFVjV3c2akVpNnp3RzFEOEVEZng0NVVBOTBMYk01RGNCWkR1bndYLXpvZU1iWUFlOWY0U09scEFrUUNLV05nZGRIT19sTWJTMTFB?oc=5",
 "f": "El Debate",
 "d": "2026-11-18T10:47Z",
-"p": 2
-},
-{
-"t": "Amorós desencadenado, un sabio se hace viral",
-"u": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQN011ZUNNZmFNZHVaUG5kMGxEcnNlVmVCZWFSYm9KeVNHSmJpMmY5bk45aURSRXJTcmtBNGpvRTJIclhCdTBlTVRlTkhlUERfUTRLQUwwZFZRVEdLekQ1a3hlLUIwa01KSHgzZmJEOU0tYXJtWnViMmVYTEtyUktvdjUyMER6RzdzUTY1STRoWG53RE1BcXfSAZsBQVVfeXFMTVdydFVyenUxZjRXZk8wRVd6ZnEwSmpWbnI4MzFBNTEyd2EtWmpjbGJERkczTGV6cmdaMGxPSVVyZjE2eDZHMWpPLXpyYS1fUHlWZ0Y4LWxqcDVoMFhuOS1rTU0wRG9YUUY5SXF6d0FFcmVNSGVKOV9KcjdaYmY4SW9ZYWZsb2hUOURYRFJIWHFpVS10bDNxeDhUOFE?oc=5",
-"f": "El Debate",
-"d": "2026-11-18T03:30Z",
 "p": 2
 },
 {
