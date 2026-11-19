@@ -267,9 +267,16 @@ setTimeout(rzLoad,APP?8000:1500);   // en la web, enseguida (solo lee un archivo
    (o la próxima vez que vuelvas a la app). La APK no se puede instalar sola si no viene de Google Play:
    en ese caso sigue saliendo el aviso para descargarla.
    ===================================================================== */
+/* Recargar de verdad tras una actualización (19 nov. 2026).
+   Problema: AndroidNet.reload() vuelve a abrir la MISMA dirección (file://…/web/index.html) y el WebView
+   reutilizaba los .js que ya tenía en memoria, así que el cambio no se veía hasta cerrar la app.
+   Arreglo: si ya estamos en la pantalla descargada, location.reload() obliga a volver a leer los archivos del disco.
+   Solo la primera vez (cuando aún se usa la pantalla que trae el APK, file:///android_asset/) hace falta
+   AndroidNet.reload(), que cambia a la carpeta descargada: al ser otra dirección, no hay caché que estorbe. */
+window.bnaRecargar=function(){try{if(/android_asset/.test(location.href)&&window.AndroidNet&&window.AndroidNet.reload){window.AndroidNet.reload();return;}}catch(e){}location.reload();};
 if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=false,LAST=0;
   const libre=()=>!document.querySelector('input:focus,textarea:focus,select:focus,#pinBox[style*="flex"],#nvLang,#muBox,#bnaAccBox')&&(typeof BNTAB==='undefined'||BNTAB==='mtiempo');
-  const aplicar=()=>{if(!PEND)return;if(!libre())return;PEND=false;toast('✨ BasatiNA actualizada');setTimeout(()=>{try{window.AndroidNet.reload();}catch(e){location.reload();}},1200);};
+  const aplicar=()=>{if(!PEND)return;if(!libre())return;PEND=false;toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);};
   const _cu=checkUpdate;
   checkUpdate=async function(manual){if(manual)return _cu(true);if(Date.now()-LAST<5*60e3)return;LAST=Date.now();
     const r=await updWeb().catch(()=>({ok:false}));if(!r||!r.ok)return;
