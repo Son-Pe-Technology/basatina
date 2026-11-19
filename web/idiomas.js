@@ -2095,3 +2095,13 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Puede caer algún chaparrón: si juegas fuera, mira el cielo.":["Zaparradaren bat egin dezake: kanpoan jokatzen baduzu, begiratu zerura.","There may be a shower: if you play outdoors, keep an eye on the sky.","Une averse est possible : si tu joues dehors, surveille le ciel."],
  "Buen tiempo para jugar fuera.":["Eguraldi ona kanpoan jokatzeko.","Good weather to play outdoors.","Beau temps pour jouer dehors."]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
+
+// ⚖️ Información legal (web/legal.js, 19 nov. 2026): títulos de los apartados (los textos largos van en castellano)
+(function(){const T={
+ "Información legal":["Lege informazioa","Legal information","Informations légales"],"Aviso legal":["Lege oharra","Legal notice","Mentions légales"],
+ "Política de privacidad":["Pribatutasun politika","Privacy policy","Politique de confidentialité"],"Condiciones de uso":["Erabilera baldintzak","Terms of use","Conditions d'utilisation"],
+ "Cookies":["Cookieak","Cookies","Cookies"],"Código ético":["Kode etikoa","Code of ethics","Code éthique"],"Accesibilidad":["Irisgarritasuna","Accessibility","Accessibilité"],
+ "Preferencias de privacidad":["Pribatutasun hobespenak","Privacy preferences","Préférences de confidentialité"],"Agradecimientos":["Eskerrak","Acknowledgements","Remerciements"],
+ "Contador anónimo activado":["Kontagailu anonimoa aktibatuta","Anonymous counter on","Compteur anonyme activé"],"Contador anónimo desactivado":["Kontagailu anonimoa desaktibatuta","Anonymous counter off","Compteur anonyme désactivé"],
+ "Hacer copia de mis datos":["Nire datuen kopia egin","Back up my data","Sauvegarder mes données"],"Cómo borrar mi cuenta ↗":["Nola ezabatu nire kontua ↗","How to delete my account ↗","Comment supprimer mon compte ↗"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
