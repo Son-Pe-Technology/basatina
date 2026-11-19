@@ -43,10 +43,9 @@ MEDIOS = [
     ("Cadena SER", "cadenaser.com", ["https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml"]),
     ("El Correo", "elcorreo.com", ["https://www.elcorreo.com/rss/2.0/?section="]),
     ("Diario de Navarra", "diariodenavarra.es", ["https://www.diariodenavarra.es/rss/contenidos.xml"]),
-    # Diario de Noticias: sus canales RSS propios (rss.html), se juntan todos
-    ("Diario de Noticias", "noticiasdenavarra.com", ["https://www.noticiasdenavarra.com/rss/section/20117", "https://www.noticiasdenavarra.com/rss/section/20008"]),
 ]
-JUNTAR = ("Diario de Noticias",)
+# Diario de Noticias: quitado 19 nov 2026, su servidor responde 406 (WAF) a GitHub Actions. No insistir ni cambiar el User-Agent.
+JUNTAR = ()
 FUERA = ("navarra.com", "okdiario.com", "elmundo.es")   # dominios exactos (noticiasdenavarra.com NO es navarra.com)
 PATH_NO = ("/politica/", "/opinion/", "/esquelas/", "/obituarios/", "/comunicacion/", "/elecciones")
 def fuera(u):
