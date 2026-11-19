@@ -247,7 +247,8 @@ setTimeout(bienvenida,2500);
    estadisticas/AAAA-MM-DD y estadisticas/AAAA-MM: «activos», «app» o «web» y, la primera vez de todas, «nuevos».
    No se envía ningún identificador: el móvil solo recuerda en qué día y mes ya contó. Lo leen los administradores
    en Alertas ciudadanas → 🛡️ Moderar → 📊 Usuarios. */
-async function cuenta1(){const d=new Date(),p=n=>String(n).padStart(2,'0'),dia=`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`,mes=dia.slice(0,7);
+async function cuenta1(){try{if(localStorage.getItem('bnaNoUso')==='1')return;}catch(e){} // se puede desactivar en Información legal → Preferencias de privacidad (legal.js)
+  const d=new Date(),p=n=>String(n).padStart(2,'0'),dia=`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`,mes=dia.slice(0,7);
   const st=Object.assign({dia:'',mes:'',ya:0},lsGet('stUso',{})),tipo=(typeof APP!=='undefined'&&APP)?'app':'web',W=[];
   const inc=(doc,campos)=>({transform:{document:X.nom('estadisticas',doc),fieldTransforms:campos.map(f=>({fieldPath:f,increment:{integerValue:'1'}}))}});
   if(st.dia!==dia)W.push(inc(dia,['activos',tipo,...(st.ya?[]:['nuevos'])]));
