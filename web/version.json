@@ -1,5 +1,5 @@
 {
- "version": 340,
+ "version": 341,
  "apk": 27,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -39,7 +39,7 @@
   "naturaleza-catalogo.js": "d0b255c1220641a4c60ca0430c7ac66c43e87b12",
   "novedades.js": "1410d6edeecfbc8c319651fb21bde8d9c052eeb1",
   "ocio-ui.js": "64d1c8a74c219eee42a2670d26b92576a75d4111",
-  "ocio.js": "a4b1a30a27893b15b08b7d2028a27d33fd1bf283",
+  "ocio.js": "42b40bdf1cb0b3a96ca2e4a91e1263df7b8f6403",
   "oficial.js": "3860b1f06685fbfefe5bb74bcba20bd5ed5f6864",
   "padel-ui.js": "e9a7ce916fe1867f67244a6ea03af5cfc9a4ebe5",
   "padel.js": "aaaee55698bac22b21aa9fec42486f1914dcd1e1",
