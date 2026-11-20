@@ -1,5 +1,5 @@
 {
- "t": "2026-11-20T08:42Z",
+ "t": "2026-11-20T16:34Z",
  "aludes": "Agencia Estatal de Meteorología\n\nInformación nivológica para el Pirineo navarro y aragonés\n\nElaborado el día 4 de mayo de 2026\n\nA fecha 4 de mayo se da por finalizada la campaña de predicción\nde peligro de aludes en el Pirineo navarro y aragonés. No\nobstante, si las condiciones meteorológicas así lo requirieran,\nse emitiría una predicción especial. Se recuerda que, siempre\nque haya nieve, la ausencia total de peligro no existe. Hay que\ntener presente que, en circunstancias desfavorables, con aludes\nde tamaño 1 (alud pequeño o colada) y tamaño 2 (alud mediano) se\npueden sufrir severos daños personales.",
  "montana": [
   {
@@ -8,7 +8,7 @@
   },
   {
    "dia": 1,
-   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nPredicción de montaña\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nEstado del cielo\nMuy nuboso o cubierto, con visibilidad localmente reducida.\nPrecipitaciones\nSe esperan débiles o localmente moderadas. Cota de nieve: en 2000-2200 metros al inicio, subiendo por encima del nivel de las cimas.\nTormentas\nNo se esperan.\nTemperaturas\nMínimas en ligero ascenso, y máximas sin cambios o en ligero descenso.\nViento\nModerado del sur y sudoeste, intensificándose durante la tarde, con probables rachas muy fuertes en cotas altas y zonas expuestas.\nPredicción"
+   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nPredicción de montaña\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nEstado del cielo\nMuy nuboso o cubierto, con visibilidad localmente reducida.\nPrecipitaciones\nSe esperan débiles o localmente moderadas, intermitentes a lo largo de la jornada. Cota de nieve: en 2000-2200 metros al inicio, subiendo por encima del nivel de las cimas.\nTormentas\nNo se esperan.\nTemperaturas\nMínimas en ligero ascenso, y máximas sin cambios o en ligero descenso. Heladas débiles en cumbres.\nViento\nModerado con intervalos de fuerte del sur y suroeste, intensificándose hacia media tarde con probables rachas muy fuertes en cotas altas y zonas expuestas.\nAltitud de la isoterma de 0 ºC en la atmósfera libre\n3100 m\nAltitud de la isoterma de -10 ºC en la atmósfera libre\n5000 m\nViento en atmósfera libre a 1500 metros\nS 40 km/h\nViento en atmósfera libre a 3000 metros\nW 60 km/h\nRoncesvalles\n940 m\nIsaba\n820 m\n-8\n-1\nPico Ori\n2021 m\n-1\n-11\n-3\nMesa de los Tres Reyes\n2428 m\nPredicción"
   }
  ]
 }
