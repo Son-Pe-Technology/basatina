@@ -1,6 +1,55 @@
 {
-"t": "2026-11-20T09:12Z",
+"t": "2026-11-20T10:23Z",
 "items": [
+{
+"t": "Un restaurante navarro conquista la T de Oro 2026 de la revista Tapas",
+"u": "https://www.diariodenavarra.es/noticias/vivir/gastronomia/2026/11/20/restaurante-navarro-conquista-t-oro-2026-revista-tapas-843155-109.html",
+"f": "Diario de Navarra",
+"d": "2026-11-20T10:20Z",
+"c": "Navarra"
+},
+{
+"t": "Hermanos menores regresan a colegio tras ser sorprendidos robando en comercio de Tudela",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/dos-hermanos-menores-devueltos-a-colegio-tras-escaparse-del-centro-y-ser-sorprendidos-hurtando-en-un-comercio-de-tudela/",
+"f": "Pamplona Actual",
+"d": "2026-11-20T10:09Z",
+"c": "Economía"
+},
+{
+"t": "Tres generaciones de expertos clausuran 'Pamplona es moda' con taller y encuentro este sábado",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/un-taller-y-un-encuentro-con-tres-generaciones-de-profesionales-cierran-pamplona-es-moda-este-sabado/",
+"f": "Pamplona Actual",
+"d": "2026-11-20T09:45Z",
+"c": "Navarra"
+},
+{
+"t": "La navarra Conor Bikes ficha a Julen Arana como director de Ventas",
+"u": "https://navarracapital.es/la-navarra-conor-bikes-ficha-a-julen-arana-como-director-de-ventas/",
+"f": "Navarra Capital",
+"d": "2026-11-20T09:38Z",
+"c": "Navarra"
+},
+{
+"t": "Irache advierte sobre falsos descuentos del Black Friday y lanza guía de compra esencial",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-consumo/irache-alerta-de-descuentos-artificiales-en-el-black-friday-y-publica-una-guia-de-compra-para-el-consumidor/",
+"f": "Pamplona Actual",
+"d": "2026-11-20T09:33Z",
+"c": "Navarra"
+},
+{
+"t": "Lantxotegi mejora energía solar y añade furgonetas eléctricas con ayuda de Caja Rural de Navarra",
+"u": "https://pamplonaactual.com/negocios-al-dia/lantxotegi-renovara-sus-placas-solares-y-sumara-dos-furgonetas-electricas-con-el-apoyo-de-caja-rural-de-navarra/",
+"f": "Pamplona Actual",
+"d": "2026-11-20T09:24Z",
+"c": "Navarra"
+},
+{
+"t": "Dos hermanos de 12 y 14 años, sorprendidos tras hurtar productos en un comercio",
+"u": "https://www.diariodenavarra.es/noticias/navarra/tudela-ribera/2026/11/20/dos-hermanos-12-14-anos-sorprendidos-hurtar-productos-comercio-843147-22.html",
+"f": "Diario de Navarra",
+"d": "2026-11-20T09:16Z",
+"c": "Economía"
+},
 {
 "t": "Detenido tras arrojar objetos desde la cuarta planta de la antigua ikastola Jaso a los policías que atendían a un herido en una pelea",
 "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/20/detenido-arrojar-objetos-cuarta-planta-antigua-ikastola-jaso-policias-atendian-herido-pelea-843144-16.html",
@@ -37,25 +86,11 @@
 "c": "Sucesos"
 },
 {
-"t": "La artista navarra Amaya Gúrpide pintará el Paño de la Verónica de Montserrat en 2027",
-"u": "https://cadenaser.com/andalucia/2026/11/20/la-artista-navarra-amaya-gurpide-pintara-el-pano-de-la-veronica-de-montserrat-en-2027-radio-sevilla/",
-"f": "Cadena SER",
-"d": "2026-11-20T07:58Z",
-"c": "Navarra"
-},
-{
 "t": "La Guardia Civil de Navarra avisa sobre una práctica poco conocida que es delito: \"No es un trabajo, es parte de una trama delictiva\"",
 "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/20/guardia-civil-navarra-avisa-sobre-practica-poco-conocida-delito-no-trabajo-parte-trama-delictiva-843134-15.html",
 "f": "Diario de Navarra",
 "d": "2026-11-20T07:46Z",
 "c": "Sucesos"
-},
-{
-"t": "La gran apuesta de Vueling en San Sebastián: el doble de conexiones y precios desde 21 euros",
-"u": "https://www.diariodenavarra.es/noticias/negocios/economia/2026/11/20/gran-apuesta-vueling-san-sebastian-doble-conexiones-precios-21-euros-843133-82.html",
-"f": "Diario de Navarra",
-"d": "2026-11-20T07:46Z",
-"c": "Economía"
 },
 {
 "t": "López Linares presenta en Pamplona su documental sobre España y su impacto en Estados Unidos",
@@ -114,7 +149,7 @@
 "c": "Navarra"
 },
 {
-"t": "Nueva noche de incidencias con la entrada de 15 autocaravanas en Sarriguren",
+"t": "Nueva noche de incidencias con la entrada en 15 autocaravanas en Sarriguren",
 "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/20/nueva-noche-incidencias-entrada-15-autocaravanas-843104-16.html",
 "f": "Diario de Navarra",
 "d": "2026-11-20T04:00Z",
@@ -128,13 +163,6 @@
 "c": "Cultura"
 },
 {
-"t": "Dos endulzantes sin calorías que recomienda el nutricionista Pablo Ojeda",
-"u": "https://www.diariodenavarra.es/noticias/vivir/gastronomia/2026/11/20/dos-endulzantes-calorias-recomienda-nutricionista-pablo-ojeda-843003-109.html",
-"f": "Diario de Navarra",
-"d": "2026-11-20T04:00Z",
-"c": "El tiempo"
-},
-{
 "t": "Comer migas de pastor con vistas al Pirineo: el pueblo de Navarra que recomienda este mes la revista Viajar",
 "u": "https://www.diariodenavarra.es/noticias/vivir/turismo/conocer-navarra/2026/11/20/comer-migas-pastor-vistas-pirineo-pueblo-navarra-recomienda-mes-revista-viajar-843036-112.html",
 "f": "Diario de Navarra",
@@ -146,6 +174,13 @@
 "u": "https://www.diariodenavarra.es/noticias/cultura-ocio/cultura/2026/11/20/oreja-gogh-hay-fallo-puntual-criticos-843091-104.html",
 "f": "Diario de Navarra",
 "d": "2026-11-20T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "19 NOV 2026 | EL PARTIDAZO DE COPE",
+"u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/19-nov-2026-partidazo-cope-20261120_3478734.html",
+"f": "COPE",
+"d": "2026-11-20T01:00Z",
 "c": "Navarra"
 },
 {
@@ -189,34 +224,6 @@
 "f": "Pamplona Actual",
 "d": "2026-11-19T19:23Z",
 "c": "Navarra"
-},
-{
-"t": "Lo siento, pero parece que no has proporcionado un titular de prensa original para que lo reformule. Por favor, proporciona uno y estaré encantado de ayudarte",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/el-museo-del-carlismo-recibe-en-donacion-la-pintura-escena-de-reclutamiento-carlista-realizada-en-1874-por-el-artista/",
-"f": "Pamplona Actual",
-"d": "2026-11-19T18:40Z",
-"c": "Navarra"
-},
-{
-"t": "Navarra lanza ayudas de 2,7 millones para clubes deportivos en ligas nacionales 2026/2027",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-deportes/el-indaf-destina-27-millones-de-euros-a-clubes-navarros-con-equipos-en-ligas-nacionales-e-interautonomicas/",
-"f": "Pamplona Actual",
-"d": "2026-11-19T18:30Z",
-"c": "Deportes"
-},
-{
-"t": "Zizur Mayor celebra su VI Torneo Navideño de Pádel del 10 al 13 de diciembre",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-zizur/zizur-mayor-celebrara-su-vi-torneo-navideno-de-padel-del-10-al-13-de-diciembre/",
-"f": "Pamplona Actual",
-"d": "2026-11-19T18:27Z",
-"c": "Navarra"
-},
-{
-"t": "CEIN impulsa el emprendimiento femenino con 100 mujeres reunidas en Baluarte",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-economia/cein-pone-el-foco-en-el-emprendimiento-femenino-con-un-encuentro-que-reune-a-100-mujeres-en-baluarte/",
-"f": "Pamplona Actual",
-"d": "2026-11-19T18:13Z",
-"c": "Cultura"
 },
 {
 "t": "El jefe nunca era el que llevaba el volante: quién hacía qué en la banda que robó en 24 chalés en Navarra",
@@ -310,10 +317,24 @@
 "c": "Navarra"
 },
 {
+"t": "La Fundación Dédalo recibe un nuevo reconocimiento por su labor contra la brecha digital en Tudela y la Ribera",
+"u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/fundacion-dedalo-recibe-nuevo-reconocimiento-labor-brecha-digital-tudela-ribera-20261119_3478303.html",
+"f": "COPE",
+"d": "2026-11-19T12:29Z",
+"c": "Navarra"
+},
+{
 "t": "El Club de Valientes que frena el acoso escolar en Pamplona: \"Esto es barato, es que es muy barato, y eso también nos anima, porque aquí los recursos no nos sobran a nadie\".",
 "u": "https://www.cope.es/emisoras/navarra/noticias/club-valientes-frena-acoso-escolar-pamplona-esto-barato-barato-anima-recursos-no-sobran-nadie-20261119_3478104.html",
 "f": "COPE",
 "d": "2026-11-19T12:14Z",
+"c": "Navarra"
+},
+{
+"t": "Tudela abre una ventana a su pasado judío con documentos inéditos de los siglos XV y XVI",
+"u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/tudela-abre-ventana-pasado-judio-documentos-ineditos-siglos-xv-xvi-20261119_3478175.html",
+"f": "COPE",
+"d": "2026-11-19T11:08Z",
 "c": "Navarra"
 },
 {
@@ -345,18 +366,18 @@
 "c": "Economía"
 },
 {
-"t": "La ingeniería navarra Embeblue, en concurso de acreedores voluntario",
-"u": "https://navarracapital.es/la-ingenieria-navarra-embeblue-en-concurso-de-acreedores-voluntario/",
-"f": "Navarra Capital",
-"d": "2026-11-18T21:45Z",
-"c": "Navarra"
-},
-{
 "t": "Fallece a los 88 años Concepción García Gainza, referente de la Historia del Arte y pionera del patrimonio navarro",
 "u": "https://www.cope.es/emisoras/navarra/noticias/fallece-88-anos-concepcion-garcia-gainza-referente-historia-arte-pionera-patrimonio-navarro-20261118_3477778.html",
 "f": "COPE",
 "d": "2026-11-18T15:53Z",
 "c": "Sucesos"
+},
+{
+"t": "Nahikari Elósegui y Naroa Arrasate, la nueva era de la halterofilia navarra que mira a Europa: \"creo que es de los mayores orgullos y ejemplos a seguir\"",
+"u": "https://www.cope.es/emisoras/navarra/navarra-provincia/pamplona/deportes-cope-navarra/noticias/nahikari-elosegui-naroa-arrasate-nueva-halterofilia-navarra-mira-europa-creo-mayores-orgullos-ejemplos-seguir-20261118_3477748.html",
+"f": "COPE",
+"d": "2026-11-18T15:28Z",
+"c": "Navarra"
 },
 {
 "t": "Félix Suescun, corredor de seguros: \"Hay conductores que tienen seguro a todo riesgo con un coche de 12 años porque no les merece la pena pasarse a terceros por 400 o 500 euros\"",
@@ -366,11 +387,25 @@
 "c": "Economía"
 },
 {
-"t": "Iba sin cinturón, no tenía carné e intentó engañar a la Guardia Civil con el DNI de otra persona en Navarra: investigado por dos delitos",
-"u": "https://www.cope.es/emisoras/navarra/noticias/iba-cinturon-no-tenia-carne-e-intento-enganar-guardia-civil-dni-persona-navarra-investigado-dos-delitos-20261118_3477292.html",
+"t": "Luis Sabalza, presidente de Osasuna, aclara la situación de CVC: \"No tienen que tener ningún tipo de inquietud ni eso afecta para nada\"",
+"u": "https://www.cope.es/emisoras/navarra/navarra-provincia/pamplona/deportes-cope-navarra/noticias/luis-sabalza-presidente-osasuna-aclara-situacion-cvc-no-tipo-inquietud-afecta-20261118_3477477.html",
 "f": "COPE",
-"d": "2026-11-18T09:43Z",
-"c": "Sucesos"
+"d": "2026-11-18T15:07Z",
+"c": "Deportes"
+},
+{
+"t": "Kike Barja pide \"mala leche\" a Osasuna y se centra solo en el Málaga: \"Tenemos soluciones\"",
+"u": "https://www.cope.es/emisoras/navarra/navarra-provincia/pamplona/deportes-cope-navarra/noticias/kike-barja-pide-mala-leche-osasuna-centra-malaga-soluciones-20261118_3477714.html",
+"f": "COPE",
+"d": "2026-11-18T15:05Z",
+"c": "Deportes"
+},
+{
+"t": "La sincera confesión de Moncayola en Osasuna: \"Nos falta igual un poco de personalidad en ciertos momentos, un poco de ese carácter\"",
+"u": "https://www.cope.es/emisoras/navarra/navarra-provincia/pamplona/deportes-cope-navarra/noticias/sincera-confesion-moncayola-osasuna-falta-igual-poco-personalidad-momentos-poco-ese-caracter-20261118_3477715.html",
+"f": "COPE",
+"d": "2026-11-18T15:05Z",
+"c": "Deportes"
 }
 ]
 }
