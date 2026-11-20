@@ -127,7 +127,6 @@ async function amBaro(){const el=$('ppBaro');if(!el)return;const t=TOWNS[TOWN];l
        <div style="display:flex;align-items:flex-end;gap:5px">${lcdNum(p)}<span style="font:800 12px/1 monospace;color:#16231a;padding-bottom:2px">hPa</span></div></div>
      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 10px 0 12px;min-width:62px">${fl}
        <span style="font:800 11px/1.2 monospace;color:${fc};margin-top:3px">${d3>0?'+':''}${fmtN(d3,1)}</span><span style="font:700 8.5px/1.2 monospace;color:#9aa5ad">en 3 h</span></div></div>
-   <div style="text-align:center;font-weight:700;color:${d3>=1?'#2e7d32':d3<=-1?'#c62828':'inherit'};margin-top:6px"><span>${ft}</span></div>
    <div style="margin-top:8px">${baroTxt(p,d3)}</div>
    <div class="note" style="margin-top:6px">Aguja negra: ahora · aguja dorada de rayas: hace 3 horas. Como los barómetros de pared de toda la vida: lo que importa es hacia dónde se mueve la aguja.</div>`;}
 // quita la tarjeta suelta del barómetro de versiones anteriores (ahora va dentro de «Presión atmosférica»)
