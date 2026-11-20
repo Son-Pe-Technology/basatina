@@ -1,6 +1,6 @@
 {
-"t": "2026-11-20T07:41Z",
-"turno": "2026-11-20-m",
+"t": "2026-11-20T13:34Z",
+"turno": "2026-11-20-t",
 "dest": [
 {
 "k": "2026-11-17-t",
@@ -64,6 +64,13 @@
 "u": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcU9WYk8zc2dJOEFMaE5MLWhwOTZNdVFzaXNFYWJ1OWhNMGN0bHpRRUhRQWJiN2U2QVdSc29vaC1TSEducEhzcUtkV1hHbXVxbWE0d1Z0b2hWQVR2UHM1RVB6QXZUOVRkOGFiRDlRTU9sZzducVJ5Skx4ZWQ2OE83M0JfeWFnYlhOOE0wWnRUbkp6X3ZzMVZON1FyS1liUThNTEpKYXBR?oc=5",
 "f": "Hogarmania",
 "d": "2026-11-19T07:09Z"
+},
+{
+"k": "2026-11-20-t",
+"t": "María Casado, protagonista de los memes del debate: de sus tacones en la mesa a su ausencia en pantalla",
+"u": "https://www.20minutos.es/gonzoo/maria-casado-protagonista-los-memes-cara-cara-entre-sanchez-feijoo-sus-tacones-mesa-su-ausencia-pantalla_7063510_0.html",
+"f": "20minutos",
+"d": "2026-11-20T09:38Z"
 }
 ],
 "items": [
@@ -82,17 +89,17 @@
 "p": 6
 },
 {
+"t": "María Casado, protagonista de los memes del debate: de sus tacones en la mesa a su ausencia en pantalla",
+"u": "https://www.20minutos.es/gonzoo/maria-casado-protagonista-los-memes-cara-cara-entre-sanchez-feijoo-sus-tacones-mesa-su-ausencia-pantalla_7063510_0.html",
+"f": "20minutos",
+"d": "2026-11-20T09:38Z",
+"p": 5
+},
+{
 "t": "Estos son los récord Guinness más alucinantes de la gastronomía",
 "u": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcU9WYk8zc2dJOEFMaE5MLWhwOTZNdVFzaXNFYWJ1OWhNMGN0bHpRRUhRQWJiN2U2QVdSc29vaC1TSEducEhzcUtkV1hHbXVxbWE0d1Z0b2hWQVR2UHM1RVB6QXZUOVRkOGFiRDlRTU9sZzducVJ5Skx4ZWQ2OE83M0JfeWFnYlhOOE0wWnRUbkp6X3ZzMVZON1FyS1liUThNTEpKYXBR?oc=5",
 "f": "Hogarmania",
 "d": "2026-11-19T07:09Z",
-"p": 5
-},
-{
-"t": "La ristra de ajos de 70 metros, la oreja que levantó 51 kilos y un insomne: Récord Guinness de Cuenca",
-"u": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQOEJqcjdtc3BaR3Z3MFVhVjJfQnZVNWh1NTRWUE1UOC03QzF1V3lBNVJYbTI1TjNBdjRqblJFdkt4ZVNJQ0ZwSzZNT3pHLWxzV2lRaXpsbWdhbUFPSUdqd25XckJiZ2x2eURLdHF2b25PcVJDODRTc2V0eHJjX3lkZTRzWWlaaU11aVM2SlB4Z0FySHBkS3JmYkttTWhzTE1xMU9rckYyS0h1eDBTUlJDMGJHbno3RF9Hd3laUFQ2Y3JRZkVDV0xTSGZQVWxvZ0dVN0xCajNvVQ?oc=5",
-"f": "Voces de Cuenca",
-"d": "2026-11-18T11:02Z",
 "p": 5
 },
 {
@@ -117,6 +124,13 @@
 "p": 5
 },
 {
+"t": "Una misteriosa boya llega a Fisterra, A Coruña, tras un posible viaje de 6.000 kilómetros por el Atlántico",
+"u": "https://www.telecinco.es/noticias/galicia/20261120/misteriosa-boya-fisterra-a-coruna-posible-viaje-atlantico_18_020766835.html",
+"f": "Telecinco",
+"d": "2026-11-20T10:59Z",
+"p": 4
+},
+{
 "t": "Los récords Guinness que tiene Zaragoza: de una máquina gigante de Tetris al grafiti más largo del mundo",
 "u": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQYXB5QTNMSXVacHVpUDYxbFBJSHUwWTIxZXMweF9YaVRUN0V6dzZsS0FtdXlRZkYyb0MzNURnVnlHQmNxUlBJLU1Fdy16ZlhTWDk5X2hTa0ZRVFVURXJ6Rlh2TFVPR0o4WTEwYXJQOGYzNjFQZFE2dHpFMnVsM2J1NVZ4bkN6dmlwUGtzbHdUNXZyb29Da2s1YVJJVXRKNGNlRHU4M3pwRzVUMnVuZDltdE9LNW85M1Z5eEZmcndCaVBSMmRCeHluVTdVSm8ybF9UWUQ5eTZFZ0ZRc2RvQ1htMGRsT3B1RmPSAecBQVVfeXFMUGFweUEzTEl1WnB1aVA2MWxQSUh1MFkyMWVzMHhfWGlUVDdFenc2bEtBbXV5UWZGMm9DMzVEZ1Z5R0JjcVJQSS1NRXctemZYU1g5OV9oU2tGUVRVVEVyekZYdkxVT0dKOFkxMGFyUDhmMzYxUGRRNnR6RTJ1bDNidTVWeG5DenZpcFBrc2x3VDV2cm9vQ2trNWFSSVV0SjRjZUR1ODN6cEc1VDJ1bmQ5bXRPSzVvOTNWeXhGZnJ3QmlQUjJkQnh5blU3VUpvMmxfVFlEOXk2RWdGUXNkb0NYbTBkbE9wdUZj?oc=5",
 "f": "Heraldo de Aragón",
@@ -124,24 +138,38 @@
 "p": 4
 },
 {
-"t": "Robert Pattinson arrasa con sus memes como James Bond: de vampiro en 'Crepúsculo' a agente 007 y sucesor de Daniel Craig",
-"u": "https://www.20minutos.es/cinemania/noticias/mejores-memes-robert-pattinson-nuevo-james-bond-agente-007_7062030_0.html",
-"f": "20minutos",
-"d": "2026-11-17T12:18Z",
-"p": 4
-},
-{
-"t": "Anécdotas e intrahistoria de algunos de los fichajes más importantes de Salazar: «Sin él, el Baskonia no sería lo mismo»",
-"u": "https://www.elcorreo.com/baskonia/anecdotas-intrahistoria-fichajes-importantes-alfredo-salazar-baskonia-20261119082803-nt.html",
-"f": "El Correo",
-"d": "2026-11-20T07:29Z",
+"t": "Cortylandia 2026: qué es, temática, fechas, horarios, cómo llegar, consejos y curiosidades",
+"u": "https://www.huffingtonpost.es/life/hijos/cortylandia-2026-tematica-fechas-horarios-llegar-consejos-curiosidades-f202611.html",
+"f": "HuffPost",
+"d": "2026-11-20T12:39Z",
 "p": 3
 },
 {
-"t": "La anécdota del debate: María Casado no aguantó más y dejó los zapatos de tacón encima de la mesa",
-"u": "https://www.elcorreo.com/gente-estilo/anecdota-debate-maria-casado-aguanto-dejo-zapatos-20261120080805-nt.html",
-"f": "El Correo",
-"d": "2026-11-20T07:16Z",
+"t": "Tuit, papichulo, selfi, amigovio… 15 palabras curiosas que la RAE ha reconocido en los últimos años",
+"u": "https://www.lasexta.com/noticias/sociedad/tuit-papichulo-selfi-amigovio-15-palabras-curiosas-que-rae-reconocido-ultimos-anos_202611206afad0e4d3bddc0868b317aa.html",
+"f": "laSexta",
+"d": "2026-11-20T11:00Z",
+"p": 3
+},
+{
+"t": "El curioso superhéroe de Cádiz que cumple 20 años: 'SuperTirititran' regresa para salvar La Caleta y el Carnaval",
+"u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZU5ZV2l1clAtRGdIWlNlRzBya0lNZVV1b3BobnB0NjlZVGlnUFNIU0k3cm9JNzFKaHpKdmNYTnZXYU56Ny10SkZDVkRhUVdGcFhlelczX0tKZnpKVkpQdl9tYzdGX2haZTZUZmtiQ1JydWtubjRwX2E3RVFQTURlZmtFRGxHM3U1d3BGdkJLVHNZWlo4R2tmZERKSXRfNk1DYXAzRVZySDRTcTFVaUt2Z2FqOGhlaVRsdENMOFljOVJMRXB1emxCY09hZG9JMWNu0gHWAUFVX3lxTE9pZkM2WFNINkFTZGtBUGNNRGhLNUVSMWlQMm5wNk1DOTFHd3BST2dfSHdYMlhLRUtjYlY3b2RFcVBNWVZfdUZSNkpVOV81Z3FxMVg5STc1c0NiQ2NjOVRQM01BUGt3UTVJZWxQTmNsU1RQam8zMUQ0Q2hzNkF0bXVhUDZyQ3pqOGZ1bnZCSTB4a1poZWZQb3Badmsya3ZDekItM0xYaFJ0OUhhT3RTWUJJemlCdGI5aU8tR3ZFV3RZMXhzMFVURG02bkpjcHNVZmpnT3BuRnc?oc=5",
+"f": "Diario de Cádiz",
+"d": "2026-11-20T09:23Z",
+"p": 3
+},
+{
+"t": "La jugada viral de Wembanyama que incendia la NBA: tira por encima del aro para no machacar por una ampolla",
+"u": "https://news.google.com/rss/articles/CBMib0FVX3lxTE85bngzaXQybUx0WlBQaEZSdDdFZmFqZW4xNlB5bE9XWjgxQXFWZnFycGdTZDl3SVo4czFXMUF3aHZ4RG1FVFNrZkxsWF85c3JwSUZ6V3IydGxMRG9tMUtNam9TSl80Q0x3OG9lVWJsSQ?oc=5",
+"f": "Qué.es",
+"d": "2026-11-20T08:05Z",
+"p": 3
+},
+{
+"t": "La carrera más divertida de Galicia recupera su emblemática meta: la San Silvestre de Vigo regresa a la Alameda",
+"u": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQSTFNVFc1NEZ2Wk5XSlA2SnltbFZaQVdEcEFxTmZkVWExQ2hHMXlQcVNSakxlMWEtTWpicHFRa1hidHJvdmdvS2s5TmgzaGlqcHlXSEg4QllxdC12ZkhzVFVlNE1DSGxhT3c3Rk9qMlJYaG43alJHZmUwbk44NnVscVFrbG5tU2FwQUlYazYwNzhJMF9OUXJtdVNwU1pubXRzSTJENVFDTXNndFFOX3pUT2hnQlhDcTRnYlNMSlZ1VjVKRjdGRUFKS0lUUWFEZ9IB0wFBVV95cUxPT25IMVJ5bkVEbnlfLXoxUzhrczlhWERuR3gzODlDUkJpQWs1MFpTM01oQ1hlaFZtTkhOZG50UkJVeXItbVMzeTFxQm5jNWJqdkdRR1lRMld1MUIwWWRKdEpjenp4TkZRS0F4YW9CMlQ2VXdaTlhVZWJTTmFaQnlLenJpSVY3ZnhHYTVvaFdmQnNiQXR1a3JRUXZqc0hDaGJrckoyWGdwd09SRE5tSG9lb1hyTTRRZ0xMakNMNFRtcmt4UVpaRTFRZTRCWmRUb1BoSnQ4?oc=5",
+"f": "Faro de Vigo",
+"d": "2026-11-20T08:00Z",
 "p": 3
 },
 {
@@ -219,34 +247,6 @@
 "u": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOcjhOUlN0VDBwanJWTVpvQ2VfeG1XQTFYYlhzSUlnLUw4d0hCUUFtZE5wNkgyM2w5ajRlT3ZleThia2VxSnBkMlFDVVVVQWxGOUJqdnNmUkdyZV9naDdrMllSVl82MW9ENVNKejFKOTh0RElJckNtc1diYW9wLU94Z3dxYnhoMGFtODM3QXNENkpfdW1xU0lBV1VLSlVRX085TXU4MFRRZFAwVmd4Vkd5RlpVeG81YzY0QnhmRmdPck5QWWFZTVRsV054UjVGV0tRRlBKNlczOExCZHRQM3pIUFl4bXRjTVhkcGpLQl9ZbzdaRUxYSmY2dk9xNm5ZRm_SAeoBQVVfeXFMT2NNcUh0NmpPUFBIY1ItUUFKRGN3MVFVd2dWZFdZNjhtQ3o3WHdzZURRNnYtUkdNLWRIVW9VUGZYaFJRWWZ5S3pXdUtmamVhblBiYWdhR2t3R1V2aWlaTkVFVlBUM0p6TzdrcWpzRm9hSVRIZERkUkRJa01EUmFBdlpud1luVGs4c1BYeHVjU3h4bF9sODlPbG5Wemh6RElOYk5kZTc4Xy0zY0hOZDY4Rjc5X1kxb2drUEZZcGQ3eFEzMkRuTVpxSEJxdzJTMnJaOTN3NFJrM3ZNcnR0Y3NTYXYxM1F6cndzRWln?oc=5",
 "f": "El Economista",
 "d": "2026-11-18T13:52Z",
-"p": 2
-},
-{
-"t": "Un columpio y un banco, de los mejores lugares para contemplar esta sierra andaluza de pinos y un curioso terreno rojizo",
-"u": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOelhYQ2JTb0hyTUQ5ODVwZ3hzSGhvNjFhVTIwT0FBNmdMQmJtZjVqSGtiZEdvRHd6ZnJNbldnQng3SFJ0dGgxVllFOFN4dm1KTzhjX3pfWXAtSTdoMkRyVzFwZnVHWFhqTDlMRWxEcTlqMFpJZGlYTkFQTzBBOGlMVHh0R3oxa0pCak5IT2c0eEt0TGM1ODZzaWJhY01PTHFvdTZYTGlDNWhwa0VURzhCalVJcm81cW5NVHpxcVphUjdnak85Y29EMk5TbFBoS2ltTmfSAdcBQVVfeXFMTVYzTTh6bFJPVUthN25POGdVTjU5WDBEVkZ0Ry1QNGxlVHkyTkZ1Z1hoRU8tdE1PZmFnN2ZXWUxiZ3hPbXU3XzcxZlB4SzBERzd1YlFyZTVOU2tGRkRWeUlBRGVMdE1XeF9Bbm5oUFV2T2xkbTV6VEpMMzJMdVNhM0o0THJ4UkZCbmlnUnZRU1JhcGNCdUw0MkRWWTZqWFVRRTlJRTNaT29YTUNDby1WN0duYWdrLVRETWlCaVFhSElHSEpDZ3lYVXlxQk9fbTJKdG14V1djTUE?oc=5",
-"f": "elDiario.es",
-"d": "2026-11-18T11:04Z",
-"p": 2
-},
-{
-"t": "La surrealista entrevista para ser camarera en un bar de León: «No es lo primero que preguntaría»",
-"u": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPaTVLdzlnUEdLUkNRNUJEam1fMVpPaXJ3cjd1ZnUtMkRwQW8yZDdaR21NdDFjVEZSVDQ1eXl2VnVFRExhbkktRTRVS0VDVWZlQWhjaDNWVXJDUXFFR2ZQaGhlUkJoaHQxOU02cXdFRjBIbHFTZEZDZGZicklaUW1MVGhNZi1ucllkLUNXSHpTMWtUWVlXNXlmVXFsVkdwSUlvaXRUcm5ESEl1UWJFZnJvSHExTDdudHNhOF9SMUhiUHhNckZfSlM2M08zLTjSAdIBQVVfeXFMTTgySWdhUEVyS0dDWm9RWnAxWFVDd2x0ZjJyT2xtZTMzT2NhTGo0ZUpsMFVRNy1UX3pMLXEwNTBkZmZZbDR0WVJsU3pPUzBwc2x0QzNwbzdOSEt2TUZHcG9udU1EcUlpNG1WaENENFBMamUwY0lWU3psenRyYkVRQzhRWmFNZldqSFVjV3c2akVpNnp3RzFEOEVEZng0NVVBOTBMYk01RGNCWkR1bndYLXpvZU1iWUFlOWY0U09scEFrUUNLV05nZGRIT19sTWJTMTFB?oc=5",
-"f": "El Debate",
-"d": "2026-11-18T10:47Z",
-"p": 2
-},
-{
-"t": "Un experto alerta del caos normativo de los patinetes, obligan a tener seguro y matrícula del VMP y señala la laguna fundamental: \"Es curioso que no tenga que tener carnet\"",
-"u": "https://news.google.com/rss/articles/CBMilAJBVV95cUxOV1RrVmdiY0l0VDdpSHVHS3NydWVWemc3UlRLYXR4S0RNZlRmOTF1eUtSUVZ0S3J4Zmo2ci1PUWdiVjJEU1BmamtJNU1Vb3FRVndnV215M2t1UlpSdUFVOW1COUZCY083SzMxblFYSUdfSXY3alRMUnFvY2QwaURycGdtX3hJb05NZ08zMlpxeXlKUnlsdGNNR1ZlSWExTW5oNWVZSmRBU3hScVpST1JTRWxKYmt3Y1hHLWVfVlRqTjhWVmtIZ0NGSkFUck1LbTlHSXFTNVE0bFllMElvcl8xYnhsQzI4UTZlUEllSlRHOHY1dnh4V3Bqbi1xMkY0a2RtMTk1c3JZOTZHWW5YZ1hkZHU4TUTSAZoCQVVfeXFMTnFSb2hMREhHNm9ESzc3S24yNlZfMUVHWXRKSEY3RDV0RU1vTGVUQlZGM0lqWWFFN0c4NHhSM01meTZMel9vRFgwRGRCaFVjbkFjMnFUcWtWOVNuVEg5Sllla0JkRmt5LXl6bGZzWDE3QkhUdEV6bE5qRW1TdzVSb01keWw5QndkNjAyOXo4T3F5VDNobzN0U1lDQzNNSnp0cnNmdTQta2padXFzRGhMdy1xYkg5UlVyR2haNnVEU3NYUDVIWUJKWklnYjl4ZFZLZXJUSHZyelpvUEJ6WnVyc3dqRzJYcTRRTGt4QkJuOG5FblB6UUJWNkJmbHEwMm5XN1ZDRk9RRUlERVdVV19ERGI5cXltTnBkZlVR?oc=5",
-"f": "COPE",
-"d": "2026-11-17T13:24Z",
-"p": 2
-},
-{
-"t": "Un hostelero le salva la vida a un cliente que se atragantó: \"No daba crédito\"",
-"u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOOWNrS0U4T2hNaUpwZVhWNGJGX0NkZXd5aENJdGNPRkhaSmNOMVdBZEFMUUo0WTRCSzQ4ZXdBSXlZaU1SdmhDZ0tXbEc0cXI4YTlpRjV1VXRUMWxSR3E5dWwtRkcyM1kyV3RxWWlVc2QxMU5LN2gtX0hrNDF3dXhRU0ZjQVpCeTM0QkpRNVR6RTdEZ2padkE5a2psbDhqV2pQdHdxekFxX1J1TXNMQ1JRS0Z3SjJwUjVQSUk4d0pMbTlDRXZEUzROWVpXbVlpQ0JN0gHQAUFVX3lxTE9ueGhTZmUzMlg0VzRxQ0xVWGwyRHh3QWFjVmFNRklYejVVSGR6SFh3UElZMW5FdUEwOUkxTTdRQjJBdlltUXdzbF9iZG9RRks0YTduaFp0b0N3VU96YzU2Y3NZNTRmTFlBOFBsenlYT2RUN1UwT3BiWHQ5eENNa3hlaHNpQlB6bE93WTBjczBSZnlKNEhkRElyZW5tNVIzbXU2WWdDblhvMzVjQzhrcGx2MVRLYzlOWWtaSzJTWTgtNzI2X3lIVjRqNmh6ZXRnakI?oc=5",
-"f": "Antena 3 Noticias",
-"d": "2026-11-17T12:37Z",
 "p": 2
 }
 ]
