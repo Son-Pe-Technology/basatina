@@ -1,5 +1,5 @@
 {
- "version": 355,
+ "version": 356,
  "apk": 27,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -38,7 +38,7 @@
   "mejoras.js": "fc317f141e0a7b5ad08fc3c351648fb5e75d2cca",
   "monte.js": "2b741add1b44de67b14e1270508956974812b15f",
   "naturaleza-catalogo.js": "d0b255c1220641a4c60ca0430c7ac66c43e87b12",
-  "novedades.js": "e92940e0a4b0617a978a2a1a5b391dc017bc9184",
+  "novedades.js": "47b4011751927dcab22d77df0aa910890b7afc09",
   "ocio-ui.js": "64d1c8a74c219eee42a2670d26b92576a75d4111",
   "ocio.js": "85c05c604cd5e470a4b9d88a1c268afbf23167e7",
   "oficial.js": "3860b1f06685fbfefe5bb74bcba20bd5ed5f6864",
