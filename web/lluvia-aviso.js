@@ -14,11 +14,13 @@
 const $=id=>document.getElementById(id);
 const NAT=()=>typeof APP!=='undefined'&&APP&&window.AndroidNet&&window.AndroidNet.setAlerts;
 const VER=()=>{try{return window.AndroidNet.appVersion?window.AndroidNet.appVersion():0;}catch(e){return 0;}};
+// 💨 aviso de viento (APK 5.1 / código 31): rachas mínimas, zona y horas de silencio propias; usa la misma posición que el de lluvia
+const V=()=>Object.assign({on:false,kmh:60,r:10,sil:[23,7],silOn:true},CFG.viento||{});
 const L=()=>Object.assign({on:false,prob:60,r:10,sil:[23,7],silOn:true,pos:null,radar:true,prev:true},CFG.lluvia||{});
 
 // el pueblo más cercano, para que el aviso diga «al norte de Burlada» y no unas coordenadas
 function cercano(la,lo){let b=null,bd=1e9;try{TOWNS.forEach(t=>{const d=km(la,lo,t[1],t[2]);if(d<bd){bd=d;b=t;}});}catch(e){}return b?b[0]:'tu zona';}
-function posGuardar(){const l=L();if(!l.on)return;
+function posGuardar(){const l=L();if(!l.on&&!V().on)return;
   const pueblo=()=>{try{const t=TOWNS[TOWN];if(!l.pos){l.pos=[t[1],t[2],t[0]];CFG.lluvia=l;cfgSave();}}catch(e){}};
   if(!navigator.geolocation){pueblo();return;}
   navigator.geolocation.getCurrentPosition(p=>{const la=+p.coords.latitude.toFixed(4),lo=+p.coords.longitude.toFixed(4),o=l.pos;
@@ -30,8 +32,9 @@ function posGuardar(){const l=L();if(!l.on)return;
 if(typeof cfgApply==='function'){const _ca=cfgApply;window.cfgApply=cfgApply=function(){_ca.apply(this,arguments);
   try{if(NAT()){const l=L();window.AndroidNet.setAlerts(JSON.stringify({on:CFG.avisos,qAma:CFG.qAma,qRoj:CFG.qRoj,subida:CFG.subida,roads:CFG.roads||[],snow:CFG.snow||[],
     finde:CFG.finde?[TOWNS[TOWN][0],TOWNS[TOWN][1],TOWNS[TOWN][2]]:null,dato:!!CFG.dato,datoH:CFG.datoH||9,sismo:CFG.sismo!==false,sismoM:+CFG.sismoM||2.5,curiosa:!!CFG.curiosa,
-    lluvia:{on:!!l.on,prob:+l.prob,r:+l.r,sil:l.silOn?l.sil:null,pos:l.pos,radar:l.radar!==false,prev:l.prev!==false}}));}}catch(e){}};
-  if(L().on)cfgApply();}
+    lluvia:{on:!!l.on,prob:+l.prob,r:+l.r,sil:l.silOn?l.sil:null,pos:l.pos,radar:l.radar!==false,prev:l.prev!==false},
+    viento:(v=>({on:!!v.on,kmh:+v.kmh,r:+v.r,sil:v.silOn?v.sil:null,pos:l.pos}))(V())}));}}catch(e){}};
+  if(L().on||V().on)cfgApply();}
 
 // tarjeta en Ajustes
 const hrs=sel=>Array.from({length:24},(_,h)=>`<option value="${h}"${h===sel?' selected':''}>${String(h).padStart(2,'0')}:00</option>`).join('');
@@ -53,8 +56,30 @@ if(typeof ajustesRender==='function'){const _aj=ajustesRender;window.ajustesRend
     <label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="llS" ${l.silOn?'checked':''}> <span>Horas de silencio</span></label>
     <div id="llSh" style="display:${l.silOn?'flex':'none'};gap:8px;align-items:center;margin-top:4px"><span>de</span> <select id="llS0">${hrs(l.sil[0])}</select> <span>a</span> <select id="llS1">${hrs(l.sil[1])}</select></div>
     <div class="note" style="margin-top:8px">📍 <span id="llPos">${l.pos?'Vigilando alrededor de '+esc(l.pos[2]):'Buscando dónde estás…'}</span>. Se actualiza cada vez que abres la app. Si no das permiso de ubicación, se usa el pueblo de El tiempo.</div>
+    ${VER()>=31?'<div class="note" style="margin-top:6px">🔊 <span>Suena a lluvia; si va a llover fuerte, a lluvia con truenos.</span></div>':''}
     <div class="note">Radar: RainViewer, con los radares meteorológicos europeos. Android comprueba más o menos cada 15 minutos (puede retrasarlo un poco para ahorrar batería). Ante el riesgo, haz caso siempre a los avisos oficiales de AEMET.</div>
    </div>`:'<div class="note" style="margin-top:6px">📲 Llega con la app de Android 4.9 o más nueva. Actualízala desde «Buscar nueva versión de la app» o Google Play.</div>'}</div>`);
+  const v=V(),okV=NAT()&&VER()>=31,kTxt=k=>'rachas de '+k+' km/h o más';
+  el.insertAdjacentHTML('beforeend',`<div class="card" id="ajVi"><b>💨 Aviso de viento</b>
+   <div class="note">Te avisa en el móvil cuando en la próxima hora va a haber rachas de viento fuertes en la zona que elijas, con la fuerza, de dónde viene y dónde.</div>
+   ${okV?`<label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="viOn" ${v.on?'checked':''}> <span>Avisarme del viento</span></label>
+   <div id="viOpc" style="${v.on?'':'display:none'}">
+    <div style="margin-top:10px"><span>Avisar con</span>: <b id="viKv">${kTxt(v.kmh)}</b>
+     <input type="range" id="viK" min="30" max="120" step="5" value="${v.kmh}" style="width:100%"></div>
+    <div class="note">Orientativo: 40–60 km/h se nota mucho; 70–90 rompe ramas y tira cosas; más de 100, peligroso.</div>
+    <div style="margin-top:6px"><span>Zona que vigilo</span>: <b id="viRv">${rTxt(v.r)}</b>
+     <input type="range" id="viR" min="0" max="50" step="5" value="${v.r}" style="width:100%"></div>
+    <label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="viS" ${v.silOn?'checked':''}> <span>Horas de silencio</span></label>
+    <div id="viSh" style="display:${v.silOn?'flex':'none'};gap:8px;align-items:center;margin-top:4px"><span>de</span> <select id="viS0">${hrs(v.sil[0])}</select> <span>a</span> <select id="viS1">${hrs(v.sil[1])}</select></div>
+    <div class="note" style="margin-top:6px">🔊 <span>Suena a viento.</span> 📍 <span>Usa tu ubicación, igual que el aviso de lluvia.</span></div>
+    <div class="note">Previsión de Open‑Meteo. Ante el riesgo, haz caso siempre a los avisos oficiales de AEMET.</div>
+   </div>`:'<div class="note" style="margin-top:6px">📲 Llega con la app de Android 5.1 o más nueva. Actualízala desde «Buscar nueva versión de la app» o Google Play.</div>'}</div>`);
+  if(okV){const gv=()=>{CFG.viento=Object.assign(V(),{on:$('viOn').checked,kmh:+$('viK').value,r:+$('viR').value,silOn:$('viS').checked,sil:[+$('viS0').value,+$('viS1').value]});cfgSave();};
+    $('viOn').onchange=()=>{$('viOpc').style.display=$('viOn').checked?'':'none';gv();if($('viOn').checked)posGuardar();};
+    $('viK').oninput=()=>{$('viKv').textContent=kTxt(+$('viK').value);};$('viK').onchange=gv;
+    $('viR').oninput=()=>{$('viRv').textContent=rTxt(+$('viR').value);};$('viR').onchange=gv;
+    $('viS').onchange=()=>{$('viSh').style.display=$('viS').checked?'flex':'none';gv();};
+    $('viS0').onchange=gv;$('viS1').onchange=gv;}
   if(!ok)return;
   const g=()=>{CFG.lluvia=Object.assign(L(),{on:$('llOn').checked,prob:+$('llP').value,r:+$('llR').value,silOn:$('llS').checked,sil:[+$('llS0').value,+$('llS1').value]},$('llRad')?{radar:$('llRad').checked,prev:$('llPre').checked}:{});cfgSave();};
   $('llOn').onchange=()=>{$('llOpc').style.display=$('llOn').checked?'':'none';g();if($('llOn').checked)posGuardar();};
@@ -69,6 +94,9 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)posGuardar
 
 try{const T={"Aviso de lluvia":["Euri abisua","Rain alert","Alerte pluie"],"Avisarme de la lluvia":["Euriaz abisatu","Alert me about rain","M’alerter de la pluie"],
   "Probabilidad mínima":["Gutxieneko probabilitatea","Minimum chance","Probabilité minimale"],"Zona que vigilo":["Zaintzen dudan eremua","Area to watch","Zone surveillée"],
-  "Horas de silencio":["Isilune orduak","Quiet hours","Heures de silence"],"Avisar con":["Abisatu honekin","Alert using","Alerter avec"],"📡 Radar en directo":["📡 Radarra zuzenean","📡 Live radar","📡 Radar en direct"],"🔮 Previsión":["🔮 Iragarpena","🔮 Forecast","🔮 Prévision"]};
+  "Horas de silencio":["Isilune orduak","Quiet hours","Heures de silence"],"Avisar con":["Abisatu honekin","Alert using","Alerter avec"],"📡 Radar en directo":["📡 Radarra zuzenean","📡 Live radar","📡 Radar en direct"],"🔮 Previsión":["🔮 Iragarpena","🔮 Forecast","🔮 Prévision"],
+  "Aviso de viento":["Haize abisua","Wind alert","Alerte vent"],"Avisarme del viento":["Haizeaz abisatu","Alert me about wind","M’alerter du vent"],
+  "Suena a viento.":["Haize soinua du.","Sounds like wind.","Son de vent."],"Usa tu ubicación, igual que el aviso de lluvia.":["Zure kokapena erabiltzen du, euri abisuak bezala.","Uses your location, like the rain alert.","Utilise ta position, comme l’alerte pluie."],
+  "Suena a lluvia; si va a llover fuerte, a lluvia con truenos.":["Euri soinua du; euri handia bada, trumoiekin.","Sounds like rain; with thunder if it will rain hard.","Son de pluie ; avec du tonnerre s’il va pleuvoir fort."]};
   Object.entries(T).forEach(([k,[eu,en,fr]])=>{I18N.eu[k]=eu;I18N.en[k]=en;I18N.fr[k]=fr;});}catch(e){}
 })();

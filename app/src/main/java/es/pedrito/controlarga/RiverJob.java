@@ -68,6 +68,7 @@ public class RiverJob extends JobService {
             try { checkSismo(this); } catch (Exception ignored) {}
             try { checkCuriosa(this); } catch (Exception ignored) {}
             try { checkLluvia(this); } catch (Exception ignored) {}
+            try { checkViento(this); } catch (Exception ignored) {}
             jobFinished(p, false);
         }).start();
         return true;   // el trabajo sigue en otro hilo
@@ -417,7 +418,95 @@ public class RiverJob extends JobService {
        probabilidad es igual o mayor que la elegida (0–100 %). Dice la intensidad, a qué distancia y hacia dónde.
        No repite mientras siga lloviendo en la zona, salvo que la lluvia sea más fuerte. Respeta las horas de silencio.
        cfg.lluvia = {on, prob, r, sil:[desde,hasta] o null, pos:[lat,lon,nombre]} */
-    static final String CH_LLUVIA = "aviso_lluvia";
+    static final String CH_LLUVIA = "aviso_lluvia";              // canal antiguo sin sonido propio (se borra en la 5.1)
+    static final String CH_LLUVIA_S = "aviso_lluvia_sonido", CH_TORMENTA = "aviso_tormenta_sonido", CH_VIENTO = "aviso_viento_sonido";
+
+    /** Horas de silencio: sil = [desde, hasta] (puede pasar de medianoche) */
+    static boolean silencio(JSONObject l) {
+        org.json.JSONArray sil = l.optJSONArray("sil");
+        if (sil == null || sil.length() != 2) return false;
+        int h = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY), a = sil.optInt(0), b = sil.optInt(1);
+        if (a == b) return false;
+        return a < b ? (h >= a && h < b) : (h >= a || h < b);
+    }
+
+    /* ---------- 💨 Aviso de viento (APK 5.1 / código 31, 20 nov. 2026) ----------
+       cfg.viento = {on, kmh (rachas mínimas), r (km), sil:[desde,hasta] o null, pos:[lat,lon,nombre]}.
+       Mira con Open‑Meteo las rachas de la próxima hora (cada 15 min) en el centro y dos anillos de 8 puntos.
+       Avisa si alguna racha llega al mínimo elegido; vuelve a avisar solo si va a más (+20 km/h) o tras 3 horas. */
+    static void checkViento(Context c) throws Exception {
+        JSONObject v = cfg(c).optJSONObject("viento");
+        if (v == null || !v.optBoolean("on", false) || silencio(v)) return;
+        org.json.JSONArray pos = v.optJSONArray("pos");
+        if (pos == null || pos.length() < 2) return;
+        double la0 = pos.optDouble(0), lo0 = pos.optDouble(1);
+        String sitio = pos.optString(2, "tu zona");
+        int min = Math.max(20, v.optInt("kmh", 60)), r = Math.max(0, Math.min(50, v.optInt("r", 10)));
+        java.util.Locale US = java.util.Locale.US, ES = java.util.Locale.forLanguageTag("es-ES");
+        java.util.List<double[]> P = new java.util.ArrayList<>();
+        P.add(new double[]{la0, lo0, 0, -1});
+        if (r > 0) for (double d : new double[]{r / 2.0, r}) for (int k = 0; k < 8; k++) {
+            double ang = Math.toRadians(k * 45);
+            P.add(new double[]{la0 + (d / 111.32) * Math.cos(ang), lo0 + (d / (111.32 * Math.cos(Math.toRadians(la0)))) * Math.sin(ang), d, k});
+        }
+        StringBuilder LA = new StringBuilder(), LO = new StringBuilder();
+        for (int i = 0; i < P.size(); i++) { if (i > 0) { LA.append(','); LO.append(','); } LA.append(String.format(US, "%.4f", P.get(i)[0])); LO.append(String.format(US, "%.4f", P.get(i)[1])); }
+        String body = get("https://api.open-meteo.com/v1/forecast?latitude=" + LA + "&longitude=" + LO
+                + "&minutely_15=wind_gusts_10m,wind_speed_10m,wind_direction_10m&forecast_minutely_15=8&wind_speed_unit=kmh&timezone=Europe%2FMadrid");
+        org.json.JSONArray arr = body.trim().startsWith("[") ? new org.json.JSONArray(body) : new org.json.JSONArray().put(new JSONObject(body));
+        String desde = String.format(US, "%1$tY-%1$tm-%1$tdT%1$tH:%1$tM", new java.util.Date(System.currentTimeMillis() - 15 * 60 * 1000L));
+        String hasta = String.format(US, "%1$tY-%1$tm-%1$tdT%1$tH:%1$tM", new java.util.Date(System.currentTimeMillis() + 60 * 60 * 1000L));
+        double maxG = 0, med = 0, dir = 0, dist = 0; int k8 = -1;
+        for (int i = 0; i < arr.length() && i < P.size(); i++) {
+            JSONObject m = arr.getJSONObject(i).getJSONObject("minutely_15");
+            org.json.JSONArray t = m.getJSONArray("time"), g = m.getJSONArray("wind_gusts_10m"), w = m.getJSONArray("wind_speed_10m"), dd = m.getJSONArray("wind_direction_10m");
+            for (int j = 0; j < t.length(); j++) {
+                String tt = t.optString(j);
+                if (tt.compareTo(desde) <= 0 || tt.compareTo(hasta) > 0) continue;
+                double gj = g.optDouble(j, 0);
+                if (gj > maxG) { maxG = gj; med = w.optDouble(j, 0); dir = dd.optDouble(j, 0); dist = P.get(i)[2]; k8 = (int) P.get(i)[3]; }
+            }
+        }
+        SharedPreferences sp = c.getSharedPreferences("rio", MODE_PRIVATE);
+        long now = System.currentTimeMillis();
+        int antes = sp.getInt("vientoMax", 0);
+        if (maxG < min) { if (now - sp.getLong("vientoT", 0) > 60 * 60 * 1000L) sp.edit().putInt("vientoMax", 0).apply(); return; }
+        if (antes > 0 && maxG < antes + 20 && now - sp.getLong("vientoT", 0) < 3 * 60 * 60 * 1000L) return;   // ya avisado
+        sp.edit().putInt("vientoMax", (int) maxG).putLong("vientoT", now).apply();
+        String[] rumbo = {"norte", "nordeste", "este", "sudeste", "sur", "sudoeste", "oeste", "noroeste"};
+        String fuerza = maxG >= 100 ? "Rachas muy fuertes" : maxG >= 70 ? "Rachas fuertes" : "Rachas de viento";
+        String donde = dist < 2 ? "en " + sitio : String.format(ES, "a %.0f km al %s de %s", dist, rumbo[Math.max(0, k8)], sitio);
+        String tit = String.format(ES, "💨 %s de %.0f km/h%s %s", fuerza, maxG, antes > 0 ? " (va a más)" : "", donde);
+        String zona = r == 0 ? "solo " + sitio : r + " km alrededor de " + sitio;
+        String txt = String.format(ES, "Previsión para la próxima hora: viento del %s de unos %.0f km/h con rachas de hasta %.0f km/h. Tu mínimo: %d km/h. Zona vigilada: %s.",
+                rumbo[(int) Math.round(((dir % 360) + 360) % 360 / 45.0) % 8], med, maxG, min, zona);
+        notifySonido(c, CH_VIENTO, "Aviso de viento", "Rachas de viento fuertes en la zona que eliges (suena a viento)", tit, txt, 610, R.raw.viento);
+    }
+
+    /** Notificación con sonido propio (lluvia, tormenta o viento). En Android 8+ el sonido va en el canal y no se puede
+        cambiar después: por eso cada sonido tiene su canal. El usuario puede cambiarlo o silenciarlo en los ajustes del móvil. */
+    static void notifySonido(Context c, String ch, String chName, String chDesc, String title, String text, int id, int raw) {
+        NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+        android.net.Uri snd = android.net.Uri.parse("android.resource://" + c.getPackageName() + "/" + raw);
+        if (Build.VERSION.SDK_INT >= 26) {
+            try { if (nm.getNotificationChannel(CH_LLUVIA) != null) nm.deleteNotificationChannel(CH_LLUVIA); } catch (Exception ignored) {}
+            if (nm.getNotificationChannel(ch) == null) {
+                NotificationChannel nc = new NotificationChannel(ch, chName, NotificationManager.IMPORTANCE_HIGH);
+                nc.setDescription(chDesc);
+                nc.setSound(snd, new android.media.AudioAttributes.Builder()
+                        .setUsage(android.media.AudioAttributes.USAGE_NOTIFICATION)
+                        .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION).build());
+                nm.createNotificationChannel(nc);
+            }
+        }
+        PendingIntent pi = PendingIntent.getActivity(c, 0, new Intent(c, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
+        android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, ch) : new android.app.Notification.Builder(c);
+        b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(title).setContentText(text)
+                .setStyle(new android.app.Notification.BigTextStyle().bigText(text))
+                .setContentIntent(pi).setAutoCancel(true);
+        if (Build.VERSION.SDK_INT < 26) b.setSound(snd);
+        try { nm.notify(id, b.build()); } catch (SecurityException ignored) {}
+    }
     static void checkLluvia(Context c) throws Exception {
         JSONObject l = cfg(c).optJSONObject("lluvia");
         if (l == null || !l.optBoolean("on", false)) return;
@@ -463,7 +552,11 @@ public class RiverJob extends JobService {
         } else {
             txt = String.format(ES, "Previsión: probabilidad %.0f %% · unos %.1f mm/h · en la próxima media hora. Zona vigilada: %s.", R[3], R[0], zona);
         }
-        notifyCh(c, CH_LLUVIA, "Aviso de lluvia", "Cuando va a llover en la zona que eliges", tit, txt, 600);
+        // 🔊 APK 5.1: con sonido propio. Lluvia fuerte o muy fuerte (10 mm/h o más) → lluvia con truenos
+        if (nivel >= 3 && !nieve)
+            notifySonido(c, CH_TORMENTA, "Aviso de lluvia fuerte", "Lluvia fuerte o muy fuerte en la zona que eliges (suena a tormenta)", tit, txt, 600, es.pedrito.controlarga.R.raw.tormenta);
+        else
+            notifySonido(c, CH_LLUVIA_S, "Aviso de lluvia", "Cuando va a llover en la zona que eliges (suena a lluvia)", tit, txt, 600, es.pedrito.controlarga.R.raw.lluvia);
     }
 
     /* Radar de RainViewer (gratis citando la fuente; se actualiza cada 10 minutos). Se pide una tesela de 256 px a
