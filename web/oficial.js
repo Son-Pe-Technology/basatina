@@ -8,7 +8,7 @@
      - Aviso la primera vez que se abre la app (se puede volver a ver en «Fuentes oficiales»).
      - Tarjeta fija en Inicio con el aviso y el botón «Fuentes oficiales».
      - Pantalla nueva «🏛️ Fuentes oficiales» con todas las webs y su dirección visible.
-     - Una franja arriba en cada pantalla con datos públicos: «Fuente oficial: … ↗».
+     - Abajo de cada pantalla con datos públicos, en letra pequeña: «Fuente oficial: … ↗» (antes arriba).
    Para añadir una fuente a una pantalla: una línea más en SRC_TAB (nombre de pestaña → claves de FUENTES).
    ===================================================================== */
 (function(){
@@ -84,19 +84,24 @@
     d.innerHTML=`<b>ℹ️ App no oficial</b>${AVISO}<br><button class="bnaOfiBtn">🏛️ Ver fuentes oficiales</button>`;
     d.querySelector('button').onclick=()=>showTab('fuentes');s.prepend(d);}
 
-  // franja de fuente arriba de cada pantalla con datos públicos
+  // fuente de cada pantalla con datos públicos: abajo del todo y en letra pequeña, como en Inicio
+  // (petición de Pedro, 20 nov. 2026; antes era una franja arriba). Se vuelve a poner al final un par de veces
+  // porque algunas pantallas añaden tarjetas después de abrirse.
   function franja(t){const k=SRC_TAB[t];if(!k)return;const sid=(t==='sim'||t==='libre')?'mapa':t;const s=document.getElementById('t-'+sid);if(!s)return;
-    let d=s.querySelector(':scope>.bnaSrc');if(!d){d=document.createElement('div');d.className='bnaSrc';s.prepend(d);}
-    d.innerHTML=`🏛️ <b>Fuente oficial:</b> ${k.map(enlace).join(' · ')}<br><span style="opacity:.8">ℹ️ BasatiNA no es una app oficial. <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc)">Más información</a></span>`;}
+    const vieja=s.querySelector(':scope>.bnaSrc');if(vieja)vieja.remove();
+    let d=s.querySelector(':scope>.bnaPieSrc');if(!d){d=document.createElement('div');d.className='bnaPie bnaPieSrc';
+      d.innerHTML=`🏛️ Fuente oficial: ${k.map(enlace).join(' · ')}<br>ℹ️ BasatiNA no es una app oficial. <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">Más información</a>`;}
+    s.appendChild(d);}
+  const franjaLuego=t=>{franja(t);setTimeout(()=>franja(t),1500);setTimeout(()=>franja(t),5000);};
 
   // Inicio: aviso pequeño abajo del todo (petición de Pedro, 18 nov. 2026)
   function pie(){const s=document.getElementById('t-mtiempo');if(!s)return;let d=s.querySelector(':scope>.bnaPie');
     if(!d){d=document.createElement('div');d.className='bnaPie';
       d.innerHTML=`ℹ️ ${AVISO} Fuentes oficiales: ${['aemet','saih','navarra'].map(enlace).join(' · ')} · <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">ver todas</a>`;}
     s.appendChild(d);}
-  const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo')pie();if(t==='about')tarjeta('t-about');franja(t);}catch(e){}};
+  const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo')pie();if(t==='about')tarjeta('t-about');franjaLuego(t);}catch(e){}};
   pie();setTimeout(pie,1500);setTimeout(pie,5000);tarjeta('t-about');
-  const on=document.querySelector('section.on');if(on)franja(on.id.slice(2));
+  const on=document.querySelector('section.on');if(on)franjaLuego(on.id.slice(2));
 
   // aviso la primera vez que se abre la app
   let visto=false;try{visto=localStorage.getItem('bnaNoOficial')==='1';}catch(e){}
