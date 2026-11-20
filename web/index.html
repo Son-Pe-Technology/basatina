@@ -179,6 +179,16 @@ body.bna #drawer .dsub button{padding:10px 12px;margin:2px 6px;width:calc(100% -
 body.bna #drawer button.on,body.bna #drawer .dsub button.on{background:#E5EFE1;border-left:3px solid var(--verde);color:#2b5222}
 body.bna #bnaDGrid>button.on{border-left:3px solid var(--verde)}
 body.bna #drawer .dgroup span:before{content:none}
+/* 20 nov. 2026: con la letra grande los cuadros del menú no cabían y se salían por la derecha */
+body.bna #drawer{overflow-x:hidden}
+body.bna #bnaDGrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+body.bna.letraG #bnaDGrid{grid-template-columns:minmax(0,1fr)}
+body.bna #bnaDGrid>*{min-width:0;max-width:100%}
+body.bna #bnaDGrid>.dgroup{justify-content:flex-start}
+body.bna #bnaDGrid>.dgroup>span{flex:1 1 auto;min-width:0;justify-content:flex-start;text-align:left;overflow-wrap:break-word}
+body.bna #bnaDGrid>.dgroup>i{flex:none;margin-left:auto}
+body.bna #bnaDGrid>button>span{min-width:0;overflow-wrap:break-word}
+body.bna:not(.pro) #drawer .dgroup span[data-ico]:before{content:attr(data-ico);margin-right:2px;font-size:20px}
 #bnaSearch{display:none}
 body.bna #bnaSearch{display:flex;align-items:center;gap:8px;margin:0 12px 10px;position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 12px;box-shadow:0 2px 8px rgba(29,45,35,.06)}
 body.bna #bnaSearch input{flex:1;border:none;outline:none;background:transparent;font:inherit;font-size:15px;padding:12px 0;color:#1D1D1D}
@@ -2111,7 +2121,7 @@ const LS={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.par
 let CFG=Object.assign({tema:'bna',letra:100,avisos:false,qAma:150,qRoj:300,subida:30},LS.get('cfg',{}));
 if(!CFG.tema2){CFG.tema2=1;CFG.tema='alegre';LS.set('cfg',CFG);}
 if(!CFG.tema3){CFG.tema3=1;CFG.tema='bna';LS.set('cfg',CFG);}   // nuevo diseño BasatiNA por defecto (se puede volver al anterior en Ajustes)
-function cfgApply(){document.body.classList.toggle('alegre',CFG.tema==='alegre');document.body.classList.toggle('bna',CFG.tema==='bna');const dark=CFG.tema==='oscuro'||(CFG.tema==='auto'&&!(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches));
+function cfgApply(){document.body.classList.toggle('letraG',+CFG.letra>=130);document.body.classList.toggle('alegre',CFG.tema==='alegre');document.body.classList.toggle('bna',CFG.tema==='bna');const dark=CFG.tema==='oscuro'||(CFG.tema==='auto'&&!(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches));
   document.body.classList.toggle('light',!dark);
   if(APP&&window.AndroidNet.setTextZoom)window.AndroidNet.setTextZoom(CFG.letra);
   if(APP&&window.AndroidNet.setAlerts)window.AndroidNet.setAlerts(JSON.stringify({on:CFG.avisos,qAma:CFG.qAma,qRoj:CFG.qRoj,subida:CFG.subida,roads:CFG.roads||[],snow:CFG.snow||[],finde:CFG.finde?[TOWNS[TOWN][0],TOWNS[TOWN][1],TOWNS[TOWN][2]]:null,dato:!!CFG.dato,datoH:CFG.datoH||9}));}
@@ -2131,20 +2141,24 @@ function ajustesRender(){const el=document.getElementById('ajBody'),nat=APP&&win
     <label style="display:flex;gap:8px;align-items:center;margin-top:4px"><input type="checkbox" id="ajFinde" ${CFG.finde?'checked':''}> Avisarme</label></div>
    <div style="margin-top:10px;border-top:1px solid var(--line);padding-top:8px"><b>🚧 Carreteras que usas</b><div class="note">Te avisa cuando aparece una incidencia nueva (corte, obra, accidente…) en estas carreteras. Escríbelas separadas por comas.</div>
     <input id="ajRoads" class="town" placeholder="Ej.: A-15, NA-137, N-135" value="${(CFG.roads||[]).join(', ')}" style="width:100%;box-sizing:border-box;margin-top:4px"></div>
-   <div style="margin-top:10px;border-top:1px solid var(--line);padding-top:8px"><b>❄️ Nieve en puertos</b><div class="note">Te avisa la víspera si se espera nieve en los puertos que marques.</div><div id="ajSnow"><div class="note">Cargando puertos…</div></div></div>`:'<div class="note">Llegan con la app actualizada (versión 6 o más): pulsa «⬆️ Buscar nueva versión de la app» en el menú.</div>'}</div>`;
+   <div style="margin-top:10px;border-top:1px solid var(--line);padding-top:8px"><div id="ajSnowH" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none"><b>❄️ <span>Nieve en puertos</span> <span class="note" id="ajSnowN"></span></b><i id="ajSnowI" style="font-style:normal;color:var(--mut);transition:transform .2s">▸</i></div><div class="note">Te avisa la víspera si se espera nieve en los puertos que marques. Toca el título para elegirlos.</div><div id="ajSnow" style="display:none"><div class="note">Cargando puertos…</div></div></div>`:'<div class="note">Llegan con la app actualizada (versión 6 o más): pulsa «⬆️ Buscar nueva versión de la app» en el menú.</div>'}</div>`;
   el.querySelectorAll('button[data-k]').forEach(b=>b.onclick=()=>{const k=b.dataset.k;let v=b.dataset.v;if(k==='letra')v=+v;if(k==='avisos')v=v==='true';CFG[k]=v;cfgSave();ajustesRender();});
   [['ajAma','qAma'],['ajRoj','qRoj'],['ajSub','subida']].forEach(([id,k])=>{const i=document.getElementById(id);if(i)i.onchange=()=>{CFG[k]=Math.max(1,+i.value||CFG[k]);cfgSave();};});
   const t=document.getElementById('ajTest');if(t)t.onclick=()=>window.AndroidNet.testAlert&&window.AndroidNet.testAlert();
   const fi=document.getElementById('ajFinde');if(fi)fi.onchange=()=>{CFG.finde=fi.checked;cfgSave();};
   const rd=document.getElementById('ajRoads');if(rd)rd.onchange=()=>{CFG.roads=rd.value.toUpperCase().split(/[,;\s]+/).map(s=>s.trim()).filter(s=>/^[A-Z]+-?\d/.test(s));rd.value=CFG.roads.join(', ');cfgSave();};
-  const sn=document.getElementById('ajSnow');if(sn)vjLoad(()=>{const P=puList();const on=new Set((CFG.snow||[]).map(x=>x[0]));
+  const sn=document.getElementById('ajSnow'),snN=()=>{const n=(CFG.snow||[]).length,e=document.getElementById('ajSnowN');if(e)e.textContent=n?'('+n+' marcado'+(n>1?'s':'')+')':'';};snN();
+  const snH=document.getElementById('ajSnowH');if(snH&&sn)snH.onclick=()=>{const o=sn.style.display==='none';sn.style.display=o?'':'none';document.getElementById('ajSnowI').style.transform=o?'rotate(90deg)':'';};
+  if(sn)vjLoad(()=>{const P=puList();const on=new Set((CFG.snow||[]).map(x=>x[0]));
     sn.innerHTML=P.length?P.map((x,i)=>`<label style="display:flex;gap:8px;align-items:center;margin:4px 0"><input type="checkbox" data-i="${i}" ${on.has(x.n)?'checked':''}> ${x.n}${x.ele?' <span class="note">'+Math.round(x.ele)+' m</span>':''}</label>`).join(''):'<div class="note">Sin datos de puertos ahora.</div>';
-    sn.querySelectorAll('input').forEach(c=>c.onchange=()=>{CFG.snow=[...sn.querySelectorAll('input:checked')].map(i=>{const x=P[+i.dataset.i];return [x.n,x.pt[0],x.pt[1]];});cfgSave();});});}
+    sn.querySelectorAll('input').forEach(c=>c.onchange=()=>{CFG.snow=[...sn.querySelectorAll('input:checked')].map(i=>{const x=P[+i.dataset.i];return [x.n,x.pt[0],x.pt[1]];});cfgSave();snN();});});}
 
 // ---------- acerca de ----------
 async function aboutRender(){let v='?';if(APP&&window.AndroidNet.webVersion)v=window.AndroidNet.webVersion();else try{v=(await (await fetch('version.json')).json()).version;}catch(e){}
   const apk=APP&&window.AndroidNet.appVersion?window.AndroidNet.appVersion():null;
-  document.getElementById('abVer').textContent=(apk?'App versión '+apk+' · ':'')+'pantalla '+v;}
+  // versionName = (versionCode + 20) / 10 (código 32 → 5.2, 25 → 4.5, 20 → 4.0)
+  const nom=apk?((apk+20)/10).toFixed(1).replace('.',','):null;
+  document.getElementById('abVer').innerHTML=(apk?'<b style="font-size:16px;color:var(--txt)">Versión '+nom+'</b> <span class="note">(código '+apk+')</span><br>':'')+'<span>Pantalla</span> v'+v;}
 
 // ---------- portada al abrir ----------
 (function(){const sp=document.getElementById('splash');if(!sp)return;setTimeout(()=>{sp.style.opacity='0';setTimeout(()=>sp.remove(),500);},1500);})();
