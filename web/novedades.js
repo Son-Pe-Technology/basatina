@@ -401,7 +401,7 @@ if(typeof svSec==='function'){
   <div class="card" style="border-left:4px solid #c62828"><b>📞 Teléfonos de urgencia</b>
    <div class="st"><div style="font-size:22px">🚑</div><div style="flex:1"><b>112 · <span>SOS Navarra</span></b><div class="s">Urgencias sanitarias, accidentes, incendios y rescates.</div></div><a class="btn pri" href="tel:112">Llamar</a></div>
    <div class="st"><div style="font-size:22px">☠️</div><div style="flex:1"><b>91 562 04 20 · <span>Información Toxicológica</span></b><div class="s">Intoxicaciones con setas, plantas, medicamentos o productos de casa (24 horas).</div></div><a class="btn" href="tel:915620420">Llamar</a></div></div>
-  <div class="note" style="margin:4px 6px 14px">⚕️ Información orientativa y general: no es un consejo médico ni un diagnóstico. Si tienes un dolor fuerte, que no se va o distinto al habitual, consulta a tu médico o farmacéutico. Ante una urgencia, llama al 112. Datos: Open‑Meteo (CC BY 4.0) y Copernicus CAMS.</div>`);
+  <div class="note" style="margin:4px 6px 14px">⚕️ Información orientativa y general: no es un consejo médico ni un diagnóstico. Si tienes un dolor fuerte, que no se va o distinto al habitual, consulta a tu médico o farmacéutico. Ante una urgencia, llama al 112.</div>`);
   document.querySelectorAll('#saDia button').forEach(b=>b.onclick=()=>{SAD=+b.dataset.d;document.querySelectorAll('#saDia button').forEach(x=>x.classList.toggle('on',x===b));saRender();});
   document.querySelectorAll('#t-salud [data-go]').forEach(b=>b.onclick=()=>showTab(b.dataset.go));
   const _st1=showTab;showTab=function(t){_st1(t);if(t==='salud')setTimeout(saInit,30);};

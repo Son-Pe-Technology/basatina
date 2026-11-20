@@ -148,8 +148,7 @@ let HR='arga';
 async function hiRender(){const H=HIST[HR],o=$('hiO');
   o.innerHTML=`${H.c.map(c=>`<div class="card hist"><h3>${c[0]} · ${c[1]}</h3><div class="note">${c[2]}</div></div>`).join('')}
    <div class="card"><b>Fases de aviso de las estaciones del SAIH Ebro</b><div class="note">Igual que en el Arga, cada estación tiene tres umbrales de nivel: 🟡 aviso amarillo, 🟠 aviso naranja y 🔴 aviso rojo.</div><div id="hiU"><div class="note">${APP?'Cargando los umbrales…':'📱 Los umbrales de cada estación salen en la app del móvil.'}</div></div></div>
-   <div class="card note">${H.n}</div>
-   <div class="card note">Fuentes: Confederación Hidrográfica del Ebro (SAIH y notas de prensa), MITECO, Gobierno de Navarra, Consorcio de Compensación de Seguros, Universidad de Zaragoza y prensa (Noticias de Navarra).</div>`;
+   <div class="card note">${H.n}</div>`;
   if(!APP)return;try{const st=await rivStations(HR);await rivFetch(HR);if(!UMB){const u=await netGet(SAIH+'/api/info/getTablaUmbrales');UMB=JSON.parse(u.body);}
     const rows=st.filter(s=>s.tipo==='A').map(s=>{const n=CAU&&CAU[s.code]&&pick(CAU[s.code],'n'),u=n&&umbralOf(n);return u?`<table class="ph" style="margin-top:6px"><tr><td colspan="2"><b>${esc(prettyName(s.name))}</b>${n?` · ahora ${fmtN(n.VALOR_QM,2)} m`:''}</td></tr><tr><td>🟡 Aviso amarillo</td><td>${fmtN(u.col1,2)} m</td></tr><tr><td>🟠 Aviso naranja</td><td>${fmtN(u.col2,2)} m</td></tr><tr><td>🔴 Aviso rojo</td><td>${fmtN(u.col3,2)} m</td></tr></table>`:'';}).join('');
     $('hiU').innerHTML=rows||'<div class="note">El SAIH no da umbrales para estas estaciones.</div>';}catch(e){$('hiU').innerHTML='<div class="note">No se pudieron leer los umbrales ahora.</div>';}}

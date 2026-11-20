@@ -632,7 +632,6 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
   <div class="card"><b>Fases de alerta del Ayuntamiento de Pamplona</b>
     <table class="ph"><tr><td>🟢 Normal</td><td>menos de 150 m³/s</td></tr><tr><td>🟡 Alerta</td><td>150 – 250</td></tr><tr><td>🟠 Emergencia 01</td><td>250 – 300</td></tr><tr><td>🟠 Emergencia 02</td><td>300 – 350</td></tr><tr><td>🔴 Emergencia 1</td><td>más de 350</td></tr></table></div>
   <div class="card"><b>Embalse de Eugui</b><div class="note">Construido entre 1968 y 1973 · cuenca de 69 km² · 21,4 hm³ · abastece a la Comarca de Pamplona y también lamina avenidas.</div></div>
-  <div class="card note">Fuentes: Ayuntamiento de Pamplona, Confederación Hidrográfica del Ebro, Plan de inundaciones de Huarte, Gobierno de Navarra y prensa (Noticias de Navarra, Onda Vasca).</div>
 </section>
 <!-- ============ PREVISIONES ============ -->
 <section id="t-prev">
@@ -644,7 +643,7 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
     <div><label>¿Y si lloviera más? <b id="fmv">×1</b></label><input type="range" id="fm" min="1" max="6" step="0.5" value="1"></div>
   </div>
   <div class="row" style="display:none"><button class="btn pri" id="fplay">▶ Ver la previsión en el mapa</button></div>
-  <div class="note">Lluvia prevista: Open‑Meteo, media de 6 puntos de la cuenca (Quinto Real, Eugui, Zubiri, Ultzama, Juslapeña y Pamplona), actualizada cada 3 horas (en la app, la descarga el propio móvil). En la app, el caudal de ahora se toma solo del SAIH Ebro (Burlada); en la web lo pones tú. El modelo es sencillo. <b>⚠️ ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES.</b> Los datos de esta app pueden variar respecto a los de la fuente original. (CHE, SOS Navarra 112, Ayuntamiento).</div>
+  <div class="note">La lluvia prevista es la media de 6 puntos de la cuenca (Quinto Real, Eugui, Zubiri, Ultzama, Juslapeña y Pamplona) y se actualiza cada 3 horas. En la app, el caudal de ahora es el de Burlada; en la web lo pones tú. El modelo es sencillo. <b>⚠️ ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES.</b> Los datos de esta app pueden variar respecto a los de la fuente original. (CHE, SOS Navarra 112, Ayuntamiento).</div>
 </div>
 </section>
 <!-- ============ EL TIEMPO ============ -->
@@ -653,7 +652,6 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
 <div class="card" id="tAv"><b>⚠️ Avisos de AEMET en Navarra</b><div class="note">Cargando…</div></div>
 <div class="card"><b>Próximas 24 horas</b><div class="note"><span style="color:#e65100">━</span> temperatura · <span style="color:#1e88e5">▮</span> lluvia (mm por hora) · <span style="color:#2e7d32">┅</span> probabilidad de lluvia (%)</div><canvas id="tH" height="194"></canvas></div>
 <div class="card"><b>Próximos 7 días</b><div id="tDays"></div></div>
-<div class="note">Fuente: Open‑Meteo (modelos de AEMET, ECMWF y otros), se actualiza al abrir esta pantalla.</div>
 </section>
 <!-- ============ MAPA DEL TIEMPO ============ -->
 <section id="t-mtiempo">
@@ -676,7 +674,6 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
 </div>
 <div id="bnaHome" style="margin-top:12px"></div>
 <div id="seHome" style="margin-top:12px"><b style="display:block;font-size:17px;margin:4px 4px 8px">📊 La semana en Navarra</b><div id="seBody"></div></div>
-<div class="note">Mapa base: © Instituto Geográfico Nacional · Tiempo: Open‑Meteo · Ríos: SAIH Ebro.</div>
 </section>
 <!-- ============ HISTÓRICO DEL CLIMA ============ -->
 <section id="t-clima">
@@ -751,7 +748,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="note" id="pLeg" style="margin:6px 0;line-height:1.7"></div>
 <div class="note">Arrastra para moverte, pellizca para acercar y toca un tramo para ver sus normas.</div>
 <div id="pFicha"></div>
-<div class="card" style="border-color:#ffb020"><b>⚠️ Importante</b><div class="note">Información orientativa a partir de los datos oficiales del Gobierno de Navarra (IDENA, licencia CC BY 4.0) para la temporada actual. La normativa puede cambiar: antes de pescar consulta la orden foral de vedas vigente y los avisos en pesca.navarra.es. Necesitas licencia de pesca de Navarra y, donde se indica, permiso diario.</div></div>
+<div class="card" style="border-color:#ffb020"><b>⚠️ Importante</b><div class="note">Información orientativa para la temporada actual. La normativa puede cambiar: antes de pescar consulta la orden foral de vedas vigente y los avisos en pesca.navarra.es. Necesitas licencia de pesca de Navarra y, donde se indica, permiso diario.</div></div>
 </section>
 <!-- ============ CAZA ============ -->
 <section id="t-caza">
@@ -770,7 +767,6 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="note" id="czInfo" style="margin:6px 0"></div>
 <div id="czLay" class="note" style="line-height:1.6"></div>
 <div id="czFicha"></div>
-<div class="note">Capas de los Planes de Ordenación Cinegética de cada coto (© Gobierno de Navarra · IDENA, CC BY 4.0).</div>
 </div>
 <div class="card" style="border-color:#ffb020"><b>⚠️ Importante</b><div class="note">Resumen orientativo de la orden de vedas. Para cazar hace falta licencia de Navarra, seguro, permiso del coto y respetar su Plan de Ordenación Cinegética (cupos, días asignados y zonas), que puede ser más restrictivo. Los festivos locales y los «días de fortuna» por frío cambian el calendario. Consulta siempre el texto oficial en el BON y a tu coto. Teléfono de caza del Gobierno de Navarra: 848 426 259.</div></div>
 </section>
@@ -834,7 +830,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 </section>
 <!-- ============ CAUDAL AHORA ============ -->
 <section id="t-caudal">
-<div class="row" style="justify-content:space-between;align-items:center"><div class="note" id="cauInfo">Datos en tiempo real del SAIH Ebro</div><button class="btn" id="cauRef">🔄 Actualizar</button></div>
+<div class="row" style="justify-content:space-between;align-items:center"><div class="note" id="cauInfo">Datos en tiempo real</div><button class="btn" id="cauRef">🔄 Actualizar</button></div>
 <div class="seg" id="rivSeg"><button class="btn on" data-r="arga">🌊 Arga</button><button class="btn" data-r="irati">🌲 Irati</button><button class="btn" data-r="ega">🍇 Ega</button><button class="btn" data-r="aragon">⛰️ Aragón</button><button class="btn" data-r="ebro">🏞️ Ebro</button></div>
 <div id="cauArgaView">
 <div id="cauSem"></div>
@@ -846,7 +842,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="row"><button class="btn pri" id="cauMap">🗺️ Ver en el mapa con el caudal real</button><button class="btn" id="cauPrev">🔮 Previsión desde el caudal real</button><button class="btn tech" id="cauShare" style="display:none">Compartir datos</button></div>
 </div>
 <div id="cauRivView" style="display:none"><div id="rivIO"></div><div id="rivEmb"></div><div class="note">Toca una estación para ver su gráfica de las últimas horas.</div><div class="card"><b id="rivTit"></b><div id="rivList"></div></div><div class="note" id="rivNote"></div></div>
-<div class="note">Fuente: SAIH Ebro (Confederación Hidrográfica del Ebro), datos cada 15 minutos y provisionales. Los avisos amarillo/naranja/rojo son los umbrales oficiales del SAIH cuando existen. <b>⚠️ ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES.</b> Los datos de esta app pueden variar respecto a los de la fuente original. (CHE, SOS Navarra 112)</div>
+<div class="note">Los avisos amarillo/naranja/rojo son los umbrales oficiales del SAIH cuando existen. <b>⚠️ ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES.</b> Los datos de esta app pueden variar respecto a los de la fuente original. (CHE, SOS Navarra 112)</div>
 </section>
 <!-- ============ SAIH ============ -->
 <section id="t-pueblos">
@@ -881,7 +877,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="st"><div><b>🚌 NBUS · autobuses entre pueblos</b><div class="s">Líneas de autobús interurbano del Gobierno de Navarra.</div></div><button class="btn trL" data-url="https://nbus.navarra.es">Abrir</button></div>
 <div class="st"><div><b>🚆 Tren</b><div class="s">Horarios y billetes de Renfe (Pamplona, Tafalla, Olite, Tudela, Altsasu…).</div></div><button class="btn trL" data-url="https://www.renfe.com">Abrir</button></div>
 <div class="st"><div><b>🔐 nbici · aparcamientos cerrados para bici en Pamplona</b><div class="s">Aparcamientos cubiertos y seguros del Ayuntamiento de Pamplona (hay que darse de alta).</div></div><button class="btn trL" data-url="https://www.pamplona.es/nbici">Abrir</button></div></div>
-<div class="note" style="margin:0 6px 10px">Recarga eléctrica: OpenStreetMap (puede faltar alguna). Carriles bici, aparcabicis, EuroVelo y puntos peligrosos: IDENA (Gobierno de Navarra).</div>
+<div class="note" style="margin:0 6px 10px">Puede faltar algún punto de recarga.</div>
 </section>
 <section id="t-energia">
 <div class="card" id="enSum"><b>⚡ Energía en Navarra</b><div class="note">Cargando…</div></div>
@@ -894,14 +890,12 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div style="position:relative"><canvas id="enc" height="420"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="enIn">＋</button><button class="btn mtb" id="enOut">－</button></div></div>
 <div id="enFicha" style="margin-top:8px"></div></div>
 <div class="card"><b>📋 Todos los parques</b><input id="enQ" class="town" placeholder="🔎 Buscar parque o empresa…" style="width:100%;box-sizing:border-box;margin:6px 0"><div id="enList"></div></div>
-<div class="note" style="margin:0 6px 10px">Fuentes: Red Eléctrica (REData), Gobierno de Navarra (IDENA), OpenStreetMap y Open‑Meteo.</div>
 </section>
 <section id="t-camaras">
 <div class="card"><b>📷 Cámaras en directo</b><div class="note">Imágenes de las cámaras de carreteras del Gobierno de Navarra y de refugios de montaña. Se renuevan solas cada pocos minutos. Toca una para verla en grande.</div>
 <div class="row" style="margin-top:8px"><select class="town" id="caZona" style="flex:1"></select><button class="btn" id="caRef">🔄</button></div></div>
 <div class="card"><div style="position:relative"><canvas id="cac" height="320"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="caIn">＋</button><button class="btn mtb" id="caOut">－</button></div></div></div>
 <div id="caList"></div>
-<div class="note" style="margin:0 6px 10px">Fuentes: Gobierno de Navarra (cámaras de carreteras) y alberguesyrefugios.com (Refugio de Belagua). Las imágenes son de sus dueños.</div>
 </section>
 <section id="t-incid">
 <div class="card" id="inSum"><b>🚧 Incidencias en las carreteras de Navarra</b><div class="note">Cargando…</div></div>
@@ -914,7 +908,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="card"><b>📋 Lista</b><div id="inList"></div></div>
 <div class="card tech" style="display:none"><b>🔧 Clave de TomTom (tráfico)</b><div class="note">Pega la clave de tu cuenta gratuita de developer.tomtom.com. Se guarda en el repositorio para que todos los móviles vean el tráfico.</div>
  <input id="ttKey" class="town" placeholder="Clave de TomTom" autocomplete="off" style="width:100%;box-sizing:border-box;margin-top:6px"><div class="row"><button class="btn pri" id="ttSave">💾 Guardar clave</button></div><div class="note" id="ttMsg"></div></div>
-<div class="note" style="margin:0 6px 10px">Fuente: Gobierno de Navarra, Centro de Control de Conservación de Carreteras (información 848 423 500). Para carreteras del Estado, consulta también la DGT.</div>
+<div class="note" style="margin:0 6px 10px">Información de carreteras: 848 423 500. Para carreteras del Estado, consulta también la DGT.</div>
 </section>
 <section id="t-gas">
 <div class="card" id="gsSum"><b>⛽ Gasolineras de Navarra</b><div class="note">Cargando precios…</div></div>
@@ -922,7 +916,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
  <button class="btn" id="gsNear">📍 Cerca de mí</button></div>
 <div class="card"><div style="position:relative"><canvas id="gsc" height="380"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="gscIn">＋</button><button class="btn mtb" id="gscOut">－</button></div></div><div class="note" id="gsLeg" style="margin-top:4px"></div><div id="gsFicha" style="margin-top:8px"></div></div>
 <div class="card"><b id="gsListT">📋 Las más baratas</b><div id="gsList"></div></div>
-<div class="note" style="margin:0 6px 10px">Precios: Ministerio para la Transición Ecológica (geoportal de gasolineras), se actualizan varias veces al día. Recarga eléctrica: OpenStreetMap (puede faltar alguna).</div>
+<div class="note" style="margin:0 6px 10px">Los precios se actualizan varias veces al día. Puede faltar algún punto de recarga.</div>
 </section>
 <section id="t-puertos">
 <div class="card"><b>🏔️ Puertos de montaña</b><div class="note">Estado de cada puerto: cortes e incidencias oficiales, nieve y temperatura previstas y la cámara más cercana. Antes de subir en invierno, mira siempre la información oficial (848 423 500).</div></div>
@@ -940,12 +934,11 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
  <label style="display:block;margin-top:8px">Clave de AEMET OpenData<input id="kyAem" class="town" autocomplete="off" placeholder="Pega aquí la clave de AEMET (la del correo)" style="width:100%;box-sizing:border-box"></label>
  <div class="row"><button class="btn pri" id="kyAemS">💾 Guardar clave de AEMET</button></div>
  <div class="note" id="kyMsg"></div></div>
-<div class="note" style="margin:0 6px 10px"><span id="rdSrc">Radar: RainViewer (uso personal y no comercial), con datos de los radares meteorológicos europeos.</span></div>
+<div class="note" style="display:none"><span id="rdSrc">Radar: RainViewer (uso personal y no comercial), con datos de los radares meteorológicos europeos.</span></div>
 </section>
 <section id="t-emb">
 <div class="card" id="emSum"><b>💧 Embalses de Navarra</b><div class="note">Cargando…</div></div>
 <div id="emList"></div>
-<div class="note" style="margin:0 6px 10px">Fuente: SAIH Ebro (Confederación Hidrográfica del Ebro), datos provisionales cada 15 minutos.</div>
 </section>
 <section id="t-cerca">
 <div class="card"><b>📍 Qué hay cerca de mí</b><div class="note">Con tu ubicación, lo más cercano de todo lo que tiene la app. Tu ubicación no se guarda ni se envía a nadie: solo la usa el móvil.</div>
@@ -1924,7 +1917,7 @@ async function extraRender(){const t=TOWNS[TOWN],el=document.getElementById('tEx
   else h+='<div class="note">No se pudo leer la calidad del aire ahora.</div>';
   h+=`<div class="kpi" style="margin-top:8px"><div><span class="note">🌅 Sol</span><b>${di>=0?hm(d.sunrise[di])+' – '+hm(d.sunset[di]):'—'}</b><span class="note">salida – puesta</span></div>
     <div><span class="note">${m.ico} Luna</span><b>${m.n}</b><span class="note">${m.ill} % iluminada · llena en ${Math.round(m.full)} d · nueva en ${Math.round(m.nw)} d</span></div></div>`;
-  el.innerHTML=h+'<div class="note" style="margin-top:4px">Fuentes: Meteoalarm/AEMET (avisos) y Open‑Meteo / Copernicus CAMS (aire y polen).</div>';}
+  el.innerHTML=h;}
 
 /* ---------- 🗺️ Mapa del tiempo de Navarra ---------- */
 const NB={w:-2.55,e:-0.70,s:41.88,n:43.47};let MT=null,MTL='tiempo',MTD=0,mtImg=null,mtHits=[];
@@ -2387,7 +2380,7 @@ function pFicha(f){const a=f.a,t=pType(a),op=pOpenToday(a),el=document.getElemen
     ${row('📅','Temporada',a.PERIODOHAB)}${row('🗓️','Días',a.DIASHABIL)}${row('🐟','Especies autóctonas',a.AUTOCTONO)}${row('🚫','Exóticas invasoras',a.EXOTIINVAS)}
     ${row('🎫','Permiso',a.PERMISPASE)}${row('📏','Talla',a.TALLA)}${row('🧺','Cupo por día',a.CUPODIA)}${row('🪝','Cebos y anzuelos',a.ANZUYCEBO)}${row('🎣','Cañas',a.ARTESPESCA)}
     ${row('⚠️','Otras normas',a.OTRASLIMIT)}${row('ℹ️','Información',a.INFORMACIO)}
-    <div class="note" style="margin-top:6px">Datos oficiales del Gobierno de Navarra (IDENA) del ${a.BEGINLIFE||'año en curso'}. Antes de pescar, comprueba la orden foral de vedas en pesca.navarra.es.</div></div>`;
+    <div class="note" style="margin-top:6px">Antes de pescar, comprueba la orden foral de vedas en pesca.navarra.es.</div></div>`;
   document.getElementById('pfX').onclick=()=>{PSEL=null;el.innerHTML='';pDraw();};
   el.scrollIntoView({behavior:'smooth',block:'nearest'});}
 function pTap(px,py){let best=null,bd=16;for(const [f,pts] of PLINES)for(let i=1;i<pts.length;i++){const [ax,ay]=pts[i-1],[bx,by]=pts[i],dx=bx-ax,dy=by-ay,L=dx*dx+dy*dy||1;
@@ -2539,7 +2532,7 @@ function czFicha(){const el=document.getElementById('czFicha');if(!CZSEL){el.inn
    ${a.EXCLUIDA?`<div class="st" style="align-items:flex-start"><b>🚫 Caza prohibida</b><span style="text-align:right">${a.EXCLUIDA}</span></div>`:''}
    ${k==='CAZAPE_Pol_Reservas'?'<div class="note">⛔ Zona de reserva del coto: en ella no se caza.</div>':''}
    ${rel?`<div style="margin-top:6px"><b>¿Se puede hoy?</b>${rel}</div>`:''}
-   <div class="note" style="margin-top:6px">Datos del Plan de Ordenación Cinegética del coto (IDENA, ${(window.CAZA_GEO[k]||{}).d||''}). Confirma siempre con tu coto.</div></div>`;
+   <div class="note" style="margin-top:6px">Confirma siempre con tu coto.</div></div>`;
   document.getElementById('czX').onclick=()=>{CZSEL=null;CZM.draw();czFicha();};el.scrollIntoView({behavior:'smooth',block:'nearest'});}
 function czInit(){document.getElementById('czLay').innerHTML=CZL.map(([k,n,c])=>`<label style="display:inline-flex;align-items:center;gap:5px;margin:3px 10px 3px 0;color:var(--txt)"><input type="checkbox" data-k="${k}" ${CZON[k]?'checked':''}><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:${c}"></span>${n}</label>`).join('');
   document.querySelectorAll('#czLay input').forEach(i=>i.onchange=()=>{CZON[i.dataset.k]=i.checked;CZM.draw();});
@@ -2631,7 +2624,7 @@ async function zInfo(px,py,M){const el=document.getElementById('arbZona'),b=M.bo
     if(th.length&&td.length>=th.length)th.forEach((h,i)=>{if(td[i]&&!/^(FID|OBJECTID|GEOM|SHAPE|FEATURE|BEGINLIFE)/i.test(h))half.push(`<div class="st"><b>${h}</b><span style="text-align:right">${td[i]}</span></div>`);});
     else td.forEach(v=>v&&half.push(`<div class="note">${v}</div>`));html=half.join('');}
   else{const plain=t.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();html=plain?`<div class="note">${plain.slice(0,600)}</div>`:'';}
-  el.innerHTML=`<div class="card"><b>📍 ${ZOV.find(z=>z[0]===M.ov)[1]}</b>${html||'<div class="note">Aquí no hay nada en esta capa (o acércate más para consultar).</div>'}<div class="note" style="margin-top:4px">Fuente: Gobierno de Navarra · IDENA.</div></div>`;}
+  el.innerHTML=`<div class="card"><b>📍 ${ZOV.find(z=>z[0]===M.ov)[1]}</b>${html||'<div class="note">Aquí no hay nada en esta capa (o acércate más para consultar).</div>'}</div>`;}
 function zTap(px,py,M){if(M.ov){zInfo(px,py,M);return;}let best=null,bd=40;for(const z of NZON){const [qx,qy]=M.P(z.c[0],z.c[1]),d=Math.hypot(qx-px,qy-py);if(d<bd){bd=d;best=z.id;}}ZSEL=best;M.draw();zRender();}
 function zRender(){const el=document.getElementById('arbZona');const z=NZON.find(q=>q.id===ZSEL);
   if(!z){el.innerHTML='<div class="note">Toca una zona del mapa para ver sus árboles, o mira la lista de especies más abajo.</div>';return;}
@@ -2801,7 +2794,7 @@ function moFeats(k){const G=window.MONTE_GEO||{};if(MO_EXTRA[k])return MO_EXTRA[
   return (G[k]||{f:[]}).f;}
 /* 🚴 rutas en bici (web/bici.js, lo genera tools/bici.py): se cargan con las capas del monte y se meten en MO_EXTRA */
 function biciApply(){const B=window.BICI;if(!B)return;
-  Object.entries(B.idena||{}).forEach(([k,L])=>{MO_EXTRA['BICI_'+k]=L.map(f=>({a:Object.assign({},f.a,{D:(f.a.D?f.a.D+'. ':'')+'Fuente: IDENA (Gobierno de Navarra).'}),r:f.r,pt:f.pt}));});
+  Object.entries(B.idena||{}).forEach(([k,L])=>{MO_EXTRA['BICI_'+k]=L.map(f=>({a:Object.assign({},f.a,{D:(f.a.D?f.a.D+'. ':'')+''}),r:f.r,pt:f.pt}));});
   ['carretera','gravel'].forEach(t=>{MO_EXTRA['BICI_'+t]=(B.salidas||[]).filter(r=>r.tipo===t).map(r=>({a:{NOMBRE:r.n,LUGARINI:r.ini,BKM:r.km?fmtN(r.km,1)+' km':null,BDES:r.des?r.des+' m':null,BDIF:r.dif||null,URL:r.url,
     D:'El punto marca el pueblo de salida. El recorrido completo está en la ficha oficial de Turismo de Navarra (visitnavarra.es).'},pt:r.pt}));});}
 let BILOAD=false;function biciLoad(cb){if(window.BICI||BILOAD){cb();return;}BILOAD=true;const s=document.createElement('script');s.src='bici.js';s.onload=s.onerror=()=>{biciApply();cb();};document.body.appendChild(s);}
@@ -2824,7 +2817,7 @@ async function zInfoMo(px,py,M){const el=document.getElementById('moFicha');el.i
   const th=[...t.matchAll(/<th[^>]*>([\s\S]*?)<\/th>/gi)].map(m=>m[1].replace(/<[^>]+>/g,'').trim()),td=[...t.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(m=>m[1].replace(/<[^>]+>/g,'').trim());
   let h='';if(th.length&&td.length>=th.length)th.forEach((k,i)=>{if(td[i]&&!/^(FID|OBJECTID|GEOM|SHAPE|FEATURE|BEGINLIFE|X25830|Y25830)/i.test(k))h+=`<div class="st"><b>${k}</b><span style="text-align:right">${td[i]}</span></div>`;});
   else{const p=t.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();if(p)h=`<div class="note">${p.slice(0,600)}</div>`;}
-  el.innerHTML=`<div class="card"><b>📍 ${MOOV.find(z=>z[0]===M.ov)[1]}</b>${h||'<div class="note">Aquí no hay nada en esta capa (acércate más para consultar).</div>'}<div class="note">Fuente: Gobierno de Navarra · IDENA.</div></div>`;}
+  el.innerHTML=`<div class="card"><b>📍 ${MOOV.find(z=>z[0]===M.ov)[1]}</b>${h||'<div class="note">Aquí no hay nada en esta capa (acércate más para consultar).</div>'}</div>`;}
 const LAB={BKM:'Distancia',BDUR:'Duración',BDES:'Desnivel',BDIF:'Dificultad',BCAT:'Tipo de vía',TRAMO:'Tramo',NOMBRE:'Nombre',DESCRIPCIO:'Descripción',TIPO:'Tipo',COTA:'Altitud (m)',MUNICIPIO:'Municipio',TOPONIMIA:'Paraje',LONGITUD:'Longitud (m)',PROFUNDIDA:'Profundidad (m)',
   LUGARINI:'Salida',LUGARFIN:'Llegada',ALTITUDMAX:'Altitud máx. (m)',ALTITUDMIN:'Altitud mín. (m)',DESNIPOSI:'Desnivel + (m)',DESNINEGA:'Desnivel − (m)',BARBACOA:'Barbacoa',EQUIPAMIEN:'Equipamiento',
   PARKING:'Aparcamiento',VEGETACION:'Vegetación',ELEPAISAJE:'Paisaje',DEMARCACIO:'Zona',PTOAGUA:'Punto',POBLACION:'Localidad',ZONATUR:'Zona',POTABLE:'Agua potable',RIO:'Cuenca',CODIGO:'Código',D:'',N:''};
@@ -3252,7 +3245,7 @@ function enReal(){const E=window.ENERGIA,R=E.ree,el=document.getElementById('enR
   for(const [t,d] of Object.entries(E.pot||{})){const ks=Object.keys(d).sort().filter(k=>k<=m);if(ks.length&&!cap[t])cap[t]=d[ks[ks.length-1]];}
   const ren=['Eólica','Solar fotovoltaica','Hidráulica','Otras renovables'].reduce((s,t)=>s+((R.tec[t]||[])[ENMES]||0),0);
   const yr=R.meses.map((x,i)=>[x,i]).filter(([x])=>x.startsWith(String(yy))).map(([,i])=>i);
-  el.innerHTML=`<b>📊 Producción real en Navarra</b><div class="note">Datos de Red Eléctrica (REE), por meses. Toca una barra para ver ese mes.</div>
+  el.innerHTML=`<b>📊 Producción real en Navarra</b><div class="note">Por meses. Toca una barra para ver ese mes.</div>
    <canvas id="enM" height="200" style="width:100%;margin-top:6px;background:#fff;border:1px solid #e0e6e2"></canvas>
    <div style="display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;margin:4px 0 8px">${tecs.map(t=>`<span><b style="color:${ENC[t]||'#ccc'}">■</b> ${t}</span>`).join('')}</div>
    <div class="row" style="align-items:center"><button class="btn" id="enPrev">‹</button><b style="flex:1;text-align:center">${MES[mm-1]} ${yy}</b><button class="btn" id="enNext">›</button></div>
@@ -3461,7 +3454,7 @@ async function gsLive(){if(!APP||GSLIVE)return;try{const r=await netGet('https:/
   if(L.length){window.VIAJE.gas=L;window.VIAJE.gasT=j.Fecha||'';GSLIVE=Date.now();}}catch(e){}}
 function gsRender(){const V=window.VIAJE,f=document.getElementById('gsFuel').value,isR=f==='rec';
   if(isR){const L=(V.rec||[]).map(x=>({...x,d:GSPOS?km(GSPOS.la,GSPOS.lo,x.pt[0],x.pt[1]):null})).sort((a,b)=>GSPOS?a.d-b.d:(a.n||'').localeCompare(b.n||''));
-    document.getElementById('gsSum').innerHTML=`<b>⚡ Puntos de recarga eléctrica</b><div class="note">${L.length} puntos en Navarra según OpenStreetMap.</div>`;
+    document.getElementById('gsSum').innerHTML=`<b>⚡ Puntos de recarga eléctrica</b><div class="note">${L.length} puntos en Navarra.</div>`;
     document.getElementById('gsLeg').innerHTML='<b style="color:#8e24aa">●</b> Punto de recarga';document.getElementById('gsListT').textContent=GSPOS?'📋 Los más cercanos':'📋 Todos';
     document.getElementById('gsList').innerHTML=L.slice(0,40).map((x,i)=>`<div class="st" data-i="${V.rec.indexOf(x)}" style="cursor:pointer"><div><b>⚡ ${x.n||'Punto de recarga'}</b><div class="s">${[x.kw,x.cap?x.cap+' plazas':'',x.tip.join(', ')].filter(Boolean).join(' · ')}</div></div><span class="note">${x.d!=null?fmtN(x.d,1)+' km':'›'}</span></div>`).join('')||'<div class="note">Sin datos.</div>';
     document.querySelectorAll('#gsList [data-i]').forEach(d=>d.onclick=()=>{GSSEL={r:V.rec[+d.dataset.i]};gsFicha();GSM.fit(GSSEL.r.pt[0]-.03,GSSEL.r.pt[0]+.03,GSSEL.r.pt[1]-.04,GSSEL.r.pt[1]+.04);});
@@ -3515,7 +3508,7 @@ async function puInit(){const el=document.getElementById('puList');vjLoad(async(
       <div><span class="note">Nieve prevista</span><b>${ns[0]+ns[1]+ns[2]>=.1?ns.map(v=>fmtN(v,0)).join(' / ')+' cm':'No'}</b><span class="note">hoy / mañana / pasado · mín. ${Math.round(tmin)}°</span></div></div>`:''}
      ${inc.map(n=>`<div class="note" style="margin-top:6px">${inIco(n.cat)} <b>${n.car}: ${n.tit||n.tipo}</b> — ${(n.des||n.af).replace(/</g,'&lt;')}</div>`).join('')}
      ${cam&&cam.d<12?`<img src="${caSrc(cam.k)}" data-c="${CAMS.indexOf(cam.k)}" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;margin-top:8px;cursor:zoom-in" onerror="this.remove()"><div class="note">📷 Cámara de ${cam.k.n} (a ${fmtN(cam.d,1)} km)</div>`:''}</div>`;}).join('')+
-   `<div class="note" style="margin:0 6px 10px">Puertos: OpenStreetMap · incidencias: Gobierno de Navarra${APP?'':' (solo en la app)'} · tiempo: Open‑Meteo · cámaras: Gobierno de Navarra y refugios.</div>`;
+   (APP?'':`<div class="note" style="margin:0 6px 10px">Las incidencias solo se ven en la app.</div>`);
   el.querySelectorAll('img[data-c]').forEach(im=>im.onclick=()=>caBig(CAMS[+im.dataset.c]));});}
 
 /* ---------- 🌧️ radar de lluvia (RainViewer) ---------- */
@@ -3703,7 +3696,7 @@ async function ekInit(){if(!EKM){EKM=NavMap('ekc',ekDraw,()=>{});mapBtns('ekc',E
     document.getElementById('ekPlay').onclick=()=>{const b=document.getElementById('ekPlay');if(EKP){clearInterval(EKP);EKP=null;b.textContent='▶️';return;}b.textContent='⏸️';
       EKP=setInterval(()=>{if(!document.getElementById('t-radar').classList.contains('on')||!EUSF.length){clearInterval(EKP);EKP=null;b.textContent='▶️';return;}EKI=(EKI+1)%EUSF.length;document.getElementById('ekT').value=EKI;ekShow();},800);};}
   await eusLoad();const s=document.getElementById('ekT');s.max=Math.max(0,EUSF.length-1);EKI=Math.max(0,EUSF.length-1);s.value=EKI;
-  document.getElementById('ekNote').textContent=EUSF.length?'Cuanto más intenso el color, más fuerte llueve. Si no ves color, no llueve en esa zona. Datos de Euskalmet cada 10 minutos.':'Euskalmet todavía no tiene imágenes de hoy (pasa justo después de medianoche). Vuelve a mirar en un rato.';
+  document.getElementById('ekNote').textContent=EUSF.length?'Cuanto más intenso el color, más fuerte llueve. Si no ves color, no llueve en esa zona.':'Euskalmet todavía no tiene imágenes de hoy (pasa justo después de medianoche). Vuelve a mirar en un rato.';
   setTimeout(()=>{EKM.draw();EKM.base();ekShow();},120);}
 
 
@@ -4035,8 +4028,7 @@ async function seInit(){const el=document.getElementById('seBody');el.innerHTML=
     ${snow.length?`<div class="note" style="margin-top:6px">❄️ Ha nevado en: ${snow.map(p=>`${p.n} (${fmtN(p.ni,0)} cm)`).join(', ')}.</div>`:''}</div>
    <div class="card"><b>🔮 Los próximos 7 días</b><div class="note" style="margin-top:4px">${fut<2?'☀️ Semana bastante seca: se esperan de media menos de 2 mm.':fut<15?`🌦️ Algo de lluvia: unos ${fmtN(fut,0)} mm de media en Navarra.`:`🌧️ Semana lluviosa: unos ${fmtN(fut,0)} mm de media. Ojo a los ríos.`}</div></div>
    <div class="card"><b>⛽ Gasolina y carreteras</b><div class="kpi" style="margin-top:8px"><div><span class="note">Gasolina 95 (media)</span><b>${fmtN(av(g95),3)} €</b></div><div><span class="note">Diésel (media)</span><b>${fmtN(av(dA),3)} €</b></div></div>
-    ${INC?`<div class="note" style="margin-top:6px">🚧 Ahora hay ${INC.length} incidencias en las carreteras de Navarra${INC.filter(n=>n.cerr||/cortad|cerrad/i.test(n.af+' '+n.tit)).length?', '+INC.filter(n=>n.cerr||/cortad|cerrad/i.test(n.af+' '+n.tit)).length+' con cortes':''}.</div>`:''}</div>
-   <div class="note" style="margin:6px">Datos: Open‑Meteo (29 pueblos de referencia), Ministerio (gasolineras) y Gobierno de Navarra (carreteras).</div>`;}
+    ${INC?`<div class="note" style="margin-top:6px">🚧 Ahora hay ${INC.length} incidencias en las carreteras de Navarra${INC.filter(n=>n.cerr||/cortad|cerrad/i.test(n.af+' '+n.tit)).length?', '+INC.filter(n=>n.cerr||/cortad|cerrad/i.test(n.af+' '+n.tit)).length+' con cortes':''}.</div>`:''}</div>`;}
 
 const _showTabDi=showTab;showTab=function(t){_showTabDi(t);if(t==='diario')setTimeout(diInit,40);if(t==='sitios')setTimeout(msInit,40);if(t==='semana')setTimeout(seInit,40);};
 
@@ -4378,7 +4370,7 @@ async function agRender(){const G=await jsLoad(AG_PATH,AG_DEF),hoy=hoyYmd();if(!
   const fila=e=>`<div class="st" style="align-items:flex-start"><div style="flex:1"><b>${agIco(e.cat)} ${esc(e.t)}</b>
     <div class="s">${e.ff&&e.ff!==e.f?'Del '+foFecha(e.f)+' al '+foFecha(e.ff):fLarga(e.f)}${e.h?' · '+esc(e.h)+' h':''}</div>
     <div class="s">📍 ${esc(e.lugar||'')}${e.pueblo?(e.lugar?', ':'')+esc(e.pueblo):''}</div>${e.desc?`<div class="s">${esc(e.desc)}</div>`:''}
-    ${urlOk(e.url)?`<div class="s"><a href="${esc(e.url)}" target="_blank">🔗 Más información / entradas</a></div>`:''}${e.src?`<div class="s" style="font-size:.85em;opacity:.75">Fuente: ${esc(e.src)}</div>`:''}
+    ${urlOk(e.url)?`<div class="s"><a href="${esc(e.url)}" target="_blank">🔗 Más información / entradas</a></div>`:''}
     ${TECH?`<div class="row"><button class="btn" data-ed="${esc(e.id)}">✏️ Editar</button></div>`:''}</div></div>`;
   const fies=(typeof abFiestas==='function'?abFiestas(AGSEL):[]).filter(p=>!AGPUE||agNorm(p).includes(agNorm(AGPUE)));
   document.getElementById('agDia').innerHTML=`<b>📅 ${fLarga(AGSEL)}</b>${fies.length?`<div class="note" style="margin:4px 0">🎉 <b>Fiesta local</b> en ${fies.slice(0,25).map(esc).join(', ')}${fies.length>25?' y '+(fies.length-25)+' más':''} <span class="note">(calendario oficial de festivos)</span></div>`:''}${del.length?del.map(fila).join(''):'<div class="note">No tenemos nada apuntado este día.</div>'}
@@ -5129,28 +5121,30 @@ function pvsDrawer(){const h=document.querySelector('#drawer .dhead');if(!h||h.q
 pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();pvsShow(BNTAB);}catch(e){}};
 </script>
 <img id="basatina-footer-logo" src="logo.png" alt="BasatiNa" aria-hidden="true">
-<script src="servicios-ui.js?v=9e94fc07"></script>
+<script src="servicios-ui.js?v=eb76c01d"></script>
 <script src="arbustos.js?v=2c48ced4"></script>
-<script src="novedades.js?v=801ed47d"></script>
+<script src="novedades.js?v=c7f0d68d"></script>
 <script src="efemerides.js?v=b4dea96e"></script>
-<script src="rutas-ui.js?v=0007ff9c"></script>
-<script src="mejoras.js?v=73c7d74e"></script>
-<script src="comunidad.js?v=d9894af7"></script>
+<script src="rutas-ui.js?v=d845ee03"></script>
+<script src="mejoras.js?v=9888bbf3"></script>
+<script src="comunidad.js?v=95af5a87"></script>
 <script src="cuenta.js?v=f53e64c0"></script>
-<script src="ampliacion.js?v=724f4f11"></script>
-<script src="radar-viva.js?v=0c2df8b7"></script>
-<script src="rios-plus.js?v=91e1d9d6"></script>
-<script src="ocio-ui.js?v=64d1c8a7"></script>
+<script src="ampliacion.js?v=b9e15d0c"></script>
+<script src="radar-viva.js?v=eb8b8830"></script>
+<script src="rios-plus.js?v=0daef14f"></script>
+<script src="ocio-ui.js?v=ab9daac1"></script>
 <script src="juegos.js?v=27423182"></script>
-<script src="temas.js?v=9e45bccf"></script>
+<script src="temas.js?v=d5e8dd38"></script>
 <script src="juegos2.js?v=a6391aac"></script>
 <script src="juegos-peques.js?v=1c6b2124"></script>
 <script src="curiosas.js?v=e68ea1cc"></script>
 <script src="lluvia-aviso.js?v=23b0066f"></script>
 <script src="menu-emojis.js?v=3535bfce"></script>
-<script src="padel-ui.js?v=e9a7ce91"></script>
-<script src="oficial.js?v=eb081373"></script>
+<script src="padel-ui.js?v=d2dd507f"></script>
+<script src="oficial.js?v=9105ba2c"></script>
 <script src="legal.js?v=5462484f"></script>
+<script src="voluntariado.js?v=30e1b2f4"></script>
+<script src="relax.js?v=5da061a1"></script>
 
 </body>
 </html>

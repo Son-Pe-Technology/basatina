@@ -45,6 +45,41 @@
     monte:['idena','espacios'], energia:['idena'], pueblos:['navarra','turismo'],
     patrimonio:['navarra','turismo'], cultura:['cultura'], agenda:['cultura','pamplona'], cerca:['salud','navarra']
   };
+  // 20 nov. 2026 (petición de Pedro): de dónde salen los datos que NO son oficiales (Open‑Meteo, OpenStreetMap…)
+  // ya no se escribe en mitad de cada pantalla: va aquí, en el pie de fuentes, en letra pequeña.
+  // Para una pantalla nueva con datos de otros: una línea más (pestaña → texto).
+  const DATOS={
+    mtiempo:'mapa © IGN · tiempo: Open‑Meteo · ríos: SAIH Ebro',
+    tiempo:'Open‑Meteo (modelos de AEMET, ECMWF y otros) · avisos: Meteoalarm/AEMET · aire y polen: Copernicus CAMS',
+    radar:'RainViewer (uso personal y no comercial) y Euskalmet (radar de Kapildui) · fondos: © OpenStreetMap © CARTO, satélite PNOA cedido por © IGN, mapa © IGN',
+    salud:'Open‑Meteo (CC BY 4.0) y Copernicus CAMS',
+    hist:'Ayuntamiento de Pamplona, CHE (SAIH y notas de prensa), MITECO, Gobierno de Navarra, Plan de inundaciones de Huarte, Consorcio de Compensación de Seguros, Universidad de Zaragoza y prensa (Noticias de Navarra, Onda Vasca)',
+    prev:'lluvia prevista: Open‑Meteo · caudal: SAIH Ebro (Burlada) · ríos: GloFAS (Copernicus)',
+    caudal:'SAIH Ebro, datos provisionales cada 15 minutos', emb:'SAIH Ebro, datos provisionales cada 15 minutos',
+    caza:'Planes de Ordenación Cinegética · © Gobierno de Navarra · IDENA (CC BY 4.0)', pesca:'Gobierno de Navarra · IDENA (CC BY 4.0)',
+    monte:'rutas: © OpenStreetMap (ODbL), IDENA y Turismo de Navarra · alturas: Copernicus DEM GLO-30 · mapas: © IGN · tiempo: Open‑Meteo',
+    transp:'recarga: © OpenStreetMap (ODbL) · red ciclista, aparcabicis, EuroVelo y puntos de riesgo: IDENA',
+    energia:'Red Eléctrica (REData), Gobierno de Navarra (IDENA), © OpenStreetMap y Open‑Meteo',
+    camaras:'Gobierno de Navarra (cámaras de carreteras) y alberguesyrefugios.com (Refugio de Belagua); las imágenes son de sus dueños',
+    incid:'Centro de Control de Conservación de Carreteras (Gobierno de Navarra)',
+    gas:'precios: geoportal de gasolineras (MITECO) · recarga: © OpenStreetMap (ODbL)',
+    puertos:'puertos: © OpenStreetMap · incidencias y cámaras: Gobierno de Navarra y refugios · tiempo: Open‑Meteo',
+    sismo:'IGN (Red Sísmica Nacional) · fallas: base QAFI (IGME‑CSIC) y estudios universitarios',
+    farmacia:'Farmacias de Navarra · Departamento de Salud / IDENA (CC BY 4.0)',
+    bus:'IDENA (Gobierno de Navarra y Mancomunidad de la Comarca de Pamplona, CC BY 4.0)',
+    enp:'IDENA (Gobierno de Navarra, CC BY 4.0)',
+    biodiversidad:'observaciones: GBIF.org (CC0 / CC BY) · textos: Wikipedia (CC BY-SA 4.0) · amenaza: Lista Roja de la UICN',
+    super:'© colaboradores de OpenStreetMap (ODbL)', peques:'parques infantiles: © OpenStreetMap (ODbL)', mascotas:'© OpenStreetMap (ODbL)',
+    padel:'© OpenStreetMap (ODbL) · tiempo: Open‑Meteo', centros:'© OpenStreetMap (ODbL) y Gobierno de Navarra (IDENA)',
+    vias3:'Open‑Meteo (modelos de AEMET, ECMWF y otros)', nieve:'AEMET (boletín de aludes y predicción de montaña) · Open‑Meteo',
+    comunidad:'mapa © IGN', jdonde:'mapa de municipios: © Gobierno de Navarra · IDENA (CC BY 4.0)',
+    moto:'recorridos: OSRM con © OpenStreetMap (ODbL) · altitud: Copernicus DEM',
+    pedalea:'Gobierno de Navarra (IDENA), Turismo de Navarra (visitnavarra.es), Vías Verdes y EuroVelo',
+    picnic:'Gobierno de Navarra (IDENA): áreas recreativas y red ciclista',
+    comarcas:'Gobierno de Navarra (IDENA, CC BY 4.0) y Wikidata (CC0)', pueblos:'Gobierno de Navarra (IDENA, CC BY 4.0) y Wikidata (CC0)'
+  };
+  const datosTxt=t=>DATOS[t]?`<br>📚 Datos: ${DATOS[t]}.`:'';
+  window.BNA_DATOS=DATOS;
   const AVISO='BasatiNA es una app independiente y NO oficial. No representa ni está vinculada al Gobierno de Navarra, a la Confederación Hidrográfica del Ebro, a AEMET ni a ningún otro organismo público.';
   const AVISO2='Los datos públicos se toman de sus fuentes oficiales, que puedes consultar en los enlaces. Ante cualquier riesgo, haz caso siempre a los avisos oficiales.';
 
@@ -87,17 +122,17 @@
   // fuente de cada pantalla con datos públicos: abajo del todo y en letra pequeña, como en Inicio
   // (petición de Pedro, 20 nov. 2026; antes era una franja arriba). Se vuelve a poner al final un par de veces
   // porque algunas pantallas añaden tarjetas después de abrirse.
-  function franja(t){const k=SRC_TAB[t];if(!k)return;const sid=(t==='sim'||t==='libre')?'mapa':t;const s=document.getElementById('t-'+sid);if(!s)return;
+  function franja(t){const k=SRC_TAB[t]||[];if(!k.length&&!DATOS[t])return;const sid=(t==='sim'||t==='libre')?'mapa':t;const s=document.getElementById('t-'+sid);if(!s)return;
     const vieja=s.querySelector(':scope>.bnaSrc');if(vieja)vieja.remove();
     let d=s.querySelector(':scope>.bnaPieSrc');if(!d){d=document.createElement('div');d.className='bnaPie bnaPieSrc';
-      d.innerHTML=`🏛️ Fuente oficial: ${k.map(enlace).join(' · ')}<br>ℹ️ BasatiNA no es una app oficial. <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">Más información</a>`;}
+      d.innerHTML=`${k.length?`🏛️ Fuente oficial: ${k.map(enlace).join(' · ')}<br>`:''}ℹ️ BasatiNA no es una app oficial. <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">Más información</a>${datosTxt(t)}`;}
     s.appendChild(d);}
   const franjaLuego=t=>{franja(t);setTimeout(()=>franja(t),1500);setTimeout(()=>franja(t),5000);};
 
   // Inicio: aviso pequeño abajo del todo (petición de Pedro, 18 nov. 2026)
   function pie(){const s=document.getElementById('t-mtiempo');if(!s)return;let d=s.querySelector(':scope>.bnaPie');
     if(!d){d=document.createElement('div');d.className='bnaPie';
-      d.innerHTML=`ℹ️ ${AVISO} Fuentes oficiales: ${['aemet','saih','navarra'].map(enlace).join(' · ')} · <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">ver todas</a>`;}
+      d.innerHTML=`ℹ️ ${AVISO} Fuentes oficiales: ${['aemet','saih','navarra'].map(enlace).join(' · ')} · <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">ver todas</a>${datosTxt('mtiempo')}`;}
     s.appendChild(d);}
   const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo')pie();if(t==='about')tarjeta('t-about');franjaLuego(t);}catch(e){}};
   pie();setTimeout(pie,1500);setTimeout(pie,5000);tarjeta('t-about');

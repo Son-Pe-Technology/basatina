@@ -202,7 +202,7 @@ function ruFicha(r) {
     ${r.osm ? `<button class="btn" id="ruOsm">🗺️ ${ruT('Ver en OpenStreetMap')}</button>` : ''}${r.web ? `<button class="btn" id="ruWeb">🔗 ${ruT('Web de la ruta')}</button>` : ''}
     <button class="btn" id="ruSh">📤 ${ruT('Compartir')}</button></div>
    <div class="card" id="ruTiempo"><b>🌦️ ${ruT('El tiempo en el recorrido')}</b><div class="note">${ruT('Cargando la previsión…')}</div></div>
-   <div class="card" style="border-color:#ffb020"><div class="note">⚠️ ${ruT('Tiempo orientativo sin paradas (norma DIN 33466: 4 km/h en llano, 300 m/h subiendo, 500 m/h bajando). La dificultad está calculada con la distancia y el desnivel, no con el terreno: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.')}<br>${ruT('Datos:')} ${(r.fuente || []).map(ruE).join(' · ')}. ${ruT('Alturas:')} Copernicus DEM GLO-30. ${ruT('Mapas:')} © Instituto Geográfico Nacional.</div></div>`;
+   <div class="card" style="border-color:#ffb020"><div class="note">⚠️ ${ruT('Tiempo orientativo sin paradas (norma DIN 33466: 4 km/h en llano, 300 m/h subiendo, 500 m/h bajando). La dificultad está calculada con la distancia y el desnivel, no con el terreno: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.')}</div></div>`;
   const $ = id => document.getElementById(id);
   $('ruVolver').onclick = () => {if (history.state && history.state.ruta) history.back(); else ruCerrar();};
   $('ruGpx').onclick = () => ruGpx(r);
@@ -315,8 +315,7 @@ async function ruTiempo(r) {
   el.innerHTML = `<b>🌦️ ${ruT('El tiempo en el recorrido')}</b>` + P.map(([t, , alt], n) => {const j = J[n]; if (!j || !j.daily) return ''; const d = j.daily;
     return `<div style="margin-top:8px;font-size:13.5px;color:var(--txt)"><b>${ruE(t)}</b> <span class="note">(${alt} m) · ${ruT('ahora')} ${wxIcon(j.current.weather_code, h)} ${Math.round(j.current.temperature_2m)}°</span></div>
      <div class="ruWx">${d.time.map((x, i) => {const dt = new Date(x + 'T12:00'); return `<div><b>${i ? DOW[dt.getDay()] + ' ' + dt.getDate() : ruT('Hoy')}</b><span class="i">${wxIcon(d.weather_code[i], 12)}</span>
-      <b>${Math.round(d.temperature_2m_max[i])}°</b> <span class="note">${Math.round(d.temperature_2m_min[i])}°</span><br><span class="note">${d.precipitation_sum[i] > 0.1 ? '💧' + ruF(d.precipitation_sum[i]) + ' mm' : '☀️ ' + ruT('seco')}</span><br><span class="note">💨 ${Math.round(d.wind_speed_10m_max[i])} km/h</span></div>`;}).join('')}</div>`;}).join('')
-    + `<div class="note">${ruT('Previsión de Open-Meteo para la altitud de cada punto.')}</div>`;
+      <b>${Math.round(d.temperature_2m_max[i])}°</b> <span class="note">${Math.round(d.temperature_2m_min[i])}°</span><br><span class="note">${d.precipitation_sum[i] > 0.1 ? '💧' + ruF(d.precipitation_sum[i]) + ' mm' : '☀️ ' + ruT('seco')}</span><br><span class="note">💨 ${Math.round(d.wind_speed_10m_max[i])} km/h</span></div>`;}).join('')}</div>`;}).join('');
 }
 
 window.addEventListener('popstate', e => {if (RU.sel && !(e.state && e.state.ruta)) ruCerrar();});

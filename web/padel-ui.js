@@ -43,7 +43,7 @@ svSec('padel',`<div class="card"><b>🎾 <span>NA Pádel</span></b><div class="n
  <div id="pdV1"><div class="card"><div class="pdChips" id="pdF"></div><div class="row"><input id="pdQ" class="town" placeholder="🔎 Buscar pueblo o club…" style="flex:1;min-width:0"><button class="btn" id="pdYo">📍 <span>Cerca de mí</span></button></div></div>
   <div class="card" style="padding:6px"><canvas id="pdMap" class="amMap"></canvas><div class="note" style="padding:4px 6px">🔵 club · 🟢 municipal · punto grande = tiene pistas cubiertas</div></div>
   <div id="pdFi"></div><div id="pdL"><div class="card"><div class="note">Cargando…</div></div></div>
-  <div class="note" style="margin:0 6px 12px">Datos: © OpenStreetMap (ODbL). Puede faltar algún club o haber cambiado sus pistas u horarios: llama antes de ir. ¿Falta tu club? Cuéntanoslo en el <a href="#" id="pdBuz">buzón de sugerencias</a>.</div></div>
+  <div class="note" style="margin:0 6px 12px">Puede faltar algún club o haber cambiado sus pistas u horarios: llama antes de ir. ¿Falta tu club? Cuéntanoslo en el <a href="#" id="pdBuz">buzón de sugerencias</a>.</div></div>
  <div id="pdV2" style="display:none"><div class="card" id="pdC"><div class="note">Cargando…</div></div>
   <div class="card"><b>🔗 <span>Federación Navarra de Pádel</span></b><div class="note">Calendario oficial, torneos, cuadros, ranking y licencias.</div><div class="row" style="margin-top:6px"><button class="btn" id="pdFnp">🌐 Abrir su web</button><button class="btn" id="pdDep">🏆 Deporte navarro</button></div></div></div>`);
 window.amNuevo&&window.amNuevo('padel','Qué hacer','🎾 NA Pádel','fiesta','i-padel','b');
@@ -64,7 +64,7 @@ async function pdTiempo(){if(Date.now()-PDWX<15*60e3&&$('pdWx').dataset.ok)retur
       rac>=45?['💨',`Mucho viento (rachas de ${Math.round(rac)} km/h): la bola se va, mejor cubierta.`,'#fff3e0','#e65100']:tmin<=3?['🥶',`Hace frío (${Math.round(tmin)} °C): calienta bien antes de jugar.`,'#eceff1','#37474f']:['✅','Buen tiempo para jugar fuera.','#e8f5e9','#1b5e20'];
     $('pdWx').dataset.ok=1;PDWX=Date.now();
     $('pdWx').innerHTML=`<div class="pdVer" style="background:${v[2]};color:${v[3]}">${v[0]} <span>${v[1]}</span></div><div class="pdWx">${I.map(i=>{const h=+H.time[i].slice(11,13);return `<div><small>${h} h</small><div style="font-size:20px">${wxIcon(H.weather_code[i],h)}</div><b>${Math.round(H.temperature_2m[i])}°</b><small>☔ ${H.precipitation_probability[i]||0}%</small><small>💨 ${Math.round(H.wind_gusts_10m[i]||0)}</small></div>`;}).join('')}</div>
-      <div class="note" style="margin-top:4px">Próximas horas en ${donde} (lluvia y rachas de viento en km/h). Datos: Open‑Meteo.</div>`;
+      <div class="note" style="margin-top:4px">Próximas horas en ${donde} (lluvia y rachas de viento en km/h).</div>`;
   }catch(e){$('pdWx').innerHTML='<div class="note">No se ha podido mirar el tiempo ahora.</div>';}}
 
 /* ---------- 🎾 Pistas ---------- */

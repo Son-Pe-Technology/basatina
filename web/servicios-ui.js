@@ -161,7 +161,7 @@ svSec('farmacia',`<div class="card" style="border-left:4px solid #2e7d32"><b>�
   <input class="town" id="faQ" type="search" placeholder="🔎 Buscar por pueblo o nombre (p. ej. Elizondo)" style="width:100%;box-sizing:border-box;margin-top:8px">
   <div id="faMsg" class="note"></div><div id="faList" style="margin-top:6px"></div></div>
   <div class="card" style="padding:6px"><div style="position:relative"><canvas id="fac" height="360"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="facIn">＋</button><button class="btn mtb" id="facOut">－</button></div></div></div>
-  <div class="note">Fuente: Farmacias de Navarra · Departamento de Salud / IDENA (Gobierno de Navarra, CC BY 4.0). Si ves algún dato mal, avísanos por el buzón.</div>`);
+  <div class="note">Si ves algún dato mal, avísanos por el buzón.</div>`);
 let FAM=null,FAPOS=null,FASEL=null;
 const faL=()=>(window.SERVICIOS&&SERVICIOS.farmacias)||[];
 function faFila(f,d){return `<div class="st" style="align-items:flex-start"><div style="flex:1"><b>💊 ${esc(f.n)}</b><div class="s">${esc([f.d,f.m].filter(Boolean).join(' · '))}</div>${f.z?`<div class="s">🛡️ Zona de guardia: <b>${esc(f.z)}</b></div>`:''}
@@ -229,7 +229,7 @@ svSec('bus',`<div class="card"><b>🧭 ¿Cómo voy en transporte público?</b><d
   <div class="card"><b>🚆 Tren</b><div class="note">Navarra tiene dos líneas de Renfe: <b>Castejón – Tafalla – Pamplona – Altsasu</b> (hacia Vitoria) y <b>Castejón – Tudela – Cortes</b> (hacia Zaragoza y Logroño). Estaciones principales: Pamplona/Iruña, Tudela, Tafalla, Olite, Castejón, Altsasu y Marcilla.</div>
   <div class="row" style="margin-top:6px"><a class="btn pri" href="https://www.renfe.com" target="_blank" rel="noopener">🎫 Horarios y billetes (Renfe)</a></div></div>
   <div class="card"><b>✈️ Aeropuerto de Pamplona (Noáin)</b><div class="note">A unos 7 km del centro. Comprueba en la web de Aena si hay vuelos y cómo llegar.</div><div class="row" style="margin-top:6px"><a class="btn" href="https://www.aena.es/es/pamplona.html" target="_blank" rel="noopener">✈️ Aena · Pamplona</a></div></div>
-  <div class="note">Los horarios cambian: consulta siempre la web o la app oficial de cada servicio. Paradas y empresas: IDENA (Gobierno de Navarra y Mancomunidad de la Comarca de Pamplona, CC BY 4.0).</div>`);
+  <div class="note">Los horarios cambian: consulta siempre la web o la app oficial de cada servicio.</div>`);
 function buInit(){pbLoad(()=>{const dl=document.getElementById('buDL');if(!dl.children.length&&window.PUEBLOS)dl.innerHTML=[...new Set(PUEBLOS.pueblos.map(p=>p.n.split(' / ')[0]))].slice(0,1500).map(n=>`<option value="${esc(n)}">`).join('');});
   document.getElementById('buGo').onclick=()=>{const d=document.getElementById('buDest').value.trim();if(!d)return toast('Escribe un destino');
     window.open('https://www.google.com/maps/dir/?api=1&travelmode=transit&destination='+encodeURIComponent(d+(/navarra/i.test(d)?'':', Navarra')),'_blank');};
@@ -307,8 +307,7 @@ svSec('enp',`<div class="card"><b>🏞️ Patrimonio natural protegido</b><div c
   <div class="card"><b>🗺️ Todos los espacios</b><select class="town" id="epFig" style="width:100%;margin-top:6px"></select><input class="town" id="epQ" type="search" placeholder="🔎 Buscar por nombre" style="width:100%;box-sizing:border-box;margin-top:6px">
   <div style="position:relative;margin-top:8px"><canvas id="epc" height="360"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="epcIn">＋</button><button class="btn mtb" id="epcOut">－</button></div></div>
   <div id="epFicha"></div><div id="epList" style="margin-top:6px"></div></div>
-  <div class="card"><b>🥾 Normas al visitar</b><div class="note">Ve por los caminos señalizados, no dejes basura, no hagas fuego, lleva al perro atado, no cojas plantas, rocas ni animales y respeta las zonas de nidificación y los cierres temporales. En las reservas naturales e integrales el acceso puede estar limitado: infórmate antes.</div></div>
-  <div class="note">Fuente: espacios naturales protegidos, monumentos naturales, zonas húmedas y Red Natura 2000 de Navarra · IDENA (Gobierno de Navarra, CC BY 4.0).</div>`);
+  <div class="card"><b>🥾 Normas al visitar</b><div class="note">Ve por los caminos señalizados, no dejes basura, no hagas fuego, lleva al perro atado, no cojas plantas, rocas ni animales y respeta las zonas de nidificación y los cierres temporales. En las reservas naturales e integrales el acceso puede estar limitado: infórmate antes.</div></div>`);
 const epL=()=>(window.SERVICIOS&&SERVICIOS.enp)||[];
 const epCol=f=>/parque/i.test(f)?'#2e7d32':/integral/i.test(f)?'#1b5e20':/reserva/i.test(f)?'#00897b':/enclave/i.test(f)?'#7cb342':/monumento|[áa]rbol/i.test(f)?'#795548':/recreativ/i.test(f)?'#f9a825':/paisaje/i.test(f)?'#8e24aa':/zepa|aves/i.test(f)?'#1e88e5':/zec|lic|natura/i.test(f)?'#26a69a':'#43a047';
 function epFicha(o){const el=document.getElementById('epFicha');if(!o){el.innerHTML='';return;}
@@ -340,7 +339,7 @@ svSec('biodiversidad',`<div class="card"><b>🦉 Flora, fauna y setas de Navarra
   <div style="display:flex;gap:6px;margin-top:6px"><select class="town" id="biG" style="flex:1"></select><select class="town" id="biZ" style="flex:1"></select></div>
   <label class="note" style="display:flex;align-items:center;gap:6px;margin-top:6px"><input type="checkbox" id="biMes"> Solo lo que se ve este mes</label><div id="biCnt" class="note"></div></div>
   <div class="card" id="biFicha" style="display:none"></div><div id="biList"></div>
-  <div class="note">Observaciones: ${svLink('https://www.gbif.org','GBIF.org')} (CC0 / CC BY). Textos: Wikipedia en español (CC BY-SA 4.0), con enlace a cada artículo. Amenaza: Lista Roja de la UICN. No damos ubicaciones exactas de ninguna especie.</div>`);
+  <div class="note">No damos ubicaciones exactas de ninguna especie.</div>`);
 const BI_IU={CR:['En peligro crítico','#b71c1c'],EN:['En peligro','#d84315'],VU:['Vulnerable','#ef6c00'],NT:['Casi amenazada','#f9a825']};
 const biIco=g=>({'Aves':'🐦','Mamíferos':'🦊','Reptiles':'🦎','Anfibios':'🐸','Peces':'🐟','Mariposas':'🦋','Libélulas':'🪰','Escarabajos':'🪲','Plantas con flor':'🌼','Coníferas':'🌲','Helechos':'🌿','Setas':'🍄'}[g]||'🌱');
 const biL=()=>(window.ESPECIES&&ESPECIES.e)||[];

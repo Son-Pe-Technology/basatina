@@ -148,7 +148,11 @@ const _stRf=showTab;showTab=function(t){_stRf(t);if(t==='mtiempo')rfHoyDraw();};
 /* 📰 cinta de titulares arriba del Inicio: van pasando solos; al tocarla se abre «Titulares de Navarra» */
 (function(){const sec=$('t-mtiempo');if(!sec||$('nwTk'))return;
   sec.insertAdjacentHTML('afterbegin','<div id="nwTk" role="button" aria-label="Titulares de Navarra: toca para verlos todos"><span class="nwTkL">📰 Titulares</span><div class="nwTkV"><div class="nwTkC" id="nwTkC"><span>Cargando titulares…</span></div></div></div>');
-  $('nwTk').onclick=()=>showTab('noticias');})();
+  $('nwTk').onclick=()=>showTab('noticias');
+  // 20 nov. 2026: la cinta va SIEMPRE arriba del todo del Inicio. En el tema BasatiNA el paisaje del tiempo (#pvBox)
+  // se pinta después y se ponía encima; si algo se mete delante, la cinta vuelve a subir sola.
+  const arriba=()=>{const t=$('nwTk');if(t&&sec.firstElementChild!==t)sec.prepend(t);};
+  try{new MutationObserver(arriba).observe(sec,{childList:true});}catch(e){}arriba();})();
 async function nwHome(force){const el=$('nwTkC');if(!el)return;const D=await nwLoad(force);const L=(D.items||[]).filter(x=>x.c!=='Sucesos').slice(0,15);
   if(!L.length){el.innerHTML='<span>Los titulares llegan en un rato</span>';el.style.animation='none';return;}
   const h=L.map(x=>`<span><b>${E(x.f)}</b> ${E(x.t)}</span>`).join('<i>•</i>');
@@ -168,13 +172,12 @@ const NV_P=[['Piedra de San Martín (Larra-Belagua)',42.9737,-0.7608,1760],['Bel
 const ALUD=[[1,'Débil','#43a047'],[2,'Limitado','#fbc02d'],[3,'Notable','#fb8c00'],[4,'Fuerte','#e53935'],[5,'Muy fuerte','#6d1b1b']];
 svSec('nieve',`<div class="card"><b>🏔️ Nieve y aludes</b><div class="note">Nieve en el suelo, nevadas de los próximos días y el boletín oficial de peligro de aludes del Pirineo navarro.</div></div>
  <div class="card"><b>❄️ Nieve ahora y próximos 3 días</b><div id="nvL" style="margin-top:6px"><div class="note">Cargando…</div></div>
-  <div class="note" style="margin-top:6px">Modelo meteorológico (Open‑Meteo) en puntos aproximados: orientativo. Mira siempre el estado real antes de salir.</div></div>
+  <div class="note" style="margin-top:6px">Mira siempre el estado real antes de salir.</div></div>
  <div class="card"><b>⚠️ Peligro de aludes · AEMET</b><div id="nvA" style="margin-top:6px"><div class="note">Cargando…</div></div>
   <div class="note" style="margin-top:8px">Escala europea: ${ALUD.map(a=>`<span class="tmLvl" style="background:${a[2]};font-size:12px;padding:1px 7px;margin:2px 2px 0 0">${a[0]} ${a[1]}</span>`).join('')}</div>
   <div class="row" style="margin-top:8px"><button class="btn" id="nvAem">🌐 Predicción de montaña en AEMET</button></div></div>
  <div class="card" id="nvM" style="display:none"><b>🥾 Predicción de montaña · Pirineo navarro</b><div id="nvMt"></div></div>
- <div class="card" style="border-color:#ffb020"><div class="note">⚠️ <b>ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES.</b> En invierno lleva crampones, piolet, ARVA, pala y sonda si vas a terreno de aludes, y di a alguien adónde vas. Emergencias: <a href="tel:112">112</a>.</div></div>
- <div class="note" style="margin:0 6px 12px">Fuentes: AEMET (boletín de peligro de aludes y predicción de montaña) · Open‑Meteo.</div>`);
+ <div class="card" style="border-color:#ffb020"><div class="note">⚠️ <b>ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES.</b> En invierno lleva crampones, piolet, ARVA, pala y sonda si vas a terreno de aludes, y di a alguien adónde vas. Emergencias: <a href="tel:112">112</a>.</div></div>`);
 nuevo('nieve','El tiempo','🏔️ Nieve y aludes','topo','i-nieve','b');
 $('nvAem').onclick=()=>abre('https://www.aemet.es/es/eltiempo/prediccion/montana');
 let NVD=null;
@@ -220,7 +223,7 @@ let MAT='vet',MAQ='',MAPOS=null;
 svSec('mascotas',`<div class="card"><b>🐾 Mascotas en Navarra</b><div class="note">Veterinarios, zonas para soltar al perro, protectoras y tiendas, y consejos para el campo.</div>
  <div class="tmChips" id="maT"></div><div class="row" id="maBus"><input id="maQ" class="town" placeholder="🔎 Buscar por pueblo o nombre…" style="flex:1;min-width:0"><button class="btn" id="maCerca">📍 Cerca de mí</button></div></div>
  <div class="card" id="maL"><div class="note">Cargando…</div></div>
- <div class="note" style="margin:0 6px 12px" id="maN">Datos: © OpenStreetMap (ODbL). Puede faltar algún sitio o haber cambiado su horario: llama antes de ir.</div>`);
+ <div class="note" style="margin:0 6px 12px" id="maN">Puede faltar algún sitio o haber cambiado su horario: llama antes de ir.</div>`);
 nuevo('mascotas','Servicios','🐾 Mascotas','pueblo','i-pata','g');
 function maRender(){$('maT').innerHTML=MA_T.map(([k,l])=>`<button class="${k===MAT?'on':''}" data-k="${k}">${l}</button>`).join('');
   $('maT').querySelectorAll('button').forEach(b=>b.onclick=()=>{MAT=b.dataset.k;maRender();});
@@ -230,7 +233,7 @@ function maRender(){$('maT').innerHTML=MA_T.map(([k,l])=>`<button class="${k===M
   if(!window.MASCOTAS){el.innerHTML='<div class="note">Cargando…</div>';svLoad('mascotas.js','MASCOTAS',ok=>{if(ok)maRender();else el.innerHTML='<div class="note">⏳ La lista llega con la próxima actualización de datos (se prepara sola en unas horas).</div>';});return;}
   const q=nrm(MAQ);let L=MASCOTAS.p.filter(x=>x.k===MAT&&(!q||nrm(x.n+' '+x.p+' '+(x.d||'')).includes(q)));
   if(MAPOS){L=L.map(x=>Object.assign({_k:km(MAPOS.la,MAPOS.lo,x.pt[0],x.pt[1])},x)).sort((a,b)=>a._k-b._k);}
-  el.innerHTML=(MAT==='vet'?'<div class="note" style="margin-bottom:6px">🚨 Las marcadas con <b>24 h</b> atienden urgencias según OpenStreetMap: confírmalo por teléfono.</div>':'')+
+  el.innerHTML=(MAT==='vet'?'<div class="note" style="margin-bottom:6px">🚨 Las marcadas con <b>24 h</b> atienden urgencias: confírmalo por teléfono.</div>':'')+
    (L.length?L.slice(0,80).map(x=>`<div class="st" style="align-items:flex-start"><div style="flex:1;min-width:0"><b>${E(x.n)}</b>${x.u?' <span class="amPill" style="background:#c62828">24 h</span>':''}
      <div class="s">📍 ${E([x.d,x.p].filter(Boolean).join(', '))}${x._k!=null?' · '+fmtN(x._k,x._k<10?1:0)+' km':''}</div>${x.h?`<div class="s">🕐 ${E(x.h)}</div>`:''}
      <div class="s">${x.tel?`<a href="tel:${E(x.tel.replace(/\s/g,''))}">📞 ${E(x.tel)}</a> · `:''}<a href="#" data-m="${x.pt}">🗺️ Cómo llegar</a>${x.w?` · <a href="#" data-w="${E(x.w)}">🌐 Web</a>`:''}</div></div></div>`).join('')
@@ -301,7 +304,7 @@ svSec('jdonde',`<div class="jdBox" data-noswipe>
  <div class="jdR" id="jdR"></div>
  <button class="jgBig" id="jdSig" style="display:none">Siguiente ›</button>
  <div class="jgNota" style="color:#4a5a4f">Toca en el mapa dónde crees que está. Cuanto más cerca, más puntos (hasta 100 por ronda). Fácil: los municipios grandes · Normal: más de 800 habitantes · Experto: todos.</div>
-</div><div class="note" style="margin:0 6px 12px">Mapa de municipios: © Gobierno de Navarra · IDENA (CC BY 4.0).</div>`);
+</div>`);
 (function(){
  const C=$('jdC'),x=C.getContext('2d'),B={s:41.9,n:43.33,w:-2.52,e:-0.70},COS=Math.cos(42.6*Math.PI/180);
  const W=C.width,H=C.height,sx=W/((B.e-B.w)*COS),sy=H/(B.n-B.s),S=Math.min(sx,sy),ox=(W-(B.e-B.w)*COS*S)/2,oy=(H-(B.n-B.s)*S)/2;

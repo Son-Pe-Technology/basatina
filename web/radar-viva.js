@@ -82,7 +82,7 @@ const LEY=[[15,'#88ddee','0,6'],[20,'#00a3e0','1,3'],[25,'#0077aa','2,7'],[30,'#
 const leg=wrap.parentElement.querySelector('.rdLeg');
 if(leg)leg.outerHTML=`<div><div class="rdBar">${LEY.map(l=>`<span style="background:${l[1]};color:${l[0]===35||l[0]===15?'#06121d':'#fff'};text-shadow:${l[0]===35||l[0]===15?'none':''}">${l[2]}</span>`).join('')}</div>
   <div class="rdBarT"><span>mm/h · débil</span><span>moderada</span><span>fuerte</span><span>muy fuerte</span></div>
-  <div class="note" style="margin-top:6px">🔵 Tú · ⚪ círculo: la zona que has elegido en tu <a href="#" onclick="showTab('ajustes');return false" style="color:var(--acc)">aviso de lluvia</a> (si no has elegido zona, solo sale el punto). La nieve sale en azules claros y blancos. Fondos: oscuro © OpenStreetMap © CARTO · satélite PNOA cedido por © IGN · mapa © IGN.</div></div>`;
+  <div class="note" style="margin-top:6px">🔵 Tú · ⚪ círculo: la zona que has elegido en tu <a href="#" onclick="showTab('ajustes');return false" style="color:var(--acc)">aviso de lluvia</a> (si no has elegido zona, solo sale el punto). La nieve sale en azules claros y blancos.</div></div>`;
 
 // --- dónde estoy ---
 function yo(cb){try{const p=CFG.lluvia&&CFG.lluvia.pos;if(p)YO=[p[0],p[1]];}catch(e){}
