@@ -67,6 +67,7 @@ public class RiverJob extends JobService {
             try { checkDato(this); } catch (Exception ignored) {}
             try { checkSismo(this); } catch (Exception ignored) {}
             try { checkCuriosa(this); } catch (Exception ignored) {}
+            try { checkLluvia(this); } catch (Exception ignored) {}
             jobFinished(p, false);
         }).start();
         return true;   // el trabajo sigue en otro hilo
@@ -405,6 +406,80 @@ public class RiverJob extends JobService {
                             + " Datos: IGN / EMSC. Toca para verlo en la app.", 600 + (n++ % 10));
         }
         sp.edit().putString("sisSeen", keep.toString()).apply();
+    }
+
+    /* ---------- 🌧️ Aviso de lluvia (APK 4.9 / código 29, 20 nov. 2026) ----------
+       Cada vez que corre el trabajo (unos 15 minutos) mira si en los próximos 30 minutos va a llover dentro de la
+       zona que vigila el usuario: un círculo de «r» km alrededor de donde estaba el móvil la última vez que se abrió
+       la app (o del pueblo elegido). Se miran 17 puntos (el centro y dos anillos de 8) con Open‑Meteo (lluvia cada
+       15 minutos y probabilidad por horas). Avisa si en algún punto llueve de verdad (0,4 mm/h o más) y la
+       probabilidad es igual o mayor que la elegida (0–100 %). Dice la intensidad, a qué distancia y hacia dónde.
+       No repite mientras siga lloviendo en la zona, salvo que la lluvia sea más fuerte. Respeta las horas de silencio.
+       cfg.lluvia = {on, prob, r, sil:[desde,hasta] o null, pos:[lat,lon,nombre]} */
+    static final String CH_LLUVIA = "aviso_lluvia";
+    static void checkLluvia(Context c) throws Exception {
+        JSONObject l = cfg(c).optJSONObject("lluvia");
+        if (l == null || !l.optBoolean("on", false)) return;
+        org.json.JSONArray pos = l.optJSONArray("pos");
+        if (pos == null || pos.length() < 2) return;
+        double la0 = pos.optDouble(0), lo0 = pos.optDouble(1);
+        String sitio = pos.optString(2, "tu zona");
+        int prob = l.optInt("prob", 60), r = Math.max(0, Math.min(50, l.optInt("r", 10)));
+        SharedPreferences sp = c.getSharedPreferences("rio", MODE_PRIVATE);
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        org.json.JSONArray sil = l.optJSONArray("sil");
+        if (sil != null && sil.length() == 2) {
+            int h = cal.get(java.util.Calendar.HOUR_OF_DAY), a = sil.optInt(0), b = sil.optInt(1);
+            boolean callado = a < b ? (h >= a && h < b) : (h >= a || h < b);
+            if (a != b && callado) return;
+        }
+        // puntos: centro + anillo a r/2 + anillo a r (8 direcciones)
+        String[] rumbo = {"norte", "nordeste", "este", "sudeste", "sur", "sudoeste", "oeste", "noroeste"};
+        java.util.List<double[]> P = new java.util.ArrayList<>();
+        P.add(new double[]{la0, lo0, 0, -1});
+        if (r > 0) for (double d : new double[]{r / 2.0, r}) for (int k = 0; k < 8; k++) {
+            double ang = Math.toRadians(k * 45);
+            double la = la0 + (d / 111.32) * Math.cos(ang), lo = lo0 + (d / (111.32 * Math.cos(Math.toRadians(la0)))) * Math.sin(ang);
+            P.add(new double[]{la, lo, d, k});
+        }
+        StringBuilder LA = new StringBuilder(), LO = new StringBuilder();
+        java.util.Locale US = java.util.Locale.US;
+        for (int i = 0; i < P.size(); i++) { if (i > 0) { LA.append(','); LO.append(','); } LA.append(String.format(US, "%.4f", P.get(i)[0])); LO.append(String.format(US, "%.4f", P.get(i)[1])); }
+        String body = get("https://api.open-meteo.com/v1/forecast?latitude=" + LA + "&longitude=" + LO
+                + "&minutely_15=precipitation&hourly=precipitation_probability&forecast_minutely_15=8&forecast_hours=2&timezone=Europe%2FMadrid");
+        org.json.JSONArray arr = body.trim().startsWith("[") ? new org.json.JSONArray(body) : new org.json.JSONArray().put(new JSONObject(body));
+        double best = -1, bestD = 1e9, maxMmh = 0; int bestK = -1, bestP = 0;
+        for (int i = 0; i < arr.length() && i < P.size(); i++) {
+            JSONObject o = arr.getJSONObject(i);
+            JSONObject m15 = o.getJSONObject("minutely_15");
+            org.json.JSONArray m = m15.getJSONArray("precipitation"), mt = m15.getJSONArray("time");
+            // solo los cuartos de hora de ahora a dentro de 30 minutos (la hora viene en hora de Madrid, igual que «ahora»)
+            String desde = String.format(US, "%1$tY-%1$tm-%1$tdT%1$tH:%1$tM", new java.util.Date(System.currentTimeMillis() - 15 * 60 * 1000L));
+            String hasta = String.format(US, "%1$tY-%1$tm-%1$tdT%1$tH:%1$tM", new java.util.Date(System.currentTimeMillis() + 30 * 60 * 1000L));
+            double mm = 0;
+            for (int j = 0; j < m.length(); j++) { String t = mt.optString(j); if (t.compareTo(desde) > 0 && t.compareTo(hasta) <= 0) mm = Math.max(mm, m.optDouble(j, 0)); }
+            double mmh = mm * 4;
+            org.json.JSONArray pp = o.getJSONObject("hourly").getJSONArray("precipitation_probability");
+            int pr = Math.max(pp.optInt(0, 0), pp.optInt(1, 0));
+            if (mmh < 0.4 || pr < prob) continue;
+            maxMmh = Math.max(maxMmh, mmh);
+            if (P.get(i)[2] < bestD) { bestD = P.get(i)[2]; bestK = (int) P.get(i)[3]; bestP = pr; best = mmh; }
+        }
+        long now = System.currentTimeMillis();
+        int nivel = maxMmh <= 0 ? 0 : maxMmh < 2 ? 1 : maxMmh < 10 ? 2 : maxMmh < 30 ? 3 : 4;
+        int antes = sp.getInt("lluviaNivel", 0);
+        sp.edit().putInt("lluviaNivel", nivel).apply();
+        if (nivel == 0 || nivel <= antes) return;     // sin lluvia, o ya avisado de una igual o más fuerte
+        if (antes > 0 && now - sp.getLong("lluviaT", 0) < 30 * 60 * 1000L) return;
+        sp.edit().putLong("lluviaT", now).apply();
+        String[] nom = {"", "Lluvia débil", "Lluvia moderada", "Lluvia fuerte", "Lluvia muy fuerte"};
+        String[] ico = {"", "🌦️", "🌧️", "🌧️", "⛈️"};
+        java.util.Locale ES = java.util.Locale.forLanguageTag("es-ES");
+        String donde = bestD == 0 ? "en " + sitio : String.format(ES, "a unos %.0f km al %s de %s", bestD, rumbo[bestK], sitio);
+        String tit = ico[nivel] + " " + nom[nivel] + (antes > 0 ? " (más fuerte)" : "") + " " + donde;
+        String txt = String.format(ES, "Probabilidad %d %% · unos %.1f mm/h · en la próxima media hora. Zona vigilada: %s.",
+                bestP, best, r == 0 ? "solo " + sitio : r + " km alrededor de " + sitio);
+        notifyCh(c, CH_LLUVIA, "Aviso de lluvia", "Cuando va a llover en la zona que eliges", tit, txt, 600);
     }
 
     static void notifyCh(Context c, String ch, String chName, String chDesc, String title, String text, int id) {
