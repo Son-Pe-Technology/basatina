@@ -633,7 +633,7 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
 <section id="t-tiempo">
 <div class="card"><select class="town" id="tTown"></select><button class="btn" id="tNear" style="margin-top:8px;width:100%">📍 <span>El más cercano a mí</span></button><div id="tNow" style="margin-top:8px"><div class="note">Cargando…</div></div><div id="tExtra" style="margin-top:12px"></div></div>
 <div class="card" id="tAv"><b>⚠️ Avisos de AEMET en Navarra</b><div class="note">Cargando…</div></div>
-<div class="card"><b>Próximas 24 horas</b><div class="note"><span style="color:#e65100">━</span> temperatura · <span style="color:#1e88e5">▮</span> lluvia (mm por hora) · <span style="color:#2e7d32">┅</span> probabilidad de lluvia (%)</div><canvas id="tH" height="180"></canvas></div>
+<div class="card"><b>Próximas 24 horas</b><div class="note"><span style="color:#e65100">━</span> temperatura · <span style="color:#1e88e5">▮</span> lluvia (mm por hora) · <span style="color:#2e7d32">┅</span> probabilidad de lluvia (%)</div><canvas id="tH" height="194"></canvas></div>
 <div class="card"><b>Próximos 7 días</b><div id="tDays"></div></div>
 <div class="note">Fuente: Open‑Meteo (modelos de AEMET, ECMWF y otros), se actualiza al abrir esta pantalla.</div>
 </section>
@@ -1845,14 +1845,14 @@ function tiempoRender(){if(!TW)return;const {j,town}=TW,c=j.current,h=j.hourly,d
   const cv=document.getElementById('tH');if(cv.clientWidth<10)return;const x=fitCanvas(cv),W=cv.clientWidth,Hh=LH(cv);cv.style.background='#fff';x.fillStyle='#ffffff';x.fillRect(0,0,W,Hh);
   const key=today+'T'+String(hh).padStart(2,'0')+':00';let i0=h.time.indexOf(key);if(i0<0)i0=0;const I=[...Array(25).keys()].map(k=>i0+k).filter(k=>k<h.time.length);
   const T=I.map(k=>h.temperature_2m[k]),P=I.map(k=>h.precipitation[k]||0),tmin=Math.floor(Math.min(...T))-1,tmax=Math.ceil(Math.max(...T))+1,pmax=Math.max(2,...P);
-  const L=28,R=W-28,top=14,bot=Hh-24,X=k=>L+(R-L)*k/(I.length-1);
+  const L=28,R=W-28,top=14,bot=Hh-38,X=k=>L+(R-L)*k/(I.length-1);
   chGrid(x,L,R,top,bot,4);
   x.fillStyle='rgba(30,136,229,.55)';P.forEach((v,k)=>{const bh=(bot-top)*v/pmax;x.fillRect(X(k)-4,bot-bh,8,bh);});
   // probabilidad de lluvia (0-100 %): línea de puntos verde
   const PR=I.map(k=>h.precipitation_probability?h.precipitation_probability[k]:null);x.save();x.setLineDash([3,4]);x.strokeStyle='#2e7d32';x.lineWidth=2;x.beginPath();let f=0;PR.forEach((v,k)=>{if(v==null)return;const y=bot-(bot-top)*v/100;f?x.lineTo(X(k),y):x.moveTo(X(k),y);f=1;});x.stroke();x.restore();
   x.strokeStyle='#e65100';x.lineWidth=2.2;x.beginPath();T.forEach((v,k)=>{const y=bot-(bot-top)*(v-tmin)/(tmax-tmin);k?x.lineTo(X(k),y):x.moveTo(X(k),y);});x.stroke();
   x.fillStyle='#455a64';x.font='11px system-ui';x.textAlign='center';
-  I.forEach((k,n)=>{if(n%3)return;x.fillText(h.time[k].slice(11,13)+'h',X(n),Hh-8);const y=bot-(bot-top)*(T[n]-tmin)/(tmax-tmin);x.fillStyle='#bf360c';x.fillText(Math.round(T[n])+'°',X(n),y-6);if(PR[n]!=null){x.fillStyle='#2e7d32';x.fillText(PR[n]+'%',X(n),bot-(bot-top)*PR[n]/100+12);}x.fillStyle='#455a64';});
+  I.forEach((k,n)=>{if(n%3)return;x.fillText(h.time[k].slice(11,13)+'h',X(n),Hh-5);const y=bot-(bot-top)*(T[n]-tmin)/(tmax-tmin);x.fillStyle='#bf360c';x.fillText(Math.round(T[n])+'°',X(n),y-6);if(PR[n]!=null){x.fillStyle='#2e7d32';x.fillText(PR[n]+'%',X(n),bot-(bot-top)*PR[n]/100+12);}x.fillStyle='#455a64';});
   x.textAlign='left';x.fillText(fmtN(pmax,1)+' mm',2,top+4);x.textAlign='right';x.fillStyle='#2e7d32';x.fillText('100 %',W-2,top+4);}
 // cuadrícula de puntos para las gráficas de fondo claro
 function chGrid(x,L,R,top,bot,n){x.save();x.setLineDash([2,4]);x.strokeStyle='#b0bec5';x.lineWidth=1;for(let i=0;i<=n;i++){const y=top+(bot-top)*i/n;x.beginPath();x.moveTo(L,y);x.lineTo(R,y);x.stroke();}x.restore();}
