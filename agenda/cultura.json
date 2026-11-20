@@ -1,6 +1,19 @@
 {
  "eventos": [
   {
+   "id": "paexposicionmiradasdepamplonaenlacoleccion20251128",
+   "t": "Miradas de Pamplona en la colección de arte municipal",
+   "cat": "expo",
+   "f": "2025-11-28",
+   "ff": "2027-01-31",
+   "h": "",
+   "lugar": "Civivox Pompelo",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-miradas-de-pamplona-en-la-coleccion-de-arte-municipal-civivox-pompelo",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "paexposicioncoleccioncigacivivoxpompelo20260214",
    "t": "Colección Ciga",
    "cat": "expo",
@@ -10,6 +23,19 @@
    "lugar": "Civivox Pompelo",
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/exposicion-coleccion-ciga-civivox-pompelo",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paexposiciontercerpaisajemuseodenavarra20260515",
+   "t": "Tercer Paisaje",
+   "cat": "expo",
+   "f": "2026-05-15",
+   "ff": "2027-04-04",
+   "h": "",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-tercer-paisaje-museo-de-navarra",
    "desc": "Exposición",
    "src": "Ayuntamiento de Pamplona"
   },
@@ -27,6 +53,45 @@
    "src": "Cultura Navarra"
   },
   {
+   "id": "paexposicionmuseodememoriasinconstantes20260902",
+   "t": "Museo de memorias inconstantes",
+   "cat": "expo",
+   "f": "2026-09-02",
+   "ff": "2027-01-24",
+   "h": "",
+   "lugar": "Museo Universidad de Navarra (MUN)",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-museo-de-memorias-inconstantes",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paexposicionradixlarealidaddeunautopiamuse20260911",
+   "t": "Radix: la realidad de una utopía",
+   "cat": "expo",
+   "f": "2026-09-11",
+   "ff": "2027-01-31",
+   "h": "",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-radix-la-realidad-de-una-utopia-museo-de-navarra",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paexposicionfragmentosdelovisiblemuseodena20260916",
+   "t": "Fragmentos de lo visible",
+   "cat": "expo",
+   "f": "2026-09-16",
+   "ff": "2027-03-07",
+   "h": "",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-fragmentos-de-lo-visible-museo-de-navarra",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "paconfluencias2026miradashaciaotrasdiscipl20260924",
    "t": "CONFLUENCIAS 2026. MIRADAS HACIA OTRAS DISCIPLINAS",
    "cat": "otros",
@@ -36,6 +101,45 @@
    "lugar": "Sala de Armas de la Ciudadela - Sala de Exposiciones Municipal",
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/confluencias-2026-miradas-hacia-otras-disciplinas",
+   "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paexposicionteosabando19542011museodenavar20260925",
+   "t": "Teo Sabando (1954-2011)",
+   "cat": "expo",
+   "f": "2026-09-25",
+   "ff": "2027-02-21",
+   "h": "",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-teo-sabando-1954-2011-museo-de-navarra",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "patalleresiniciacionalteatroescuelanavarra20261001",
+   "t": "Iniciación al Teatro",
+   "cat": "teatro",
+   "f": "2026-10-01",
+   "ff": "2027-04-30",
+   "h": "",
+   "lugar": "Escuela Navarra de Teatro (ENT)",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/talleres-iniciacion-al-teatro-escuela-navarra-de-teatro",
+   "desc": "Talleres",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pasolicituddevisitaguiadalacomparsadegigan20261001",
+   "t": "Solicitud de visita guiada a la Comparsa de Gigantes y Cabezudos de Pamplona",
+   "cat": "otros",
+   "f": "2026-10-01",
+   "ff": "2027-01-29",
+   "h": "",
+   "lugar": "Estación de autobuses",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/solicitud-de-visita-guiada-la-comparsa-de-gigantes-y-cabezudos-de-pamplona",
    "desc": "",
    "src": "Ayuntamiento de Pamplona"
   },
@@ -378,19 +482,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paxxxsemanademontanadelatxantrea20261116",
-   "t": "XXX Semana de montaña de la Txantrea",
-   "cat": "otros",
-   "f": "2026-11-16",
-   "ff": "2026-11-19",
-   "h": "",
-   "lugar": "Centro Comunitario Txantrea",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/xxx-semana-de-montana-de-la-txantrea",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "pafestivaldemusicahamaika202620261118",
    "t": "Festival de música Hamaika 2026",
    "cat": "concierto",
@@ -414,97 +505,6 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/jornadas-gobernanza-feminista-en-las-administraciones-publicas",
    "desc": "Jornadas",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pacuentacuentoseneuskerakarabikarababiblio20261119",
-   "t": "Karabi Karaba",
-   "cat": "teatro",
-   "f": "2026-11-19",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Biblioteca Pública de Yamaguchi",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/cuentacuentos-en-euskera-karabi-karaba-biblioteca-yamaguchi",
-   "desc": "Cuentacuentos en euskera",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pacortometrajemiabuelaesunaestrellabibliot20261119",
-   "t": "Mi abuela es una estrella",
-   "cat": "otros",
-   "f": "2026-11-19",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Biblioteca Pública de la Txantrea",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/cortometraje-mi-abuela-es-una-estrella-biblioteca-txantrea",
-   "desc": "Cortometraje",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paxiciclodecineacogimientoenfamiliaportodo20261119",
-   "t": "Por todo lo alto",
-   "cat": "cine",
-   "f": "2026-11-19",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Cine Golem Baiona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/xi-ciclo-de-cine-acogimiento-en-familia-por-todo-lo-alto",
-   "desc": "XI Ciclo de Cine Acogimiento en Familia",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pafestivalderemonte1911202620261119",
-   "t": "19/11/2026",
-   "cat": "otros",
-   "f": "2026-11-19",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Frontón Labrit",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/festival-de-remonte-19112026",
-   "desc": "Festival de Remonte",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "papresentaciondelibrolacostureradelareina20261119",
-   "t": "La costurera de la reina",
-   "cat": "charla",
-   "f": "2026-11-19",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "El Corte Inglés",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/presentacion-de-libro-la-costurera-de-la-reina",
-   "desc": "Presentación de libro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cncrianzapositiva36anos620261119",
-   "t": "Crianza positiva 3-6 años",
-   "cat": "otros",
-   "f": "2026-11-19",
-   "ff": "",
-   "h": "",
-   "lugar": "Biblioteca de Navarra. Sala planta 1",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-19/taller/crianza-positiva-3-6-anos-6",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "pajornadastransformaciondigitalotdchalleng20261119",
-   "t": "OTD Challenge 2026",
-   "cat": "charla",
-   "f": "2026-11-19",
-   "ff": "",
-   "h": "",
-   "lugar": "Baluarte - Palacio de Congresos y Auditorio de Navarra",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/jornadas-transformacion-digital-otd-challenge-2026-baluarte",
-   "desc": "Jornadas Transformación Digital",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -599,6 +599,32 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "paexposicionmatthiasmalefond20261120",
+   "t": "Matthias Malefond",
+   "cat": "expo",
+   "f": "2026-11-20",
+   "ff": "2027-01-24",
+   "h": "",
+   "lugar": "Sala del Horno de la Ciudadela - Sala de Exposiciones Municipal",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-matthias-malefond",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paexposicionmirendoiz20261120",
+   "t": "Miren Doiz",
+   "cat": "expo",
+   "f": "2026-11-20",
+   "ff": "2027-01-24",
+   "h": "",
+   "lugar": "Sala del Polvorín de la Ciudadela - Sala de Exposiciones Municipal",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-miren-doiz",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "paencuentroclubesdelecturaencastellanodena20261121",
    "t": "Clubes de lectura en castellano de Navarra 2026",
    "cat": "charla",
@@ -674,6 +700,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/iii-ciclo-pompaelo-antiqua-concierto-inter-vestibulum",
    "desc": "III Ciclo Pompaelo Antiqua",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paciclodemusicaantiguaconciertopompaeloant20261121",
+   "t": "Concierto - Pompaelo Antiqua",
+   "cat": "concierto",
+   "f": "2026-11-21",
+   "ff": "",
+   "h": "19:00",
+   "lugar": "Catedral de Santa María de Pamplona",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-de-musica-antigua-concierto-pompaelo-antiqua-catedral-de-pamplona-0",
+   "desc": "Ciclo de Música Antigua",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -768,6 +807,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "cncharladramatizadasobrelapoetaernestinade20261123",
+   "t": "Charla dramatizada sobre la poeta Ernestina de Champourcin",
+   "cat": "charla",
+   "f": "2026-11-23",
+   "ff": "",
+   "h": "19:00",
+   "lugar": "Biblioteca de Navarra. Sala Planta 1",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-23/charlas-y-conferencias/charla-dramatizada-sobre-la-poeta-ernestina-de-champourcin",
+   "desc": "Charla dramatizada",
+   "src": "Cultura Navarra"
+  },
+  {
    "id": "paencuentroliterariomicrorrelatospequenash20261123",
    "t": "Microrrelatos: pequeñas historias, grandes emociones",
    "cat": "charla",
@@ -779,6 +831,19 @@
    "url": "https://www.pamplona.es/actualidad/eventos/encuentro-literario-microrrelatos-pequenas-historias-grandes-emociones",
    "desc": "Encuentro literario",
    "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "cnmasculinidadesjovenesentransformacionent20261124",
+   "t": "Masculinidades jóvenes en transformación. Entre el compromiso y la reacción",
+   "cat": "charla",
+   "f": "2026-11-24",
+   "ff": "",
+   "h": "19:00",
+   "lugar": "Biblioteca de Navarra. Sala de Proyecciones",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-24/charlas-y-conferencias/masculinidades-jovenes-en-transformacion-entre-el-compromiso-y-la-reaccion",
+   "desc": "Charla",
+   "src": "Cultura Navarra"
   },
   {
    "id": "paiimuestradecineirlandesciclodeconferenci20261124",
@@ -820,6 +885,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "cnkamishibai4020261125",
+   "t": "Kamishibai",
+   "cat": "teatro",
+   "f": "2026-11-25",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Biblioteca de Navarra. Sala infantil",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-25/cuentacuentos/kamishibai-40",
+   "desc": "",
+   "src": "Cultura Navarra"
+  },
+  {
    "id": "papresentaciondepoemarionadirbibliotecayam20261125",
    "t": "Nadir",
    "cat": "charla",
@@ -859,6 +937,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "cncrianzapositiva36anos720261126",
+   "t": "Crianza positiva 3-6 años",
+   "cat": "otros",
+   "f": "2026-11-26",
+   "ff": "",
+   "h": "17:00",
+   "lugar": "Biblioteca de Navarra. Sala Planta 1",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-26/taller/crianza-positiva-3-6-anos-7",
+   "desc": "",
+   "src": "Cultura Navarra"
+  },
+  {
    "id": "patallerbizitxokoreparatubicinoviembrecivi20261126",
    "t": "Bizitxoko, repara tu bici - Noviembre",
    "cat": "otros",
@@ -883,6 +974,19 @@
    "url": "https://www.pamplona.es/actualidad/eventos/cuentacuentos-en-euskera-ipuin-kontaketa-biblioteca-milagrosa-4",
    "desc": "Cuentacuentos en euskera",
    "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "cnquehariastuenlugardeodiseo20261126",
+   "t": "¿Qué harías tú en lugar de Odiseo?",
+   "cat": "otros",
+   "f": "2026-11-26",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Biblioteca de Navarra. Sala infantil",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-26/ocio-infantil/que-harias-tu-en-lugar-de-odiseo",
+   "desc": "Actividad infantil",
+   "src": "Cultura Navarra"
   },
   {
    "id": "pafestivalderemonte2611202620261126",
@@ -937,6 +1041,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "cnanunciodelfallodelxxxiiiconcursofotograf20261127",
+   "t": "Anuncio del fallo del XXXIII Concurso fotográfico “Andrés Muñoz Garde",
+   "cat": "otros",
+   "f": "2026-11-27",
+   "ff": "",
+   "h": "19:00",
+   "lugar": "Biblioteca de Navarra. Sala Planta 1",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-27/entrega-de-premios/anuncio-del-fallo-del-xxxiii-concurso-fotografico-andres-munoz-garde",
+   "desc": "",
+   "src": "Cultura Navarra"
+  },
+  {
    "id": "papresentaciondelibroesnatualahilbibliotec20261127",
    "t": "Esnatu ala hil",
    "cat": "charla",
@@ -976,6 +1093,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "cnexposiciondelxxxiiiconcursofotograficoan20261127",
+   "t": "Exposición del XXXIII Concurso fotográfico “Andrés Muñoz Garde",
+   "cat": "expo",
+   "f": "2026-11-27",
+   "ff": "2027-01-05",
+   "h": "",
+   "lugar": "Biblioteca de Navarra. Pasillo Planta 1",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-27/exposiciones/exposicion-del-xxxiii-concurso-fotografico-andres-munoz-garde",
+   "desc": "Exposición",
+   "src": "Cultura Navarra"
+  },
+  {
    "id": "pafestivalcivivoxinthemappingmesaredondacr20261127",
    "t": "Mesa redonda - Creando con la primera infancia",
    "cat": "charla",
@@ -987,6 +1117,19 @@
    "url": "https://www.pamplona.es/actualidad/eventos/festival-civivoxinthemapping-mesa-redonda-creando-con-la-primera-infancia",
    "desc": "Festival #CivivoxInTheMapping",
    "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "cnalgoenmedio220261128",
+   "t": "Algo en medio",
+   "cat": "otros",
+   "f": "2026-11-28",
+   "ff": "",
+   "h": "11:30",
+   "lugar": "Biblioteca de Navarra. Sala polivalente",
+   "pueblo": "Pamplona",
+   "url": "https://www.culturanavarra.es/es/agenda/2026-11-28/taller/algo-en-medio-2",
+   "desc": "Taller de escritura y arte",
+   "src": "Cultura Navarra"
   },
   {
    "id": "pasansaturnino2026conciertogaladezarzuelat20261128",
@@ -1077,6 +1220,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/rally-fotografico-y-cultural-san-saturnino-2026",
    "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "panavidad2026iluminacionnavidena20261130",
+   "t": "Iluminación Navideña",
+   "cat": "otros",
+   "f": "2026-11-30",
+   "ff": "2027-01-06",
+   "h": "",
+   "lugar": "",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/navidad-2026-iluminacion-navidena",
+   "desc": "Navidad 2026",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -1405,6 +1561,32 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "patalleresdepinturacreaciondeproyectosdesd20261221",
+   "t": "Creación de proyectos desde la narrativa - Escuela Municipal Arte - Catalina de Oscáriz",
+   "cat": "expo",
+   "f": "2026-12-21",
+   "ff": "2027-03-22",
+   "h": "",
+   "lugar": "Escuela Municipal de Arte - Catalina de Oscáriz",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/talleres-de-pintura-creacion-de-proyectos-desde-la-narrativa-escuela-municipal",
+   "desc": "Talleres de Pintura",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "panavidadenlacalleactuaciondelaasociacionm20261221",
+   "t": "Navidad en la calle. Actuación de la Asociación musical fanfarre \"Fanfarxar\"",
+   "cat": "concierto",
+   "f": "2026-12-21",
+   "ff": "",
+   "h": "",
+   "lugar": "",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/navidad-en-la-calle-actuacion-de-la-asociacion-musical-fanfarre-fanfarxar",
+   "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "panavidad2026conciertodenavidadbaluarte20261222",
    "t": "Concierto de Navidad",
    "cat": "concierto",
@@ -1415,6 +1597,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/navidad-2026-concierto-de-navidad-baluarte",
    "desc": "Navidad 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "patalleresdedibujoilustracionnaturalistabo20261222",
+   "t": "Ilustración naturalista a bolígrafo - Escuela Municipal Arte - Catalina de Oscáriz",
+   "cat": "otros",
+   "f": "2026-12-22",
+   "ff": "2027-03-18",
+   "h": "",
+   "lugar": "Escuela Municipal de Arte - Catalina de Oscáriz",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/talleres-de-dibujo-ilustracion-naturalista-boligrafo-escuela-municipal-arte",
+   "desc": "Talleres de Dibujo",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -1598,7 +1793,46 @@
    "url": "https://www.pamplona.es/actualidad/eventos/festival-santaspascuas-2026-concierto-nina-coyote-eta-chico-tornado-los-acidos",
    "desc": "Festival SantasPascuas 2026",
    "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pateatroeneuskeramokoteatrogayarre20270104",
+   "t": "Moko",
+   "cat": "teatro",
+   "f": "2027-01-04",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Teatro Gayarre",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/teatro-en-euskera-moko-teatro-gayarre",
+   "desc": "Teatro en euskera",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pafestivalsantaspascuas2026conciertorodrig20270104",
+   "t": "Concierto - Rodrigo Cuevas",
+   "cat": "concierto",
+   "f": "2027-01-04",
+   "ff": "",
+   "h": "20:00",
+   "lugar": "Baluarte - Palacio de Congresos y Auditorio de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/festival-santas-pascuas-2026-concierto-rodrigo-cuevas-baluarte",
+   "desc": "Festival Santas Pascuas 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "cnkatixagoldarazena20270104",
+   "t": "Katixa Goldarazena",
+   "cat": "expo",
+   "f": "2027-01-04",
+   "ff": "2027-01-29",
+   "h": "",
+   "lugar": "Biblioteca",
+   "pueblo": "Lakuntza",
+   "url": "https://www.culturanavarra.es/es/agenda/2027-01-04/arte-contemporaneo/katixa-goldarazena",
+   "desc": "NUDO 4 Instalación",
+   "src": "Cultura Navarra"
   }
  ],
- "act": "2026-11-19 06:26"
+ "act": "2026-11-20 06:28"
 }
