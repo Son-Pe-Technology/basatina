@@ -2110,3 +2110,6 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "últimas 24 h":["azken 24 h","last 24 h","dernières 24 h"],"previsión":["iragarpena","forecast","prévision"],"máxima":["maximoa","highest","maximum"],"mínima":["minimoa","lowest","minimum"],
  "Subiendo":["Igotzen","Rising","En hausse"],"Bajando":["Jaisten","Falling","En baisse"],"Bajando rápido":["Azkar jaisten","Falling fast","En forte baisse"],"Estable":["Egonkor","Steady","Stable"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
+// 🚦 Polen en semáforo (20 nov. 2026)
+(function(){const T={"Mañana":["Bihar","Tomorrow","Demain"],"Pasado":["Etzi","Day after","Après-demain"],"Bien":["Ondo","Good","Bien"],"Medio":["Ertaina","Medium","Moyen"],"Mal":["Txarto","Bad","Mauvais"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{if(!window.I18N.eu[k])window.I18N.eu[k]=eu;if(!window.I18N.en[k])window.I18N.en[k]=en;if(!window.I18N.fr[k])window.I18N.fr[k]=fr;});})();
