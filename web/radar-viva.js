@@ -82,24 +82,29 @@ const LEY=[[15,'#88ddee','0,6'],[20,'#00a3e0','1,3'],[25,'#0077aa','2,7'],[30,'#
 const leg=wrap.parentElement.querySelector('.rdLeg');
 if(leg)leg.outerHTML=`<div><div class="rdBar">${LEY.map(l=>`<span style="background:${l[1]};color:${l[0]===35||l[0]===15?'#06121d':'#fff'};text-shadow:${l[0]===35||l[0]===15?'none':''}">${l[2]}</span>`).join('')}</div>
   <div class="rdBarT"><span>mm/h · débil</span><span>moderada</span><span>fuerte</span><span>muy fuerte</span></div>
-  <div class="note" style="margin-top:6px">🔵 Tú · ⚪ círculo: la zona que vigila tu <a href="#" onclick="showTab('ajustes');return false" style="color:var(--acc)">aviso de lluvia</a>. La nieve sale en azules claros y blancos. Fondos: oscuro © OpenStreetMap © CARTO · satélite PNOA cedido por © IGN · mapa © IGN.</div></div>`;
+  <div class="note" style="margin-top:6px">🔵 Tú · ⚪ círculo: la zona que has elegido en tu <a href="#" onclick="showTab('ajustes');return false" style="color:var(--acc)">aviso de lluvia</a> (si no has elegido zona, solo sale el punto). La nieve sale en azules claros y blancos. Fondos: oscuro © OpenStreetMap © CARTO · satélite PNOA cedido por © IGN · mapa © IGN.</div></div>`;
 
 // --- dónde estoy ---
 function yo(cb){try{const p=CFG.lluvia&&CFG.lluvia.pos;if(p)YO=[p[0],p[1]];}catch(e){}
   if(!navigator.geolocation){cb&&cb();return;}
   navigator.geolocation.getCurrentPosition(p=>{YO=[p.coords.latitude,p.coords.longitude];cb&&cb();},()=>{cb&&cb();},{enableHighAccuracy:false,timeout:12000,maximumAge:10*60e3});}
 
-// --- dibujo: después del radar, el punto y el círculo ---
+// radio que ha elegido el usuario en su aviso de lluvia (0 = sin círculo)
+const rYo=()=>{const l=CFG.lluvia;return l&&l.on?Math.max(0,+l.r||0):0;};
+
+// --- dibujo: después del radar, el punto y (si lo ha elegido) el círculo ---
 function yoDraw(x,P){if(!YO)return;
-  const [px,py]=P(YO[0],YO[1]),r=+((CFG.lluvia&&CFG.lluvia.on&&CFG.lluvia.r)||25);
+  const [px,py]=P(YO[0],YO[1]),r=rYo();x.save();
+  if(!r){ // sin zona elegida: solo un puntito donde está
+    x.fillStyle='#fff';x.beginPath();x.arc(px,py,5,0,7);x.fill();x.fillStyle='#1e88e5';x.beginPath();x.arc(px,py,3.5,0,7);x.fill();x.restore();return;}
   const [qx]=P(YO[0],YO[1]+r/(111.32*Math.cos(YO[0]*Math.PI/180))),rp=Math.abs(qx-px);
-  x.save();x.setLineDash([6,5]);x.lineWidth=2;x.strokeStyle='rgba(255,255,255,.85)';x.beginPath();x.arc(px,py,rp,0,7);x.stroke();x.setLineDash([]);
+  x.setLineDash([6,5]);x.lineWidth=2;x.strokeStyle='rgba(255,255,255,.85)';x.beginPath();x.arc(px,py,rp,0,7);x.stroke();x.setLineDash([]);
   x.fillStyle='rgba(30,136,229,.25)';x.beginPath();x.arc(px,py,16,0,7);x.fill();
   x.fillStyle='#fff';x.beginPath();x.arc(px,py,8,0,7);x.fill();x.fillStyle='#1e88e5';x.beginPath();x.arc(px,py,5.5,0,7);x.fill();
   x.font='700 11px system-ui';x.fillStyle='#fff';x.textAlign='center';x.shadowColor='rgba(0,0,0,.8)';x.shadowBlur=3;x.fillText(r+' km',px,py-rp-5);x.restore();}
 const _d=rdDraw;rdDraw=function(x,P,b){_d.apply(this,arguments);yoDraw(x,P);};
 // zoom para que quepa el círculo del aviso (con un poco de margen)
-const zoomYo=M=>{const r=+((CFG.lluvia&&CFG.lluvia.on&&CFG.lluvia.r)||25),deg=2.6*r/(111.32*Math.cos(YO[0]*Math.PI/180));return Math.max(1,Math.min(12,(NB.e-NB.w)/deg));};
+const zoomYo=M=>{const r=rYo()||25,deg=2.6*r/(111.32*Math.cos(YO[0]*Math.PI/180));return Math.max(1,Math.min(12,(NB.e-NB.w)/deg));};
 
 // --- hora grande y botón ▶/⏸ ---
 const _s=rdShow;rdShow=function(){_s.apply(this,arguments);const f=RDF[RDI];if(!f)return;
