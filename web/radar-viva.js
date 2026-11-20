@@ -12,9 +12,12 @@ if(!$('rdc')||typeof rdInit!=='function')return;
 const PNOA=(z,x,y)=>`https://www.ign.es/wmts/pnoa-ma?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=OI.OrthoimageCoverage&STYLE=default&TILEMATRIXSET=GoogleMapsCompatible&TILEMATRIX=${z}&TILEROW=${y}&TILECOL=${x}&FORMAT=image/jpeg`;
 // fondos: 🌑 oscuro (CARTO Dark Matter, © OpenStreetMap © CARTO), 🛰️ satélite (PNOA, © IGN), 🗺️ mapa (IGN)
 const CARTO=(z,x,y)=>`https://${'abcd'[(x+y)%4]}.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}@2x.png`;
-const FONDOS={osc:['🌑 Oscuro',CARTO],sat:['🛰️ Satélite',PNOA],map:['🗺️ Mapa',null]};
-let FONDO=(()=>{try{return localStorage.getItem('rdFondo')||'osc';}catch(e){return 'osc';}})();if(!FONDOS[FONDO])FONDO='osc';
+const FONDOS={sat:['🛰️ Satélite',PNOA],osc:['🌑 Oscuro',CARTO],map:['🗺️ Mapa',null]};
+// satélite «como Rain Alarm» (20 nov. 2026): más oscuro, con más contraste y color, para que los montes se vean en volumen
+const FILTRO={sat:'brightness(.68) contrast(1.3) saturate(1.45)'};
+let FONDO=(()=>{try{return localStorage.getItem('rdFondo2')||'sat';}catch(e){return 'sat';}})();if(!FONDOS[FONDO])FONDO='sat';
 const fondoT=()=>FONDOS[FONDO][1];
+const fondo=M=>{M.tile=fondoT();M.tileFilter=FILTRO[FONDO]||null;};
 let YO=null;   // [lat, lon]
 
 // --- estilos ---
@@ -71,14 +74,14 @@ const fab=()=>{$('rdFab').textContent=playing()?'❚❚':'▶';};
 $('rdFab').onclick=()=>{$('rdPlay').click();fab();};
 
 // --- botones de arriba ---
-document.querySelectorAll('.rdF').forEach(b=>b.onclick=()=>{FONDO=b.dataset.f;try{localStorage.setItem('rdFondo',FONDO);}catch(e){}
+document.querySelectorAll('.rdF').forEach(b=>b.onclick=()=>{FONDO=b.dataset.f;try{localStorage.setItem('rdFondo2',FONDO);}catch(e){}
   document.querySelectorAll('.rdF').forEach(c=>c.classList.toggle('pri',c===b));
-  for(const M of [RDM,window.MTR_M])if(M){M.tile=fondoT();M.draw();M.base();}});
+  for(const M of [RDM,window.MTR_M])if(M){fondo(M);M.draw();M.base();}});
 $('rdYo').onclick=()=>yo(()=>{if(RDM&&YO){RDM.la=YO[0];RDM.lo=YO[1];RDM.z=zoomYo(RDM);RDM.draw();RDM.base();}});
 
 // --- al abrir: fondo elegido, centrado en mí y en marcha ---
 const _i=rdInit;rdInit=function(){const nuevo=!RDM;_i.apply(this,arguments);if(!RDM)return;
-  RDM.tile=fondoT();
+  fondo(RDM);
   if(nuevo)yo(()=>{if(YO&&RDM){RDM.la=YO[0];RDM.lo=YO[1];RDM.z=zoomYo(RDM);}RDM.draw();RDM.base();});
   let n=0;const arr=setInterval(()=>{n++;if(RDF.length>1&&!playing()&&$('t-radar').classList.contains('on')){$('rdPlay').click();clearInterval(arr);}if(n>40)clearInterval(arr);fab();},250);
   setTimeout(fab,600);};
@@ -102,7 +105,7 @@ setInterval(()=>{if($('t-radar').classList.contains('on'))fab();},1000);
       const ult=RDF.findLastIndex(g=>!g.nc);I=I>=RDF.length-1?0:I+1;pinta();if(I===ult){PLAY&&(PLAY='pausa');setTimeout(()=>{if(PLAY==='pausa')PLAY=true;},1500);}},700);};
   $('mtrFab').onclick=e=>{e.stopPropagation();PLAY=!PLAY;$('mtrFab').textContent=PLAY?'❚❚':'▶';};
   function abrir(){mtc.style.display='none';$('mtrBox').style.display='';const lg=$('mtLeg');if(lg)lg.style.visibility='hidden';
-    if(!M){M=window.MTR_M=NavMap('mtr',dib,()=>{});}M.tile=fondoT();
+    if(!M){M=window.MTR_M=NavMap('mtr',dib,()=>{});}fondo(M);
     yo(()=>{if(YO){M.la=YO[0];M.lo=YO[1];M.z=zoomYo(M);}M.draw();M.base();});
     const go=()=>{if(I<0||I>=RDF.length)I=Math.max(0,RDF.findLastIndex(g=>!g.nc));pinta();anima();};
     if(RDF.length)go();else rdLoad().then(go);}
