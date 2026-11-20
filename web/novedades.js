@@ -276,9 +276,12 @@ setTimeout(rzLoad,APP?8000:1500);   // en la web, enseguida (solo lee un archivo
 window.bnaRecargar=function(){try{if(/android_asset/.test(location.href)&&window.AndroidNet&&window.AndroidNet.reload){window.AndroidNet.reload();return;}}catch(e){}location.reload();};
 if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=false,LAST=0;
   const libre=()=>!document.querySelector('input:focus,textarea:focus,select:focus,#pinBox[style*="flex"],#nvLang,#muBox,#bnaAccBox')&&(typeof BNTAB==='undefined'||BNTAB==='mtiempo');
-  const aplicar=()=>{if(!PEND)return;if(!libre())return;PEND=false;toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);};
+  // 20 nov. 2026: si no estás en Inicio, ya no espera callada: avisa con un botón «Recargar» para aplicarla en ese momento
+  let AVISADO=false;
+  const aplicar=()=>{if(!PEND)return;if(!libre()){if(!AVISADO){AVISADO=true;toast('✨ Hay una versión nueva de la pantalla','Recargar',()=>{PEND=false;bnaRecargar();});}return;}PEND=false;toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);};
   const _cu=checkUpdate;
-  checkUpdate=async function(manual){if(manual)return _cu(true);if(Date.now()-LAST<5*60e3)return;LAST=Date.now();
+  checkUpdate=async function(manual){if(manual){if(PEND){PEND=false;menu(false);toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);return;}return _cu(true);}   // ya descargada: recargar en vez de «Ya tienes la última versión»
+    if(Date.now()-LAST<5*60e3)return;LAST=Date.now();
     const r=await updWeb().catch(()=>({ok:false}));if(!r||!r.ok)return;
     if(r.apk>r.myApk&&r.apkUrl){if(typeof bnMudanza==='function'&&bnMudanza())return;
       if(r.play)return;   // Google Play ya actualiza la app sola
