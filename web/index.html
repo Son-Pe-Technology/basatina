@@ -3617,7 +3617,7 @@ rdLoad=async function(){if(!APP)return _rdLoad0();/* en la web el navegador no d
 rdPaint=function(x,P,b,path,cache,redraw){const f=RDF.find(g=>g.path===path||g===path)||null;
   const url=f&&f.url?f.url:(z,X,Y)=>`${RDH}${path}/256/${z}/${X}/${Y}/2/1_1.png`,zmax=f&&f.url?9:7;
   x.filter='saturate(1.8) contrast(1.2)';drawTiles(x,P,b,url,cache,5,zmax,f&&f.url?.85:1,redraw);x.filter='none';};
-rdDraw=function(x,P,b){const f=RDF[RDI];if(!f)return;x.fillStyle='rgba(8,16,26,.45)';x.fillRect(0,0,b.W,b.H);rdPaint(x,P,b,f.path||f,RDT,()=>RDM&&RDM.draw());};
+rdDraw=function(x,P,b){const f=RDF[RDI];if(!f)return;x.fillStyle=RDM&&RDM.tile?'rgba(8,16,26,.18)':'rgba(8,16,26,.45)';x.fillRect(0,0,b.W,b.H);rdPaint(x,P,b,f.path||f,RDT,()=>RDM&&RDM.draw());};
 const _mtRadar0=mtRadar;
 mtRadar=function(x,W,H,P,leg){const L=RDF.filter(f=>!f.nc),f=L.length?L[L.length-1]:null;leg.style.display='';
   if(!f){leg.innerHTML='Cargando el radar…';rdLoad().then(()=>{if(MTL==='radar')mtDraw();});return;}
@@ -5118,6 +5118,7 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="comunidad.js"></script>
 <script src="cuenta.js"></script>
 <script src="ampliacion.js"></script>
+<script src="radar-viva.js"></script>
 <script src="rios-plus.js"></script>
 <script src="ocio-ui.js"></script>
 <script src="juegos.js"></script>
