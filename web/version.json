@@ -1,5 +1,5 @@
 {
- "version": 350,
+ "version": 351,
  "apk": 27,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -19,7 +19,7 @@
   "cuenta.js": "f53e64c0003567ded5303163ff6c01d0e1c7d9f2",
   "curiosas.js": "e68ea1cc1240020c1ea79f736d075f0a43a02b13",
   "efemerides.js": "b4dea96ea7390c02d0e634b7f745f9f463bdba7a",
-  "energia.js": "14f6d4aa4f16f85b5b7b522d02e33856d6c110d9",
+  "energia.js": "ea8e352eb48c6407d047f2293220420420386192",
   "especies.js": "c0f1c253cfeafc60516fd71f52ae7b58c811e970",
   "eu.js": "8e229a636cb951e1bd9586b969d6e0270e38e9a6",
   "flood.png": "6d4fa0d5fbc339db9a3c4ffe14e433dc989066fc",
