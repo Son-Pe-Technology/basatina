@@ -176,7 +176,7 @@ if(typeof NavMap==='function'){const _NM=NavMap;NavMap=function(id,draw,tap){con
   M.base=()=>{if(M.wms||TFAIL>6)return base0();clearTimeout(M.t);M.t=setTimeout(()=>M.ovLoad(),250);M.draw();};
   M.draw=()=>{if(cv.clientWidth<10)return;const x=fitCanvas(cv),b=M.box(),P=(la,lo)=>[b.W*(lo-b.w)/(b.e-b.w),b.H*(b.n-la)/(b.n-b.s)];
     x.fillStyle='#dfe6ec';x.fillRect(0,0,b.W,b.H);let ok=false;
-    if(!M.wms&&TFAIL<=6){x.globalAlpha=.9;if(M.tileFilter)x.filter=M.tileFilter;ok=tilesDraw(x,P,b,redraw,M.tile);x.filter='none';x.globalAlpha=1;}
+    if(!M.wms&&TFAIL<=6){x.globalAlpha=.9;if(M.tileFilter)x.filter=M.tileFilter;ok=tilesDraw(x,P,b,redraw,M.tile);x.filter='none';x.globalAlpha=1;if(ok&&M.overTiles)try{M.overTiles(x,P,b,redraw);}catch(e){}}
     if(!ok&&M.img&&M.ib){const [x0,y0]=P(M.ib.n,M.ib.w),[x1,y1]=P(M.ib.s,M.ib.e);x.globalAlpha=.85;x.drawImage(M.img,x0,y0,x1-x0,y1-y0);x.globalAlpha=1;}
     if(M.ov&&M.ovImg&&M.ovB){const [x0,y0]=P(M.ovB.n,M.ovB.w),[x1,y1]=P(M.ovB.s,M.ovB.e);x.globalAlpha=.8;x.drawImage(M.ovImg,x0,y0,x1-x0,y1-y0);x.globalAlpha=1;}
     if(typeof drawPetilla==='function')drawPetilla(x,P,M.z>=6);M.P=P;draw(x,P,b,M);};
