@@ -160,14 +160,14 @@ async function amHoras(){const el=$('amHL');if(!el||typeof TW==='undefined'||!TW
    Mientras llega una tesela se pinta ampliada la del nivel anterior. Si el WMTS fallara, se vuelve al sistema de antes. */
 const TILE=(z,x,y)=>`https://www.ign.es/wmts/ign-base?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=IGNBaseTodo&STYLE=default&TILEMATRIXSET=GoogleMapsCompatible&TILEMATRIX=${z}&TILEROW=${y}&TILECOL=${x}&FORMAT=image/jpeg`;
 const TC=new Map();let TFAIL=0;
-function tImg(z,x,y,cb){const u=TILE(z,x,y);let im=TC.get(u);if(!im){im=new Image();im.onload=()=>{TFAIL=0;cb&&cb();};im.onerror=()=>{TFAIL++;const n=(im.n||0)+1;setTimeout(()=>{if(TC.get(u)===im)TC.delete(u);cb&&cb();},1500*n);};im.src=u;TC.set(u,im);if(TC.size>900)TC.delete(TC.keys().next().value);}return im;}
-function tilesDraw(x,P,b,redraw){const dpr=Math.min(2,window.devicePixelRatio||1),z=Math.max(6,Math.min(18,Math.round(Math.log2(360*b.W*dpr*.75/(256*(b.e-b.w)))))),n=2**z;
+function tImg(z,x,y,cb,T){const u=(T||TILE)(z,x,y);let im=TC.get(u);if(!im){im=new Image();im.onload=()=>{TFAIL=0;cb&&cb();};im.onerror=()=>{TFAIL++;const n=(im.n||0)+1;setTimeout(()=>{if(TC.get(u)===im)TC.delete(u);cb&&cb();},1500*n);};im.src=u;TC.set(u,im);if(TC.size>900)TC.delete(TC.keys().next().value);}return im;}
+function tilesDraw(x,P,b,redraw,T){T=T||TILE;const dpr=Math.min(2,window.devicePixelRatio||1),z=Math.max(6,Math.min(18,Math.round(Math.log2(360*b.W*dpr*.75/(256*(b.e-b.w)))))),n=2**z;
   const tx=lo=>Math.floor((lo+180)/360*n),ty=la=>{const r=la*Math.PI/180;return Math.floor((1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*n);};
   const lon=(X,m)=>X/m*360-180,lat=(Y,m)=>{const k=Math.PI-2*Math.PI*Y/m;return 180/Math.PI*Math.atan(.5*(Math.exp(k)-Math.exp(-k)));};
   const x0=tx(b.w),x1=tx(b.e),y0=ty(b.n),y1=ty(b.s);if((x1-x0+1)*(y1-y0+1)>70)return false;
-  for(let X=x0;X<=x1;X++)for(let Y=y0;Y<=y1;Y++){const im=tImg(z,X,Y,redraw),[ax,ay]=P(lat(Y,n),lon(X,n)),[bx,by]=P(lat(Y+1,n),lon(X+1,n));
+  for(let X=x0;X<=x1;X++)for(let Y=y0;Y<=y1;Y++){const im=tImg(z,X,Y,redraw,T),[ax,ay]=P(lat(Y,n),lon(X,n)),[bx,by]=P(lat(Y+1,n),lon(X+1,n));
     if(im.complete&&im.naturalWidth){x.drawImage(im,ax,ay,bx-ax,by-ay);continue;}
-    for(let k=1;k<=3;k++){const pz=z-k,m=2**pz,PX=X>>k,PY=Y>>k,u=TILE(pz,PX,PY),pi=TC.get(u);
+    for(let k=1;k<=3;k++){const pz=z-k,m=2**pz,PX=X>>k,PY=Y>>k,u=T(pz,PX,PY),pi=TC.get(u);
       if(pi&&pi.complete&&pi.naturalWidth){const f=1<<k,sx=(X-PX*f)*256/f,sy=(Y-PY*f)*256/f;x.drawImage(pi,sx,sy,256/f,256/f,ax,ay,bx-ax,by-ay);break;}}}
   return true;}
 if(typeof NavMap==='function'){const _NM=NavMap;NavMap=function(id,draw,tap){const c0=$(id);if(c0&&!c0.getAttribute('height')){c0.setAttribute('height',parseInt(c0.style.height)||parseInt(getComputedStyle(c0).height)||340);delete c0.dataset.h;}
@@ -176,7 +176,7 @@ if(typeof NavMap==='function'){const _NM=NavMap;NavMap=function(id,draw,tap){con
   M.base=()=>{if(M.wms||TFAIL>6)return base0();clearTimeout(M.t);M.t=setTimeout(()=>M.ovLoad(),250);M.draw();};
   M.draw=()=>{if(cv.clientWidth<10)return;const x=fitCanvas(cv),b=M.box(),P=(la,lo)=>[b.W*(lo-b.w)/(b.e-b.w),b.H*(b.n-la)/(b.n-b.s)];
     x.fillStyle='#dfe6ec';x.fillRect(0,0,b.W,b.H);let ok=false;
-    if(!M.wms&&TFAIL<=6){x.globalAlpha=.9;ok=tilesDraw(x,P,b,redraw);x.globalAlpha=1;}
+    if(!M.wms&&TFAIL<=6){x.globalAlpha=.9;ok=tilesDraw(x,P,b,redraw,M.tile);x.globalAlpha=1;}
     if(!ok&&M.img&&M.ib){const [x0,y0]=P(M.ib.n,M.ib.w),[x1,y1]=P(M.ib.s,M.ib.e);x.globalAlpha=.85;x.drawImage(M.img,x0,y0,x1-x0,y1-y0);x.globalAlpha=1;}
     if(M.ov&&M.ovImg&&M.ovB){const [x0,y0]=P(M.ovB.n,M.ovB.w),[x1,y1]=P(M.ovB.s,M.ovB.e);x.globalAlpha=.8;x.drawImage(M.ovImg,x0,y0,x1-x0,y1-y0);x.globalAlpha=1;}
     if(typeof drawPetilla==='function')drawPetilla(x,P,M.z>=6);M.P=P;draw(x,P,b,M);};
