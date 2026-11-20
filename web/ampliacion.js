@@ -3,7 +3,8 @@
    Se carga el último (después de comunidad.js). No reescribe nada: envuelve funciones y añade pantallas.
    1. Menú: «Cuadrilla BasatiNA · únete», «Alertas ciudadanas», «NA a Pie», «Mi calendario», Recolección en
       Vida silvestre, Turismo dentro de Localidades, cada grupo con su color, los grupos se cierran solos.
-   2. El tiempo: barómetro antiguo junto al reloj de presión y pronóstico por horas (además de la gráfica).
+   2. El tiempo: barómetro antiguo con reloj digital de presión (20 nov. 2026: sustituye al reloj de la tarjeta de presión)
+      y pronóstico por horas (además de la gráfica).
    3. Mapas: fondo del IGN en teselas (se guardan en el móvil y cargan mucho más rápido).
    4. NA Sísmica: pestaña de fallas con ficha, flechas de movimiento y simulador de intensidad (escala EMS-98).
    5. NA Salud: centros de salud, consultorios, hospitales y urgencias (web/territorio.js).
@@ -100,16 +101,36 @@ function baroTxt(p,d3){const s=baroSec(p)[2].toLowerCase();
   if(d3>=1)return `La presión va subiendo: el tiempo tiende a mejorar. Ahora marca «${s}».`;
   return `La presión está estable: seguirá parecido. Marca «${s}».`;}
 if(typeof ppRender==='function'){const _pp=ppRender;ppRender=async function(){const r=await _pp.apply(this,arguments);try{await amBaro();}catch(e){}return r;};}
-async function amBaro(){const pp=$('tPP');if(!pp)return;let el=$('amBaroC');if(!el){pp.insertAdjacentHTML('afterend','<div class="card" id="amBaroC"><b>🕰️ Barómetro</b><div class="note">Cargando…</div></div>');el=$('amBaroC');}
-  const t=TOWNS[TOWN];let p=null,p3=null;
-  try{const w=await getJSON(`${OM}?latitude=${t[1]}&longitude=${t[2]}&current=pressure_msl&hourly=pressure_msl&past_days=1&forecast_days=1${TZ}`);
+// reloj digital de pantalla LCD (20 nov. 2026): presión real con un decimal y flecha verde (sube) / roja (baja) / gris (estable)
+const SEG={a:[2,0,12,3],b:[13,2,3,11],c:[13,15,3,11],d:[2,25,12,3],e:[0,15,3,11],f:[0,2,3,11],g:[2,12.5,12,3]};
+const DIG={'0':'abcdef','1':'bc','2':'abged','3':'abgcd','4':'fgbc','5':'afgcd','6':'afgedc','7':'abc','8':'abcdefg','9':'abcdfg',' ':''};
+function lcdNum(p){const v=Math.round(p*10),ent=String(Math.floor(v/10)).slice(-4).padStart(4,' '),dd=String(v%10);let x=0,h='';
+  const dig=ch=>{h+=`<g transform="translate(${x} 0) skewX(-7)">${Object.entries(SEG).map(([k,[sx,sy,w,hh]])=>`<rect x="${sx}" y="${sy}" width="${w}" height="${hh}" rx="1.4" fill="${DIG[ch].includes(k)?'#16231a':'rgba(0,0,0,.07)'}"/>`).join('')}</g>`;x+=20;};
+  [...ent].forEach(dig);h+=`<rect x="${x-3}" y="25" width="3.5" height="3.5" rx="1" fill="#16231a"/>`;x+=4;dig(dd);
+  return `<svg viewBox="-2 -2 ${x+2} 32" style="height:34px;display:block">${h}</svg>`;}
+function lcdFlecha(d3){const c=d3>=1?'#34d058':d3<=-1?'#ff5252':'#9aa5ad',up=d3>=1,dn=d3<=-1,dos=Math.abs(d3)>=3;
+  const tri=y=>up?`<path d="M14 ${y} L26 ${y+11} L2 ${y+11}Z" fill="${c}"/>`:`<path d="M2 ${y} L26 ${y} L14 ${y+11}Z" fill="${c}"/>`;
+  const svg=!up&&!dn?`<svg viewBox="0 0 28 28" width="26" height="26"><rect x="3" y="9" width="22" height="3.5" rx="1.5" fill="${c}"/><rect x="3" y="15.5" width="22" height="3.5" rx="1.5" fill="${c}"/></svg>`
+    :`<svg viewBox="0 0 28 28" width="26" height="26" style="filter:drop-shadow(0 0 4px ${c})">${dos?tri(2)+tri(15):tri(8)}</svg>`;
+  return [svg,c,up?'Subiendo':dn?(dos?'Bajando rápido':'Bajando'):'Estable'];}
+async function amBaro(){const el=$('ppBaro');if(!el)return;const t=TOWNS[TOWN];let p=null,p3=null;
+  const D=window.PPD;if(D&&D.town===TOWN){p=D.p;p3=D.p3;}
+  else try{const w=await getJSON(`${OM}?latitude=${t[1]}&longitude=${t[2]}&current=pressure_msl&hourly=pressure_msl&past_days=1&forecast_days=1${TZ}`);
     if(w&&w.current){p=w.current.pressure_msl;const H=w.hourly,now=new Date(),i=Math.max(0,H.time.findIndex(s=>new Date(s)>now)-1);p3=H.pressure_msl[Math.max(0,i-3)];}}catch(e){}
-  if(p==null){el.innerHTML='<b>🕰️ Barómetro</b><div class="note">No se pudo leer la presión ahora.</div>';return;}
-  const S=baroSec(p);
-  el.innerHTML=`<b>🕰️ Barómetro</b>${baroSvg(p,p3)}
-   <div style="text-align:center;margin-top:-4px"><span class="amPill" style="background:${S[4]};font-size:15px;padding:4px 14px">${S[3]} ${S[2]}</span><div class="note" style="margin-top:4px">${fmtN(p,0)} hPa en ${esc(t[0])}</div></div>
-   <div style="margin-top:8px">${baroTxt(p,p3!=null?p-p3:0)}</div>
+  if(p==null){el.innerHTML='<div class="note">No se pudo leer la presión ahora.</div>';return;}
+  const S=baroSec(p),d3=p3!=null?p-p3:0,[fl,fc,ft]=lcdFlecha(d3);
+  el.innerHTML=`${baroSvg(p,p3)}
+   <div style="text-align:center;margin-top:-2px"><span class="amPill" style="background:${S[4]};font-size:15px;padding:4px 14px">${S[3]} ${S[2]}</span></div>
+   <div style="display:flex;align-items:stretch;gap:0;width:max-content;max-width:100%;margin:10px auto 0;background:linear-gradient(160deg,#30363b,#1c2024);border-radius:14px;padding:6px;box-shadow:0 3px 10px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08)" role="img" aria-label="${fmtN(p,1)} hPa, ${ft}">
+     <div style="background:linear-gradient(170deg,#cfdcbf,#b3c39f);border-radius:9px;padding:6px 10px 5px;box-shadow:inset 0 2px 5px rgba(0,0,0,.28)">
+       <div style="display:flex;justify-content:space-between;font:800 8.5px/1 monospace;color:#2c3a2e;letter-spacing:.08em;margin-bottom:3px"><span>PRESIÓN</span><span>${esc(t[0]).toUpperCase().slice(0,14)}</span></div>
+       <div style="display:flex;align-items:flex-end;gap:5px">${lcdNum(p)}<span style="font:800 12px/1 monospace;color:#16231a;padding-bottom:2px">hPa</span></div></div>
+     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 10px 0 12px;min-width:62px">${fl}
+       <span style="font:800 11px/1.2 monospace;color:${fc};margin-top:3px">${d3>0?'+':''}${fmtN(d3,1)}</span><span style="font:700 8.5px/1.2 monospace;color:#9aa5ad">en 3 h</span></div></div>
+   <div style="margin-top:8px">${baroTxt(p,d3)}</div>
    <div class="note" style="margin-top:6px">Aguja negra: ahora · aguja dorada de rayas: hace 3 horas. Como los barómetros de pared de toda la vida: lo que importa es hacia dónde se mueve la aguja.</div>`;}
+// quita la tarjeta suelta del barómetro de versiones anteriores (ahora va dentro de «Presión atmosférica»)
+(function(){const o=$('amBaroC');if(o)o.remove();})();
 
 // 2b · pronóstico por horas (la gráfica sigue; se elige con dos botones)
 let HMODE=lsGet('amHm','g'),HX=null;

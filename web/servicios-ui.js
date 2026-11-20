@@ -22,31 +22,58 @@ function svHook(t,fn){const _p=showTab;showTab=function(x){_p(x);if(x===t)setTim
   ex.closest('.card').insertAdjacentHTML('afterend','<div class="card" id="tPP"><b>🧭 Presión y 🌼 polen</b><div class="note">Cargando…</div></div>');})();
 const PP_POL=[['grass_pollen','Gramíneas','🌾'],['olive_pollen','Olivo','🫒'],['birch_pollen','Abedul','🌳'],['alder_pollen','Aliso','🌳'],['mugwort_pollen','Artemisa','🌿'],['ragweed_pollen','Ambrosía','🌿']];
 const ppNivel=v=>v==null?['—','#9e9e9e',0]:v<1?['Nulo','#9e9e9e',0]:v<10?['Bajo','#43a047',1]:v<50?['Moderado','#f9a825',2]:v<200?['Alto','#ef6c00',3]:['Muy alto','#c62828',4];
-function ppGauge(p){// semicírculo de 960 a 1050 hPa
-  const a=Math.PI*(1-Math.max(0,Math.min(1,(p-960)/90))),cx=110,cy=100,r=80,x=cx+r*Math.cos(a)*.86,y=cy-r*Math.sin(a)*.86;
-  const arc=(v0,v1,c)=>{const a0=Math.PI*(1-(v0-960)/90),a1=Math.PI*(1-(v1-960)/90);return `<path d="M${cx+r*Math.cos(a0)} ${cy-r*Math.sin(a0)} A${r} ${r} 0 0 1 ${cx+r*Math.cos(a1)} ${cy-r*Math.sin(a1)}" stroke="${c}" stroke-width="14" fill="none"/>`;};
-  return `<svg viewBox="0 0 220 120" style="width:100%;max-width:260px;display:block;margin:auto">${arc(960,1000,'#5c6bc0')}${arc(1000,1013,'#4fc3f7')}${arc(1013,1025,'#81c784')}${arc(1025,1050,'#ffb74d')}
-    <line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="6" fill="currentColor"/>
-    <text x="22" y="116" font-size="10" fill="currentColor" opacity=".7">960</text><text x="180" y="116" font-size="10" fill="currentColor" opacity=".7">1050</text>
-    <text x="${cx}" y="${cy+18}" font-size="15" font-weight="700" text-anchor="middle" fill="currentColor">${Math.round(p)} hPa</text></svg>`;}
-function ppSpark(v,iNow){if(!v||v.length<3)return '';const mn=Math.min(...v)-1,mx=Math.max(...v)+1,W=300,H=60,X=i=>i*W/(v.length-1),Y=x=>H-(x-mn)*H/(mx-mn);
-  const d=v.map((x,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(x).toFixed(1)).join(' ');
-  return `<svg viewBox="0 0 ${W} ${H+14}" style="width:100%;height:74px;display:block"><path d="${d}" fill="none" stroke="#1e88e5" stroke-width="2.5"/>
-    <line x1="${X(iNow)}" x2="${X(iNow)}" y1="0" y2="${H}" stroke="#e53935" stroke-dasharray="3 3"/><text x="${X(iNow)+3}" y="10" font-size="10" fill="#e53935">ahora</text>
-    <text x="0" y="${H+12}" font-size="10" fill="currentColor" opacity=".7">hace 24 h</text><text x="${W}" y="${H+12}" font-size="10" text-anchor="end" fill="currentColor" opacity=".7">dentro de 24 h</text></svg>`;}
+// 📈 Gráfica de presión (20 nov. 2026): bandas con los colores del barómetro, relleno, pasado en línea continua y previsión
+// en discontinua, máximo y mínimo marcados, punto de «ahora» que late y la línea se dibuja sola al abrir la pantalla.
+const PP_BANDAS=[[950,970,'#3949ab','Tempestad'],[970,990,'#1e88e5','Lluvia'],[990,1010,'#78909c','Variable'],[1010,1030,'#f9a825','Buen tiempo'],[1030,1050,'#ef6c00','Muy seco']];
+function ppChart(v,tm,iNow){if(!v||v.length<3)return '';
+  const W=330,H=170,L=34,R=10,T=16,B=26,pw=W-L-R,ph=H-T-B,n=v.length;
+  let mn=Math.floor(Math.min(...v)-1.5),mx=Math.ceil(Math.max(...v)+1.5);if(mx-mn<10){const c=(mx+mn)/2;mn=Math.floor(c-5);mx=Math.ceil(c+5);}
+  const X=i=>L+i*pw/(n-1),Y=x=>T+(mx-x)*ph/(mx-mn),f=x=>x.toFixed(1),uid='pp'+Math.random().toString(36).slice(2,7);
+  let h=`<defs><linearGradient id="${uid}g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e88e5" stop-opacity=".45"/><stop offset="1" stop-color="#1e88e5" stop-opacity="0"/></linearGradient>
+    <clipPath id="${uid}c"><rect x="${L}" y="0" width="${pw}" height="${H}"><animate attributeName="width" from="0" to="${pw}" dur="1.3s" fill="freeze"/></rect></clipPath></defs>`;
+  // bandas de color (las mismas zonas que el barómetro) con su nombre a la derecha
+  PP_BANDAS.forEach(([a,b,c,nm])=>{const lo=Math.max(a,mn),hi=Math.min(b,mx);if(hi<=lo)return;const y1=Y(hi),y2=Y(lo);
+    h+=`<rect x="${L}" y="${f(y1)}" width="${pw}" height="${f(y2-y1)}" fill="${c}" opacity=".14"/>`;
+    if(y2-y1>16){const yl=y1+12,cerca=xx=>[v.indexOf(Math.max(...v)),v.indexOf(Math.min(...v))].some(i=>Math.abs(X(i)-xx)<70&&Math.abs(Y(v[i])-yl)<22),der=!cerca(L+pw-35);
+      h+=`<text x="${der?L+pw-4:L+4}" y="${f(yl)}" font-size="9" font-weight="700" text-anchor="${der?'end':'start'}" fill="${c}" opacity=".9">${nm.toUpperCase()}</text>`;}});
+  // rejilla de hPa
+  const st=mx-mn>20?5:2;for(let y=Math.ceil(mn/st)*st;y<=mx;y+=st)h+=`<line x1="${L}" x2="${L+pw}" y1="${f(Y(y))}" y2="${f(Y(y))}" stroke="currentColor" opacity=".1"/><text x="${L-4}" y="${f(Y(y)+3)}" font-size="9" text-anchor="end" fill="currentColor" opacity=".65">${y}</text>`;
+  // horas (cada 6 h) y cambio de día
+  (tm||[]).forEach((s,i)=>{const hr=+s.slice(11,13);if(hr%6)return;const x=f(X(i));
+    if(hr===0){h+=`<line x1="${x}" x2="${x}" y1="${T}" y2="${T+ph}" stroke="currentColor" opacity=".3" stroke-dasharray="2 3"/><text x="${+x+3}" y="${T+ph-4}" font-size="9" font-weight="700" fill="currentColor" opacity=".7">${DSEM[new Date(s.slice(0,10)+'T12:00').getDay()].slice(0,3)}</text>`;}
+    h+=`<text x="${x}" y="${H-10}" font-size="9" text-anchor="middle" fill="currentColor" opacity=".65">${String(hr).padStart(2,'0')} h</text>`;});
+  const pts=v.map((x,i)=>[X(i),Y(x)]),ln=a=>a.map((p,i)=>(i?'L':'M')+f(p[0])+' '+f(p[1])).join(' ');
+  const pas=pts.slice(0,iNow+1),fut=pts.slice(iNow);
+  h+=`<g clip-path="url(#${uid}c)"><path d="${ln(pts)} L${f(X(n-1))} ${T+ph} L${L} ${T+ph}Z" fill="url(#${uid}g)"/>
+    <path d="${ln(pas)}" fill="none" stroke="#1565c0" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="${ln(fut)}" fill="none" stroke="#1e88e5" stroke-width="2.6" stroke-dasharray="6 4" stroke-linecap="round"/>`;
+  // máximo y mínimo
+  const iMx=v.indexOf(Math.max(...v)),iMn=v.indexOf(Math.min(...v));
+  [[iMx,'#ef6c00',-8,'▲'],[iMn,'#3949ab',15,'▼']].forEach(([i,c,dy,ic])=>{if(Math.abs(i-iNow)<3)return;const [x,y]=pts[i],ta=i<4?'start':i>n-5?'end':'middle';
+    h+=`<circle cx="${f(x)}" cy="${f(y)}" r="3.5" fill="${c}"/><text x="${f(x)}" y="${f(y+dy)}" font-size="9.5" font-weight="800" text-anchor="${ta}" fill="${c}">${ic} ${Math.round(v[i])}</text>`;});
+  h+='</g>';
+  // ahora: línea, punto que late y valor
+  const [xn,yn]=pts[iNow];
+  h+=`<line x1="${f(xn)}" x2="${f(xn)}" y1="${T}" y2="${T+ph}" stroke="#e53935" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <circle cx="${f(xn)}" cy="${f(yn)}" r="6" fill="#e53935" opacity=".35"><animate attributeName="r" values="6;13;6" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;0;.45" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="${f(xn)}" cy="${f(yn)}" r="5" fill="#e53935" stroke="#fff" stroke-width="2"/>
+    <rect x="${f(xn-19)}" y="1" width="38" height="14" rx="7" fill="#e53935"/><text x="${f(xn)}" y="11.5" font-size="9.5" font-weight="800" text-anchor="middle" fill="#fff">AHORA</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block;margin-top:4px" role="img" aria-label="Gráfica de la presión">${h}</svg>
+    <div class="note" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:2px"><span><b style="color:#1565c0">━</b> <span>últimas 24 h</span></span><span><b style="color:#1e88e5">┅</b> <span>previsión</span></span><span style="color:#ef6c00">▲ <span>máxima</span></span><span style="color:#3949ab">▼ <span>mínima</span></span></div>`;}
 async function ppRender(){const el=document.getElementById('tPP');if(!el||typeof TOWNS==='undefined')return;const t=TOWNS[TOWN];if(!t)return;
   const [w,q]=await Promise.all([getJSON(`${OM}?latitude=${t[1]}&longitude=${t[2]}&current=pressure_msl,surface_pressure&hourly=pressure_msl&past_days=1&forecast_days=2${TZ}`),
     getJSON(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${t[1]}&longitude=${t[2]}&hourly=${PP_POL.map(x=>x[0]).join(',')}&forecast_days=4${TZ}`)]);
   let h='<b>🧭 Presión atmosférica</b>';
   if(w&&w.current&&w.hourly){const p=w.current.pressure_msl,H=w.hourly,now=new Date(),iNow=Math.max(0,H.time.findIndex(s=>new Date(s)>now)-1);
-    const pv=H.pressure_msl,d3=pv[iNow]-(pv[iNow-3]??pv[iNow]),d24=(pv[iNow+12]??pv[iNow])-pv[iNow];
-    const est=p<1000?['Borrasca: tiempo revuelto','#3949ab']:p<1013?['Presión baja: tiempo variable','#0288d1']:p<1025?['Presión normal: tiempo estable','#2e7d32']:['Anticiclón: muy estable, poco viento','#ef6c00'];
-    const ten=d3>=1?['⬆️ Subiendo','tiende a mejorar']:d3<=-3?['⬇️ Bajando rápido','posible empeoramiento en horas']:d3<=-1?['↘️ Bajando','puede cambiar a peor']:['➡️ Estable','sin cambios a la vista'];
-    h+=ppGauge(p)+`<div style="text-align:center"><b style="color:${est[1]}">${est[0]}</b></div>
-      <div class="kpi" style="margin-top:6px"><div><span class="note">Últimas 3 horas</span><b>${ten[0]}</b><span class="note">${d3>0?'+':''}${fmtN(d3,1)} hPa · ${ten[1]}</span></div>
-      <div><span class="note">Próximas 12 horas</span><b>${d24>0?'+':''}${fmtN(d24,1)} hPa</b><span class="note">en ${esc(t[0])} (a su altura: ${Math.round(w.current.surface_pressure)} hPa)</span></div></div>
-      ${ppSpark(pv.slice(Math.max(0,iNow-24),iNow+25),Math.min(24,iNow))}
-      <div class="note">La presión se da «a nivel del mar» para poder comparar pueblos. Si baja deprisa suele llegar viento o lluvia; si sube, tiempo más tranquilo.</div>`;}
+    const pv=H.pressure_msl,d3=pv[iNow]-(pv[iNow-3]??pv[iNow]),d12=(pv[iNow+12]??pv[iNow])-pv[iNow],i0=Math.max(0,iNow-24);
+    // el barómetro y el reloj digital los pinta ampliacion.js en #ppBaro con estos datos (sin volver a pedirlos)
+    window.PPD={town:TOWN,p,p3:pv[iNow-3]??null,d3,d12,surf:w.current.surface_pressure};
+    const c12=d12>=1?'#2e7d32':d12<=-1?'#c62828':'#607d8b',a12=d12>=1?'▲':d12<=-1?'▼':'▶';
+    h+=`<div id="ppBaro"></div>
+      <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><b>📈 <span>Cómo va la presión</span></b>
+        <span class="amPill" style="background:${c12};color:#fff;font-size:12.5px;padding:3px 10px">${a12} <span>Próximas 12 horas</span>: ${d12>0?'+':''}${fmtN(d12,1)} hPa</span></div>
+      ${ppChart(pv.slice(i0,iNow+25),H.time.slice(i0,iNow+25),iNow-i0)}
+      <div class="note" style="margin-top:6px">La presión se da «a nivel del mar» para poder comparar pueblos (en ${esc(t[0])}, a su altura, marca ${Math.round(w.current.surface_pressure)} hPa). Si baja deprisa suele llegar viento o lluvia; si sube, tiempo más tranquilo.</div>`;}
   else h+='<div class="note">No se pudo leer la presión ahora.</div>';
   h+='<div style="margin-top:12px"><b>🌼 Polen en el aire</b></div>';
   if(q&&q.hourly){const H=q.hourly,dias=[...new Set(H.time.map(s=>s.slice(0,10)))].slice(0,4),now=new Date();

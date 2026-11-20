@@ -2105,3 +2105,8 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Contador anónimo activado":["Kontagailu anonimoa aktibatuta","Anonymous counter on","Compteur anonyme activé"],"Contador anónimo desactivado":["Kontagailu anonimoa desaktibatuta","Anonymous counter off","Compteur anonyme désactivé"],
  "Hacer copia de mis datos":["Nire datuen kopia egin","Back up my data","Sauvegarder mes données"],"Cómo borrar mi cuenta ↗":["Nola ezabatu nire kontua ↗","How to delete my account ↗","Comment supprimer mon compte ↗"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
+// 🧭 Presión atmosférica con barómetro y reloj digital (20 nov. 2026)
+(function(){const T={"Cómo va la presión":["Presioa nola doan","How pressure is changing","Évolution de la pression"],"Próximas 12 horas":["Hurrengo 12 orduak","Next 12 hours","12 prochaines heures"],
+ "últimas 24 h":["azken 24 h","last 24 h","dernières 24 h"],"previsión":["iragarpena","forecast","prévision"],"máxima":["maximoa","highest","maximum"],"mínima":["minimoa","lowest","minimum"],
+ "Subiendo":["Igotzen","Rising","En hausse"],"Bajando":["Jaisten","Falling","En baisse"],"Bajando rápido":["Azkar jaisten","Falling fast","En forte baisse"],"Estable":["Egonkor","Steady","Stable"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
