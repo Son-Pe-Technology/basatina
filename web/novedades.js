@@ -281,7 +281,7 @@ if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=f
   const aplicar=()=>{if(!PEND)return;if(!libre()){if(!AVISADO){AVISADO=true;toast('✨ Hay una versión nueva de la pantalla','Recargar',()=>{PEND=false;bnaRecargar();});}return;}PEND=false;toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);};
   const _cu=checkUpdate;
   checkUpdate=async function(manual){if(manual){if(PEND){PEND=false;menu(false);toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);return;}return _cu(true);}   // ya descargada: recargar en vez de «Ya tienes la última versión»
-    if(Date.now()-LAST<5*60e3)return;LAST=Date.now();
+    if(Date.now()-LAST<60e3)return;LAST=Date.now();
     const r=await updWeb().catch(()=>({ok:false}));if(!r||!r.ok)return;
     if(r.apk>r.myApk&&r.apkUrl){if(typeof bnMudanza==='function'&&bnMudanza())return;
       if(r.play)return;   // Google Play ya actualiza la app sola
