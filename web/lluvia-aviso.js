@@ -67,7 +67,7 @@ if(typeof ajustesRender==='function'){const _aj=ajustesRender;window.ajustesRend
     <div id="llSh" style="display:${l.silOn?'flex':'none'};gap:8px;align-items:center;margin-top:4px"><span>de</span> <select id="llS0">${hrs(l.sil[0])}</select> <span>a</span> <select id="llS1">${hrs(l.sil[1])}</select></div>
     <div class="note" style="margin-top:8px">📍 <span id="llPos">${l.pos?'Vigilando alrededor de '+esc(l.pos[2]):'Buscando dónde estás…'}</span>. Se actualiza cada vez que abres la app. Si no das permiso de ubicación, se usa el pueblo de El tiempo.</div>
     ${VER()>=31?son('Lluvia','lluvia')+son('Lluvia con truenos','tormenta','(si va a llover fuerte)'):''}
-    <div class="note">Radar: RainViewer, con los radares meteorológicos europeos. Android comprueba más o menos cada 15 minutos (puede retrasarlo un poco para ahorrar batería). Ante el riesgo, haz caso siempre a los avisos oficiales de AEMET.</div>
+    <div class="note">Android comprueba más o menos cada 15 minutos (puede retrasarlo un poco para ahorrar batería).</div>
    </div>`:'<div class="note" style="margin-top:6px">📲 Llega con la app de Android 4.9 o más nueva. Actualízala desde «Buscar nueva versión de la app» o Google Play.</div>'}</div>`);
   const v=V(),okV=NAT()&&VER()>=31,kTxt=k=>'rachas de '+k+' km/h o más';
   el.insertAdjacentHTML('beforeend',`<div class="card" id="ajVi"><b>💨 Aviso de viento</b>
@@ -83,7 +83,7 @@ if(typeof ajustesRender==='function'){const _aj=ajustesRender;window.ajustesRend
     <div id="viSh" style="display:${v.silOn?'flex':'none'};gap:8px;align-items:center;margin-top:4px"><span>de</span> <select id="viS0">${hrs(v.sil[0])}</select> <span>a</span> <select id="viS1">${hrs(v.sil[1])}</select></div>
     ${son('Viento','viento')}
     <div class="note" style="margin-top:6px">📍 <span>Usa tu ubicación, igual que el aviso de lluvia.</span></div>
-    <div class="note">Previsión de Open‑Meteo. Ante el riesgo, haz caso siempre a los avisos oficiales de AEMET.</div>
+    
    </div>`:'<div class="note" style="margin-top:6px">📲 Llega con la app de Android 5.1 o más nueva. Actualízala desde «Buscar nueva versión de la app» o Google Play.</div>'}</div>`);
   if(okV){const gv=()=>{CFG.viento=Object.assign(V(),{on:$('viOn').checked,kmh:+$('viK').value,r:+$('viR').value,silOn:$('viS').checked,sil:[+$('viS0').value,+$('viS1').value]});cfgSave();};
     $('viOn').onchange=()=>{$('viOpc').style.display=$('viOn').checked?'':'none';gv();if($('viOn').checked)posGuardar();};
@@ -105,7 +105,7 @@ if(typeof ajustesRender==='function'){const _aj=ajustesRender;window.ajustesRend
        <label style="display:flex;gap:8px;align-items:center;margin-top:6px"><input type="checkbox" id="tiCaU" ${t.calor.uv?'checked':''}> <span>Avisar también si el índice UV es muy alto (8 o más)</span></label>${son('Chicharras','calor')}`)
    +bloque('tiNi','🌫️','Aviso de niebla','Antes de salir, si en las próximas 3 horas va a haber niebla. Útil si coges el coche temprano.',t.niebla.on,
       `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px"><span>Si se ve a menos de</span> <select id="tiNiM">${opt([200,500,1000],t.niebla.m,v=>v<1000?v+' m':'1 km')}</select> <span>· avisar a las</span> <select id="tiNiH">${opt([5,6,7,8,9],t.niebla.h,hr)}</select></div>${son('Sirena de niebla','niebla')}`)
-   +`<div class="note" style="margin-top:10px">📍 <span>Usa tu ubicación, igual que el aviso de lluvia.</span> Previsión de Open‑Meteo. Ante el riesgo, haz caso siempre a los avisos oficiales de AEMET.</div>`
+   +`<div class="note" style="margin-top:10px">📍 <span>Usa tu ubicación, igual que el aviso de lluvia.</span></div>`
    :'<div class="note" style="margin-top:6px">📲 Llega con la app de Android 5.2 o más nueva. Actualízala desde «Buscar nueva versión de la app» o Google Play.</div>'}</div>`);
   if(okT){const gt=()=>{CFG.tiempo={helada:{on:$('tiHeOn').checked,t:+$('tiHeT').value,h:+$('tiHeH').value},
       calor:{on:$('tiCaOn').checked,t:+$('tiCaT').value,uv:$('tiCaU').checked,h:+$('tiCaH').value},

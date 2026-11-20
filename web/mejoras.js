@@ -78,7 +78,7 @@ function lcRender(){const el=$('lcBody');if(!el)return;const hoy=hoyYmd();if(!LC
      ${avDet('<b>🌙 El sueño</b>','Algún estudio ha encontrado que con luna llena se duerme un poco peor, pero otros no lo han confirmado. Puede influir la luz de la noche si duermes con la ventana abierta.')}
      ${avDet('<b>🌲 La madera</b>','Es tradición cortar la madera en menguante de invierno para que dure más y no se carcoma («En menguante de enero corta tu madero»). Lo que sí está claro es que la madera cortada en invierno, con poca savia, seca mejor.')}
      ${avDet('<b>🍂 Refranes</b>','«Luna de octubre, siete lunas cubre» (el tiempo de la luna de octubre se repetiría siete meses) · «En menguante de enero corta tu madero» · «Si quieres buen ajo, plántalo en enero».')}</div>
-   <div class="note">Fases de la Luna calculadas con los métodos de J. Meeus. La luna ascendente/descendente es un cálculo aproximado. Los consejos de siembra son de la tradición popular, no recomendaciones científicas.</div>`;
+   `;
   el.querySelectorAll('.calD').forEach(b=>b.onclick=()=>{LCS=b.dataset.f;lcRender();});
   $('lcP').onclick=()=>{const d=new Date(y,m-2,1);LCM=ymd(d).slice(0,7);LCS=LCM+'-01';lcRender();};
   $('lcN').onclick=()=>{const d=new Date(y,m,1);LCM=ymd(d).slice(0,7);LCS=LCM+'-01';lcRender();};}
@@ -200,7 +200,7 @@ function flRender(){const el=$('flList');if(!el)return;const q=N(FLQ),z=FL_Z.fin
     <label class="note" style="display:block;margin-top:8px">Tu zona<select class="town" id="flZ" style="width:100%">${FL_Z.map(z=>`<option value="${z[0]}">${z[1]} · ${z[2]}</option>`).join('')}</select></label>
     <input class="town" id="flQ" type="search" placeholder="🔎 Buscar flor (rosal, lavanda, geranio…)" style="width:100%;box-sizing:border-box;margin-top:8px">
     <label class="note" style="display:flex;align-items:center;gap:6px;margin-top:6px"><input type="checkbox" id="flSolo"> Solo las que van bien en mi zona</label></div><div id="flList"></div>
-    <div class="note">Datos orientativos de jardinería. Las mínimas de cada zona son de inviernos fríos; en patios y balcones de ciudad suele helar menos.</div></div>`);
+    </div>`);
   $('flZ').value=FLZ;$('flZ').onchange=e=>{FLZ=e.target.value;try{localStorage.setItem('flZona',FLZ);}catch(x){}flRender();};
   $('flQ').oninput=e=>{FLQ=e.target.value;flRender();};$('flSolo').onchange=e=>{FLSOLO=e.target.checked;flRender();};
   const vista=()=>{const fl=typeof BITP!=='undefined'&&BITP==='Flores',sec=$('t-biodiversidad');if(!sec)return;

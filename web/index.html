@@ -685,7 +685,7 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
 <div id="cKpi" class="kpi"></div>
 <div class="card"><b id="cChTit">Día a día</b><div class="note"><span style="color:#1e88e5">▮</span> lluvia · <span style="color:#d84315">━</span> máxima · <span style="color:#1565c0">┅</span> mínima</div><canvas id="cCh" height="200"></canvas></div>
 <div class="card" id="cMonCard" style="display:none"><b>Mes a mes</b><div id="cMon"></div></div>
-<div class="note">Datos de Open‑Meteo (reanálisis ERA5 y modelos), no de una estación concreta: sirven para comparar, pero pueden diferir unos grados o milímetros de lo medido en el pueblo.</div>
+
 </section>
 <div id="pinBox"><div><b id="pinTit">Administrador</b><div class="note" id="pinMsg"></div><input id="pinIn" type="password" inputmode="numeric" maxlength="8" autocomplete="off"><div class="row"><button class="btn pri" id="pinOk">Entrar</button><button class="btn" id="pinNo">Cancelar</button></div></div></div>
 <!-- ============ AJUSTES ============ -->
@@ -1036,7 +1036,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="seg" id="foVista"><button class="btn on" data-v="g">🖼️ Galería</button><button class="btn" data-v="m">🗺️ Mapa</button></div>
 <div class="seg" id="foCat"></div>
 <div id="foGal"></div>
-<div class="card" id="foMapC" style="display:none"><div style="position:relative"><canvas id="foc" height="380"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="focIn">＋</button><button class="btn mtb" id="focOut">－</button></div></div><div class="note" id="foMapN" style="margin-top:6px">Toca un punto para ver la foto. Los sitios son aproximados.</div></div>
+<div class="card" id="foMapC" style="display:none"><div style="position:relative"><canvas id="foc" height="380"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="focIn">＋</button><button class="btn mtb" id="focOut">－</button></div></div><div class="note" id="foMapN" style="margin-top:6px">Toca un punto para ver la foto.</div></div>
 <div class="row tech" style="display:none"><button class="btn pri" style="flex:1" onclick="showTab('enviar')">📤 Envía tu foto (formulario, en pausa para el público)</button></div>
 <div class="card tech" style="display:none;border:2px solid #c13584"><b>🔧 Subir foto de paisaje de Instagram</b>
  <div class="note">Solo administradores. Para ir llenando la galería mientras el envío de fotos de la gente está parado. Se publica directamente, <b>sin pedir ni guardar datos personales</b>: solo el crédito (@usuario) que sale con la foto.</div>
@@ -2642,7 +2642,7 @@ function arbRender(el){el.innerHTML=`<select class="town" id="arbOv" style="marg
   <div class="card"><b>🔎 Cómo reconocer los árboles</b><div class="note">Y en qué zonas de Navarra los encontrarás.</div>
   ${NARB.map(a=>`<div class="st" style="align-items:flex-start;flex-direction:column;gap:2px"><div><b>${a.n}</b> <i class="note">${a.l}</i></div><div class="note">${a.h}</div>
    <div>${a.z.map(id=>{const z=NZON.find(q=>q.id===id);return `<span data-z="${id}" class="pill" style="background:${z.col};color:#fff;margin:2px 4px 2px 0;font-size:11px;cursor:pointer">${z.n}</span>`;}).join('')}</div></div>`).join('')}</div>
-  <div class="note">Mapa orientativo por grandes zonas: dentro de cada una hay mucha variedad según la altitud, la orientación y el suelo.</div>`;
+  `;
   ZM=NavMap('arbc',(x,P,b,M)=>{if(!M.ov)zDraw(x,P,b,M);},zTap);setTimeout(()=>{ZM.draw();ZM.base();zRender();},30);
   document.getElementById('arbIn').onclick=()=>ZM.zoom(1.6);document.getElementById('arbOut').onclick=()=>ZM.zoom(1/1.6);
   document.getElementById('arbOv').onchange=e=>{ZM.ov=e.target.value||null;ZM.ovImg=null;ZM.ovLoad();
@@ -5129,12 +5129,12 @@ function pvsDrawer(){const h=document.querySelector('#drawer .dhead');if(!h||h.q
 pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();pvsShow(BNTAB);}catch(e){}};
 </script>
 <img id="basatina-footer-logo" src="logo.png" alt="BasatiNa" aria-hidden="true">
-<script src="servicios-ui.js?v=136fa0d7"></script>
+<script src="servicios-ui.js?v=9e94fc07"></script>
 <script src="arbustos.js?v=2c48ced4"></script>
 <script src="novedades.js?v=801ed47d"></script>
 <script src="efemerides.js?v=b4dea96e"></script>
 <script src="rutas-ui.js?v=0007ff9c"></script>
-<script src="mejoras.js?v=fc317f14"></script>
+<script src="mejoras.js?v=73c7d74e"></script>
 <script src="comunidad.js?v=d9894af7"></script>
 <script src="cuenta.js?v=f53e64c0"></script>
 <script src="ampliacion.js?v=724f4f11"></script>
@@ -5142,15 +5142,15 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="rios-plus.js?v=91e1d9d6"></script>
 <script src="ocio-ui.js?v=64d1c8a7"></script>
 <script src="juegos.js?v=27423182"></script>
-<script src="temas.js?v=4826241e"></script>
+<script src="temas.js?v=9e45bccf"></script>
 <script src="juegos2.js?v=a6391aac"></script>
 <script src="juegos-peques.js?v=1c6b2124"></script>
 <script src="curiosas.js?v=e68ea1cc"></script>
-<script src="lluvia-aviso.js?v=bc2901b4"></script>
+<script src="lluvia-aviso.js?v=23b0066f"></script>
 <script src="menu-emojis.js?v=3535bfce"></script>
 <script src="padel-ui.js?v=e9a7ce91"></script>
 <script src="oficial.js?v=eb081373"></script>
-<script src="legal.js?v=a481b6c4"></script>
+<script src="legal.js?v=5462484f"></script>
 
 </body>
 </html>

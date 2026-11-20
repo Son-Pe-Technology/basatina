@@ -274,7 +274,7 @@ const MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','
 svSec('temporada',`<div class="card"><b>🧺 Productos de temporada</b><div class="note">Qué toca comprar y cocinar cada mes en Navarra, y las ferias y jornadas gastronómicas de la agenda.</div>
  <div class="tmMes" id="tpM" style="margin-top:8px"></div></div><div id="tpL"></div>
  <div class="card"><b>🎪 Ferias y jornadas gastronómicas</b><div id="tpF" style="margin-top:6px"><div class="note">Cargando…</div></div></div>
- <div class="note" style="margin:0 6px 12px">Calendario orientativo: depende del año y de la zona. Las ferias salen de la 🎭 Agenda cultural.</div>`);
+ <div class="note" style="margin:0 6px 12px">Las ferias salen de la 🎭 Agenda cultural.</div>`);
 nuevo('temporada','Localidades','🧺 Productos de temporada','pueblo','i-cesta','g');
 async function tpRender(){$('tpM').innerHTML=MESES.map((m,i)=>`<button class="${i+1===TPM?'on':''}" data-m="${i+1}">${m.slice(0,3)}</button>`).join('');
   $('tpM').querySelectorAll('button').forEach(b=>b.onclick=()=>{TPM=+b.dataset.m;tpRender();});
