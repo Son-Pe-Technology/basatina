@@ -76,17 +76,27 @@ async function ppRender(){const el=document.getElementById('tPP');if(!el||typeof
       <div class="note" style="margin-top:6px">La presión se da «a nivel del mar» para poder comparar pueblos (en ${esc(t[0])}, a su altura, marca ${Math.round(w.current.surface_pressure)} hPa). Si baja deprisa suele llegar viento o lluvia; si sube, tiempo más tranquilo.</div>`;}
   else h+='<div class="note">No se pudo leer la presión ahora.</div>';
   h+='<div style="margin-top:12px"><b>🌼 Polen en el aire</b></div>';
-  if(q&&q.hourly){const H=q.hourly,dias=[...new Set(H.time.map(s=>s.slice(0,10)))].slice(0,4),now=new Date();
+  // 🚦 Polen en semáforo (20 nov. 2026): hoy, mañana y pasado; verde = bien (nulo o bajo), naranja = medio (moderado), rojo = mal (alto o muy alto)
+  if(q&&q.hourly){const H=q.hourly,dias=[...new Set(H.time.map(s=>s.slice(0,10)))].slice(0,3);
     const mx=(k,d)=>{let m=null;H.time.forEach((s,i)=>{if(s.startsWith(d)&&H[k]&&H[k][i]!=null)m=Math.max(m??0,H[k][i]);});return m;};
-    const cur=k=>{const i=Math.max(0,H.time.findIndex(s=>new Date(s)>now)-1);return H[k]?H[k][i]:null;};
-    const filas=PP_POL.map(([k,n,ic])=>{const v=cur(k),L=ppNivel(v),ds=dias.map(d=>ppNivel(mx(k,d)));return {n,ic,v,L,ds,max:Math.max(...dias.map(d=>mx(k,d)??0))};});
-    const activos=filas.filter(f=>f.max>=1);
-    if(!activos.length)h+='<div class="note">✅ Ahora mismo no hay polen de estas plantas en el aire en '+esc(t[0])+' (es lo normal en otoño e invierno).</div>';
-    h+=`<div style="display:grid;grid-template-columns:auto 1fr ${dias.map(()=>'34px').join(' ')};gap:6px 6px;align-items:center;margin-top:6px;font-size:13.5px">
-      <span></span><span class="note">ahora</span>${dias.map((d,i)=>`<span class="note" style="text-align:center">${i?DSEM[new Date(d+'T12:00').getDay()].slice(0,3):'Hoy'}</span>`).join('')}
-      ${filas.map(f=>`<span>${f.ic} ${f.n}</span><span style="display:flex;align-items:center;gap:6px"><span style="flex:1;height:9px;border-radius:5px;background:rgba(127,127,127,.18);overflow:hidden"><span style="display:block;height:100%;width:${f.L[2]*25}%;background:${f.L[1]}"></span></span><b style="color:${f.L[1]};font-size:12px;min-width:58px">${f.L[0]}</b></span>
-        ${f.ds.map(L=>`<span title="${L[0]}" style="height:22px;border-radius:6px;background:${L[2]?L[1]:'rgba(127,127,127,.15)'};color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center">${L[2]||''}</span>`).join('')}`).join('')}</div>
-      <div class="note" style="margin-top:6px">Niveles (granos por m³): bajo &lt;10 · moderado 10–50 · alto 50–200 · muy alto &gt;200. Los cuadros son el máximo de cada día (1 bajo … 4 muy alto). Si tienes alergia, sigue las indicaciones de tu médico.</div>`;}
+    const SEM=[['Bien','#2ecc40','#1e8f2c'],['Medio','#ff9f1a','#c46a00'],['Mal','#ff3b30','#b3201a']];
+    const sem=v=>v==null?-1:v<10?0:v<50?1:2;   // granos por m³: <10 bien · 10–50 medio · >50 mal
+    const luz=(n,big)=>{const z=big?30:24;if(n<0)return `<span title="sin datos" style="display:inline-block;width:${z}px;height:${z}px;border-radius:50%;background:rgba(127,127,127,.2)"></span>`;const c=SEM[n];
+      return `<span title="${c[0]}" style="display:inline-block;width:${z}px;height:${z}px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff9 0,${c[1]} 38%,${c[2]} 100%);box-shadow:0 0 ${big?10:7}px ${c[1]}aa,inset 0 -2px 3px rgba(0,0,0,.25)"></span>`;};
+    const nom=['Hoy','Mañana','Pasado'];
+    const filas=PP_POL.map(([k,n,ic])=>({n,ic,ds:dias.map(d=>sem(mx(k,d)))}));
+    const peor=dias.map((d,j)=>Math.max(-1,...filas.map(f=>f.ds[j])));
+    // resumen grande de los tres días (lo peor de todas las plantas)
+    h+=`<div style="display:grid;grid-template-columns:repeat(${dias.length},1fr);gap:8px;margin-top:8px">${dias.map((d,j)=>{const n=peor[j],c=n<0?null:SEM[n];
+      return `<div style="text-align:center;border-radius:14px;padding:8px 4px;background:${c?c[1]+'1f':'rgba(127,127,127,.08)'};border:1px solid ${c?c[1]+'55':'transparent'}">
+        <div class="note" style="font-weight:700"><span>${nom[j]}</span></div><div style="margin:6px 0 4px">${luz(n,1)}</div>
+        <b style="color:${c?c[2]:'inherit'};font-size:14px"><span>${c?c[0]:'—'}</span></b></div>`;}).join('')}</div>`;
+    // cada planta: nombre y sus tres semáforos
+    h+=`<div style="display:grid;grid-template-columns:1fr ${dias.map(()=>'62px').join(' ')};gap:8px 4px;align-items:center;margin-top:12px;font-size:14px">
+      <span></span>${dias.map((d,j)=>`<span class="note" style="text-align:center"><span>${nom[j]}</span></span>`).join('')}
+      ${filas.map(f=>`<span>${f.ic} <span>${f.n}</span></span>${f.ds.map(n=>`<span style="text-align:center">${luz(n)}</span>`).join('')}`).join('')}</div>
+      <div class="note" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:10px">${SEM.map((c,i)=>`<span style="display:inline-flex;align-items:center;gap:5px">${luz(i).replace(/24px/g,'12px')} <span>${c[0]}</span></span>`).join('')}</div>
+      <div class="note" style="margin-top:6px">Lo peor de cada día. Bien: nada o poco polen (menos de 10 granos por m³) · Medio: 10–50 · Mal: más de 50. Si tienes alergia, sigue las indicaciones de tu médico.</div>`;}
   else h+='<div class="note">No se pudo leer el polen ahora.</div>';
   el.innerHTML=h+'<div class="note" style="margin-top:4px">Fuente: Open‑Meteo (modelos meteorológicos) y Copernicus CAMS (polen).</div>';}
 if(typeof extraRender==='function'){const _ppE=extraRender;extraRender=async function(){const r=await _ppE.apply(this,arguments);ppRender();return r;};}
