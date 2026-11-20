@@ -230,6 +230,14 @@ body.bna #bnaNav button.on{color:#3D7031}
 body.bna #bnaNav button.on svg{background:#E5EFE1;border-radius:12px}
 body.bna #bnaNav svg{width:44px;height:28px;padding:2px 10px;box-sizing:border-box}
 body.bna .wrap{padding-bottom:78px}
+/* 20 nov. 2026: la barra de abajo también en los demás temas (Alegre, Oscuro, Claro, Automático), con sus colores */
+body:not(.bna) #bnaNav{display:flex;position:fixed;left:8px;right:8px;bottom:calc(6px + var(--sab));z-index:45;border-radius:24px;padding:6px 4px;
+  background:var(--panel);border:1px solid var(--line);box-shadow:0 6px 20px rgba(0,0,0,.28)}
+body:not(.bna) #bnaNav button{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:2px;font:inherit;font-size:11px;font-weight:700;color:var(--mut);padding:4px 0;cursor:pointer}
+body:not(.bna) #bnaNav button.on{color:var(--acc)}
+body:not(.bna) #bnaNav svg{width:44px;height:28px;padding:2px 10px;box-sizing:border-box;border-radius:12px}
+body:not(.bna) #bnaNav button.on svg{background:var(--acc);color:#fff}
+body:not(.bna) .wrap{padding-bottom:84px}
 /* deporte */
 .dpl{display:flex;align-items:center;gap:8px;margin:14px 0 6px;padding:8px 10px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--verde);border-radius:12px}
 .dpl b{font-family:'Montserrat',sans-serif;font-size:14px;flex:1;min-width:0}
@@ -286,7 +294,7 @@ body.bna .st[data-al="#2e7d32"]{border-left-color:#5E8F4E}body.bna .st[data-al="
 
 /* Logotipo discreto y centrado en todas las secciones de la app */
 body{padding-bottom:58px}
-#basatina-footer-logo{position:fixed;left:50%;bottom:calc(8px + var(--sab));transform:translateX(-50%);width:38px;height:38px;object-fit:contain;z-index:20;pointer-events:none;opacity:.92}
+#basatina-footer-logo{display:none!important;position:fixed;left:50%;bottom:calc(8px + var(--sab));transform:translateX(-50%);width:38px;height:38px;object-fit:contain;z-index:20;pointer-events:none;opacity:.92}
 
 /* ===== «Navarra viva» (nov. 2026): paisaje vivo en el inicio + acabado moderno ===== */
 #pvBox{display:none}
@@ -4890,7 +4898,7 @@ function bnCauSem(){const S=document.getElementById('cauSem');if(!S||!CAU)return
   S.innerHTML=c[0]+c[1]+c[2]?`<div class="ok"><b>${c[0]}</b><small>Normal</small></div><div class="am"><b>${c[1]}</b><small>Aviso amarillo</small></div><div class="ro"><b>${c[2]}</b><small>Naranja o rojo</small></div>`:'';}
 const _bnCR=cauRender;cauRender=function(){_bnCR();try{bnCauSem();bnHome();}catch(e){}};
 // ---------- encender / apagar ----------
-function bnApply(){const on=isBna();bnWord(on);bnDrawer(on);if(on){bnNav();bnNavOn();bnHome();}applyIcons((CFG.iconos||'pro')==='pro');}
+function bnApply(){const on=isBna();bnWord(on);bnDrawer(on);bnNav();bnNavOn();if(on)bnHome();applyIcons((CFG.iconos||'pro')==='pro');}
 const _bnCA=cfgApply;cfgApply=function(){_bnCA();try{bnApply();}catch(e){console.log(e);}};
 bnApply();
 jsLoad(DP_PATH,DP_DEF).then(G=>{BNDP=G;bnHome();}).catch(()=>{});
