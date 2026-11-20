@@ -336,7 +336,7 @@ svSec('super',`<div class="card"><b>🛒 Supermercados y mercados</b><div class=
   <div style="display:flex;gap:6px;margin-top:8px"><input id="suQ" class="town" type="search" placeholder="🔎 Pueblo, calle o nombre" style="flex:1;min-width:0"><button class="btn" id="suC">📍 Cerca de mí</button></div>
   <select id="suM" class="town" style="width:100%;margin-top:6px"></select></div>
   <div class="card" id="suList"><div class="note">Cargando…</div></div>
-  <div class="note" style="margin:0 6px 10px">Datos: © colaboradores de OpenStreetMap (ODbL), se actualizan cada mes. Puede faltar alguno o haber cambiado el horario: si ves un error, avísanos por el buzón.</div>`);
+  <div class="note" style="margin:0 6px 10px">Puede faltar alguno o haber cambiado el horario: si ves un error, avísanos por el buzón.</div>`);
 function suHorario(h){if(!h)return '';return esc(h).replace(/\bMo\b/g,'lun').replace(/\bTu\b/g,'mar').replace(/\bWe\b/g,'mié').replace(/\bTh\b/g,'jue').replace(/\bFr\b/g,'vie').replace(/\bSa\b/g,'sáb').replace(/\bSu\b/g,'dom').replace(/\bPH\b/g,'festivos').replace(/\boff\b/g,'cerrado').replace(/;\s*/g,' · ');}
 function suRender(){const el=$('suList');$('suSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===SUV));
   svLoad('tiendas.js','TIENDAS',ok=>{const T=window.TIENDAS;if(!ok||!T){el.innerHTML='<div class="note">Los supermercados llegarán con la próxima actualización de datos.</div>';return;}
@@ -454,7 +454,7 @@ svSec('peques',`<div class="card"><b>🧸 Para los peques</b><div class="note">P
   <div class="seg" id="pqSeg" style="margin-top:8px"><button class="btn on" data-v="sitios">🎈 Sitios</button><button class="btn" data-v="juegos">🛝 Parques</button><button class="btn" data-v="rutas">🥾 Paseos</button><button class="btn" data-v="agenda">🎭 Agenda</button></div>
   <div style="display:flex;gap:6px;margin-top:8px" id="pqFil"><input id="pqQ" class="town" type="search" placeholder="🔎 Pueblo o nombre" style="flex:1;min-width:0"><button class="btn" id="pqC">📍 Cerca de mí</button></div></div>
   <div class="card" id="pqList"><div class="note">Cargando…</div></div>
-  <div class="note" style="margin:0 6px 10px">Horarios y precios cambian: consulta la web de cada sitio antes de ir. Parques infantiles: © colaboradores de OpenStreetMap (ODbL). ¿Conoces un plan que falte? Mándanoslo por el buzón.</div>`);
+  <div class="note" style="margin:0 6px 10px">Horarios y precios cambian: consulta la web de cada sitio antes de ir. ¿Conoces un plan que falte? Mándanoslo por el buzón.</div>`);
 const pqKm=(la,lo)=>PQC&&MYPOS?km(MYPOS.la,MYPOS.lo,la,lo):null;
 const pqKmT=k=>k==null?'':` · <b>${fmtN(k,k<10?1:0)} km</b>`;
 async function pqRender(){const el=$('pqList'),q=N(PQQ);$('pqSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===PQV));

@@ -257,7 +257,7 @@ function amSiShow(){const sec=$('t-sismo'),F=$('amSiF');[...sec.children].forEac
   F.style.display=SIT==='q'?'none':'';if(SIT==='q'){if(typeof siRender==='function')siRender();return;}
   if(SIT==='f')amFallas();else amSimul();}
 function amFallas(){const F=$('amSiF');
-  F.innerHTML=`<div class="card"><b>🪨 Fallas de Navarra y alrededores</b><div class="note">Elige una para ver dónde está, cómo se mueve y qué sabemos de ella. Datos de la base QAFI (IGME-CSIC) y estudios universitarios.</div>
+  F.innerHTML=`<div class="card"><b>🪨 Fallas de Navarra y alrededores</b><div class="note">Elige una para ver dónde está, cómo se mueve y qué sabemos de ella.</div>
    <div class="amSeg" style="margin-top:8px">${FALLAS.map(f=>`<button class="btn${FSEL===f.id?' on':''}" data-f="${f.id}">${f.n.replace(/^Falla de /,'')}</button>`).join('')}</div></div>
    <div class="card" style="padding:6px"><canvas id="amFc" class="amMap"></canvas><div class="note" style="padding:4px 6px">➡️ Las flechas enseñan hacia dónde se mueve cada bloque. ★ Pamplona.</div></div><div id="amFF"></div>`;
   F.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{FSEL=b.dataset.f;amFallas();});
@@ -278,7 +278,7 @@ function amFallas(){const F=$('amSiF');
   $('amFF').innerHTML=`<div class="card"><b style="font-size:16px">${fs.n}</b><div class="note" style="margin-top:2px">${FK[fs.k]} · dirección ${fs.dir}</div>
    <div style="margin-top:8px">${fs.txt}</div><div class="st"><b>¿Está activa?</b><span style="text-align:right;max-width:60%">${fs.act}</span></div>
    <div class="st"><b>Terremotos conocidos</b><span style="text-align:right;max-width:60%">${fs.ej}</span></div>${n!=null?`<div class="st"><b>Terremotos registrados cerca (desde 1998)</b><span>${n.toLocaleString(LOC)}</span></div>`:''}
-   <div class="st"><b>Fuente</b><span>${fs.ref}</span></div><div class="row"><button class="btn pri" id="amFSim">🎚️ Simular un terremoto en esta falla</button></div></div>`;
+   <div class="row"><button class="btn pri" id="amFSim">🎚️ Simular un terremoto en esta falla</button></div></div>`;
   $('amFSim').onclick=()=>{SIMQ.pt=fGeo(fs).C.slice();SIT='s';document.querySelectorAll('#amSiT button').forEach(x=>x.classList.toggle('on',x.dataset.v==='s'));amSiShow();};}
 function amSimul(){const F=$('amSiF');if(!SIMQ.pt)SIMQ.pt=[42.83,-1.58];
   F.innerHTML=`<div class="card"><b>🎚️ Simulador: ¿cómo se sentiría un terremoto?</b><div class="note">Toca el mapa para poner el epicentro y mueve la magnitud y la profundidad. Cada pueblo muestra la <b>intensidad</b> que se sentiría con la escala EMS-98, la que usa el IGN (números romanos del I al XII).</div>
@@ -314,7 +314,7 @@ svSec('centros',`<div class="card"><b>🏥 Centros de salud y urgencias</b><div 
  <div class="card" style="padding:6px"><canvas id="ceMap" class="amMap"></canvas></div>
  <div class="card"><b>📞 Teléfonos útiles</b><div class="st"><b>Emergencias</b><a href="tel:112">112</a></div><div class="st"><b>Consejo Sanitario (enfermería)</b><a href="tel:948290290">948 290 290</a></div>
  <div class="st"><b>Cita previa en tu centro de salud</b><a href="#" id="ceCita">Carpeta Personal de Salud</a></div></div>
- <div id="ceList"></div><div class="note" style="margin:0 6px 12px">Datos: OpenStreetMap (ODbL) y Gobierno de Navarra (IDENA). Los horarios de urgencias pueden cambiar: confírmalos en el Servicio Navarro de Salud.</div>`);
+ <div id="ceList"></div><div class="note" style="margin:0 6px 12px">Los horarios de urgencias pueden cambiar: confírmalos en el Servicio Navarro de Salud.</div>`);
 nuevo('centros','NA Salud','🏥 Centros de salud y urgencias','pueblo','i-hosp','r');
 const CEK={urg:['🚑','Urgencias','#c62828'],sm:['🧠','Salud mental','#00897b'],hosp:['🏥','Hospital','#6a1b9a'],cs:['🩺','Centro de salud','#1565c0'],cons:['🏠','Consultorio','#2e7d32'],otro:['➕','Centro sanitario','#546e7a']};
 let CEF='',CEM=null,CESEL=null;
@@ -343,8 +343,7 @@ window.amTerri=cb=>svLoad('territorio.js','TERRI',cb);
 /* ---------- 6. CARRETERAS: el tiempo en los próximos 3 días ---------- */
 svSec('vias3',`<div class="card"><b>🌨️ El tiempo en las carreteras (próximos 3 días)</b><div class="note">Nieve, hielo, niebla, viento fuerte y lluvia intensa previstos en los puertos y en las principales zonas de Navarra. Es una previsión: antes de salir mira las incidencias de verdad.</div>
  <div class="seg amSeg" id="v3D"></div></div><div class="card" style="padding:6px"><canvas id="v3Map" class="amMap"></canvas><div class="note" id="v3Leg" style="padding:4px 6px"></div></div><div id="v3L"><div class="card"><div class="note">Cargando previsión…</div></div></div>
- <div class="card"><div class="st"><b>Estado de las carreteras (Gobierno de Navarra)</b><a href="tel:948423500">948 423 500</a></div><div class="row"><button class="btn" onclick="showTab('incid')">🚧 Incidencias de ahora</button><button class="btn" onclick="showTab('puertos')">🏔️ Puertos</button></div></div>
- <div class="note" style="margin:0 6px 12px">Previsión: Open‑Meteo (modelos de AEMET, ECMWF y otros).</div>`);
+ <div class="card"><div class="st"><b>Estado de las carreteras (Gobierno de Navarra)</b><a href="tel:948423500">948 423 500</a></div><div class="row"><button class="btn" onclick="showTab('incid')">🚧 Incidencias de ahora</button><button class="btn" onclick="showTab('puertos')">🏔️ Puertos</button></div></div>`);
 nuevo('vias3','Carreteras','🌨️ El tiempo en las carreteras (3 días)','carretera','i-vias3','r');
 const V3R=[['nieve','❄️','Nieve','#1e88e5'],['hielo','🧊','Hielo','#00acc1'],['niebla','🌫️','Niebla','#78909c'],['viento','💨','Viento fuerte','#8e24aa'],['lluvia','🌧️','Lluvia intensa','#3949ab']];
 let V3=null,V3D=0,V3M=null;

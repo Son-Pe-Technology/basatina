@@ -91,7 +91,7 @@ svSec('comunidad',`<div class="card" style="background:#fdecea;border-left:5px s
   <div class="note" id="cmQuien" style="margin-top:4px"></div>
   <div class="seg" id="cmSeg" style="margin-top:8px;flex-wrap:wrap"><button class="btn on" data-v="mapa">🗺️ Avisos</button><button class="btn" data-v="nuevo">➕ Avisar</button><button class="btn" data-v="mios">📋 Mis avisos</button><button class="btn" data-v="mod" id="cmModB" style="display:none">🛡️ Moderar</button></div></div>
  <div id="cmBody"></div>
- <div class="note" style="margin:0 6px 12px"><a href="#" id="cmNor">Normas de la comunidad</a> · <a href="#" id="cmPri">Privacidad</a> · Mapa © IGN</div>`);
+ <div class="note" style="margin:0 6px 12px"><a href="#" id="cmNor">Normas de la comunidad</a> · <a href="#" id="cmPri">Privacidad</a></div>`);
 $('cmNor').onclick=e=>{e.preventDefault();abre(NORMAS_URL);};$('cmPri').onclick=e=>{e.preventDefault();abre(PRIV_URL);};
 $('cmSeg').querySelectorAll('button').forEach(b=>b.onclick=()=>{CMV=b.dataset.v;cmRender();});
 

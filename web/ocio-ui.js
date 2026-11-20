@@ -49,8 +49,7 @@ svHook('cines',()=>svLoad('ocio.js','OCIO',ciRender));
 /* ---------- 🏍️ NA EN MOTO ---------- */
 svSec('moto',`<div class="card"><b>🏍️ NA en Moto</b><div class="note">Rutas por las carreteras más bonitas de Navarra: puertos, valles y foces. Con el recorrido, los kilómetros, el tiempo, el desnivel y el GPX para tu navegador.</div></div>
  <div id="moF"></div><div id="moL">${cargando}</div>
- <div class="card" style="border-color:#ffb020"><div class="note">⚠️ Conduce con prudencia: curvas, ganado suelto, gravilla y ciclistas. En invierno los puertos pueden tener nieve o hielo: mira antes <b>🌨️ El tiempo en las carreteras</b> y las incidencias (948 423 500).</div></div>
- <div class="note" style="margin:0 6px 12px">Recorridos: OSRM con datos de © OpenStreetMap (ODbL) · altitud: Copernicus DEM.</div>`);
+ <div class="card" style="border-color:#ffb020"><div class="note">⚠️ Conduce con prudencia: curvas, ganado suelto, gravilla y ciclistas. En invierno los puertos pueden tener nieve o hielo: mira antes <b>🌨️ El tiempo en las carreteras</b> y las incidencias (948 423 500).</div></div>`);
 nuevo('moto','Qué hacer','🏍️ NA en Moto','carretera','i-moto','r');
 let MOSEL=null,MOM=null;
 function moRender(){const O=window.OCIO,el=$('moL');if(!O||!O.moto||!O.moto.length){el.innerHTML=falta('Las rutas en moto');$('moF').innerHTML='';return;}
@@ -83,7 +82,7 @@ svSec('pedalea',`<div class="card"><b>🚴 NA Pedalea</b><div class="note">Rutas
  <div class="seg amSeg" id="peT"><button class="btn on" data-v="">Todas</button><button class="btn" data-v="btt">🚵 BTT</button><button class="btn" data-v="carretera">🚴 Carretera</button><button class="btn" data-v="gravel">🪨 Gravel</button><button class="btn" data-v="vv">🛤️ Vías verdes</button></div>
  <div class="seg amSeg" id="peD"><button class="btn on" data-v="">Cualquier dificultad</button><button class="btn" data-v="f">Fácil</button><button class="btn" data-v="m">Media</button><button class="btn" data-v="d">Difícil</button></div>
  <input id="peQ" class="town" placeholder="🔎 Buscar ruta o pueblo…" style="width:100%;box-sizing:border-box;margin-top:6px"></div>
- <div id="peF"></div><div id="peL">${cargando}</div><div class="note" style="margin:0 6px 12px">Datos: Gobierno de Navarra (IDENA), Turismo de Navarra (visitnavarra.es), Vías Verdes y EuroVelo.</div>`);
+ <div id="peF"></div><div id="peL">${cargando}</div>`);
 nuevo('pedalea','Qué hacer','🚴 NA Pedalea','bosque','i-bici','g');
 let PET='',PED='',PESEL=null,PEM=null;
 const peDif=s=>{s=N(s);return /muy facil|facil|baja/.test(s)?'f':/media|moderad/.test(s)?'m':/dificil|alta|muy alta/.test(s)?'d':'';};
@@ -120,8 +119,7 @@ svSec('picnic',`<div class="card"><b>🧺 NA de Picnic</b><div class="note">Mere
  <div class="row" style="flex-wrap:wrap;gap:8px;margin-top:6px"><label class="note"><input type="checkbox" id="piB"> 🔥 Con barbacoa</label><label class="note"><input type="checkbox" id="piS"> 🌳 Con sombra</label></div>
  <div class="row"><input id="piQ" class="town" placeholder="🔎 Buscar pueblo o sitio…" style="flex:1;box-sizing:border-box"><button class="btn" id="piYo">📍 Cerca de mí</button></div></div>
  <div class="card" style="padding:6px"><canvas id="piMap" class="amMap"></canvas><div class="note" style="padding:4px 6px">🟢 área recreativa del Gobierno de Navarra · 🟠 merendero</div></div><div id="piF"></div><div id="piL">${cargando}</div>
- <div class="card" style="border-color:#ffb020"><div class="note">🔥 Antes de encender fuego mira si está permitido: en verano suele estar prohibido por riesgo de incendio. Llévate la basura y deja el sitio como lo encontraste.</div></div>
- <div class="note" style="margin:0 6px 12px">Datos: Gobierno de Navarra (IDENA): áreas recreativas forestales y servicios de la red ciclista.</div>`);
+ <div class="card" style="border-color:#ffb020"><div class="note">🔥 Antes de encender fuego mira si está permitido: en verano suele estar prohibido por riesgo de incendio. Llévate la basura y deja el sitio como lo encontraste.</div></div>`);
 nuevo('picnic','Qué hacer','🧺 NA de Picnic','bosque','i-picnic','g');
 let PIM=null,PISEL=null,PIYO=false;
 function piList(){const M=window.MONTE_GEO,B=window.BICI,L=[];
@@ -171,8 +169,7 @@ function coRender(){const T=window.TERRI,G=T.grupos,V=$('pbComV');const g=G[COG]
   V.innerHTML=`<div class="card"><b>🗺️ Navarra por zonas</b><div class="note">Elige cómo agrupar los municipios y toca una zona para ver sus pueblos, sus datos y su mapa.</div>
     <div class="seg amSeg" id="coG">${Object.entries(G).map(([k,x])=>`<button class="btn${k===COG?' on':''}" data-g="${k}">${esc(x.t.replace(/^Zonificaciones tradicionales\.?\s*/i,'').replace(/^Zonificaci[oó]n\s*/i,''))}</button>`).join('')}</div></div>
     <div class="card" style="padding:6px"><canvas id="coMapA" class="amMap" style="height:320px"></canvas></div>
-    <div class="card"><b>${g.z.length} zonas</b>${g.z.map((z,i)=>`<div class="st" data-z="${i}" style="cursor:pointer"><div><b>${esc(z.n)}</b><div class="s">${z.m.length} municipios · ${sumH(z.m).toLocaleString(LOC)} habitantes</div></div><span>›</span></div>`).join('')}</div>
-    <div class="note" style="margin:0 6px 12px">Datos: Gobierno de Navarra (IDENA, CC BY 4.0) y Wikidata (CC0). Actualizado: ${esc(T.t)}.</div>`;
+    <div class="card"><b>${g.z.length} zonas</b>${g.z.map((z,i)=>`<div class="st" data-z="${i}" style="cursor:pointer"><div><b>${esc(z.n)}</b><div class="s">${z.m.length} municipios · ${sumH(z.m).toLocaleString(LOC)} habitantes</div></div><span>›</span></div>`).join('')}</div>`;
   V.querySelectorAll('#coG button').forEach(b=>b.onclick=()=>{COG=b.dataset.g;COZ=null;coRender();});
   V.querySelectorAll('[data-z]').forEach(d=>d.onclick=()=>{COZ=+d.dataset.z;coRender();window.scrollTo(0,0);});
   const pal=['#4caf50','#2196f3','#ff9800','#9c27b0','#e91e63','#009688','#795548','#3f51b5','#cddc39','#ff5722','#607d8b','#00bcd4'];
