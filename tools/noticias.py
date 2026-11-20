@@ -59,7 +59,8 @@ JUNTAR = {}
 # medios que no se usan nunca (dominios: «navarra.com» NO incluye noticiasdenavarra.com, que es otro medio)
 FUERA = ("navarra.com", "okdiario.com", "elmundo.es")
 # secciones que no se publican, por la ruta de la dirección (política, opinión, esquelas y la propaganda del propio medio)
-PATH_NO = ("/politica/", "/opinion/", "/esquelas/", "/obituarios/", "/comunicacion/", "/elecciones")
+# /podcast/ (20 nov. 2026): los programas de radio de COPE («Herrera en COPE en Navarra», «La Linterna»…) no son noticias
+PATH_NO = ("/politica/", "/opinion/", "/esquelas/", "/obituarios/", "/comunicacion/", "/elecciones", "/podcast/")
 
 
 def fuera(u):
