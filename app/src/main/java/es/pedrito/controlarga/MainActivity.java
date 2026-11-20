@@ -141,6 +141,38 @@ public class MainActivity extends Activity {
     /** Dirección desde la que se descargan las actualizaciones de la pantalla (repositorio público) */
     static final String BASE = "https://raw.githubusercontent.com/suapedrito-z/basatina/main/web/";
 
+    /** La API de GitHub da el archivo tal cual está en «main» ahora mismo (sin la caché de 5 minutos de raw) */
+    static final String API = "https://api.github.com/repos/suapedrito-z/basatina/contents/web/";
+    static byte[] readBytes(InputStream in) throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buf = new byte[65536]; int n; while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+        in.close(); return out.toByteArray();
+    }
+    static byte[] fetchBytes(String url) {
+        try {
+            HttpURLConnection c = (HttpURLConnection) new URL(url).openConnection();
+            c.setConnectTimeout(20000); c.setReadTimeout(60000); c.setUseCaches(false);
+            if (url.startsWith("https://api.github.com/")) {
+                c.setRequestProperty("Accept", "application/vnd.github.raw");
+                c.setRequestProperty("User-Agent", "BasatiNA");
+            }
+            if (c.getResponseCode() != 200) return null;
+            return readBytes(c.getInputStream());
+        } catch (Exception e) { return null; }
+    }
+    /** Primero la API; si no responde (p. ej. límite de 60 consultas por hora), la dirección de siempre */
+    static String fetchText(String api, String raw) {
+        byte[] b = fetchBytes(api);
+        if (b == null) b = fetchBytes(raw);
+        return b == null ? null : new String(b, StandardCharsets.UTF_8);
+    }
+    static String sha1(byte[] data) {
+        try {
+            byte[] d = java.security.MessageDigest.getInstance("SHA-1").digest(data);
+            StringBuilder sb = new StringBuilder(); for (byte x : d) sb.append(String.format("%02x", x));
+            return sb.toString();
+        } catch (Exception e) { return ""; }
+    }
     static String readAll(InputStream in) throws Exception {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         byte[] buf = new byte[16384];
@@ -284,10 +316,13 @@ public class MainActivity extends Activity {
         public void updateWeb(final String id) {
             new Thread(() -> {
                 try {
-                    HttpURLConnection c = (HttpURLConnection) new URL(BASE + "version.json?t=" + System.currentTimeMillis()).openConnection();
-                    c.setConnectTimeout(20000); c.setReadTimeout(30000);
-                    if (c.getResponseCode() != 200) { callback(id, c.getResponseCode(), "{\"ok\":false}"); return; }
-                    JSONObject remote = new JSONObject(readAll(c.getInputStream()));
+                    // 20 nov. 2026: raw.githubusercontent.com guarda copias hasta 5 minutos y NO hace caso del «?t=…»,
+                    // así que justo después de subir un cambio podía dar la lista vieja o, peor, un archivo viejo
+                    // con la huella nueva. Ahora: la lista y los archivos se piden primero a la API de GitHub (sin esa
+                    // caché) y cada archivo se comprueba con su huella sha1 antes de usarlo.
+                    String vj = fetchText(API + "version.json?ref=main", BASE + "version.json?t=" + System.currentTimeMillis());
+                    if (vj == null) { callback(id, 0, "{\"ok\":false}"); return; }
+                    JSONObject remote = new JSONObject(vj);
                     File dir = new File(getFilesDir(), "web"); dir.mkdirs();
                     File lm = new File(dir, "version.json");
                     JSONObject local = new JSONObject(), bundled = new JSONObject();
@@ -298,6 +333,8 @@ public class MainActivity extends Activity {
                     int current = Math.max(local.optInt("version", 0), bundled.optInt("version", 0));
                     int changed = 0;
                     if (remote.optInt("version", 0) > current) {
+                        // 1) se descarga todo a archivos «.part» y se comprueba la huella; si algo falla, no se toca nada
+                        java.util.List<String> nuevos = new java.util.ArrayList<>();
                         java.util.Iterator<String> it = rf.keys();
                         while (it.hasNext()) {
                             String name = it.next(), sha = rf.getString(name);
@@ -305,22 +342,24 @@ public class MainActivity extends Activity {
                             if (!name.matches("[A-Za-z0-9._-]+") || name.contains("..")) continue;
                             File f = new File(dir, name);
                             if (lm.exists() && lf != null && sha.equals(lf.optString(name)) && f.exists()) continue;
-                            InputStream in;
+                            byte[] data;
                             if (bf != null && sha.equals(bf.optString(name))) {
-                                in = getAssets().open(name);          // igual que el que trae el APK: se copia
+                                data = readBytes(getAssets().open(name));     // igual que el que trae el APK: se copia
                             } else {
-                                HttpURLConnection d = (HttpURLConnection) new URL(BASE + name + "?v=" + sha).openConnection();
-                                d.setConnectTimeout(20000); d.setReadTimeout(60000);
-                                in = d.getInputStream();               // ha cambiado: se descarga
+                                data = fetchBytes(API + name + "?ref=main");  // ha cambiado: se descarga
+                                if (data == null || !sha.equals(sha1(data))) data = fetchBytes(BASE + name + "?v=" + sha);
+                                if (data == null || !sha.equals(sha1(data))) {   // aún no está bien en el servidor: se reintenta más tarde
+                                    for (String n : nuevos) new File(dir, n + ".part").delete();
+                                    callback(id, 200, "{\"ok\":true,\"changed\":0,\"later\":true}"); return;
+                                }
                                 changed++;
                             }
-                            File tmp = new File(dir, name + ".part");
-                            FileOutputStream o = new FileOutputStream(tmp);
-                            byte[] buf = new byte[65536]; int n; while ((n = in.read(buf)) > 0) o.write(buf, 0, n);
-                            o.close(); in.close();
-                            f.delete(); tmp.renameTo(f);
+                            FileOutputStream o = new FileOutputStream(new File(dir, name + ".part"));
+                            o.write(data); o.close();
+                            nuevos.add(name);
                         }
-                        // la lista de versiones se guarda al final: si algo falla, se sigue usando la pantalla anterior
+                        // 2) todo bien: se cambian los archivos de golpe y la lista de versiones se guarda al final
+                        for (String n : nuevos) { File f = new File(dir, n); f.delete(); new File(dir, n + ".part").renameTo(f); }
                         FileOutputStream o = new FileOutputStream(lm);
                         o.write(remote.toString().getBytes(StandardCharsets.UTF_8)); o.close();
                     }
@@ -419,7 +458,7 @@ public class MainActivity extends Activity {
         public String lastCrash() { return getSharedPreferences("rio", MODE_PRIVATE).getString("crash", ""); }
 
         @JavascriptInterface
-        public void reload() { runOnUiThread(() -> web.loadUrl(startUrl())); }
+        public void reload() { runOnUiThread(() -> { web.clearCache(false); web.loadUrl(startUrl()); }); }
 
         @JavascriptInterface
         public int appVersion() { return apkVersion(); }
