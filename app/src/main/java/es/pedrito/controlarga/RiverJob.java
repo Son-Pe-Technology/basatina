@@ -69,6 +69,7 @@ public class RiverJob extends JobService {
             try { checkCuriosa(this); } catch (Exception ignored) {}
             try { checkLluvia(this); } catch (Exception ignored) {}
             try { checkViento(this); } catch (Exception ignored) {}
+            try { checkTiempo(this); } catch (Exception ignored) {}
             jobFinished(p, false);
         }).start();
         return true;   // el trabajo sigue en otro hilo
@@ -420,6 +421,81 @@ public class RiverJob extends JobService {
        cfg.lluvia = {on, prob, r, sil:[desde,hasta] o null, pos:[lat,lon,nombre]} */
     static final String CH_LLUVIA = "aviso_lluvia";              // canal antiguo sin sonido propio (se borra en la 5.1)
     static final String CH_LLUVIA_S = "aviso_lluvia_sonido", CH_TORMENTA = "aviso_tormenta_sonido", CH_VIENTO = "aviso_viento_sonido";
+    static final String CH_HELADA = "aviso_helada_sonido", CH_CALOR = "aviso_calor_sonido", CH_NIEBLA = "aviso_niebla_sonido";
+
+    /* ---------- 🥶 Helada · 🥵 Calor y UV · 🌫️ Niebla (APK 5.2 / código 32, 20 nov. 2026) ----------
+       cfg.tiempo = {pos:[lat,lon,nombre], helada:{on,t (°C),h}, calor:{on,t (°C),uv (bool),h}, niebla:{on,m (metros),h}}.
+       Cada aviso sale una vez al día, a partir de la hora h que elige el usuario (y hasta 3 horas después,
+       por si Android retrasa el trabajo). Datos: Open‑Meteo (un punto: donde está el móvil).
+       - Helada: la temperatura más baja desde ahora hasta mañana a las 11:00 es igual o menor que t.
+       - Calor: la máxima de hoy es igual o mayor que t; y/o el índice UV máximo de hoy es 8 o más (muy alto).
+       - Niebla: la visibilidad prevista en las próximas 3 horas baja de m metros. */
+    static void checkTiempo(Context c) throws Exception {
+        JSONObject cf = cfg(c).optJSONObject("tiempo");
+        if (cf == null) return;
+        org.json.JSONArray pos = cf.optJSONArray("pos");
+        if (pos == null || pos.length() < 2) return;
+        JSONObject he = cf.optJSONObject("helada"), ca = cf.optJSONObject("calor"), ni = cf.optJSONObject("niebla");
+        SharedPreferences sp = c.getSharedPreferences("rio", MODE_PRIVATE);
+        java.util.Locale US = java.util.Locale.US, ES = java.util.Locale.forLanguageTag("es-ES");
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        int hora = cal.get(java.util.Calendar.HOUR_OF_DAY);
+        String hoy = String.format(US, "%1$tY-%1$tm-%1$td", cal.getTime());
+        boolean dHe = toca(he, hora, sp, "tHelada", hoy, 20), dCa = toca(ca, hora, sp, "tCalor", hoy, 9), dNi = toca(ni, hora, sp, "tNiebla", hoy, 7);
+        if (!dHe && !dCa && !dNi) return;
+        double la = pos.optDouble(0), lo = pos.optDouble(1);
+        String sitio = pos.optString(2, "tu zona");
+        JSONObject o = new JSONObject(get(String.format(US, "https://api.open-meteo.com/v1/forecast?latitude=%.4f&longitude=%.4f", la, lo)
+                + "&hourly=temperature_2m,visibility&daily=temperature_2m_max,uv_index_max&forecast_days=2&timezone=Europe%2FMadrid"));
+        JSONObject H = o.getJSONObject("hourly"), D = o.getJSONObject("daily");
+        org.json.JSONArray ht = H.getJSONArray("time"), tt = H.getJSONArray("temperature_2m"), vis = H.getJSONArray("visibility");
+        String ahora = String.format(US, "%1$tY-%1$tm-%1$tdT%1$tH:00", cal.getTime());
+        if (dHe) {
+            java.util.Calendar m = (java.util.Calendar) cal.clone(); m.add(java.util.Calendar.DAY_OF_MONTH, 1);
+            String hasta = String.format(US, "%1$tY-%1$tm-%1$tdT11:00", m.getTime());
+            double tmin = 99; String cuando = "";
+            for (int i = 0; i < ht.length(); i++) { String t = ht.optString(i); if (t.compareTo(ahora) < 0 || t.compareTo(hasta) > 0) continue;
+                double v = tt.optDouble(i, 99); if (v < tmin) { tmin = v; cuando = t.substring(11, 16); } }
+            sp.edit().putString("tHelada", hoy).apply();
+            if (tmin <= he.optDouble("t", 0))
+                notifySonido(c, CH_HELADA, "Aviso de helada", "Cuando va a helar esta noche donde estás (suena a hielo)",
+                        String.format(ES, "🥶 Helada esta noche en %s: hasta %.0f °C", sitio, tmin),
+                        String.format(ES, "La temperatura más baja será de unos %.0f °C hacia las %s. Protege las plantas y las tuberías, y cuidado con el hielo en la carretera por la mañana. Tu aviso: %s °C o menos.",
+                                tmin, cuando, fmt1(he.optDouble("t", 0))), 620, es.pedrito.controlarga.R.raw.helada);
+        }
+        if (dCa) {
+            double tmax = D.getJSONArray("temperature_2m_max").optDouble(0, -99), uv = D.getJSONArray("uv_index_max").optDouble(0, 0);
+            boolean calor = tmax >= ca.optDouble("t", 35), uvAlto = ca.optBoolean("uv", true) && uv >= 8;
+            sp.edit().putString("tCalor", hoy).apply();
+            if (calor || uvAlto) {
+                String tit = calor ? String.format(ES, "🥵 Calor fuerte hoy en %s: hasta %.0f °C", sitio, tmax)
+                                   : String.format(ES, "☀️ Índice UV muy alto hoy en %s: %.0f", sitio, uv);
+                String txt = (calor ? String.format(ES, "Máxima de unos %.0f °C. Bebe agua, evita el sol de las horas centrales y no dejes a nadie (ni mascotas) dentro del coche. ", tmax) : "")
+                        + (uv >= 8 ? String.format(ES, "Índice UV de %.0f (%s): protector solar, gorra y gafas.", uv, uv >= 11 ? "extremo" : "muy alto") : "");
+                notifySonido(c, CH_CALOR, "Aviso de calor y UV", "Calor fuerte o índice UV muy alto donde estás (suena a chicharras)", tit, txt.trim(), 621, es.pedrito.controlarga.R.raw.calor);
+            }
+        }
+        if (dNi) {
+            java.util.Calendar m = (java.util.Calendar) cal.clone(); m.add(java.util.Calendar.HOUR_OF_DAY, 3);
+            String hasta = String.format(US, "%1$tY-%1$tm-%1$tdT%1$tH:00", m.getTime());
+            double vmin = 1e9; String fin = "";
+            for (int i = 0; i < ht.length(); i++) { String t = ht.optString(i); if (t.compareTo(ahora) < 0 || t.compareTo(hasta) > 0) continue;
+                double v = vis.optDouble(i, 1e9); if (v < vmin) vmin = v; if (v < ni.optDouble("m", 500)) fin = t.substring(11, 16); }
+            sp.edit().putString("tNiebla", hoy).apply();
+            if (vmin < ni.optDouble("m", 500))
+                notifySonido(c, CH_NIEBLA, "Aviso de niebla", "Niebla por la mañana donde estás (suena a sirena de niebla)",
+                        String.format(ES, "🌫️ Niebla en %s: visibilidad de unos %s", sitio, vmin < 1000 ? String.format(ES, "%.0f m", Math.max(50, Math.round(vmin / 50.0) * 50.0)) : String.format(ES, "%.1f km", vmin / 1000)),
+                        String.format(ES, "Previsión para las próximas 3 horas (al menos hasta las %s). Si coges el coche: luces de cruce o antiniebla, más distancia y menos velocidad.", fin), 622, es.pedrito.controlarga.R.raw.niebla);
+        }
+    }
+    static String fmt1(double v) { return v == Math.rint(v) ? String.valueOf((int) v) : String.format(java.util.Locale.forLanguageTag("es-ES"), "%.1f", v); }
+    /** ¿Toca mirar este aviso? Activado, a partir de su hora (hasta 3 h después) y aún no mirado hoy */
+    static boolean toca(JSONObject a, int hora, SharedPreferences sp, String clave, String hoy, int hPorDefecto) {
+        if (a == null || !a.optBoolean("on", false)) return false;
+        int h = a.optInt("h", hPorDefecto);
+        boolean enHora = hora >= h && hora < h + 3;
+        return enHora && !hoy.equals(sp.getString(clave, ""));
+    }
 
     /** Horas de silencio: sil = [desde, hasta] (puede pasar de medianoche) */
     static boolean silencio(JSONObject l) {
