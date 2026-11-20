@@ -92,7 +92,7 @@ async function ppRender(){const el=document.getElementById('tPP');if(!el||typeof
       <div class="note" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;font-size:12px">${SEM.map((c,i)=>`<span style="display:inline-flex;align-items:center;gap:5px">${luz(i).replace(/16px/g,'10px')} <span>${c[0]}</span></span>`).join('')}</div>
       <div class="note" style="margin-top:6px">Lo más alto de cada día. Bien: nada o poco polen (menos de 10 granos por m³) · Medio: 10–50 · Mal: más de 50. Si tienes alergia, sigue las indicaciones de tu médico.</div>`;}
   else h+='<div class="note">No se pudo leer el polen ahora.</div>';
-  el.innerHTML=h+'<div class="note" style="margin-top:4px">Fuente: Open‑Meteo (modelos meteorológicos) y Copernicus CAMS (polen).</div>';}
+  el.innerHTML=h+'';}
 if(typeof extraRender==='function'){const _ppE=extraRender;extraRender=async function(){const r=await _ppE.apply(this,arguments);ppRender();return r;};}
 
 /* ---------- 🔭 CIELO Y ASTRONOMÍA ---------- */

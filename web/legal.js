@@ -3,7 +3,7 @@
    Qué hace: abajo del todo en Inicio (debajo del aviso de «app no oficial») y en «Acerca de»
    pone una lista de apartados que se despliegan al tocarlos:
      Aviso legal · Política de privacidad · Condiciones de uso · Cookies · Código ético ·
-     Accesibilidad · Preferencias de privacidad · Agradecimientos
+     Accesibilidad · Preferencias de privacidad · Sobre los datos · Agradecimientos
    Por qué así: Google Play pide que la información legal sea fácil de encontrar dentro de la app,
    y un desplegable no ocupa sitio en la pantalla.
    Cómo cambiar un texto: edita su apartado en LEG (icono, título y html). Se ven en rejilla de 4 por fila; al tocar uno, su texto se abre debajo. Los textos completos
@@ -95,6 +95,21 @@
 <small>Puedes borrarla cuando quieras, con todo lo que guarda: Mi Espacio → 👤 Mi cuenta → Borrar mi cuenta.</small>
 <button class="bnaOfiBtn" data-a="borrar" style="background:none;color:var(--acc);border:1px solid var(--acc)">Cómo borrar mi cuenta ↗</button></div>
 <div class="bnaLegOpt"><b>🔕 Publicidad y seguimiento</b><small>No hay nada que desactivar: BasatiNA no tiene ni publicidad ni seguimiento.</small></div>`],
+
+  ['📊','Sobre los datos',()=>`
+<p><b>De dónde salen y cuánto fallan.</b> BasatiNA reúne datos públicos y abiertos. Son útiles para orientarse, pero no son exactos: cada pantalla dice abajo su fuente oficial. Ante cualquier riesgo, haz caso siempre a los avisos oficiales (AEMET, SOS Navarra 112, Confederación Hidrográfica del Ebro).</p>
+<ul>
+<li><b>Tiempo, previsiones y «La semana en Navarra»:</b> Open‑Meteo (modelos meteorológicos y reanálisis ERA5), no una estación concreta. Sirven para comparar, pero pueden diferir unos grados o milímetros de lo medido en cada pueblo.</li>
+<li><b>Avisos de lluvia, viento, helada, calor y niebla:</b> radar en directo de RainViewer (radares meteorológicos europeos) y previsiones de Open‑Meteo. Son previsiones: a veces fallan por unos minutos o unos kilómetros, y la de niebla es la menos fiable.</li>
+<li><b>Polen y calidad del aire:</b> Open‑Meteo y Copernicus CAMS (modelos, no medidas en la calle).</li>
+<li><b>Ríos y embalses:</b> SAIH Ebro, datos provisionales cada 15 minutos.</li>
+<li><b>Mapas por zonas</b> (jardinería, flores, especies…): orientativos; dentro de cada zona hay mucha variedad según la altitud, la orientación y el suelo. Las mínimas de jardinería son de inviernos fríos; en patios y balcones de ciudad suele helar menos.</li>
+<li><b>Fotos y sitios en el mapa:</b> la situación es aproximada.</li>
+<li><b>Luna y agricultura:</b> fases calculadas con los métodos de J. Meeus; la luna ascendente/descendente es un cálculo aproximado. Los consejos de siembra son de la tradición popular, no recomendaciones científicas.</li>
+<li><b>Calendarios</b> (siembra, setas, temporadas…): orientativos; dependen del año y de la zona.</li>
+<li><b>Normativa</b> (pesca, caza, vedas…): puede cambiar durante la temporada; manda siempre la publicada en el Boletín Oficial de Navarra.</li>
+</ul>
+<p>Si ves un dato que no cuadra, escríbenos a ${mail}.</p>`],
 
   ['💚','Agradecimientos',()=>`
 <p>BasatiNA existe gracias a mucha gente y a muchos datos abiertos. <b>¡Eskerrik asko!</b></p>
