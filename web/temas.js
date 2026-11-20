@@ -45,7 +45,10 @@ const st=document.createElement('style');st.textContent=`
 .nwTkL{flex:none;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#1565c0;background:#e3f2fd;border-radius:8px;padding:4px 7px}
 .nwTkV{flex:1;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent);mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent)}
 .nwTkC{display:inline-block;white-space:nowrap;font-size:14.5px;color:var(--txt,#1d2b23);animation:nwTk 60s linear infinite;will-change:transform}
-.nwTkC b{color:#1565c0;font-weight:800;margin-right:4px}.nwTkC i{font-style:normal;color:#9aa;margin:0 12px}
+.nwTkC b{color:#1565c0;font-weight:800;margin-right:4px}
+body:not(.light):not(.bna):not(.alegre) #nwTk{background:var(--panel);border-color:var(--line);box-shadow:none}
+body:not(.light):not(.bna):not(.alegre) .nwTkL{background:rgba(100,181,246,.18);color:#90caf9}
+body:not(.light):not(.bna):not(.alegre) .nwTkC b{color:#90caf9}.nwTkC i{font-style:normal;color:#9aa;margin:0 12px}
 #nwTk:active .nwTkC,#nwTk:hover .nwTkC{animation-play-state:paused}
 @keyframes nwTk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.nwTkC{animation:none}.nwTkV{overflow-x:auto}}
