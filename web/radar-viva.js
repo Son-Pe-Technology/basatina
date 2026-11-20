@@ -10,7 +10,11 @@
 const $=id=>document.getElementById(id);
 if(!$('rdc')||typeof rdInit!=='function')return;
 const PNOA=(z,x,y)=>`https://www.ign.es/wmts/pnoa-ma?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=OI.OrthoimageCoverage&STYLE=default&TILEMATRIXSET=GoogleMapsCompatible&TILEMATRIX=${z}&TILEROW=${y}&TILECOL=${x}&FORMAT=image/jpeg`;
-let SAT=(()=>{try{return localStorage.getItem('rdSat')!=='0';}catch(e){return true;}})();
+// fondos: 🌑 oscuro (CARTO Dark Matter, © OpenStreetMap © CARTO), 🛰️ satélite (PNOA, © IGN), 🗺️ mapa (IGN)
+const CARTO=(z,x,y)=>`https://${'abcd'[(x+y)%4]}.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}@2x.png`;
+const FONDOS={osc:['🌑 Oscuro',CARTO],sat:['🛰️ Satélite',PNOA],map:['🗺️ Mapa',null]};
+let FONDO=(()=>{try{return localStorage.getItem('rdFondo')||'osc';}catch(e){return 'osc';}})();if(!FONDOS[FONDO])FONDO='osc';
+const fondoT=()=>FONDOS[FONDO][1];
 let YO=null;   // [lat, lon]
 
 // --- estilos ---
@@ -33,13 +37,13 @@ wrap.insertAdjacentHTML('beforeend',`<div class="rdHora"><span id="rdHoraT">--:-
 // el control de antes se queda (sirve para ir a un momento concreto), pero sin el botón repetido
 const card0=$('rdPlay').closest('.card');$('rdPlay').style.display='none';
 // los botones de fondo y «dónde estoy» van aquí, fuera del mapa, para no tapar nada (20 nov. 2026)
-card0.insertAdjacentHTML('beforeend',`<div class="row" style="margin-top:8px;gap:8px"><button class="btn" id="rdBase">${SAT?'🗺️ Ver mapa':'🛰️ Ver satélite'}</button><button class="btn" id="rdYo">📍 Dónde estoy</button></div>`);
+card0.insertAdjacentHTML('beforeend',`<div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap">${Object.entries(FONDOS).map(([k,v])=>`<button class="btn rdF${k===FONDO?' pri':''}" data-f="${k}">${v[0]}</button>`).join('')}<button class="btn" id="rdYo">📍 Dónde estoy</button></div>`);
 // leyenda: de dBZ a mm/h (R = (10^(dBZ/10)/200)^(1/1.6)); colores de RainViewer «Universal Blue»
 const LEY=[[15,'#88ddee','0,6'],[20,'#00a3e0','1,3'],[25,'#0077aa','2,7'],[30,'#005588','5,6'],[35,'#ffee00','12'],[40,'#ffaa00','24'],[45,'#ff4400','49'],[50,'#c10000','100'],[55,'#ff77ff','205']];
 const leg=wrap.parentElement.querySelector('.rdLeg');
 if(leg)leg.outerHTML=`<div><div class="rdBar">${LEY.map(l=>`<span style="background:${l[1]};color:${l[0]===35||l[0]===15?'#06121d':'#fff'};text-shadow:${l[0]===35||l[0]===15?'none':''}">${l[2]}</span>`).join('')}</div>
   <div class="rdBarT"><span>mm/h · débil</span><span>moderada</span><span>fuerte</span><span>muy fuerte</span></div>
-  <div class="note" style="margin-top:6px">🔵 Tú · ⚪ círculo: la zona que vigila tu <a href="#" onclick="showTab('ajustes');return false" style="color:var(--acc)">aviso de lluvia</a>. La nieve sale en azules claros y blancos. Fondo satélite: PNOA cedido por © IGN.</div></div>`;
+  <div class="note" style="margin-top:6px">🔵 Tú · ⚪ círculo: la zona que vigila tu <a href="#" onclick="showTab('ajustes');return false" style="color:var(--acc)">aviso de lluvia</a>. La nieve sale en azules claros y blancos. Fondos: oscuro © OpenStreetMap © CARTO · satélite PNOA cedido por © IGN · mapa © IGN.</div></div>`;
 
 // --- dónde estoy ---
 function yo(cb){try{const p=CFG.lluvia&&CFG.lluvia.pos;if(p)YO=[p[0],p[1]];}catch(e){}
@@ -67,13 +71,14 @@ const fab=()=>{$('rdFab').textContent=playing()?'❚❚':'▶';};
 $('rdFab').onclick=()=>{$('rdPlay').click();fab();};
 
 // --- botones de arriba ---
-$('rdBase').onclick=()=>{SAT=!SAT;try{localStorage.setItem('rdSat',SAT?'1':'0');}catch(e){}
-  $('rdBase').textContent=SAT?'🗺️ Ver mapa':'🛰️ Ver satélite';if(RDM){RDM.tile=SAT?PNOA:null;RDM.draw();RDM.base();}};
+document.querySelectorAll('.rdF').forEach(b=>b.onclick=()=>{FONDO=b.dataset.f;try{localStorage.setItem('rdFondo',FONDO);}catch(e){}
+  document.querySelectorAll('.rdF').forEach(c=>c.classList.toggle('pri',c===b));
+  for(const M of [RDM,window.MTR_M])if(M){M.tile=fondoT();M.draw();M.base();}});
 $('rdYo').onclick=()=>yo(()=>{if(RDM&&YO){RDM.la=YO[0];RDM.lo=YO[1];RDM.z=zoomYo(RDM);RDM.draw();RDM.base();}});
 
 // --- al abrir: fondo elegido, centrado en mí y en marcha ---
 const _i=rdInit;rdInit=function(){const nuevo=!RDM;_i.apply(this,arguments);if(!RDM)return;
-  RDM.tile=SAT?PNOA:null;
+  RDM.tile=fondoT();
   if(nuevo)yo(()=>{if(YO&&RDM){RDM.la=YO[0];RDM.lo=YO[1];RDM.z=zoomYo(RDM);}RDM.draw();RDM.base();});
   let n=0;const arr=setInterval(()=>{n++;if(RDF.length>1&&!playing()&&$('t-radar').classList.contains('on')){$('rdPlay').click();clearInterval(arr);}if(n>40)clearInterval(arr);fab();},250);
   setTimeout(fab,600);};
@@ -97,7 +102,7 @@ setInterval(()=>{if($('t-radar').classList.contains('on'))fab();},1000);
       const ult=RDF.findLastIndex(g=>!g.nc);I=I>=RDF.length-1?0:I+1;pinta();if(I===ult){PLAY&&(PLAY='pausa');setTimeout(()=>{if(PLAY==='pausa')PLAY=true;},1500);}},700);};
   $('mtrFab').onclick=e=>{e.stopPropagation();PLAY=!PLAY;$('mtrFab').textContent=PLAY?'❚❚':'▶';};
   function abrir(){mtc.style.display='none';$('mtrBox').style.display='';const lg=$('mtLeg');if(lg)lg.style.visibility='hidden';
-    if(!M){M=NavMap('mtr',dib,()=>{});M.tile=SAT?PNOA:null;}
+    if(!M){M=window.MTR_M=NavMap('mtr',dib,()=>{});}M.tile=fondoT();
     yo(()=>{if(YO){M.la=YO[0];M.lo=YO[1];M.z=zoomYo(M);}M.draw();M.base();});
     const go=()=>{if(I<0||I>=RDF.length)I=Math.max(0,RDF.findLastIndex(g=>!g.nc));pinta();anima();};
     if(RDF.length)go();else rdLoad().then(go);}
