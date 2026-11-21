@@ -16,7 +16,7 @@ const PAL={oros:{c:'#d4a017',o:'#7a5800'},copas:{c:'#c62828',o:'#6d1010'},espada
 const GAPS={oros:0,copas:1,espadas:2,bastos:3};   // «pintas»: cortes del marco, como en la baraja española
 
 /* ---------- escudo de Navarra con el número dentro ---------- */
-function escudo(x,y,s,num){const k=s/40;
+function escudo(x,y,s,num,big){const k=s/40;
   const sh=`M0 0 H40 V26 Q40 44 20 52 Q0 44 0 26 Z`;
   // cadenas: borde, cruz y aspa (eslabones como trazos de puntos)
   const ch='stroke="#f2c230" stroke-width="2.6" stroke-dasharray="3.2 1.6" fill="none" stroke-linecap="round"';
@@ -25,8 +25,8 @@ function escudo(x,y,s,num){const k=s/40;
     <path d="${sh}" fill="#c8102e" stroke="#6d0a1a" stroke-width="1.4"/>
     <path d="M3.5 3.5 H36.5 V26 Q36.5 41 20 48 Q3.5 41 3.5 26 Z" ${ch}/>
     <path d="M20 4 V48 M4 24 H36 M5 5 L35 43 M35 5 L5 43" ${ch}/>
-    <circle cx="20" cy="24" r="10.5" fill="#fbf6ea" stroke="#1b7a3e" stroke-width="2.2"/>
-    <text x="20" y="29" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="${num>9?11:14}" fill="#2a1a10">${num}</text></g>`;}
+    <circle cx="20" cy="24" r="${big?13.5:10.5}" fill="#fbf6ea" stroke="#1b7a3e" stroke-width="2.2"/>
+    <text x="20" y="${big?31:29}" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="${big?(num>9?16:21):(num>9?11:14)}" fill="#2a1a10">${num}</text></g>`;}
 
 /* ---------- símbolos de los palos ---------- */
 const sim={
@@ -147,17 +147,24 @@ function figura(palo,n){const p=P[palo+'-'+n];if(!p)return '';if(n===11)return j
 function marco(palo){const g=GAPS[palo],c=PAL[palo].c,L=12,R=W-12,T=12,B=H-12;let top=`M${L} ${T}`,bot=`M${L} ${B}`;
   if(!g){top+=` H${R}`;bot+=` H${R}`;}else{const seg=(R-L)/(g*2+1);let x=L;for(let i=0;i<g*2+1;i++){x+=seg;if(i%2===0){top+=` H${x}`;bot+=` H${x}`;}else{top+=` M${x} ${T}`;bot+=` M${x} ${B}`;}}}
   return `<path d="${top} M${L} ${T} V${B} ${bot} M${R} ${T} V${B}" stroke="${c}" stroke-width="2.5" fill="none"/>`;}
-function bnCarta(palo,n){const pc=PAL[palo],p=P[palo+'-'+n];
+// o.grande: escudo y número más grandes (para jugar en el móvil, con cartas pequeñas)
+function bnCarta(palo,n,o){o=o||{};const es=o.grande?52:30;const pc=PAL[palo],p=P[palo+'-'+n];
   let medio='';
   if(p){medio=figura(palo,n)+`<rect x="20" y="322" width="174" height="40" rx="6" fill="#fbf6ea" stroke="${pc.c}" stroke-width="1.6"/>
     <text x="107" y="340" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="${p.nom.length>14?14:16}" fill="#2a1a10">${p.nom}</text>
     <text x="107" y="355" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="10.5" fill="#5a4030">${p.sub}</text>`;}
   else{// cartas numéricas: los símbolos repartidos
-    const pos={1:[[0,0]],2:[[0,-1],[0,1]],3:[[0,-1.2],[0,0],[0,1.2]],4:[[-1,-1],[1,-1],[-1,1],[1,1]],5:[[-1,-1],[1,-1],[0,0],[-1,1],[1,1]],
+    const pos={1:[[0,0]],2:[[-.6,-.7],[.6,.7]],3:[[-.8,-1.1],[0,0],[.8,1.1]],4:[[-1,-1],[1,-1],[-1,1],[1,1]],5:[[-1,-1],[1,-1],[0,0],[-1,1],[1,1]],
       6:[[-1,-1.2],[1,-1.2],[-1,0],[1,0],[-1,1.2],[1,1.2]],7:[[-1,-1.3],[1,-1.3],[0,-.65],[-1,0],[1,0],[-1,1.3],[1,1.3]]}[n]||[];
-    medio=pos.map(([a,b])=>sim[palo](W/2+a*48,H/2+b*62,n===1?44:palo==='oros'?20:22)).join('');}
+    medio=pos.map(([a,b])=>sim[palo](W/2+a*48,H/2+b*62,n===1?44:palo==='oros'?20:n>=4?17:20)).join('');}
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
     <rect x="1" y="1" width="${W-2}" height="${H-2}" rx="14" fill="#fbf6ea" stroke="#b9ad92" stroke-width="2"/>${marco(palo)}
-    ${medio}${escudo(16,24,30,n)}<g transform="rotate(180 ${W/2} ${H/2})">${escudo(16,24,30,n)}</g></svg>`;}
-window.bnCarta=bnCarta;window.BN_BARAJA=P;
+    ${medio}${escudo(14,22,es,n,o.grande)}<g transform="rotate(180 ${W/2} ${H/2})">${escudo(14,22,es,n,o.grande)}</g></svg>`;}
+// reverso: rojo de Navarra con cadenas de oro
+function bnDorso(){return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
+  <rect x="1" y="1" width="${W-2}" height="${H-2}" rx="14" fill="#a3122a" stroke="#6d0a1a" stroke-width="2"/>
+  <rect x="14" y="14" width="${W-28}" height="${H-28}" rx="8" fill="none" stroke="#f2c230" stroke-width="5" stroke-dasharray="7 4"/>
+  <path d="M${W/2} 26 V${H-26} M26 ${H/2} H${W-26} M30 30 L${W-30} ${H-30} M${W-30} 30 L30 ${H-30}" stroke="#f2c230" stroke-width="5" stroke-dasharray="7 4" fill="none"/>
+  <circle cx="${W/2}" cy="${H/2}" r="30" fill="#1b7a3e" stroke="#f2c230" stroke-width="5"/></svg>`;}
+window.bnCarta=bnCarta;window.bnDorso=bnDorso;window.BN_BARAJA=P;
 })();
