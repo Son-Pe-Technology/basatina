@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Configuración PÚBLICA de Firebase para la app Android (proyecto basatina-9a8b5).
+     Es lo mismo que pondría el archivo google-services.json: no es secreta (va dentro de cada APK).
+     La app Android es.sonpe.basatina se registró en Firebase el 21 nov. 2026.
+     Firebase la lee al arrancar la app y se inicia solo (FirebaseInitProvider). -->
+<resources>
+    <string name="google_app_id" translatable="false">1:325546593808:android:9a7a1a2631690bde378495</string>
+    <string name="gcm_defaultSenderId" translatable="false">325546593808</string>
+    <string name="google_api_key" translatable="false">AIzaSyBkD97y7lqjMS0sA7zClhQkqZlEgXtkeqk</string>
+    <string name="project_id" translatable="false">basatina-9a8b5</string>
+    <string name="google_storage_bucket" translatable="false">basatina-9a8b5.firebasestorage.app</string>
+</resources>

@@ -1,0 +1,41 @@
+# 📲 Mandar un aviso push a mano a los móviles (tools/push.py). Actions → «Aviso push» → Run workflow.
+# Necesita el secreto FIREBASE_SA. Marca «prueba» para mandarlo solo al tema de pruebas.
+name: Aviso push
+on:
+  workflow_dispatch:
+    inputs:
+      tema:
+        description: 'A quién: avisos (avisos de BasatiNA) o desaparecidos'
+        default: 'avisos'
+        type: choice
+        options: [avisos, desaparecidos]
+      titulo:
+        description: 'Título (corto)'
+        required: true
+      texto:
+        description: 'Texto del aviso'
+        default: ''
+      tab:
+        description: 'Pantalla que se abre al tocarlo (por ejemplo agenda, desaparecidos, ajustes). Vacío = Inicio'
+        default: ''
+      prueba:
+        description: 'Solo prueba (tema «-prueba»)'
+        type: boolean
+        default: true
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mandar el aviso
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
+          TITULO: ${{ github.event.inputs.titulo }}
+          TEXTO: ${{ github.event.inputs.texto }}
+          TAB: ${{ github.event.inputs.tab }}
+          TEMA: ${{ github.event.inputs.tema }}
+          PRUEBA: ${{ github.event.inputs.prueba }}
+        run: |
+          pip install --quiet google-auth requests
+          if [ "$PRUEBA" = "true" ]; then P=--prueba; else P=; fi
+          python3 tools/push.py --tema "$TEMA" --titulo "$TITULO" --texto "$TEXTO" --tab "$TAB" $P
