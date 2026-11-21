@@ -14,7 +14,8 @@
         (euríbor: principios de cada mes; INE: hacia el día 25, con dos meses de retraso).
       - Ofertas de bancos → «ofertas»: las apuntáis vosotros desde el modo administrador (botón
         «➕ Apuntar oferta») copiando lo que el banco publica en su web: banco, tipo, TIN, TAE,
-        condiciones, fecha y enlace. Se borran solas de la vista a los 90 días (salen como antiguas).
+        condiciones, fecha y enlace. Pestaña por banco (VIBK) con cuota, intereses y total calculados con los
+        datos del simulador; «🏆 Todos» = tabla ordenada por cuota. Se borran solas de la vista a los 90 días (salen como antiguas).
       - Impuestos de Navarra (VI_IMP): ITP 6 % (usada); IVA 10 % + AJD 0,5 % (nueva); IVA 4 % + AJD 0,5 % (VPO).
    3. 🏛️ Vivienda pública y ayudas (lista VI_L, igual que EM_L de Empleo: añadir una = una línea).
    ===================================================================== */
@@ -33,6 +34,7 @@ const PATH='vivienda/hipotecas.json';
 const DEF={oficial:{},ofertas:[]};
 
 const st=document.createElement('style');st.textContent=`
+.emChips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px}.emChips button{flex:none;border:1px solid var(--line);background:none;color:inherit;border-radius:18px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}.emChips button.on{background:#00695c;color:#fff;border-color:transparent}
 .viSeg{display:flex;gap:6px;margin-top:8px}.viSeg button{flex:1;border:1px solid var(--line);background:none;color:inherit;border-radius:12px;padding:8px;font:inherit;font-size:14.5px;font-weight:700;cursor:pointer}
 .viSeg button.on{background:#00695c;color:#fff;border-color:transparent}
 .viG{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.viG label{font-size:12.5px;color:var(--mut);display:block}
@@ -104,7 +106,7 @@ svs('vivienda',`<div class="card"><b>🏠 Vivienda en Navarra</b><div class="not
  </div><div class="note" style="margin-top:4px">Para el interés ahora en variable: euríbor + tu diferencial. Toca «🔁 Comparar» en una oferta de abajo para meter su interés.</div>
  <div id="viCRes"></div>
  <details style="margin-top:8px"><summary style="cursor:pointer;font-size:14px">📜 ¿Cuánto me pueden cobrar por cambiar?</summary><div class="note" style="line-height:1.55;margin-top:6px">Mira tu escritura: lo que pone ahí es lo que vale. Para hipotecas firmadas desde el 16 de junio de 2019 (Ley 5/2019), como mucho:<br>• <b>Variable</b>: 0,25 % los 3 primeros años o 0,15 % los 5 primeros (según el contrato). Después, nada.<br>• <b>De variable a fija</b>: 0,05 % los 3 primeros años. Después, nada.<br>• <b>Fija</b>: 2 % los 10 primeros años y 1,5 % después, y nunca más de lo que el banco pierda de verdad.<br>Antes de irte, enseña la oferta a tu banco: muchas veces la iguala para no perderte, y te ahorras los gastos del cambio.</div></details></div>
-<div class="card"><b>🏦 Ofertas de los bancos</b><div class="note">Condiciones que publica cada banco en su web. Toca «Usar» para meterla en el simulador. Comprueba siempre en el banco: cambian a menudo.</div>
+<div class="card"><b>🏦 Ofertas de los bancos</b><div class="note">Condiciones que publica cada banco en su web. Cada banco tiene su pestaña, con las cantidades ya calculadas con tus datos del simulador. Comprueba siempre en el banco: cambian a menudo.</div>
  <div id="viOf" style="margin-top:6px"><div class="note">Cargando…</div></div>
  <button class="btn tech" id="viAdd" style="display:none;margin-top:8px">➕ Apuntar oferta</button></div>
 
@@ -174,18 +176,35 @@ function viCambio(){const P=num('viCp'),an=Math.max(1,Math.min(40,num('viCa')||1
    <div class="viAv ${k}">${k==='ok'?(ahT>3000?'✅ Merece la pena: pide la oferta por escrito (FEIN) y enséñasela antes a tu banco.':'✅ Sale a cuenta, pero por poco: compara también seguros y lo que te obligan a contratar (mira la TAE).'):'⚠️ Así no compensa: lo que cuesta cambiar es más de lo que ahorras.'}</div>`:'';}
 
 /* ---------- ofertas de bancos ---------- */
-function viOfertas(){const el=$('viOf'),L=((H&&H.ofertas)||[]).slice().sort((a,b)=>(a.tae||99)-(b.tae||99));
+let VIBK='__todos';
+function viDatos(){const pr=num('viPr'),ah=num('viAh'),an=Math.max(1,Math.min(40,num('viAn')||26)),ti=$('viTi').value;
+  const gastos=pr*VI_IMP[ti].t/100+OTROS;return {P:Math.max(0,pr-Math.max(0,ah-gastos)),an};}
+const tinDe=o=>o.tipo==='var'?((((H&&H.oficial)||{}).euribor||{}).v||0)+(o.dif||0):(o.tin||0);
+function viOfertas(){const el=$('viOf'),{P,an}=viDatos(),n=Math.round(an*12);
   const vieja=o=>o.fecha&&(Date.now()-Date.parse(o.fecha))>90*864e5;
-  el.innerHTML=L.length?L.map((o,i)=>`<div class="viOf"><b>${E(o.banco)}</b> · ${o.tipo==='var'?'Variable':o.tipo==='mixto'?'Mixta':'Fija'}
-     <div style="font-size:14.5px;margin-top:2px">${o.tipo==='var'?'Euríbor + '+pct(o.dif):'TIN '+pct(o.tin)}${o.tae?' · <b>TAE '+pct(o.tae)+'</b>':''}</div>
-     ${o.cond?`<div class="m">${E(o.cond)}</div>`:''}<div class="m">Apuntada el ${E(o.fecha||'')}${vieja(o)?' · ⚠️ antigua, puede haber cambiado':''}</div>
-     <div class="a"><button data-u="${i}">🧮 Usar</button><button data-c="${i}">🔁 Comparar</button>${o.url?`<button data-w="${i}">🌐 Ver en el banco</button>`:''}<button class="tech" style="display:none" data-x="${i}">🗑️ Quitar</button></div></div>`).join('')
-   :'<div class="note">Todavía no hay ofertas apuntadas. Mientras, puedes usar las medias oficiales del simulador.</div>';
+  const L=((H&&H.ofertas)||[]).map(o=>{const t=tinDe(o),c=cuota(P,t,an);return Object.assign({},o,{_t:t,_c:c,_i:c*n-P});}).sort((x,y)=>x._c-y._c);
+  if(!L.length){el.innerHTML='<div class="note">Todavía no hay ofertas apuntadas. Mientras, puedes usar las medias oficiales del simulador.</div>';try{techApply();}catch(e){}return;}
+  const bancos=[...new Set(L.map(o=>o.banco))];if(VIBK!=='__todos'&&!bancos.includes(VIBK))VIBK='__todos';
+  const mejor=L[0]._c;
+  const tabs=`<div class="emChips" id="viBk"><button data-b="__todos" class="${VIBK==='__todos'?'on':''}">🏆 Todos</button>${bancos.map(b=>`<button data-b="${E(b)}" class="${VIBK===b?'on':''}">${E(b)}</button>`).join('')}</div>
+   <div class="note" style="margin:2px 0 6px">Con tus datos del simulador: te prestan <b>${eur(P)}</b> a <b>${an} años</b>.</div>`;
+  let body;
+  if(VIBK==='__todos'){body=`<table class="viTab"><tr><th>Banco</th><th>Cuota</th><th>Intereses</th></tr>${L.map(o=>`<tr data-b="${E(o.banco)}" style="cursor:pointer"><td>${o===L[0]?'🏆 ':''}${E(o.banco)}<br><small style="color:var(--mut)">${o.tipo==='var'?'Variable':o.tipo==='mixto'?'Mixta':'Fija'} · ${pct(o._t)}</small></td><td><b>${eur(o._c)}</b></td><td>${eur(o._i)}</td></tr>`).join('')}</table>
+    <div class="note" style="margin-top:6px">Toca un banco para ver sus condiciones. En variable se calcula con el euríbor oficial de hoy: luego cambia.</div>`;}
+  else{const B=L.filter(o=>o.banco===VIBK);body=B.map(o=>{const i=L.indexOf(o),dif=o._c-mejor;return `<div class="viOf">
+     <b>${o.tipo==='var'?'Variable':o.tipo==='mixto'?'Mixta':'Fija'}</b> · ${o.tipo==='var'?'Euríbor + '+pct(o.dif):'TIN '+pct(o.tin)}${o.tae?' · <b>TAE '+pct(o.tae)+'</b>':''}
+     <div class="viRes" style="margin-top:6px;padding:10px"><div class="c" style="font-size:24px">${eur(o._c)} <small>al mes</small></div>
+      <div class="viRow"><span>Intereses en total</span><b>${eur(o._i)}</b></div><div class="viRow"><span>Devuelves en total</span><b>${eur(o._c*n)}</b></div>
+      <div class="viRow"><span>Frente a la más barata</span><b>${dif<0.5?'🏆 Es la más barata':'+'+eur(dif)+' al mes'}</b></div></div>
+     ${o.cond?`<div class="m" style="font-size:14px;color:inherit;margin-top:6px">📋 <b>Condiciones:</b> ${E(o.cond)}</div>`:''}
+     <div class="m">Apuntada el ${E(o.fecha||'')}${vieja(o)?' · ⚠️ antigua, puede haber cambiado':''}${o.tae?'':' · sin TAE: pregunta en el banco qué productos te obligan a contratar'}</div>
+     <div class="a"><button data-u="${i}">🧮 Usar</button><button data-c="${i}">🔁 Comparar</button>${o.url?`<button data-w="${i}">🌐 Ver en el banco</button>`:''}<button class="tech" style="display:none" data-x="${i}">🗑️ Quitar</button></div></div>`;}).join('');}
+  el.innerHTML=tabs+body;
+  el.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{VIBK=b.dataset.b;viOfertas();});
   el.querySelectorAll('[data-u]').forEach(b=>b.onclick=()=>{const o=L[+b.dataset.u];
     if(o.tipo==='var'){setTp('var');$('viDif').value=String(o.dif).replace('.',',');}else{setTp('fijo');$('viTin').value=String(o.tin).replace('.',',');$('viTin').dataset.toc=1;}
     viCalc();$('viRes').scrollIntoView({behavior:'smooth',block:'center'});});
-  el.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{const o=L[+b.dataset.c],O=(H&&H.oficial)||{};
-    const v=o.tipo==='var'?((O.euribor&&O.euribor.v)||0)+(o.dif||0):o.tin;$('viCn').value=String(Math.round(v*1000)/1000).replace('.',',');viCambio();$('viCRes').scrollIntoView({behavior:'smooth',block:'center'});});
+  el.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{const o=L[+b.dataset.c];$('viCn').value=String(Math.round(o._t*1000)/1000).replace('.',',');viCambio();$('viCRes').scrollIntoView({behavior:'smooth',block:'center'});});
   el.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>abre(L[+b.dataset.w].url));
   el.querySelectorAll('[data-x]').forEach(b=>b.onclick=async()=>{const o=L[+b.dataset.x];if(!confirm('¿Quitar la oferta de '+o.banco+'?'))return;
     try{H=await jsEdit(PATH,DEF,d=>{d.ofertas=(d.ofertas||[]).filter(x=>!(x.banco===o.banco&&x.fecha===o.fecha&&x.tin===o.tin&&x.dif===o.dif));},'Vivienda: quitar oferta de '+o.banco);viOfertas();toast&&toast('Quitada');}catch(e){alert(e.message);}});
@@ -212,7 +231,7 @@ function viLista(){$('viL').innerHTML=VI_L.map((x,i)=>`<div class="viOf"><b>${E(
 $('viOp').querySelectorAll('button').forEach(b=>b.onclick=()=>{VIOP=b.dataset.v;$('viOp').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));});
 document.querySelectorAll('#t-vivienda [data-p]').forEach(b=>{if(b.closest('.viP'))b.onclick=()=>viBuscar(b.dataset.p);});
 $('viTp').querySelectorAll('button').forEach(b=>b.onclick=()=>{setTp(b.dataset.v);viCalc();});
-['viPr','viAh','viAn','viTi','viTin','viEu','viDif','viIn'].forEach(id=>{const x=$(id);x.addEventListener('input',()=>{x.dataset.toc=1;viCalc();});x.addEventListener('change',viCalc);});
+['viPr','viAh','viAn','viTi','viTin','viEu','viDif','viIn'].forEach(id=>{const x=$(id);x.addEventListener('input',()=>{x.dataset.toc=1;viCalc();viOfertas();});x.addEventListener('change',()=>{viCalc();viOfertas();});});
 $('viAdd').onclick=()=>viAdd();
 ['viCp','viCa','viCi','viCn','viCc','viCg'].forEach(id=>$(id).addEventListener('input',viCambio));
 async function viInit(){try{H=await jsLoad(PATH,DEF,true)||DEF;}catch(e){H=DEF;}viChips();viOfertas();viCalc();}
