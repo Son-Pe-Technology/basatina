@@ -44,10 +44,11 @@ document.head.appendChild(st);
 function fsTabs(t){const c=FS_TABS[t];if(!c)return;const el=$(c[0]);if(!el||el.dataset.fs)return;el.dataset.fs=1;el.classList.add('fsTabs');
   el.querySelectorAll('button').forEach(b=>{const v=b.dataset.v||b.dataset.t,f=c[1][v];if(!f)return;
     const txt=b.textContent.trim().replace(/^[^\wÁÉÍÓÚÑáéíóúñ]+/,'');b.style.setProperty('background-image',`url("${f[0]}")`,'important');b.style.setProperty('--fsc',f[1]);b.innerHTML=`<span>${txt}${v==='semana'?' ›':''}</span>`;});}
-function fsCred(t){const L=FS_CRED[t],sec=$('t-'+t);if(!L||!sec||sec.querySelector('.fsCred'))return;
-  const d=document.createElement('div');d.className='fsCred';
+function fsCred(t){const sec=document.querySelector('section.on')||$('t-'+t);if(!sec)return;   // Fauna/Vegetación/Árboles comparten pantalla con Recolección
+  let d=sec.querySelector('.fsCred');const L=FS_CRED[t];if(!L){if(d)d.remove();return;}
+  if(!d){d=document.createElement('div');d.className='fsCred';sec.appendChild(d);}
   d.innerHTML='📷 Fotos de Wikimedia Commons: '+L.map(([q,a,l,u])=>`${q}, <a href="${u}" target="_blank" rel="noopener">${a}</a> (${l})`).join(' · ')+'.';
-  sec.appendChild(d);d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
+  d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
 function fsCab(t){const el=$('pvSec');if(!el)return;const f=FS_CAB[t];
   if(f){el.classList.add('fsFoto');el.style.backgroundImage=`url("${f}")`;
     try{if(PVSraf){cancelAnimationFrame(PVSraf);PVSraf=0;}}catch(e){}}   // sin animación debajo de la foto: ahorra batería
