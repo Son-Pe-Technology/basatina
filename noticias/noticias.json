@@ -1,19 +1,40 @@
 {
-"t": "2026-11-21T16:28Z",
+"t": "2026-11-21T17:26Z",
 "items": [
+{
+"t": "La Olimpiada Robótica de Navarra atrae a más de 50 niños en Orkoien",
+"u": "https://pamplonaactual.com/negocios-al-dia/la-primera-olimpiada-robotica-de-navarra-supera-las-previsiones-y-reune-a-mas-de-medio-centenar-de-ninos-en-orkoien/",
+"f": "Pamplona Actual",
+"d": "2026-11-21T16:44Z",
+"c": "Sucesos"
+},
+{
+"t": "Niños de 6 a 14 años construyen robots para derribar zombies en una competición celebrada en Orkoien",
+"u": "https://www.diariodenavarra.es/noticias/cultura-ocio/cultura/2026/11/21/robotica-navarra-futuro-843315-104.html",
+"f": "Diario de Navarra",
+"d": "2026-11-21T16:35Z",
+"c": "Sucesos"
+},
+{
+"t": "Moisés García León, de vuelta a Tajonar",
+"u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/21/moises-garcia-leon-vuelta-tajonar-843314-32.html",
+"f": "Diario de Navarra",
+"d": "2026-11-21T16:32Z",
+"c": "Navarra"
+},
+{
+"t": "Osasuna inaugura en Tajonar dos campos de hierba artificial con un saque de honor especial",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/osasuna-estrena-en-tajonar-dos-campos-de-hierba-artificial-con-el-saque-de-honor-del-socio-numero-6/",
+"f": "Pamplona Actual",
+"d": "2026-11-21T16:30Z",
+"c": "Deportes"
+},
 {
 "t": "Arrasate subraya la vital importancia del duelo ante el Málaga en su próxima cita futbolística",
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/arrasate-pide-maxima-concentracion-ante-el-malaga-el-partido-de-manana-es-muy-muy-muy-importante/",
 "f": "Pamplona Actual",
 "d": "2026-11-21T16:19Z",
 "c": "Deportes"
-},
-{
-"t": "Arrasate: \"El partido ante el Málaga es muy, muy, muy importante\"",
-"u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/21/arrasate-partido-malaga-importante-843303-32.html",
-"f": "Diario de Navarra",
-"d": "2026-11-21T14:45Z",
-"c": "Navarra"
 },
 {
 "t": "La primera Olimpiada Robótica Navarra arranca en Autocar desbordando su previsión de participantes",
@@ -65,10 +86,17 @@
 "c": "Navarra"
 },
 {
-"t": "Detenido en Pamplona por varios robos tras una persecución a pie",
-"u": "https://cadenaser.com/navarra/2026/11/21/detenido-en-pamplona-por-varios-robos-tras-una-persecucion-a-pie-radio-pamplona/",
-"f": "Cadena SER",
-"d": "2026-11-21T11:50Z",
+"t": "Frente Amplio propone un tren \"exclusivamente público\" y viajes cada dos horas entre Pamplona y Vitoria",
+"u": "https://www.europapress.es/navarra/noticia-frente-amplio-propone-tren-exclusivamente-publico-viajes-cada-dos-horas-pamplona-vitoria-20261121131342.html",
+"f": "Europa Press",
+"d": "2026-11-21T12:13Z",
+"c": "Navarra"
+},
+{
+"t": "Dos heridos, una de ellas menor de edad, en un accidente de tráfico en Corella",
+"u": "https://www.europapress.es/navarra/noticia-dos-heridos-ellas-menor-edad-accidente-trafico-corella-20261121124731.html",
+"f": "Europa Press",
+"d": "2026-11-21T11:47Z",
 "c": "Sucesos"
 },
 {
@@ -83,6 +111,13 @@
 "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/21/joven-acusado-robos-carlos-iii-detenido-iturrama-persecucion-pie-843286-16.html",
 "f": "Diario de Navarra",
 "d": "2026-11-21T11:29Z",
+"c": "Sucesos"
+},
+{
+"t": "Detenido en Pamplona un varón con una orden de ingreso en prisión tras una persecución a pie",
+"u": "https://www.europapress.es/navarra/noticia-detenido-pamplona-varon-orden-ingreso-prision-persecucion-pie-20261121113236.html",
+"f": "Europa Press",
+"d": "2026-11-21T10:32Z",
 "c": "Sucesos"
 },
 {
@@ -163,13 +198,6 @@
 "c": "Navarra"
 },
 {
-"t": "Eroski enfrenta posible contaminación por salmonella en sus huevos",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/alerta-sanitaria-por-posible-salmonella-en-huevos-de-la-marca-eroski/",
-"f": "Pamplona Actual",
-"d": "2026-11-21T08:16Z",
-"c": "Navarra"
-},
-{
 "t": "Navarra se vuelca con la prevención de residuos con el lema de la 'suficiencia material'",
 "u": "https://www.cope.es/emisoras/navarra/noticias/navarra-vuelca-prevencion-residuos-lema-suficiencia-material-20261121_3479194.html",
 "f": "COPE",
@@ -216,13 +244,6 @@
 "u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/2a-parte-20-nov-2026-partidazo-cope-20261121_3479556.html",
 "f": "COPE",
 "d": "2026-11-20T23:52Z",
-"c": "Navarra"
-},
-{
-"t": "La Oreja de Van Gogh llena Navarra Arena con 15.000 fans vibrando al ritmo de sus clásicos pop",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/la-oreja-de-van-gogh-convierte-navarra-arena-en-una-fiesta-del-pop-con-15000-almas-reviviendo-sus-clasicos/",
-"f": "Pamplona Actual",
-"d": "2026-11-20T23:34Z",
 "c": "Navarra"
 },
 {
@@ -275,15 +296,15 @@
 "c": "Economía"
 },
 {
-"t": "De servir vinos a vender lechugas: el cambio de vida de este pamplonés de 34 años",
-"u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/emprendedores/2026/11/20/servir-vinos-vender-lechugas-cambio-vida-pamplones-34-anos-dnexclusivo-842904-91.html",
-"f": "Diario de Navarra",
-"d": "2026-11-20T18:00Z",
+"t": "Illa pide \"respeto\" a las instituciones y la \"verdad\" y llama a la movilización para \"frenar a los malos\"",
+"u": "https://www.europapress.es/navarra/noticia-illa-pide-respeto-instituciones-verdad-llama-movilizacion-frenar-malos-20261120193701.html",
+"f": "Europa Press",
+"d": "2026-11-20T18:37Z",
 "c": "Navarra"
 },
 {
-"t": "\"Mi bisabuela Fermina Zulategui perdonó a los verdugos de su marido\"",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/20/mi-bisabuela-fermina-zulategui-perdono-verdugos-marido-dnexclusivo-843203-15.html",
+"t": "De servir vinos a vender lechugas: el cambio de vida de este pamplonés de 34 años",
+"u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/emprendedores/2026/11/20/servir-vinos-vender-lechugas-cambio-vida-pamplones-34-anos-dnexclusivo-842904-91.html",
 "f": "Diario de Navarra",
 "d": "2026-11-20T18:00Z",
 "c": "Navarra"
@@ -392,6 +413,13 @@
 "f": "COPE",
 "d": "2026-11-20T11:42Z",
 "c": "Navarra"
+},
+{
+"t": "Policía Foral detiene a tres personas, una de ellas menor, tras forzar 15 autocaravanas en Sarriguren",
+"u": "https://www.europapress.es/navarra/noticia-policia-foral-detiene-tres-personas-ellas-menor-forzar-15-autocaravanas-sarriguren-20261120115212.html",
+"f": "Europa Press",
+"d": "2026-11-20T10:52Z",
+"c": "Sucesos"
 },
 {
 "t": "El Ayuntamiento de Pamplona felicita al CERMIN por sus veinticinco años de trabajo y reivindicación en el ámbito de la discapacidad",
