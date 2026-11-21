@@ -2113,3 +2113,20 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
 // 🚦 Polen en semáforo (20 nov. 2026)
 (function(){const T={"Mañana":["Bihar","Tomorrow","Demain"],"Pasado":["Etzi","Day after","Après-demain"],"Bien":["Ondo","Good","Bien"],"Medio":["Ertaina","Medium","Moyen"],"Mal":["Txarto","Bad","Mauvais"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{if(!window.I18N.eu[k])window.I18N.eu[k]=eu;if(!window.I18N.en[k])window.I18N.en[k]=en;if(!window.I18N.fr[k])window.I18N.fr[k]=fr;});})();
+// 💼 Empleo · 🔎 Personas desaparecidas · menú sin «NA» · radar sin círculo (21 nov. 2026)
+(function(){const T={"Salud":["Osasuna","Health","Santé"],"Sostenibilidad":["Jasangarritasuna","Sustainability","Durabilité"],"Terremotos":["Lurrikarak","Earthquakes","Séismes"],"Juegos":["Jokoak","Games","Jeux"],
+ "Más en Salud":["Gehiago Osasunan","More in Health","Plus dans Santé"],"🔵 Tú. La nieve sale en azules claros y blancos.":["🔵 Zu. Elurra urdin argiz eta zuriz ateratzen da.","🔵 You. Snow shows in light blues and white.","🔵 Vous. La neige apparaît en bleu clair et blanc."],
+ "Empleo":["Enplegua","Jobs","Emploi"],"Empleo en Navarra":["Enplegua Nafarroan","Jobs in Navarre","Emploi en Navarre"],"Personas desaparecidas":["Desagertutako pertsonak","Missing people","Personnes disparues"],
+ "Personas desaparecidas en Navarra":["Desagertutako pertsonak Nafarroan","Missing people in Navarre","Personnes disparues en Navarre"],
+ "Ofertas del Servicio Navarro de Empleo":["Nafar Lansareren eskaintzak","Navarre Employment Service job offers","Offres du Service navarrais de l’emploi"],
+ "Todas las ofertas públicas de Navarra, al día":["Nafarroako eskaintza publiko guztiak, egunean","All public job offers in Navarre, up to date","Toutes les offres publiques de Navarre, à jour"],
+ "Buscar un trabajo":["Lana bilatu","Search for a job","Chercher un emploi"],"Buscar en Indeed":["Bilatu Indeeden","Search on Indeed","Chercher sur Indeed"],"En Jooble":["Jooblen","On Jooble","Sur Jooble"],"En Google":["Googlen","On Google","Sur Google"],
+ "Ver ofertas":["Ikusi eskaintzak","See offers","Voir les offres"],"Consejos":["Aholkuak","Tips","Conseils"],"Todo":["Dena","All","Tout"],"Oficial":["Ofiziala","Official","Officiel"],"Portales":["Atariak","Job sites","Portails"],
+ "Empleo público":["Enplegu publikoa","Public jobs","Emploi public"],"Jóvenes y sin experiencia":["Gazteak eta esperientziarik gabe","Young people and no experience","Jeunes et sans expérience"],
+ "Entidades sociales":["Gizarte erakundeak","Social organisations","Associations"],"Emprender":["Ekin","Start a business","Entreprendre"],
+ "Alertas oficiales":["Alerta ofizialak","Official alerts","Alertes officielles"],"Centro Nacional de Desaparecidos":["Desagertuen Zentro Nazionala","National Missing Persons Centre","Centre national des personnes disparues"],
+ "En las noticias (últimos 15 días)":["Albisteetan (azken 15 egunak)","In the news (last 15 days)","Dans l’actualité (15 derniers jours)"],
+ "Si desaparece alguien cercano":["Hurbileko norbait desagertzen bada","If someone close to you goes missing","Si un proche disparaît"],
+ "Se busca":["Bilatzen da","Missing","Recherché(e)"],"Localizada":["Aurkitua","Found","Retrouvée"],"Alerta · Se busca en Navarra":["Alerta · Bilatzen da Nafarroan","Alert · Missing in Navarre","Alerte · Recherché(e) en Navarre"],
+ "Emergencias · SOS Navarra":["Larrialdiak · SOS Nafarroa","Emergencies · SOS Navarra","Urgences · SOS Navarra"],"Menores desaparecidos":["Desagertutako adingabeak","Missing children","Mineurs disparus"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();

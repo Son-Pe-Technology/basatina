@@ -31,7 +31,9 @@
     pamplona:['Ayuntamiento de Pamplona','https://www.pamplona.es','Avisos y eventos municipales'],
     turismo:['Turismo de Navarra','https://www.turismo.navarra.es','Información turística oficial'],
     cultura:['Cultura Navarra','https://www.culturanavarra.es/es/agenda','Agenda cultural oficial'],
-    salud:['Salud Navarra','https://www.navarra.es','Centros de salud y farmacias']
+    salud:['Salud Navarra','https://www.navarra.es','Centros de salud y farmacias'],
+    sne:['Servicio Navarro de Empleo – Nafar Lansare','https://administracionelectronica.navarra.es/EmpleoIntermediacion/listadodeofertas','Ofertas de empleo públicas de Navarra'],
+    cndes:['CNDES · Centro Nacional de Desaparecidos (Ministerio del Interior)','https://cndes-web.ses.mir.es','Alertas oficiales de personas desaparecidas']
   };
   // pestaña → fuentes oficiales que se muestran arriba de esa pantalla
   const SRC_TAB={
@@ -43,7 +45,8 @@
     sismo:['ign'], gas:['minetur'],
     caza:['idena','lexnavarra'], pesca:['idena','lexnavarra'], natura:['lexnavarra','espacios'],
     monte:['idena','espacios'], energia:['idena'], pueblos:['navarra','turismo'],
-    patrimonio:['navarra','turismo'], cultura:['cultura'], agenda:['cultura','pamplona'], cerca:['salud','navarra']
+    patrimonio:['navarra','turismo'], cultura:['cultura'], agenda:['cultura','pamplona'], cerca:['salud','navarra'],
+    empleo:['sne'], desaparecidos:['cndes','sos']
   };
   // 20 nov. 2026 (petición de Pedro): de dónde salen los datos que NO son oficiales (Open‑Meteo, OpenStreetMap…)
   // ya no se escribe en mitad de cada pantalla: va aquí, en el pie de fuentes, en letra pequeña.

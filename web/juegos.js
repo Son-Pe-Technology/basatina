@@ -300,7 +300,7 @@ sec('jnutria',`<div class="jgBox jgNut" data-noswipe>
    ===================================================================== */
 (function(){const dr=$('drawer');if(!dr||$('dgJuega'))return;
   const ref=[...dr.querySelectorAll('.dgroup')].find(x=>/mi espacio/i.test(x.querySelector('span')?.dataset.k||x.textContent));
-  const html='<div class="dgroup" id="dgJuega"><span data-k="NA Juega">NA Juega</span><i>▸</i></div><div class="dsub" id="dsJuega"></div>';
+  const html='<div class="dgroup" id="dgJuega"><span data-k="NA Juega">Juegos</span><i>▸</i></div><div class="dsub" id="dsJuega"></div>';
   if(ref)ref.insertAdjacentHTML('beforebegin',html);else (($('bnaDGrid')||dr)).insertAdjacentHTML('beforeend',html);
   const gr=$('dgJuega'),sub=$('dsJuega');
   gr.onclick=()=>{const o=!gr.classList.contains('open');dr.querySelectorAll('.dgroup').forEach(z=>z.classList.remove('open'));if(o)gr.classList.add('open');};
