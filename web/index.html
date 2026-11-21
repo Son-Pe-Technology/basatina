@@ -18,7 +18,9 @@ nav button.on{background:#1f2d3b;color:var(--txt);font-weight:600}
 section{display:none;padding:12px 14px 30px;background:#1f2d3b;border-top:1px solid var(--line)}
 section.on{display:block}
 .wrap{max-width:1000px;margin:0 auto}
-canvas{width:100%;display:block;border-radius:10px;background:#0b1118;touch-action:none}
+canvas{width:100%;display:block;border-radius:10px;background:#0b1118;touch-action:pan-y}
+/* 21 nov. 2026: las gráficas dejan deslizar la pantalla arriba/abajo (pan-y); los mapas que se arrastran siguen con touch-action:none (NavMap y #map, #pc) */
+#map,#pc{touch-action:none}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
 .btn{background:var(--panel);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:13.5px;cursor:pointer}
 .btn:active{transform:scale(.97)}
@@ -926,7 +928,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="card"><b>🌧️ Radar de lluvia</b><div class="note">Dónde está lloviendo (o nevando) ahora y en las últimas 2 horas. Dale a ▶️ para ver hacia dónde se mueve.</div>
 <div class="row" style="align-items:center;margin-top:6px"><button class="btn pri" id="rdPlay">▶️</button><input type="range" id="rdT" min="0" max="0" value="0" style="flex:1"><b id="rdLbl" style="min-width:64px;text-align:right"></b></div></div>
 <div class="card"><div style="position:relative"><canvas id="rdc" height="420"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="rdcIn">＋</button><button class="btn mtb" id="rdcOut">－</button></div></div><div class="rdLeg" style="display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;font-size:14px"><span>🟨 Nubes bajas</span><span>🟦 Nubes con precipitación</span><span>🟥 Tormentas</span></div><div class="note" style="margin-top:6px">🟪 La zona morada es <b>Petilla de Aragón</b> (municipio navarro dentro de Zaragoza): ese color no tiene nada que ver con el radar de lluvia.</div></div>
-<div id="ekNote" style="display:none"></div><div id="rdEusN" style="display:none"></div><div class="card" id="rdAemet"><b>⚡ Rayos y radar (AEMET)</b><div class="note" id="rdAeNote">Cargando…</div><div id="rdAeImgs"></div><div class="row"><button class="btn" id="rdRayos">⚡ Abrir el mapa de rayos de AEMET</button></div></div>
+<div id="ekNote" style="display:none"></div><div id="rdEusN" style="display:none"></div><div class="card" id="rdAemet"><b>📡 Radar de AEMET · Cantábrico</b><div class="note" id="rdAeNote">Cargando…</div><div id="rdAeImgs"></div><div class="row"><button class="btn" id="rdRayos">⚡ Abrir el mapa de rayos de AEMET</button></div></div>
 <div class="card tech" style="display:none"><b>🔧 Claves de radar y rayos</b>
  <div class="note">Rainbow.ai (radar con previsión de 4 horas) y AEMET OpenData (rayos y radar oficial). Se guardan en el repositorio para que todos los móviles las usen.</div>
  <label style="display:block;margin-top:8px">Clave de Rainbow.ai<input id="kyRain" class="town" autocomplete="off" placeholder="Pega aquí la clave de Rainbow" style="width:100%;box-sizing:border-box"></label>
@@ -2474,12 +2476,13 @@ document.querySelectorAll('#drawer button[data-t]').forEach(b=>b.onclick=()=>sho
 // Petilla de Aragón: municipio navarro en dos enclaves dentro de Zaragoza (contorno de © OpenStreetMap, ODbL)
 const PETILLA=[{n:'Petilla de Aragón',r:[[42.44871,-1.05458],[42.44812,-1.05421],[42.44755,-1.05459],[42.44657,-1.05444],[42.44535,-1.05247],[42.44334,-1.05376],[42.44309,-1.05303],[42.44231,-1.05281],[42.44165,-1.05172],[42.44077,-1.052],[42.43989,-1.05173],[42.43933,-1.05238],[42.43764,-1.05318],[42.43386,-1.05712],[42.43413,-1.06002],[42.43336,-1.0616],[42.43388,-1.0623],[42.43485,-1.06242],[42.43571,-1.06484],[42.43432,-1.0669],[42.43509,-1.07055],[42.43683,-1.0738],[42.43806,-1.08122],[42.4369,-1.08311],[42.43695,-1.08451],[42.43953,-1.09029],[42.44076,-1.09923],[42.44075,-1.10757],[42.44155,-1.1106],[42.44248,-1.11264],[42.44407,-1.11531],[42.44482,-1.11598],[42.44511,-1.11693],[42.44508,-1.12308],[42.44452,-1.12522],[42.44662,-1.12941],[42.44818,-1.12939],[42.44885,-1.12895],[42.45051,-1.12908],[42.45151,-1.12862],[42.45245,-1.12743],[42.45379,-1.12682],[42.45536,-1.12546],[42.45621,-1.12603],[42.4569,-1.12586],[42.45741,-1.12522],[42.45758,-1.12432],[42.45813,-1.12444],[42.45894,-1.12334],[42.45912,-1.12217],[42.46081,-1.12133],[42.46138,-1.11887],[42.46201,-1.11835],[42.46294,-1.11819],[42.46369,-1.11718],[42.46542,-1.1165],[42.46938,-1.11265],[42.47095,-1.11242],[42.47257,-1.11166],[42.47332,-1.11096],[42.47454,-1.1106],[42.47645,-1.10929],[42.477,-1.10828],[42.47868,-1.10758],[42.4808,-1.10442],[42.48177,-1.10497],[42.48226,-1.10262],[42.48318,-1.10185],[42.48361,-1.10178],[42.48394,-1.10302],[42.48484,-1.10279],[42.48467,-1.10198],[42.48505,-1.10189],[42.48563,-1.10101],[42.48529,-1.09958],[42.48566,-1.09899],[42.48611,-1.09891],[42.48634,-1.09764],[42.48567,-1.09702],[42.48557,-1.0965],[42.48582,-1.09198],[42.48357,-1.0852],[42.47795,-1.08625],[42.47566,-1.08766],[42.47528,-1.08759],[42.47345,-1.08554],[42.47125,-1.0793],[42.46978,-1.07767],[42.46821,-1.07508],[42.46649,-1.06965],[42.45329,-1.06389],[42.45262,-1.06326],[42.45194,-1.06074],[42.45088,-1.06047],[42.4497,-1.05926],[42.44798,-1.05617],[42.44871,-1.05458]]},{n:'Los Bastanes (despoblado)',r:[[42.44174,-1.14522],[42.44121,-1.14904],[42.44206,-1.14957],[42.4422,-1.15032],[42.44202,-1.15227],[42.44163,-1.1527],[42.44142,-1.15415],[42.44058,-1.15538],[42.43756,-1.15677],[42.43671,-1.15866],[42.43461,-1.1598],[42.4325,-1.16255],[42.43224,-1.16344],[42.43246,-1.16695],[42.43079,-1.16984],[42.43041,-1.17126],[42.42832,-1.17524],[42.4279,-1.17681],[42.42594,-1.17953],[42.42509,-1.18247],[42.42397,-1.18322],[42.42371,-1.1828],[42.42271,-1.18284],[42.42198,-1.18342],[42.41989,-1.1828],[42.41845,-1.18141],[42.41734,-1.18099],[42.41678,-1.1816],[42.41548,-1.18177],[42.41405,-1.18246],[42.41387,-1.18301],[42.41274,-1.18382],[42.41016,-1.18424],[42.40797,-1.18515],[42.40794,-1.18621],[42.40701,-1.18662],[42.40543,-1.18807],[42.40486,-1.18813],[42.40418,-1.18899],[42.4025,-1.18864],[42.40304,-1.18673],[42.40085,-1.18467],[42.40343,-1.17465],[42.40653,-1.17169],[42.40721,-1.16856],[42.40671,-1.1677],[42.40657,-1.16587],[42.40763,-1.16511],[42.40831,-1.16386],[42.40921,-1.16176],[42.40946,-1.15928],[42.41176,-1.15702],[42.41232,-1.15696],[42.41378,-1.15471],[42.41764,-1.154],[42.41879,-1.15443],[42.41997,-1.15437],[42.42218,-1.15314],[42.42298,-1.15231],[42.42402,-1.1521],[42.42494,-1.1523],[42.42564,-1.15352],[42.42779,-1.15415],[42.42865,-1.1516],[42.4292,-1.151],[42.42974,-1.1508],[42.43186,-1.15132],[42.43332,-1.14868],[42.4343,-1.14797],[42.43649,-1.1453],[42.43775,-1.14526],[42.43857,-1.14484],[42.43944,-1.14532],[42.4408,-1.14498],[42.44174,-1.14522]]}];
 // dibuja los dos enclaves con borde morado discontinuo y la etiqueta «Navarra» (si la escala lo permite)
-function drawPetilla(x,P,big){x.save();for(const e of PETILLA){x.beginPath();e.r.forEach((q,i)=>{const [px,py]=P(q[0],q[1]);i?x.lineTo(px,py):x.moveTo(px,py);});x.closePath();
+// 21 nov. 2026: Pedro pidió quitar lo morado de Petilla (ya no hay línea de la comunidad en los mapas). No se dibuja.
+function drawPetilla(x,P,big){return;x.save();for(const e of PETILLA){x.beginPath();e.r.forEach((q,i)=>{const [px,py]=P(q[0],q[1]);i?x.lineTo(px,py):x.moveTo(px,py);});x.closePath();
     x.fillStyle='rgba(156,39,176,.18)';x.fill();x.setLineDash([5,3]);x.strokeStyle='#ce93d8';x.lineWidth=2;x.stroke();x.setLineDash([]);
     if(big){let a=0,b=0;e.r.forEach(q=>{a+=q[0];b+=q[1];});const [px,py]=P(a/e.r.length,b/e.r.length);x.font='bold 11px system-ui';x.textAlign='center';
       for(const [t,dy] of [[e.n,-2],['(Navarra)',11]]){x.fillStyle='#000';x.fillText(t,px+1,py+dy+1);x.fillStyle='#f3e5f5';x.fillText(t,px,py+dy);}}}
   x.restore();}
-function NavMap(id,draw,tap){const M={la:42.66,lo:-1.63,z:1,img:null,ib:null,t:0};const cv=document.getElementById(id);
+function NavMap(id,draw,tap){const M={la:42.66,lo:-1.63,z:1,img:null,ib:null,t:0};const cv=document.getElementById(id);if(cv)cv.style.touchAction='none';
   M.box=()=>{const W=cv.clientWidth,H=LH(cv),k=Math.cos(M.la*Math.PI/180),dLo=(NB.e-NB.w)/M.z,dLa=dLo*k*H/W;return {w:M.lo-dLo/2,e:M.lo+dLo/2,s:M.la-dLa/2,n:M.la+dLa/2,W,H};};
   M.ov=null;M.ovImg=null;M.ovB=null;
   // capa del Gobierno de Navarra (IDENA) encima del mapa base
@@ -2860,7 +2863,7 @@ function moPerfil(f,col){const s=f.s,p=f.pf;if(!s||!p||p.length<2)return '';
     <div><span class="note">Distancia</span><b>${fmtN(s.km,1)} km</b></div><div><span class="note">Tiempo (MIDE)</span><b>${moTiempo(s)}</b></div><div><span class="note">Tipo</span><b>${s.c?'🔁 Circular':'➡️ Lineal'}</b></div>
     <div><span class="note">Subida</span><b>↗ ${s.up} m</b></div><div><span class="note">Bajada</span><b>↘ ${s.dn} m</b></div><div><span class="note">Salida</span><b>${s.a0} m</b></div>
     <div><span class="note">Altitud máx.</span><b>${s.mx} m</b></div><div><span class="note">Altitud mín.</span><b>${s.mn} m</b></div><div><span class="note">Pendiente máx.</span><b id="moPmax"></b></div></div>
-   <svg id="moPf" viewBox="0 0 ${W} ${H+16}" style="width:100%;touch-action:none;background:#0b1118;border-radius:8px">${gr}
+   <svg id="moPf" viewBox="0 0 ${W} ${H+16}" style="width:100%;touch-action:pan-y;background:#0b1118;border-radius:8px">${gr}
     <polygon points="${L},${H} ${pl} ${W},${H}" fill="${col}2e"/>${seg}
     <line id="moPfC" x1="0" x2="0" y1="0" y2="${H}" stroke="#ffeb3b" stroke-width="1.5" visibility="hidden"/><circle id="moPfD" r="4" fill="#ffeb3b" visibility="hidden"/></svg>
    <div id="moPfT" class="note">Desliza el dedo por la gráfica para ver cada punto en el mapa. Colores: 🟢 &lt;8 % · 🟡 8‑15 % · 🟠 15‑25 % · 🔴 &gt;25 %</div>
@@ -3436,8 +3439,8 @@ function drawTiles(x,P,b,url,cache,zmin,zmax,alpha,redraw){const z=Math.max(zmin
   tx=lo=>Math.floor((lo+180)/360*n),ty=la=>{const r=la*Math.PI/180;return Math.floor((1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*n);},
   lon=X=>X/n*360-180,lat=Y=>{const k=Math.PI-2*Math.PI*Y/n;return 180/Math.PI*Math.atan(.5*(Math.exp(k)-Math.exp(-k)));};
   const x0=tx(b.w),x1=tx(b.e),y0=ty(b.n),y1=ty(b.s);if((x1-x0+1)*(y1-y0+1)>80)return;x.globalAlpha=alpha;
-  for(let X=x0;X<=x1;X++)for(let Y=y0;Y<=y1;Y++){const u=url(z,X,Y);let im=cache[u];if(!im){im=cache[u]=new Image();im.onload=redraw;im.src=u;}
-    if(im.complete&&im.naturalWidth){const [ax,ay]=P(lat(Y),lon(X)),[bx,by]=P(lat(Y+1),lon(X+1));x.drawImage(im,ax,ay,bx-ax,by-ay);}}x.globalAlpha=1;}
+  for(let X=x0;X<=x1;X++)for(let Y=y0;Y<=y1;Y++){const u=url(z,X,Y);let im=cache[u];if(!im){if(url.load)im=cache[u]=url.load(u,redraw);else{im=cache[u]=new Image();im.onload=redraw;im.src=u;}}
+    if(im.ok||(im.complete&&im.naturalWidth)){if(im.ok)im=im.ok;const [ax,ay]=P(lat(Y),lon(X)),[bx,by]=P(lat(Y+1),lon(X+1));x.drawImage(im,ax,ay,bx-ax,by-ay);}}x.globalAlpha=1;}
 function mapBtns(id,M){document.getElementById(id+'In').onclick=()=>M.zoom(1.6);document.getElementById(id+'Out').onclick=()=>M.zoom(1/1.6);}
 // mi posición (se pide una vez y se recuerda un rato)
 let MYPOS=null;
@@ -3599,8 +3602,25 @@ document.querySelector('.mtb[data-l="radar"]').onclick=e=>{e.stopPropagation();m
 setInterval(()=>{if(MTL==='radar'&&document.getElementById('t-mtiempo').classList.contains('on')){rdLoad().then(()=>{MTRT={};mtDraw();});}},10*60e3);
 
 
+// Paleta «Universal Blue» de RainViewer (tabla oficial rainviewer_api_colors_table.csv), lluvia, de 10 a 70 dBZ.
+const RD_PAL=(()=>{const h='087fdb 0c73dd 1068e0 145de2 1852e5 1c47e8 2c3be1 3c2fda 4d24d3 5d18cc 6e0dc6 800db9 920dac a40e9f b60e92 c80f86 c62086 c43186 c34286 c15386 c06487 c36b77 c77268 ca7959 ce804a d2883b da9439 e2a037 eaac35 f2b833 fac431 facf27 fbda1e fce514 fdf00b fefb02 fee713 fed424 fec035 fead46 fe9a58 fe8e47 fe8236 fe7626 fe6a15 fe5f05 fd5609 fd4d0e fd4512 fd3c17 fd341c f04f3c e36b5c d7867d caa29d bebebe c2c2c2 c6c6c6 cacaca cecece d3d3d3'.split(' ');
+  const o={};h.forEach((c,i)=>o[10+i]='#'+c);return o;})();
+// Rainbow da el dBZ en bruto (color=dbz_u8: rojo = dBZ+32, bit 128 = nieve) y lo pintamos con RD_PAL: así el mapa
+// y la leyenda son exactamente iguales. Si el móvil no deja leer los píxeles, se pide la tesela ya pintada con «Universal Blue».
+const RD_LUT=(()=>{const L=new Uint8ClampedArray(256*4),hx=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));
+  const nieve=d=>{const t=Math.max(0,Math.min(1,(d-10)/55));return [Math.round(191-191*t),Math.round(255-224*t),255];};
+  for(let v=0;v<256;v++){const sn=v&128,d=(v&127)-32;if(d<5)continue;let c,a=255;
+    if(sn)c=nieve(d);else{c=hx(RD_PAL[Math.max(10,Math.min(70,d))]);}if(d<10)a=Math.round(255*(d-4)/6);
+    L.set([c[0],c[1],c[2],a],v*4);}return L;})();
+function rdColorea(u,redraw){const t={ok:null},im=new Image();im.crossOrigin='anonymous';
+  im.onload=()=>{try{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const x=c.getContext('2d');x.drawImage(im,0,0);
+      const D=x.getImageData(0,0,c.width,c.height),p=D.data;for(let i=0;i<p.length;i+=4){if(!p[i+3]){continue;}const k=p[i]*4;p[i]=RD_LUT[k];p[i+1]=RD_LUT[k+1];p[i+2]=RD_LUT[k+2];p[i+3]=RD_LUT[k+3];}
+      x.putImageData(D,0,0);t.ok=c;}catch(e){t.ok=null;otra();return;}redraw&&redraw();};
+  const otra=()=>{const j=new Image();j.onload=()=>{t.ok=j;redraw&&redraw();};j.src=u.replace('color=dbz_u8','color=8');};
+  im.onerror=otra;im.src=u;return t;}
+// 21 nov. 2026: sin filtro de color (saturate/contrast cambiaba los colores y no cuadraban con la leyenda)
 function rdPaint(x,P,b,path,cache,redraw){const url=(z,X,Y)=>`${RDH}${path}/256/${z}/${X}/${Y}/2/1_1.png`;
-  x.filter='saturate(1.8) contrast(1.2)';drawTiles(x,P,b,url,cache,5,7,1,redraw);x.filter='none';}
+  drawTiles(x,P,b,url,cache,5,7,1,redraw);}
 
 
 /* ---------- 🔑 claves guardadas en el repositorio (config/*.json) y radar Rainbow / rayos AEMET ---------- */
@@ -3622,7 +3642,7 @@ const _rdLoad0=rdLoad;
 rdLoad=async function(){if(!APP)return _rdLoad0();/* en la web el navegador no deja leer a Rainbow (CORS): RainViewer y sin gastar cupo */const k=await keyGet('rainbow');if(!k)return _rdLoad0();
   const r=await httpText('https://api.rainbow.ai/tiles/v1/snapshot?token='+encodeURIComponent(k));let snap=null;try{snap=JSON.parse(r.body).snapshot;}catch(e){}
   if(!snap)return _rdLoad0();
-  const u=(s,ft)=>(z,X,Y)=>`https://api.rainbow.ai/tiles/v1/precip/${s}/${ft}/${z}/${X}/${Y}?token=${encodeURIComponent(k)}`;
+  const u=(s,ft)=>{const f=(z,X,Y)=>`https://api.rainbow.ai/tiles/v1/precip/${s}/${ft}/${z}/${X}/${Y}?token=${encodeURIComponent(k)}&color=dbz_u8`;f.load=rdColorea;return f;};
   RDF=[];for(let i=12;i>=0;i-=2)RDF.push({time:snap-i*600,url:u(snap-i*600,0)});
   for(let ft=1200;ft<=14400;ft+=1200)RDF.push({time:snap+ft,url:u(snap,ft),nc:1});
   RDH='rb';const s=document.getElementById('rdT');s.max=RDF.length-1;RDI=6;s.value=RDI;
@@ -3631,7 +3651,7 @@ rdLoad=async function(){if(!APP)return _rdLoad0();/* en la web el navegador no d
 // pintar: cada fotograma sabe su dirección (Rainbow) o se monta con la de RainViewer
 rdPaint=function(x,P,b,path,cache,redraw){const f=RDF.find(g=>g.path===path||g===path)||null;
   const url=f&&f.url?f.url:(z,X,Y)=>`${RDH}${path}/256/${z}/${X}/${Y}/2/1_1.png`,zmax=f&&f.url?9:7;
-  x.filter='saturate(1.8) contrast(1.2)';drawTiles(x,P,b,url,cache,5,zmax,f&&f.url?.85:1,redraw);x.filter='none';};
+  drawTiles(x,P,b,url,cache,5,zmax,1,redraw);};
 rdDraw=function(x,P,b){const f=RDF[RDI];if(!f)return;x.fillStyle=RDM&&RDM.tile?'rgba(8,16,26,.18)':'rgba(8,16,26,.45)';x.fillRect(0,0,b.W,b.H);rdPaint(x,P,b,f.path||f,RDT,()=>RDM&&RDM.draw());};
 const _mtRadar0=mtRadar;
 mtRadar=function(x,W,H,P,leg){const L=RDF.filter(f=>!f.nc),f=L.length?L[L.length-1]:null;leg.style.display='';
@@ -3644,10 +3664,11 @@ mtRadar=function(x,W,H,P,leg){const L=RDF.filter(f=>!f.nc),f=L.length?L[L.length
 // rayos y radar oficial de AEMET (imágenes)
 async function aeImg(path,k){const r=await httpText('https://opendata.aemet.es/opendata/api/'+path+'?api_key='+encodeURIComponent(k));try{const j=JSON.parse(r.body);return j.estado===200?j.datos:null;}catch(e){return null;}}
 async function aeLoad(){const n=document.getElementById('rdAeNote'),box=document.getElementById('rdAeImgs');if(!n)return;const k=await keyGet('aemet');
-  if(!k){n.textContent='Sin la clave de AEMET no se pueden enseñar los rayos aquí. Mientras tanto, puedes abrir su mapa oficial:';box.innerHTML='';return;}
-  n.textContent='Pidiendo los mapas a AEMET…';const [ry,rz]=await Promise.all([aeImg('red/rayos/mapa',k),aeImg('red/radar/regional/ss',k)]);
-  n.textContent=ry||rz?'Mapas oficiales de AEMET. Toca uno para verlo en grande.':'AEMET no responde ahora. Prueba en un rato.';
-  box.innerHTML=[[ry,'⚡ Rayos de las últimas horas en España'],[rz,'📡 Radar de AEMET del Cantábrico (País Vasco y Navarra)']].filter(x=>x[0]).map(([u,t])=>`<div style="margin-top:8px"><b style="font-size:14px">${t}</b><img src="${u}" style="width:100%;border-radius:8px;margin-top:4px;background:#fff;cursor:zoom-in" data-t="${t}" onerror="this.parentNode.remove()"></div>`).join('');
+  if(!k){n.textContent='Sin la clave de AEMET no se puede enseñar su radar aquí. Mientras tanto, puedes abrir su mapa de rayos:';box.innerHTML='';return;}
+  n.textContent='Pidiendo los mapas a AEMET…';// 21 nov. 2026: fuera el mapa de rayos de toda España (Pedro): solo el del Cantábrico (País Vasco y Navarra)
+  const rz=await aeImg('red/radar/regional/ss',k);
+  n.textContent=rz?'Mapa oficial de AEMET. Tócalo para verlo en grande.':'AEMET no responde ahora. Prueba en un rato.';
+  box.innerHTML=[[rz,'📡 Radar de AEMET del Cantábrico (País Vasco y Navarra)']].filter(x=>x[0]).map(([u,t])=>`<div style="margin-top:8px"><b style="font-size:14px">${t}</b><img src="${u}" style="width:100%;border-radius:8px;margin-top:4px;background:#fff;cursor:zoom-in" data-t="${t}" onerror="this.parentNode.remove()"></div>`).join('');
   box.querySelectorAll('img').forEach(im=>im.onclick=()=>pbFoto(im.src,im.dataset.t));}
 const _rdInit0=rdInit;rdInit=function(){_rdInit0();aeLoad();};
 
@@ -3668,11 +3689,10 @@ function eusDraw(x,P,f,redraw){if(!f)return;
   if(im.complete&&im.naturalWidth){const [ax,ay]=P(EUSB.n,EUSB.w),[bx,by]=P(EUSB.s,EUSB.e);x.globalAlpha=.9;x.drawImage(im,ax,ay,bx-ax,by-ay);x.globalAlpha=1;}}
 // el fotograma de Euskalmet más cercano a la hora del radar general
 const eusAt=t=>{let b=null,d=1e9;for(const f of EUSF){const k=Math.abs(f.time-t);if(k<d){d=k;b=f;}}return d<=1800?b:null;};
-const _rdDraw1=rdDraw;rdDraw=function(x,P,b){_rdDraw1(x,P,b);const f=RDF[RDI];if(f&&!f.nc)eusDraw(x,P,eusAt(f.time),()=>RDM&&RDM.draw());};
-const _mtRadar1=mtRadar;mtRadar=function(x,W,H,P,leg){_mtRadar1(x,W,H,P,leg);const L=RDF.filter(f=>!f.nc),f=L[L.length-1];if(f)eusDraw(x,P,eusAt(f.time)||EUSF[EUSF.length-1],()=>{if(MTL==='radar')mtDraw();});
-  if(!EUSF.length&&Date.now()-EUSAT>5*60e3)eusLoad().then(()=>{if(MTL==='radar')mtDraw();});};
+// 21 nov. 2026: el radar de Kapildui ya no se pinta encima del radar general ni del de Inicio: usa otros colores y
+// la leyenda no cuadraba. Se ve en su mapa propio («Radar de Kapildui»), más abajo.
 const _rdLoad1=rdLoad;rdLoad=async function(){await Promise.all([_rdLoad1(),eusLoad()]);if(RDM)RDM.draw();
-  const s=document.getElementById('rdSrc');if(s&&EUSF.length&&!/Euskalmet/.test(s.textContent))s.textContent+=' Sobre el oeste y centro de Navarra, con más detalle, el radar de Kapildui (Euskalmet).';};
+  const s=document.getElementById('rdSrc');};
 // rayos de Euskalmet (red LINET): imagen del último periodo
 async function eusRayos(){const n=document.getElementById('rdEusN');if(!n)return;n.textContent='Buscando la última imagen de rayos…';
   // las imágenes se llaman por la hora (UTC) y se reutilizan cada día: se busca hacia atrás la primera que tenga mapa (no «Sin datos»)
@@ -5125,16 +5145,16 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="arbustos.js?v=2c48ced4"></script>
 <script src="novedades.js?v=b954d491"></script>
 <script src="efemerides.js?v=b4dea96e"></script>
-<script src="rutas-ui.js?v=d845ee03"></script>
-<script src="mejoras.js?v=9888bbf3"></script>
+<script src="rutas-ui.js?v=ab4bea59"></script>
+<script src="mejoras.js?v=eadb96ea"></script>
 <script src="comunidad.js?v=95af5a87"></script>
 <script src="cuenta.js?v=f53e64c0"></script>
-<script src="ampliacion.js?v=b9e15d0c"></script>
-<script src="radar-viva.js?v=06661022"></script>
+<script src="ampliacion.js?v=7ae02bde"></script>
+<script src="radar-viva.js?v=3c6b4880"></script>
 <script src="rios-plus.js?v=0daef14f"></script>
 <script src="ocio-ui.js?v=ab9daac1"></script>
 <script src="juegos.js?v=146763b4"></script>
-<script src="temas.js?v=add19993"></script>
+<script src="temas.js?v=10452ead"></script>
 <script src="juegos2.js?v=a6391aac"></script>
 <script src="juegos-peques.js?v=1c6b2124"></script>
 <script src="curiosas.js?v=e68ea1cc"></script>
@@ -5147,8 +5167,9 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="relax.js?v=5da061a1"></script>
 <script src="empleo-desap.js?v=a7597bc2"></script>
 <script src="deporte-rural.js?v=2ea48eeb"></script>
-<script src="juegos3.js?v=7eaf8db2"></script>
+<script src="juegos3.js?v=b3d4ada8"></script>
 <script src="push.js?v=abf01417"></script>
+<script src="astrocampo.js?v=5d8c8c42"></script>
 
 </body>
 </html>

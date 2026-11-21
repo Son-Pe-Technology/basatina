@@ -51,7 +51,7 @@ body:not(.light):not(.bna):not(.alegre) .nwTkL{background:rgba(100,181,246,.18);
 body:not(.light):not(.bna):not(.alegre) .nwTkC b{color:#90caf9}.nwTkC i{font-style:normal;color:#9aa;margin:0 12px}
 #nwTk:active .nwTkC,#nwTk:hover .nwTkC{animation-play-state:paused}
 @keyframes nwTk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.nwTkC{animation:none}.nwTkV{overflow-x:auto}}
+@media (prefers-reduced-motion:reduce){.nwTkC{animation:none}}
 .tmPal{font-size:28px;font-weight:900;letter-spacing:.01em;margin:6px 0 0}
 .tmNv{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line)}.tmNv:first-child{border-top:0}
 .tmNv .big{font-size:20px;font-weight:800;text-align:right}
@@ -159,6 +159,15 @@ async function nwHome(force){const el=$('nwTkC');if(!el)return;const D=await nwL
   el.innerHTML=h+'<i>•</i>'+h+'<i>•</i>';   // dos veces seguidas: así la cinta da la vuelta sin saltos
   requestAnimationFrame(()=>{const w=el.scrollWidth/2;el.style.animationDuration=Math.max(20,w/45)+'s';el.style.animation='none';void el.offsetWidth;el.style.animation='';el.style.animationDuration=Math.max(20,w/45)+'s';});}
 setTimeout(()=>nwHome(),1800);
+// 21 nov. 2026: en móviles con «Quitar animaciones» o ahorro de batería (Samsung, etc.) Android pide «movimiento reducido»
+// y la animación CSS se para: los titulares se quedaban fijos (móvil de Sonia). Ahí la cinta se mueve con JavaScript, más despacio.
+(function(){const mq=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)');if(!mq)return;let x=0,t0=0,on=false;
+  function paso(t){const el=$('nwTkC'),tk=$('nwTk');if(!mq.matches||!el){on=false;return;}
+    const dt=t0?Math.min(100,t-t0):16;t0=t;const w=el.scrollWidth/2;
+    if(w>0&&tk&&tk.offsetParent&&!document.hidden&&!tk.matches(':active')){x-=dt*0.035;if(-x>=w)x+=w;el.style.transform='translateX('+x.toFixed(1)+'px)';}
+    requestAnimationFrame(paso);}
+  const go=()=>{if(mq.matches&&!on){on=true;t0=0;requestAnimationFrame(paso);}};
+  setTimeout(go,2500);try{mq.addEventListener('change',go);}catch(e){}})();
 let PDDAY=new Date().getDate();setInterval(()=>{if(new Date().getDate()!==PDDAY){PDDAY=new Date().getDate();pdDraw();nwHome(true);}},10*60e3);
 const _stHome=showTab;showTab=function(t){_stHome(t);if(t==='mtiempo'){pdDraw();if(NW&&Date.now()-(NW._t||0)>30*60e3){NW._t=Date.now();nwHome(true);}}};
 
@@ -171,27 +180,45 @@ const NV_P=[['Piedra de San Martín (Larra-Belagua)',42.9737,-0.7608,1760],['Bel
   ['Puerto de Velate',43.048,-1.640,847],['Aralar (San Miguel)',42.947,-1.969,1235],['Urbasa',42.85,-2.17,930]];
 const ALUD=[[1,'Débil','#43a047'],[2,'Limitado','#fbc02d'],[3,'Notable','#fb8c00'],[4,'Fuerte','#e53935'],[5,'Muy fuerte','#6d1b1b']];
 svSec('nieve',`<div class="card"><b>🏔️ Nieve y aludes</b><div class="note">Nieve en el suelo, nevadas de los próximos días y el boletín oficial de peligro de aludes del Pirineo navarro.</div></div>
- <div class="card"><b>❄️ Nieve ahora y próximos 3 días</b><div id="nvL" style="margin-top:6px"><div class="note">Cargando…</div></div>
+ <div class="card"><b>❄️ Nieve ahora y próximos días</b><div id="nvAhora" style="margin-top:6px"></div><div id="nvL" style="margin-top:6px"><div class="note">Cargando…</div></div>
   <div class="note" style="margin-top:6px">Mira siempre el estado real antes de salir.</div></div>
- <div class="card"><b>⚠️ Peligro de aludes · AEMET</b><div id="nvA" style="margin-top:6px"><div class="note">Cargando…</div></div>
+ <div class="card nvPl"><button class="nvPlH" aria-expanded="false"><b>⚠️ Peligro de aludes · AEMET</b><span class="nvFl">▸</span></button><div class="nvPlB">
+  <div id="nvA" style="margin-top:6px"><div class="note">Cargando…</div></div>
   <div class="note" style="margin-top:8px">Escala europea: ${ALUD.map(a=>`<span class="tmLvl" style="background:${a[2]};font-size:12px;padding:1px 7px;margin:2px 2px 0 0">${a[0]} ${a[1]}</span>`).join('')}</div>
-  <div class="row" style="margin-top:8px"><button class="btn" id="nvAem">🌐 Predicción de montaña en AEMET</button></div></div>
- <div class="card" id="nvM" style="display:none"><b>🥾 Predicción de montaña · Pirineo navarro</b><div id="nvMt"></div></div>
+  <div class="row" style="margin-top:8px"><button class="btn" id="nvAem">🌐 Predicción de montaña en AEMET</button></div></div></div>
+ <div class="card nvPl" id="nvM" style="display:none"><button class="nvPlH" aria-expanded="false"><b>🥾 Predicción de montaña · Pirineo navarro</b><span class="nvFl">▸</span></button><div class="nvPlB"><div id="nvMt"></div></div></div>
  <div class="card" style="border-color:#ffb020"><div class="note">⚠️ <b>ANTE EL RIESGO, HAZ CASO SIEMPRE A LOS AVISOS OFICIALES.</b> En invierno lleva crampones, piolet, ARVA, pala y sonda si vas a terreno de aludes, y di a alguien adónde vas. Emergencias: <a href="tel:112">112</a>.</div></div>`);
 nuevo('nieve','El tiempo','🏔️ Nieve y aludes','topo','i-nieve','b');
+// 21 nov. 2026: aludes y predicción de montaña se despliegan al tocar la cabecera (flechita ▸/▾)
+(function(){const st=document.createElement('style');st.textContent=`.nvPlH{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;background:none;border:0;padding:2px 0;margin:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+ .nvFl{font-size:15px;opacity:.75;transition:transform .2s;display:inline-block}.nvPl.abierto .nvFl{transform:rotate(90deg)}.nvPlB{display:none}.nvPl.abierto .nvPlB{display:block}
+ .nvDias{display:flex;gap:4px;overflow-x:auto;margin-top:4px;padding-bottom:2px}.nvDia{flex:0 0 auto;min-width:46px;text-align:center;border-radius:8px;padding:3px 4px;background:rgba(127,160,200,.14);font-size:11px;line-height:1.25}
+ .nvDia b{display:block;font-size:12.5px}.nvDia.si{background:rgba(66,165,245,.28)}`;document.head.appendChild(st);
+  document.querySelectorAll('#t-nieve .nvPlH').forEach(h=>h.onclick=()=>{const c=h.closest('.nvPl'),a=c.classList.toggle('abierto');h.setAttribute('aria-expanded',a?'true':'false');});})();
 $('nvAem').onclick=()=>abre('https://www.aemet.es/es/eltiempo/prediccion/montana');
 let NVD=null;
 async function nvRender(){
   if(!NVD||Date.now()-NVD.t>30*60e3){$('nvL').innerHTML='<div class="note">Cargando…</div>';
     try{const q=k=>NV_P.map(p=>p[k]).join(',');
-      const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${q(1)}&longitude=${q(2)}&elevation=${q(3)}&current=temperature_2m,snow_depth&hourly=freezing_level_height&daily=snowfall_sum,temperature_2m_min,temperature_2m_max&timezone=Europe%2FMadrid&forecast_days=4`);
+      const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${q(1)}&longitude=${q(2)}&elevation=${q(3)}&current=temperature_2m,snow_depth,snowfall,weather_code&hourly=freezing_level_height&daily=snowfall_sum,temperature_2m_min,temperature_2m_max&timezone=Europe%2FMadrid&forecast_days=7`);
       const j=await r.json();NVD={t:Date.now(),d:Array.isArray(j)?j:[j]};}catch(e){NVD=null;}}
+  if(NVD){const ya=[],pr=[];NV_P.forEach((p,i)=>{const d=NVD.d[i]||{},c=d.current||{},sn=((d.daily||{}).snowfall_sum||[]).slice(0,7);
+      if(c.snowfall>0||[71,73,75,77,85,86].includes(c.weather_code))ya.push(p[0].split(' (')[0]);
+      const k=sn.findIndex(v=>v>=0.5);if(k>=0)pr.push([k,p[0].split(' (')[0]]);});
+    const pk=pr.length?Math.min(...pr.map(x=>x[0])):-1,cu=pk<0?'':pk===0?'hoy':pk===1?'mañana':'dentro de '+pk+' días';
+    $('nvAhora').innerHTML=`<div style="padding:8px 10px;border-radius:10px;background:${ya.length?'rgba(30,136,229,.16)':'rgba(127,160,200,.12)'};line-height:1.45">
+      <b>${ya.length?'❄️ Nevando ahora en: '+E(ya.join(', ')):'Ahora mismo no nieva en ninguno de estos puntos'}</b>
+      <div class="note">${pk<0?'No se esperan nevadas en los próximos 7 días.':'Próxima nevada prevista: <b>'+cu+'</b> ('+E(pr.filter(x=>x[0]===pk).map(x=>x[1]).join(', '))+').'}</div></div>`;}
+  else $('nvAhora').innerHTML='';
   if(!NVD){$('nvL').innerHTML='<div class="note">No se pudo cargar ahora. Prueba en un rato.</div>';}
   else $('nvL').innerHTML=NV_P.map((p,i)=>{const d=NVD.d[i]||{},c=d.current||{},dl=d.daily||{},sd=c.snow_depth,fl=(d.hourly&&d.hourly.freezing_level_height)||[],h=new Date().getHours();
-    const nev=(dl.snowfall_sum||[]).slice(1,4),tot=nev.reduce((a,b)=>a+(b||0),0);
+    const nev=(dl.snowfall_sum||[]).slice(0,7),tot=nev.reduce((a,b)=>a+(b||0),0),nah=c.snowfall>0||[71,73,75,77,85,86].includes(c.weather_code);
+    const dias=(dl.time||[]).slice(0,7).map((f,k)=>{const v=nev[k]||0,dn=k===0?'Hoy':k===1?'Mañ.':new Date(f+'T12:00').toLocaleDateString('es-ES',{weekday:'short'}).replace('.','');
+      return `<div class="nvDia${v>=0.5?' si':''}">${dn}<b>${v>=0.5?'🌨️ '+fmtN(v,0):'—'}</b>${v>=0.5?'cm':'&nbsp;'}</div>`;}).join('');
     return `<div class="tmNv"><div><b>${E(p[0])}</b> <span class="note">${fmtN(p[3],0)} m</span>
       <div class="note">🌡️ ${c.temperature_2m!=null?fmtN(c.temperature_2m,0)+' °C':'—'}${fl[h]!=null?' · cota 0 °C: '+fmtN(Math.round(fl[h]/50)*50,0)+' m':''}</div>
-      <div class="note">🌨️ Próximos 3 días: ${tot>=0.5?nev.map((v,k)=>['mañ.','pas.','+3'][k]+' '+fmtN(v||0,0)+' cm').join(' · '):'sin nevadas previstas'}</div></div>
+      ${nah?'<div class="note" style="color:#1e88e5;font-weight:700">❄️ Está nevando ahora</div>':''}
+      ${tot>=0.5?`<div class="nvDias">${dias}</div>`:'<div class="note">🌨️ Sin nevadas previstas en 7 días</div>'}</div>
       <div class="big">${sd==null?'—':sd<0.01?'<span style="font-size:14px;font-weight:600">sin nieve</span>':fmtN(sd*100,0)+' cm'}</div></div>`;}).join('');
   let A=null;try{A=await jsLoad('nieve/aludes.json',{},true);}catch(e){}
   const t=(A&&A.aludes)||'';

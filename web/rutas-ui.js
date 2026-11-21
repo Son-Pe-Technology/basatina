@@ -260,7 +260,7 @@ function ruPerfil(r) {
   const ks = r.km <= 4 ? 1 : r.km <= 10 ? 2 : r.km <= 25 ? 5 : r.km <= 60 ? 10 : 20;
   for (let k = 0; k <= r.km + 1e-9; k += ks) gr += `<text x="${(L + k / r.km * (W - L)).toFixed(1)}" y="${H + 13}" text-anchor="middle" font-size="9" fill="currentColor" fill-opacity=".6">${k}${k ? '' : ' km'}</text>`;
   RU_PF.y = Y;
-  return `<svg id="ruPf" viewBox="0 0 ${W} ${H + 17}" style="width:100%;touch-action:none;display:block;margin-top:6px;color:var(--txt)">
+  return `<svg id="ruPf" viewBox="0 0 ${W} ${H + 17}" style="width:100%;touch-action:pan-y;display:block;margin-top:6px;color:var(--txt)">
    <defs><linearGradient id="ruGr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".55"/><stop offset="1" stop-color="${col}" stop-opacity=".05"/></linearGradient></defs>${gr}
    <polygon points="${L},${H} ${pl} ${W},${H}" fill="url(#ruGr)"/><polyline points="${pl}" fill="none" stroke="${col}" stroke-width="2.4" stroke-linejoin="round"/>
    <line id="ruPfC" x1="0" x2="0" y1="0" y2="${H}" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3" visibility="hidden"/>
