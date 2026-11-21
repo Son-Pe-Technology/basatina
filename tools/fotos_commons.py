@@ -5,10 +5,8 @@ UA = {'User-Agent': 'BasatiNA/1.0 (https://basatina.es; participa@basatina.es)'}
 API = 'https://commons.wikimedia.org/w/api.php'
 OK = re.compile(r'^(CC0|Public domain|PD|CC BY(-SA)? \d)', re.I)
 BUSCA = {
- 'mercados':     ['Mercado de Santo Domingo Pamplona', 'Mercado del Ensanche Pamplona', 'mercado de abastos Navarra', 'mercado Tudela'],
- 'mercadillos':  ['mercadillo Pamplona', 'mercadillo Navarra', 'mercadillo Estella', 'feria Navarra puestos', 'mercadillo España'],
- 'supermercados':['supermercado España', 'supermarket aisle Spain', 'supermercado pasillo'],
- 'cabecera':     ['verduras mercado Navarra', 'hortalizas Ribera Navarra', 'puesto de frutas mercado España', 'Mercado de Santo Domingo puestos'],
+ 'super2': ['supermarket shelves', 'supermarket interior aisle', 'shopping cart supermarket', 'pasillo supermercado estanterías', 'grocery store produce section'],
+ 'cab2':   ['Mercado de Santo Domingo Pamplona interior', 'pimientos del piquillo', 'alcachofas Tudela', 'verduras Tudela', 'vegetables market stall Spain', 'fruit and vegetables market'],
 }
 def get(params):
     u = API + '?' + urllib.parse.urlencode(dict(params, format='json'))
@@ -37,4 +35,6 @@ for slot, qs in BUSCA.items():
                          'pagina': ii.get('descriptionurl'), 'busqueda': q}
             time.sleep(1)
     print(slot, n)
+prev = json.load(open('fotos/candidatas/candidatas.json')) if os.path.exists('fotos/candidatas/candidatas.json') else {}
+prev.update(info); info = prev
 json.dump(info, open('fotos/candidatas/candidatas.json', 'w'), ensure_ascii=False, indent=1)
