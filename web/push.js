@@ -41,7 +41,7 @@ if(typeof ajustesRender==='function'){const _aj=ajustesRender;window.ajustesRend
   const pinta=()=>{const on=P().desaparecidos;$('puDs').textContent=on?'✅ Te avisaremos en el móvil':'📲 Avisarme en el móvil';
     $('puDsN').textContent=nat()?(on?'Puedes quitarlo en Ajustes → Avisos al momento.':''):'Llega con la app de Android actualizada (versión 5.3 o más).';};
   $('puDs').onclick=()=>{if(!nat()){pinta();return;}CFG.push=Object.assign(P(),{desaparecidos:!P().desaparecidos});cfgSave();manda();pinta();};
-  pinta();})();
+  pinta();if(window.svHook)svHook('desaparecidos',pinta);})();
 
 try{Object.assign(I18N.eu,{'Avisos al momento':'Berehalako abisuak','Avisarme en el móvil':'Abisatu mugikorrean','Probar':'Probatu'});
   Object.assign(I18N.en,{'Avisos al momento':'Instant alerts','Avisarme en el móvil':'Alert me on my phone','Probar':'Test'});
