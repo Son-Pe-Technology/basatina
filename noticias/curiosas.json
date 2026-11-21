@@ -1,14 +1,7 @@
 {
-"t": "2026-11-21T14:15Z",
-"turno": "2026-11-21-t",
+"t": "2026-11-21T19:11Z",
+"turno": "2026-11-21-n",
 "dest": [
-{
-"k": "2026-11-17-n",
-"t": "Récord Guinness: cientos de personas se disfrazan de Rocky Balboa en Estados Unidos",
-"u": "https://www.lavanguardia.com/vida/20261115/11684346/record-guinness-cientos-personas-disfrazan-rocky-balboa-estados-unidos.html",
-"f": "La Vanguardia",
-"d": "2026-11-15T05:00Z"
-},
 {
 "k": "2026-11-18-m",
 "t": "Así se hace el bocadillo viral de Mercadona con steak tartar, patatas, burrata y trufa",
@@ -85,6 +78,13 @@
 "u": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdnZoTmZ6N0xOaXFqZWdxU1g4UWxKeVA2UnNibUJuS1hINUJmVDFCRkk0TE4wcmp3aHFkYmhKRFNfY1FOOTlCTTMtNGJFUlpMY2Q0NmVRbWh0dHo2V0JNRngyUDl1dnJ3cTEyTnRYbGwwZlM2ZjJncm1sZ2pxck5nRmFCR1pRX2F6el9vZDZRQVFTeWNDRTV4UEhvZXZNeG5MUmE3QlRGRXBDckZSNUdMT2FqQzJ4d1F1Y2dPXzVQUXVJS19PNnA3cnNXTTQ0OVU0eFhoVVJ30gHbAUFVX3lxTFAtVVVBZkpUTEZDRTBoYURxQXFIcl9Bd08xTkVLbC0weXktM0FIMmZBYzJiR0t0blRxdmRsWkRrejF4UUlPbUNrck9FaG1OR3lndnZ6X0FLOFF2RzV3VXdsZGZSNGNKNXNWSW9uaXNpeW82VXRidElqOGpDSVRTTjJXRl9ESkZVbXQ3RUJaOHNhMnlWRHhnQVFIZ0pUbUI0WWZDb2tvclNiT1pveGJNYVdQVENLNkxUM1FZaV9LcVR2cDF3RUY0R3dWMGJqRHk0RXp1bklKXzBTYW5jMA?oc=5",
 "f": "La Vanguardia",
 "d": "2026-11-21T08:56Z"
+},
+{
+"k": "2026-11-21-n",
+"t": "Una pareja intenta darle un hermano a su hijo y acaba con cuatrillizos en Argentina: el padre se desorientó al conocer la noticia",
+"u": "https://www.telecinco.es/noticias/curioso/20261121/pareja-intenta-hermano-hijo-cuatrillizos-argentina_18_020778293.html",
+"f": "Telecinco",
+"d": "2026-11-21T19:06Z"
 }
 ],
 "items": [
@@ -124,6 +124,20 @@
 "p": 5
 },
 {
+"t": "Una pareja intenta darle un hermano a su hijo y acaba con cuatrillizos en Argentina: el padre se desorientó al conocer la noticia",
+"u": "https://www.telecinco.es/noticias/curioso/20261121/pareja-intenta-hermano-hijo-cuatrillizos-argentina_18_020778293.html",
+"f": "Telecinco",
+"d": "2026-11-21T19:06Z",
+"p": 4
+},
+{
+"t": "La enigmática escultura que ha aparecido tallada en un tronco roto de un parque de Vitoria: \"Siempre me he preguntado quién estaba haciéndola\"",
+"u": "https://www.telecinco.es/noticias/euskadi/20261121/parque-arana-vitoria-alava-escultura-madera-talla-tronco-vecino_18_020756658.html",
+"f": "Telecinco",
+"d": "2026-11-21T18:26Z",
+"p": 4
+},
+{
 "t": "Un vagón del Tramvia Blau de Barcelona, a la venta en Wallapop por 44.760 euros: \"¡Se vende un pedazo de la historia!\"",
 "u": "https://www.telecinco.es/noticias/catalunya/20261121/vagon-tramvia-blau-barcelona-venta-wallapop-44760-euros_18_020737187.html",
 "f": "Telecinco",
@@ -131,11 +145,11 @@
 "p": 4
 },
 {
-"t": "Los récords Guinness que tiene Zaragoza: de una máquina gigante de Tetris al grafiti más largo del mundo",
-"u": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNUHY3RTVlZGxReS0wTDNENGdKNU80aHlmcVFsZ2EwNDRYYTlrLW1uNHhzUUozNzllREFuN2p1d3IyV21aZDBOSzhGQTZNbHFLaFFPRmlaMWptU01KUkw3eHFmaFRMNjVQX3dWY255RG1HRDFQRmpPODZzYWR2dmFrREdvU1RiV1E5TXhwaFNWWEdVLWZTRHM5VU1GR3NXcGlJdlZYeFNRQy1RdGhuSHQ2SDcwQ1VoeXNDYkFtNFNONnJWN1YyM3BZNnQ1Yi1ibzJvTE9TNUc5MU1aZWJGdkt2bjBR0gHnAUFVX3lxTFBhcHlBM0xJdVpwdWlQNjFsUElIdTBZMjFlczB4X1hpVFQ3RXp3NmxLQW11eVFmRjJvQzM1RGdWeUdCY3FSUEktTUV3LXpmWFNYOTlfaFNrRlFUVVRFcnpGWHZMVU9HSjhZMTBhclA4ZjM2MVBkUTZ0ekUydWwzYnU1VnhuQ3p2aXBQa3Nsd1Q1dnJvb0NrazVhUklVdEo0Y2VEdTgzenBHNVQydW5kOW10T0s1bzkzVnl4RmZyd0JpUFIyZEJ4eW5VN1VKbzJsX1RZRDl5NkVnRlFzZG9DWG0wZGxPcHVGYw?oc=5",
-"f": "Heraldo de Aragón",
-"d": "2026-11-18T16:02Z",
-"p": 4
+"t": "La curiosa historia de cómo germinó una planta de tomate en Surtsey, la isla volcánica controlada por científicos que se formó en 1963",
+"u": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQTVduazd4RktfRGJQZjM0amFrUkc2ekZ5SGVIVEhxT1h6NF8zOEh4UG9hTHJZWGhvbm8zbWJnWUVIbzdVUkdtX3lrU09SdExXMmJoTGdwRGN4RWNUSWlOam04SklHbk5sWGU0SDBVbG1jY2xzcGtIOXd1WGp5QVpZaG9PQi1hWFdwR2E5Wkd3VG5JbFpHcXhyY2NrOFdrMUp5ZkppdmlfajZTYkhzMWo0Z3VYVFdhNFNlN0RJT19ta3BKaGhLRGZ1WGhveEF5WktUVHRPMXhYNTdXWExJYkRsWDE4Sk1YdGZpU0FKTFlhUk1SV0REa3diTjQwX2JJMUg5UFl0bjFFWnVPYTJncmfSAaICQVVfeXFMT1hTMm84d0lVeHhuZDJ1T0pyaTFuMFl6TWRiQUlrOU1VM0wtNXp2c0ZURHRaU3BaSUtESldyMnhhQUpfY1ktV1JfOV83OG03Y2xObGh3SW1HN1hJTlMxU3VGT0lIdzY3TEw2bVFwQVU2QWhYRHlxbzZYNEU4NTNtWHRQMnZMUTlHTFVEdGRqaS04YWp0U1dabTVFRkdaM3pRX05XbXRiU2drM1Y3azJCbWxuVFU5dnRDd3I4SWI1WVl2cDU0a0RwUFJaTXJfYXk4WUxGN1otbGM1QnEzR29VLUU2U0YwYU10VjFqNi1NRVlLemkyTXk3Vm13MDNQUERFTl9qODJXbkJ5NF9ldTF6NDFaeU8tRDlETGFKVHJESGtfeWc?oc=5",
+"f": "La Razón",
+"d": "2026-11-21T15:57Z",
+"p": 3
 },
 {
 "t": "El surrealista vídeo de Karina para animar a votar el 29N versionando su mayor éxito",
@@ -159,24 +173,10 @@
 "p": 3
 },
 {
-"t": "Miriam Prat, maestra viral, sobre las mejores actividades fáciles para hacer con niños sin pantallas: \"Slime, preparar oobleck y planes con texturas\"",
-"u": "https://www.telecinco.es/noticias/educacion/20261121/miriam-prat-maestra-viral-mejores-actividades-ninos-sin-pantallas_18_020488916.html",
-"f": "Telecinco",
-"d": "2026-11-21T08:00Z",
-"p": 3
-},
-{
 "t": "La curiosa imagen del Castilla-Murcia: José Mourinho se reencuentra con Pedro León",
 "u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNVnNFWVBkTmRGbmdBOWlLZ2t5LTBnMVhHblBSZlpUMmdXUE9aSjlCYjdmeE5IUkxGaXdBcUc5MkFnaWMyN2VheklSdm9tOVlXdWNsZ252S0NjTlAtZlBZQUEybWt6TFNGUWhrVVJpb21VN3BHelN0RUZfU1dXMlVzSzV5NU1aTTdyZVhtTk5meVVpUnd5R3loNjhDQ3BIZzk0cUxaaE80b3E5azR4WXBzS2lmemxlVHVxUzhIUUxHQ1BrTlEyX1k5TVBLcW9xVkhB0gHkAUFVX3lxTE9qWUZlQW12OTBpWVBndHExVC0yLVg0d2RYeExtcjR6ZVdNaUJjYnFlWjdWZ0JWdlI0N0JDNWpqNl9menlGZlc4QVdjSFBUUWpuckpyMHpsdzhTQXlheDZ1LVkzcHpuZ3JreHhwT3ZwWHNKODUySkRvUmpUNXJtRG42NUVteWxCdUYzSzc3ZmNiRnRCbFh0ZG9BZUdFZ2g2dTJCQ3didlpiZkNUbXBPN1Jxc1Z2LW9ISG5aWnZoSEt1WGQ5cXMwazJWa0trQldfMzB5VzhPMTdCeUc0ZWpLXzkzak9fbg?oc=5",
 "f": "Cadena SER",
 "d": "2026-11-20T22:24Z",
-"p": 3
-},
-{
-"t": "Los escolares de Guadix aprenden sus derechos con una divertida gymkana infantil",
-"u": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQmkzWFlzT2d5dlp1YUFCeFFiWXVLaTcwNE5oUW5GZzJYNjQ1azZSOEdKbzRUY2VRcXdXa1VyRFNKWUlNV0gyQzRiaVBwdl94cF9lQ0s5YTQyeU12UWxaRWQyZFZLWkRZallBczFZWkUwRnhVYXpsVTFGeTA3ZTVIM1hRTEFLTW5raVJicFdaSVdLd25PUUh4TzU1Tk1vOGhq0gGmAUFVX3lxTE56LXYzbHlXakdidEJ0WlhQenlqX1NuU1hwQzl2eFRTSGJTTF9PbzBDTjNNdWpGVHhkOXNETDBEQmw1NXZULVVPbThHSHdrSWlLRGRUanJrNFlLRTBtbEp4OFNLSmxxZml1WEhLSHZqdTZNSE1ZNjNHYVJCUmt5d3o3U1RkOWx5RXZnUFZMSUdlZlRnRTBWQ2M5V0hRbGV2c01lTm5URHc?oc=5",
-"f": "Granada Hoy",
-"d": "2026-11-20T17:45Z",
 "p": 3
 },
 {
@@ -187,17 +187,17 @@
 "p": 3
 },
 {
+"t": "Los escolares de Guadix aprenden sus derechos con una divertida gymkana infantil",
+"u": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQmkzWFlzT2d5dlp1YUFCeFFiWXVLaTcwNE5oUW5GZzJYNjQ1azZSOEdKbzRUY2VRcXdXa1VyRFNKWUlNV0gyQzRiaVBwdl94cF9lQ0s5YTQyeU12UWxaRWQyZFZLWkRZallBczFZWkUwRnhVYXpsVTFGeTA3ZTVIM1hRTEFLTW5raVJicFdaSVdLd25PUUh4TzU1Tk1vOGhq0gGmAUFVX3lxTE56LXYzbHlXakdidEJ0WlhQenlqX1NuU1hwQzl2eFRTSGJTTF9PbzBDTjNNdWpGVHhkOXNETDBEQmw1NXZULVVPbThHSHdrSWlLRGRUanJrNFlLRTBtbEp4OFNLSmxxZml1WEhLSHZqdTZNSE1ZNjNHYVJCUmt5d3o3U1RkOWx5RXZnUFZMSUdlZlRnRTBWQ2M5V0hRbGV2c01lTm5URHc?oc=5",
+"f": "Granada Hoy",
+"d": "2026-11-20T17:45Z",
+"p": 2
+},
+{
 "t": "El curioso superhéroe de Cádiz que cumple 20 años: 'SuperTirititran' regresa para salvar La Caleta y el Carnaval",
 "u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZU5ZV2l1clAtRGdIWlNlRzBya0lNZVV1b3BobnB0NjlZVGlnUFNIU0k3cm9JNzFKaHpKdmNYTnZXYU56Ny10SkZDVkRhUVdGcFhlelczX0tKZnpKVkpQdl9tYzdGX2haZTZUZmtiQ1JydWtubjRwX2E3RVFQTURlZmtFRGxHM3U1d3BGdkJLVHNZWlo4R2tmZERKSXRfNk1DYXAzRVZySDRTcTFVaUt2Z2FqOGhlaVRsdENMOFljOVJMRXB1emxCY09hZG9JMWNu0gHWAUFVX3lxTE9pZkM2WFNINkFTZGtBUGNNRGhLNUVSMWlQMm5wNk1DOTFHd3BST2dfSHdYMlhLRUtjYlY3b2RFcVBNWVZfdUZSNkpVOV81Z3FxMVg5STc1c0NiQ2NjOVRQM01BUGt3UTVJZWxQTmNsU1RQam8zMUQ0Q2hzNkF0bXVhUDZyQ3pqOGZ1bnZCSTB4a1poZWZQb3Badmsya3ZDekItM0xYaFJ0OUhhT3RTWUJJemlCdGI5aU8tR3ZFV3RZMXhzMFVURG02bkpjcHNVZmpnT3BuRnc?oc=5",
 "f": "Diario de Cádiz",
 "d": "2026-11-20T09:23Z",
-"p": 2
-},
-{
-"t": "La jugada viral de Wembanyama que incendia la NBA: tira por encima del aro para no machacar por una ampolla",
-"u": "https://news.google.com/rss/articles/CBMib0FVX3lxTE85bngzaXQybUx0WlBQaEZSdDdFZmFqZW4xNlB5bE9XWjgxQXFWZnFycGdTZDl3SVo4czFXMUF3aHZ4RG1FVFNrZkxsWF85c3JwSUZ6V3IydGxMRG9tMUtNam9TSl80Q0x3OG9lVWJsSQ?oc=5",
-"f": "Qué.es",
-"d": "2026-11-20T08:05Z",
 "p": 2
 },
 {
@@ -212,13 +212,6 @@
 "u": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOWUhYanJ6WWQtYnNLYkNjdWMxTHlzQjJIeEVtRnFNLWFrc3N5ZXozbVFoM3U1UTV2RndjUS1kdFU2ekM4aEl2MzlTdmNTeVZEZGtJbU11MmUzS0ktMlRkTzdJTjUzanJfYm5LalBmdjJmeEI2WWNVXy0xSEhPMEkzUFItei1rcmI5WEcxQkhnRnNDVXdYSnBWSDJ4VHlLeVV0eUhKTkxoXzREbl92c1liLTRZQjB5UTU2Q0sxXzVVWkNUSkZORExlOWZ5ekU4ZlB0NlJTUU4ta1Y2YVJRbHlZRnczempqQzFwMm0xRGluUWtkbG5zYzY3Tw?oc=5",
 "f": "Viajes National Geographic",
 "d": "2026-11-20T05:00Z",
-"p": 2
-},
-{
-"t": "La Redonda se brinda como 'insólito' escenario de Actual",
-"u": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdjV4OHZUdFN2V1hvbWtqb3U4OVBCaEVoWnp3b0ZYT2d3T0NmSWxSclhic2xDZmJ6TkNtTGl6TWh2QXhwZGg2c3pjNnJzRkRNSVhRUmZ6OW5waEVZemIwVktRbk5ZYjUxeFRpMUsyS3ZDSW1VYk9EMFJ1eDAteGh4WjNsaWZvZWxuRURrWTI4c1hSalNNRjV6dkxiMkRXZDF1bTg2T1cwRHJiWmZyVTFN0gG0AUFVX3lxTFBzTHI0RWxSZEVHaGxpUVFDYTVjOVQzUU5QTlplb3YtRXc2Q3RyR1V3OEptVkM2LUZFMXduMGtFVTdjcGpKNmR3THZmRU5ySVVhekpMMDhDT05VVFFJUHNKOS1hYWxBU1BDM0JtcmcxOGlrcUJwci11VGdQVDYtTkpfbW14ekxsQ1ZJdThBUTJoa3o3Wl9vMjlkRG9yVThUZDlpSThYNmRuSFhyd01ndkR0THNVWA?oc=5",
-"f": "La Rioja",
-"d": "2026-11-19T16:36Z",
 "p": 2
 }
 ]
