@@ -77,10 +77,12 @@ wrap.insertAdjacentHTML('beforeend',`<div class="rdHora"><span id="rdHoraT">--:-
 const card0=$('rdPlay').closest('.card');$('rdPlay').style.display='none';
 // los botones de fondo y «dónde estoy» van aquí, fuera del mapa, para no tapar nada (20 nov. 2026)
 card0.insertAdjacentHTML('beforeend',`<div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap">${Object.entries(FONDOS).map(([k,v])=>`<button class="btn rdF${k===FONDO?' pri':''}" data-f="${k}">${v[0]}</button>`).join('')}<button class="btn" id="rdYo">📍 Dónde estoy</button></div>`);
-// leyenda: de dBZ a mm/h (R = (10^(dBZ/10)/200)^(1/1.6)); colores de RainViewer «Universal Blue»
-const LEY=[[15,'#88ddee','0,6'],[20,'#00a3e0','1,3'],[25,'#0077aa','2,7'],[30,'#005588','5,6'],[35,'#ffee00','12'],[40,'#ffaa00','24'],[45,'#ff4400','49'],[50,'#c10000','100'],[55,'#ff77ff','205']];
+// leyenda: de dBZ a mm/h (R = (10^(dBZ/10)/200)^(1/1.6)). 21 nov. 2026: colores EXACTOS de la paleta «Universal Blue»
+// de RainViewer (su tabla oficial), la misma con la que se pinta el mapa (RainViewer y Rainbow, ver RD_PAL en index.html)
+const LEY=[15,20,25,30,35,40,45,50,55].map(d=>{const c=RD_PAL[d],mm=Math.pow(Math.pow(10,d/10)/200,1/1.6);
+  return [d,c,mm<10?mm.toFixed(1).replace('.',','):String(Math.round(mm)),(parseInt(c.slice(1,3),16)*299+parseInt(c.slice(3,5),16)*587+parseInt(c.slice(5,7),16)*114)/1000>150];});
 const leg=wrap.parentElement.querySelector('.rdLeg');
-if(leg)leg.outerHTML=`<div><div class="rdBar">${LEY.map(l=>`<span style="background:${l[1]};color:${l[0]===35||l[0]===15?'#06121d':'#fff'};text-shadow:${l[0]===35||l[0]===15?'none':''}">${l[2]}</span>`).join('')}</div>
+if(leg)leg.outerHTML=`<div><div class="rdBar">${LEY.map(l=>`<span style="background:${l[1]};color:${l[3]?'#06121d':'#fff'};text-shadow:${l[3]?'none':''}">${l[2]}</span>`).join('')}</div>
   <div class="rdBarT"><span>mm/h · débil</span><span>moderada</span><span>fuerte</span><span>muy fuerte</span></div>
   <div class="note" style="margin-top:6px">🔵 Tú. La nieve sale en azules claros y blancos.</div></div>`;
 
@@ -128,13 +130,13 @@ setInterval(()=>{if($('t-radar').classList.contains('on'))fab();},1000);
   mtc.insertAdjacentHTML('afterend',`<div id="mtrBox" style="display:none;position:relative;border-radius:14px;overflow:hidden"><canvas id="mtr" height="${Math.max(360,mtc.clientHeight||400)}"></canvas>
     <div class="rdHora" style="position:absolute;left:0;right:0;bottom:38px;text-align:center;pointer-events:none;color:#fff;font:800 22px/1 'Montserrat',system-ui,sans-serif;text-shadow:0 1px 4px rgba(0,0,0,.8)"><span id="mtrT">--:--</span><small id="mtrS" style="display:block;font-size:11px;margin-top:2px"></small></div>
     <button id="mtrFab" style="position:absolute;right:10px;bottom:40px;width:50px;height:50px;border-radius:14px;border:0;background:#00c4ee;color:#06121d;font-size:22px;font-weight:900;box-shadow:0 4px 12px rgba(0,0,0,.35)">❚❚</button>
-    <div style="position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(9,1fr);font:800 10px/1 system-ui;text-align:center">${LEY.map(l=>`<span style="background:${l[1]};padding:5px 0;color:${l[0]===35||l[0]===15?'#06121d':'#fff'}">${l[2]}</span>`).join('')}</div></div>`);
+    <div style="position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(9,1fr);font:800 10px/1 system-ui;text-align:center">${LEY.map(l=>`<span style="background:${l[1]};padding:5px 0;color:${l[3]?'#06121d':'#fff'}">${l[2]}</span>`).join('')}</div></div>`);
   let M=null,I=-1,TM=null,PLAY=true;const T={};
   const vis=()=>MTL==='radar'&&$('t-mtiempo').classList.contains('on');
   const pinta=()=>{const L=RDF;if(!L.length)return;const f=L[I]||L[L.length-1];$('mtrT').textContent=new Date(f.time*1000).toTimeString().slice(0,5);
     $('mtrS').textContent=f.nc?'🔮 previsión':(I===RDF.findLastIndex(g=>!g.nc)?'ahora':'');M&&M.draw();};
   const dib=(x,P,b)=>{const f=RDF[I];x.fillStyle='rgba(8,16,26,.15)';x.fillRect(0,0,b.W,b.H);
-    if(f){rdPaint(x,P,b,f.path||f,T,()=>M&&M.draw());if(!f.nc&&typeof eusDraw==='function')eusDraw(x,P,eusAt(f.time),()=>M&&M.draw());}yoDraw(x,P);};
+    if(f){rdPaint(x,P,b,f.path||f,T,()=>M&&M.draw());}yoDraw(x,P);};
   const anima=()=>{clearInterval(TM);TM=setInterval(()=>{if(!vis()){clearInterval(TM);TM=null;return;}if(!PLAY||!RDF.length)return;
       const ult=RDF.findLastIndex(g=>!g.nc);I=I>=RDF.length-1?0:I+1;pinta();if(I===ult){PLAY&&(PLAY='pausa');setTimeout(()=>{if(PLAY==='pausa')PLAY=true;},1500);}},700);};
   $('mtrFab').onclick=e=>{e.stopPropagation();PLAY=!PLAY;$('mtrFab').textContent=PLAY?'❚❚':'▶';};

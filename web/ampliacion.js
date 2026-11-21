@@ -84,14 +84,15 @@ window.amNuevo=nuevo;
 
 /* ---------- 2. EL TIEMPO ---------- */
 // 2a · barómetro antiguo (aguja negra = ahora; aguja dorada = hace 3 horas, como la «aguja de referencia» de los barómetros de pared)
-const BARO_S=[[950,970,'Tempestad','⛈️','#3949ab'],[970,990,'Lluvia','🌧️','#1e88e5'],[990,1010,'Variable','⛅','#78909c'],[1010,1030,'Buen tiempo','☀️','#f9a825'],[1030,1050,'Muy seco','🌵','#ef6c00']];
+// 21 nov. 2026: escala de los barómetros de pared de verdad (antes estaba 10 hPa más baja y marcaba «buen tiempo» con 1010 hPa)
+const BARO_S=[[960,980,'Tempestad','⛈️','#3949ab'],[980,1000,'Lluvia','🌧️','#1e88e5'],[1000,1020,'Variable','⛅','#78909c'],[1020,1040,'Buen tiempo','☀️','#f9a825'],[1040,1060,'Muy seco','🌵','#ef6c00']];
 const baroSec=p=>BARO_S.find(x=>p<x[1])||BARO_S[4];
 // barómetro de esfera: semicírculo con 5 zonas de color y la aguja (negra = ahora, dorada = hace 3 h)
-function baroSvg(p,p3){const cx=160,cy=168,R=138,ang=v=>Math.PI*(1-(Math.max(950,Math.min(1050,v))-950)/100),pt=(v,r)=>[cx+r*Math.cos(ang(v)),cy-r*Math.sin(ang(v))];
+function baroSvg(p,p3){const cx=160,cy=168,R=138,ang=v=>Math.PI*(1-(Math.max(960,Math.min(1060,v))-960)/100),pt=(v,r)=>[cx+r*Math.cos(ang(v)),cy-r*Math.sin(ang(v))];
   const arc=(v0,v1,r0,r1,c)=>{const [a,b]=pt(v0,r1),[c2,d]=pt(v1,r1),[e,f]=pt(v1,r0),[g,h]=pt(v0,r0);return `<path d="M${a} ${b} A${r1} ${r1} 0 0 1 ${c2} ${d} L${e} ${f} A${r0} ${r0} 0 0 0 ${g} ${h}Z" fill="${c}"/>`;};
   let h=BARO_S.map(x=>arc(x[0],x[1],78,R,x[4]+(baroSec(p)===x?'':'b3'))).join('');
   h+=BARO_S.map(x=>{const m=(x[0]+x[1])/2,[tx,ty]=pt(m,108);return `<text x="${tx.toFixed(1)}" y="${(ty-4).toFixed(1)}" font-size="17" text-anchor="middle">${x[3]}</text><text x="${tx.toFixed(1)}" y="${(ty+13).toFixed(1)}" font-size="${x[2].length>8?8.6:10.5}" font-weight="800" text-anchor="middle" fill="#fff">${x[2].toUpperCase()}</text>`;}).join('');
-  for(let v=950;v<=1050;v+=10){const [x1,y1]=pt(v,R+2),[x2,y2]=pt(v,R+9),[tx,ty]=pt(v,R+19);h+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="1.5" opacity=".6"/><text x="${tx.toFixed(1)}" y="${(ty+3).toFixed(1)}" font-size="9" text-anchor="middle" fill="currentColor" opacity=".7">${v}</text>`;}
+  for(let v=960;v<=1060;v+=10){const [x1,y1]=pt(v,R+2),[x2,y2]=pt(v,R+9),[tx,ty]=pt(v,R+19);h+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="1.5" opacity=".6"/><text x="${tx.toFixed(1)}" y="${(ty+3).toFixed(1)}" font-size="9" text-anchor="middle" fill="currentColor" opacity=".7">${v}</text>`;}
   const nd=(v,len,col,w,dash)=>{const [x,y]=pt(v,len);return `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"${dash?' stroke-dasharray="5 4"':''}/>`;};
   if(p3!=null)h+=nd(p3,R-6,'#c9952f',3,1);h+=nd(p,R-4,'currentColor',4.5)+`<circle cx="${cx}" cy="${cy}" r="9" fill="currentColor"/><circle cx="${cx}" cy="${cy}" r="3.5" fill="#c9952f"/>`;
   return `<svg viewBox="-16 -12 352 195" style="width:100%;max-width:380px;display:block;margin:6px auto 0" role="img" aria-label="Barómetro: ${baroSec(p)[2]}">${h}</svg>`;}
@@ -119,6 +120,15 @@ async function amBaro(){const el=$('ppBaro');if(!el)return;const t=TOWNS[TOWN];l
     if(w&&w.current){p=w.current.pressure_msl;const H=w.hourly,now=new Date(),i=Math.max(0,H.time.findIndex(s=>new Date(s)>now)-1);p3=H.pressure_msl[Math.max(0,i-3)];}}catch(e){}
   if(p==null){el.innerHTML='<div class="note">No se pudo leer la presión ahora.</div>';return;}
   const S=baroSec(p),d3=p3!=null?p-p3:0,[fl,fc,ft]=lcdFlecha(d3);
+  // 21 nov. 2026: el barómetro solo mira la presión. Se contrasta con la previsión de los próximos 3 días
+  // (si trae lluvia o niebla, se dice claro: manda la previsión, no la aguja).
+  let pre=null;try{const f=await getJSON(`${OM}?latitude=${t[1]}&longitude=${t[2]}&daily=precipitation_sum,precipitation_probability_max,weather_code&forecast_days=3${TZ}`);if(f&&f.daily)pre=f.daily;}catch(e){}
+  let ver=null;if(pre){const dn=i=>i===0?'hoy':i===1?'mañana':new Date(pre.time[i]+'T12:00').toLocaleDateString('es-ES',{weekday:'long'});
+    const iL=pre.time.findIndex((_,i)=>(pre.precipitation_probability_max[i]??0)>=55||(pre.precipitation_sum[i]??0)>=1.5);
+    const iN=pre.time.findIndex((_,i)=>[45,48].includes(pre.weather_code[i]));
+    if(iL>=0)ver={c:'#1e88e5',l:`🌧️ La previsión trae lluvia ${dn(iL)}`,t:S[2]==='Buen tiempo'||S[2]==='Muy seco'?`Ojo: la aguja marca «${S[2].toLowerCase()}» porque la presión está alta, pero la previsión anuncia lluvia ${dn(iL)}. El barómetro solo mira la presión del aire; la previsión tiene en cuenta mucho más, así que fíate de ella.`:''};
+    else if(iN>=0&&(S[2]==='Buen tiempo'||S[2]==='Muy seco'))ver={c:'#78909c',l:`🌫️ Anticiclón: seco, con nieblas`,t:'La presión alta trae tiempo seco y estable, pero en invierno también nieblas y frío en la Ribera y la Cuenca. «Buen tiempo» aquí quiere decir «sin lluvia», no necesariamente sol.'};
+    else ver={c:'#2e7d32',l:`✅ Sin lluvia los próximos 3 días`,t:''};}
   el.innerHTML=`${baroSvg(p,p3)}
    <div style="text-align:center;margin-top:-2px"><span class="amPill" style="background:${S[4]};font-size:15px;padding:4px 14px">${S[3]} ${S[2]}</span></div>
    <div style="display:flex;align-items:stretch;gap:0;width:max-content;max-width:100%;margin:10px auto 0;background:linear-gradient(160deg,#30363b,#1c2024);border-radius:14px;padding:6px;box-shadow:0 3px 10px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08)" role="img" aria-label="${fmtN(p,1)} hPa, ${ft}">
@@ -127,7 +137,8 @@ async function amBaro(){const el=$('ppBaro');if(!el)return;const t=TOWNS[TOWN];l
        <div style="display:flex;align-items:flex-end;gap:5px">${lcdNum(p)}<span style="font:800 12px/1 monospace;color:#16231a;padding-bottom:2px">hPa</span></div></div>
      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 10px 0 12px;min-width:62px">${fl}
        <span style="font:800 11px/1.2 monospace;color:${fc};margin-top:3px">${d3>0?'+':''}${fmtN(d3,1)}</span><span style="font:700 8.5px/1.2 monospace;color:#9aa5ad">en 3 h</span></div></div>
-   <div style="margin-top:8px">${baroTxt(p,d3)}</div>
+   ${ver?`<div style="text-align:center;margin-top:8px"><span class="amPill" style="background:${ver.c};color:#fff;font-size:13px;padding:4px 12px">${ver.l}</span></div>`:''}
+   <div style="margin-top:8px">${baroTxt(p,d3)}${ver&&ver.t?' '+ver.t:''}</div>
    <div class="note" style="margin-top:6px">Aguja negra: ahora · aguja dorada de rayas: hace 3 horas. Como los barómetros de pared de toda la vida: lo que importa es hacia dónde se mueve la aguja.</div>`;}
 // quita la tarjeta suelta del barómetro de versiones anteriores (ahora va dentro de «Presión atmosférica»)
 (function(){const o=$('amBaroC');if(o)o.remove();})();

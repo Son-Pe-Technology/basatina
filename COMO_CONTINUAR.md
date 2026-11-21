@@ -83,7 +83,19 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
   - **No usar rutas de Wikiloc**: sus condiciones prohíben descargarlas en bloque y volver a publicarlas.
   - **Idiomas**: los textos de esta pantalla van en `window.I18N_RU` (final de `web/idiomas.js`) y se piden con `ruT()`; en euskera, inglés y francés la descripción de la ruta se monta con sus datos (`ruDesc`).
 
+### Correcciones del 21 nov. 2026
+- **Titulares que no se mueven en algunos móviles** (los que tienen «reducir animaciones» o ahorro de batería): `temas.js` mueve la cinta con JavaScript cuando el sistema pide menos animación.
+- **Barómetro** (`ampliacion.js`): escala 960–1060 hPa y una frase según la previsión real de lluvia de 3 días (Open‑Meteo), para no decir «buen tiempo» si va a llover.
+- **Gráficas**: `canvas{touch-action:pan-y}` deja subir y bajar la pantalla con el dedo encima; los mapas (`NavMap`) siguen con `touch-action:none`.
+- **Radar de lluvia**: sin el filtro `saturate/contrast` (cambiaba los colores). La leyenda usa `RD_PAL`, la tabla oficial «Universal Blue» de RainViewer. Las teselas de Rainbow.ai se piden con `color=dbz_u8` y se pintan con esa misma paleta (`rdColorea`); si el móvil no deja leer los píxeles, se piden con `color=8`. El radar de Kapildui (Euskalmet) ya no va encima del radar general (otros colores): solo en su mapa propio.
+- **Petilla de Aragón**: `drawPetilla` ya no dibuja nada.
+- **Rayos**: fuera el mapa de rayos de toda España; queda el radar de AEMET del Cantábrico.
+- **🔭 Astronomía y el campo** (`astrocampo.js`, nuevo): une «Cielo y astronomía» y «La Luna y el campo». El calendario del campo (`mejoras.js`, `window.LC` y `window.lcExtra`) marca lluvias de estrellas, eclipses, solsticios y equinoccios.
+- **Nieve y aludes** (`temas.js`): «nevando ahora», próxima nevada y 7 días por punto. «Peligro de aludes» y «Predicción de montaña» se despliegan al tocar la cabecera (▸/▾).
+- **Juegos con niveles** (`juegos3.js`): sopa, sudoku y crucigrama suben de nivel al ganar (`bnJgNivel`) y suman puntos (`bnJgPuntos`, `bnJgMejor`). Se lanza el evento `bnJuegoGanado`, pensado para una futura clasificación online.
+
 ## 6. Cosas pendientes o ideas
+- Clasificación de jugadores y juego online (mus, UNO, parchís, chinchón): propuesta por fases dada a Pedro el 21 nov. 2026, pendiente de que elija.
 
 - **Asistente con IA dentro de la app**: solo con la clave protegida en un servidor, nunca en el repositorio público.
 - **Radar con previsión (Rainbow.ai)**: preparado, pero sin clave, porque pide tarjeta.

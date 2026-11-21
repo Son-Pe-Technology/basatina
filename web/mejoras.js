@@ -81,7 +81,11 @@ function lcRender(){const el=$('lcBody');if(!el)return;const hoy=hoyYmd();if(!LC
    `;
   el.querySelectorAll('.calD').forEach(b=>b.onclick=()=>{LCS=b.dataset.f;lcRender();});
   $('lcP').onclick=()=>{const d=new Date(y,m-2,1);LCM=ymd(d).slice(0,7);LCS=LCM+'-01';lcRender();};
-  $('lcN').onclick=()=>{const d=new Date(y,m,1);LCM=ymd(d).slice(0,7);LCS=LCM+'-01';lcRender();};}
+  $('lcN').onclick=()=>{const d=new Date(y,m,1);LCM=ymd(d).slice(0,7);LCS=LCM+'-01';lcRender();};
+  // 21 nov. 2026: astrocampo.js añade al calendario las lluvias de estrellas, eclipses, solsticios…
+  try{if(typeof window.lcExtra==='function')window.lcExtra(el,y,m,LCS);}catch(e){}}
+// para astrocampo.js (pantalla «Astronomía y el campo»)
+window.LC={ver:(mes,dia)=>{LCM=mes||null;LCS=dia||null;lcRender();}};
 svSec('lunacampo',`<div class="card"><b>🌙 La Luna y el campo</b><div class="note">El calendario lunar que se ha usado siempre en la huerta y en el monte: qué toca sembrar, plantar, podar o recoger según la Luna, y qué hacer cada mes en Navarra.</div></div><div id="lcBody"></div>`);
 svHook('lunacampo',()=>{LCM=null;LCS=null;lcRender();});
 
