@@ -366,17 +366,21 @@ svHook('super',suRender);
    ===================================================================== */
 const dpFav=()=>{const f=lsGet('dpFav',{});return {eq:f.eq||[],comp:f.comp||[]};};
 const dpMios=()=>lsGet('dpMios',[]);
-const dpEsFav=x=>{const F=dpFav();return F.eq.includes(x.loc)||F.eq.includes(x.vis)||F.comp.includes(x.dep+'|'+x.comp);};
+// 21 nov. 2026: se sigue al EQUIPO (deporte|liga|nombre), no a todo el club. Antes se guardaba solo el nombre,
+// y un club con varios equipos (infantil, cadete, sénior…) metía todos sus partidos. Los favoritos viejos (solo
+// nombre) siguen valiendo y salen como «todo el club» en Mi calendario deportivo, para que se puedan quitar.
+const dpEqK=(x,n)=>x.dep+'|'+x.comp+'|'+n;
+const dpEsFav=x=>{const F=dpFav();return [x.loc,x.vis].some(n=>F.eq.includes(dpEqK(x,n))||F.eq.includes(n))||F.comp.includes(x.dep+'|'+x.comp);};
 // botones de cada partido (los pinta dpRender de index.html)
 window.dpMineBtns=function(x){const mio=dpMios().some(m=>m.id===x.id),F=dpFav();
-  const st=n=>`<button class="btn dpStar" data-eq="${esc(n)}" style="padding:3px 8px;font-size:12px">${F.eq.includes(n)?'⭐':'☆'} ${esc(n.length>18?n.slice(0,17)+'…':n)}</button>`;
+  const st=n=>/^descanso$/i.test(n||'')?'':`<button class="btn dpStar" data-eq="${esc(dpEqK(x,n))}" data-n="${esc(n)}" data-c="${esc(x.comp)}" style="padding:3px 8px;font-size:12px">${F.eq.includes(dpEqK(x,n))?'⭐':'☆'} ${esc(n.length>18?n.slice(0,17)+'…':n)}</button>`;
   return `<div class="row dpMine" style="margin-top:4px;flex-wrap:wrap;gap:4px">${x.res?'':`<button class="btn" data-dpadd="${esc(x.id)}" style="padding:3px 8px;font-size:12px">${mio?'✅ En mi calendario':dpEsFav(x)?'⭐ En mi calendario':'➕ Mi calendario'}</button>`}${st(x.loc)}${st(x.vis)}</div>`;};
 async function dpMineBind(){let G=null;try{G=await jsLoad(DP_PATH,DP_DEF);}catch(e){return;}const P=G.partidos||[];
   document.querySelectorAll('#t-deporte [data-dpadd]').forEach(b=>b.onclick=e=>{e.stopPropagation();const x=P.find(p=>p.id===b.dataset.dpadd);if(!x)return;let M=dpMios();
     if(M.some(m=>m.id===x.id)){M=M.filter(m=>m.id!==x.id);toast('Quitado de tu calendario deportivo');}else{M.push({id:x.id,dep:x.dep,comp:x.comp,loc:x.loc,vis:x.vis,f:x.f,h:x.h||'',lugar:x.lugar||''});toast('✅ Añadido a ⭐ Mi calendario deportivo (Mi Espacio)');}
     lsSet('dpMios',M);dpRender();});
-  document.querySelectorAll('#t-deporte .dpStar').forEach(b=>b.onclick=e=>{e.stopPropagation();const n=b.dataset.eq,F=dpFav();
-    if(F.eq.includes(n)){F.eq=F.eq.filter(x=>x!==n);toast('☆ '+n+' ya no es favorito');}else{F.eq.push(n);toast('⭐ '+n+': sus partidos saldrán en tu calendario deportivo');}lsSet('dpFav',F);dpRender();});
+  document.querySelectorAll('#t-deporte .dpStar').forEach(b=>b.onclick=e=>{e.stopPropagation();const k=b.dataset.eq,n=b.dataset.n,c=b.dataset.c,F=dpFav();
+    if(F.eq.includes(k)){F.eq=F.eq.filter(x=>x!==k);toast('☆ Ya no sigues a '+n+' ('+c+')');}else{F.eq.push(k);toast('⭐ Sigues a '+n+' en '+c+': solo los partidos de ese equipo irán a tu calendario');}lsSet('dpFav',F);dpRender();});
   // ⭐ seguir la liga elegida
   const cs=$('dpComp');let lb=$('dpLigaFav');if(lb)lb.remove();
   if(typeof DPCOMP!=='undefined'&&DPCOMP&&cs){const k=DPDEP+'|'+DPCOMP,on=dpFav().comp.includes(k);
@@ -413,7 +417,7 @@ async function mdRender(){const el=$('mdBody');if(!el)return;const hoy=hoyYmd();
      <div class="calG calH">${['L','M','X','J','V','S','D'].map(x=>`<div>${x}</div>`).join('')}</div><div class="calG">${g}</div>
      <div style="margin-top:8px"><b>${cap1(fLarga(MDS))}</b>${dia.length?dia.map(fila).join(''):'<div class="note">Ese día no tienes partidos.</div>'}</div></div>
    <div class="card"><b>📅 Próximos partidos (${prox.length})</b>${prox.length?prox.map(fila).join('')+`<div class="row" style="margin-top:6px"><button class="btn pri" id="mdTodo" style="flex:1">📲 Pasar todos al calendario del móvil</button></div>`:'<div class="note">Aún no hay partidos. Ve a Qué hacer → 🏆 Deporte navarro y marca ☆ tus equipos, sigue una liga o toca ➕ en un partido.</div>'}</div>
-   <div class="card"><b>⭐ Mis equipos y ligas</b>${F.eq.length||F.comp.length?[...F.eq.map(n=>['eq',n,'👕 '+n]),...F.comp.map(k=>['comp',k,'🏆 '+k.split('|')[1]])].map(([t,v,l])=>`<div class="st"><span>${esc(l)}</span><button class="btn" data-fx="${t}" data-fv="${esc(v)}">✕</button></div>`).join(''):'<div class="note">Todavía no tienes favoritos.</div>'}
+   <div class="card"><b>⭐ Mis equipos y ligas</b>${F.eq.length||F.comp.length?[...F.eq.map(n=>{const p=n.split('|');return ['eq',n,p.length>=3?'👕 '+p.slice(2).join('|')+' · '+p[1]:'👕 '+n+' (todo el club: quítalo y marca ☆ el equipo que quieras)'];}),...F.comp.map(k=>['comp',k,'🏆 '+k.split('|')[1]])].map(([t,v,l])=>`<div class="st"><span>${esc(l)}</span><button class="btn" data-fx="${t}" data-fv="${esc(v)}">✕</button></div>`).join(''):'<div class="note">Todavía no tienes favoritos.</div>'}
      <div class="row" style="margin-top:6px"><button class="btn" onclick="showTab('deporte')">🏆 Ir a Deporte navarro</button></div></div>
    <div class="note">Tu calendario deportivo se guarda solo en este dispositivo (entra en la «📦 Copia de mis datos» de Ajustes). «Al calendario del móvil» abre Google Calendar con el partido ya apuntado. «Pasar todos» crea un archivo .ics que puedes abrir con tu calendario o guardar en Drive.</div>`;
   el.querySelectorAll('.calD').forEach(b=>b.onclick=()=>{MDS=b.dataset.f;mdRender();});
