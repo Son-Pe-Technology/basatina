@@ -1,7 +1,8 @@
 {
- "version": 384,
+ "version": 385,
  "apk": 32,
  "files": {
+  "_stage.html": "f0c3934beba5e326ae0b5aaac6273243ce48cd0a",
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
   "agenda.js": "d217eb1da429425e2cfb8a4c63541f3568df3541",
   "ampliacion.js": "b9e15d0c04789736886162df83a44fcc3bdb705d",
@@ -28,11 +29,12 @@
   "flood2.png": "712a7b22803bcae9b052cece1bdbe3c4ccae177e",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "bb5ee129c7a5a50501990c0b61fbfa651f2df1db",
+  "index.html": "7bb966b3c4a0a56a31f11b60f8d957d94687d5c2",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juegos-peques.js": "1c6b2124ed7b40dbe00032cc76db9b33003c0a11",
   "juegos.js": "146763b412b0022104f869f504e679ee9930f822",
   "juegos2.js": "a6391aacfba802fe8e7eb11298c1494beeb8e619",
+  "juegos3.js": "7eaf8db28dffbec95039d55b6dc4a97923e7c75a",
   "legal.js": "5462484f5054aadd31f158dd4c6665dc8c4da4a2",
   "lluvia-aviso.js": "23b0066fcbe71220cd8fecaa6377a9f1a9119e83",
   "logo.jpg": "442927f2c4c5495089c0bd56e454ddc6a4223411",
