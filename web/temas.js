@@ -220,6 +220,8 @@ const MA_C=[
  ['🚮','Recoge siempre','Lleva bolsas y agua para limpiar el pis en la calle. Es lo justo y en muchos pueblos hay multas.'],
  ['🆔','Microchip y registro','Los perros, gatos y hurones tienen que llevar microchip y estar registrados. Si se pierde, avisa a tu veterinario, a la Policía Municipal y a las protectoras de la zona.']];
 let MAT='vet',MAQ='',MAPOS=null;
+// Clínicas que salen siempre las primeras en Veterinarios (petición de Pedro, 21 nov. 2026). Nombre exacto, como en OpenStreetMap.
+const MA_PRIMERAS=['Clínica veterinaria Aoiz'];
 svSec('mascotas',`<div class="card"><b>🐾 Mascotas en Navarra</b><div class="note">Veterinarios, zonas para soltar al perro, protectoras y tiendas, y consejos para el campo.</div>
  <div class="tmChips" id="maT"></div><div class="row" id="maBus"><input id="maQ" class="town" placeholder="🔎 Buscar por pueblo o nombre…" style="flex:1;min-width:0"><button class="btn" id="maCerca">📍 Cerca de mí</button></div></div>
  <div class="card" id="maL"><div class="note">Cargando…</div></div>
@@ -233,6 +235,7 @@ function maRender(){$('maT').innerHTML=MA_T.map(([k,l])=>`<button class="${k===M
   if(!window.MASCOTAS){el.innerHTML='<div class="note">Cargando…</div>';svLoad('mascotas.js','MASCOTAS',ok=>{if(ok)maRender();else el.innerHTML='<div class="note">⏳ La lista llega con la próxima actualización de datos (se prepara sola en unas horas).</div>';});return;}
   const q=nrm(MAQ);let L=MASCOTAS.p.filter(x=>x.k===MAT&&(!q||nrm(x.n+' '+x.p+' '+(x.d||'')).includes(q)));
   if(MAPOS){L=L.map(x=>Object.assign({_k:km(MAPOS.la,MAPOS.lo,x.pt[0],x.pt[1])},x)).sort((a,b)=>a._k-b._k);}
+  if(MAT==='vet'){const fi=x=>{const i=MA_PRIMERAS.findIndex(n=>nrm(n)===nrm(x.n));return i<0?999:i;};L=L.slice().sort((a,b)=>fi(a)-fi(b));}
   el.innerHTML=(MAT==='vet'?'<div class="note" style="margin-bottom:6px">🚨 Las marcadas con <b>24 h</b> atienden urgencias: confírmalo por teléfono.</div>':'')+
    (L.length?L.slice(0,80).map(x=>`<div class="st" style="align-items:flex-start"><div style="flex:1;min-width:0"><b>${E(x.n)}</b>${x.u?' <span class="amPill" style="background:#c62828">24 h</span>':''}
      <div class="s">📍 ${E([x.d,x.p].filter(Boolean).join(', '))}${x._k!=null?' · '+fmtN(x._k,x._k<10?1:0)+' km':''}</div>${x.h?`<div class="s">🕐 ${E(x.h)}</div>`:''}
