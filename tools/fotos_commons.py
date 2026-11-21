@@ -5,8 +5,24 @@ UA = {'User-Agent': 'BasatiNA/1.0 (https://basatina.es; participa@basatina.es)'}
 API = 'https://commons.wikimedia.org/w/api.php'
 OK = re.compile(r'^(CC0|Public domain|PD|CC BY(-SA)? \d)', re.I)
 BUSCA = {
- 'super2': ['supermarket shelves', 'supermarket interior aisle', 'shopping cart supermarket', 'pasillo supermercado estanterías', 'grocery store produce section'],
- 'cab2':   ['Mercado de Santo Domingo Pamplona interior', 'pimientos del piquillo', 'alcachofas Tudela', 'verduras Tudela', 'vegetables market stall Spain', 'fruit and vegetables market'],
+ 't1_pueblos':   ['Olite Navarra', 'Puente la Reina puente románico', 'Ochagavía Navarra', 'Elizondo Baztan'],
+ 't1_pbloc':     ['Plaza del Castillo Pamplona', 'Estella Lizarra puente', 'Tudela Navarra plaza'],
+ 't1_pbcom':     ['Valle de Baztan paisaje', 'valle de Roncal Navarra', 'Valdizarbe Navarra paisaje'],
+ 't1_patri':     ['Palacio Real de Olite', 'Monasterio de Leyre', 'Castillo de Javier', 'Catedral de Pamplona'],
+ 't1_comer':     ['pintxos Pamplona', 'chuletón Navarra', 'menestra Tudela'],
+ 't1_dormir':    ['caserío Baztan', 'casa rural Navarra', 'Zugarramurdi'],
+ 't1_monte':     ['Selva de Irati', 'Sierra de Urbasa', 'Bardenas Reales', 'Foz de Arbayún'],
+ 't1_reco':      ['setas Navarra', 'boletus edulis', 'níscalos Lactarius deliciosus'],
+ 't1_fauna':     ['buitre leonado Navarra', 'Gyps fulvus Bardenas', 'ciervo Navarra', 'Cervus elaphus Spain'],
+ 't1_veget':     ['hayedo Irati otoño', 'hayedo Navarra', 'Urbasa hayedo'],
+ 't1_arbol':     ['Bosque de Irati', 'roble Navarra árbol', 'Quercus Navarra'],
+ 't1_biodiv':    ['Foz de Lumbier', 'Laguna de Pitillas', 'Señorío de Bertiz'],
+ 't1_cocina':    ['espárragos Navarra', 'queso Roncal', 'cocina navarra'],
+ 't1_recetas':   ['menestra de verduras', 'cordero al chilindrón', 'pochas'],
+ 't1_productos': ['espárragos blancos', 'alcachofas Tudela', 'queso Idiazabal', 'pacharán'],
+ 't1_agenda':    ['gigantes Pamplona', 'comparsa gigantes cabezudos Pamplona', 'Sanfermines'],
+ 't1_cultura':   ['Teatro Gayarre Pamplona', 'Baluarte Pamplona', 'Museo de Navarra'],
+ 't1_deporte':   ['Estadio El Sadar', 'Navarra Arena', 'pelota vasca frontón Navarra'],
 }
 def get(params):
     u = API + '?' + urllib.parse.urlencode(dict(params, format='json'))
@@ -22,10 +38,10 @@ for slot, qs in BUSCA.items():
                      'gsrlimit': 12, 'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size', 'iiurlwidth': 900})
         except Exception as e: print('fallo', q, e); continue
         for p in sorted(j.get('query', {}).get('pages', {}).values(), key=lambda p: p.get('index', 99)):
-            if n >= 8 or p['title'] in vistos: continue
+            if n >= 6 or p['title'] in vistos: continue
             ii = (p.get('imageinfo') or [{}])[0]; m = ii.get('extmetadata', {})
             lic = limpia(m.get('LicenseShortName', {}).get('value'))
-            if not OK.match(lic) or ii.get('width', 0) < 900 or ii.get('width', 0) < ii.get('height', 1): continue
+            if not OK.match(lic) or ii.get('width', 0) < 1200 or ii.get('width', 0) < ii.get('height', 1): continue
             vistos.add(p['title']); n += 1
             nom = f'{slot}_{n}.jpg'
             try:
