@@ -1,4 +1,4 @@
-Noticias curiosas 2026-11-21T20:11 (turno 2026-11-21-n)
+Noticias curiosas 2026-11-21T21:00 (turno 2026-11-21-n)
 Telecinco           30 leídos ·   4 curiosas · https://www.telecinco.es/noticias/curioso/rss.xml
 Telecinco           30 leídos ·   0 curiosas · https://www.telecinco.es/noticias/rss.xml
 Cuatro              30 leídos ·   0 curiosas · https://www.cuatro.com/noticias/rss.xml
@@ -14,6 +14,6 @@ elDiario.es        113 leídos ·   0 curiosas · https://www.eldiario.es/rss/
 Cadena SER         100 leídos ·   0 curiosas · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
 El Correo          100 leídos ·   0 curiosas · https://www.elcorreo.com/rss/2.0/?section=
 Diario de Navarra  104 leídos ·   0 curiosas · https://www.diariodenavarra.es/rss/contenidos.xml
-Google Noticias    240 leídos ·  14 curiosas · 5 búsquedas (14 medios)
+Google Noticias    243 leídos ·  14 curiosas · 5 búsquedas (14 medios)
 Total: 18
 Noticia del turno: Telecinco · Una pareja intenta darle un hermano a su hijo y acaba con cuatrillizos en Argentina: el padre se desorientó al conocer la noticia
