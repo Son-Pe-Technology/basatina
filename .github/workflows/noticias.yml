@@ -4,7 +4,7 @@ on:
   push:
     paths: ['tools/noticias.py']
   schedule:
-    - cron: '17 */2 * * *'
+    - cron: '17,47 * * * *'   # cada 30 min (antes cada 2 h): así el aviso de «Se busca» llega pronto
   workflow_dispatch:
 permissions:
   contents: write
@@ -16,7 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Descargar titulares
-        run: python3 tools/noticias.py
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}   # 📲 aviso push de «Se busca» (tools/push.py)
+        run: |
+          pip install --quiet google-auth requests || true
+          python3 tools/noticias.py
       - name: Guardar en el repositorio
         run: |
           git config user.name "github-actions"

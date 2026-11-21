@@ -37,9 +37,28 @@ public class MainActivity extends Activity {
     private android.webkit.GeolocationPermissions.Callback geoCb;   // «Qué hay cerca de mí»
     private String geoOrigin;
 
+    /** 📲 Si la app se abre desde un aviso push, apunta qué pantalla abrir (la web la pide con takePushTab) */
+    private void guardaPushTab(Intent i) {
+        try {
+            String t = i != null ? i.getStringExtra("pushTab") : null;
+            if (t != null && t.matches("[a-z0-9_-]{1,30}")) {
+                getSharedPreferences("rio", MODE_PRIVATE).edit().putString("pushTab", t).apply();
+                if (web != null) web.post(() -> web.evaluateJavascript("try{window.puAbrir&&puAbrir()}catch(e){}", null));
+            }
+        } catch (Exception ignored) {}
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        guardaPushTab(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        guardaPushTab(getIntent());
         final Thread.UncaughtExceptionHandler prev = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler((t, ex) -> {
             java.io.StringWriter sw = new java.io.StringWriter(); ex.printStackTrace(new java.io.PrintWriter(sw));
@@ -437,6 +456,35 @@ public class MainActivity extends Activity {
                     runOnUiThread(() -> requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 7));
             } catch (Exception ignored) {}
             RiverWidget.updateAll(MainActivity.this);
+        }
+
+        /** 📲 Avisos push: guarda qué temas quiere el usuario ({"desaparecidos":true,"avisos":false}) y se apunta en Firebase */
+        @JavascriptInterface
+        public void setPush(final String json) {
+            getSharedPreferences("rio", MODE_PRIVATE).edit().putString("push", json).apply();
+            try {
+                JSONObject jj = new JSONObject(json);
+                boolean alguno = false;
+                for (String t : PushService.TEMAS) alguno |= jj.optBoolean(t, false);
+                if (alguno && android.os.Build.VERSION.SDK_INT >= 33
+                        && checkSelfPermission("android.permission.POST_NOTIFICATIONS") != android.content.pm.PackageManager.PERMISSION_GRANTED)
+                    runOnUiThread(() -> requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 8));
+            } catch (Exception ignored) {}
+            PushService.aplicar(MainActivity.this);
+        }
+
+        /** 📲 Pantalla que hay que abrir porque se ha tocado un aviso push (se entrega una vez) */
+        @JavascriptInterface
+        public String takePushTab() {
+            android.content.SharedPreferences p = getSharedPreferences("rio", MODE_PRIVATE);
+            String t = p.getString("pushTab", "");
+            if (!t.isEmpty()) p.edit().remove("pushTab").apply();
+            return t;
+        }
+
+        @JavascriptInterface
+        public void testPush() {
+            PushService.mostrar(MainActivity.this, "avisos", "📲 Prueba de aviso al momento", "Así te llegarán los avisos de BasatiNA.", "ajustes");
         }
 
         @JavascriptInterface

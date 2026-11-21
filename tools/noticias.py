@@ -222,3 +222,37 @@ for x in sorted(desap + prev, key=lambda x: x["d"], reverse=True):
     vis.add(k); D.append(x)
 json.dump({"t": ahora.strftime("%Y-%m-%dT%H:%MZ"), "dias": DESAP_DIAS, "items": D[:60]}, open("noticias/desaparecidos.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 print("Desaparecidos:", len(D), "(nuevos en esta pasada:", len(desap), ")")
+
+# 📲 Aviso push de «Se busca» (21 nov. 2026): titulares nuevos de búsqueda de las últimas 6 h → tema «desaparecidos».
+# Se apunta lo enviado en noticias/push_enviados.json para no repetir. Si dos medios cuentan la misma búsqueda
+# (titulares muy parecidos en 24 h) solo sale un aviso. Sin el secreto FIREBASE_SA no se manda nada.
+try:
+    sys_path = os.path.dirname(os.path.abspath(__file__))
+    import sys as _sys; _sys.path.insert(0, sys_path)
+    from push import enviar
+    PE = "noticias/push_enviados.json"
+    try:
+        env = json.load(open(PE, encoding="utf-8"))
+    except Exception:
+        env = []
+    pal = lambda t: set(w for w in re.findall(r"[a-z0-9]{4,}", nrm(t)))
+    hace24 = (ahora - datetime.timedelta(hours=24)).strftime("%Y-%m-%dT%H:%MZ")
+    hace6 = (ahora - datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%MZ")
+    recientes = [x for x in env if x.get("d", "") >= hace24]
+    mandados = 0
+    for x in sorted(D, key=lambda x: x["d"]):
+        if x.get("e") != "busca" or x["d"] < hace6 or any(y["u"] == x["u"] for y in env):
+            continue
+        p = pal(x["t"])
+        if any(len(p & pal(y["t"])) / max(1, len(p | pal(y["t"]))) > 0.45 for y in recientes):
+            env.append({"u": x["u"], "t": x["t"], "d": x["d"], "dup": 1}); continue
+        if mandados >= 2:
+            break
+        if enviar("desaparecidos", "🔎 Se busca en Navarra", x["t"] + " (" + x["f"] + ")", "desaparecidos"):
+            mandados += 1
+            env.append({"u": x["u"], "t": x["t"], "d": x["d"]}); recientes.append(env[-1])
+    json.dump([x for x in env if x.get("d", "") >= (ahora - datetime.timedelta(days=20)).strftime("%Y-%m-%dT%H:%MZ")],
+              open(PE, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+    print("Avisos push de desaparecidos:", mandados)
+except Exception as e:
+    print("Aviso push de desaparecidos: no se pudo", e)
