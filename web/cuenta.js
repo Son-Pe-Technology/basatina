@@ -94,7 +94,7 @@ async function borraCuenta(pass){const a=ses();const email=jwt(a.it).email;
   let mios=[];try{mios=await X.fsQuery('avisos_priv','autor',uid,it);}catch(e){}
   let p=null;try{p=X.decD(await X.fs('/usuarios/'+uid,{},it));}catch(e){}
   const W=[];mios.forEach(m=>W.push({delete:X.nom('avisos',m.id)},{delete:X.nom('avisos_priv',m.id)}));
-  W.push({delete:X.nom('espacio',uid)},{delete:X.nom('usuarios',uid)},{delete:X.nom('limites',uid)});if(p&&p.apodoK)W.push({delete:X.nom('apodos',p.apodoK)});
+  W.push({delete:X.nom('espacio',uid)},{delete:X.nom('usuarios',uid)},{delete:X.nom('limites',uid)},{delete:X.nom('clasif',uid)});if(p&&p.apodoK)W.push({delete:X.nom('apodos',p.apodoK)});
   for(let i=0;i<W.length;i+=400)await X.fsCommit(W.slice(i,i+400),it);
   await post('delete',{idToken:it});sale();lsSet('cmMios',[]);}
 

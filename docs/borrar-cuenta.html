@@ -76,7 +76,7 @@ $('b').onclick=async()=>{const email=$('e').value.trim(),pass=$('p').value;if(!e
     const ids=(q||[]).filter(x=>x.document).map(x=>x.document.name.split('/').pop());
     let k=null;try{const u=await api(FS+'/usuarios/'+uid,null,tok,'GET');k=u.fields&&u.fields.apodoK&&u.fields.apodoK.stringValue;}catch(e){}
     const W=[];ids.forEach(i=>W.push({delete:nom('avisos',i)},{delete:nom('avisos_priv',i)}));
-    W.push({delete:nom('espacio',uid)},{delete:nom('usuarios',uid)},{delete:nom('limites',uid)});if(k)W.push({delete:nom('apodos',k)});
+    W.push({delete:nom('espacio',uid)},{delete:nom('usuarios',uid)},{delete:nom('limites',uid)},{delete:nom('clasif',uid)});if(k)W.push({delete:nom('apodos',k)});
     for(let i=0;i<W.length;i+=400)await api(FS+':commit',{writes:W.slice(i,i+400)},tok);
     await api('https://identitytoolkit.googleapis.com/v1/accounts:delete?key='+KEY,{idToken:tok});
     $('e').value='';$('p').value='';M('✅ Tu cuenta y sus datos se han borrado. Si tenías la app abierta con la sesión iniciada, se cerrará sola.');}
