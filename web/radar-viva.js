@@ -1,7 +1,7 @@
 /* =====================================================================
    📡 RADAR AL ESTILO «RAIN ALARM» (20 nov. 2026, petición de Pedro)
    - Mapa grande, con botón para cambiar el fondo: 🗺️ mapa del IGN o 🛰️ ortofoto PNOA (satélite, © IGN).
-   - Tu posición con un punto azul y el círculo de la zona que vigila el «Aviso de lluvia».
+   - Tu posición con un punto azul (el círculo de la zona se quitó el 21 nov. 2026).
    - Hora grande abajo del mapa y botón ▶️/⏸️ redondo encima del mapa; arranca solo al abrir.
    - Barra de colores con los mm/h (la escala «Universal Blue» de RainViewer, de dBZ a mm/h con Marshall‑Palmer).
    No cambia cómo se cargan los fotogramas (RainViewer, Rainbow o Euskalmet): solo la forma de verlos.
@@ -82,29 +82,22 @@ const LEY=[[15,'#88ddee','0,6'],[20,'#00a3e0','1,3'],[25,'#0077aa','2,7'],[30,'#
 const leg=wrap.parentElement.querySelector('.rdLeg');
 if(leg)leg.outerHTML=`<div><div class="rdBar">${LEY.map(l=>`<span style="background:${l[1]};color:${l[0]===35||l[0]===15?'#06121d':'#fff'};text-shadow:${l[0]===35||l[0]===15?'none':''}">${l[2]}</span>`).join('')}</div>
   <div class="rdBarT"><span>mm/h · débil</span><span>moderada</span><span>fuerte</span><span>muy fuerte</span></div>
-  <div class="note" style="margin-top:6px">🔵 Tú · ⚪ círculo: la zona que has elegido en tu <a href="#" onclick="showTab('ajustes');return false" style="color:var(--acc)">aviso de lluvia</a> (si no has elegido zona, solo sale el punto). La nieve sale en azules claros y blancos.</div></div>`;
+  <div class="note" style="margin-top:6px">🔵 Tú. La nieve sale en azules claros y blancos.</div></div>`;
 
 // --- dónde estoy ---
 function yo(cb){try{const p=CFG.lluvia&&CFG.lluvia.pos;if(p)YO=[p[0],p[1]];}catch(e){}
   if(!navigator.geolocation){cb&&cb();return;}
   navigator.geolocation.getCurrentPosition(p=>{YO=[p.coords.latitude,p.coords.longitude];cb&&cb();},()=>{cb&&cb();},{enableHighAccuracy:false,timeout:12000,maximumAge:10*60e3});}
 
-// radio que ha elegido el usuario en su aviso de lluvia (0 = sin círculo)
-const rYo=()=>{const l=CFG.lluvia;return l&&l.on?Math.max(0,+l.r||0):0;};
-
-// --- dibujo: después del radar, el punto y (si lo ha elegido) el círculo ---
+// 21 nov. 2026: Pedro pidió quitar el círculo del radar. Solo sale el punto azul de dónde estás.
+// --- dibujo: después del radar, el punto de dónde estás ---
 function yoDraw(x,P){if(!YO)return;
-  const [px,py]=P(YO[0],YO[1]),r=rYo();x.save();
-  if(!r){ // sin zona elegida: solo un puntito donde está
-    x.fillStyle='#fff';x.beginPath();x.arc(px,py,5,0,7);x.fill();x.fillStyle='#1e88e5';x.beginPath();x.arc(px,py,3.5,0,7);x.fill();x.restore();return;}
-  const [qx]=P(YO[0],YO[1]+r/(111.32*Math.cos(YO[0]*Math.PI/180))),rp=Math.abs(qx-px);
-  x.setLineDash([6,5]);x.lineWidth=2;x.strokeStyle='rgba(255,255,255,.85)';x.beginPath();x.arc(px,py,rp,0,7);x.stroke();x.setLineDash([]);
-  x.fillStyle='rgba(30,136,229,.25)';x.beginPath();x.arc(px,py,16,0,7);x.fill();
-  x.fillStyle='#fff';x.beginPath();x.arc(px,py,8,0,7);x.fill();x.fillStyle='#1e88e5';x.beginPath();x.arc(px,py,5.5,0,7);x.fill();
-  x.font='700 11px system-ui';x.fillStyle='#fff';x.textAlign='center';x.shadowColor='rgba(0,0,0,.8)';x.shadowBlur=3;x.fillText(r+' km',px,py-rp-5);x.restore();}
+  const [px,py]=P(YO[0],YO[1]);x.save();
+  x.fillStyle='rgba(30,136,229,.25)';x.beginPath();x.arc(px,py,14,0,7);x.fill();
+  x.fillStyle='#fff';x.beginPath();x.arc(px,py,7,0,7);x.fill();x.fillStyle='#1e88e5';x.beginPath();x.arc(px,py,4.8,0,7);x.fill();x.restore();}
 const _d=rdDraw;rdDraw=function(x,P,b){_d.apply(this,arguments);yoDraw(x,P);};
-// zoom para que quepa el círculo del aviso (con un poco de margen)
-const zoomYo=M=>{const r=rYo()||25,deg=2.6*r/(111.32*Math.cos(YO[0]*Math.PI/180));return Math.max(1,Math.min(12,(NB.e-NB.w)/deg));};
+// zoom: unos 25 km alrededor de donde estás
+const zoomYo=M=>{const r=25,deg=2.6*r/(111.32*Math.cos(YO[0]*Math.PI/180));return Math.max(1,Math.min(12,(NB.e-NB.w)/deg));};
 
 // --- hora grande y botón ▶/⏸ ---
 const _s=rdShow;rdShow=function(){_s.apply(this,arguments);const f=RDF[RDI];if(!f)return;
@@ -130,7 +123,7 @@ setInterval(()=>{if($('t-radar').classList.contains('on'))fab();},1000);
 
 /* ---------- 🏠 El mismo radar en el mapa de Inicio (pestaña «📡 Radar») ----------
    En vez del mapa fijo de toda Navarra, un mapa con zoom ya centrado en donde estás, fondo satélite,
-   tu punto con el círculo del aviso y la animación de las últimas 2 horas en marcha. Se puede mover y hacer zoom con dos dedos. */
+   tu punto y la animación de las últimas 2 horas en marcha. Se puede mover y hacer zoom con dos dedos. */
 (function(){const mtc=$('mtc'),mw=$('mtWrap');if(!mtc||!mw||typeof NavMap!=='function')return;
   mtc.insertAdjacentHTML('afterend',`<div id="mtrBox" style="display:none;position:relative;border-radius:14px;overflow:hidden"><canvas id="mtr" height="${Math.max(360,mtc.clientHeight||400)}"></canvas>
     <div class="rdHora" style="position:absolute;left:0;right:0;bottom:38px;text-align:center;pointer-events:none;color:#fff;font:800 22px/1 'Montserrat',system-ui,sans-serif;text-shadow:0 1px 4px rgba(0,0,0,.8)"><span id="mtrT">--:--</span><small id="mtrS" style="display:block;font-size:11px;margin-top:2px"></small></div>

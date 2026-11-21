@@ -129,6 +129,14 @@ def items(xml):
 
 ahora = datetime.datetime.now(datetime.timezone.utc)
 todo, info, vistos = [], [], set()
+# 🔎 Personas desaparecidas (21 nov. 2026): de los MISMOS canales RSS se apartan los titulares de desapariciones
+# y localizaciones en Navarra de los últimos DESAP_DIAS días → noticias/desaparecidos.json (lo lee la pantalla
+# «Personas desaparecidas»). No se aplica la lista NO (no son política) pero sí FUERA, PATH_NO y la palabra «navarra».
+# Solo titular + enlace + medio + hora, como el resto (art. 129 bis LPI). Se juntan con los del archivo anterior.
+DESAP_DIAS = 15
+DESAP_RX = re.compile(r"desaparecid|desaparicion|se busca a |buscan a |busqueda de (un|una|el|la) (hombre|mujer|joven|menor|nino|nina|anciano|anciana|vecin)|alerta por la desaparicion|localiza(n|do|da) (a|al|en buen|sano|sana|con vida|sin vida|el cuerpo)|halla(n|do|da) (a|al|con vida|sin vida|el cuerpo)|encontrad[oa] (sano|sana|con vida|sin vida|en buen)")
+DESAP_OK = re.compile(r"localiza|hallad|halla |hallan|encontrad|aparece|sano y salvo|sana y salva|en buen estado")
+desap = []
 for nombre, home, dom, palabra in MEDIOS:
     print("·", nombre, flush=True)
     L, origen = [], ""
@@ -172,6 +180,15 @@ for nombre, home, dom, palabra in MEDIOS:
         cat = next((c for c, rx in CAT if re.search(rx, nt)), "Navarra")
         sel.append({"t": x["t"][:200], "u": x["u"], "f": nombre, "d": x["d"].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "c": cat})
         if len(sel) >= 15: break
+    for x in L:   # 🔎 desapariciones (ver DESAP_RX)
+        if not x["d"] or (ahora - x["d"]).total_seconds() > DESAP_DIAS * 86400: continue
+        if fuera(x["u"]) or any(p in x["u"].lower() for p in PATH_NO): continue
+        if not x["u"].startswith("http") or dom not in x["u"]: continue
+        nt = " " + nrm(x["t"]) + " "
+        if pal and pal not in nt and pal not in nrm(x["u"]): continue
+        if not DESAP_RX.search(nt): continue
+        desap.append({"t": x["t"][:200], "u": x["u"], "f": nombre, "d": x["d"].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+                      "e": "ok" if DESAP_OK.search(nt) else "busca"})
     info.append("%-20s %3d leídos · %3d publicados · %s" % (nombre, n0, len(sel), origen or "SIN RSS (medio saltado)"))
     print("  ", info[-1], flush=True)
     todo += sel
@@ -185,3 +202,17 @@ else:
     json.dump({"t": ahora.strftime("%Y-%m-%dT%H:%MZ"), "items": todo[:150]}, open("noticias/noticias.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 open("noticias/noticias_info.txt", "w", encoding="utf-8").write("Titulares %s\n%s\nTotal: %d\n" % (ahora.isoformat()[:16], "\n".join(info), len(todo)))
 print("Total:", len(todo))
+
+# 🔎 desaparecidos: se juntan con los anteriores (los RSS solo traen los últimos días) y se quitan los de más de DESAP_DIAS días
+try:
+    prev = json.load(open("noticias/desaparecidos.json", encoding="utf-8")).get("items", [])
+except Exception:
+    prev = []
+lim = (ahora - datetime.timedelta(days=DESAP_DIAS)).strftime("%Y-%m-%dT%H:%MZ")
+D, vis = [], set()
+for x in sorted(desap + prev, key=lambda x: x["d"], reverse=True):
+    k = x["u"]
+    if x["d"] < lim or k in vis or fuera(k): continue
+    vis.add(k); D.append(x)
+json.dump({"t": ahora.strftime("%Y-%m-%dT%H:%MZ"), "dias": DESAP_DIAS, "items": D[:60]}, open("noticias/desaparecidos.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+print("Desaparecidos:", len(D), "(nuevos en esta pasada:", len(desap), ")")

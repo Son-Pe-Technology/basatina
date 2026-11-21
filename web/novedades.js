@@ -397,7 +397,7 @@ if(typeof svSec==='function'){
    <div style="display:flex;gap:6px;margin-top:8px;align-items:center"><span>📍</span><select class="town" id="saTown" style="flex:1"></select></div>
    <div class="seg" id="saDia" style="margin-top:8px"><button class="btn on" data-d="0">Hoy</button><button class="btn" data-d="1">Mañana</button><button class="btn" data-d="2">Pasado mañana</button></div></div>
   <div id="saBody"></div><div class="card" id="saPres"></div><div class="card" id="saDiario"></div>
-  <div class="card"><b>➕ Más en NA Salud</b><div class="row" style="flex-wrap:wrap;margin-top:6px"><button class="btn" data-go="medic">🌱 Plantas medicinales</button><button class="btn" data-go="farmacia">💊 Farmacias de guardia</button></div></div>
+  <div class="card"><b>➕ Más en Salud</b><div class="row" style="flex-wrap:wrap;margin-top:6px"><button class="btn" data-go="medic">🌱 Plantas medicinales</button><button class="btn" data-go="farmacia">💊 Farmacias de guardia</button></div></div>
   <div class="card" style="border-left:4px solid #c62828"><b>📞 Teléfonos de urgencia</b>
    <div class="st"><div style="font-size:22px">🚑</div><div style="flex:1"><b>112 · <span>SOS Navarra</span></b><div class="s">Urgencias sanitarias, accidentes, incendios y rescates.</div></div><a class="btn pri" href="tel:112">Llamar</a></div>
    <div class="st"><div style="font-size:22px">☠️</div><div style="flex:1"><b>91 562 04 20 · <span>Información Toxicológica</span></b><div class="s">Intoxicaciones con setas, plantas, medicamentos o productos de casa (24 horas).</div></div><a class="btn" href="tel:915620420">Llamar</a></div></div>
@@ -407,7 +407,7 @@ if(typeof svSec==='function'){
   const _st1=showTab;showTab=function(t){_st1(t);if(t==='salud')setTimeout(saInit,30);};
   // grupo «NA Salud» en el menú, justo antes de «NA Sostenible»
   (function(){if(!dr||$('dgSalud'))return;const en=dr.querySelector('button[data-t="energia"]'),ref=en&&en.closest('.dsub')&&en.closest('.dsub').previousElementSibling;
-    const html='<div class="dgroup" id="dgSalud"><span data-k="NA Salud">NA Salud</span><i>▸</i></div><div class="dsub" id="dsSalud"></div>';
+    const html='<div class="dgroup" id="dgSalud"><span data-k="NA Salud">Salud</span><i>▸</i></div><div class="dsub" id="dsSalud"></div>';
     if(ref&&ref.classList.contains('dgroup'))ref.insertAdjacentHTML('beforebegin',html);else{const g=$('bnaDGrid')||dr;g.insertAdjacentHTML('beforeend',html);}
     const g=$('dgSalud'),sub=$('dsSalud');
     g.onclick=()=>{const o=!g.classList.contains('open');dr.querySelectorAll('.dgroup').forEach(x=>x.classList.remove('open'));if(o)g.classList.add('open');};
