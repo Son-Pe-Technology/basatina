@@ -1,0 +1,11 @@
+{
+ "actualizado": "2026-11-21",
+ "oficial": {
+  "euribor": {"v": 3.239, "mes": "octubre de 2026", "fuente": "Banco de España (BOE)"},
+  "fijo": {"v": 3.16, "mes": "agosto de 2026", "fuente": "INE, Estadística de Hipotecas"},
+  "variable": {"v": 2.95, "mes": "agosto de 2026", "fuente": "INE, Estadística de Hipotecas (tipo inicial)"},
+  "importe": {"v": 181285, "mes": "agosto de 2026", "fuente": "INE, Estadística de Hipotecas"},
+  "plazo": {"v": 26, "mes": "julio de 2026", "fuente": "INE, Estadística de Hipotecas"}
+ },
+ "ofertas": []
+}
