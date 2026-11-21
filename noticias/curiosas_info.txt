@@ -1,19 +1,19 @@
-Noticias curiosas 2026-11-20T20:24 (turno 2026-11-20-n)
+Noticias curiosas 2026-11-21T08:33 (turno 2026-11-21-m)
 Telecinco           30 leídos ·   1 curiosas · https://www.telecinco.es/noticias/curioso/rss.xml
 Telecinco           30 leídos ·   0 curiosas · https://www.telecinco.es/noticias/rss.xml
 Cuatro              30 leídos ·   0 curiosas · https://www.cuatro.com/noticias/rss.xml
 Antena 3            20 leídos ·   0 curiosas · https://www.antena3.com/noticias/rss/4043815.xml
-laSexta             18 leídos ·   1 curiosas · https://www.lasexta.com/rss/351410.xml
-20minutos          193 leídos ·   1 curiosas · https://www.20minutos.es/rss/
+laSexta             18 leídos ·   0 curiosas · https://www.lasexta.com/rss/351410.xml
+20minutos          188 leídos ·   0 curiosas · https://www.20minutos.es/rss/
 El Español          30 leídos ·   0 curiosas · https://www.elespanol.com/rss/curiosidades/
 COPE                50 leídos ·   0 curiosas · https://www.cope.es/rss/actualidad/sociedad.xml
 ABC                 25 leídos ·   0 curiosas · https://www.abc.es/rss/2.0/sociedad/
 La Vanguardia      100 leídos ·   0 curiosas · https://www.lavanguardia.com/rss/vida.xml
-HuffPost            66 leídos ·   1 curiosas · https://www.huffingtonpost.es/feeds/index.xml
-elDiario.es        116 leídos ·   1 curiosas · https://www.eldiario.es/rss/
-Cadena SER         100 leídos ·   0 curiosas · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
+HuffPost            52 leídos ·   1 curiosas · https://www.huffingtonpost.es/feeds/index.xml
+elDiario.es        120 leídos ·   1 curiosas · https://www.eldiario.es/rss/
+Cadena SER         100 leídos ·   1 curiosas · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
 El Correo          100 leídos ·   0 curiosas · https://www.elcorreo.com/rss/2.0/?section=
-Diario de Navarra  123 leídos ·   2 curiosas · https://www.diariodenavarra.es/rss/contenidos.xml
-Google Noticias    262 leídos ·  14 curiosas · 5 búsquedas (13 medios)
-Total: 21
-Noticia del turno: Viajar · Ni Vigo, ni Barcelona: el Belén más alto del mundo está en Alicante, tiene un Récord Guinness, es de estilo modernista y está en un paseo marítimo con seis millones de teselas
+Diario de Navarra  101 leídos ·   3 curiosas · https://www.diariodenavarra.es/rss/contenidos.xml
+Google Noticias    247 leídos ·  12 curiosas · 5 búsquedas (12 medios)
+Total: 19
+Noticia del turno: El Confidencial · Desde la iglesia más alta del mundo a la colección más grande de perros: los 14 récords españoles destacados en Guinness World Records 2027
