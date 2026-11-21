@@ -1,14 +1,7 @@
 {
-"t": "2026-11-21T07:33Z",
-"turno": "2026-11-21-m",
+"t": "2026-11-21T13:21Z",
+"turno": "2026-11-21-t",
 "dest": [
-{
-"k": "2026-11-17-t",
-"t": "La hazaña del hombre de 94 años que conquistó el Gran Cañón del Colorado a pie y batió un récord mundial",
-"u": "https://www.telecinco.es/noticias/curioso/20261117/ernest-scheuer-conquisto-gran-canon-94-anos-record-mundial-upp3rs_18_020731891.html",
-"f": "Telecinco",
-"d": "2026-11-17T14:37Z"
-},
 {
 "k": "2026-11-17-n",
 "t": "Récord Guinness: cientos de personas se disfrazan de Rocky Balboa en Estados Unidos",
@@ -85,9 +78,23 @@
 "u": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMjNvbk1HM0dCSV9TZUZ3c0pidmlVUnYyZFJTLW9KdzNESVZGN25rbnZtUHdhVGt4Z3BZNjRMdmZ0bHh3eGNvbm5XTk8tX29aYl8zUUlOcEhqeFdEWHlZMzlRbU5SeFM2RDdBajZoYll6cHplNE5CV0NzR29fRmNRQUpTNUtsMjVUV3RSaGVVcVh3QUFsTVFKMUp0dzBRWVhTRjVrZ0JiclpCTGFWdnUzejVYMERzT0E?oc=5",
 "f": "El Confidencial",
 "d": "2026-11-21T01:00Z"
+},
+{
+"k": "2026-11-21-t",
+"t": "Una patinadora india de 18 años bate un récord Guinness al recorrer 50 metros en solo 6,86 segundos",
+"u": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdnZoTmZ6N0xOaXFqZWdxU1g4UWxKeVA2UnNibUJuS1hINUJmVDFCRkk0TE4wcmp3aHFkYmhKRFNfY1FOOTlCTTMtNGJFUlpMY2Q0NmVRbWh0dHo2V0JNRngyUDl1dnJ3cTEyTnRYbGwwZlM2ZjJncm1sZ2pxck5nRmFCR1pRX2F6el9vZDZRQVFTeWNDRTV4UEhvZXZNeG5MUmE3QlRGRXBDckZSNUdMT2FqQzJ4d1F1Y2dPXzVQUXVJS19PNnA3cnNXTTQ0OVU0eFhoVVJ30gHbAUFVX3lxTFAtVVVBZkpUTEZDRTBoYURxQXFIcl9Bd08xTkVLbC0weXktM0FIMmZBYzJiR0t0blRxdmRsWkRrejF4UUlPbUNrck9FaG1OR3lndnZ6X0FLOFF2RzV3VXdsZGZSNGNKNXNWSW9uaXNpeW82VXRidElqOGpDSVRTTjJXRl9ESkZVbXQ3RUJaOHNhMnlWRHhnQVFIZ0pUbUI0WWZDb2tvclNiT1pveGJNYVdQVENLNkxUM1FZaV9LcVR2cDF3RUY0R3dWMGJqRHk0RXp1bklKXzBTYW5jMA?oc=5",
+"f": "La Vanguardia",
+"d": "2026-11-21T08:56Z"
 }
 ],
 "items": [
+{
+"t": "Una patinadora india de 18 años bate un récord Guinness al recorrer 50 metros en solo 6,86 segundos",
+"u": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdnZoTmZ6N0xOaXFqZWdxU1g4UWxKeVA2UnNibUJuS1hINUJmVDFCRkk0TE4wcmp3aHFkYmhKRFNfY1FOOTlCTTMtNGJFUlpMY2Q0NmVRbWh0dHo2V0JNRngyUDl1dnJ3cTEyTnRYbGwwZlM2ZjJncm1sZ2pxck5nRmFCR1pRX2F6el9vZDZRQVFTeWNDRTV4UEhvZXZNeG5MUmE3QlRGRXBDckZSNUdMT2FqQzJ4d1F1Y2dPXzVQUXVJS19PNnA3cnNXTTQ0OVU0eFhoVVJ30gHbAUFVX3lxTFAtVVVBZkpUTEZDRTBoYURxQXFIcl9Bd08xTkVLbC0weXktM0FIMmZBYzJiR0t0blRxdmRsWkRrejF4UUlPbUNrck9FaG1OR3lndnZ6X0FLOFF2RzV3VXdsZGZSNGNKNXNWSW9uaXNpeW82VXRidElqOGpDSVRTTjJXRl9ESkZVbXQ3RUJaOHNhMnlWRHhnQVFIZ0pUbUI0WWZDb2tvclNiT1pveGJNYVdQVENLNkxUM1FZaV9LcVR2cDF3RUY0R3dWMGJqRHk0RXp1bklKXzBTYW5jMA?oc=5",
+"f": "La Vanguardia",
+"d": "2026-11-21T08:56Z",
+"p": 6
+},
 {
 "t": "Ni Vigo, ni Barcelona: el Belén más alto del mundo está en Alicante, tiene un Récord Guinness, es de estilo modernista y está en un paseo marítimo con seis millones de teselas",
 "u": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPYVdWYUc1ZVdsbFBZZ01rNmktel9BZGVsblRXODJVVU9hcmZuMFhFSnFYZVFhenFMWlhKZE90c0taempCaTBHcjF2a0JncTJ2MldzRmE5bndJc1F0T3VkaGtzOHVYbHh0a0JtaGQzUnY2QmY5eHNFcFAzR0pSX21SV3R4TmlVTUJYeXZTUEtSdzF3eElhNjhqNTJGM2t6Tm5jWW05RVBCSHhaYkQ2WlhrVVMwazBXZFdxbzhsSmJZT1BnTlVhQWfSAcYBQVVfeXFMT2FXVmFHNWVXbGxQWWdNazZpLXpfQWRlbG5UVzgyVVVPYXJmbjBYRUpxWGVRYXpxTFpYSmRPdHNLWnpqQmkwR3IxdmtCZ3EydjJXc0ZhOW53SXNRdE91ZGhrczh1WGx4dGtCbWhkM1J2NkJmOXhzRXBQM0dKUl9tUld0eE5pVU1CWHl2U1BLUncxd3hJYTY4ajUyRjNrek5uY1ltOUVQQkh4WmJENlpYa1VTMGswV2RXcW84bEpiWU9QZ05VYUFn?oc=5",
@@ -117,17 +124,10 @@
 "p": 5
 },
 {
-"t": "El estreno de GTA VI pulveriza el récord mundial de tráfico de internet",
-"u": "https://www.eldiario.es/spin/estreno-gta-vi-pulveriza-record-mundial-trafico-internet-pm_1_13680193.html",
-"f": "elDiario.es",
-"d": "2026-11-20T13:49Z",
-"p": 4
-},
-{
-"t": "Una misteriosa boya llega a Fisterra, A Coruña, tras un posible viaje de 6.000 kilómetros por el Atlántico",
-"u": "https://www.telecinco.es/noticias/galicia/20261120/misteriosa-boya-fisterra-a-coruna-posible-viaje-atlantico_18_020766835.html",
+"t": "Un vagón del Tramvia Blau de Barcelona, a la venta en Wallapop por 44.760 euros: \"¡Se vende un pedazo de la historia!\"",
+"u": "https://www.telecinco.es/noticias/catalunya/20261121/vagon-tramvia-blau-barcelona-venta-wallapop-44760-euros_18_020737187.html",
 "f": "Telecinco",
-"d": "2026-11-20T10:59Z",
+"d": "2026-11-21T09:21Z",
 "p": 4
 },
 {
@@ -138,24 +138,31 @@
 "p": 4
 },
 {
-"t": "Recetas virales: ¿merecen la pena?",
-"u": "https://www.diariodenavarra.es/noticias/vivir/tecnologia/2026/11/21/recetas-virales-merecen-pena-843201-114.html",
-"f": "Diario de Navarra",
-"d": "2026-11-21T04:00Z",
-"p": 3
-},
-{
-"t": "La curiosa imagen del Castilla-Murcia: José Mourinho se reencuentra con Pedro León",
-"u": "https://cadenaser.com/nacional/2026/11/20/la-curiosa-imagen-del-castilla-murcia-jose-mourinho-se-reencuentra-con-pedro-leon-cadena-ser/",
-"f": "Cadena SER",
-"d": "2026-11-20T22:24Z",
+"t": "La millonada que el sevillano Antonio Canales llegó a ganar en un año y su capricho más insólito: \"Me los ponía una vez\"",
+"u": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOdkpnRkRKVi1WdHNQN1dYN3FFYlk1c2pndkY5eDkyeXRhZUJhZHZFT3NXUFAzdnNkTGo5NXZHRU0wNC0yXzVSSWtwY1Z2M2lfN0lndmxtVk9TM0YwSjUtZFBDaTlSTFJxbXpPTXlOVEVTeUs1Rml6MGpzbHBFRWFGQjNka0N0VTBVSl9zN251RHU2SnV0NWwxNEVGcF9VZ1hxZTVwd0pnR2d4bTRRdHpzQUpmN014di1DSno0czJIellQTGlyRkk0eHZLOGQ4cGswcTFqbTFzdTFhdS02eV9UbzdnNHFIczVMemQzZWFwODBvYU1ocC0xYnpB?oc=5",
+"f": "La Voz del Sur",
+"d": "2026-11-21T08:05Z",
 "p": 3
 },
 {
 "t": "¿Por qué llaman \"el matador\" a Adrián Lastra en Miami? Su divertida confesión en Pasapalabra",
-"u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQeHh1aGJEbzRHc1M2Nk10ZldkVVZfdDFfeWR5X2RVdmNkM21aSVlZYnd1QTdSNU5RU2Y3b3NNTXJMMHRLelJvTkpXeTgyaDMwTGQydVZaR3hOMThJVGxpZUJheUU1VFZyQU9JdnNYMnp2UTN4YWpnZVppQktqTWFCQmM0dnZ0TFNOWXUxNTVNMXFSZmJFQ3FEMHdSelQ5Q1cwTnpDSWwxVmFIOEdxc29QRVRZalN0ZEpBdW11SFhhSENMZTRWckpBSjBpN2IwN1dVLU5HalpaUVlLZ9IB2gFBVV95cUxQaGd3aGd6UUVtZnZjaTVTSGRkWktpSEtPeVlGQkQ5ZlVEYWJyaDBmbjZTQUt3UzduYnBMX1dNdkRlQ2lJZzRpR3BPekl6Vy1QdS1mQ08xTm9iYTY5LVJtUWlqREctSXVFZ253b0hQY0NlMzBPOVI5WDRLTndHYlF3akxhUnZhcEV1dktETklvRE5NcVZWd1N2WTMxcXdrMHBQMU9LSVpWb2hXNjE3OEktaUU3b05RZlBCS1BXWXdEbHBoUF9pZVUtX3k4Qk16a0dkU2JnOGRJb3RtUQ?oc=5",
+"u": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNa1VFUjlpbWpLTURwOHZwZUNyZnRpTWtEMVRGb2hSc2ItZGM1NERiczgySG1FR2JzQ2d3UkVObF9MN0d2U3B2VkRCN1BKZnk2SHo1SHhPR3h4TGdmSzZQQnVlUV9LV3ZLc3NiMGRoaGppbkQ3OVFfYjFjbDFtUGVzejBnQmFacHUwZGJsOS1NSm5HTnZORzFwNEpwZEtRTkQxSXdpcXJ4UzJYY1ZIZWVJMnk5MVJiQkszaExPMERIQ0J2SDRhY3V1QU5GMXBMd2xnU1gtbVpqcW9KSGFOY1Z2Q9IB4AFBVV95cUxOTXdWX2FDY01oa2NUMWFRaEN3MHliWlFhYlFDMjh1Ny1kVFFpaGFqaDEwSmp6T3JBcVo3RmRXVllsWENjYkd4QjhkMm1PalhXaGJPRGRLWmlmTGZUOE1HRGhHLW1nZENVVkVZV1U5cXBtVk8zSXlhVTE1MVkzcUFsdnZoakZBWnZCdkhFTlZDWDNMcVI3QVo2MTE1RHFjS1djM2R3UURCTjhibVVlUG1GZXN6X181RU9zTzQ2d0tTYTZIb2ZnY1MwN0R2RzhMbkxaT3hPbk1jdUZnLTJPUExzTA?oc=5",
 "f": "Antena 3",
-"d": "2026-11-20T19:45Z",
+"d": "2026-11-21T08:05Z",
+"p": 3
+},
+{
+"t": "Miriam Prat, maestra viral, sobre las mejores actividades fáciles para hacer con niños sin pantallas: \"Slime, preparar oobleck y planes con texturas\"",
+"u": "https://www.telecinco.es/noticias/educacion/20261121/miriam-prat-maestra-viral-mejores-actividades-ninos-sin-pantallas_18_020488916.html",
+"f": "Telecinco",
+"d": "2026-11-21T08:00Z",
+"p": 3
+},
+{
+"t": "La curiosa imagen del Castilla-Murcia: José Mourinho se reencuentra con Pedro León",
+"u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNVnNFWVBkTmRGbmdBOWlLZ2t5LTBnMVhHblBSZlpUMmdXUE9aSjlCYjdmeE5IUkxGaXdBcUc5MkFnaWMyN2VheklSdm9tOVlXdWNsZ252S0NjTlAtZlBZQUEybWt6TFNGUWhrVVJpb21VN3BHelN0RUZfU1dXMlVzSzV5NU1aTTdyZVhtTk5meVVpUnd5R3loNjhDQ3BIZzk0cUxaaE80b3E5azR4WXBzS2lmemxlVHVxUzhIUUxHQ1BrTlEyX1k5TVBLcW9xVkhB0gHkAUFVX3lxTE9qWUZlQW12OTBpWVBndHExVC0yLVg0d2RYeExtcjR6ZVdNaUJjYnFlWjdWZ0JWdlI0N0JDNWpqNl9menlGZlc4QVdjSFBUUWpuckpyMHpsdzhTQXlheDZ1LVkzcHpuZ3JreHhwT3ZwWHNKODUySkRvUmpUNXJtRG42NUVteWxCdUYzSzc3ZmNiRnRCbFh0ZG9BZUdFZ2g2dTJCQ3didlpiZkNUbXBPN1Jxc1Z2LW9ISG5aWnZoSEt1WGQ5cXMwazJWa0trQldfMzB5VzhPMTdCeUc0ZWpLXzkzak9fbg?oc=5",
+"f": "Cadena SER",
+"d": "2026-11-20T22:24Z",
 "p": 3
 },
 {
@@ -166,10 +173,10 @@
 "p": 3
 },
 {
-"t": "Cortylandia 2026: qué es, temática, fechas, horarios, cómo llegar, consejos y curiosidades",
-"u": "https://www.huffingtonpost.es/life/hijos/cortylandia-2026-tematica-fechas-horarios-llegar-consejos-curiosidades-f202611.html",
-"f": "HuffPost",
-"d": "2026-11-20T12:39Z",
+"t": "Una misteriosa boya llega a Fisterra, A Coruña, tras un posible viaje de 6.000 kilómetros por el Atlántico",
+"u": "https://www.telecinco.es/noticias/galicia/20261120/misteriosa-boya-fisterra-a-coruna-posible-viaje-atlantico_18_020766835.html",
+"f": "Telecinco",
+"d": "2026-11-20T10:59Z",
 "p": 3
 },
 {
@@ -177,27 +184,13 @@
 "u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZU5ZV2l1clAtRGdIWlNlRzBya0lNZVV1b3BobnB0NjlZVGlnUFNIU0k3cm9JNzFKaHpKdmNYTnZXYU56Ny10SkZDVkRhUVdGcFhlelczX0tKZnpKVkpQdl9tYzdGX2haZTZUZmtiQ1JydWtubjRwX2E3RVFQTURlZmtFRGxHM3U1d3BGdkJLVHNZWlo4R2tmZERKSXRfNk1DYXAzRVZySDRTcTFVaUt2Z2FqOGhlaVRsdENMOFljOVJMRXB1emxCY09hZG9JMWNu0gHWAUFVX3lxTE9pZkM2WFNINkFTZGtBUGNNRGhLNUVSMWlQMm5wNk1DOTFHd3BST2dfSHdYMlhLRUtjYlY3b2RFcVBNWVZfdUZSNkpVOV81Z3FxMVg5STc1c0NiQ2NjOVRQM01BUGt3UTVJZWxQTmNsU1RQam8zMUQ0Q2hzNkF0bXVhUDZyQ3pqOGZ1bnZCSTB4a1poZWZQb3Badmsya3ZDekItM0xYaFJ0OUhhT3RTWUJJemlCdGI5aU8tR3ZFV3RZMXhzMFVURG02bkpjcHNVZmpnT3BuRnc?oc=5",
 "f": "Diario de Cádiz",
 "d": "2026-11-20T09:23Z",
-"p": 3
+"p": 2
 },
 {
 "t": "La carrera más divertida de Galicia recupera su emblemática meta: la San Silvestre de Vigo regresa a la Alameda",
 "u": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQSTFNVFc1NEZ2Wk5XSlA2SnltbFZaQVdEcEFxTmZkVWExQ2hHMXlQcVNSakxlMWEtTWpicHFRa1hidHJvdmdvS2s5TmgzaGlqcHlXSEg4QllxdC12ZkhzVFVlNE1DSGxhT3c3Rk9qMlJYaG43alJHZmUwbk44NnVscVFrbG5tU2FwQUlYazYwNzhJMF9OUXJtdVNwU1pubXRzSTJENVFDTXNndFFOX3pUT2hnQlhDcTRnYlNMSlZ1VjVKRjdGRUFKS0lUUWFEZ9IB0wFBVV95cUxPT25IMVJ5bkVEbnlfLXoxUzhrczlhWERuR3gzODlDUkJpQWs1MFpTM01oQ1hlaFZtTkhOZG50UkJVeXItbVMzeTFxQm5jNWJqdkdRR1lRMld1MUIwWWRKdEpjenp4TkZRS0F4YW9CMlQ2VXdaTlhVZWJTTmFaQnlLenJpSVY3ZnhHYTVvaFdmQnNiQXR1a3JRUXZqc0hDaGJrckoyWGdwd09SRE5tSG9lb1hyTTRRZ0xMakNMNFRtcmt4UVpaRTFRZTRCWmRUb1BoSnQ4?oc=5",
 "f": "Faro de Vigo",
 "d": "2026-11-20T08:00Z",
-"p": 3
-},
-{
-"t": "Llega el frío pero hay un truco viral que dispara el calor de tus radiadores y reduce tu factura",
-"u": "https://www.diariodenavarra.es/noticias/vivir/consumo/2026/11/18/llega-frio-hay-truco-viral-dispara-calor-tus-radiadores-reduce-factura-842879-121.html",
-"f": "Diario de Navarra",
-"d": "2026-11-18T10:02Z",
-"p": 3
-},
-{
-"t": "Una anécdota sensible",
-"u": "https://www.diariodenavarra.es/contenidos/participacion/cartasaldirector/2026/11/20/anecdota-sensible.html",
-"f": "Diario de Navarra",
-"d": "2026-11-20T06:46Z",
 "p": 2
 },
 {
@@ -205,13 +198,6 @@
 "u": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOWUhYanJ6WWQtYnNLYkNjdWMxTHlzQjJIeEVtRnFNLWFrc3N5ZXozbVFoM3U1UTV2RndjUS1kdFU2ekM4aEl2MzlTdmNTeVZEZGtJbU11MmUzS0ktMlRkTzdJTjUzanJfYm5LalBmdjJmeEI2WWNVXy0xSEhPMEkzUFItei1rcmI5WEcxQkhnRnNDVXdYSnBWSDJ4VHlLeVV0eUhKTkxoXzREbl92c1liLTRZQjB5UTU2Q0sxXzVVWkNUSkZORExlOWZ5ekU4ZlB0NlJTUU4ta1Y2YVJRbHlZRnczempqQzFwMm0xRGluUWtkbG5zYzY3Tw?oc=5",
 "f": "Viajes National Geographic",
 "d": "2026-11-20T05:00Z",
-"p": 2
-},
-{
-"t": "El Museo del Prado celebra sus 207 años con un curioso juego: descubre qué obras de arte corresponden a tu edad",
-"u": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQemRpX3h3NWtKNnZzcGsyOTF4bklJcTZhamhtSEVMN1JNQ3lPcHBMMWtVSlF6cWFlUndBUWY5Rk9TOXIyRFZHOVdxMXNXVy1UVGpDUDI0WXlfQUNMVl9NMEVnV2Z2c3Rub1pUcTdMUGdFR1c4LUZQZnRtUkZLbFFQaFlDcklfeXN3bDdfMGRoWE12eE9fTzNHcVJxUmlzbllmb3RvV3BxdXNodGtHcDVEcDZqSWpuTjZNaGtkMm5PWklqRTFHU2JFLXp5bHdmQ2F5SDlWU3J4Z0ZiR205MUIydGNiVV9MVHd6UGNpUC1KONIB9AFBVV95cUxQNFFQeExXb2NHT0gwNjVlTDNiWnpUNEtiM1dLQTBRS05fTU5VejIxTWtSdG5YS1RReENjLU9jRHNSMU8taUlKWlJJSXNaVWtjempWdjhzTVRFWlozU0xrVUd6blZaZm91MHpQaHR1b3Z1QkV1S0FSbzVhUlhZWWhmMWd2U1ZVWEw3QllDM2FZWGxkOHlCWVk0bmIxYmZmTnYtd0RrbzJNTGM1UTU2LTJnNDZpVTZBejROMEFCQ0tvbExUWmp0YnNEdnFqZ0FBdHMxbkxWbWtGVVJ4eDlqSFlrc0tQajhmZ1JiZmlBZnptOFh1X2ph?oc=5",
-"f": "Estrella Digital",
-"d": "2026-11-19T17:48Z",
 "p": 2
 },
 {
