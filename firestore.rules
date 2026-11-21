@@ -197,6 +197,36 @@ service cloud.firestore {
         && mas1('activos') && mas1('app') && mas1('web') && mas1('nuevos');
     }
 
+    // ---------- 🏆 clasificación de los juegos (21 nov. 2026) ----------
+    // clasif/{uid}: puntos de cada juego de quien tiene cuenta confirmada y quiere salir en la clasificación.
+    // Público: el apodo y los puntos. Solo el dueño escribe; el apodo tiene que ser el suyo.
+    // Para que no se puedan inventar puntos de golpe: como mucho una escritura cada 15 s, los niveles suben de 1 en 1
+    // y cada juego suma como mucho 300 puntos por nivel alcanzado + 1000.
+    function cJ() { return ['sopa', 'sudoku', 'cruci']; }
+    function cNum(d, k, max) { return d[k] is int && d[k] >= 0 && d[k] <= max; }
+    function cBien(d) {
+      return d.keys().hasOnly(['apodo', 'apodoK', 'sopa', 'sudoku', 'cruci', 'total', 'nsopa', 'nsudoku', 'ncruci', 't'])
+        && d.apodoK == perfil().apodoK && d.apodo == perfil().apodo
+        && cNum(d, 'sopa', 10000000) && cNum(d, 'sudoku', 10000000) && cNum(d, 'cruci', 10000000)
+        && cNum(d, 'nsopa', 5000) && cNum(d, 'nsudoku', 5000) && cNum(d, 'ncruci', 5000)
+        && d.total == d.sopa + d.sudoku + d.cruci && d.t == request.time;
+    }
+    function cSube(d, o, j) {
+      return d['n' + j] >= o['n' + j] && d['n' + j] <= o['n' + j] + 1
+        && d[j] >= o[j] && d[j] <= o[j] + 300 * d['n' + j] + 1000;
+    }
+    match /clasif/{uid} {
+      allow get, list: if true;
+      allow create: if cuenta() && request.auth.uid == uid && cBien(request.resource.data)
+        && request.resource.data.total <= 30000;
+      allow update: if cuenta() && request.auth.uid == uid && cBien(request.resource.data)
+        && request.time > resource.data.t + duration.value(15, 's')
+        && cSube(request.resource.data, resource.data, 'sopa')
+        && cSube(request.resource.data, resource.data, 'sudoku')
+        && cSube(request.resource.data, resource.data, 'cruci');
+      allow delete: if usuario() && request.auth.uid == uid;
+    }
+
     // ---------- bloqueados: solo administradores (regla de arriba) ----------
   }
 }

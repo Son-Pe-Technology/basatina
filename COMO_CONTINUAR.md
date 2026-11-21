@@ -94,8 +94,12 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 - **Nieve y aludes** (`temas.js`): «nevando ahora», próxima nevada y 7 días por punto. «Peligro de aludes» y «Predicción de montaña» se despliegan al tocar la cabecera (▸/▾).
 - **Juegos con niveles** (`juegos3.js`): sopa, sudoku y crucigrama suben de nivel al ganar (`bnJgNivel`) y suman puntos (`bnJgPuntos`, `bnJgMejor`). Se lanza el evento `bnJuegoGanado`, pensado para una futura clasificación online.
 
-## 6. Cosas pendientes o ideas
-- Clasificación de jugadores y juego online (mus, UNO, parchís, chinchón): propuesta por fases dada a Pedro el 21 nov. 2026, pendiente de que elija.
+### 🏆 Clasificación de los juegos (21 nov. 2026, fase 1)
+- `web/clasif.js`: pantalla `jclasif` (menú Juegos). Firestore `clasif/{uid}` con apodo, puntos y niveles. Solo cuentas con correo confirmado que activan «Salir en la clasificación» (`bnClasifSi`). Privacidad: docs/privacidad.html 3.7.
+- Reglas en `firestore.rules` (bloque «clasificación»): **hay que publicarlas a mano** en Firebase → Firestore → Reglas. Limitan a una escritura cada 15 s, niveles de 1 en 1 y un máximo de puntos por vez; por eso `clSube` sube a pasos.
+- Borrar la cuenta (cuenta.js y docs/borrar-cuenta.html) borra también `clasif/{uid}`.
+
+- Juego online (fase 2: parchís, UNO, chinchón contra la máquina; fase 3: online entre personas, mus al final): propuesto a Pedro el 21 nov. 2026.
 
 - **Asistente con IA dentro de la app**: solo con la clave protegida en un servidor, nunca en el repositorio público.
 - **Radar con previsión (Rainbow.ai)**: preparado, pero sin clave, porque pide tarjeta.
