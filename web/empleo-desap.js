@@ -134,6 +134,6 @@ setInterval(()=>{if($('t-mtiempo')&&$('t-mtiempo').classList.contains('on'))dsHo
 /* ---------- fuentes en el pie de cada pantalla (oficial.js) ---------- */
 try{Object.assign(window.BNA_DATOS||{},{
   empleo:'enlaces a las webs de cada servicio o portal de empleo; BasatiNA no guarda ofertas',
-  desaparecidos:'titulares y enlaces de los medios (Diario de Navarra, Europa Press, Cadena SER, COPE, Pamplona Actual, Navarra Capital) · alertas oficiales: Centro Nacional de Desaparecidos (Ministerio del Interior)'});}catch(e){}
+  desaparecidos:'titulares y enlaces de los medios de Titulares de Navarra · alertas oficiales: Centro Nacional de Desaparecidos (Ministerio del Interior)'});}catch(e){}
 window.EM_L=EM_L;
 })();

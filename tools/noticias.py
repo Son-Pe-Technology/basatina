@@ -41,6 +41,11 @@ MEDIOS = [
     ("Europa Press", "https://www.europapress.es/navarra/", "europapress.es", "navarra"),
     ("Cadena SER", "https://cadenaser.com/navarra/", "cadenaser.com", "navarra"),
     ("COPE", "https://www.cope.es/emisoras/navarra/", "cope.es", "navarra"),
+    # Añadidos el 21 nov. 2026 (petición de Pedro). Se prueban solos: su RSS anunciado en la web, /feed/, /rss/, /rss.xml.
+    # Si alguno no tiene RSS o bloquea a los robots, sale «SIN RSS» en noticias_info.txt y se salta (no insistir).
+    ("Onda Vasca", "https://www.ondavasca.com/navarra/", "ondavasca.com", "navarra"),
+    ("Orain", "https://orain.eus/es/", "orain.eus", "navarra"),
+    ("Ayuntamiento de Pamplona", "https://www.pamplona.es/actualidad/noticias", "pamplona.es", ""),
 ]
 # canales RSS conocidos de cada medio (se prueban antes que los que anuncie su web)
 FEEDS = {
@@ -49,6 +54,7 @@ FEEDS = {
     "Navarra Capital": ["https://navarracapital.es/feed/"],
     "Europa Press": ["https://www.europapress.es/rss/rss.aspx?ch=293"],
     "COPE": ["https://www.cope.es/rss/emisoras/navarra.xml"],
+    "Ayuntamiento de Pamplona": ["https://www.pamplona.es/rss.xml", "https://www.pamplona.es/actualidad/noticias/rss.xml"],
     "Cadena SER": ["https://cadenaser.com/arc/outboundfeeds/rss/category/navarra/?outputType=xml",
                    "https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml"],
 }
