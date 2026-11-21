@@ -473,6 +473,26 @@ public class MainActivity extends Activity {
             PushService.aplicar(MainActivity.this);
         }
 
+        /** ⚽ Avisos de mis equipos: lista de temas «eq-…» de los equipos que sigue (vacía = sin avisos) */
+        @JavascriptInterface
+        public void setEquipos(final String json) {
+            getSharedPreferences("rio", MODE_PRIVATE).edit().putString("equipos", json).apply();
+            try {
+                if (new org.json.JSONArray(json).length() > 0 && android.os.Build.VERSION.SDK_INT >= 33
+                        && checkSelfPermission("android.permission.POST_NOTIFICATIONS") != android.content.pm.PackageManager.PERMISSION_GRANTED)
+                    runOnUiThread(() -> requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 9));
+            } catch (Exception ignored) {}
+            PushService.aplicar(MainActivity.this);
+        }
+
+        /** ⚽ Probar los sonidos de los avisos de equipos */
+        @JavascriptInterface
+        public void testEquipo(final boolean resultado) {
+            PushService.mostrar(MainActivity.this, resultado ? "resultado" : "partido",
+                    resultado ? "🏆 Final: Tu equipo 3 – 1 Rival" : "📣 ¡Hoy juega tu equipo!",
+                    resultado ? "Así te llegará el resultado de tus equipos." : "Así te avisaremos el día de partido.", "misdep");
+        }
+
         /** 📲 Pantalla que hay que abrir porque se ha tocado un aviso push (se entrega una vez) */
         @JavascriptInterface
         public String takePushTab() {

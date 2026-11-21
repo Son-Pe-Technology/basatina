@@ -33,6 +33,13 @@ public class PushService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage m) {
         Map<String, String> d = m.getData();
         String tema = d.containsKey("tema") ? d.get("tema") : "avisos";
+        // ⚽ avisos de mis equipos (día de partido / resultado): llegan al tema del equipo («eq-…»)
+        if ("partido".equals(tema) || "resultado".equals(tema)) {
+            String eq = d.containsKey("eq") ? d.get("eq") : "";
+            if (!equipos(this).contains(eq)) return;      // ya no lo sigue
+            mostrar(this, tema, d.get("titulo"), d.get("texto"), d.containsKey("tab") ? d.get("tab") : "misdep");
+            return;
+        }
         // si el usuario lo quitó en Ajustes pero aún no se había dado de baja del tema, no se enseña
         try {
             JSONObject cfg = new JSONObject(getSharedPreferences("rio", MODE_PRIVATE).getString("push", "{}"));
@@ -60,11 +67,43 @@ public class PushService extends FirebaseMessagingService {
                 else fm.unsubscribeFromTopic(tema);
             }
         } catch (Exception ignored) {}
+        // ⚽ equipos: apuntarse a los que sigue y darse de baja de los que ha quitado
+        try {
+            android.content.SharedPreferences p = c.getSharedPreferences("rio", Context.MODE_PRIVATE);
+            java.util.Set<String> ahora = equipos(c), antes = new java.util.HashSet<>(p.getStringSet("equiposSub", new java.util.HashSet<>()));
+            FirebaseMessaging fm = FirebaseMessaging.getInstance();
+            for (String t : ahora) fm.subscribeToTopic(t);
+            for (String t : antes) if (!ahora.contains(t)) fm.unsubscribeFromTopic(t);
+            p.edit().putStringSet("equiposSub", ahora).apply();
+        } catch (Exception ignored) {}
+    }
+
+    /** Temas de los equipos que sigue (los manda la pantalla con setEquipos). Solo «eq-» + letras y números. */
+    static java.util.Set<String> equipos(Context c) {
+        java.util.Set<String> r = new java.util.HashSet<>();
+        try {
+            org.json.JSONArray a = new org.json.JSONArray(c.getSharedPreferences("rio", Context.MODE_PRIVATE).getString("equipos", "[]"));
+            for (int i = 0; i < a.length() && r.size() < 60; i++) {
+                String t = a.optString(i, "");
+                if (t.matches("eq-[a-z0-9]{4,20}")) r.add(t);
+            }
+        } catch (Exception ignored) {}
+        return r;
     }
 
     static void mostrar(Context c, String tema, String titulo, String texto, String tab) {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-        String ch = "desaparecidos".equals(tema) ? "push_desaparecidos" : "push_avisos";
+        String ch = "desaparecidos".equals(tema) ? "push_desaparecidos" : "partido".equals(tema) ? "push_partido" : "resultado".equals(tema) ? "push_resultado" : "push_avisos";
+        // ⚽ canales con sonido propio: bombos y trompetas (día de partido) y ovación con aplausos (resultado)
+        if (Build.VERSION.SDK_INT >= 26 && ch.startsWith("push_") && (ch.equals("push_partido") || ch.equals("push_resultado")) && nm.getNotificationChannel(ch) == null) {
+            boolean p = ch.equals("push_partido");
+            NotificationChannel nc = new NotificationChannel(ch, p ? "Hoy juega mi equipo" : "Resultado de mi equipo", NotificationManager.IMPORTANCE_HIGH);
+            nc.setDescription(p ? "El día del partido de los equipos que sigues, con bombos y trompetas" : "El resultado final de los equipos que sigues, con ovación y aplausos");
+            android.net.Uri u = android.net.Uri.parse("android.resource://" + c.getPackageName() + "/" + (p ? R.raw.bn_fanfarria : R.raw.bn_ovacion));
+            nc.setSound(u, new android.media.AudioAttributes.Builder().setUsage(android.media.AudioAttributes.USAGE_NOTIFICATION)
+                    .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION).build());
+            nm.createNotificationChannel(nc);
+        }
         if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(ch) == null) {
             NotificationChannel nc = "push_desaparecidos".equals(ch)
                     ? new NotificationChannel(ch, "Personas desaparecidas", NotificationManager.IMPORTANCE_HIGH)
@@ -80,6 +119,8 @@ public class PushService extends FirebaseMessagingService {
         int id = 700 + (int) (System.currentTimeMillis() / 1000 % 200);
         PendingIntent pi = PendingIntent.getActivity(c, id, i, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, ch) : new android.app.Notification.Builder(c);
+        if (Build.VERSION.SDK_INT < 26 && (ch.equals("push_partido") || ch.equals("push_resultado")))
+            b.setSound(android.net.Uri.parse("android.resource://" + c.getPackageName() + "/" + (ch.equals("push_partido") ? R.raw.bn_fanfarria : R.raw.bn_ovacion)));
         b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(titulo).setContentText(texto)
                 .setStyle(new android.app.Notification.BigTextStyle().bigText(texto))
                 .setContentIntent(pi).setAutoCancel(true);

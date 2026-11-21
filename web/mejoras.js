@@ -366,6 +366,13 @@ svHook('super',suRender);
    ===================================================================== */
 const dpFav=()=>{const f=lsGet('dpFav',{});return {eq:f.eq||[],comp:f.comp||[]};};
 const dpMios=()=>lsGet('dpMios',[]);
+// ⚽ avisos de mis equipos (21 nov. 2026): cada equipo seguido es un «tema» push. El nombre del tema es
+// «eq-» + un resumen (FNV-1a de 32 bits) de «deporte|liga|equipo»; el robot (tools/deporte_avisos.py) calcula lo mismo.
+const dpTema=k=>{let h=0x811c9dc5;for(const b of new TextEncoder().encode(k)){h^=b;h=Math.imul(h,0x01000193)>>>0;}return 'eq-'+h.toString(16).padStart(8,'0');};
+const dpAvisosOn=()=>localStorage.getItem('dpAvisos')!=='false';
+function dpAvisosSync(){const N=window.AndroidNet;if(!N||!N.setEquipos)return;
+  const T=dpAvisosOn()?dpFav().eq.filter(k=>k.split('|').length>=3).map(dpTema):[];try{N.setEquipos(JSON.stringify(T));}catch(e){}}
+setTimeout(dpAvisosSync,3000);
 // 21 nov. 2026: se sigue al EQUIPO (deporte|liga|nombre), no a todo el club. Antes se guardaba solo el nombre,
 // y un club con varios equipos (infantil, cadete, sénior…) metía todos sus partidos. Los favoritos viejos (solo
 // nombre) siguen valiendo y salen como «todo el club» en Mi calendario deportivo, para que se puedan quitar.
@@ -380,7 +387,7 @@ async function dpMineBind(){let G=null;try{G=await jsLoad(DP_PATH,DP_DEF);}catch
     if(M.some(m=>m.id===x.id)){M=M.filter(m=>m.id!==x.id);toast('Quitado de tu calendario deportivo');}else{M.push({id:x.id,dep:x.dep,comp:x.comp,loc:x.loc,vis:x.vis,f:x.f,h:x.h||'',lugar:x.lugar||''});toast('✅ Añadido a ⭐ Mi calendario deportivo (Mi Espacio)');}
     lsSet('dpMios',M);dpRender();});
   document.querySelectorAll('#t-deporte .dpStar').forEach(b=>b.onclick=e=>{e.stopPropagation();const k=b.dataset.eq,n=b.dataset.n,c=b.dataset.c,F=dpFav();
-    if(F.eq.includes(k)){F.eq=F.eq.filter(x=>x!==k);toast('☆ Ya no sigues a '+n+' ('+c+')');}else{F.eq.push(k);toast('⭐ Sigues a '+n+' en '+c+': solo los partidos de ese equipo irán a tu calendario');}lsSet('dpFav',F);dpRender();});
+    if(F.eq.includes(k)){F.eq=F.eq.filter(x=>x!==k);toast('☆ Ya no sigues a '+n+' ('+c+')');}else{F.eq.push(k);toast('⭐ Sigues a '+n+' en '+c+': sus partidos irán a tu calendario'+(window.AndroidNet&&window.AndroidNet.setEquipos&&dpAvisosOn()?' y te avisaremos el día de partido y del resultado':''));}lsSet('dpFav',F);dpAvisosSync();dpRender();});
   // ⭐ seguir la liga elegida
   const cs=$('dpComp');let lb=$('dpLigaFav');if(lb)lb.remove();
   if(typeof DPCOMP!=='undefined'&&DPCOMP&&cs){const k=DPDEP+'|'+DPCOMP,on=dpFav().comp.includes(k);
@@ -419,6 +426,12 @@ async function mdRender(){const el=$('mdBody');if(!el)return;const hoy=hoyYmd();
    <div class="card"><b>📅 Próximos partidos (${prox.length})</b>${prox.length?prox.map(fila).join('')+`<div class="row" style="margin-top:6px"><button class="btn pri" id="mdTodo" style="flex:1">📲 Pasar todos al calendario del móvil</button></div>`:'<div class="note">Aún no hay partidos. Ve a Qué hacer → 🏆 Deporte navarro y marca ☆ tus equipos, sigue una liga o toca ➕ en un partido.</div>'}</div>
    <div class="card"><b>⭐ Mis equipos y ligas</b>${F.eq.length||F.comp.length?[...F.eq.map(n=>{const p=n.split('|');return ['eq',n,p.length>=3?'👕 '+p.slice(2).join('|')+' · '+p[1]:'👕 '+n+' (todo el club: quítalo y marca ☆ el equipo que quieras)'];}),...F.comp.map(k=>['comp',k,'🏆 '+k.split('|')[1]])].map(([t,v,l])=>`<div class="st"><span>${esc(l)}</span><button class="btn" data-fx="${t}" data-fv="${esc(v)}">✕</button></div>`).join(''):'<div class="note">Todavía no tienes favoritos.</div>'}
      <div class="row" style="margin-top:6px"><button class="btn" onclick="showTab('deporte')">🏆 Ir a Deporte navarro</button></div></div>
+   <div class="card"><b>🔔 Avisos de mis equipos</b>${window.AndroidNet&&window.AndroidNet.setEquipos?`
+     <div class="st" style="align-items:center"><div style="flex:1"><div class="note">📣 La mañana del partido, con bombos y trompetas. 🏆 Y el resultado final, con ovación y aplausos (puede llegar con algo de retraso: depende de cuándo lo publique la federación).</div></div>
+       <input type="checkbox" id="mdAv" ${dpAvisosOn()?'checked':''} style="width:26px;height:26px;flex:0 0 auto"></div>
+     <div class="row" style="margin-top:6px"><button class="btn" data-mdt="0">📣 Probar día de partido</button><button class="btn" data-mdt="1">🏆 Probar resultado</button></div>
+     <div class="note" style="margin-top:4px">Solo de los equipos marcados con ☆ (no los de todo el club ni las ligas enteras).</div>`
+     :'<div class="note">Los avisos del día de partido y del resultado llegan con la app de Android actualizada (versión 5.4 o más nueva).</div>'}</div>
    <div class="note">Tu calendario deportivo se guarda solo en este dispositivo (entra en la «📦 Copia de mis datos» de Ajustes). «Al calendario del móvil» abre Google Calendar con el partido ya apuntado. «Pasar todos» crea un archivo .ics que puedes abrir con tu calendario o guardar en Drive.</div>`;
   el.querySelectorAll('.calD').forEach(b=>b.onclick=()=>{MDS=b.dataset.f;mdRender();});
   $('mdP').onclick=()=>{MDM=ymd(new Date(y,m-2,1)).slice(0,7);mdRender();};$('mdN').onclick=()=>{MDM=ymd(new Date(y,m,1)).slice(0,7);mdRender();};
@@ -429,7 +442,9 @@ async function mdRender(){const el=$('mdBody');if(!el)return;const hoy=hoyYmd();
     const u='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(x.loc+' - '+x.vis)+'&dates='+dates+'&ctz=Europe/Madrid&details='+encodeURIComponent((x.comp||'')+' · BasatiNA')+(x.lugar?'&location='+encodeURIComponent(x.lugar):'');
     if(APP&&window.AndroidNet&&window.AndroidNet.openUrl)window.AndroidNet.openUrl(u);else window.open(u,'_blank');});
   el.querySelectorAll('[data-mdx]').forEach(b=>b.onclick=()=>{lsSet('dpMios',dpMios().filter(m=>m.id!==b.dataset.mdx));mdRender();});
-  el.querySelectorAll('[data-fx]').forEach(b=>b.onclick=()=>{const F=dpFav();F[b.dataset.fx]=F[b.dataset.fx].filter(v=>v!==b.dataset.fv);lsSet('dpFav',F);mdRender();});
+  el.querySelectorAll('[data-fx]').forEach(b=>b.onclick=()=>{const F=dpFav();F[b.dataset.fx]=F[b.dataset.fx].filter(v=>v!==b.dataset.fv);lsSet('dpFav',F);dpAvisosSync();mdRender();});
+  const av=$('mdAv');if(av)av.onchange=()=>{lsSet('dpAvisos',av.checked);dpAvisosSync();toast(av.checked?'🔔 Te avisaremos de tus equipos':'🔕 Sin avisos de tus equipos');};
+  el.querySelectorAll('[data-mdt]').forEach(b=>b.onclick=()=>{try{window.AndroidNet.testEquipo(b.dataset.mdt==='1');}catch(e){}});
   const t=$('mdTodo');if(t)t.onclick=()=>mdBajar(prox,'mis-partidos.ics');}
 svSec('misdep',`<div class="card"><b>⭐ Mi calendario deportivo</b><div class="note">Los partidos de tus equipos y ligas favoritos y los que añadas tú, en un calendario.</div></div><div id="mdBody"></div>`);
 svHook('misdep',()=>{MDM=null;MDS=null;mdRender();});

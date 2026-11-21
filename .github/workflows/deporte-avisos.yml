@@ -1,0 +1,49 @@
+name: Avisos de mis equipos
+# ⚽ 21 nov. 2026. Día de partido: cada mañana a las 08:07 (09:07 en verano).
+# Resultados: los fines de semana cada hora por la tarde y noche, y entre semana por la noche, se vuelven a
+# leer los calendarios de las federaciones (tools/deporte.py) y se avisa de los resultados nuevos.
+on:
+  schedule:
+    - cron: '7 7 * * *'
+    - cron: '23 11-22 * * 0,6'
+    - cron: '23 18-22 * * 1-5'
+    - cron: '23 8 * * 1'
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: 'dia o resultado'
+        default: 'resultado'
+permissions:
+  contents: write
+concurrency: deporte
+jobs:
+  avisos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install google-auth requests
+      - name: Modo
+        id: m
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "modo=${{ github.event.inputs.modo }}" >> $GITHUB_OUTPUT;
+          elif [ "${{ github.event.schedule }}" = "7 7 * * *" ]; then echo "modo=dia" >> $GITHUB_OUTPUT;
+          else echo "modo=resultado" >> $GITHUB_OUTPUT; fi
+      - name: Resultados nuevos de las federaciones
+        if: steps.m.outputs.modo == 'resultado'
+        run: python3 tools/deporte.py || true
+      - name: Mandar avisos
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
+        run: python3 tools/deporte_avisos.py ${{ steps.m.outputs.modo }}
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add deporte/
+          git commit -m "Deporte: avisos de equipos (${{ steps.m.outputs.modo }})" || exit 0
+          git pull --rebase -X theirs || true
+          python3 tools/make_version.py && git add web/version.json && (git commit -m "Nueva versión de la pantalla" || true)
+          for i in 1 2 3 4 5 6; do
+            git push && break
+            sleep $((i*15))
+            git pull --rebase -X theirs || true
+          done
