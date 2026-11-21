@@ -220,6 +220,11 @@ const MA_C=[
  ['🚮','Recoge siempre','Lleva bolsas y agua para limpiar el pis en la calle. Es lo justo y en muchos pueblos hay multas.'],
  ['🆔','Microchip y registro','Los perros, gatos y hurones tienen que llevar microchip y estar registrados. Si se pierde, avisa a tu veterinario, a la Policía Municipal y a las protectoras de la zona.']];
 let MAT='vet',MAQ='',MAPOS=null;
+// Clínicas que salen siempre las primeras en Veterinarios (petición de Pedro, 21 nov. 2026). Nombre exacto, como en OpenStreetMap.
+const MA_PRIMERAS=['Clínica veterinaria Aoiz'];
+// Datos que nos han pasado de una clínica (tienen prioridad sobre OpenStreetMap). Clave = nombre exacto de OpenStreetMap.
+const MA_DATOS={'Clínica veterinaria Aoiz':{d:'Calle Aoiz, 18, bajo (Segundo Ensanche)',p:'31004 Pamplona',tel:'948 246 912',m:'clinivetaoiz@gmail.com',
+  w:'https://www.clinicaveterinariaaoiz.com',h:'Lunes a viernes 10:00–13:00 y 17:00–19:00 · Sábados 10:00–13:00',txt:'Clínica veterinaria de barrio, con trato cercano y profesional.'}};
 svSec('mascotas',`<div class="card"><b>🐾 Mascotas en Navarra</b><div class="note">Veterinarios, zonas para soltar al perro, protectoras y tiendas, y consejos para el campo.</div>
  <div class="tmChips" id="maT"></div><div class="row" id="maBus"><input id="maQ" class="town" placeholder="🔎 Buscar por pueblo o nombre…" style="flex:1;min-width:0"><button class="btn" id="maCerca">📍 Cerca de mí</button></div></div>
  <div class="card" id="maL"><div class="note">Cargando…</div></div>
@@ -231,12 +236,13 @@ function maRender(){$('maT').innerHTML=MA_T.map(([k,l])=>`<button class="${k===M
   if(MAT==='consejos'){el.innerHTML=MA_C.map(c=>`<div class="tmProd"><div class="e">${c[0]}</div><div><b>${E(c[1])}</b><div class="note">${E(c[2])}</div></div></div>`).join('')+
      `<div class="row" style="margin-top:8px"><button class="btn" onclick="showTab('comunidad')">📣 Ver alertas ciudadanas</button><a class="btn" href="tel:112">📞 112</a></div>`;return;}
   if(!window.MASCOTAS){el.innerHTML='<div class="note">Cargando…</div>';svLoad('mascotas.js','MASCOTAS',ok=>{if(ok)maRender();else el.innerHTML='<div class="note">⏳ La lista llega con la próxima actualización de datos (se prepara sola en unas horas).</div>';});return;}
-  const q=nrm(MAQ);let L=MASCOTAS.p.filter(x=>x.k===MAT&&(!q||nrm(x.n+' '+x.p+' '+(x.d||'')).includes(q)));
+  const q=nrm(MAQ);let L=MASCOTAS.p.map(x=>MA_DATOS[x.n]?Object.assign({},x,MA_DATOS[x.n]):x).filter(x=>x.k===MAT&&(!q||nrm(x.n+' '+x.p+' '+(x.d||'')).includes(q)));
   if(MAPOS){L=L.map(x=>Object.assign({_k:km(MAPOS.la,MAPOS.lo,x.pt[0],x.pt[1])},x)).sort((a,b)=>a._k-b._k);}
+  if(MAT==='vet'){const fi=x=>{const i=MA_PRIMERAS.findIndex(n=>nrm(n)===nrm(x.n));return i<0?999:i;};L=L.slice().sort((a,b)=>fi(a)-fi(b));}
   el.innerHTML=(MAT==='vet'?'<div class="note" style="margin-bottom:6px">🚨 Las marcadas con <b>24 h</b> atienden urgencias: confírmalo por teléfono.</div>':'')+
    (L.length?L.slice(0,80).map(x=>`<div class="st" style="align-items:flex-start"><div style="flex:1;min-width:0"><b>${E(x.n)}</b>${x.u?' <span class="amPill" style="background:#c62828">24 h</span>':''}
-     <div class="s">📍 ${E([x.d,x.p].filter(Boolean).join(', '))}${x._k!=null?' · '+fmtN(x._k,x._k<10?1:0)+' km':''}</div>${x.h?`<div class="s">🕐 ${E(x.h)}</div>`:''}
-     <div class="s">${x.tel?`<a href="tel:${E(x.tel.replace(/\s/g,''))}">📞 ${E(x.tel)}</a> · `:''}<a href="#" data-m="${x.pt}">🗺️ Cómo llegar</a>${x.w?` · <a href="#" data-w="${E(x.w)}">🌐 Web</a>`:''}</div></div></div>`).join('')
+     <div class="s">📍 ${E([x.d,x.p].filter(Boolean).join(', '))}${x._k!=null?' · '+fmtN(x._k,x._k<10?1:0)+' km':''}</div>${x.txt?`<div class="s">${E(x.txt)}</div>`:''}${x.h?`<div class="s">🕐 ${E(x.h)}</div>`:''}
+     <div class="s">${x.tel?`<a href="tel:${E(x.tel.replace(/\s/g,''))}">📞 ${E(x.tel)}</a> · `:''}<a href="#" data-m="${x.pt}">🗺️ Cómo llegar</a>${x.w?` · <a href="#" data-w="${E(x.w)}">🌐 Web</a>`:''}${x.m?` · <a href="mailto:${E(x.m)}">✉️ Correo</a>`:''}</div></div></div>`).join('')
     :'<div class="note">No hay ninguno con ese nombre o pueblo.</div>')+(L.length>80?`<div class="note">Y ${L.length-80} más: busca por pueblo.</div>`:'');
   el.querySelectorAll('[data-m]').forEach(a=>a.onclick=e=>{e.preventDefault();abre('https://www.google.com/maps/search/?api=1&query='+a.dataset.m);});
   el.querySelectorAll('[data-w]').forEach(a=>a.onclick=e=>{e.preventDefault();abre(a.dataset.w);});}
