@@ -5,24 +5,20 @@ UA = {'User-Agent': 'BasatiNA/1.0 (https://basatina.es; participa@basatina.es)'}
 API = 'https://commons.wikimedia.org/w/api.php'
 OK = re.compile(r'^(CC0|Public domain|PD|CC BY(-SA)? \d)', re.I)
 BUSCA = {
- 't1_pueblos':   ['Olite Navarra', 'Puente la Reina puente románico', 'Ochagavía Navarra', 'Elizondo Baztan'],
- 't1_pbloc':     ['Plaza del Castillo Pamplona', 'Estella Lizarra puente', 'Tudela Navarra plaza'],
- 't1_pbcom':     ['Valle de Baztan paisaje', 'valle de Roncal Navarra', 'Valdizarbe Navarra paisaje'],
- 't1_patri':     ['Palacio Real de Olite', 'Monasterio de Leyre', 'Castillo de Javier', 'Catedral de Pamplona'],
- 't1_comer':     ['pintxos Pamplona', 'chuletón Navarra', 'menestra Tudela'],
- 't1_dormir':    ['caserío Baztan', 'casa rural Navarra', 'Zugarramurdi'],
- 't1_monte':     ['Selva de Irati', 'Sierra de Urbasa', 'Bardenas Reales', 'Foz de Arbayún'],
- 't1_reco':      ['setas Navarra', 'boletus edulis', 'níscalos Lactarius deliciosus'],
- 't1_fauna':     ['buitre leonado Navarra', 'Gyps fulvus Bardenas', 'ciervo Navarra', 'Cervus elaphus Spain'],
- 't1_veget':     ['hayedo Irati otoño', 'hayedo Navarra', 'Urbasa hayedo'],
- 't1_arbol':     ['Bosque de Irati', 'roble Navarra árbol', 'Quercus Navarra'],
- 't1_biodiv':    ['Foz de Lumbier', 'Laguna de Pitillas', 'Señorío de Bertiz'],
- 't1_cocina':    ['espárragos Navarra', 'queso Roncal', 'cocina navarra'],
- 't1_recetas':   ['menestra de verduras', 'cordero al chilindrón', 'pochas'],
- 't1_productos': ['espárragos blancos', 'alcachofas Tudela', 'queso Idiazabal', 'pacharán'],
- 't1_agenda':    ['gigantes Pamplona', 'comparsa gigantes cabezudos Pamplona', 'Sanfermines'],
- 't1_cultura':   ['Teatro Gayarre Pamplona', 'Baluarte Pamplona', 'Museo de Navarra'],
- 't1_deporte':   ['Estadio El Sadar', 'Navarra Arena', 'pelota vasca frontón Navarra'],
+ 't2_padel':      ['pádel Pamplona', 'padel court Spain', 'pista de pádel'],
+ 't2_rural':      ['aizkolari', 'harri jasotzaile', 'herri kirolak', 'deporte rural vasco'],
+ 't2_peques':     ['Senda Viva Arguedas', 'parque infantil Pamplona', 'Parque de la Taconera'],
+ 't2_pqparques':  ['Parque de la Taconera Pamplona', 'Parque Yamaguchi Pamplona', 'Parque de la Media Luna Pamplona'],
+ 't2_pqpaseos':   ['Paseo del Arga Pamplona', 'Parque fluvial Arga', 'río Arga Pamplona'],
+ 't2_pqagenda':   ['Olentzero Pamplona', 'cabezudos Pamplona', 'kilikis Pamplona'],
+ 't2_mascotas':   ['perro monte Navarra', 'pastor vasco perro', 'euskal artzain txakurra'],
+ 't2_volunt':     ['voluntarios limpieza río', 'Banco de Alimentos Navarra', 'voluntariado medio ambiente'],
+ 't2_empleo':     ['Sarriguren Ciudad de la Innovación', 'Polígono Landaben', 'Pamplona Ensanche edificios'],
+ 't2_vivienda':   ['Pamplona Ensanche', 'Casco Viejo Pamplona calle', 'Pamplona barrio viviendas'],
+ 't2_pedalea':    ['Vía verde del Plazaola', 'Vía verde del Bidasoa', 'ciclistas Navarra carretera'],
+ 't2_moto':       ['puerto de Larrau', 'carretera Navarra montaña', 'Foz de Lumbier carretera', 'Puerto de Belagua'],
+ 't2_picnic':     ['embalse de Leurtza', 'área recreativa Navarra', 'Urbasa pradera', 'Nacedero del Urederra'],
+ 't2_temporada':  ['huerta Tudela', 'alcachofas Tudela', 'Ribera Navarra huerta', 'Tudela verduras'],
 }
 def get(params):
     u = API + '?' + urllib.parse.urlencode(dict(params, format='json'))
