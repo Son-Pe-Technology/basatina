@@ -33,20 +33,27 @@
     cultura:['Cultura Navarra','https://www.culturanavarra.es/es/agenda','Agenda cultural oficial'],
     salud:['Salud Navarra','https://www.navarra.es','Centros de salud y farmacias'],
     sne:['Servicio Navarro de Empleo – Nafar Lansare','https://administracionelectronica.navarra.es/EmpleoIntermediacion/listadodeofertas','Ofertas de empleo públicas de Navarra'],
-    cndes:['CNDES · Centro Nacional de Desaparecidos (Ministerio del Interior)','https://cndes-web.ses.mir.es','Alertas oficiales de personas desaparecidas']
+    cndes:['CNDES · Centro Nacional de Desaparecidos (Ministerio del Interior)','https://cndes-web.ses.mir.es','Alertas oficiales de personas desaparecidas'],
+    upna:['Universidad Pública de Navarra','https://www.unavarra.es','Convocatorias de empleo público de la UPNA'],
+    mcp:['Mancomunidad de la Comarca de Pamplona','https://www.mcp.es','Transporte urbano comarcal (villavesas)'],
+    igme:['IGME‑CSIC · Instituto Geológico y Minero de España','https://www.igme.es','Fallas activas (base QAFI)'],
+    euskalmet:['Euskalmet · Gobierno Vasco','https://www.euskalmet.euskadi.eus','Radar meteorológico de Kapildui'],
+    ree:['Red Eléctrica','https://www.ree.es','Datos del sistema eléctrico (REData)'],
+    copernicus:['Copernicus · Unión Europea','https://www.copernicus.eu','Calidad del aire, polen (CAMS), previsión de ríos (GloFAS) y relieve'],
+    meteoalarm:['Meteoalarm · EUMETNET','https://www.meteoalarm.org','Avisos meteorológicos europeos']
   };
   // pestaña → fuentes oficiales que se muestran arriba de esa pantalla
   const SRC_TAB={
     mapa:['saih','che','sos'], libre:['saih','che','sos'], sim:['saih','che','aemet'], juego:['saih','che'],
-    ciencia:['saih','cnig'], hist:['che','saih'], prev:['saih','aemet','che'], caudal:['saih','che','sos'],
+    ciencia:['saih','cnig'], hist:['che','saih'], prev:['saih','aemet','che','copernicus'], caudal:['saih','che','sos'],
     emb:['saih','miteco'], saih:['saih','che'],
-    tiempo:['aemet'], radar:['aemet'], clima:['aemet'],
+    tiempo:['aemet','meteoalarm','copernicus'], radar:['aemet','euskalmet'], clima:['aemet'],
     incid:['carreteras','dgt'], camaras:['carreteras','dgt'], puertos:['carreteras','dgt'],
-    sismo:['ign'], gas:['minetur'],
+    sismo:['ign','igme'], gas:['minetur'],
     caza:['idena','lexnavarra'], pesca:['idena','lexnavarra'], natura:['lexnavarra','espacios'],
-    monte:['idena','espacios'], energia:['idena'], pueblos:['navarra','turismo'],
+    monte:['idena','espacios'], energia:['idena','ree'], pueblos:['navarra','turismo'],
     patrimonio:['navarra','turismo'], cultura:['cultura'], agenda:['cultura','pamplona'], cerca:['salud','navarra'],
-    empleo:['sne'], desaparecidos:['cndes','sos']
+    empleo:['sne','upna'], desaparecidos:['cndes','sos'], bus:['mcp','idena'], salud:['copernicus']
   };
   // 20 nov. 2026 (petición de Pedro): de dónde salen los datos que NO son oficiales (Open‑Meteo, OpenStreetMap…)
   // ya no se escribe en mitad de cada pantalla: va aquí, en el pie de fuentes, en letra pequeña.
