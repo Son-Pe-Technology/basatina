@@ -1,5 +1,5 @@
 {
- "version": 381,
+ "version": 382,
  "apk": 32,
  "files": {
   "_stage.html": "f0c3934beba5e326ae0b5aaac6273243ce48cd0a",
@@ -29,7 +29,7 @@
   "flood2.png": "712a7b22803bcae9b052cece1bdbe3c4ccae177e",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "2564a318ff929b1d4ba9588efc9f31d6e787f62b",
+  "index.html": "bb5ee129c7a5a50501990c0b61fbfa651f2df1db",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juegos-peques.js": "1c6b2124ed7b40dbe00032cc76db9b33003c0a11",
   "juegos.js": "146763b412b0022104f869f504e679ee9930f822",
