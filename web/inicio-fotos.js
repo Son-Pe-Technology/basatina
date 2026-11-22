@@ -1,7 +1,7 @@
 /* =====================================================================
    📷 INICIO CON FOTOS DE NAVARRA (22 nov. 2026, diseño que eligió Pedro) — se carga después de fotos-secciones.js
    Qué hace (solo en el tema BasatiNA y solo en el Inicio):
-     1. Cabecera (logo y hora) con un paisaje de Navarra que cambia con la estación (IF_CAB).
+     1. Cabecera (logo y hora) con un paisaje de Navarra que cambia con la estación (IF_CAB). Desde el 22 nov. también en las demás pantallas (clase ifTop, franja más baja).
      2. Accesos directos con foto: la foto de fondo y el nombre encima (IF_ACC). Los que no tienen foto
         siguen con su icono de siempre. «Ríos» y la tarjeta del Arga llevan la foto de Pedro: el puente de la Rabia de Zubiri, su pueblo.
      3. Tarjeta del río en «Ahora en Navarra» con la foto de ese río (IF_RIO), cambia al pasar de río.
@@ -41,10 +41,11 @@ const IF_CRED=[
 
 const st=document.createElement('style');st.textContent=`
 /* 1. cabecera con paisaje (solo en el Inicio) */
-body.bna.ifIni header{background:#dfe9ee var(--ifCab) center 62%/cover no-repeat!important;position:relative;overflow:hidden}
-body.bna.ifIni header:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.8) 34%,rgba(255,255,255,0) 66%)}
-body.bna.ifIni .topbar{position:relative;z-index:1;padding-bottom:64px}
-body.bna.ifIni .topbar:after{display:none}
+body.bna.ifTop header{background:#dfe9ee var(--ifCab) center 62%/cover no-repeat!important;position:relative;overflow:hidden}
+body.bna.ifTop header:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.8) 34%,rgba(255,255,255,0) 66%)}
+body.bna.ifTop .topbar{position:relative;z-index:1;padding-bottom:40px}
+body.bna.ifIni .topbar{padding-bottom:64px}
+body.bna.ifTop .topbar:after{display:none}
 /* 2. accesos directos con foto */
 body.bna .bnaQ button.ifF{position:relative;aspect-ratio:4/3;padding:0!important;overflow:hidden;justify-content:flex-end;background:#8aa096 center/cover no-repeat;
   border:2px solid #fff;box-shadow:0 2px 4px rgba(29,45,35,.12),0 8px 18px -8px rgba(29,45,35,.35)}
@@ -75,8 +76,9 @@ body.bna.ifIni #seBody .kpi b{font-size:13.5px!important;overflow-wrap:anywhere}
 document.head.appendChild(st);
 
 const enIni=()=>typeof isBna==='function'&&isBna()&&(typeof BNTAB==='undefined'||BNTAB==='mtiempo');
-function ifCab(){const on=enIni();document.body.classList.toggle('ifIni',on);
-  if(on)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
+// 22 nov. 2026: la barra de arriba (logo y hora) lleva el paisaje de la estación en TODAS las pantallas (más baja fuera del Inicio)
+function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top);
+  if(top)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
 function ifAcc(){document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=IF_ACC[b.dataset.go];
   if(!f||b.classList.contains('ifF'))return;b.classList.add('ifF');b.style.backgroundImage=`url("${f}")`;});}
 function ifRio(){const el=$('rzTk');if(!el)return;const e=el.querySelector('.anE');if(!e)return;
