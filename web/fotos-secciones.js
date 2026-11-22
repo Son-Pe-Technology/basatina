@@ -108,6 +108,7 @@ FS_CAB.monte='foto-monte-aralar.webp';FS_CRED.monte=[['Cabecera: Santuario de Sa
 FS_CAB.peques='foto-peques-sua.webp';(FS_CRED.peques=FS_CRED.peques||[[]])[0]=['Cabecera: Sua disfrazada de flor','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
+window.fsFoto=fsFoto;   /* 22 nov. 2026: la usa menu-fotos.js para las miniaturas del menú */
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
 function fsTabs(t){const c=FS_TABS[t];if(!c)return;const el=$(c[0]);if(!el||el.dataset.fs)return;el.dataset.fs=1;el.classList.add('fsTabs');
   el.querySelectorAll('button').forEach(b=>{const v=b.dataset.v||b.dataset.t,f=c[1][v];if(!f)return;
