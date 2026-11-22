@@ -20,7 +20,9 @@ body.bna #drawer .dhead.mfH,body.bna #drawer .dhead.mfH *{text-shadow:0 1px 2px 
 body.bna #drawer .dhead.mfH .pvDM{display:none}
 body.bna #bnaDGrid>.mfF{position:relative;overflow:hidden;min-height:82px!important;align-items:flex-end!important;border:2px solid #fff!important;
   background:#7d8f86 var(--mf) center/cover no-repeat!important;color:#fff!important;box-shadow:0 4px 12px rgba(29,45,35,.18)!important;padding:10px!important}
-body.bna #bnaDGrid>.mfF:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.38) 45%,rgba(0,0,0,.82) 100%)}
+body.bna #bnaDGrid>.mfF{isolation:isolate}
+/* el oscurecido va por debajo del texto (z-index:-1): en el modo «Emojis» el nombre es texto suelto del botón y antes quedaba tapado */
+body.bna #bnaDGrid>.mfF:before{z-index:-1;content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.38) 45%,rgba(0,0,0,.82) 100%)}
 body.bna #bnaDGrid>.mfF>*{position:relative;z-index:1;color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.95),0 2px 10px rgba(0,0,0,.7)}
 body.bna #bnaDGrid>.mfF{text-shadow:0 1px 2px rgba(0,0,0,.95),0 2px 10px rgba(0,0,0,.7);font-weight:800!important;line-height:1.15!important}
 body.bna #bnaDGrid>.mfF,body.bna #bnaDGrid>.mfF *{font-size:15px}
@@ -28,6 +30,7 @@ body.bna #bnaDGrid>.mfF,body.bna #bnaDGrid>.mfF *{font-size:15px}
 body.bna #bnaDGrid>.mfF .bt,body.bna #bnaDGrid>.mfF .icb,body.bna #bnaDGrid>.mfF svg,body.bna #bnaDGrid>.mfF span[style]{display:none!important}
 body.bna #bnaDGrid>.mfF span:before{content:none!important}
 body.bna #bnaDGrid>.mfF i{font-size:13px}
+body.bna #bnaDGrid>.mfF small{color:#fff!important;opacity:.92}
 body.bna #bnaDGrid>.mfF.open{border-color:var(--verde)!important;box-shadow:0 0 0 3px rgba(61,112,49,.45)!important}
 body.bna #bnaDGrid>button.mfF.on{border-left:2px solid #fff!important;box-shadow:0 0 0 3px rgba(61,112,49,.55)!important}`;
 document.head.appendChild(st);
