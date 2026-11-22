@@ -52,20 +52,34 @@ document.head.appendChild(st);
  const cab={natfau:'Cabecera: milano real (galforro)',astro:'Cabecera: luna llena entre los árboles',monte:'Cabecera: cascada de Ixkier, valle de Larraun',patrimonio:'Cabecera: Palacio Real de Olite'};
  for(const k in cab){const L=FS_CRED[k]||(FS_CRED[k]=[]);const e=[cab[k],P,F,''];if(L.length&&/^Cabecera/.test(L[0][0]))L[0]=e;else L.unshift(e);}
 })();
+// ── 4.ª tanda (22 nov. 2026): TODAS las secciones con foto (petición de Pedro), menos el Inicio (tarjeta del tiempo «Navarra viva») ──
+// Las secciones sin foto propia en FS_CAB usan la foto de su escena (PVS_ESC: cielo, agua, bosque…). Casi todas son fotos de Pedro.
+const FS_ESC={cielo:'foto-esc-cielo.webp',agua:'foto-esc-agua.webp',bosque:'foto-esc-bosque.webp',pueblo:'foto-esc-pueblo.webp',carretera:'foto-esc-carretera.webp',
+ fiesta:'foto-esc-fiesta.webp',bokeh:'foto-esc-bokeh.webp',sismo:'foto-esc-sismo.webp',topo:'foto-esc-topo.webp',aurora:'foto-esc-aurora.webp',energia:'foto-esc-energia.webp'};
+const FS_ESC_CRED=(()=>{const P='Pedro Iglesias Goñi',F='foto propia';return{
+ cielo:[['Cabecera: cúmulo de tormenta',P,F,'']],agua:[['Cabecera: Nacedero del Urederra',P,F,'']],bosque:[['Cabecera: hayedo en otoño',P,F,'']],
+ pueblo:[['Cabecera: Monumento a los Fueros, Pamplona',P,F,'']],fiesta:[['Cabecera: Frontón Labrit, Pamplona',P,F,'']],bokeh:[['Cabecera: cielo de nubes',P,F,'']],
+ sismo:[['Cabecera: cueva de Mendukilo (Astitz, Larraun)',P,F,'']],topo:[['Cabecera: camino bajo los cortados de Urbasa',P,F,'']],aurora:[['Cabecera: luna entre los árboles',P,F,'']],
+ carretera:[['Cabecera: Puente de Hierro, Sangüesa','Zarateman','CC0','https://commons.wikimedia.org/wiki/File:Sanguesa_-_Puente_de_Hierro_1.jpg']],
+ energia:[['Cabecera: aerogeneradores en el Alto del Perdón','Ricardo Fernández','CC BY 2.0','https://commons.wikimedia.org/wiki/File:Alto_del_Perd%C3%B3n-richardfdez-02.jpg']]};})();
+FS_CAB.tiempo='foto-esc-tiempo.webp';FS_CRED.tiempo=[['Cabecera: tormenta al atardecer','Pedro Iglesias Goñi','foto propia','']];
+const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
+const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
+const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
 function fsTabs(t){const c=FS_TABS[t];if(!c)return;const el=$(c[0]);if(!el||el.dataset.fs)return;el.dataset.fs=1;el.classList.add('fsTabs');
   el.querySelectorAll('button').forEach(b=>{const v=b.dataset.v||b.dataset.t,f=c[1][v];if(!f)return;
     const txt=b.textContent.trim().replace(/^[^\wÁÉÍÓÚÑáéíóúñ]+/,'');b.style.setProperty('background-image',`url("${f[0]}")`,'important');b.style.setProperty('--fsc',f[1]);b.innerHTML=`<span>${txt}${v==='semana'?' ›':''}</span>`;});}
 function fsCred(t){const sec=document.querySelector('section.on')||$('t-'+t);if(!sec)return;   // Fauna/Vegetación/Árboles comparten pantalla con Recolección
-  let d=sec.querySelector('.fsCred');const L=FS_CRED[t];if(!L){if(d)d.remove();return;}
+  let d=sec.querySelector('.fsCred');const L=fsCredL(t);if(!L){if(d)d.remove();return;}
   if(!d){d=document.createElement('div');d.className='fsCred';sec.appendChild(d);}
   d.innerHTML='📷 Fotos: '+L.map(([q,a,l,u])=>u?`${q}, <a href="${u}" target="_blank" rel="noopener">${a}</a> (${l})`:`${q}, ${a} (${l})`).join(' · ')+'.';
   d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
-function fsCab(t){const el=$('pvSec');if(!el)return;const f=FS_CAB[t];
+function fsCab(t){const el=$('pvSec');if(!el)return;const f=fsFoto(t);
   if(f){el.classList.add('fsFoto');el.style.backgroundImage=`url("${f}")`;
     try{if(PVSraf){cancelAnimationFrame(PVSraf);PVSraf=0;}}catch(e){}}   // sin animación debajo de la foto: ahorra batería
   else{el.classList.remove('fsFoto');el.style.backgroundImage='';}}
 function fsAplica(t){try{fsCab(t);fsTabs(t);fsCred(t);}catch(e){console.log(e);}}
 const _st=showTab;showTab=function(t){_st.apply(this,arguments);fsAplica(t);};
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&typeof BNTAB!=='undefined'&&FS_CAB[BNTAB])setTimeout(()=>fsCab(BNTAB),50);});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&typeof BNTAB!=='undefined'&&fsFoto(BNTAB))setTimeout(()=>fsCab(BNTAB),50);});
 try{Object.assign(window.BNA_DATOS||{},{fotos:'fotos de las secciones: Wikimedia Commons (licencias CC BY-SA, autores en cada sección)'});}catch(e){}
 })();
