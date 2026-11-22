@@ -105,7 +105,9 @@ FS_CAB.empleo='foto-empleo-gruas.webp';FS_CRED.empleo=[['Cabecera: grúas de obr
 FS_CAB.vivienda='foto-vivienda-eos.webp';(FS_CRED.vivienda=FS_CRED.vivienda||[[]])[0]=['Cabecera: obras de viviendas junto a El Sadar, Pamplona','Pedro Iglesias Goñi','foto propia',''];
 FS_CAB.energia='foto-energia-miren.webp';FS_CRED.energia=[['Cabecera: molinos al atardecer','Miren I.G.','foto propia','']];
 FS_CAB.monte='foto-monte-aralar.webp';FS_CRED.monte=[['Cabecera: Santuario de San Miguel de Aralar','Pedro Iglesias Goñi','foto propia','']];
-FS_CAB.peques='foto-peques-sua.webp';(FS_CRED.peques=FS_CRED.peques||[[]])[0]=['Cabecera: Sua disfrazada de flor','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
+// 22 nov. 2026 (Pedro): nuevas cabeceras para «Para los peques» (parque infantil de Aranzadi) y «Cartelera de cine» (cines Saide Carlos III)
+FS_CAB.peques='foto-peques-aranzadi.webp';(FS_CRED.peques=FS_CRED.peques||[[]])[0]=['Cabecera: parque infantil de Aranzadi, Pamplona','JLVwiki','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Parque_de_Aranzadi,_Pamplona_3.jpg'];
+FS_CAB.cines='foto-cines-cabecera.webp';FS_CRED.cines=[['Cabecera: cines Saide Carlos III, Pamplona','Zarateman','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Pamplona_-_Cines.JPG']];
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 window.fsFoto=fsFoto;   /* 22 nov. 2026: la usa menu-fotos.js para las miniaturas del menú */
