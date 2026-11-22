@@ -1,5 +1,5 @@
 {
- "version": 454,
+ "version": 455,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -49,6 +49,7 @@
   "foto-comer-pedro.webp": "77a2345bec6eb39915a2e9c42ad71944afcea2f4",
   "foto-cruci-ciudadela.webp": "9872a762a0b9023fe69cc87758349fc36be08d33",
   "foto-cultura-cabecera.webp": "b70e6e5d733fb8cfa65f4b6b64c8d311da6ab190",
+  "foto-curiosas-sonia.webp": "da24bb323f8b1e809be0a4be90260dd3da395dc0",
   "foto-deporte-cabecera.webp": "0968dd76e56f96d4b3893272f11b69fe62b74dd3",
   "foto-dormir-cabecera.webp": "ecb586f9ff94f3a11534942b8b88ce6b42104782",
   "foto-emb-sonia.webp": "37ca52ca8400801ecad8fca2f415985d51f48863",
@@ -123,11 +124,11 @@
   "foto-tiempo-miren.webp": "848edf05c54bcab9d11fd298d5f5e45593af716e",
   "foto-vias3-miren.webp": "dd4f87eb9ac43dec82826c1ca23d14ec2d73724b",
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
-  "fotos-secciones.js": "3ea4df2afdc7a42430585207110b3c5e11e9b5a6",
+  "fotos-secciones.js": "fdb48b22cf097367c8c07ee809a5a7db238f8a72",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "73db1eaa46792004b2d4679127c8eb4f49ec89bf",
+  "index.html": "059b5a1fc065e15400b6c18a076d27f9cf7014d7",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
