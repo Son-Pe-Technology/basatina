@@ -91,7 +91,8 @@ FS_CAB.jcruci='foto-cruci-ciudadela.webp';FS_CRED.jcruci=[['Cabecera: fosos de l
 FS_CAB.cerca='foto-cerca-lesaka.webp';FS_CRED.cerca=[['Cabecera: calle con el regato, Lesaka','Pixabay','licencia de Pixabay, uso libre','https://pixabay.com']];
 FS_CAB.caudal='foto-caudal-cascada.webp';FS_CRED.caudal=[['Cabecera: cascada en el río','Pedro Iglesias Goñi','foto propia','']];
 FS_CAB.emb='foto-emb-sonia.webp';FS_CRED.emb=[['Cabecera: embalse al atardecer','Sonia U.P.','foto propia','']];
-FS_CAB.prev='foto-prev-valle.webp';FS_CRED.prev=[['Cabecera: valle entre montes','Pedro Iglesias Goñi','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.prev='foto-prev-valle.webp';FS_CRED.prev=[['Cabecera: valle entre montes','Pedro Iglesias Goñi','foto propia','']];
+FS_CAB.incid='foto-incid-burguete.webp';FS_CRED.incid=[['Cabecera: coche antiguo en Burguete/Auritz (matrícula difuminada)','Pedro Iglesias Goñi','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
