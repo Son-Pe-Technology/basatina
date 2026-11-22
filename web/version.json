@@ -1,5 +1,5 @@
 {
- "version": 451,
+ "version": 452,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -119,12 +119,13 @@
   "foto-temporada-cabecera.webp": "0f576425d35b1d0f4ab17b08ecb99d8ada9b7736",
   "foto-temporada-miren.webp": "e1a84a10cc0b18b171ad8b7c9df3876261a8576b",
   "foto-tiempo-miren.webp": "848edf05c54bcab9d11fd298d5f5e45593af716e",
+  "foto-vias3-miren.webp": "dd4f87eb9ac43dec82826c1ca23d14ec2d73724b",
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
-  "fotos-secciones.js": "52bf056b2314a74cb2365423d1f4d4426cadc755",
+  "fotos-secciones.js": "17be903e0985cdb5db7c29290f7a87dd31376b2b",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "dc0a27cea25a7b2b8ea74d80dd2f32c3ea725696",
+  "index.html": "b17ca5fffca2caf7f768b50697d7026681875968",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
