@@ -1,5 +1,5 @@
 {
- "version": 464,
+ "version": 465,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -134,7 +134,7 @@
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "2683f11834866082ab180eb8e30c8219ac793a5f",
+  "index.html": "d129135c3f6a0b69634e9a1b6d16dc9122958793",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
@@ -149,7 +149,7 @@
   "mascotas.js": "6ab382c2006ac3031e900c04c16f070ef40b7317",
   "mejoras.js": "eadb96ea7d9ababe94670c079618ae02394029a2",
   "menu-emojis.js": "3535bfce76b776301a10afa2cca49d3bc90f95c3",
-  "menu-fotos.js": "32974d1e750e425c8fa8ac8b4d6206cc58e020a6",
+  "menu-fotos.js": "6d931a4141072588c645e36afd7244881e7227b2",
   "monte.js": "2b741add1b44de67b14e1270508956974812b15f",
   "naturaleza-catalogo.js": "d0b255c1220641a4c60ca0430c7ac66c43e87b12",
   "novedades.js": "b954d4910d47d7451bf6d733484100744e1f9edb",
