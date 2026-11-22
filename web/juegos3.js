@@ -2,8 +2,8 @@
    🎮 JUEGOS DE PALABRAS Y NÚMEROS (21 nov. 2026) — se carga después de deporte-rural.js
    Tres juegos nuevos en el grupo «Juegos» (data-k «NA Juega»). Todo sin internet; récords en el móvil.
    - 🔤 Sopa de letras (`jsopa`): palabras de Navarra por temas (SO_TEMAS). Se arrastra el dedo de la
-     primera letra a la última (o se toca la primera y luego la última). Niveles: fácil (10×10, → ↓),
-     normal (12×12, + diagonal), difícil (14×14, en las 8 direcciones, también al revés).
+     primera letra a la última (o se toca la primera y luego la última). Desde el 22 nov. 2026: en todos los niveles
+     las palabras van cruzadas, en diagonal y al revés; los huecos se rellenan con trozos de otros nombres.
      Para añadir palabras: escríbelas en SO_TEMAS (en mayúsculas, sin tildes ni espacios; la Ñ vale).
    - 🔢 Sudoku (`jsudoku`): se genera cada partida con solución única. Fácil / Normal / Difícil.
      Notas a lápiz (✏️), pista (💡) y los números mal puestos salen en rojo. La partida se guarda.
@@ -69,7 +69,7 @@ document.head.appendChild(st);
 
 /* =========================== 🔤 SOPA DE LETRAS =========================== */
 const SO_TEMAS={
- 'Pueblos':['OLITE','TAFALLA','ESTELLA','TUDELA','SANGUESA','LESAKA','ELIZONDO','VIANA','LODOSA','AOIZ','LUMBIER','UJUE','ALSASUA','CORELLA','CASCANTE','PERALTA','MILAGRO','LEITZA','BURLADA','BERA','ARTAJONA','CINTRUENIGO'],
+ 'Pueblos':['OLITE','TAFALLA','ESTELLA','TUDELA','SANGUESA','LESAKA','ELIZONDO','VIANA','LODOSA','AOIZ','LUMBIER','UJUE','ALSASUA','CORELLA','CASCANTE','PERALTA','MILAGRO','LEITZA','BURLADA','BERA','ARTAJONA','CINTRUENIGO','PAMPLONA','ZUBIRI','BURGUETE','ORREAGA','EUGI','ISABA','RONCAL','BURGUI','OCHAGAVIA','ESPARZA','NAVASCUES','JAVIER','YESA','LIEDENA','AIBAR','CASEDA','BEIRE','PITILLAS','VILLAVA','ANSOAIN','NOAIN','ZIZUR','HUARTE','EGUES','IRURTZUN','LEKUNBERRI','ETXARRI','GOIZUETA','ARANTZA','ETXALAR','DONEZTEBE','ERRAZU','ARIZKUN','AMAIUR','URDAX','OBANOS','UTERGA','MENDIGORRIA','LARRAGA','BERBINZANA','LERIN','SARTAGUDA','ANDOSILLA','AZAGRA','MENDAVIA','LOSARCOS','AYEGUI','FALCES','FUNES','MARCILLA','CAPARROSO','CARCASTILLO','FITERO','ABLITAS','CORTES','RIBAFORADA','ARGUEDAS','VALTIERRA','CADREITA','CASTEJON','MONTEAGUDO','CABANILLAS','MURCHANTE','BARAÑAIN','BUÑUEL','FUSTIÑANA'],
  'Ríos y montes':['ARGA','EGA','EBRO','IRATI','ARAGON','BIDASOA','ULTZAMA','ARAKIL','ALHAMA','SALAZAR','ESCA','URBASA','ANDIA','BARDENAS','HIGA','ORHI','ARALAR','LEYRE','MONCAYO','EZKABA','YESA','ITOIZ'],
  'Comida':['PIMIENTO','ESPARRAGO','ALCACHOFA','TXISTORRA','CUAJADA','RONCAL','PATXARAN','MAGRAS','AJOARRIERO','BORRAJA','MENESTRA','MIGAS','COGOLLO','ALUBIAS','TRUCHA','CORDERO','ROSQUILLA','TALO','MORCILLA','CARDO'],
  'Fiestas':['SANFERMIN','GIGANTES','KILIKIS','ENCIERRO','TXUPINAZO','OLENTZERO','RIAU','PAÑUELO','FAJA','JOTA','TXISTU','GAITA','DANTZA','CHARANGA','PEÑA','FUEGOS','ZORTZIKO','TORICO'],
@@ -79,7 +79,8 @@ const SO_NIV={facil:{n:10,w:8,d:[[0,1],[1,0]]},normal:{n:12,w:10,d:[[0,1],[1,0],
 const SO_LET='AAAAAABCDEEEEEFGHIIIIJKLLMNNÑOOOOOPQRRRSSSTTTUUUVXYZ';
 let SO=null,SOT='Pueblos',SOtm=null;
 // el nivel decide el tamaño, cuántas palabras y en qué direcciones (del 1-2 solo → y ↓; del 3-5 también en diagonal; desde el 6, en todas, también al revés)
-const SO_CFG=L=>({n:Math.min(14,8+Math.floor((L-1)/2)),w:Math.min(14,5+L),d:L<=2?SO_NIV.facil.d:L<=5?SO_NIV.normal.d:SO_NIV.dificil.d});
+// 22 nov. 2026 (Pedro): desde el nivel 1 las palabras van cruzadas, en diagonal y al revés, y hay más palabras por sopa
+const SO_CFG=L=>({n:Math.min(14,9+Math.floor((L-1)/2)),w:Math.min(18,8+L),d:SO_NIV.dificil.d});
 svs('jsopa',`<div class="j3Box sopBox" data-noswipe>
  <div class="j3Bar"><div class="j3Lv" id="sopLv"></div><span id="sopTm">0:00</span></div>
  <div class="j3Bar"><select id="sopTe" class="j3Btn" style="background:rgba(255,255,255,.18);color:#fff">${Object.keys(SO_TEMAS).map(t=>`<option style="color:#000">${t}</option>`).join('')}</select><button id="sopNew">🔄 Nueva</button></div>
@@ -87,13 +88,19 @@ svs('jsopa',`<div class="j3Box sopBox" data-noswipe>
  <div style="font-size:12.5px;opacity:.8;margin-top:8px">Desliza el dedo desde la primera letra hasta la última (o toca la primera y después la última).</div></div>`);
 
 function soNueva(){const cf=SO_CFG(NIV.sopa),n=cf.n,G=Array.from({length:n},()=>Array(n).fill(''));
-  const pool=baraja([...new Set(SO_TEMAS[SOT])].filter(w=>w.length<=n)).slice(0,cf.w+6).sort((a,b)=>b.length-a.length),W=[];
+  const pool=baraja([...new Set(SO_TEMAS[SOT])].filter(w=>w.length<=n)).slice(0,cf.w+10).sort((a,b)=>b.length-a.length),W=[];
   for(const w of pool){if(W.length>=cf.w)break;let ok=false;
-    for(let t=0;t<250&&!ok;t++){const [dr,dc]=cf.d[Math.floor(Math.random()*cf.d.length)],r=Math.floor(Math.random()*n),c=Math.floor(Math.random()*n);
+    // se prueban muchos sitios y se elige el que más letras comparte con otras palabras (para que se crucen)
+    let best=null,bx=-1;
+    for(let t=0;t<500;t++){const [dr,dc]=cf.d[Math.floor(Math.random()*cf.d.length)],r=Math.floor(Math.random()*n),c=Math.floor(Math.random()*n);
       const er=r+dr*(w.length-1),ec=c+dc*(w.length-1);if(er<0||er>=n||ec<0||ec>=n)continue;
-      let fit=true;for(let i=0;i<w.length;i++){const x=G[r+dr*i][c+dc*i];if(x&&x!==w[i]){fit=false;break;}}
-      if(!fit)continue;for(let i=0;i<w.length;i++)G[r+dr*i][c+dc*i]=w[i];W.push({w,r,c,dr,dc,ok:false});ok=true;}}
-  for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(!G[r][c])G[r][c]=SO_LET[Math.floor(Math.random()*SO_LET.length)];
+      let fit=true,cr=0;for(let i=0;i<w.length;i++){const x=G[r+dr*i][c+dc*i];if(x&&x!==w[i]){fit=false;break;}if(x)cr++;}
+      if(!fit||cr===w.length)continue;const sc=cr*3+Math.random();if(sc>bx){bx=sc;best={r,c,dr,dc};}}
+    if(best){const {r,c,dr,dc}=best;for(let i=0;i<w.length;i++)G[r+dr*i][c+dc*i]=w[i];W.push({w,r,c,dr,dc,ok:false});ok=true;}}
+  // los huecos se rellenan con trozos de otros nombres del mismo tema (así parece que hay palabras por todas partes)
+  const otros=SO_TEMAS[SOT].filter(x=>!W.some(y=>y.w===x)).join('')||SO_LET;
+  for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(!G[r][c]){const k=Math.floor(Math.random()*otros.length);let rr=r,cc=c;
+    for(let i=0;i<3;i++){if(rr<n&&cc<n&&!G[rr][cc])G[rr][cc]=otros[(k+i)%otros.length];cc++;}}
   SO={n,G,W,t0:Date.now(),fin:false,hue:0,marc:{}};soPinta();clearInterval(SOtm);SOtm=setInterval(()=>{if(SO&&!SO.fin)$('sopTm').textContent='⏱ '+mmss(Math.floor((Date.now()-SO.t0)/1000));},1000);}
 function soPinta(){const g=$('sopG');g.style.gridTemplateColumns=`repeat(${SO.n},1fr)`;
   g.innerHTML=SO.G.map((f,r)=>f.map((x,c)=>`<div data-r="${r}" data-c="${c}" style="${SO.marc[r+','+c]?`background:${SO.marc[r+','+c]};color:#fff`:''}">${x}</div>`).join('')).join('');
