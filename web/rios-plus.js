@@ -39,9 +39,9 @@ const ARGA_PT={A152:[42.972,-1.507],A159:[42.832,-1.594],A313:[42.826,-1.616],A3
 const PRIOS=[['arga','🌊','Arga'],['irati','🌲','Irati'],['ega','🍇','Ega'],['aragon','⛰️','Aragón'],['ebro','🏞️','Ebro']];
 let PR='arga',PD=1,PM=null,PST={},PGF={},PSEL=null;
 (function(){const sec=$('t-prev');if(!sec)return;
-  sec.insertAdjacentHTML('afterbegin',`<div class="card" id="prC"><b>🔮 Previsión de los ríos · próximos 3 días</b>
-   <div class="note">Cada punto es una estación de medida. Su color cambia según la previsión del día que elijas.</div>
-   <div class="seg amSeg" id="prR">${PRIOS.map(r=>`<button class="btn${r[0]===PR?' on':''}" data-r="${r[0]}">${r[1]} ${r[2]}</button>`).join('')}</div>
+  sec.insertAdjacentHTML('afterbegin',`<div class="card" id="prC">
+   <div class="note"><span>Previsión de los próximos 3 días.</span> Cada punto es una estación de medida. Su color cambia según la previsión del día que elijas.</div>
+   <div class="seg amSeg msRios" id="prR">${PRIOS.map(r=>`<button class="btn${r[0]===PR?' on':''}" data-r="${r[0]}">${r[2]}</button>`).join('')}</div>
    <div class="seg amSeg" id="prD"></div>
    <canvas id="prMap" class="amMap" style="height:360px;margin-top:6px"></canvas>
    <div class="note" style="margin-top:6px;line-height:1.7"><span class="amPill" style="background:#43a047">●</span> Normal · <span class="amPill" style="background:#f9a825">●</span> Precaución (puede llegar al aviso amarillo) · <span class="amPill" style="background:#e53935">●</span> Alerta (aviso naranja o rojo) · <span class="amPill" style="background:#9e9e9e">●</span> sin datos</div>
@@ -140,7 +140,7 @@ const HIST={
  arga2:[['Enero 2013','Etxauri: más de 1.000 m³/s','Pamplona superó los 430 m³/s, Etxauri los 1.000 m³/s (el mayor episodio desde 2003) y Funes 925 m³/s.']]};
 let HR='arga';
 (function(){const sec=$('t-hist');if(!sec)return;
-  sec.insertAdjacentHTML('afterbegin',`<div class="seg amSeg" id="hiR">${PRIOS.map(r=>`<button class="btn${r[0]==='arga'?' on':''}" data-r="${r[0]}">${r[1]} ${r[2]}</button>`).join('')}</div><div id="hiO" style="display:none"></div>`);
+  sec.insertAdjacentHTML('afterbegin',`<div class="seg amSeg msRios" id="hiR">${PRIOS.map(r=>`<button class="btn${r[0]==='arga'?' on':''}" data-r="${r[0]}">${r[2]}</button>`).join('')}</div><div id="hiO" style="display:none"></div>`);
   // tarjeta nueva del Arga (enero 2013), detrás de la de 2024
   const cs=[...sec.querySelectorAll('.card.hist')];if(cs.length)cs[cs.length-1].insertAdjacentHTML('afterend',HIST.arga2.map(h=>`<div class="card hist"><h3>${h[0]} · ${h[1]}</h3><div class="note">${h[2]}</div></div>`).join(''));
   sec.querySelectorAll('#hiR button').forEach(b=>b.onclick=()=>{HR=b.dataset.r;sec.querySelectorAll('#hiR button').forEach(x=>x.classList.toggle('on',x===b));

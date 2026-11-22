@@ -81,7 +81,7 @@ async function cuOcultar(u){if(!confirm('¿Ocultar esta noticia para todos?'))re
 if($('cuPalB'))$('cuPalB').onclick=async()=>{const w=$('cuPal').value.trim().toLowerCase();if(!w)return;
   try{CUOC=await jsEdit(CU_OC,CU_OCDEF,d=>{d.prohibidas=d.prohibidas||[];if(!d.prohibidas.includes(w))d.prohibidas.push(w);},'Palabra prohibida en noticias curiosas');
     $('cuPal').value='';toast('✅ Guardada. El robot la aplica en unos minutos');cuRender();}catch(e){toast('No se pudo guardar: '+e.message);}};
-hook('curiosas',()=>cuRender(true));
+hook('curiosas',()=>cuRender(true));window.cuRender=cuRender;   // 22 nov. 2026: lo usa mejoras-sonia.js (Curiosas dentro de «Noticias»)
 
 /* ---------- tarjeta del Inicio ---------- */
 (function(){const ref=$('rfCard')||$('pdCard')||$('efHome')||$('seHome');if(!ref||$('cuCard'))return;

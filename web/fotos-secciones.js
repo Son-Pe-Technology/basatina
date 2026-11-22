@@ -111,7 +111,7 @@ const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
 function fsTabs(t){const c=FS_TABS[t];if(!c)return;const el=$(c[0]);if(!el||el.dataset.fs)return;el.dataset.fs=1;el.classList.add('fsTabs');
   el.querySelectorAll('button').forEach(b=>{const v=b.dataset.v||b.dataset.t,f=c[1][v];if(!f)return;
-    const txt=b.textContent.trim().replace(/^[^\wÁÉÍÓÚÑáéíóúñ]+/,'');b.style.setProperty('background-image',`url("${f[0]}")`,'important');b.style.setProperty('--fsc',f[1]);b.innerHTML=`<span>${txt}${v==='semana'?' ›':''}</span>`;});}
+    const txt=b.textContent.trim().replace(/^[^\wÁÉÍÓÚÑáéíóúñ]+/,'');b.style.setProperty('background-image',`url("${f[0]}")`,'important');b.style.setProperty('--fsc',f[1]);b.innerHTML=`<span>${txt}</span>`;/* 22 nov. 2026: «Mercadillos» ya es una pestaña más (sin ›) */});}
 function fsCred(t){const sec=document.querySelector('section.on')||$('t-'+t);if(!sec)return;   // Fauna/Vegetación/Árboles comparten pantalla con Recolección
   let d=sec.querySelector('.fsCred');const L=fsCredL(t);if(!L){if(d)d.remove();return;}
   if(!d){d=document.createElement('div');d.className='fsCred';sec.appendChild(d);}

@@ -9,7 +9,7 @@
 const $=id=>document.getElementById(id);
 const MF_FOTO={'inicio':'foto-inicio-acc-cerca.webp','cerca':'foto-cerca-lesaka.webp','el tiempo':'foto-esc-tiempo.webp','ríos':'foto-esc-agua.webp',
  'vida silvestre':'foto-biodiv-pedro.webp','carreteras':'foto-incid-burguete.webp','localidades':'foto-pueblos-pedro.webp','servicios':'foto-farmacia-botica.webp',
- 'salud':'foto-centros-hospital.webp','sostenibilidad':'foto-energia-miren.webp','terremotos':'foto-sismo-foz.webp','qué hacer':'foto-monte-aralar.webp',
+ 'salud':'foto-centros-hospital.webp','sostenibilidad':'foto-energia-miren.webp','actividad sísmica':'foto-sismo-foz.webp','terremotos':'foto-sismo-foz.webp','qué hacer':'foto-monte-aralar.webp',
  'juegos':'foto-cadenas-escudo.webp','mi espacio':'foto-astro-cabecera.webp','cuadrilla':'foto-prev-valle.webp','configuración':'foto-clima-miren.webp'};
 const est=()=>{const m=new Date().getMonth()+1;return m>=3&&m<=5?'primavera':m>=6&&m<=8?'verano':m>=9&&m<=11?'otono':'invierno';};
 const st=document.createElement('style');st.textContent=`
