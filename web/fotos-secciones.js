@@ -63,7 +63,8 @@ const FS_ESC_CRED=(()=>{const P='Pedro Iglesias Goñi',F='foto propia';return{
  carretera:[['Cabecera: Puente de Hierro, Sangüesa','Zarateman','CC0','https://commons.wikimedia.org/wiki/File:Sanguesa_-_Puente_de_Hierro_1.jpg']],
  energia:[['Cabecera: aerogeneradores en el Alto del Perdón','Ricardo Fernández','CC BY 2.0','https://commons.wikimedia.org/wiki/File:Alto_del_Perd%C3%B3n-richardfdez-02.jpg']]};})();
 FS_CAB.tiempo='foto-tiempo-miren.webp';FS_CRED.tiempo=[['Cabecera: gotas de lluvia en el cristal','Miren I.G.','foto propia','']];
-FS_CAB.clima='foto-clima-miren.webp';FS_CRED.clima=[['Cabecera: puesta de sol','Miren I.G.','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.clima='foto-clima-miren.webp';FS_CRED.clima=[['Cabecera: puesta de sol','Miren I.G.','foto propia','']];
+FS_CAB.nieve='foto-nieve-pedro.webp';FS_CRED.nieve=[['Cabecera: nevada en el parque','Pedro Iglesias Goñi','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
