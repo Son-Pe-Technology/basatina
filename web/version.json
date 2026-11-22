@@ -1,5 +1,5 @@
 {
- "version": 460,
+ "version": 461,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -104,6 +104,7 @@
   "foto-patrimonio-roncesvalles.webp": "d812c9ce098671f0a7a2e29ceedc397df85454d3",
   "foto-pedalea-cabecera.webp": "17d62f5ca417691372efef21ec8602c81cb0d047",
   "foto-peques-cabecera.webp": "c54ca854fdc2c8bcbabb3ab8433a416c2704a2d3",
+  "foto-peques-sua.webp": "73f72a82014e5076f77c8f9518d8b4b37fca1027",
   "foto-peques-tab-agenda.webp": "4b80bd73355e53f2e4512f2ef00d18bb34849c17",
   "foto-peques-tab-juegos.webp": "3c68bea1932f4d3f3f5b3282918c000c52f4d6d6",
   "foto-peques-tab-rutas.webp": "f15420a77000dd79aa650fef369d44db71916d88",
@@ -129,11 +130,11 @@
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
   "foto-vivienda-eos.webp": "685183a6ee54d3cec6ba8baff9f5367621e90fdc",
   "foto-volunt-haya.webp": "d6585f9d64ca1f869133265d31d51a96a8d81c45",
-  "fotos-secciones.js": "37e40bcaf20c9c1af58171abd4d68f03538f829e",
+  "fotos-secciones.js": "f3af13c08e660aec80ff2b4ca7fb72f16ae5a285",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "604f564b12fd8e6f18de468707a0cc0c63449e81",
+  "index.html": "2fd8481f699a3e397404b6cdbfe976c4a48ab7c8",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
