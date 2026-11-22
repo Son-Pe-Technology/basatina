@@ -5,7 +5,7 @@ UA = {'User-Agent': 'BasatiNA/1.0 (https://basatina.es; participa@basatina.es)'}
 API = 'https://commons.wikimedia.org/w/api.php'
 OK = re.compile(r'^(CC0|Public domain|PD|CC BY(-SA)? \d)', re.I)
 BUSCA = {
- 'ca_cam': ['Autovía de Leizarán', 'A-15 Navarra autovía', 'Autovía del Camino Navarra', 'carretera Navarra noche', 'Autopista AP-15 Navarra', 'Túneles de Belate'],
+ 'me_merc': ['Mercado de Santo Domingo Pamplona', 'mercadillo Estella', 'Mercado del Ensanche Pamplona', 'mercado Navarra puestos', 'mercadillo Navarra', 'Tudela mercado'],
 }
 def get(params):
     u = API + '?' + urllib.parse.urlencode(dict(params, format='json'))
