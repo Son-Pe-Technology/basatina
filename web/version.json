@@ -1,5 +1,5 @@
 {
- "version": 447,
+ "version": 448,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -101,6 +101,7 @@
   "foto-peques-tab-rutas.webp": "f15420a77000dd79aa650fef369d44db71916d88",
   "foto-peques-tab-sitios.webp": "31c32f79fb4a1f5ee8502fee9b81c19d4b7bb97d",
   "foto-picnic-cabecera.webp": "440632bd3bd8b9a9bfd59f05f7e31688ba80d84f",
+  "foto-prev-valle.webp": "9ccf6e2c0c59a6df420dd5c40558437c170cdc42",
   "foto-pueblos-cabecera.webp": "5e69e6d38c528b3c4c44e53463aea0320eb2fc6c",
   "foto-pueblos-pedro.webp": "2d96c126aaa087e3dcac69fe649dd27fdb72b7fa",
   "foto-pueblos-tab-c.webp": "4524983f0775ca64eb9e4ad73b3308310d3c51a8",
@@ -116,11 +117,11 @@
   "foto-temporada-miren.webp": "e1a84a10cc0b18b171ad8b7c9df3876261a8576b",
   "foto-tiempo-miren.webp": "848edf05c54bcab9d11fd298d5f5e45593af716e",
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
-  "fotos-secciones.js": "366e38140adb9df97c00bf59988f51b4cdede9c9",
+  "fotos-secciones.js": "5502fabf4ae4a5486a32ffcc33085330e9d3565f",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "5f6f3dd32f9abe4d6eb313086af3c97eea389891",
+  "index.html": "272b06851906dfb587295244696b5293d11d11d0",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
