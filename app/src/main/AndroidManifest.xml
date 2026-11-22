@@ -44,7 +44,7 @@
             <intent-filter><action android:name="com.google.firebase.MESSAGING_EVENT" /></intent-filter>
         </service>
         <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_stat_river" />
-        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="push_avisos" />
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="push_avisos_2" />
         <!-- sin estadísticas ni identificador de publicidad -->
         <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true" />
         <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false" />

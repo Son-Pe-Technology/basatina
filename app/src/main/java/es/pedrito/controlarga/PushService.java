@@ -64,16 +64,8 @@ public class PushService extends FirebaseMessagingService {
 
     static void mostrar(Context c, String tema, String titulo, String texto, String tab) {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-        String ch = "desaparecidos".equals(tema) ? "push_desaparecidos" : "push_avisos";
-        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(ch) == null) {
-            NotificationChannel nc = "push_desaparecidos".equals(ch)
-                    ? new NotificationChannel(ch, "Personas desaparecidas", NotificationManager.IMPORTANCE_HIGH)
-                    : new NotificationChannel(ch, "Avisos de BasatiNA", NotificationManager.IMPORTANCE_DEFAULT);
-            nc.setDescription("push_desaparecidos".equals(ch)
-                    ? "Alertas de personas desaparecidas en Navarra, en cuanto salen"
-                    : "Avisos importantes de BasatiNA");
-            nm.createNotificationChannel(nc);
-        }
+        String ch = "desaparecidos".equals(tema) ? "push_desaparecidos_2" : "push_avisos_2";
+        RiverJob.canales(c);   // canales con sonido de BasatiNA (22 nov. 2026)
         Intent i = new Intent(c, MainActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         if (tab != null && !tab.isEmpty()) i.putExtra("pushTab", tab);
