@@ -420,8 +420,12 @@ public class RiverJob extends JobService {
        No repite mientras siga lloviendo en la zona, salvo que la lluvia sea más fuerte. Respeta las horas de silencio.
        cfg.lluvia = {on, prob, r, sil:[desde,hasta] o null, pos:[lat,lon,nombre]} */
     static final String CH_LLUVIA = "aviso_lluvia";              // canal antiguo sin sonido propio (se borra en la 5.1)
-    static final String CH_LLUVIA_S = "aviso_lluvia_sonido", CH_TORMENTA = "aviso_tormenta_sonido", CH_VIENTO = "aviso_viento_sonido";
-    static final String CH_HELADA = "aviso_helada_sonido", CH_CALOR = "aviso_calor_sonido", CH_NIEBLA = "aviso_niebla_sonido";
+    // 22 nov. 2026 (5.4): sonidos más cortos y más bajos. Android guarda el sonido en el canal y no deja cambiarlo,
+    // así que van en canales nuevos («_2») y los de antes se borran (CH_VIEJOS).
+    static final String CH_LLUVIA_S = "aviso_lluvia_sonido_2", CH_TORMENTA = "aviso_tormenta_sonido_2", CH_VIENTO = "aviso_viento_sonido_2";
+    static final String CH_HELADA = "aviso_helada_sonido_2", CH_CALOR = "aviso_calor_sonido_2", CH_NIEBLA = "aviso_niebla_sonido_2";
+    static final String[] CH_VIEJOS = {"aviso_lluvia", "aviso_lluvia_sonido", "aviso_tormenta_sonido", "aviso_viento_sonido",
+            "aviso_helada_sonido", "aviso_calor_sonido", "aviso_niebla_sonido"};
 
     /* ---------- 🥶 Helada · 🥵 Calor y UV · 🌫️ Niebla (APK 5.2 / código 32, 20 nov. 2026) ----------
        cfg.tiempo = {pos:[lat,lon,nombre], helada:{on,t (°C),h}, calor:{on,t (°C),uv (bool),h}, niebla:{on,m (metros),h}}.
@@ -565,7 +569,7 @@ public class RiverJob extends JobService {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
         android.net.Uri snd = android.net.Uri.parse("android.resource://" + c.getPackageName() + "/" + raw);
         if (Build.VERSION.SDK_INT >= 26) {
-            try { if (nm.getNotificationChannel(CH_LLUVIA) != null) nm.deleteNotificationChannel(CH_LLUVIA); } catch (Exception ignored) {}
+            for (String v : CH_VIEJOS) try { if (nm.getNotificationChannel(v) != null) nm.deleteNotificationChannel(v); } catch (Exception ignored) {}
             if (nm.getNotificationChannel(ch) == null) {
                 NotificationChannel nc = new NotificationChannel(ch, chName, NotificationManager.IMPORTANCE_HIGH);
                 nc.setDescription(chDesc);
