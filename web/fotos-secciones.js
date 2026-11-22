@@ -99,7 +99,8 @@ FS_CAB.vias3='foto-vias3-miren.webp';FS_CRED.vias3=[['Cabecera: cielo de torment
 FS_CAB.mercados='foto-mercados-sdomingo.webp';FS_CRED.mercados=[['Cabecera: Mercado de Santo Domingo, Pamplona','Millars','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Market_of_Santo_Domingo,_Pamplona_02.jpg']];
 FS_CAB.mascotas='foto-mascotas-chou.webp';(FS_CRED.mascotas=FS_CRED.mascotas||[[]])[0]=['Cabecera: Chou','Sonia U.P.','foto propia',''];
 FS_CAB.curiosas='foto-curiosas-sonia.webp';FS_CRED.curiosas=[['Cabecera: perro curioso','Sonia U.P.','foto propia','']];
-FS_CAB.voluntariado='foto-volunt-haya.webp';FS_CRED.voluntariado=[['Cabecera: haya recién plantada','Pedro Iglesias Goñi','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.voluntariado='foto-volunt-haya.webp';FS_CRED.voluntariado=[['Cabecera: haya recién plantada','Pedro Iglesias Goñi','foto propia','']];
+FS_CAB.empleo='foto-empleo-gruas.webp';FS_CRED.empleo=[['Cabecera: grúas de obra junto a El Sadar, Pamplona','Pedro Iglesias Goñi','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
