@@ -5,7 +5,7 @@ UA = {'User-Agent': 'BasatiNA/1.0 (https://basatina.es; participa@basatina.es)'}
 API = 'https://commons.wikimedia.org/w/api.php'
 OK = re.compile(r'^(CC0|Public domain|PD|CC BY(-SA)? \d)', re.I)
 BUSCA = {
- 'lb_dentro':   ['Labrit interior', 'Frontón Labrit cancha', 'Labrit pelota partido', 'Labrit frontoia barrutik', 'Frontón Labrit gradas', 'pelota mano Labrit'],
+ 'en_eolico':   ['parque eólico Navarra', 'Sierra del Perdón aerogeneradores', 'aerogeneradores Navarra', 'Alaiz parque eólico', 'wind farm Navarre'],
 }
 def get(params):
     u = API + '?' + urllib.parse.urlencode(dict(params, format='json'))
