@@ -95,7 +95,8 @@ FS_CAB.prev='foto-prev-valle.webp';FS_CRED.prev=[['Cabecera: valle entre montes'
 FS_CAB.incid='foto-incid-burguete.webp';FS_CRED.incid=[['Cabecera: coche antiguo en Burguete/Auritz (matrícula difuminada)','Pedro Iglesias Goñi','foto propia','']];
 FS_CAB.puertos='foto-puertos-miren.webp';FS_CRED.puertos=[['Cabecera: carretera bajo un cielo aborregado','Miren I.G.','foto propia','']];
 FS_CAB.camaras='foto-camaras-ap15.webp';FS_CRED.camaras=[['Cabecera: autopista AP-15 en Marcilla','Zarateman','CC0','https://commons.wikimedia.org/wiki/File:Marcilla_-_AP-15_(1).jpg']];
-FS_CAB.vias3='foto-vias3-miren.webp';FS_CRED.vias3=[['Cabecera: cielo de tormenta (mammatus)','Miren I.G.','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.vias3='foto-vias3-miren.webp';FS_CRED.vias3=[['Cabecera: cielo de tormenta (mammatus)','Miren I.G.','foto propia','']];
+FS_CAB.mercados='foto-mercados-sdomingo.webp';FS_CRED.mercados=[['Cabecera: Mercado de Santo Domingo, Pamplona','Millars','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Market_of_Santo_Domingo,_Pamplona_02.jpg']];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
