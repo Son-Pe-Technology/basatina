@@ -1,5 +1,5 @@
 {
- "version": 444,
+ "version": 445,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -35,6 +35,7 @@
   "foto-biodiv-pedro.webp": "21922dda37a92fad8e5feaf9d95640aa8d53c95e",
   "foto-biodiversidad-cabecera.webp": "132f42463efcc30921ef633424724c12bf7784a7",
   "foto-cadenas-escudo.webp": "036b36119b98aad89d14095bb8b5b50eba7f5e39",
+  "foto-caudal-cascada.webp": "8d4a10e5f23ad951b5c119d5fa669a06df1d8ffb",
   "foto-centros-hospital.webp": "5fb91986e1c14be01e78e25553fff574e4a7f18b",
   "foto-cerca-lesaka.webp": "138d4dcadc71e82f5143d10938eb2a780fdb8e06",
   "foto-clima-miren.webp": "2a34dd350e5bd5ececfc3f90b3c9414f4ffc0dd8",
@@ -114,11 +115,11 @@
   "foto-temporada-miren.webp": "e1a84a10cc0b18b171ad8b7c9df3876261a8576b",
   "foto-tiempo-miren.webp": "848edf05c54bcab9d11fd298d5f5e45593af716e",
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
-  "fotos-secciones.js": "88838de3816f5cc54d09bba723e0c1bd68426ce1",
+  "fotos-secciones.js": "cbc4e26e89c4e3ba3a4748c80ee8a33cbca55292",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "3e0d71fc99c9f0abb00f608cc36b94b2c158f3cc",
+  "index.html": "ef50b7f4ee1944e96bd827299f3074ba06f059f4",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
