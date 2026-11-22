@@ -73,7 +73,8 @@ FS_CAB.clima='foto-clima-miren.webp';FS_CRED.clima=[['Cabecera: puesta de sol','
 FS_CAB.nieve='foto-nieve-pedro.webp';FS_CRED.nieve=[['Cabecera: nevada en el parque','Pedro Iglesias Goñi','foto propia','']];
 FS_CAB.biodiversidad='foto-biodiv-pedro.webp';FS_CRED.biodiversidad=[['Cabecera: caballos en el bosque','Pedro Iglesias Goñi','foto propia','']];
 FS_CAB.ident='foto-ident-pedro.webp';FS_CRED.ident=[['Cabecera: hojas de haya','Pedro Iglesias Goñi','foto propia','']];
-FS_CAB.pueblos='foto-pueblos-pedro.webp';FS_CRED.pueblos[0]=['Cabecera: pueblo entre montes','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.pueblos='foto-pueblos-pedro.webp';FS_CRED.pueblos[0]=['Cabecera: pueblo entre montes','Pedro Iglesias Goñi','foto propia',''];
+FS_CAB.comer='foto-comer-pedro.webp';(FS_CRED.comer=FS_CRED.comer||[[]])[0]=['Cabecera: plato con humo de hielo seco','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
