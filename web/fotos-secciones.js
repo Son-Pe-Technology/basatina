@@ -76,7 +76,8 @@ FS_CAB.ident='foto-ident-pedro.webp';FS_CRED.ident=[['Cabecera: hojas de haya','
 FS_CAB.pueblos='foto-pueblos-pedro.webp';FS_CRED.pueblos[0]=['Cabecera: pueblo entre montes','Pedro Iglesias Goñi','foto propia',''];
 FS_CAB.comer='foto-comer-pedro.webp';(FS_CRED.comer=FS_CRED.comer||[[]])[0]=['Cabecera: plato con humo de hielo seco','Pedro Iglesias Goñi','foto propia',''];
 FS_CAB.cocina='foto-cocina-miren.webp';(FS_CRED.cocina=FS_CRED.cocina||[[]])[0]=['Cabecera: campo de trigo','Miren I.G.','foto propia',''];
-try{FS_CRED.cocina[1]=['Recetas: garbanzos con chorizo','Embutidos Arrieta','foto cedida',''];FS_CRED.cocina[2]=['Productos típicos: chistorra, morcilla y panceta','Embutidos Arrieta','foto cedida',''];}catch(e){}  // 22 nov.: foto de Miren, hermana de Pedro
+try{FS_CRED.cocina[1]=['Recetas: garbanzos con chorizo','Embutidos Arrieta','foto cedida',''];FS_CRED.cocina[2]=['Productos típicos: chistorra, morcilla y panceta','Embutidos Arrieta','foto cedida',''];}catch(e){}
+FS_CAB.patrimonio='foto-patrimonio-roncesvalles.webp';(FS_CRED.patrimonio=FS_CRED.patrimonio||[[]])[0]=['Cabecera: Real Colegiata de Roncesvalles, Nuestra Señora de Roncesvalles','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
