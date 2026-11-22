@@ -1,5 +1,5 @@
 {
- "version": 434,
+ "version": 435,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -76,6 +76,7 @@
   "foto-inicio-rio-irati.webp": "8330125dc0e0a5a8ddec2c1a52ee90b497f00d09",
   "foto-inicio-verano.webp": "5be4ba61b6d5cf4fc5946e60e742c892b5d4dd99",
   "foto-mascotas-cabecera.webp": "2e07dd85cce18489f641af3e3aec8047d2513c8b",
+  "foto-medic-lavanda.webp": "6cc55d4940b98fac19f7cc41f3f0a9d4109350ea",
   "foto-monte-cabecera.webp": "2cccf59d186089ec130d6b4455c9571c03e45f92",
   "foto-moto-cabecera.webp": "156d3c2a24ba648bd3bbcd400f20cbe1097a3f6b",
   "foto-natarb-cabecera.webp": "4c336398d5fa5f25858db2c00b3bb3b7955c5b47",
@@ -105,11 +106,11 @@
   "foto-temporada-miren.webp": "e1a84a10cc0b18b171ad8b7c9df3876261a8576b",
   "foto-tiempo-miren.webp": "848edf05c54bcab9d11fd298d5f5e45593af716e",
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
-  "fotos-secciones.js": "6c6afb3fd4fc56302bc3eea06e080d99011008ed",
+  "fotos-secciones.js": "55ba705c82d1e3c3974ec4424f00e4175df146b6",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "54b36fb9c4b796f338fba4973e4ccec80d65392d",
+  "index.html": "b9d20c94adf4b645181edd27219e084333ad6eda",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
