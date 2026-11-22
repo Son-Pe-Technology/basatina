@@ -1,14 +1,7 @@
 {
-"t": "2026-11-22T07:33Z",
-"turno": "2026-11-22-m",
+"t": "2026-11-22T13:19Z",
+"turno": "2026-11-22-t",
 "dest": [
-{
-"k": "2026-11-18-t",
-"t": "Llega el frío pero hay un truco viral que dispara el calor de tus radiadores y reduce tu factura",
-"u": "https://www.diariodenavarra.es/noticias/vivir/consumo/2026/11/18/llega-frio-hay-truco-viral-dispara-calor-tus-radiadores-reduce-factura-842879-121.html",
-"f": "Diario de Navarra",
-"d": "2026-11-18T10:02Z"
-},
 {
 "k": "2026-11-18-n",
 "t": "Llega 'GTA VI', el juego más esperado de la década y que bate todos los récords",
@@ -85,15 +78,36 @@
 "u": "https://www.eldiario.es/spin/curiosa-grulla-plumas-doradas-puntiagudas-cabeza-aparece-bandera-pais-africano-pm_1_13682297.html",
 "f": "elDiario.es",
 "d": "2026-11-22T07:00Z"
+},
+{
+"k": "2026-11-22-t",
+"t": "La coruñesa Paula Iglesias realiza los 132 'ollies' de su récord Guinness",
+"u": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQeHc5STlRMmVvdTVxY3A4TnlPOVFtQTlJT2xCRC1GTEktWENxYXFNdEx3aVJEeVBKYWhrUHRJNWVrS2dIZnhOZG9Eb1lacnpaSTV2NzNNUlVoUVR3aDJSMC12ZUFOby04aTg4cHlVaDNvbjhhcDRqb0U0cVE2b1RXc1BqNEx1cnROcEliVV9pZTdFalRrWWl0eW1TLVAxS0JDd09JbU02eTl5MzhNeERCaTUyZVhzTUpsUm02eW5DSXpCN0l0c1p6OUplQnpUX212YXpN?oc=5",
+"f": "La Opinión A Coruña",
+"d": "2026-11-22T12:52Z"
 }
 ],
 "items": [
+{
+"t": "La coruñesa Paula Iglesias realiza los 132 'ollies' de su récord Guinness",
+"u": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQeHc5STlRMmVvdTVxY3A4TnlPOVFtQTlJT2xCRC1GTEktWENxYXFNdEx3aVJEeVBKYWhrUHRJNWVrS2dIZnhOZG9Eb1lacnpaSTV2NzNNUlVoUVR3aDJSMC12ZUFOby04aTg4cHlVaDNvbjhhcDRqb0U0cVE2b1RXc1BqNEx1cnROcEliVV9pZTdFalRrWWl0eW1TLVAxS0JDd09JbU02eTl5MzhNeERCaTUyZVhzTUpsUm02eW5DSXpCN0l0c1p6OUplQnpUX212YXpN?oc=5",
+"f": "La Opinión A Coruña",
+"d": "2026-11-22T12:52Z",
+"p": 6
+},
+{
+"t": "A Coruña entra en el Libro Guinness de los récords con un 'pequeño' gesto: 'Lo conseguí a la segunda. No me lo tomo como un juego'",
+"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS3lWMGZjWmNrUW9Bdy1UdXFVOG1VUWFCX2daOVl1UjhpWWtIam1jLXpsaE0yT3BfSVVHN3J2WGVNYUVkRUhaaUxCNnYwYUV0RF9tbnFhRzZueFdEYVpXX25oWXZNY0QwWFhOZzJSZFgyQlNuNDdzMXZyTnhjeVhpWVczdzU1eXdiSVdNQjh6NXo1YVVqc3V1SGlkRHpxd0NyZ0JieTdiZ0phdm52N1R1UWR2Z2p4LWhRSlJra2FwdjFKdnRN?oc=5",
+"f": "La Opinión A Coruña",
+"d": "2026-11-22T12:53Z",
+"p": 5
+},
 {
 "t": "Una patinadora india de 18 años bate un récord Guinness al recorrer 50 metros en solo 6,86 segundos",
 "u": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdnZoTmZ6N0xOaXFqZWdxU1g4UWxKeVA2UnNibUJuS1hINUJmVDFCRkk0TE4wcmp3aHFkYmhKRFNfY1FOOTlCTTMtNGJFUlpMY2Q0NmVRbWh0dHo2V0JNRngyUDl1dnJ3cTEyTnRYbGwwZlM2ZjJncm1sZ2pxck5nRmFCR1pRX2F6el9vZDZRQVFTeWNDRTV4UEhvZXZNeG5MUmE3QlRGRXBDckZSNUdMT2FqQzJ4d1F1Y2dPXzVQUXVJS19PNnA3cnNXTTQ0OVU0eFhoVVJ30gHbAUFVX3lxTFAtVVVBZkpUTEZDRTBoYURxQXFIcl9Bd08xTkVLbC0weXktM0FIMmZBYzJiR0t0blRxdmRsWkRrejF4UUlPbUNrck9FaG1OR3lndnZ6X0FLOFF2RzV3VXdsZGZSNGNKNXNWSW9uaXNpeW82VXRidElqOGpDSVRTTjJXRl9ESkZVbXQ3RUJaOHNhMnlWRHhnQVFIZ0pUbUI0WWZDb2tvclNiT1pveGJNYVdQVENLNkxUM1FZaV9LcVR2cDF3RUY0R3dWMGJqRHk0RXp1bklKXzBTYW5jMA?oc=5",
 "f": "La Vanguardia",
 "d": "2026-11-21T08:56Z",
-"p": 6
+"p": 5
 },
 {
 "t": "Ni Vigo, ni Barcelona: el Belén más alto del mundo está en Alicante, tiene un Récord Guinness, es de estilo modernista y está en un paseo marítimo con seis millones de teselas",
@@ -124,13 +138,6 @@
 "p": 4
 },
 {
-"t": "Un vagón del Tramvia Blau de Barcelona, a la venta en Wallapop por 44.760 euros: \"¡Se vende un pedazo de la historia!\"",
-"u": "https://www.telecinco.es/noticias/catalunya/20261121/vagon-tramvia-blau-barcelona-venta-wallapop-44760-euros_18_020737187.html",
-"f": "Telecinco",
-"d": "2026-11-21T09:21Z",
-"p": 4
-},
-{
 "t": "Desde la iglesia más alta del mundo a la colección más grande de perros: los 14 récords españoles destacados en Guinness World Records 2027",
 "u": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMjNvbk1HM0dCSV9TZUZ3c0pidmlVUnYyZFJTLW9KdzNESVZGN25rbnZtUHdhVGt4Z3BZNjRMdmZ0bHh3eGNvbm5XTk8tX29aYl8zUUlOcEhqeFdEWHlZMzlRbU5SeFM2RDdBajZoYll6cHplNE5CV0NzR29fRmNRQUpTNUtsMjVUV3RSaGVVcVh3QUFsTVFKMUp0dzBRWVhTRjVrZ0JiclpCTGFWdnUzejVYMERzT0E?oc=5",
 "f": "El Confidencial",
@@ -138,10 +145,17 @@
 "p": 4
 },
 {
-"t": "Esta curiosa grulla, de plumas doradas y puntiagudas en la cabeza, aparece en la bandera de un país africano",
-"u": "https://www.eldiario.es/spin/curiosa-grulla-plumas-doradas-puntiagudas-cabeza-aparece-bandera-pais-africano-pm_1_13682297.html",
-"f": "elDiario.es",
-"d": "2026-11-22T07:00Z",
+"t": "El refugio de Gabriel Rufián en un pueblo de Tarragona de solo 642 habitantes: \"Es curioso, pero me flipa\"",
+"u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUG5VRDltMTlNdkdNbUVyNV9ldWI0eGNOTG1Dbk9ndWZZRXpiM0xoX2h3ZENZQ05zcG1oQ1BpVklabDBOZW9LdmFhV1pLSG11VEVMa3Q2ZFpBZVhna0ZMUHktUGlQbm5nNUNsMUdXZmszTVlWMUV4dzdtdFRBX2I0aXJhTzNqWFFrUFVEeWJBUFpPd3ZOYjlJTGx6ZzBUQ3NjdldlSXp5d1dsdw?oc=5",
+"f": "El Confidencial",
+"d": "2026-11-22T13:09Z",
+"p": 3
+},
+{
+"t": "Cambio insólito en Zubieta: la árbitra María Planes se lesiona el tobillo en el Real Sociedad - Sevilla",
+"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOMXhYYWZPdzZ5aFVwTDhpSnhNbUdfejNGZmpoNW1WRVFCYUowZ21CMDBiX0xsTUZGbEdiQjRGNlNEN1NtMmg1RDZUVFl5aXJCaFpoeTZOOVhEcXhwRzVhcENlTjU5QWdGTkZpVTR3TkxXVTNld2JxaFpPNndQMndLMkphd1lINDRfa1B3Tnk2UzdaLUhUZ1QteWFCTjNXb3JMQUQ0Tk5hVGJiaEpjNjl5VE1seG9rU2dhdUFBMEVWOVJ3TlFP0gHKAUFVX3lxTE9Vdk5GMUkwb3ZjaHdHMEp2U0pXU2diWHNNZWZhRmlidWxfUnB6MFRZaV9keFdJaldrRE1MYUVJOHRxbE1xR08xMFRYRm1jOTJybEtfQ211U21HTXAzS2hub21BS3hULXU1UUNOTGQwV3VXazZ2SG8wYVAxak5pd21rR2E3WVRaUk9PUGxTcDFiY01nZC0tbFVYTk16MkFxbFNzRmsyaG1uOHpWWVBNZEZaZVdseFY1M0RFSmhwLXBsekI2YmVmNmVrdkE?oc=5",
+"f": "El Diario Vasco",
+"d": "2026-11-22T11:52Z",
 "p": 3
 },
 {
@@ -173,17 +187,10 @@
 "p": 3
 },
 {
-"t": "La millonada que el sevillano Antonio Canales llegó a ganar en un año y su capricho más insólito: \"Me los ponía una vez\"",
-"u": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOdkpnRkRKVi1WdHNQN1dYN3FFYlk1c2pndkY5eDkyeXRhZUJhZHZFT3NXUFAzdnNkTGo5NXZHRU0wNC0yXzVSSWtwY1Z2M2lfN0lndmxtVk9TM0YwSjUtZFBDaTlSTFJxbXpPTXlOVEVTeUs1Rml6MGpzbHBFRWFGQjNka0N0VTBVSl9zN251RHU2SnV0NWwxNEVGcF9VZ1hxZTVwd0pnR2d4bTRRdHpzQUpmN014di1DSno0czJIellQTGlyRkk0eHZLOGQ4cGswcTFqbTFzdTFhdS02eV9UbzdnNHFIczVMemQzZWFwODBvYU1ocC0xYnpB?oc=5",
-"f": "La Voz del Sur",
-"d": "2026-11-21T08:05Z",
-"p": 3
-},
-{
-"t": "¿Por qué llaman \"el matador\" a Adrián Lastra en Miami? Su divertida confesión en Pasapalabra",
-"u": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNa1VFUjlpbWpLTURwOHZwZUNyZnRpTWtEMVRGb2hSc2ItZGM1NERiczgySG1FR2JzQ2d3UkVObF9MN0d2U3B2VkRCN1BKZnk2SHo1SHhPR3h4TGdmSzZQQnVlUV9LV3ZLc3NiMGRoaGppbkQ3OVFfYjFjbDFtUGVzejBnQmFacHUwZGJsOS1NSm5HTnZORzFwNEpwZEtRTkQxSXdpcXJ4UzJYY1ZIZWVJMnk5MVJiQkszaExPMERIQ0J2SDRhY3V1QU5GMXBMd2xnU1gtbVpqcW9KSGFOY1Z2Q9IB4AFBVV95cUxOTXdWX2FDY01oa2NUMWFRaEN3MHliWlFhYlFDMjh1Ny1kVFFpaGFqaDEwSmp6T3JBcVo3RmRXVllsWENjYkd4QjhkMm1PalhXaGJPRGRLWmlmTGZUOE1HRGhHLW1nZENVVkVZV1U5cXBtVk8zSXlhVTE1MVkzcUFsdnZoakZBWnZCdkhFTlZDWDNMcVI3QVo2MTE1RHFjS1djM2R3UURCTjhibVVlUG1GZXN6X181RU9zTzQ2d0tTYTZIb2ZnY1MwN0R2RzhMbkxaT3hPbk1jdUZnLTJPUExzTA?oc=5",
-"f": "Antena 3",
-"d": "2026-11-21T08:05Z",
+"t": "Un vagón del Tramvia Blau de Barcelona, a la venta en Wallapop por 44.760 euros: \"¡Se vende un pedazo de la historia!\"",
+"u": "https://www.telecinco.es/noticias/catalunya/20261121/vagon-tramvia-blau-barcelona-venta-wallapop-44760-euros_18_020737187.html",
+"f": "Telecinco",
+"d": "2026-11-21T09:21Z",
 "p": 3
 },
 {
@@ -192,6 +199,20 @@
 "f": "Telecinco",
 "d": "2026-11-20T10:59Z",
 "p": 3
+},
+{
+"t": "¿Por qué llaman \"el matador\" a Adrián Lastra en Miami? Su divertida confesión en Pasapalabra",
+"u": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNa1VFUjlpbWpLTURwOHZwZUNyZnRpTWtEMVRGb2hSc2ItZGM1NERiczgySG1FR2JzQ2d3UkVObF9MN0d2U3B2VkRCN1BKZnk2SHo1SHhPR3h4TGdmSzZQQnVlUV9LV3ZLc3NiMGRoaGppbkQ3OVFfYjFjbDFtUGVzejBnQmFacHUwZGJsOS1NSm5HTnZORzFwNEpwZEtRTkQxSXdpcXJ4UzJYY1ZIZWVJMnk5MVJiQkszaExPMERIQ0J2SDRhY3V1QU5GMXBMd2xnU1gtbVpqcW9KSGFOY1Z2Q9IB4AFBVV95cUxOTXdWX2FDY01oa2NUMWFRaEN3MHliWlFhYlFDMjh1Ny1kVFFpaGFqaDEwSmp6T3JBcVo3RmRXVllsWENjYkd4QjhkMm1PalhXaGJPRGRLWmlmTGZUOE1HRGhHLW1nZENVVkVZV1U5cXBtVk8zSXlhVTE1MVkzcUFsdnZoakZBWnZCdkhFTlZDWDNMcVI3QVo2MTE1RHFjS1djM2R3UURCTjhibVVlUG1GZXN6X181RU9zTzQ2d0tTYTZIb2ZnY1MwN0R2RzhMbkxaT3hPbk1jdUZnLTJPUExzTA?oc=5",
+"f": "Antena 3",
+"d": "2026-11-21T08:05Z",
+"p": 2
+},
+{
+"t": "La millonada que el sevillano Antonio Canales llegó a ganar en un año y su capricho más insólito: \"Me los ponía una vez\"",
+"u": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOdkpnRkRKVi1WdHNQN1dYN3FFYlk1c2pndkY5eDkyeXRhZUJhZHZFT3NXUFAzdnNkTGo5NXZHRU0wNC0yXzVSSWtwY1Z2M2lfN0lndmxtVk9TM0YwSjUtZFBDaTlSTFJxbXpPTXlOVEVTeUs1Rml6MGpzbHBFRWFGQjNka0N0VTBVSl9zN251RHU2SnV0NWwxNEVGcF9VZ1hxZTVwd0pnR2d4bTRRdHpzQUpmN014di1DSno0czJIellQTGlyRkk0eHZLOGQ4cGswcTFqbTFzdTFhdS02eV9UbzdnNHFIczVMemQzZWFwODBvYU1ocC0xYnpB?oc=5",
+"f": "La Voz del Sur",
+"d": "2026-11-21T08:05Z",
+"p": 2
 },
 {
 "t": "La curiosa imagen del Castilla-Murcia: José Mourinho se reencuentra con Pedro León",
@@ -205,20 +226,6 @@
 "u": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQmkzWFlzT2d5dlp1YUFCeFFiWXVLaTcwNE5oUW5GZzJYNjQ1azZSOEdKbzRUY2VRcXdXa1VyRFNKWUlNV0gyQzRiaVBwdl94cF9lQ0s5YTQyeU12UWxaRWQyZFZLWkRZallBczFZWkUwRnhVYXpsVTFGeTA3ZTVIM1hRTEFLTW5raVJicFdaSVdLd25PUUh4TzU1Tk1vOGhq0gGmAUFVX3lxTE56LXYzbHlXakdidEJ0WlhQenlqX1NuU1hwQzl2eFRTSGJTTF9PbzBDTjNNdWpGVHhkOXNETDBEQmw1NXZULVVPbThHSHdrSWlLRGRUanJrNFlLRTBtbEp4OFNLSmxxZml1WEhLSHZqdTZNSE1ZNjNHYVJCUmt5d3o3U1RkOWx5RXZnUFZMSUdlZlRnRTBWQ2M5V0hRbGV2c01lTm5URHc?oc=5",
 "f": "Granada Hoy",
 "d": "2026-11-20T17:45Z",
-"p": 2
-},
-{
-"t": "El curioso superhéroe de Cádiz que cumple 20 años: 'SuperTirititran' regresa para salvar La Caleta y el Carnaval",
-"u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZU5ZV2l1clAtRGdIWlNlRzBya0lNZVV1b3BobnB0NjlZVGlnUFNIU0k3cm9JNzFKaHpKdmNYTnZXYU56Ny10SkZDVkRhUVdGcFhlelczX0tKZnpKVkpQdl9tYzdGX2haZTZUZmtiQ1JydWtubjRwX2E3RVFQTURlZmtFRGxHM3U1d3BGdkJLVHNZWlo4R2tmZERKSXRfNk1DYXAzRVZySDRTcTFVaUt2Z2FqOGhlaVRsdENMOFljOVJMRXB1emxCY09hZG9JMWNu0gHWAUFVX3lxTE9pZkM2WFNINkFTZGtBUGNNRGhLNUVSMWlQMm5wNk1DOTFHd3BST2dfSHdYMlhLRUtjYlY3b2RFcVBNWVZfdUZSNkpVOV81Z3FxMVg5STc1c0NiQ2NjOVRQM01BUGt3UTVJZWxQTmNsU1RQam8zMUQ0Q2hzNkF0bXVhUDZyQ3pqOGZ1bnZCSTB4a1poZWZQb3Badmsya3ZDekItM0xYaFJ0OUhhT3RTWUJJemlCdGI5aU8tR3ZFV3RZMXhzMFVURG02bkpjcHNVZmpnT3BuRnc?oc=5",
-"f": "Diario de Cádiz",
-"d": "2026-11-20T09:23Z",
-"p": 2
-},
-{
-"t": "La carrera más divertida de Galicia recupera su emblemática meta: la San Silvestre de Vigo regresa a la Alameda",
-"u": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQSTFNVFc1NEZ2Wk5XSlA2SnltbFZaQVdEcEFxTmZkVWExQ2hHMXlQcVNSakxlMWEtTWpicHFRa1hidHJvdmdvS2s5TmgzaGlqcHlXSEg4QllxdC12ZkhzVFVlNE1DSGxhT3c3Rk9qMlJYaG43alJHZmUwbk44NnVscVFrbG5tU2FwQUlYazYwNzhJMF9OUXJtdVNwU1pubXRzSTJENVFDTXNndFFOX3pUT2hnQlhDcTRnYlNMSlZ1VjVKRjdGRUFKS0lUUWFEZ9IB0wFBVV95cUxPT25IMVJ5bkVEbnlfLXoxUzhrczlhWERuR3gzODlDUkJpQWs1MFpTM01oQ1hlaFZtTkhOZG50UkJVeXItbVMzeTFxQm5jNWJqdkdRR1lRMld1MUIwWWRKdEpjenp4TkZRS0F4YW9CMlQ2VXdaTlhVZWJTTmFaQnlLenJpSVY3ZnhHYTVvaFdmQnNiQXR1a3JRUXZqc0hDaGJrckoyWGdwd09SRE5tSG9lb1hyTTRRZ0xMakNMNFRtcmt4UVpaRTFRZTRCWmRUb1BoSnQ4?oc=5",
-"f": "Faro de Vigo",
-"d": "2026-11-20T08:00Z",
 "p": 2
 }
 ]
