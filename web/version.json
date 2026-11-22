@@ -1,5 +1,5 @@
 {
- "version": 441,
+ "version": 442,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -116,14 +116,14 @@
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "a19542d6622ae3851b83b5f6d21cf48260061e28",
+  "index.html": "65700de879558b2f4caeb388a901751960d26127",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
   "juegos-peques.js": "1c6b2124ed7b40dbe00032cc76db9b33003c0a11",
   "juegos.js": "146763b412b0022104f869f504e679ee9930f822",
   "juegos2.js": "a6391aacfba802fe8e7eb11298c1494beeb8e619",
-  "juegos3.js": "b3d4ada811cdb267688cabaf4754f5958f8a74c9",
+  "juegos3.js": "ddc739b99ded24ba97d43fe775c39436598b98ae",
   "legal.js": "5462484f5054aadd31f158dd4c6665dc8c4da4a2",
   "lluvia-aviso.js": "23b0066fcbe71220cd8fecaa6377a9f1a9119e83",
   "logo.jpg": "442927f2c4c5495089c0bd56e454ddc6a4223411",
