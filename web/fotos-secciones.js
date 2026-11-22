@@ -36,6 +36,7 @@ body.bna #pvSec.fsFoto canvas{display:none}
 body.bna #pvSec.fsFoto:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.05) 100%)}
 body.bna #pvSec.fsFoto .pvsC{display:none}
 body.bna #pvSec.fsFoto .pvsT{z-index:1}
+.fsHid{display:none!important}
 /* 22 nov. 2026 (Pedro): sin el icono, letra más pequeña y abajo del todo */
 #pvSec.fsFoto .pvsT .bt{display:none!important}
 #pvSec.fsFoto .pvsT{left:14px;right:14px;bottom:9px;gap:0;display:block}
@@ -120,7 +121,15 @@ function fsCab(t){const el=$('pvSec');if(!el)return;const f=fsFoto(t);
   if(f){el.classList.add('fsFoto');el.style.backgroundImage=`url("${f}")`;
     try{if(PVSraf){cancelAnimationFrame(PVSraf);PVSraf=0;}}catch(e){}}   // sin animación debajo de la foto: ahorra batería
   else{el.classList.remove('fsFoto');el.style.backgroundImage='';}}
-function fsAplica(t){try{fsCab(t);fsTabs(t);fsCred(t);}catch(e){console.log(e);}}
+// 22 nov. 2026 (Pedro): fuera el título y la explicación de la primera tarjeta de cada sección con foto
+// (repiten la cabecera). Se dejan las explicaciones con avisos importantes (oficial, 112, orientativo…).
+const FS_AVISO=/oficial|112|orientativ|no gestiona|no guarda|confírm|urgenc|previsión|no sustituye|médic|emergenc|peligr|riesgo|privad|no se guarda/i;
+function fsIntro(t){if(t==='mtiempo'||!fsFoto(t))return;const sec=document.querySelector('section.on')||$('t-'+t);if(!sec)return;
+  const c=sec.querySelector('.card');if(!c||c.dataset.fsI)return;c.dataset.fsI=1;
+  const b=c.firstElementChild;if(!b||b.tagName!=='B')return;b.classList.add('fsHid');
+  const n=b.nextElementSibling;if(n&&n.classList.contains('note')&&!FS_AVISO.test(n.textContent))n.classList.add('fsHid');
+  if(![...c.children].some(x=>!x.classList.contains('fsHid')))c.classList.add('fsHid');}
+function fsAplica(t){try{fsCab(t);fsTabs(t);fsCred(t);fsIntro(t);}catch(e){console.log(e);}}
 const _st=showTab;showTab=function(t){_st.apply(this,arguments);fsAplica(t);};
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&typeof BNTAB!=='undefined'&&fsFoto(BNTAB))setTimeout(()=>fsCab(BNTAB),50);});
 try{Object.assign(window.BNA_DATOS||{},{fotos:'fotos de las secciones: Wikimedia Commons (licencias CC BY-SA, autores en cada sección)'});}catch(e){}
