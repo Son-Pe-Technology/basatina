@@ -36,6 +36,12 @@ body.bna #pvSec.fsFoto canvas{display:none}
 body.bna #pvSec.fsFoto:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.05) 100%)}
 body.bna #pvSec.fsFoto .pvsC{display:none}
 body.bna #pvSec.fsFoto .pvsT{z-index:1}
+/* 22 nov. 2026 (Pedro): sin el icono, letra más pequeña y abajo del todo */
+#pvSec.fsFoto .pvsT .bt{display:none!important}
+#pvSec.fsFoto .pvsT{left:14px;right:14px;bottom:9px;gap:0;display:block}
+#pvSec.fsFoto .pvsT b{font-size:16.5px!important;line-height:1.15}
+#pvSec.fsFoto .pvsT small{font-size:11.5px!important;margin-top:1px}
+#pvSec.fsFoto:before{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.6) 100%)!important}
 .fsTabs{display:grid!important;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px!important;background:none!important;padding:0!important}
 .fsTabs button{position:relative;height:96px;border-radius:16px!important;overflow:hidden;border:0!important;padding:0!important;background-color:#9aa7a0!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
   box-shadow:0 2px 8px rgba(0,0,0,.15);color:#fff!important;font-weight:800!important;font-size:12.5px!important;display:flex;align-items:flex-end;justify-content:center;transition:transform .15s}
