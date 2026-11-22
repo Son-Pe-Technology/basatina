@@ -5,22 +5,8 @@ UA = {'User-Agent': 'BasatiNA/1.0 (https://basatina.es; participa@basatina.es)'}
 API = 'https://commons.wikimedia.org/w/api.php'
 OK = re.compile(r'^(CC0|Public domain|PD|CC BY(-SA)? \d)', re.I)
 BUSCA = {
- 'in_otono':     ['Selva de Irati otoño', 'Irati forest autumn', 'hayedo otoño Navarra', 'Bosque de Irati'],
- 'in_invierno':  ['Belagua nieve', 'Valle de Belagua invierno', 'Larra Belagua snow', 'Pirineo navarro nieve'],
- 'in_primavera': ['Sierra de Urbasa', 'Urbasa prado', 'Valle de Baztán', 'Baztan landscape'],
- 'in_verano':    ['Bardenas Reales', 'Castildetierra', 'Foz de Arbayún', 'Valle de Roncal'],
- 'in_tiempo':    ['Pamplona nubes', 'Navarra cielo nubes', 'Pamplona skyline clouds', 'tormenta Navarra'],
- 'in_carreteras':['Puerto de Belate', 'carretera Navarra montaña', 'Puerto de Lizarraga', 'carretera Bardenas'],
- 'in_cerca':     ['Olite castillo pueblo', 'Puente la Reina', 'Estella Lizarra', 'Ujué'],
- 'in_pie':       ['senderismo Navarra', 'Mesa de los Tres Reyes', 'Orhi mendia', 'Pirineo navarro sendero'],
- 'in_deporte':   ['frontón Navarra pelota', 'pelota vasca frontón', 'Frontón Labrit', 'El Sadar estadio'],
- 'in_agenda':    ['Sanfermines', 'San Fermín Pamplona fiesta', 'gigantes Pamplona', 'Olite fiestas medievales'],
- 'in_recol':     ['setas hayedo', 'Boletus edulis', 'boletus forest', 'mushrooms beech forest'],
- 'in_arga':      ['río Arga Pamplona', 'Arga river Pamplona', 'Puente de la Magdalena Pamplona', 'Arga Puente la Reina'],
- 'in_ega':       ['río Ega Estella', 'Ega river Estella', 'Puente de la Cárcel Estella', 'Nacedero del Urederra'],
- 'in_aragon':    ['río Aragón Sangüesa', 'Aragon river Navarra', 'río Aragón Caparroso', 'Sangüesa puente'],
- 'in_ebro':      ['río Ebro Tudela', 'Ebro Tudela puente', 'Ebro river Tudela', 'río Ebro Navarra'],
- 'in_irati':     ['río Irati Aoiz', 'Irati river', 'Foz de Lumbier', 'río Irati'],
+ 'lb_labrit':   ['Frontón Labrit', 'Labrit Pamplona', 'Frontón Labrit Pamplona pelota', 'Labrit frontoia'],
+ 'lb_niebla':   ['niebla Irati', 'Irati niebla otoño', 'mar de nubes Navarra', 'niebla valle Pirineo navarro', 'Aezkoa niebla'],
 }
 def get(params):
     u = API + '?' + urllib.parse.urlencode(dict(params, format='json'))
