@@ -1,5 +1,5 @@
 {
- "version": 471,
+ "version": 472,
  "apk": 34,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -135,7 +135,7 @@
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "idiomas.js": "452558bd53659b00e7ef676d0ca25721982ea876",
-  "index.html": "d5091f4144c550888b40a7a77f5d50e4d35b049a",
+  "index.html": "f57507e67b85925501c11dfaa3deb45b95727079",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
@@ -188,6 +188,7 @@
   "sonpe3_ico.jpg": "566285e1373e631847647a7a33c61e12b27b7ea4",
   "temas.js": "94cce4ca01d9969e97259e9dab18fe68e62cc479",
   "territorio.js": "f455bd22b2af0b175bbf07e9831f5f0d740bff60",
+  "tiempo-ahora.js": "b3520c554649c2005efb9cde73127bc38a4edf60",
   "tiendas.js": "d8d5dcd6de9edf6ff6ef313f34ddd0d2b44d8418",
   "viaje.js": "17715423c0b010811327d2952ff21e7cc5bbaa94",
   "vivienda.js": "ce3e6e7063d10a77745f92621c0474b4b4355dc3",
