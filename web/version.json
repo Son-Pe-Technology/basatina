@@ -1,5 +1,5 @@
 {
- "version": 439,
+ "version": 440,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -34,6 +34,7 @@
   "foto-astro-cabecera.webp": "a2cb344743ff34e37b6aea035cb9908429bbd204",
   "foto-biodiv-pedro.webp": "21922dda37a92fad8e5feaf9d95640aa8d53c95e",
   "foto-biodiversidad-cabecera.webp": "132f42463efcc30921ef633424724c12bf7784a7",
+  "foto-cadenas-escudo.webp": "036b36119b98aad89d14095bb8b5b50eba7f5e39",
   "foto-centros-hospital.webp": "5fb91986e1c14be01e78e25553fff574e4a7f18b",
   "foto-clima-miren.webp": "2a34dd350e5bd5ececfc3f90b3c9414f4ffc0dd8",
   "foto-cocina-cabecera.webp": "e64774a461852982416775f953a6db1e90f00319",
@@ -110,11 +111,11 @@
   "foto-temporada-miren.webp": "e1a84a10cc0b18b171ad8b7c9df3876261a8576b",
   "foto-tiempo-miren.webp": "848edf05c54bcab9d11fd298d5f5e45593af716e",
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
-  "fotos-secciones.js": "3204e8b55e2f32b01270bf518e22e4380e1ef2a7",
+  "fotos-secciones.js": "a87ccf98f198db415ba5ef51653c9f5ab051ca5d",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "355894dd772fe6ad8dd2191feee0c5c3aa98d606",
+  "index.html": "6a536219f9dfce2ac2063c448e1f2fe589a64dc2",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",

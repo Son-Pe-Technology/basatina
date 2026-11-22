@@ -84,7 +84,8 @@ FS_CAB.medic='foto-medic-lavanda.webp';(FS_CRED.medic=FS_CRED.medic||[[]])[0]=['
 FS_CAB.farmacia='foto-farmacia-botica.webp';(FS_CRED.farmacia=FS_CRED.farmacia||[[]])[0]=['Cabecera: botica antigua','Pixabay','licencia de Pixabay, uso libre','https://pixabay.com'];
 FS_CAB.centros='foto-centros-hospital.webp';(FS_CRED.centros=FS_CRED.centros||[[]])[0]=['Cabecera: entrada del antiguo Hospital de Navarra, Pamplona','Miren I.G.','foto propia',''];
 FS_CAB.relax='foto-relax-cascada.webp';(FS_CRED.relax=FS_CRED.relax||[[]])[0]=['Cabecera: cascada en el río','Pedro Iglesias Goñi','foto propia',''];
-FS_CAB.sismo='foto-sismo-foz.webp';FS_CRED.sismo=[['Cabecera: foz entre cortados de roca','Pixabay','licencia de Pixabay, uso libre','https://pixabay.com']];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.sismo='foto-sismo-foz.webp';FS_CRED.sismo=[['Cabecera: foz entre cortados de roca','Pixabay','licencia de Pixabay, uso libre','https://pixabay.com']];
+FS_CAB.jcadenas='foto-cadenas-escudo.webp';FS_CRED.jcadenas=[['Cabecera: escudo de Navarra en piedra','Pedro Iglesias Goñi','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
