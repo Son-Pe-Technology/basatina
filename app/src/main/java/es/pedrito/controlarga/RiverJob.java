@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 public class RiverJob extends JobService {
     static final int JOB_ID = 2611, JOB_NOW = 2612;
     static final String SAIH = "https://www.saihebro.com/api/ficha/procesarTablaValoresActuales?estacion=";
-    static final String CHANNEL = "avisos_rio";
+    static final String CHANNEL = "avisos_rio_2";   // 22 nov. 2026: canales «_2» con sonido propio de BasatiNA (ver canal())
 
     /** Programa la comprobación periódica (Android no deja menos de 15 minutos) */
     static void schedule(Context c) {
@@ -225,7 +225,7 @@ public class RiverJob extends JobService {
        Lee efemerides/navarra.json de GitHub (si no hay internet, usa la última copia guardada).
        Misma lógica que web/efemerides.js: dato del día (MM-DD) o, si no hay, una curiosidad. */
     static final String DATO_URL = "https://raw.githubusercontent.com/suapedrito-z/basatina/main/efemerides/navarra.json";
-    static final String CH_DATO = "dato_dia";
+    static final String CH_DATO = "dato_dia_2";
     // OJO: la misma lista que EF_NO en web/efemerides.js. MAYÚSCULAS = siglas.
     static final String[] NO_DATO = {"elecci", "electoral", "partido politico", "parlament", "gobierno", "diputacion", "congreso de los diputados", "senado", "ministr", "alcald", "concejal",
             "presidente del", "presidenta del", "votacion", "referendum", "guerra", "batalla", "atentad", "terroris", "franquis", "dictadura", "golpe de estado", "fusilad",
@@ -309,11 +309,7 @@ public class RiverJob extends JobService {
     /** Canal propio y más discreto que el de los avisos del río (no suena como una alarma) */
     static void notifyDato(Context c, String title, String text) {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(CH_DATO) == null) {
-            NotificationChannel ch = new NotificationChannel(CH_DATO, "Dato del día", NotificationManager.IMPORTANCE_DEFAULT);
-            ch.setDescription("Un dato histórico o curioso de Navarra cada mañana");
-            nm.createNotificationChannel(ch);
-        }
+        canal(c, CH_DATO, "Dato del día", "Un dato histórico o curioso de Navarra cada mañana", NotificationManager.IMPORTANCE_DEFAULT, R.raw.suave);
         PendingIntent pi = PendingIntent.getActivity(c, 0, new Intent(c, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
         android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, CH_DATO) : new android.app.Notification.Builder(c);
         b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(title).setContentText(text)
@@ -328,7 +324,7 @@ public class RiverJob extends JobService {
        Mismo turno que turno_de() del robot y cuTurno() de web/curiosas.js. Al tocar el aviso se abre la noticia.
        Se activa en Ajustes → «😄 Noticia curiosa» (cfg.curiosa). */
     static final String CUR_URL = "https://raw.githubusercontent.com/suapedrito-z/basatina/main/noticias/curiosas.json";
-    static final String CH_CUR = "noticia_curiosa";
+    static final String CH_CUR = "noticia_curiosa_2";
 
     static void checkCuriosa(Context c) throws Exception {
         if (!cfg(c).optBoolean("curiosa", false)) return;
@@ -348,11 +344,7 @@ public class RiverJob extends JobService {
         sp.edit().putString("curK", k).apply();
         String cuando = t.equals("m") ? "de la mañana" : t.equals("t") ? "de la tarde" : "de la noche";
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(CH_CUR) == null) {
-            NotificationChannel ch = new NotificationChannel(CH_CUR, "Noticia curiosa", NotificationManager.IMPORTANCE_DEFAULT);
-            ch.setDescription("Una noticia simpática por la mañana, por la tarde y por la noche");
-            nm.createNotificationChannel(ch);
-        }
+        canal(c, CH_CUR, "Noticia curiosa", "Una noticia simpática por la mañana, por la tarde y por la noche", NotificationManager.IMPORTANCE_DEFAULT, R.raw.suave);
         Intent it;
         String u = x.optString("u");
         if (u.startsWith("https://") || u.startsWith("http://")) it = new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(u));
@@ -368,7 +360,7 @@ public class RiverJob extends JobService {
 
     /** Avisa de los terremotos nuevos en Navarra y alrededores (datos del IGN a través del EMSC).
      *  Se activa en Ajustes → «Aviso de terremotos» (por defecto sí, desde magnitud 2,5). */
-    static final String CH_SISMO = "avisos_sismo";
+    static final String CH_SISMO = "avisos_sismo_2";
     static void checkSismo(Context c) throws Exception {
         JSONObject cfg = cfg(c);
         if (!cfg.optBoolean("sismo", true)) return;
@@ -402,7 +394,7 @@ public class RiverJob extends JobService {
                         + (Double.isNaN(prof) ? "" : String.format(java.util.Locale.forLanguageTag("es-ES"), ", %.0f km de profundidad", prof)) + ". ";
             }
             String mg = String.format(java.util.Locale.forLanguageTag("es-ES"), "%.1f", mag);
-            notifyCh(c, CH_SISMO, "Terremotos", "Aviso cuando hay un terremoto en Navarra o alrededores",
+            notifyCh(c, CH_SISMO, "Actividad sísmica", "Aviso cuando hay un terremoto en Navarra o alrededores",
                     "🌍 Terremoto de magnitud " + mg,
                     donde + (mag < 3 ? "Casi nadie lo habrá notado." : mag < 4 ? "Se ha podido notar cerca del epicentro." : "Se ha notado en una zona amplia.")
                             + " Datos: IGN / EMSC. Toca para verlo en la app.", 600 + (n++ % 10));
@@ -420,8 +412,38 @@ public class RiverJob extends JobService {
        No repite mientras siga lloviendo en la zona, salvo que la lluvia sea más fuerte. Respeta las horas de silencio.
        cfg.lluvia = {on, prob, r, sil:[desde,hasta] o null, pos:[lat,lon,nombre]} */
     static final String CH_LLUVIA = "aviso_lluvia";              // canal antiguo sin sonido propio (se borra en la 5.1)
-    static final String CH_LLUVIA_S = "aviso_lluvia_sonido", CH_TORMENTA = "aviso_tormenta_sonido", CH_VIENTO = "aviso_viento_sonido";
-    static final String CH_HELADA = "aviso_helada_sonido", CH_CALOR = "aviso_calor_sonido", CH_NIEBLA = "aviso_niebla_sonido";
+    // 22 nov. 2026 (5.4): sonidos más cortos y más bajos. Android guarda el sonido en el canal y no deja cambiarlo,
+    // así que van en canales nuevos («_2») y los de antes se borran (CH_VIEJOS).
+    static final String CH_LLUVIA_S = "aviso_lluvia_sonido_2", CH_TORMENTA = "aviso_tormenta_sonido_2", CH_VIENTO = "aviso_viento_sonido_2";
+    static final String CH_HELADA = "aviso_helada_sonido_2", CH_CALOR = "aviso_calor_sonido_2", CH_NIEBLA = "aviso_niebla_sonido_2";
+    static final String[] CH_VIEJOS = {"aviso_lluvia", "aviso_lluvia_sonido", "aviso_tormenta_sonido", "aviso_viento_sonido",
+            "aviso_helada_sonido", "aviso_calor_sonido", "aviso_niebla_sonido",
+            "avisos_rio", "dato_dia", "noticia_curiosa", "avisos_sismo", "push_avisos", "push_desaparecidos"};
+
+    /** 22 nov. 2026: TODOS los avisos suenan con un sonido de BasatiNA (antes unos sonaban con el del móvil y otros con
+        los de la app). Sonidos cortos y suaves, por el volumen de notificaciones: aviso (río, carreteras, monte, avisos
+        de BasatiNA), alerta (terremotos y personas desaparecidas), suave (dato del día y noticia curiosa) y los del tiempo.
+        Android guarda el sonido en el canal al crearlo: si se cambia un sonido, hay que cambiar el nombre del canal. */
+    static void canal(Context c, String id, String name, String desc, int imp, int raw) {
+        if (Build.VERSION.SDK_INT < 26) return;
+        NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+        for (String v : CH_VIEJOS) try { if (nm.getNotificationChannel(v) != null) nm.deleteNotificationChannel(v); } catch (Exception ignored) {}
+        if (nm.getNotificationChannel(id) != null) return;
+        NotificationChannel nc = new NotificationChannel(id, name, imp);
+        nc.setDescription(desc);
+        nc.setSound(android.net.Uri.parse("android.resource://" + c.getPackageName() + "/" + raw), new android.media.AudioAttributes.Builder()
+                .setUsage(android.media.AudioAttributes.USAGE_NOTIFICATION)
+                .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION).build());
+        nm.createNotificationChannel(nc);
+    }
+    /** Crea los canales al abrir la app (los avisos push que llegan con la app cerrada usan «push_avisos_2») */
+    static void canales(Context c) {
+        try {
+            canal(c, CHANNEL, "Avisos del río", "Avisos cuando el Arga pasa de los umbrales que elijas", NotificationManager.IMPORTANCE_HIGH, R.raw.aviso);
+            canal(c, "push_avisos_2", "Avisos de BasatiNA", "Avisos importantes de BasatiNA", NotificationManager.IMPORTANCE_DEFAULT, R.raw.aviso);
+            canal(c, "push_desaparecidos_2", "Personas desaparecidas", "Alertas de personas desaparecidas en Navarra, en cuanto salen", NotificationManager.IMPORTANCE_HIGH, R.raw.alerta);
+        } catch (Exception ignored) {}
+    }
 
     /* ---------- 🥶 Helada · 🥵 Calor y UV · 🌫️ Niebla (APK 5.2 / código 32, 20 nov. 2026) ----------
        cfg.tiempo = {pos:[lat,lon,nombre], helada:{on,t (°C),h}, calor:{on,t (°C),uv (bool),h}, niebla:{on,m (metros),h}}.
@@ -565,7 +587,7 @@ public class RiverJob extends JobService {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
         android.net.Uri snd = android.net.Uri.parse("android.resource://" + c.getPackageName() + "/" + raw);
         if (Build.VERSION.SDK_INT >= 26) {
-            try { if (nm.getNotificationChannel(CH_LLUVIA) != null) nm.deleteNotificationChannel(CH_LLUVIA); } catch (Exception ignored) {}
+            for (String v : CH_VIEJOS) try { if (nm.getNotificationChannel(v) != null) nm.deleteNotificationChannel(v); } catch (Exception ignored) {}
             if (nm.getNotificationChannel(ch) == null) {
                 NotificationChannel nc = new NotificationChannel(ch, chName, NotificationManager.IMPORTANCE_HIGH);
                 nc.setDescription(chDesc);
@@ -731,11 +753,7 @@ public class RiverJob extends JobService {
 
     static void notifyCh(Context c, String ch, String chName, String chDesc, String title, String text, int id) {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(ch) == null) {
-            NotificationChannel nc = new NotificationChannel(ch, chName, NotificationManager.IMPORTANCE_HIGH);
-            nc.setDescription(chDesc);
-            nm.createNotificationChannel(nc);
-        }
+        canal(c, ch, chName, chDesc, NotificationManager.IMPORTANCE_HIGH, CH_SISMO.equals(ch) ? R.raw.alerta : R.raw.aviso);
         PendingIntent pi = PendingIntent.getActivity(c, 0, new Intent(c, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
         android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, ch) : new android.app.Notification.Builder(c);
         b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(title).setContentText(text)
@@ -746,11 +764,7 @@ public class RiverJob extends JobService {
 
     static void notify(Context c, String title, String text, int id) {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(CHANNEL) == null) {
-            NotificationChannel ch = new NotificationChannel(CHANNEL, "Avisos del río", NotificationManager.IMPORTANCE_HIGH);
-            ch.setDescription("Avisos cuando el Arga pasa de los umbrales que elijas");
-            nm.createNotificationChannel(ch);
-        }
+        canal(c, CHANNEL, "Avisos del río", "Avisos cuando el Arga pasa de los umbrales que elijas", NotificationManager.IMPORTANCE_HIGH, R.raw.aviso);
         PendingIntent pi = PendingIntent.getActivity(c, 0, new Intent(c, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
         android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, CHANNEL) : new android.app.Notification.Builder(c);
         b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(title).setContentText(text)
