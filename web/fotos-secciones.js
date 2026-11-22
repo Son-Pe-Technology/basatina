@@ -82,7 +82,8 @@ FS_CAB.temporada='foto-temporada-miren.webp';(FS_CRED.temporada=FS_CRED.temporad
 FS_CAB.salud='foto-salud-cielo.webp';(FS_CRED.salud=FS_CRED.salud||[[]])[0]=['Cabecera: cielo al atardecer','Miren I.G.','foto propia',''];
 FS_CAB.medic='foto-medic-lavanda.webp';(FS_CRED.medic=FS_CRED.medic||[[]])[0]=['Cabecera: campo de lavanda','Miren I.G.','foto propia',''];
 FS_CAB.farmacia='foto-farmacia-botica.webp';(FS_CRED.farmacia=FS_CRED.farmacia||[[]])[0]=['Cabecera: botica antigua','Pixabay','licencia de Pixabay, uso libre','https://pixabay.com'];
-FS_CAB.centros='foto-centros-hospital.webp';(FS_CRED.centros=FS_CRED.centros||[[]])[0]=['Cabecera: entrada del antiguo Hospital de Navarra, Pamplona','Miren I.G.','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.centros='foto-centros-hospital.webp';(FS_CRED.centros=FS_CRED.centros||[[]])[0]=['Cabecera: entrada del antiguo Hospital de Navarra, Pamplona','Miren I.G.','foto propia',''];
+FS_CAB.relax='foto-relax-cascada.webp';(FS_CRED.relax=FS_CRED.relax||[[]])[0]=['Cabecera: cascada en el río','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
