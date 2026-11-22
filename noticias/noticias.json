@@ -1,6 +1,13 @@
 {
-"t": "2026-11-22T06:17Z",
+"t": "2026-11-22T07:56Z",
 "items": [
+{
+"t": "Muere un vecino de Barañáin de 37 años en un accidente en Urroz",
+"u": "https://www.diariodenavarra.es/noticias/navarra/sanguesa-merindad/2026/11/22/muere-vecino-baranain-37-anos-accidente-urroz-843354-26.html",
+"f": "Diario de Navarra",
+"d": "2026-11-22T07:09Z",
+"c": "Sucesos"
+},
 {
 "t": "Fernando Vidaurre: \"De niño me decían que era muy movido; ahora, que tengo un TDAH como la copa de un pino\"",
 "u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/2026/11/22/fernando-vidaurre-nino-me-decian-movido-tdah-copa-pino-842664-84.html",
@@ -23,13 +30,6 @@
 "c": "Navarra"
 },
 {
-"t": "Condenan a la Seguridad Social por revocar la incapacidad a un trabajador con depresión que rechazó un tratamiento con efectos secundarios",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/22/condenan-seguridad-social-revocar-incapacidad-trabajador-depresion-rechazo-tratamiento-efectos-secundarios-843338-15.html",
-"f": "Diario de Navarra",
-"d": "2026-11-22T04:00Z",
-"c": "Economía"
-},
-{
 "t": "Osasuna estudia las lesiones que están afectando al equipo: estos son los posibles factores",
 "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/22/osasuna-estudia-lesiones-afectando-equipo-son-posibles-factores-843325-32.html",
 "f": "Diario de Navarra",
@@ -37,11 +37,11 @@
 "c": "Deportes"
 },
 {
-"t": "La mendaviesa que regresó a las raíces y se puso al frente de Librería Clip",
-"u": "https://www.diariodenavarra.es/noticias/navarra/tierra-estella/2026/11/22/mendaviesa-regreso-raices-puso-frente-libreria-clip-842970-19.html",
+"t": "Condenan a la Seguridad Social por revocar la incapacidad a un trabajador con depresión que rechazó un tratamiento con efectos secundarios",
+"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/22/condenan-seguridad-social-revocar-incapacidad-trabajador-depresion-rechazo-tratamiento-efectos-secundarios-843338-15.html",
 "f": "Diario de Navarra",
 "d": "2026-11-22T04:00Z",
-"c": "Navarra"
+"c": "Economía"
 },
 {
 "t": "Aina Barca: \"No pude ver a niños en jaulas o atados y seguir con mi vida\"",
@@ -60,6 +60,13 @@
 {
 "t": "Este es el viaje del papel y el cartón que usted recicla",
 "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/22/viaje-papel-carton-recicla-843299-16.html",
+"f": "Diario de Navarra",
+"d": "2026-11-22T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "La mendaviesa que regresó a las raíces y se puso al frente de Librería Clip",
+"u": "https://www.diariodenavarra.es/noticias/navarra/tierra-estella/2026/11/22/mendaviesa-regreso-raices-puso-frente-libreria-clip-842970-19.html",
 "f": "Diario de Navarra",
 "d": "2026-11-22T04:00Z",
 "c": "Navarra"
@@ -133,13 +140,6 @@
 "f": "Navarra Capital",
 "d": "2026-11-21T14:20Z",
 "c": "Sucesos"
-},
-{
-"t": "Osasuna, pendiente de la rodilla de Rockson",
-"u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/21/osasuna-pendiente-rodilla-rockson-843296-32.html",
-"f": "Diario de Navarra",
-"d": "2026-11-21T13:14Z",
-"c": "Deportes"
 },
 {
 "t": "Osasuna convoca a 23 jugadores para enfrentar al Málaga con Herrando, Aimar y Del Castillo como sorpresas",
