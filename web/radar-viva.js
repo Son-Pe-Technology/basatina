@@ -84,7 +84,7 @@ const LEY=[15,20,25,30,35,40,45,50,55].map(d=>{const c=RD_PAL[d],mm=Math.pow(Mat
 const leg=wrap.parentElement.querySelector('.rdLeg');
 if(leg)leg.outerHTML=`<div><div class="rdBar">${LEY.map(l=>`<span style="background:${l[1]};color:${l[3]?'#06121d':'#fff'};text-shadow:${l[3]?'none':''}">${l[2]}</span>`).join('')}</div>
   <div class="rdBarT"><span>mm/h · débil</span><span>moderada</span><span>fuerte</span><span>muy fuerte</span></div>
-  <div class="note" style="margin-top:6px">🔵 Tú. La nieve sale en azules claros y blancos.</div></div>`;
+  <div class="note" style="margin-top:6px"><span>El punto azul del mapa eres tú (dónde estás ahora).</span> <span>Si nieva, la nieve se ve en azul claro y blanco.</span></div></div>`;
 
 // --- dónde estoy ---
 function yo(cb){try{const p=CFG.lluvia&&CFG.lluvia.pos;if(p)YO=[p[0],p[1]];}catch(e){}

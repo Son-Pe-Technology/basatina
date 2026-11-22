@@ -19,7 +19,9 @@ function svHook(t,fn){const _p=showTab;showTab=function(x){_p(x);if(x===t)setTim
 
 /* ---------- 🌡️ Presión atmosférica y 🌼 polen (pestaña El tiempo) ---------- */
 (function(){const ex=document.getElementById('tExtra');if(!ex)return;
-  ex.closest('.card').insertAdjacentHTML('afterend','<div class="card" id="tPP"><b>🧭 Presión y 🌼 polen</b><div class="note">Cargando…</div></div>');})();
+  ex.closest('.card').insertAdjacentHTML('afterend','<div class="card" id="tPP"><b>🧭 Presión atmosférica</b><div class="note">Cargando…</div></div><div class="card" id="tPol"><b>🌼 Polen en el aire</b><div class="note">Cargando…</div></div>');
+  // 22 nov. 2026 (Sonia): presión y polen en recuadros separados y plegables
+  if(window.msPlegar){msPlegar(document.getElementById('tPP'),{modo:'exp',clave:'tPP'});msPlegar(document.getElementById('tPol'),{modo:'todo',clave:'tPol'});}})();
 const PP_POL=[['grass_pollen','Gramíneas','🌾'],['olive_pollen','Olivo','🫒'],['birch_pollen','Abedul','🌳'],['alder_pollen','Aliso','🌳'],['mugwort_pollen','Artemisa','🌿'],['ragweed_pollen','Ambrosía','🌿']];
 const ppNivel=v=>v==null?['—','#9e9e9e',0]:v<1?['Nulo','#9e9e9e',0]:v<10?['Bajo','#43a047',1]:v<50?['Moderado','#f9a825',2]:v<200?['Alto','#ef6c00',3]:['Muy alto','#c62828',4];
 // 📈 Gráfica de presión (20 nov. 2026): bandas con los colores del barómetro, relleno, pasado en línea continua y previsión
@@ -60,7 +62,7 @@ function ppChart(v,tm,iNow){if(!v||v.length<3)return '';
     <rect x="${f(xn-19)}" y="1" width="38" height="14" rx="7" fill="#e53935"/><text x="${f(xn)}" y="11.5" font-size="9.5" font-weight="800" text-anchor="middle" fill="#fff">AHORA</text>`;
   return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block;margin-top:4px" role="img" aria-label="Gráfica de la presión">${h}</svg>
     <div class="note" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:2px"><span><b style="color:#1565c0">━</b> <span>últimas 24 h</span></span><span><b style="color:#1e88e5">┅</b> <span>previsión</span></span><span style="color:#ef6c00">▲ <span>máxima</span></span><span style="color:#3949ab">▼ <span>mínima</span></span></div>`;}
-async function ppRender(){const el=document.getElementById('tPP');if(!el||typeof TOWNS==='undefined')return;const t=TOWNS[TOWN];if(!t)return;
+async function ppRender(){const el=document.getElementById('tPP'),elP=document.getElementById('tPol');if(!el||typeof TOWNS==='undefined')return;const t=TOWNS[TOWN];if(!t)return;
   const [w,q]=await Promise.all([getJSON(`${OM}?latitude=${t[1]}&longitude=${t[2]}&current=pressure_msl,surface_pressure&hourly=pressure_msl&past_days=1&forecast_days=2${TZ}`),
     getJSON(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${t[1]}&longitude=${t[2]}&hourly=${PP_POL.map(x=>x[0]).join(',')}&forecast_days=4${TZ}`)]);
   let h='<b>🧭 Presión atmosférica</b>';
@@ -73,9 +75,9 @@ async function ppRender(){const el=document.getElementById('tPP');if(!el||typeof
       <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><b>📈 <span>Cómo va la presión</span></b>
         <span class="amPill" style="background:${c12};color:#fff;font-size:12.5px;padding:3px 10px">${a12} <span>Próximas 12 horas</span>: ${d12>0?'+':''}${fmtN(d12,1)} hPa</span></div>
       ${ppChart(pv.slice(i0,iNow+25),H.time.slice(i0,iNow+25),iNow-i0)}
-      <div class="note" style="margin-top:6px">La presión se da «a nivel del mar» para poder comparar pueblos (en ${esc(t[0])}, a su altura, marca ${Math.round(w.current.surface_pressure)} hPa). Si baja deprisa suele llegar viento o lluvia; si sube, tiempo más tranquilo.</div>`;}
+      <div class="note msExp" style="margin-top:6px">La presión se da «a nivel del mar» para poder comparar pueblos (en ${esc(t[0])}, a su altura, marca ${Math.round(w.current.surface_pressure)} hPa). Si baja deprisa suele llegar viento o lluvia; si sube, tiempo más tranquilo.</div>`;}
   else h+='<div class="note">No se pudo leer la presión ahora.</div>';
-  h+='<div style="margin-top:12px"><b>🌼 Polen en el aire</b></div>';
+  el.innerHTML=h;h='<b>🌼 Polen en el aire</b>';
   // 🚦 Polen en semáforo (20 nov. 2026): hoy, mañana y pasado; verde = bien (nulo o bajo), naranja = medio (moderado), rojo = mal (alto o muy alto)
   if(q&&q.hourly){const H=q.hourly,dias=[...new Set(H.time.map(s=>s.slice(0,10)))].slice(0,3);
     const mx=(k,d)=>{let m=null;H.time.forEach((s,i)=>{if(s.startsWith(d)&&H[k]&&H[k][i]!=null)m=Math.max(m??0,H[k][i]);});return m;};
@@ -92,7 +94,7 @@ async function ppRender(){const el=document.getElementById('tPP');if(!el||typeof
       <div class="note" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;font-size:12px">${SEM.map((c,i)=>`<span style="display:inline-flex;align-items:center;gap:5px">${luz(i).replace(/16px/g,'10px')} <span>${c[0]}</span></span>`).join('')}</div>
       <div class="note" style="margin-top:6px">Lo más alto de cada día. Bien: nada o poco polen (menos de 10 granos por m³) · Medio: 10–50 · Mal: más de 50. Si tienes alergia, sigue las indicaciones de tu médico.</div>`;}
   else h+='<div class="note">No se pudo leer el polen ahora.</div>';
-  el.innerHTML=h+'';}
+  if(elP)elP.innerHTML=h;else el.insertAdjacentHTML('beforeend',h);}
 if(typeof extraRender==='function'){const _ppE=extraRender;extraRender=async function(){const r=await _ppE.apply(this,arguments);ppRender();return r;};}
 
 /* ---------- 🔭 CIELO Y ASTRONOMÍA ---------- */

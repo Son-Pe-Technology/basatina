@@ -53,7 +53,7 @@ body:not(.light):not(.bna):not(.alegre) .nwTkC b{color:#90caf9}.nwTkC i{font-sty
 @keyframes nwTk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.nwTkC{animation:none}}
 .tmPal{font-size:28px;font-weight:900;letter-spacing:.01em;margin:6px 0 0}
-.tmNv{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line)}.tmNv:first-child{border-top:0}
+.tmNv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line)}.tmNv:first-child{border-top:0}
 .tmNv .big{font-size:20px;font-weight:800;text-align:right}
 .tmBol{white-space:pre-wrap;font-size:14px;line-height:1.45;max-height:340px;overflow:auto;background:rgba(0,0,0,.03);border-radius:10px;padding:10px}
 .tmLvl{display:inline-block;border-radius:8px;padding:3px 10px;font-weight:800;color:#fff}
@@ -192,7 +192,7 @@ nuevo('nieve','El tiempo','🏔️ Nieve y aludes','topo','i-nieve','b');
 // 21 nov. 2026: aludes y predicción de montaña se despliegan al tocar la cabecera (flechita ▸/▾)
 (function(){const st=document.createElement('style');st.textContent=`.nvPlH{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;background:none;border:0;padding:2px 0;margin:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
  .nvFl{font-size:15px;opacity:.75;transition:transform .2s;display:inline-block}.nvPl.abierto .nvFl{transform:rotate(90deg)}.nvPlB{display:none}.nvPl.abierto .nvPlB{display:block}
- .nvDias{display:flex;gap:4px;overflow-x:auto;margin-top:4px;padding-bottom:2px}.nvDia{flex:0 0 auto;min-width:46px;text-align:center;border-radius:8px;padding:3px 4px;background:rgba(127,160,200,.14);font-size:11px;line-height:1.25}
+ .nvDias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;margin-top:4px;padding-bottom:2px}.nvDia{min-width:0;overflow:hidden;text-align:center;border-radius:8px;padding:3px 4px;background:rgba(127,160,200,.14);font-size:11px;line-height:1.25}
  .nvDia b{display:block;font-size:12.5px}.nvDia.si{background:rgba(66,165,245,.28)}`;document.head.appendChild(st);
   document.querySelectorAll('#t-nieve .nvPlH').forEach(h=>h.onclick=()=>{const c=h.closest('.nvPl'),a=c.classList.toggle('abierto');h.setAttribute('aria-expanded',a?'true':'false');});})();
 $('nvAem').onclick=()=>abre('https://www.aemet.es/es/eltiempo/prediccion/montana');
