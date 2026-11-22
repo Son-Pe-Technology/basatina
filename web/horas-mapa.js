@@ -4,6 +4,7 @@
    - Pide a Open‑Meteo la previsión por horas (hoy y mañana) de los mismos pueblos del mapa (TOWNS).
    - Debajo del mapa sale una tira de horas (Ahora, 16 h, 17 h…) y un botón ▶️ que las pasa solas.
    - Cada pueblo muestra el icono y la temperatura de la hora elegida.
+   - Cada botón de la tira lleva el dibujo del tiempo y la temperatura de Pamplona a esa hora (22 nov.).
    Cómo se dibuja: NO se toca mtDraw de index.html. Se envuelve: en la capa «horas» se le pasa por un
    momento al mapa normal («tiempo», Hoy) los datos de la hora elegida como si fueran los de «ahora»,
    y el icono de día/noche se calcula con esa hora. Así el mapa, los toques y los estilos son los mismos.
@@ -26,6 +27,7 @@ const st=document.createElement('style');st.textContent=`
 #mhH{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding:2px 0}#mhH::-webkit-scrollbar{display:none}
 #mhH button{flex:none;border:1px solid var(--line);background:var(--panel);color:inherit;border-radius:12px;padding:4px 8px;font:inherit;font-size:12.5px;line-height:1.2;cursor:pointer;text-align:center}
 #mhH button small{display:block;font-size:10.5px;opacity:.75}
+#mhH .mhI{display:block;font-size:20px;line-height:1.25}#mhH .mhT{display:block;font-weight:700;font-size:12.5px}
 #mhH button.on{background:#2f8fd8;color:#fff;border-color:#2f8fd8}
 #mtBar{overflow:visible;gap:2px!important}#mtBar .mtb{padding:5px 4px!important;font-size:11.5px!important;letter-spacing:-.03em}
 @media (max-width:370px){#mtBar .mtb{font-size:10.5px!important;padding:5px 3px!important}}`;document.head.appendChild(st);
@@ -46,7 +48,10 @@ async function hrLoad(){if(HR&&Date.now()-HRAT<30*60e3)return HR;if(CARGA)return
   }catch(e){}CARGA=null;return HR;})();return CARGA;}
 
 function hrTira(){const el=$('mhH');if(!HR){el.innerHTML='<span class="note">Cargando la previsión por horas…</span>';return;}
-  el.innerHTML=HR.time.map((t,k)=>`<button data-k="${k}" class="${k===HRI?'on':''}">${k===0?'Ahora':hhmm(t)}<small>${k===0?'':diaDe(t)}</small></button>`).join('');
+  // 22 nov. 2026 (Pedro): cada hora lleva el dibujo del tiempo y la temperatura de Pamplona (primer pueblo de TOWNS)
+  const P=HR.A[0],ic=k=>{const i=HR.i0+k,c=P.weather_code[i],tt=P.temperature_2m[i];
+    return `<span class="mhI">${typeof wxIcon==='function'?wxIcon(c,+HR.time[k].slice(11,13)):''}</span><span class="mhT">${tt!=null?Math.round(tt)+'°':''}</span>`;};
+  el.innerHTML=HR.time.map((t,k)=>`<button data-k="${k}" class="${k===HRI?'on':''}">${k===0?'Ahora':hhmm(t)}${ic(k)}<small>${k===0?'':diaDe(t)}</small></button>`).join('');
   el.querySelectorAll('button').forEach(x=>x.onclick=()=>{hrStop();HRI=+x.dataset.k;hrPinta();});}
 function hrMarca(){const el=$('mhH');el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',+x.dataset.k===HRI));
   const on=el.querySelector('.on');if(on){const l=on.offsetLeft-el.clientWidth/2+on.clientWidth/2;el.scrollTo({left:l,behavior:'smooth'});}}
