@@ -1,5 +1,5 @@
 {
- "version": 458,
+ "version": 459,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -54,6 +54,7 @@
   "foto-dormir-cabecera.webp": "ecb586f9ff94f3a11534942b8b88ce6b42104782",
   "foto-emb-sonia.webp": "37ca52ca8400801ecad8fca2f415985d51f48863",
   "foto-empleo-gruas.webp": "dcf1f08857e7247171de2ba46cbe06ba46693712",
+  "foto-energia-miren.webp": "2ac61746ca028439a48506b9ed7003dc2a41d2cb",
   "foto-esc-agua.webp": "7ee1b018352324bd0348abaee74a101e29102040",
   "foto-esc-aurora.webp": "c97c4d7d435fd51a48fbbb8f9d21a28c981cf317",
   "foto-esc-bokeh.webp": "0d0c03a85cfc89ab9f6f1fc050341fb04f788c0f",
@@ -127,11 +128,11 @@
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
   "foto-vivienda-eos.webp": "685183a6ee54d3cec6ba8baff9f5367621e90fdc",
   "foto-volunt-haya.webp": "d6585f9d64ca1f869133265d31d51a96a8d81c45",
-  "fotos-secciones.js": "f41a7214ac8ff5eae62e6f66878b82ff2255fe4e",
+  "fotos-secciones.js": "69d292ed2ea3279149cd04bcd78f39934f07ae8d",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "4754af0ef447975cb43f7f592c853f2f3d9c00a6",
+  "index.html": "9242a417aaae677f81293609a099cd5340dd972b",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
