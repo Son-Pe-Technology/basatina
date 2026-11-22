@@ -40,19 +40,6 @@
    "src": "Cultura Navarra"
   },
   {
-   "id": "paexposicionmuseodememoriasinconstantes20260902",
-   "t": "Museo de memorias inconstantes",
-   "cat": "expo",
-   "f": "2026-09-02",
-   "ff": "2027-01-24",
-   "h": "",
-   "lugar": "Museo Universidad de Navarra (MUN)",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-museo-de-memorias-inconstantes",
-   "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "paconfluencias2026miradashaciaotrasdiscipl20260924",
    "t": "CONFLUENCIAS 2026. MIRADAS HACIA OTRAS DISCIPLINAS",
    "cat": "otros",
@@ -62,19 +49,6 @@
    "lugar": "Sala de Armas de la Ciudadela - Sala de Exposiciones Municipal",
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/confluencias-2026-miradas-hacia-otras-disciplinas",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pasolicituddevisitaguiadalacomparsadegigan20261001",
-   "t": "Solicitud de visita guiada a la Comparsa de Gigantes y Cabezudos de Pamplona",
-   "cat": "otros",
-   "f": "2026-10-01",
-   "ff": "2027-01-29",
-   "h": "",
-   "lugar": "Estación de autobuses",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/solicitud-de-visita-guiada-la-comparsa-de-gigantes-y-cabezudos-de-pamplona",
    "desc": "",
    "src": "Ayuntamiento de Pamplona"
   },
@@ -365,19 +339,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paexposicionpamplonaesmodairunamodada20261116",
-   "t": "Pamplona es Moda / Iruña Moda da",
-   "cat": "expo",
-   "f": "2026-11-16",
-   "ff": "2026-11-21",
-   "h": "",
-   "lugar": "Civivox Pompelo",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-pamplona-es-moda-iruna-moda-da",
-   "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "pafestivaldemusicahamaika202620261118",
    "t": "Festival de música Hamaika 2026",
    "cat": "concierto",
@@ -391,175 +352,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paencuentrospamplonaesmodairunamodada20261119",
-   "t": "Pamplona es Moda / Iruña Moda da",
-   "cat": "charla",
-   "f": "2026-11-19",
-   "ff": "2026-11-21",
-   "h": "",
-   "lugar": "Civivox Pompelo",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/encuentros-pamplona-es-moda-iruna-moda-da",
-   "desc": "Encuentros",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paconciertokatiuskalamujerrusateatrogayarr20261120",
-   "t": "Katiuska, la mujer rusa",
-   "cat": "concierto",
-   "f": "2026-11-20",
-   "ff": "2026-11-21",
-   "h": "",
-   "lugar": "Teatro Gayarre",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/concierto-katiuska-la-mujer-rusa-teatro-gayarre",
-   "desc": "Concierto",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paconciertolaorejadevangoghnavarraarena20261120",
-   "t": "La Oreja de Van Gogh",
-   "cat": "concierto",
-   "f": "2026-11-20",
-   "ff": "2026-11-21",
-   "h": "",
-   "lugar": "Navarra Arena",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/concierto-la-oreja-de-van-gogh-navarra-arena",
-   "desc": "Concierto",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paexposicionmatthiasmalefond20261120",
-   "t": "Matthias Malefond",
-   "cat": "expo",
-   "f": "2026-11-20",
-   "ff": "2027-01-24",
-   "h": "",
-   "lugar": "Sala del Horno de la Ciudadela - Sala de Exposiciones Municipal",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-matthias-malefond",
-   "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paexposicionmirendoiz20261120",
-   "t": "Miren Doiz",
-   "cat": "expo",
-   "f": "2026-11-20",
-   "ff": "2027-01-24",
-   "h": "",
-   "lugar": "Sala del Polvorín de la Ciudadela - Sala de Exposiciones Municipal",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-miren-doiz",
-   "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paencuentroclubesdelecturaencastellanodena20261121",
-   "t": "Clubes de lectura en castellano de Navarra 2026",
-   "cat": "charla",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "10:00",
-   "lugar": "Auditorio Fernando Remacha",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/encuentro-clubes-de-lectura-en-castellano-de-navarra-2026-auditorio-remacha",
-   "desc": "Encuentro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paiimuestradecineirlandespaseoguiadoporpam20261121",
-   "t": "Paseo guiado por Pamplona",
-   "cat": "cine",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "11:00",
-   "lugar": "Secretos históricos irlandeses de Pamplona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ii-muestra-de-cine-irlandes-paseo-guiado-por-pamplona-secretos-historicos",
-   "desc": "II Muestra de cine Irlandés",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paciclocinetagcinelosttranslationcasadelaj20261121",
-   "t": "Cine - Lost in Translation",
-   "cat": "cine",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Casa de la Juventud del Ayuntamiento de Pamplona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-cinetag-cine-lost-translation-casa-de-la-juventud",
-   "desc": "Ciclo CineTag",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paviconciertoderaicesyflores20261121",
-   "t": "VI Concierto de raíces y flores",
-   "cat": "concierto",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Parroquia San Nicolás",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/vi-concierto-de-raices-y-flores",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cnapotheke120261121",
-   "t": "Apotheke",
-   "cat": "concierto",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Casa de Cultura / Kultur Etxea",
-   "pueblo": "Aoiz / Agoitz",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-21/conciertos/apotheke-1",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "paiiiciclopompaeloantiquaconciertointerves20261121",
-   "t": "Concierto",
-   "cat": "concierto",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Catedral de Santa María de Pamplona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/iii-ciclo-pompaelo-antiqua-concierto-inter-vestibulum",
-   "desc": "III Ciclo Pompaelo Antiqua",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paciclodemusicaantiguaconciertopompaeloant20261121",
-   "t": "Concierto - Pompaelo Antiqua",
-   "cat": "concierto",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Catedral de Santa María de Pamplona",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-de-musica-antigua-concierto-pompaelo-antiqua-catedral-de-pamplona-0",
-   "desc": "Ciclo de Música Antigua",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paperformanceherederascivivoxmendillorri20261121",
-   "t": "Herederas",
-   "cat": "otros",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "20:30",
-   "lugar": "Civivox Mendillorri",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/performance-herederas-civivox-mendillorri",
-   "desc": "Performance",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "pateatrolafedelavulgarent20261121",
    "t": "La fé de La Vulgar",
    "cat": "teatro",
@@ -570,19 +362,6 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/teatro-la-fe-de-la-vulgar-ent",
    "desc": "Teatro",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pafestivalcivivoxinthemappingteatroplenilu20261121",
-   "t": "Teatro - Plenilunio",
-   "cat": "teatro",
-   "f": "2026-11-21",
-   "ff": "",
-   "h": "",
-   "lugar": "Civivox Mendillorri",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/festival-civivoxinthemapping-teatro-plenilunio-civivox-mendillorri",
-   "desc": "Festival #CivivoxInTheMapping",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -2378,7 +2157,20 @@
    "url": "https://www.pamplona.es/actualidad/eventos/festival-santaspascuas-2026-concierto-hofe-1111",
    "desc": "Festival SantasPascuas 2026",
    "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pateatrogranconciertodeanonuevoteatrogayar20270106",
+   "t": "Gran concierto de año nuevo",
+   "cat": "concierto",
+   "f": "2027-01-06",
+   "ff": "",
+   "h": "19:00",
+   "lugar": "Teatro Gayarre",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/teatro-gran-concierto-de-ano-nuevo-teatro-gayarre",
+   "desc": "Teatro",
+   "src": "Ayuntamiento de Pamplona"
   }
  ],
- "act": "2026-11-21 06:23"
+ "act": "2026-11-22 06:22"
 }
