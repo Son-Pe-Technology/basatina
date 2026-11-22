@@ -5,20 +5,22 @@ UA = {'User-Agent': 'BasatiNA/1.0 (https://basatina.es; participa@basatina.es)'}
 API = 'https://commons.wikimedia.org/w/api.php'
 OK = re.compile(r'^(CC0|Public domain|PD|CC BY(-SA)? \d)', re.I)
 BUSCA = {
- 't2_padel':      ['pádel Pamplona', 'padel court Spain', 'pista de pádel'],
- 't2_rural':      ['aizkolari', 'harri jasotzaile', 'herri kirolak', 'deporte rural vasco'],
- 't2_peques':     ['Senda Viva Arguedas', 'parque infantil Pamplona', 'Parque de la Taconera'],
- 't2_pqparques':  ['Parque de la Taconera Pamplona', 'Parque Yamaguchi Pamplona', 'Parque de la Media Luna Pamplona'],
- 't2_pqpaseos':   ['Paseo del Arga Pamplona', 'Parque fluvial Arga', 'río Arga Pamplona'],
- 't2_pqagenda':   ['Olentzero Pamplona', 'cabezudos Pamplona', 'kilikis Pamplona'],
- 't2_mascotas':   ['perro monte Navarra', 'pastor vasco perro', 'euskal artzain txakurra'],
- 't2_volunt':     ['voluntarios limpieza río', 'Banco de Alimentos Navarra', 'voluntariado medio ambiente'],
- 't2_empleo':     ['Sarriguren Ciudad de la Innovación', 'Polígono Landaben', 'Pamplona Ensanche edificios'],
- 't2_vivienda':   ['Pamplona Ensanche', 'Casco Viejo Pamplona calle', 'Pamplona barrio viviendas'],
- 't2_pedalea':    ['Vía verde del Plazaola', 'Vía verde del Bidasoa', 'ciclistas Navarra carretera'],
- 't2_moto':       ['puerto de Larrau', 'carretera Navarra montaña', 'Foz de Lumbier carretera', 'Puerto de Belagua'],
- 't2_picnic':     ['embalse de Leurtza', 'área recreativa Navarra', 'Urbasa pradera', 'Nacedero del Urederra'],
- 't2_temporada':  ['huerta Tudela', 'alcachofas Tudela', 'Ribera Navarra huerta', 'Tudela verduras'],
+ 'in_otono':     ['Selva de Irati otoño', 'Irati forest autumn', 'hayedo otoño Navarra', 'Bosque de Irati'],
+ 'in_invierno':  ['Belagua nieve', 'Valle de Belagua invierno', 'Larra Belagua snow', 'Pirineo navarro nieve'],
+ 'in_primavera': ['Sierra de Urbasa', 'Urbasa prado', 'Valle de Baztán', 'Baztan landscape'],
+ 'in_verano':    ['Bardenas Reales', 'Castildetierra', 'Foz de Arbayún', 'Valle de Roncal'],
+ 'in_tiempo':    ['Pamplona nubes', 'Navarra cielo nubes', 'Pamplona skyline clouds', 'tormenta Navarra'],
+ 'in_carreteras':['Puerto de Belate', 'carretera Navarra montaña', 'Puerto de Lizarraga', 'carretera Bardenas'],
+ 'in_cerca':     ['Olite castillo pueblo', 'Puente la Reina', 'Estella Lizarra', 'Ujué'],
+ 'in_pie':       ['senderismo Navarra', 'Mesa de los Tres Reyes', 'Orhi mendia', 'Pirineo navarro sendero'],
+ 'in_deporte':   ['frontón Navarra pelota', 'pelota vasca frontón', 'Frontón Labrit', 'El Sadar estadio'],
+ 'in_agenda':    ['Sanfermines', 'San Fermín Pamplona fiesta', 'gigantes Pamplona', 'Olite fiestas medievales'],
+ 'in_recol':     ['setas hayedo', 'Boletus edulis', 'boletus forest', 'mushrooms beech forest'],
+ 'in_arga':      ['río Arga Pamplona', 'Arga river Pamplona', 'Puente de la Magdalena Pamplona', 'Arga Puente la Reina'],
+ 'in_ega':       ['río Ega Estella', 'Ega river Estella', 'Puente de la Cárcel Estella', 'Nacedero del Urederra'],
+ 'in_aragon':    ['río Aragón Sangüesa', 'Aragon river Navarra', 'río Aragón Caparroso', 'Sangüesa puente'],
+ 'in_ebro':      ['río Ebro Tudela', 'Ebro Tudela puente', 'Ebro river Tudela', 'río Ebro Navarra'],
+ 'in_irati':     ['río Irati Aoiz', 'Irati river', 'Foz de Lumbier', 'río Irati'],
 }
 def get(params):
     u = API + '?' + urllib.parse.urlencode(dict(params, format='json'))
