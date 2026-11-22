@@ -1,5 +1,5 @@
 {
- "version": 430,
+ "version": 431,
  "apk": 33,
  "files": {
   "abiertos.js": "bef6f99fede209ea70324e59889b7ef456998757",
@@ -84,6 +84,7 @@
   "foto-natveg-cabecera.webp": "96b60cc5e1b866ee7ef93573d8402a77feba2b71",
   "foto-nieve-pedro.webp": "a92c013147ab135dfaa367307db364ca08484a46",
   "foto-patrimonio-cabecera.webp": "00af531d04b75ff8f6d24bc6f2b449a7d617764c",
+  "foto-patrimonio-roncesvalles.webp": "d812c9ce098671f0a7a2e29ceedc397df85454d3",
   "foto-pedalea-cabecera.webp": "17d62f5ca417691372efef21ec8602c81cb0d047",
   "foto-peques-cabecera.webp": "c54ca854fdc2c8bcbabb3ab8433a416c2704a2d3",
   "foto-peques-tab-agenda.webp": "4b80bd73355e53f2e4512f2ef00d18bb34849c17",
@@ -102,11 +103,11 @@
   "foto-temporada-cabecera.webp": "0f576425d35b1d0f4ab17b08ecb99d8ada9b7736",
   "foto-tiempo-miren.webp": "848edf05c54bcab9d11fd298d5f5e45593af716e",
   "foto-vivienda-cabecera.webp": "de68a815ca44776e7a5b966ed64c3b2039e6da70",
-  "fotos-secciones.js": "5cd2444ef1ec1a49313eff44cca7b6a78ae84a8d",
+  "fotos-secciones.js": "7f76e2b7169decdbf26ff65900abf5cfebf25213",
   "fotosjuego.js": "32f8d49639af316606643a773157ed3d2f0cb030",
   "horas-mapa.js": "e57c69440d52c55189e208a9a436b9d8a1e5a2ef",
   "idiomas.js": "5694e400ebda87f135166425b7b900959017d9c4",
-  "index.html": "6ff7ed8d693c41d7db9dbc97d7c35c060297e626",
+  "index.html": "8bb96708bd4a32c19cad022e9d6d9e36e048faf4",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
