@@ -3,7 +3,7 @@
    Qué hace (solo en el tema BasatiNA y solo en el Inicio):
      1. Cabecera (logo y hora) con un paisaje de Navarra que cambia con la estación (IF_CAB).
      2. Accesos directos con foto: la foto de fondo y el nombre encima (IF_ACC). Los que no tienen foto
-        siguen con su icono de siempre. «Ríos» lleva la foto de Pedro (su pueblo).
+        siguen con su icono de siempre. «Ríos» y la tarjeta del Arga llevan la foto de Pedro: el puente de la Rabia de Zubiri, su pueblo.
      3. Tarjeta del río en «Ahora en Navarra» con la foto de ese río (IF_RIO), cambia al pasar de río.
      4. Dos apartados por fila: Palabra del día + Refrán, y las 4 tarjetas de «La semana en Navarra»
         (la lluvia, resumida: el listado completo sigue en la pantalla «La semana»).
@@ -22,7 +22,7 @@ const IF_ACC={tiempo:'foto-inicio-acc-tiempo.webp',caudal:'foto-inicio-acc-rios.
 // río del carrusel (RZ_RIOS de novedades.js + arga) → foto
 const IF_RIO={arga:'foto-inicio-rio-arga.webp',irati:'foto-inicio-rio-irati.webp',ega:'foto-inicio-rio-ega.webp',aragon:'foto-inicio-rio-aragon.webp',ebro:'foto-inicio-rio-ebro.webp'};
 const IF_CRED=[
- ['Ríos (acceso directo)','Pedro Iglesias Goñi','foto propia',''],
+ ['Ríos y río Arga: puente de la Rabia, Zubiri','Pedro Iglesias Goñi','foto propia, cedida para la app',''],
  ['Cabecera de otoño: Selva de Irati','Feranza','CC BY-SA 3.0','https://commons.wikimedia.org/wiki/File:Hayedo_de_Irati_6._Oto%C3%B1o_de_2011.JPG'],
  ['Cabecera de invierno: Pirineo navarro','Sea-Empress','CC BY-SA 3.0','https://commons.wikimedia.org/wiki/File:Pic_and_table_de_trois_rois.jpg'],
  ['Cabecera de primavera: Sierra de Urbasa','Misharania','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Sierra_de_Urbasa.jpg'],
@@ -34,7 +34,6 @@ const IF_CRED=[
  ['Deporte: frontón de Irañeta','Basotxerri','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Ira%C3%B1eta_-_Front%C3%B3n_01.jpg'],
  ['Agenda: Sanfermines','San Fermín Pamplona (Flickr)','CC0','https://commons.wikimedia.org/wiki/File:San_Ferm%C3%ADn_la_fiesta_est%C3%A1_en_la_calle_(42031343420).jpg'],
  ['Recolección: setas en el bosque','GenGH','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Oudemansiella_mucida,_Asturias_04.jpg'],
- ['Río Arga, Pamplona','Zarateman','CC0','https://commons.wikimedia.org/wiki/File:Pamplona_-_R%C3%ADo_Arga_01.jpg'],
  ['Río Irati, Aoiz/Agoitz','OTELARRE','CC0','https://commons.wikimedia.org/wiki/File:Agoitzko_Zubia_.jpg'],
  ['Río Ega, Estella-Lizarra','Krzysztof Golik','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Ega_river_in_Estella-Lizarra_(2).jpg'],
  ['Río Aragón, Sangüesa','Millars','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Puente_de_Hierro,_Sang%C3%BCesa_02.jpg'],
