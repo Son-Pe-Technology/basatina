@@ -103,7 +103,8 @@ FS_CAB.voluntariado='foto-volunt-haya.webp';FS_CRED.voluntariado=[['Cabecera: ha
 FS_CAB.empleo='foto-empleo-gruas.webp';FS_CRED.empleo=[['Cabecera: grúas de obra junto a El Sadar, Pamplona','Pedro Iglesias Goñi','foto propia','']];
 FS_CAB.vivienda='foto-vivienda-eos.webp';(FS_CRED.vivienda=FS_CRED.vivienda||[[]])[0]=['Cabecera: obras de viviendas junto a El Sadar, Pamplona','Pedro Iglesias Goñi','foto propia',''];
 FS_CAB.energia='foto-energia-miren.webp';FS_CRED.energia=[['Cabecera: molinos al atardecer','Miren I.G.','foto propia','']];
-FS_CAB.monte='foto-monte-aralar.webp';FS_CRED.monte=[['Cabecera: Santuario de San Miguel de Aralar','Pedro Iglesias Goñi','foto propia','']];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.monte='foto-monte-aralar.webp';FS_CRED.monte=[['Cabecera: Santuario de San Miguel de Aralar','Pedro Iglesias Goñi','foto propia','']];
+FS_CAB.peques='foto-peques-sua.webp';(FS_CRED.peques=FS_CRED.peques||[[]])[0]=['Cabecera: Sua disfrazada de flor','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
