@@ -78,7 +78,8 @@ FS_CAB.comer='foto-comer-pedro.webp';(FS_CRED.comer=FS_CRED.comer||[[]])[0]=['Ca
 FS_CAB.cocina='foto-cocina-miren.webp';(FS_CRED.cocina=FS_CRED.cocina||[[]])[0]=['Cabecera: campo de trigo','Miren I.G.','foto propia',''];
 try{FS_CRED.cocina[1]=['Recetas: garbanzos con chorizo','Embutidos Arrieta','foto cedida',''];FS_CRED.cocina[2]=['Productos típicos: chistorra, morcilla y panceta','Embutidos Arrieta','foto cedida',''];}catch(e){}
 FS_CAB.patrimonio='foto-patrimonio-roncesvalles.webp';(FS_CRED.patrimonio=FS_CRED.patrimonio||[[]])[0]=['Cabecera: Real Colegiata de Roncesvalles, Nuestra Señora de Roncesvalles','Pedro Iglesias Goñi','foto propia',''];
-FS_CAB.temporada='foto-temporada-miren.webp';(FS_CRED.temporada=FS_CRED.temporada||[[]])[0]=['Cabecera: campo de trigo','Miren I.G.','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
+FS_CAB.temporada='foto-temporada-miren.webp';(FS_CRED.temporada=FS_CRED.temporada||[[]])[0]=['Cabecera: campo de trigo','Miren I.G.','foto propia',''];
+FS_CAB.salud='foto-salud-cielo.webp';(FS_CRED.salud=FS_CRED.salud||[[]])[0]=['Cabecera: cielo al atardecer','Pedro Iglesias Goñi','foto propia',''];  // 22 nov.: foto de Miren, hermana de Pedro
 const fsEsc=t=>{try{return (PVS_ESC&&PVS_ESC[t])||'aurora';}catch(e){return 'aurora';}};
 const fsFoto=t=>t==='mtiempo'?null:(FS_CAB[t]||FS_ESC[fsEsc(t)]||null);
 const fsCredL=t=>t==='mtiempo'?null:(FS_CRED[t]||(FS_CAB[t]?null:FS_ESC_CRED[fsEsc(t)])||null);
