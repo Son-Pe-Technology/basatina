@@ -74,7 +74,7 @@ function mfLista(){const g=$('bnaDGrid');if(!g)return;
 // la clave fija de cada grupo (data-k, en castellano) para que las fotos salgan también en euskera, inglés y francés
 const MF_DK={'El tiempo':'el tiempo','Ríos':'ríos','Vida silvestre':'vida silvestre','Carreteras':'carreteras','Localidades':'localidades','Servicios':'servicios',
  'NA Salud':'salud','NA Sostenible':'sostenibilidad','NA sísmica':'actividad sísmica','Qué hacer':'qué hacer','NA Juega':'juegos','Mi Espacio':'mi espacio','Participa':'cuadrilla','Configuración':'configuración'};
-function clave(el){const t=(el.dataset.t||'').toLowerCase();if(t==='mtiempo')return'inicio';if(t==='cerca')return'cerca';
+function clave(el){if(el.classList&&el.classList.contains('m6G'))return null;/* grupos de menu6.js: llevan su foto fija */const t=(el.dataset.t||'').toLowerCase();if(t==='mtiempo')return'inicio';if(t==='cerca')return'cerca';
   const dk=(el.querySelector('span[data-k]')||{dataset:{}}).dataset.k;if(dk&&MF_DK[dk])return MF_DK[dk];
   const s=(el.querySelector('span')||el).textContent.toLowerCase().replace(/únete/,'').trim();
   for(const k in MF_FOTO)if(s.startsWith(k)||s.includes(k))return k;return null;}

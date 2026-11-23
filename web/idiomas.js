@@ -2199,3 +2199,38 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Organismos de donde salen los datos":["Datuak nondik datozen erakundeak","Bodies the data comes from","Organismes d’où viennent les données"],
  "Fotos y datos que usamos":["Erabiltzen ditugun argazkiak eta datuak","Photos and data we use","Photos et données utilisées"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=eu;window.I18N.en[k]=en;window.I18N.fr[k]=fr;});})();
+/* 23 nov. 2026 · menú en 6 grupos (menu6.js) */
+(function(){const T={
+ "Hoy":["Gaur","Today","Aujourd’hui"],"Tiempo y ríos":["Eguraldia eta ibaiak","Weather and rivers","Météo et rivières"],
+ "Naturaleza y salidas":["Natura eta irteerak","Nature and outings","Nature et sorties"],"Moverse":["Mugitu","Getting around","Se déplacer"],
+ "Vivir en Navarra":["Nafarroan bizi","Living in Navarre","Vivre en Navarre"],"Ocio":["Aisia","Leisure","Loisirs"],
+ "Inicio":["Hasiera","Home","Accueil"],"Lo de hoy en Navarra":["Gaurkoa Nafarroan","Today in Navarre","Aujourd’hui en Navarre"],
+ "Qué hay cerca":["Zer dago gertu","What’s nearby","À proximité"],"Lo que tienes alrededor":["Inguruan duzuna","What’s around you","Ce qui t’entoure"],
+ "Ahora, radar, nieve, cielo, energía e histórico":["Orain, radarra, elurra, zerua, energia eta historikoa","Now, radar, snow, sky, energy and history","Maintenant, radar, neige, ciel, énergie et historique"],
+ "Ríos":["Ibaiak","Rivers","Rivières"],"Caudal, embalses y previsión":["Emaria, urtegiak eta iragarpena","Flow, reservoirs and forecast","Débit, barrages et prévisions"],
+ "Terremotos":["Lurrikarak","Earthquakes","Séismes"],
+ "Flora y fauna":["Flora eta fauna","Flora and fauna","Flore et faune"],"Especies, temporada de setas y frutos, espacios protegidos":["Espezieak, perretxiko eta fruituen garaia, gune babestuak","Species, mushroom and fruit season, protected areas","Espèces, saison des champignons et fruits, espaces protégés"],
+ "Salir":["Irten","Go out","Sortir"],"A pie, en bici, en moto y de picnic":["Oinez, bizikletaz, motoz eta piknikean","On foot, by bike, by motorbike and picnics","À pied, à vélo, à moto et en pique-nique"],
+ "Carreteras":["Errepideak","Roads","Routes"],"Incidencias, cámaras y tiempo en carretera":["Gorabeherak, kamerak eta eguraldia errepidean","Incidents, cameras and road weather","Incidents, caméras et météo routière"],
+ "Gasolineras y recarga eléctrica":["Gasolindegiak eta karga elektrikoa","Petrol stations and EV charging","Stations-service et recharge électrique"],"Precios y puntos de recarga":["Prezioak eta karga-puntuak","Prices and charging points","Prix et bornes de recharge"],
+ "Localidades":["Herriak","Towns","Localités"],"Pueblos, comarcas y valles":["Herriak, eskualdeak eta ibarrak","Towns, districts and valleys","Villages, comarques et vallées"],
+ "Comer y dormir":["Jan eta lo egin","Eat and sleep","Manger et dormir"],"Restaurantes, alojamientos, cocina y museos":["Jatetxeak, ostatuak, sukaldaritza eta museoak","Restaurants, lodging, cooking and museums","Restaurants, hébergements, cuisine et musées"],
+ "Compras":["Erosketak","Shopping","Achats"],"Supermercados, mercadillos y productos de temporada":["Supermerkatuak, azokak eta sasoiko produktuak","Supermarkets, markets and seasonal produce","Supermarchés, marchés et produits de saison"],
+ "Salud":["Osasuna","Health","Santé"],"Farmacias, centros y tiempo y salud":["Farmaziak, zentroak eta eguraldia eta osasuna","Pharmacies, health centres and weather & health","Pharmacies, centres et météo et santé"],
+ "Agenda":["Agenda","What’s on","Agenda"],"Cultura, cine, deporte y peques":["Kultura, zinema, kirola eta txikiak","Culture, cinema, sport and kids","Culture, cinéma, sport et enfants"],
+ "Juegos":["Jolasak","Games","Jeux"],"Todos los juegos y la clasificación":["Jolas guztiak eta sailkapena","All the games and the leaderboard","Tous les jeux et le classement"],
+ "Ahora":["Orain","Now","Maintenant"],"Radar":["Radarra","Radar","Radar"],"Nieve":["Elurra","Snow","Neige"],"Cielo y Luna":["Zerua eta Ilargia","Sky and Moon","Ciel et Lune"],"Energía":["Energia","Energy","Énergie"],"Histórico":["Historikoa","History","Historique"],
+ "Caudal":["Emaria","Flow","Débit"],"Embalses":["Urtegiak","Reservoirs","Barrages"],"Previsión":["Iragarpena","Forecast","Prévisions"],
+ "Identificar":["Identifikatu","Identify","Identifier"],"Espacios protegidos":["Gune babestuak","Protected areas","Espaces protégés"],"Plantas medicinales":["Sendabelarrak","Medicinal plants","Plantes médicinales"],
+ "A pie":["Oinez","On foot","À pied"],"En bici":["Bizikletaz","By bike","À vélo"],"En moto":["Motoz","By motorbike","À moto"],"De picnic":["Piknikean","Picnic","Pique-nique"],
+ "Incidencias":["Gorabeherak","Incidents","Incidents"],"Cámaras":["Kamerak","Cameras","Caméras"],"Tiempo en carretera":["Eguraldia errepidean","Road weather","Météo routière"],
+ "Gasolineras":["Gasolindegiak","Petrol stations","Stations-service"],"Recarga eléctrica":["Karga elektrikoa","EV charging","Recharge électrique"],
+ "Restaurantes":["Jatetxeak","Restaurants","Restaurants"],"Alojamientos":["Ostatuak","Lodging","Hébergements"],"Cocina tradicional":["Sukaldaritza tradizionala","Traditional cooking","Cuisine traditionnelle"],"Museos":["Museoak","Museums","Musées"],
+ "Supermercados y mercadillos":["Supermerkatuak eta azokak","Supermarkets and markets","Supermarchés et marchés"],"Productos de temporada":["Sasoiko produktuak","Seasonal produce","Produits de saison"],
+ "Farmacias":["Farmaziak","Pharmacies","Pharmacies"],"Centros":["Zentroak","Health centres","Centres"],"Tiempo y salud":["Eguraldia eta osasuna","Weather and health","Météo et santé"],
+ "Cultura":["Kultura","Culture","Culture"],"Cine":["Zinema","Cinema","Cinéma"],"Deporte":["Kirola","Sport","Sport"],"Peques":["Txikiak","Kids","Enfants"],
+ "Acerca de":["Guri buruz","About","À propos"],"Fuentes oficiales":["Iturri ofizialak","Official sources","Sources officielles"],"Créditos":["Kredituak","Credits","Crédits"],
+ "Lo mío":["Nirea","My stuff","Mon espace"],"Lo mío y ajustes":["Nirea eta ezarpenak","My stuff and settings","Mon espace et réglages"],"Tu cuenta":["Zure kontua","Your account","Ton compte"],"Ajustes":["Ezarpenak","Settings","Réglages"],
+ "Juega y aprende sobre Navarra":["Jolastu eta ikasi Nafarroari buruz","Play and learn about Navarre","Joue et apprends sur la Navarre"],"Tu cuenta, tus cosas y ajustes":["Zure kontua, zure gauzak eta ezarpenak","Your account, your things and settings","Ton compte, tes affaires et réglages"],
+ "Temporada":["Garaia","Season","Saison"],"Ahora es temporada":["Orain da garaia","In season now","C’est la saison"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
