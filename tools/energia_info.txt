@@ -37,10 +37,9 @@
 - GEOM_PERI: 84 · [('4233.54', 1), ('661.12', 1), ('859.45', 1), ('326.75', 1), ('587.83', 1), ('1893.77', 1), ('3123.37', 1), ('1047.39', 1)]
 - BEGINLIFE: 1 · [('29/10/2026', 84)]
 overpass https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
-overpass https://overpass.private.coffee/api/interpreter HTTP Error 504: Gateway Timeout
-overpass https://overpass.kumi.systems/api/interpreter HTTP Error 504: Gateway Timeout
+overpass https://overpass.private.coffee/api/interpreter The read operation timed out
 
-## OSM centrales: Counter({'hydro': 100, 'solar': 75, 'wind': 53, 'biomass': 3, 'gas': 3, 'biogas': 2, '?': 2})
+## OSM centrales: Counter({'hydro': 98, 'solar': 74, 'wind': 53, 'biomass': 3, 'gas': 3, 'biogas': 2, '?': 2})
  * {'src': 'hydro', 'n': 'Electra Cárcar', 'mw': '', 'op': '', 'pt': [42.4615, -2.338], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [43.1417, -1.6071], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.3583, -2.0527], 'w': ''}
@@ -94,8 +93,8 @@ overpass https://overpass.kumi.systems/api/interpreter HTTP Error 504: Gateway T
  * {'src': 'hydro', 'n': 'Central Hidráulica Artesiaga', 'mw': '1.15 MW', 'op': 'Iberdrola', 'pt': [43.1105, -1.5324], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.8948, -1.3012], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica Irurtzun', 'mw': '0.98 MW', 'op': 'Hidroelectrica Dos Hermanas', 'pt': [42.9249, -1.8309], 'w': ''}
- * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Olaldea', 'mw': '3.29 MW', 'op': 'Hidráulicas de la Cuenca del Norte', 'pt': [42.917, -1.2921], 'w': ''}
- * {'src': 'hydro', 'n': 'Central Hidroeléctrica Olaldea 2', 'mw': '0,75 MW', 'op': 'Hidráulicas de la Cuenca del Norte', 'pt': [42.9166, -1.2894], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Olaldea', 'mw': '3.29 MW', 'op': 'Acciona', 'pt': [42.917, -1.2921], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central Hidráulica de Olaldea II', 'mw': '0.72 MW', 'op': 'Acciona', 'pt': [42.9161, -1.2909], 'w': ''}
  * {'src': 'hydro', 'n': 'Barazpea', 'mw': 'small_installation', 'op': '', 'pt': [42.8025, -1.7784], 'w': ''}
  * {'src': 'hydro', 'n': 'Urdaizko Zentral Hidroelektrikoa', 'mw': 'small_installation', 'op': '', 'pt': [42.9089, -1.5324], 'w': ''}
  * {'src': 'hydro', 'n': 'Ubaun', 'mw': '', 'op': '', 'pt': [43.1017, -1.6212], 'w': ''}
@@ -148,8 +147,6 @@ overpass https://overpass.kumi.systems/api/interpreter HTTP Error 504: Gateway T
  * {'src': 'hydro', 'n': 'Central hidroeléctrica Morentín', 'mw': '0.6 MW', 'op': 'Ayuntamiento de Oteiza', 'pt': [42.5937, -1.9855], 'w': ''}
  * {'src': 'hydro', 'n': 'Central hidroeléctrica San Miguel', 'mw': '0.59 MW', 'op': '', 'pt': [42.5779, -1.8426], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica de Oronzo-Mugairi', 'mw': 'yes', 'op': '', 'pt': [43.1417, -1.607], 'w': ''}
- * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.6822, -2.0498], 'w': ''}
- * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': 'Electra Irun-Endara', 'pt': [42.7771, -2.1299], 'w': ''}
  * {'src': 'hydro', 'n': 'Central hidroeléctrica de Andión', 'mw': '0.9 MW', 'op': 'Sociedad Corralizas y Electra', 'pt': [42.5987, -1.8542], 'w': ''}
 
 ## REE meses 92 ['2019-01'] ['2026-08'] ['Hidráulica', 'Ciclo combinado', 'Eólica', 'Solar fotovoltaica', 'Otras renovables', 'Cogeneración', 'Generación total']
