@@ -1,5 +1,5 @@
 {
- "version": 491,
+ "version": 492,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -150,7 +150,7 @@
   "lluvia-aviso.js": "23b0066fcbe71220cd8fecaa6377a9f1a9119e83",
   "logo.jpg": "442927f2c4c5495089c0bd56e454ddc6a4223411",
   "logo.png": "5a4acff3ebac8e7b2e2be74d99bf5a3652086fe3",
-  "mascotas.js": "6ab382c2006ac3031e900c04c16f070ef40b7317",
+  "mascotas.js": "05418208d94cc9fac739d4cef7f1fadd50fb8c3a",
   "mejoras-sonia.js": "34afecb5555419021b5ae33fcb129b9980cf2d1f",
   "mejoras.js": "123b0e6b447a349b4866a4f360d6e747ddb466dc",
   "menu-emojis.js": "3535bfce76b776301a10afa2cca49d3bc90f95c3",
