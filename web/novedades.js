@@ -504,7 +504,7 @@ window.NOVEDADES={anLoad,saCalc,naScan,RZ,rzDraw,rzRios};
    ===================================================================== */
 (function(){if(typeof APP!=='undefined'&&APP)return;
   const UA=navigator.userAgent||'',AND=/Android/i.test(UA),IOS=/iPhone|iPad|iPod/i.test(UA);
-  let URL_APK='https://github.com/suapedrito-z/basatina/releases/latest/download/BasatiNA.apk';
+  let URL_APK='https://github.com/Son-Pe-Technology/basatina/releases/latest/download/BasatiNA.apk';
   fetch('version.json',{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v&&v.apkUrl)URL_APK=v.apkUrl;}).catch(()=>{});
   document.head.insertAdjacentHTML('beforeend','<style>#nvDl{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px}#nvDl>div{background:var(--panel,#fff);color:var(--txt);border-radius:18px;padding:16px;width:min(92vw,380px);max-height:86vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,.35)}#nvDl ol{padding-left:20px;margin:8px 0;line-height:1.5;font-size:14.5px}</style>');
   function abrir(){if(typeof menu==='function')menu(false);const o=document.createElement('div');o.id='nvDl';

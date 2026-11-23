@@ -159,10 +159,10 @@ public class MainActivity extends Activity {
     }
 
     /** Dirección desde la que se descargan las actualizaciones de la pantalla (repositorio público) */
-    static final String BASE = "https://raw.githubusercontent.com/suapedrito-z/basatina/main/web/";
+    static final String BASE = "https://raw.githubusercontent.com/Son-Pe-Technology/basatina/main/web/";
 
     /** La API de GitHub da el archivo tal cual está en «main» ahora mismo (sin la caché de 5 minutos de raw) */
-    static final String API = "https://api.github.com/repos/suapedrito-z/basatina/contents/web/";
+    static final String API = "https://api.github.com/repos/Son-Pe-Technology/basatina/contents/web/";
     static byte[] readBytes(InputStream in) throws Exception {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         byte[] buf = new byte[65536]; int n; while ((n = in.read(buf)) > 0) out.write(buf, 0, n);

@@ -31,7 +31,7 @@ jobs:
       - name: Bajar los borradores (repositorio privado)
         uses: actions/checkout@v4
         with:
-          repository: suapedrito-z/basatina-borradores
+          repository: Son-Pe-Technology/basatina-borradores
           token: ${{ secrets.BORRADORES_TOKEN }}
           path: priv
       - name: Noticias propias

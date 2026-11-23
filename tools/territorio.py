@@ -16,7 +16,7 @@ Lo ejecuta GitHub Actions (.github/workflows/territorio.yml) cada mes. Necesita:
 """
 import io, json, re, sys, time, zipfile, math, urllib.request, urllib.parse, collections
 
-UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/suapedrito-z/basatina)", "Accept": "*/*"}
+UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)", "Accept": "*/*"}
 INFO = []
 def log(*a):
     s = " ".join(str(x) for x in a); print(s, flush=True); INFO.append(s)

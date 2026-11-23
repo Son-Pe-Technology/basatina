@@ -16,7 +16,7 @@ Lo ejecuta GitHub Actions (.github/workflows/especies.yml) una vez al mes.
 """
 import json, re, time, unicodedata, urllib.request, urllib.parse, concurrent.futures as cf, os
 
-UA = {"User-Agent": "BasatiNA/1.0 (app gratuita sobre Navarra; +https://github.com/suapedrito-z/basatina)"}
+UA = {"User-Agent": "BasatiNA/1.0 (app gratuita sobre Navarra; +https://github.com/Son-Pe-Technology/basatina)"}
 G = "https://api.gbif.org/v1/"
 INFO = []
 CACHE_F = "tools/especies_cache.json"

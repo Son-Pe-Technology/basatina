@@ -13,7 +13,7 @@ Ocio para BasatiNA: cartelera de los cines de Navarra y rutas en moto (pantallas
 """
 import json, re, sys, time, math, html, urllib.request, urllib.parse, unicodedata
 
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BasatiNA/1.0; +https://github.com/suapedrito-z/basatina)", "Accept-Language": "es-ES,es;q=0.9"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BasatiNA/1.0; +https://github.com/Son-Pe-Technology/basatina)", "Accept-Language": "es-ES,es;q=0.9"}
 INFO = []
 def log(*a):
     s = " ".join(str(x) for x in a); print(s, flush=True); INFO.append(s)

@@ -2,7 +2,7 @@
    🤖 IA DE BASATINA EN LA APP (23 nov. 2026) — se carga el último
    1. Noticias → «Noticias de BasatiNA»: las que escribió la IA y vosotros publicasteis (con «Según…» y enlaces).
    2. Noticias → «Borradores de la IA» (solo Administrador): leer, corregir, Publicar o Descartar.
-      Los borradores están en un repositorio PRIVADO (suapedrito-z/basatina-borradores, ia_borradores.json):
+      Los borradores están en un repositorio PRIVADO (Son-Pe-Technology/basatina-borradores, ia_borradores.json):
       solo los ve quien tenga una llave con acceso a él. Al Publicar, la noticia se copia a
       noticias/ia_publicadas.json (público), que es lo que ve todo el mundo.
    3. Inicio → «Navarra hoy»: el resumen de la mañana (noticias/navarra_hoy.json), arriba de «Ahora en Navarra».
@@ -12,7 +12,7 @@
 const $=id=>document.getElementById(id);
 const PUB_PATH='noticias/ia_publicadas.json',PUB_DEF={items:[]},HOY_PATH='noticias/navarra_hoy.json';
 /* borradores: repositorio privado, leído y escrito con la llave del móvil */
-const BR_REPO='https://api.github.com/repos/suapedrito-z/basatina-borradores',BR_API=BR_REPO+'/contents/ia_borradores.json';
+const BR_REPO='https://api.github.com/repos/Son-Pe-Technology/basatina-borradores',BR_API=BR_REPO+'/contents/ia_borradores.json';
 const brH=()=>({Authorization:'Bearer '+ghTok(),Accept:'application/vnd.github+json'});
 let BR={d:{items:[]},sha:null};
 async function brLoad(){const r=await fetch(BR_API+'?t='+Date.now(),{headers:brH(),cache:'no-store'});

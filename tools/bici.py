@@ -10,7 +10,7 @@ Escribe tools/bici_info.txt con lo encontrado, para revisar si algo falla.
 """
 import json, re, time, html, urllib.request, urllib.parse, xml.etree.ElementTree as ET
 
-UA = {"User-Agent": "Mozilla/5.0 (Linux; Android 14) BasatiNA/1.0 (+https://github.com/suapedrito-z/basatina)",
+UA = {"User-Agent": "Mozilla/5.0 (Linux; Android 14) BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)",
       "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "es-ES,es;q=0.9"}
 BASE = "https://www.visitnavarra.es"
 LISTAS = {"carretera": "/es/navarra-en-bici-carretera", "gravel": "/es/navarra-en-gravel",

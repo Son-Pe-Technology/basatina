@@ -18,7 +18,7 @@ Para probar sin internet: PADEL_OSM=archivo.json python3 tools/padel.py   (respu
 """
 import collections, datetime, json, math, os, re, time, urllib.parse, urllib.request
 
-UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/suapedrito-z/basatina)"}
+UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)"}
 SERVIDORES = ["https://overpass-api.de/api/interpreter",
               "https://overpass.private.coffee/api/interpreter",
               "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]

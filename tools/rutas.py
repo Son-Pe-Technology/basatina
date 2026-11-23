@@ -23,7 +23,7 @@ Para probarlo sin internet: PRUEBA=1 python3 tools/rutas.py (sin OSM y con altur
 import json, math, re, time, urllib.request, urllib.parse, collections, os, heapq
 
 PRUEBA = bool(os.environ.get("PRUEBA"))
-UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/suapedrito-z/basatina)", "Accept": "*/*"}
+UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)", "Accept": "*/*"}
 SERVIDORES = ["https://overpass-api.de/api/interpreter",
               "https://overpass.private.coffee/api/interpreter",
               "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]
