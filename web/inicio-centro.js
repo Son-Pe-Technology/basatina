@@ -16,7 +16,7 @@ const $=id=>document.getElementById(id);
 const enIni=()=>typeof isBna==='function'&&isBna();
 const S='body.bna #t-mtiempo';
 // fotos (todas ya están en la app; autores en los créditos del Inicio y de cada sección)
-const F={palabra:'foto-natveg-cabecera.webp',refran:'foto-prev-valle.webp',curiosa:'foto-curiosas-sonia.webp',
+const F={palabra:'foto-natveg-cabecera.webp',refran:'foto-prev-valle.webp',curiosa:'foto-inicio-acc-cerca.webp',
   sem:['foto-esc-tiempo.webp','foto-clima-miren.webp','foto-esc-cielo.webp','foto-inicio-acc-carreteras.webp'],
   ag:{Cultura:'foto-inicio-acc-agenda.webp',Deporte:'foto-inicio-acc-deporte.webp',Mercado:'foto-super-tab-semana.webp',Cielo:'foto-astro-cabecera.webp',
       Salud:'foto-salud-cielo.webp','Tu calendario':'foto-agenda-cabecera.webp'}};
