@@ -219,8 +219,9 @@ window.showTab=showTab;
 function todo(){try{coloca();iconoMio();}catch(e){console.warn('menu6',e);}}
 todo();setTimeout(todo,800);setTimeout(todo,3000);
 let pend=0;new MutationObserver(()=>{if(pend)return;pend=setTimeout(()=>{pend=0;todo();},120);}).observe(grid,{childList:true});
-// al abrir el menú, se despliega el grupo de la pantalla en la que estás
-const mb=$('menuBtn');if(mb){const prev=mb.onclick;mb.onclick=function(){if(prev)prev.apply(this,arguments);
-  const on=grid.querySelector('.dsub[data-m6s] button.on');dr.querySelectorAll('.dgroup').forEach(x=>x.classList.remove('open'));
-  if(on)on.closest('.dsub').previousElementSibling.classList.add('open');};}
+// al abrir el menú, todos los grupos empiezan cerrados (23 nov. 2026, Pedro: si no, se quedaba abierto el último)
+// Se vigila la clase «on» del menú porque se abre desde varios sitios (☰, la barra de abajo, el logo…).
+let abierto=dr.classList.contains('on');
+new MutationObserver(()=>{const on=dr.classList.contains('on');if(on&&!abierto){dr.querySelectorAll('.dgroup.open').forEach(x=>x.classList.remove('open'));dr.scrollTop=0;}abierto=on;})
+  .observe(dr,{attributes:true,attributeFilter:['class']});
 })();
