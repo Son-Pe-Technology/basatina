@@ -3,7 +3,7 @@
 - FEATURE: 1 · [('5000007', 945)]
 - ENTIDAD: 935 · [('Etxaide', 2), ('Kintoa / Quinto Real', 2), ('Urrutiña', 2), ('Olaberri', 2), ('Eraso', 2), ('Latasa', 2)]
 - CSIMBOL: 2 · [('1', 940), ('0', 5)]
-- BEGINLIFE: 1 · [('17/09/2025', 945)]
+- BEGINLIFE: 1 · [('20/10/2026', 945)]
 
 ## DIADMI_Pol_Municipio: 272 · ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'ALTCAPITAL', 'ALTMEDIA', 'HABIT2003', 'HABIT2004', 'HABIT2005', 'HABIT2006', 'HABIT2007', 'HABIT2008', 'HABIT2010', 'HABIT2011', 'HABIT2012', 'HABIT2013', 'HABIT2014', 'HABIT2015', 'HABIT2016', 'HABIT2017', 'HABIT2018', 'HABIT2019', 'HABIT2020', 'HABIT2021', 'HABIT2022', 'HABIT2023', 'HABIT2024', 'HABIT2025', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE']
 - FEATURE: 1 · [('1000025', 272)]
@@ -35,6 +35,6 @@
 - HABIT2025: 247 · [('125', 3), ('51', 2), ('36', 2), ('100', 2), ('122', 2), ('154', 2)]
 - GEOM_AREA: 272 · [('11107631.13', 1), ('64579311.66', 1), ('11097795.95', 1), ('96020858.71', 1), ('23135988.75', 1), ('26843000.77', 1)]
 - GEOM_PERI: 272 · [('32356.55', 1), ('34330.61', 1), ('21726.13', 1), ('46159.83', 1), ('35485.08', 1), ('31770.28', 1)]
-- BEGINLIFE: 1 · [('06/10/2026', 272)]
+- BEGINLIFE: 1 · [('20/10/2026', 272)]
 
 pueblos.js: 80 KB · 945 entidades · 272 municipios
