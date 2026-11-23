@@ -1,0 +1,24 @@
+{
+ "items": [
+  {
+   "id": "c1b6225970ce",
+   "pub": "2026-11-23T19:45Z",
+   "titulo": "Osasuna visitará al Amorebieta en segunda ronda de Copa del Rey",
+   "texto": "El sorteo de la Copa del Rey celebrado este lunes ha emparejado a Osasuna con la SD Amorebieta para disputar la segunda eliminatoria. El encuentro será en el Campo Municipal de Urritxe entre el 1 y el 3 de diciembre, con el conjunto navarro como visitante. El Amorebieta, que compite en Segunda Federación, accedió a esta ronda tras vencer 1-0 a Logroñés. El sorteo, dirigido por Rafael Louzán, aplicó criterios de proximidad geográfica dividiendo a los participantes en dos grupos según su ubicación en España.",
+   "pueblo": "Pamplona",
+   "cat": "deporte",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/la-copa-del-rey-mapfre-define-el-camino-hacia-los-dieciseisavos-de-final/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/23/osasuna-equipo-2a-rfef-enfrentara-segunda-ronda-copa-rey-843478-32.html"
+    }
+   ],
+   "auto": true
+  }
+ ],
+ "t": "2026-11-23T19:45Z"
+}
