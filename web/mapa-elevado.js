@@ -14,21 +14,27 @@ function navElev(x,W,H){try{
     try{for(const e of PETILLA){e.r.forEach((q,i)=>{const [px,py]=P(q[0],q[1]);i?x.lineTo(px,py):x.moveTo(px,py);});x.closePath();}}catch(err){}};
   // 1) una copia de cómo está el mapa ahora (para volver a pintar Navarra limpia encima)
   const c=x.canvas,cp=document.createElement('canvas');cp.width=c.width;cp.height=c.height;cp.getContext('2d').drawImage(c,0,0);
-  // 23 nov. 2026 (3.ª versión): INCLINADA. El norte (arriba) se levanta más que el sur (abajo):
-  // el grosor del canto y la sombra van de GN px arriba a GS px abajo. Con una transformación afín
-  // y' = a + (1+b)·y cada capa se desplaza más cuanto más al norte está; así los pueblos no se mueven.
-  const G=Math.max(6,Math.round(W/42)),GN=Math.round(G*3.4),GS=Math.max(3,Math.round(G*.5));
-  const capa=(f,dx)=>{const a=f*GN,b=f*(GS-GN)/H;x.transform(1,0,0,1+b,dx||0,a);};
-  // 2) lo de fuera, bastante más oscuro y apagado
-  x.save();x.fillStyle='rgba(6,10,16,.62)';x.fillRect(0,0,W,H);x.restore();
-  // 3) sombra larga y difuminada: más lejos arriba que abajo
-  x.save();capa(1.7,G*.9);path();x.shadowColor='rgba(0,0,0,.85)';x.shadowBlur=G*3;x.fillStyle='rgba(0,0,0,.55)';x.fill();x.restore();
-  // 4) el canto del bloque: más alto en el norte; de abajo (oscuro) a arriba (claro)
-  for(let i=GN;i>=1;i--){const f=i/GN;x.save();capa(f);path();
-    x.fillStyle=`rgb(${Math.round(96-46*f)},${Math.round(78-40*f)},${Math.round(55-30*f)})`;x.fill();x.restore();}
-  // 5) la cara de arriba: Navarra con su mapa, limpia, y un poco más luminosa
-  x.save();path();x.clip();x.setTransform(1,0,0,1,0,0);x.drawImage(cp,0,0);x.restore();
-  x.save();path();x.fillStyle='rgba(255,255,255,.06)';x.fill();x.restore();
-  // 6) borde: luz arriba a la izquierda
-  x.save();path();x.lineJoin='round';x.strokeStyle='rgba(255,255,255,.95)';x.lineWidth=1.8;x.stroke();x.restore();
+  // 23 nov. 2026 (4.ª versión, la buena): Navarra SE SALE del mapa, más por arriba (norte) que por abajo (sur),
+  // como una hoja que se despega. La cara de Navarra sube L px en el norte y 0 en el sur: y' = (1+L/H)·y − L.
+  // Después de esto, mtDraw sigue pintando (pueblos, lluvia, radar…) con esa misma transformación,
+  // y mtHits se corrige (abajo) para que al tocar un pueblo se acierte.
+  const L=Math.round(H*.06);window.NAV_LIFT={L,H};
+  const sube=f=>x.transform(1,0,0,1+f*L/H,0,-f*L);
+  // 2) lo de fuera, más oscuro y apagado
+  x.save();x.fillStyle='rgba(6,10,16,.6)';x.fillRect(0,0,W,H);x.restore();
+  // 3) sombra en el hueco de donde «sale» Navarra (más marcada abajo, donde está más pegada)
+  x.save();path();x.shadowColor='rgba(0,0,0,.9)';x.shadowBlur=14;x.fillStyle='rgba(0,0,0,.6)';x.fill();x.restore();
+  // 4) el canto: capas de abajo (oscuras) a arriba (claras)
+  for(let i=1;i<=L;i++){const f=i/L;x.save();sube(f);path();
+    x.fillStyle=`rgb(${Math.round(50+50*f)},${Math.round(36+44*f)},${Math.round(24+32*f)})`;x.fill();x.restore();}
+  // 5) la cara de arriba: Navarra con su mapa, levantada
+  x.save();sube(1);path();x.clip();const t=x.getTransform();x.setTransform(t.a/(t.a||1),0,0,t.d/(t.a||1),0,t.f);
+  x.drawImage(cp,0,0);x.restore();
+  // 6) borde de luz
+  x.save();sube(1);path();x.lineJoin='round';x.strokeStyle='rgba(255,255,255,.95)';x.lineWidth=1.8;x.stroke();x.restore();
+  // 7) lo que se pinte después (pueblos, lluvia, ríos…) va «subido» con Navarra
+  sube(1);
 }catch(e){console.log('navElev',e);}}
+// al tocar el mapa: los recuadros de los pueblos se pintaron «subidos»; se pasan a su sitio en pantalla
+document.addEventListener('DOMContentLoaded',()=>{if(typeof mtDraw!=='function')return;const _md=mtDraw;mtDraw=function(){const r=_md.apply(this,arguments);
+  try{const n=window.NAV_LIFT;if(n&&n.L&&Array.isArray(mtHits))mtHits.forEach(h=>{const k=1+n.L/n.H;h[1]=h[1]*k-n.L;h[3]=h[3]*k;});}catch(e){}return r;};try{mtDraw();}catch(e){}});
