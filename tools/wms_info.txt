@@ -1,4 +1,4 @@
-## https://idena.navarra.es/ogc/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0 (3300615 car.)
+## https://idena.navarra.es/ogc/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0 (3392585 car.)
 - BIODIV_Pol_PaisajesSing :: Paisajes singulares queryable
 - OCUPAC_Pol_MCA_VE2023 :: Mapa de Cultivos y Aprovechamientos 2023 queryable
 - OCUPAC_Pol_MCA_VE2021 :: Mapa de Cultivos y Aprovechamientos 2021 queryable
