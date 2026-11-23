@@ -1,6 +1,6 @@
 ## DIADMI_Pol_Municipio 272 elementos · campos ['FEATURE', 'CMUNICIPIO', 'MUNICIPIO', 'ALTCAPITAL', 'ALTMEDIA', 'HABIT2003', 'HABIT2004', 'HABIT2005', 'HABIT2006', 'HABIT2007', 'HABIT2008', 'HABIT2010', 'HABIT2011', 'HABIT2012', 'HABIT2013', 'HABIT2014', 'HABIT2015', 'HABIT2016', 'HABIT2017', 'HABIT2018', 'HABIT2019', 'HABIT2020', 'HABIT2021', 'HABIT2022', 'HABIT2023', 'HABIT2024', 'HABIT2025', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "1000025", "CMUNICIPIO": "4", "MUNICIPIO": "Abaurrepea / Abaurrea Baja", "ALTCAPITAL": "855", "ALTMEDIA": "1061", "HABIT2003": "44", "HABIT2004": "42", "HABIT2005": "41", "HABIT2006": "40", "HABIT2007": "39", "HABIT2008": "41", "HABIT2010": "41", "HABIT2011": "40", "HABIT2012": "39", "HABIT2013": "38", "HABIT2014": "38", "HABIT2015": "35", "HABIT2016": "35", "HABIT2017": "34", "HABIT2018": "33", "HABIT2019": "32", "HABIT2020": "31", "HABIT2021": "29", "HABIT2022": "31", "HABIT2023": 
 municipios: 272
-catálogo WMS: 1303 capas
+catálogo WMS: 1364 capas
 
 # Capas del catálogo que pueden servir:
 
@@ -20,6 +20,7 @@ catálogo WMS: 1303 capas
     DOTACI_Lin_GR321 :: GR 321. Camino Real
     DOTACI_Lin_GR322 :: GR 322. Nafarroa Xtrem
     DOTACI_Lin_GR323 :: GR 323. Bernoako Galzada - Calzada de Bernoa
+    DOTACI_Lin_GR324 :: GR 324. Zaraitzubidea
     DOTACI_Lin_TRB :: GR. Trekking Bidasoa
     DOTACI_Lin_GRT3 :: GRT 3. Bera - Ibardin
     DOTACI_Lin_GRT5 :: GRT 5. Kulunka Bidea
@@ -178,17 +179,17 @@ catálogo WMS: 1303 capas
   salud: DOTACI_Sym_SNSMujer :: Centros de Atención a la Salud Sexual y Reproductiva
   salud: DOTACI_Sym_SNSEspecial :: Centros de Atención Especializada
 ## ADMLOC_Pol_MapaLocalC 12 elementos · campos ['FEATURE', 'CCOMARCA', 'COMARCA', 'ESKUALDEA', 'HABIT2017', 'NUMMUNICIP', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7600023", "CCOMARCA": "1", "COMARCA": "Baztan - Bisasoa", "ESKUALDEA": "Baztan - Bisasoa", "HABIT2017": "22355", "NUMMUNICIP": "21", "GEOM_AREA": "830722737.84", "GEOM_PERI": "162429.76", "BEGINLIFE": "23/04/2019"}
-  ✔ ADMLOC_Pol_MapaLocalC -> comarca 12 zonas en 1 s
+  ✔ ADMLOC_Pol_MapaLocalC -> comarca 12 zonas en 2 s
 ## ESTADI_Pol_AreaNav2000 68 elementos · campos ['FEATURE', 'CAREA', 'AREAS', 'CZONA', 'ZONA', 'CSUBZONA', 'SUBZONA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "5000005", "CAREA": "1", "AREAS": "Baztan", "CZONA": "1", "ZONA": "Noroeste", "CSUBZONA": "1", "SUBZONA": "Baztán", "GEOM_AREA": "384109189.39", "GEOM_PERI": "108477.58", "BEGINLIFE": "01/04/2003"}
-  ✔ ESTADI_Pol_AreaNav2000 -> area 68 zonas en 2 s
+  ✔ ESTADI_Pol_AreaNav2000 -> area 68 zonas en 3 s
 ## PATRIM_Pol_Merindades 5 elementos · campos ['FEATURE', 'CMERINDAD', 'MERINDAD', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "9100003", "CMERINDAD": "3", "MERINDAD": "ESTELLA", "GEOM_AREA": "2068419182.13", "GEOM_PERI": "334160.04", "BEGINLIFE": "01/04/2003"}
-  ✔ PATRIM_Pol_Merindades -> merindad 5 zonas en 1 s
+  ✔ PATRIM_Pol_Merindades -> merindad 5 zonas en 2 s
 ## DOTACI_Pol_PartidoJud 5 elementos · campos ['FEATURE', 'CPARJUDIC', 'PARJUDIC', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "7400022", "CPARJUDIC": "1", "PARJUDIC": "Aoiz / Agoitz", "GEOM_AREA": "2974553158.78", "GEOM_PERI": "393125.78", "BEGINLIFE": "29/09/2025"}
-  ✔ DOTACI_Pol_PartidoJud -> partido 5 zonas en 1 s
+  ✔ DOTACI_Pol_PartidoJud -> partido 5 zonas en 2 s
 ## ESTADI_Pol_SzonNav2000 19 elementos · campos ['FEATURE', 'CSUBZONA', 'SUBZONA', 'CZONA', 'ZONA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "5000004", "CSUBZONA": "3", "SUBZONA": "Alto Bidasoa", "CZONA": "1", "ZONA": "Noroeste", "GEOM_AREA": "262075522.3", "GEOM_PERI": "82347.0", "BEGINLIFE": "01/04/2003"}
   ✔ ESTADI_Pol_SzonNav2000 -> subzona 19 zonas en 2 s
 ## ESTADI_Pol_ZonNav2000 7 elementos · campos ['FEATURE', 'CZONA', 'ZONA', 'GEOM_AREA', 'GEOM_PERI', 'BEGINLIFE'] · ejemplo {"FEATURE": "5000003", "CZONA": "5", "ZONA": "Navarra Media Oriental", "GEOM_AREA": "1302091102.81", "GEOM_PERI": "254436.9", "BEGINLIFE": "01/04/2003"}
-  ✔ ESTADI_Pol_ZonNav2000 -> zona 7 zonas en 1 s
+  ✔ ESTADI_Pol_ZonNav2000 -> zona 7 zonas en 2 s
 
 # Otras capas de zonas que hay en IDENA (no se usan):
     ADMLOC_Pol_MapaLocalS :: Mapa local de Navarra. Subcomarcas
