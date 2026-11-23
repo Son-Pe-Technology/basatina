@@ -1,14 +1,7 @@
 {
-"t": "2026-11-23T07:57Z",
-"turno": "2026-11-23-m",
+"t": "2026-11-23T13:43Z",
+"turno": "2026-11-23-t",
 "dest": [
-{
-"k": "2026-11-19-t",
-"t": "Los Javis enfrían el regreso de 'Paquita Salas' tras el éxito de 'La bola negra': \"Si volviésemos, no seríamos tan graciosos\"",
-"u": "https://www.huffingtonpost.es/life/los-javis-enfrian-regreso-paquita-salas-exito-la-bola-negra-si-volviesemosiamos-graciosos-f202611.html",
-"f": "HuffPost",
-"d": "2026-11-19T02:11Z"
-},
 {
 "k": "2026-11-19-n",
 "t": "151 robots batieron un récord Guinness con una coreografía sincronizada en China",
@@ -85,6 +78,13 @@
 "u": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTjVOX0pTRWdfbGZNQzlXQjlTX3BrSTI4dk1sdGhoaXRZVnZhNGxSdXYtaGppTkZzNzJQczdJSkl1R2JFaVhHWUdIV1JkOEtjRUxhOTY2dktxRVFhNjNMS2pmaUNKOEk3UjFEMlZEQy15U3o0Q1ZMdGN6b1B1WUJRWWlxWDJ1VXFqUnh2ZEN5MkllRzB1bDdORmlmQm1JWGNxRDF2ZU130gGrAUFVX3lxTE9GdU16UkNYb0xZN0FrSHRnRmwtRVBYR2F3MW9SS0FTY2ZZVXVGVkRxMC1kQTF1dXExM0J3WDBKR3pRRC04ekQ1dE1WeHlIZ1hRUG4tOGYxQ24wYUo4b3lic002d1drMG1GN0RiUExjcWpKTUN1N2dMeWNrdVZWZlZxYmJsU2xvU0lFQkJtbHZLWi02THhmU19PZm5EczdsTUFCTEUyLXRxTWJqUQ?oc=5",
 "f": "La Opinión de Zamora",
 "d": "2026-11-23T06:00Z"
+},
+{
+"k": "2026-11-23-t",
+"t": "Un camarero recibe una inesperada carta de un cliente y se hace viral",
+"u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOdmExS0NEc0JDbHR3SmRWTGtSMFM3X2lvdEJOTUdLQ01mc1Fwam0wU1paTldNRXdPeFdteml6M1dpTk5DZFRmLWxaVEo4VW9nbmhTcVJHZWRLMGpDUjVhLTFvSm9tSnBqcTdMcUNBTDAwNndWdkJqTVI3VnFrdjc5OXdaaEc3cndCZWhDX21Xb05vdml5V1RrSEpJZE1kYnFyZmfSAacBQVVfeXFMT09KaS0yYjNMRDFBN2FQQTFzdk5QQXNzYUJnS2g2OUk4b1lfMnRaWnlmTWJqc2hqeEswMklUZGVTbEV3RkJDSGtrc3JvSmdyaFktUWNmYkN2TWJDVm9lekcyUzdQdi14dmxwX3ZpY05DNnBHazVkT2xISGxDbEJtTFV0NndRT19vZDROdDA3bFVjbC1FcHBqUmlGMUdSQVpKWXNZWUlTSVk?oc=5",
+"f": "Deia",
+"d": "2026-11-22T19:58Z"
 }
 ],
 "items": [
@@ -96,13 +96,6 @@
 "p": 6
 },
 {
-"t": "La coruñesa Paula Iglesias realiza los 132 'ollies' de su récord Guinness",
-"u": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQeHc5STlRMmVvdTVxY3A4TnlPOVFtQTlJT2xCRC1GTEktWENxYXFNdEx3aVJEeVBKYWhrUHRJNWVrS2dIZnhOZG9Eb1lacnpaSTV2NzNNUlVoUVR3aDJSMC12ZUFOby04aTg4cHlVaDNvbjhhcDRqb0U0cVE2b1RXc1BqNEx1cnROcEliVV9pZTdFalRrWWl0eW1TLVAxS0JDd09JbU02eTl5MzhNeERCaTUyZVhzTUpsUm02eW5DSXpCN0l0c1p6OUplQnpUX212YXpN?oc=5",
-"f": "La Opinión A Coruña",
-"d": "2026-11-22T12:52Z",
-"p": 6
-},
-{
 "t": "De las latas de las abuelas a una curiosa trampa para insectos: los tesoros que guarda un museo de Zamora",
 "u": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTjVOX0pTRWdfbGZNQzlXQjlTX3BrSTI4dk1sdGhoaXRZVnZhNGxSdXYtaGppTkZzNzJQczdJSkl1R2JFaVhHWUdIV1JkOEtjRUxhOTY2dktxRVFhNjNMS2pmaUNKOEk3UjFEMlZEQy15U3o0Q1ZMdGN6b1B1WUJRWWlxWDJ1VXFqUnh2ZEN5MkllRzB1bDdORmlmQm1JWGNxRDF2ZU130gGrAUFVX3lxTE9GdU16UkNYb0xZN0FrSHRnRmwtRVBYR2F3MW9SS0FTY2ZZVXVGVkRxMC1kQTF1dXExM0J3WDBKR3pRRC04ekQ1dE1WeHlIZ1hRUG4tOGYxQ24wYUo4b3lic002d1drMG1GN0RiUExjcWpKTUN1N2dMeWNrdVZWZlZxYmJsU2xvU0lFQkJtbHZLWi02THhmU19PZm5EczdsTUFCTEUyLXRxTWJqUQ?oc=5",
 "f": "La Opinión de Zamora",
@@ -110,10 +103,10 @@
 "p": 5
 },
 {
-"t": "A Coruña entra en el Libro Guinness de los récords con un 'pequeño' gesto: 'Lo conseguí a la segunda. No me lo tomo como un juego'",
-"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS3lWMGZjWmNrUW9Bdy1UdXFVOG1VUWFCX2daOVl1UjhpWWtIam1jLXpsaE0yT3BfSVVHN3J2WGVNYUVkRUhaaUxCNnYwYUV0RF9tbnFhRzZueFdEYVpXX25oWXZNY0QwWFhOZzJSZFgyQlNuNDdzMXZyTnhjeVhpWVczdzU1eXdiSVdNQjh6NXo1YVVqc3V1SGlkRHpxd0NyZ0JieTdiZ0phdm52N1R1UWR2Z2p4LWhRSlJra2FwdjFKdnRN?oc=5",
+"t": "La coruñesa Paula Iglesias realiza los 132 'ollies' de su récord Guinness",
+"u": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQeHc5STlRMmVvdTVxY3A4TnlPOVFtQTlJT2xCRC1GTEktWENxYXFNdEx3aVJEeVBKYWhrUHRJNWVrS2dIZnhOZG9Eb1lacnpaSTV2NzNNUlVoUVR3aDJSMC12ZUFOby04aTg4cHlVaDNvbjhhcDRqb0U0cVE2b1RXc1BqNEx1cnROcEliVV9pZTdFalRrWWl0eW1TLVAxS0JDd09JbU02eTl5MzhNeERCaTUyZVhzTUpsUm02eW5DSXpCN0l0c1p6OUplQnpUX212YXpN?oc=5",
 "f": "La Opinión A Coruña",
-"d": "2026-11-22T09:00Z",
+"d": "2026-11-22T12:52Z",
 "p": 5
 },
 {
@@ -145,11 +138,32 @@
 "p": 4
 },
 {
+"t": "A Coruña entra en el Libro Guinness de los récords con un 'pequeño' gesto: 'Lo conseguí a la segunda. No me lo tomo como un juego'",
+"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS3lWMGZjWmNrUW9Bdy1UdXFVOG1VUWFCX2daOVl1UjhpWWtIam1jLXpsaE0yT3BfSVVHN3J2WGVNYUVkRUhaaUxCNnYwYUV0RF9tbnFhRzZueFdEYVpXX25oWXZNY0QwWFhOZzJSZFgyQlNuNDdzMXZyTnhjeVhpWVczdzU1eXdiSVdNQjh6NXo1YVVqc3V1SGlkRHpxd0NyZ0JieTdiZ0phdm52N1R1UWR2Z2p4LWhRSlJra2FwdjFKdnRN?oc=5",
+"f": "La Opinión A Coruña",
+"d": "2026-11-22T09:00Z",
+"p": 4
+},
+{
 "t": "Desde la iglesia más alta del mundo a la colección más grande de perros: los 14 récords españoles destacados en Guinness World Records 2027",
 "u": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMjNvbk1HM0dCSV9TZUZ3c0pidmlVUnYyZFJTLW9KdzNESVZGN25rbnZtUHdhVGt4Z3BZNjRMdmZ0bHh3eGNvbm5XTk8tX29aYl8zUUlOcEhqeFdEWHlZMzlRbU5SeFM2RDdBajZoYll6cHplNE5CV0NzR29fRmNRQUpTNUtsMjVUV3RSaGVVcVh3QUFsTVFKMUp0dzBRWVhTRjVrZ0JiclpCTGFWdnUzejVYMERzT0E?oc=5",
 "f": "El Confidencial",
 "d": "2026-11-21T01:00Z",
 "p": 4
+},
+{
+"t": "Lo bautizó Margaret Thatcher, iba a ser una «ciudad bitcoin» y casi acaba en la chatarra: el curioso crucero que llegará a Ferrol",
+"u": "https://news.google.com/rss/articles/CBMioAJBVV95cUxNYmtMQk1wNHNWOU93UlBlVTEtYW83RnM4NHRBRE9BM3ZqRG9XYVAyVWZ4dGh1cURVaVViejlfcENtbFFvSGRmVVlzTTFyR3lFZVdEaDRxRVBrX3IxclQyeUM3Z1hEdVF5OU9jaHhEeUcyanBDLVFTMFNXbG5IbW1QRGROdjBVdGpDS01ydS0wNk1fTUxSMlplWjQ4RjVnX1NoNkc0R3pBbU0zMzA0ampWNEpwSDRhSGQzU0lQYTRoSFNQM2ZiTDh5QTViZmRRMm1XUXpfZFc5VENxajVFVkJtT2I1YWZSUXE3RXhfVXB1Z0NNTlRwbUM4QTB1SzlPSmlSQWwzODdvN0lIOHN2OVRGZ08zYzRjMTdjLWktMUVWMzTSAaACQVVfeXFMTWJrTEJNcDRzVjlPd1JQZVUxLWFvN0ZzODR0QURPQTN2akRvV2FQMlVmeHRodXFEVWlVYno5X3BDbWxRb0hkZlVZc00xckd5RWVXRGg0cUVQa19yMXJUMnlDN2dYRHVReTlPY2h4RHlHMmpwQy1RUzBTV2xuSG1tUERkTnYwVXRqQ0tNcnUtMDZNX01MUjJaZVo0OEY1Z19TaDZHNEd6QW1NMzMwNGpqVjRKcEg0YUhkM1NJUGE0aEhTUDNmYkw4eUE1YmZkUTJtV1F6X2RXOVRDcWo1RVZCbU9iNWFmUlFxN0V4X1VwdWdDTU5UcG1DOEEwdUs5T0ppUkFsMzg3bzdJSDhzdjlURmdPM2M0YzE3Yy1pLTFFVjM0?oc=5",
+"f": "La Voz de Galicia",
+"d": "2026-11-23T10:34Z",
+"p": 3
+},
+{
+"t": "Desde la cara de culpa hasta el ronroneo: seis cosas que crees saber de tu perro o tu gato y que no siempre son ciertas",
+"u": "https://www.huffingtonpost.es/life/animales/desde-cara-culpa-ronroneo-seis-cosas-crees-perro-gato-ciencia-matiza-f202611.html",
+"f": "HuffPost",
+"d": "2026-11-23T08:57Z",
+"p": 3
 },
 {
 "t": "Luis Miguel Dominguín y su doble alternativa: una curiosa historia del toreo",
@@ -159,7 +173,7 @@
 "p": 3
 },
 {
-"t": "Alcaraz, tras alcanzar una hazaña solo lograda por Agassi, Federer y Djokovic: \"Es impresionante estar al lado de leyendas\"",
+"t": "Alcaraz, tras conseguir su última hazaña en Turín: \"Es impresionante estar al lado de las grandes leyendas\"",
 "u": "https://www.20minutos.es/deportes/tenis/carlos-alcaraz-tras-conseguir-una-hazana-solo-lograda-por-agassi-federer-djokovic-es-impresionante-estar-lado-leyendas_7064383_0.html",
 "f": "20minutos",
 "d": "2026-11-23T07:18Z",
@@ -173,8 +187,15 @@
 "p": 3
 },
 {
+"t": "Javier Vicedo Alós. Del verso surrealista a la expresionista abstracción",
+"u": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPYkVBNzhEY0NVc3VIbHVQa0NSVFN3MWRzazhlZzVsRkI5OVB6QXVpR2REOVFrOHNPY282YnZBZHpRb0RfQUZwZmFBeWhuT3dfN2ltVWtlQ01nOFpMS0E2MlE3OTdwS2xpa0JkdGNIWFV5MVRmV2tNWWhBT0xJbWxXd3I2N0ZtTXBsQXVXYVZJZ1Z4M2xOQURXNDdrWVBVZGR1aHNPbmVjOGR5MElwQXE0YnZHVUNHem1JQUFJWjg1Q3MwMXAwT0k0M1NyMTA3TWprNF93enNFY0tYWTBfZWVvSjJva0k1Snh6QzJFVklVY2I0djdzOGJ4SGZCNGVCelcyMnfSAYcCQVVfeXFMUFZUTHRVQUNsd2Z1TE45amswZkxtbE9RVmNVU1JZekVNSWtfN0dndzZuOUFjeXM3TTJIWURtcWZjNDZJMm5vZEh3cy1Pa3MwelJSMjdSNVlQcGx4Zjl0LVBBdEpNQ1BGbXkwY3lhOEwwdjNhWFgwQ0ZJYl9qSnlOeGxqZ1hPTWVodGJ1amhSTEFzZ1lIRlRETXAxTW5aLWZNMzRwaHNiNXVQQ1kweWVjbVdJbWZqdUpDX0lJN2p1aWZMQ2h6a2JKYWFKcmw2Z2ZTR0tjR3dheTliXzg2NUlndVV0eXU0QXkyb0gxaVJsblNmRktzMmllcFJsRnhxWEMxNlJDOF9tYm8?oc=5",
+"f": "El Español",
+"d": "2026-11-23T01:21Z",
+"p": 3
+},
+{
 "t": "La curiosa comparativa de Kiko Narváez con el nivel de Sorloth en el Atleti: \"No sabes si le toca la Primitiva o si le falta un número...\"",
-"u": "https://cadenaser.com/nacional/2026/11/22/la-curiosa-comparativa-de-kiko-narvaez-con-el-nivel-de-sorloth-en-el-atleti-no-sabes-si-le-toca-la-primitiva-o-si-le-falta-un-numero-cadena-ser/",
+"u": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxOUjlYY1pyODFpOE54cGdKcWJBQ1BUTnRlQzllRTVwbWk3NkxmbWhWTnBTNHpyeWRDVElDc1JPbU9qTWYxckg3VWFWOW5VZkVic1JKWUJiRzVYNTBzaVNzZFd4bkdCSG5Gdm9YWDRBMC1ybTl4ZUtmY3pOanNHZHpyUUQ3SDJkNElWcWFONDJORi1WbGl4YWZINHI4d2s1MzhyWXFDZm1QczVjRXpZWnhBRlpjSlJlczZNdDBXdDZmeUgzMjRQVVFoS1JXcW1pdENFcUszVjJsa0h0bXZKb3JWSi1uZjBLM1ZnWURudHZRb1hqX0wtZzFVSG9IWk1xazkwOFViSGt1cm5xdURVVllRMEhZOGUyYVhiQ3NzVG5BOE1XTWcxQTF4NtIBqAJBVV95cUxOUjlYY1pyODFpOE54cGdKcWJBQ1BUTnRlQzllRTVwbWk3NkxmbWhWTnBTNHpyeWRDVElDc1JPbU9qTWYxckg3VWFWOW5VZkVic1JKWUJiRzVYNTBzaVNzZFd4bkdCSG5Gdm9YWDRBMC1ybTl4ZUtmY3pOanNHZHpyUUQ3SDJkNElWcWFONDJORi1WbGl4YWZINHI4d2s1MzhyWXFDZm1QczVjRXpZWnhBRlpjSlJlczZNdDBXdDZmeUgzMjRQVVFoS1JXcW1pdENFcUszVjJsa0h0bXZKb3JWSi1uZjBLM1ZnWURudHZRb1hqX0wtZzFVSG9IWk1xazkwOFViSGt1cm5xdURVVllRMEhZOGUyYVhiQ3NzVG5BOE1XTWcxQTF4Ng?oc=5",
 "f": "Cadena SER",
 "d": "2026-11-22T23:48Z",
 "p": 3
@@ -191,20 +212,6 @@
 "u": "https://www.huffingtonpost.es/life/influencers-celebrities/jennifer-lawrence-viral-comentario-instagram-confiesa-equivoco-detalle-f202611.html",
 "f": "HuffPost",
 "d": "2026-11-22T17:43Z",
-"p": 3
-},
-{
-"t": "El refugio de Gabriel Rufián en un pueblo de Tarragona de solo 642 habitantes: \"Es curioso, pero me flipa\"",
-"u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUG5VRDltMTlNdkdNbUVyNV9ldWI0eGNOTG1Dbk9ndWZZRXpiM0xoX2h3ZENZQ05zcG1oQ1BpVklabDBOZW9LdmFhV1pLSG11VEVMa3Q2ZFpBZVhna0ZMUHktUGlQbm5nNUNsMUdXZmszTVlWMUV4dzdtdFRBX2I0aXJhTzNqWFFrUFVEeWJBUFpPd3ZOYjlJTGx6ZzBUQ3NjdldlSXp5d1dsdw?oc=5",
-"f": "El Confidencial",
-"d": "2026-11-22T13:09Z",
-"p": 3
-},
-{
-"t": "Cambio insólito en Zubieta: la árbitra María Planes se lesiona el tobillo en el Real Sociedad - Sevilla",
-"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOMXhYYWZPdzZ5aFVwTDhpSnhNbUdfejNGZmpoNW1WRVFCYUowZ21CMDBiX0xsTUZGbEdiQjRGNlNEN1NtMmg1RDZUVFl5aXJCaFpoeTZOOVhEcXhwRzVhcENlTjU5QWdGTkZpVTR3TkxXVTNld2JxaFpPNndQMndLMkphd1lINDRfa1B3Tnk2UzdaLUhUZ1QteWFCTjNXb3JMQUQ0Tk5hVGJiaEpjNjl5VE1seG9rU2dhdUFBMEVWOVJ3TlFP0gHKAUFVX3lxTE9Vdk5GMUkwb3ZjaHdHMEp2U0pXU2diWHNNZWZhRmlidWxfUnB6MFRZaV9keFdJaldrRE1MYUVJOHRxbE1xR08xMFRYRm1jOTJybEtfQ211U21HTXAzS2hub21BS3hULXU1UUNOTGQwV3VXazZ2SG8wYVAxak5pd21rR2E3WVRaUk9PUGxTcDFiY01nZC0tbFVYTk16MkFxbFNzRmsyaG1uOHpWWVBNZEZaZVdseFY1M0RFSmhwLXBsekI2YmVmNmVrdkE?oc=5",
-"f": "El Diario Vasco",
-"d": "2026-11-22T11:52Z",
 "p": 3
 },
 {
@@ -229,11 +236,18 @@
 "p": 3
 },
 {
-"t": "Una misteriosa boya llega a Fisterra, A Coruña, tras un posible viaje de 6.000 kilómetros por el Atlántico",
-"u": "https://www.telecinco.es/noticias/galicia/20261120/misteriosa-boya-fisterra-a-coruna-posible-viaje-atlantico_18_020766835.html",
-"f": "Telecinco",
-"d": "2026-11-20T10:59Z",
-"p": 3
+"t": "El refugio de Gabriel Rufián en un pueblo de Tarragona de solo 642 habitantes: \"Es curioso, pero me flipa\"",
+"u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUG5VRDltMTlNdkdNbUVyNV9ldWI0eGNOTG1Dbk9ndWZZRXpiM0xoX2h3ZENZQ05zcG1oQ1BpVklabDBOZW9LdmFhV1pLSG11VEVMa3Q2ZFpBZVhna0ZMUHktUGlQbm5nNUNsMUdXZmszTVlWMUV4dzdtdFRBX2I0aXJhTzNqWFFrUFVEeWJBUFpPd3ZOYjlJTGx6ZzBUQ3NjdldlSXp5d1dsdw?oc=5",
+"f": "El Confidencial",
+"d": "2026-11-22T13:09Z",
+"p": 2
+},
+{
+"t": "Cambio insólito en Zubieta: la árbitra María Planes se lesiona el tobillo en el Real Sociedad - Sevilla",
+"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOMXhYYWZPdzZ5aFVwTDhpSnhNbUdfejNGZmpoNW1WRVFCYUowZ21CMDBiX0xsTUZGbEdiQjRGNlNEN1NtMmg1RDZUVFl5aXJCaFpoeTZOOVhEcXhwRzVhcENlTjU5QWdGTkZpVTR3TkxXVTNld2JxaFpPNndQMndLMkphd1lINDRfa1B3Tnk2UzdaLUhUZ1QteWFCTjNXb3JMQUQ0Tk5hVGJiaEpjNjl5VE1seG9rU2dhdUFBMEVWOVJ3TlFP0gHKAUFVX3lxTE9Vdk5GMUkwb3ZjaHdHMEp2U0pXU2diWHNNZWZhRmlidWxfUnB6MFRZaV9keFdJaldrRE1MYUVJOHRxbE1xR08xMFRYRm1jOTJybEtfQ211U21HTXAzS2hub21BS3hULXU1UUNOTGQwV3VXazZ2SG8wYVAxak5pd21rR2E3WVRaUk9PUGxTcDFiY01nZC0tbFVYTk16MkFxbFNzRmsyaG1uOHpWWVBNZEZaZVdseFY1M0RFSmhwLXBsekI2YmVmNmVrdkE?oc=5",
+"f": "El Diario Vasco",
+"d": "2026-11-22T11:52Z",
+"p": 2
 },
 {
 "t": "El insólito dato del río atmosférico que riega Galicia: más lluvia estos 15 días de Santiago que en los ocho meses completos entre marzo y octubre",
@@ -247,20 +261,6 @@
 "u": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQTVduazd4RktfRGJQZjM0amFrUkc2ekZ5SGVIVEhxT1h6NF8zOEh4UG9hTHJZWGhvbm8zbWJnWUVIbzdVUkdtX3lrU09SdExXMmJoTGdwRGN4RWNUSWlOam04SklHbk5sWGU0SDBVbG1jY2xzcGtIOXd1WGp5QVpZaG9PQi1hWFdwR2E5Wkd3VG5JbFpHcXhyY2NrOFdrMUp5ZkppdmlfajZTYkhzMWo0Z3VYVFdhNFNlN0RJT19ta3BKaGhLRGZ1WGhveEF5WktUVHRPMXhYNTdXWExJYkRsWDE4Sk1YdGZpU0FKTFlhUk1SV0REa3diTjQwX2JJMUg5UFl0bjFFWnVPYTJncmfSAaICQVVfeXFMT1hTMm84d0lVeHhuZDJ1T0pyaTFuMFl6TWRiQUlrOU1VM0wtNXp2c0ZURHRaU3BaSUtESldyMnhhQUpfY1ktV1JfOV83OG03Y2xObGh3SW1HN1hJTlMxU3VGT0lIdzY3TEw2bVFwQVU2QWhYRHlxbzZYNEU4NTNtWHRQMnZMUTlHTFVEdGRqaS04YWp0U1dabTVFRkdaM3pRX05XbXRiU2drM1Y3azJCbWxuVFU5dnRDd3I4SWI1WVl2cDU0a0RwUFJaTXJfYXk4WUxGN1otbGM1QnEzR29VLUU2U0YwYU10VjFqNi1NRVlLemkyTXk3Vm13MDNQUERFTl9qODJXbkJ5NF9ldTF6NDFaeU8tRDlETGFKVHJESGtfeWc?oc=5",
 "f": "La Razón",
 "d": "2026-11-21T15:57Z",
-"p": 2
-},
-{
-"t": "El surrealista vídeo de Karina para animar a votar el 29N versionando su mayor éxito",
-"u": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNRFBjZWFqU3h6eDRqVnYwcmR1cXdWRkkxWGYxZFBaWUg0NlJhMHdoazFtQmdUM0xoOU93WV85dlZudnEzYjdfZmFBTDdaYWVFeS1zX2tidTk1N1FWcTJESWl0WGt3X3BCQUxOZ0JCNGtaR3RNWGN6Vm5NejIwOGJVclZWX2lFdG51Z0ZjOFdjOUplcGhaMGVkckNBakV5dUctUTY1dlJmdEhMUXdCNzJQV1FCamFQZW93OVRXY1h3ZG7SAcABQVVfeXFMTk1IN1RRSGpTUkFSeTdiZklRNGxVN0EyeHE1aWlnMVpFVkhwV0ZJWk1tbGhxRXF4RVRUMDZkeW5zaHFuUFhxUXQ3TnRISUVvNWlxdFA0N2tBbTRnN2hmUGxyM3F6THV6Wl90VmhKRXlWaS1rQXFUNl9CSWVSbkdYOFFyYW10ZGRTUnVyUi1QN09lNHFtWU10aVVSX1hIUmh3NVZpMExYc3NDWUNkSV9NU1Q4SmtUSkwwUy14dG5OTl9S?oc=5",
-"f": "El Periódico",
-"d": "2026-11-21T13:20Z",
-"p": 2
-},
-{
-"t": "¿Por qué llaman \"el matador\" a Adrián Lastra en Miami? Su divertida confesión en Pasapalabra",
-"u": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNa1VFUjlpbWpLTURwOHZwZUNyZnRpTWtEMVRGb2hSc2ItZGM1NERiczgySG1FR2JzQ2d3UkVObF9MN0d2U3B2VkRCN1BKZnk2SHo1SHhPR3h4TGdmSzZQQnVlUV9LV3ZLc3NiMGRoaGppbkQ3OVFfYjFjbDFtUGVzejBnQmFacHUwZGJsOS1NSm5HTnZORzFwNEpwZEtRTkQxSXdpcXJ4UzJYY1ZIZWVJMnk5MVJiQkszaExPMERIQ0J2SDRhY3V1QU5GMXBMd2xnU1gtbVpqcW9KSGFOY1Z2Q9IB4AFBVV95cUxOTXdWX2FDY01oa2NUMWFRaEN3MHliWlFhYlFDMjh1Ny1kVFFpaGFqaDEwSmp6T3JBcVo3RmRXVllsWENjYkd4QjhkMm1PalhXaGJPRGRLWmlmTGZUOE1HRGhHLW1nZENVVkVZV1U5cXBtVk8zSXlhVTE1MVkzcUFsdnZoakZBWnZCdkhFTlZDWDNMcVI3QVo2MTE1RHFjS1djM2R3UURCTjhibVVlUG1GZXN6X181RU9zTzQ2d0tTYTZIb2ZnY1MwN0R2RzhMbkxaT3hPbk1jdUZnLTJPUExzTA?oc=5",
-"f": "Antena 3",
-"d": "2026-11-21T08:05Z",
 "p": 2
 }
 ]
