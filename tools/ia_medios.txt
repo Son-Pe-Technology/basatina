@@ -1,0 +1,181 @@
+{
+ "medio": "Diario de Navarra",
+ "robots": {
+  "GPTBot": "TODO PROHIBIDO",
+  "ChatGPT-User": "TODO PROHIBIDO",
+  "anthropic-ai": "TODO PROHIBIDO",
+  "CCBot": "TODO PROHIBIDO",
+  "Google-Extended": "TODO PROHIBIDO",
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta name=\"robots\" content=\"max-image-preview:large\">",
+  "<meta name=\"robots\" content=\"index, follow, max-image-preview:large\" />"
+ ],
+ "aviso_legal": [
+  "/pags/aviso-legal.html"
+ ]
+}
+{
+ "medio": "Pamplona Actual",
+ "robots": {
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta name=\"robots\" content=\"index, follow, max-image-preview:large\" />"
+ ],
+ "aviso_legal": [
+  "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/salud-alcanza-un-acuerdo-con-cinco-sindicatos-para-mejorar-las-condiciones-laborales-de-sus-profesionales-y-fortalecer/"
+ ]
+}
+{
+ "medio": "Navarra Capital",
+ "robots": {
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />"
+ ],
+ "aviso_legal": [
+  "https://navarracapital.es/aviso-legal/"
+ ]
+}
+{
+ "medio": "Europa Press",
+ "robots": {
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large\" />"
+ ],
+ "aviso_legal": [
+  "/avisolegal.html",
+  "/europapress-legal/",
+  "https://www.europapress.es/avisolegal.html"
+ ]
+}
+{
+ "medio": "Cadena SER",
+ "robots": {
+  "ClaudeBot": "TODO PROHIBIDO",
+  "CCBot": "TODO PROHIBIDO",
+  "PerplexityBot": "TODO PROHIBIDO",
+  "Bytespider": "TODO PROHIBIDO",
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "portada": "error HTTP Error 404: Not Found"
+}
+{
+ "medio": "COPE",
+ "robots": {
+  "GPTBot": "TODO PROHIBIDO",
+  "ChatGPT-User": "TODO PROHIBIDO",
+  "ClaudeBot": "TODO PROHIBIDO",
+  "anthropic-ai": "TODO PROHIBIDO",
+  "Claude-Web": "TODO PROHIBIDO",
+  "CCBot": "TODO PROHIBIDO",
+  "Google-Extended": "permitido",
+  "PerplexityBot": "TODO PROHIBIDO",
+  "Bytespider": "permitido",
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta name=\"robots\" content=\"index,follow\"/>"
+ ],
+ "aviso_legal": [
+  "https://www.cope.es/aviso-legal-trece.html",
+  "https://www.cope.es/aviso-legal.html",
+  "https://www.cope.es/condiciones-redes-sociales-trece-tv.html"
+ ]
+}
+{
+ "medio": "Onda Vasca",
+ "robots": {
+  "*": "permitido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta name=\"robots\" content=\"index,follow\" />"
+ ],
+ "aviso_legal": [
+  "https://www.ondavasca.com/aviso-legal/",
+  "https://www.ondavasca.com/condiciones-de-uso/",
+  "https://www.ondavasca.com/decomisan-en-navarra-11-kilos-de-hongos-ilegales-a-dos-personas-sin-permiso-en-erro/",
+  "https://www.ondavasca.com/la-policia-foral-incauta-mas-de-50-kilos-de-hongos-recolectados-ilegalmente-en-ultzama/"
+ ]
+}
+{
+ "medio": "Orain",
+ "robots": {
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta name=\"robots\" content=\"index, follow\"/>"
+ ],
+ "aviso_legal": []
+}
+{
+ "medio": "Ayuntamiento de Pamplona",
+ "robots": {
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [],
+ "aviso_legal": [
+  "/aviso-legal"
+ ]
+}
+{
+ "medio": "BON (Boletín Oficial de Navarra)",
+ "robots": {
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [
+  "<meta content=\"index, nofollow\" lang=\"es-ES\" name=\"robots\" />"
+ ],
+ "aviso_legal": [
+  "https://www.navarra.es/es/aviso-legal"
+ ]
+}
+{
+ "medio": "Gobierno de Navarra (notas de prensa)",
+ "robots": {
+  "*": "algo prohibido"
+ },
+ "robots_tdm": false,
+ "tdmrep": "no",
+ "cabecera_tdm": "no",
+ "meta": [],
+ "aviso_legal": [
+  "https://www.navarra.es/es/-/nota-prensa/salud-alcanza-un-acuerdo-con-cinco-sindicatos-para-mejorar-las-condiciones-laborales-de-sus-profesionales-y-fortalecer-el-sistema-sanitario-publico",
+  "https://www.navarra.es/es/-/nota-prensa/salud-alcanza-un-acuerdo-con-cinco-sindicatos-para-mejorar-las-condiciones-laborales-de-sus-profesionales-y-fortalecer-el-sistema-sanitario-publico?pageBackId=363032&back=true",
+  "https://www.navarra.es/es/aviso-legal"
+ ]
+}
