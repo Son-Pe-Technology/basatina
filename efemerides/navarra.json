@@ -25,6 +25,25 @@
    ]
   }
  ],
- "dias": {},
+ "dias": {
+  "12-10": [
+   {
+    "a": 2021,
+    "t": "La mayor crecida del Arga",
+    "txt": "Tal día como hoy, en 2021, el Arga llegó a unos 608 m³/s en Pamplona, la mayor crecida registrada. Hubo daños en la Rochapea, San Jorge, la Txantrea, Huarte, Villava y Burlada, y río abajo se rompieron motas de Mendigorría a Funes.",
+    "cat": "naturaleza",
+    "ok": false
+   }
+  ],
+  "06-18": [
+   {
+    "a": 2013,
+    "t": "La riada de junio en el Arga",
+    "txt": "Tal día como hoy, en 2013, el Arga bajó con unos 492 m³/s medidos en Burlada. En Huarte llegó a 177 m³/s y 3,38 m de altura, con daños.",
+    "cat": "naturaleza",
+    "ok": false
+   }
+  ]
+ },
  "curiosidades": []
 }

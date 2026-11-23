@@ -265,3 +265,13 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 - Lo que no se publica queda en «Borradores de la IA» con el motivo (`auto_motivo`), y llega el aviso al correo.
 - En la app (Administrador), cada noticia publicada tiene **↩️ Retirar**.
 - Apagarlo: `IA_AUTO: '0'` en `.github/workflows/ia.yml`. Gasto: `IA_MAX_AUTO` (6 pasadas por vez).
+
+### ☰ Menú en 6 grupos (23 nov. 2026) — `web/menu6.js`, se carga el último
+- Grupos: **Hoy · Tiempo y ríos · Naturaleza y salidas · Moverse · Vivir en Navarra · Ocio** (`M6_GRUPOS`). Los botones de siempre se **mueven** a su grupo (no se crean de nuevo). Los grupos viejos quedan escondidos en `#m6Viejo` porque hay código que los busca por `data-k`.
+- **Familias** (`M6_FAM`): en el menú sale solo la primera pantalla; dentro, una fila de pestañas (`.m6Tabs`) lleva a las demás. Ej.: El tiempo → Ahora · Radar · Nieve · Cielo y Luna · Energía · Histórico.
+- **👤 Lo mío** (icono arriba a la derecha y botón al final del menú, pantalla `lomio`): cuenta, diario, sitios, calendario, mis carreteras, Cuadrilla, Ajustes y Acerca de (con Fuentes y Créditos como pestañas).
+- **Juegos**: pantalla `juegos` con todos los juegos en cuadritos (`M6_JUEGOS`).
+- **Fuera del menú** (`M6_FUERA`, las pantallas siguen existiendo): Desaparecidos (va por aviso push), Crecidas históricas (pasan a «Tal día como hoy»: 10 dic. 2021 y 18 jun. 2013 en `efemerides/navarra.json`, sin revisar), Puertos, Para relajarse, Recolección.
+- **Recolección** está ahora en Flora y fauna → botón **🧺 Temporada** (lista `NREC` con «Temporada: de… a…» y el filtro «Ahora es temporada»); la ficha de una especie que esté en `NREC` lleva su temporada de recogida.
+- El **Mapa de riadas** se abre desde Ríos → Previsión.
+- **Pantalla nueva**: ponla en `M6_GRUPOS` (o en una familia de `M6_FAM`) y su nombre y línea corta en `M6_SUB`; si no, queda fuera del menú (se encuentra con el buscador).
