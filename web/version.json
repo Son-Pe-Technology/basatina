@@ -1,5 +1,5 @@
 {
- "version": 483,
+ "version": 484,
  "apk": 34,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -137,7 +137,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "43fe24d00163b46467a7c0cd8a3cf8ce272c61d6",
   "idiomas.js": "452558bd53659b00e7ef676d0ca25721982ea876",
-  "index.html": "4c31c96d162b1660cadf3f7504db3b2c6ac411b5",
+  "index.html": "9f9233ee5e6822234dd37aac341eae67b4fe99aa",
   "inicio-centro.js": "e3697ed3517b341c5163f22e59c8fb9145c86e56",
   "inicio-fotos.js": "221f9c0f6e699fd2fabdb8fdc087e35bc332a781",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
