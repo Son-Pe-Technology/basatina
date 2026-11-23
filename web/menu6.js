@@ -68,7 +68,7 @@ section.rwOnly>div.m6Tabs.m6Tabs.m6Tabs{display:flex!important}
 .m6Tabs::-webkit-scrollbar{display:none}
 .m6Tabs button{flex:none;border:1.5px solid #d6e2d1;background:#fff;color:#2f4a2a;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:700;white-space:nowrap;cursor:pointer}
 .m6Tabs button.on{background:#3d7031;border-color:#3d7031;color:#fff}
-body.bna #bnaDGrid>.dgroup.m6G{grid-column:1/-1;min-height:96px!important}
+body.bna #bnaDGrid>.dgroup.m6G{grid-column:auto;aspect-ratio:1/1;min-height:0!important;height:auto!important}
 #m6Mio{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#2f4a2a;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
 #m6Mio svg{width:22px;height:22px}
 #t-lomio .m6MioG{background:#fff;border-radius:20px;padding:6px;box-shadow:0 6px 18px rgba(29,45,35,.10);margin-bottom:12px}
