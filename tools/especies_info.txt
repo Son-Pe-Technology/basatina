@@ -1,11 +1,11 @@
 Navarra en GADM: ESP.9_1
-Aves (Aves, clave 212): 230 especies · 1753039 observaciones en total
-Mamíferos (Mammalia, clave 359): 80 especies · 109937 observaciones en total
-Reptiles (Squamata, clave 11592253): 30 especies · 4437 observaciones en total
+Aves (Aves, clave 212): 230 especies · 1753201 observaciones en total
+Mamíferos (Mammalia, clave 359): 80 especies · 109941 observaciones en total
+Reptiles (Squamata, clave 11592253): 30 especies · 4439 observaciones en total
 Reptiles (Testudines, clave 11418114): 6 especies · 120 observaciones en total
 Anfibios (Amphibia, clave 131): 22 especies · 3599 observaciones en total
 Peces (Cypriniformes, clave 1153): 20 especies · 114207 observaciones en total
-Peces (Salmoniformes, clave 1313): 3 especies · 15362 observaciones en total
+Peces (Salmoniformes, clave 1313): 3 especies · 15473 observaciones en total
 Peces (Perciformes, clave 587): 8 especies · 84 observaciones en total
 Centrarchiformes: no encontrado en GBIF
 Peces (Esociformes, clave 548): 1 especies · 13 observaciones en total
@@ -13,14 +13,14 @@ Peces (Siluriformes, clave 708): 2 especies · 209 observaciones en total
 Peces (Anguilliformes, clave 495): 1 especies · 308 observaciones en total
 Peces (Cyprinodontiformes, clave 547): 0 especies · 0 observaciones en total
 Gobiiformes: no encontrado en GBIF
-Mariposas y polillas (Lepidoptera, clave 797): 130 especies · 64760 observaciones en total
-Libélulas (Odonata, clave 789): 55 especies · 7517 observaciones en total
-Escarabajos (Coleoptera, clave 1470): 50 especies · 20121 observaciones en total
-Plantas con flor (Magnoliopsida, clave 220): 420 especies · 389621 observaciones en total
-Plantas con flor (Liliopsida, clave 196): 130 especies · 105490 observaciones en total
-Coníferas (Pinopsida, clave 194): 15 especies · 6519 observaciones en total
-Helechos (Polypodiopsida, clave 7228684): 40 especies · 15201 observaciones en total
-Setas (Agaricomycetes, clave 186): 130 especies · 53457 observaciones en total
+Mariposas y polillas (Lepidoptera, clave 797): 130 especies · 64838 observaciones en total
+Libélulas (Odonata, clave 789): 55 especies · 7519 observaciones en total
+Escarabajos (Coleoptera, clave 1470): 50 especies · 20153 observaciones en total
+Plantas con flor (Magnoliopsida, clave 220): 420 especies · 390012 observaciones en total
+Plantas con flor (Liliopsida, clave 196): 130 especies · 105555 observaciones en total
+Coníferas (Pinopsida, clave 194): 15 especies · 6521 observaciones en total
+Helechos (Polypodiopsida, clave 7228684): 40 especies · 15219 observaciones en total
+Setas (Agaricomycetes, clave 186): 130 especies · 53521 observaciones en total
 Total especies: 1356
 Recuentos por zona y mes: 380 peticiones · fallidas: 0 []
 Fichas: 1356 (con texto de Wikipedia: 1140) · revisadas a mano: 13 (0 nuevas)
