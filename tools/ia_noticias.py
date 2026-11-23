@@ -69,7 +69,8 @@ def tejas(t, n=8):
 
 
 SIS_GRUPOS = """Eres el editor de BasatiNA, una app de Navarra. Te paso titulares numerados de varios medios.
-Agrupa los que cuentan EXACTAMENTE el mismo hecho. Solo grupos con al menos 2 medios distintos.
+Agrupa los que cuentan EXACTAMENTE el mismo hecho (mismo sitio, mismo día, mismos protagonistas: dos accidentes en
+pueblos distintos son hechos distintos). Solo grupos con al menos 2 medios DISTINTOS (el mismo medio dos veces no cuenta).
 Descarta: política (partidos, elecciones, parlamento, gobierno como debate político), opinión, columnas,
 entrevistas, programas de radio, publicidad de empresas, esquelas, y noticias que no sean de Navarra.
 Ordena por interés para la gente de Navarra. Máximo 10 grupos.
@@ -77,7 +78,8 @@ Responde SOLO con JSON: [{"ids":[n,n,...],"tema":"resumen de 6-10 palabras","cat
 
 SIS_NOTICIA = """Eres periodista de BasatiNA, una app sin ánimo de lucro de Navarra. Escribe una noticia breve y PROPIA
 con los hechos que cuentan varios medios. Reglas obligatorias:
-- Escribe con tus palabras. Prohibido copiar frases o trozos de frases de los medios.
+- Escribe con tus palabras y con tu propio orden. Prohibido copiar frases o trozos de frases de los medios: no
+  repitas más de 5 palabras seguidas de ningún texto. Resume: no hace falta contar todos los detalles.
 - Solo hechos que digan las fuentes. Nada inventado ni supuesto. Si un dato solo lo da un medio, di «según X».
 - Compara los datos entre medios (lugar, pueblo, cifras, edades, horas, fechas, resultados). Si NO coinciden,
   no elijas uno: apúntalo en "dudas".
@@ -131,9 +133,18 @@ def main():
             continue
         if not R.get("apta", True) or not R.get("titulo") or not R.get("texto"): continue
         du = [d for d in R.get("dudas", []) if d]
-        # ¿copia frases? (8 palabras seguidas iguales que algún medio)
-        mias = tejas(R["texto"])
-        if any(mias & tejas(t) for _, t in leidos): du.append("Alguna frase se parece mucho a la de un medio: reescribir antes de publicar.")
+        # ¿copia frases? (8 palabras seguidas iguales que algún medio). Si copia, se le pide UNA vez que lo reescriba.
+        fuente_tejas = set().union(*(tejas(t) for _, t in leidos))
+        iguales = tejas(R["texto"]) & fuente_tejas
+        if iguales:
+            try:
+                R2 = json_de(llamar(SIS_NOTICIA, msg + "\n\nTU VERSIÓN ANTERIOR COPIABA ESTOS TROZOS LITERALES DE LOS MEDIOS. "
+                                    "Reescribe la noticia entera con otras palabras y otro orden, sin repetir ninguno:\n- " + "\n- ".join(sorted(iguales)[:12]), 900))
+                if R2.get("titulo") and R2.get("texto"): R = R2; du = [d for d in R.get("dudas", []) if d]
+            except IAError as e:
+                avisar_error(e)
+            iguales = tejas(R["texto"]) & fuente_tejas
+        if iguales: du.append("Alguna frase se parece mucho a la de un medio: reescribir antes de publicar.")
         if R.get("personales"): du.append("Puede llevar datos personales: revisar.")
         cat = R.get("cat") or g.get("cat") or "Navarra"
         if cat == "Sucesos": du.append("Sucesos: revisar siempre a mano.")
