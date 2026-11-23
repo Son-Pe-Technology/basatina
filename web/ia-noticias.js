@@ -54,23 +54,32 @@ document.head.appendChild(st);
 function sitio(){const sec=$('t-noticias'),nc=$('nwC');if(!sec||!nc)return null;const ref=nc.closest('.card')||sec.querySelector('.card');
   if(!$('iaPub')){ref.insertAdjacentHTML('beforebegin','<div class="card" id="iaPub" style="display:none"></div><div class="card tech" id="iaAdm"><b>🤖 Borradores de la IA</b><div class="note">Cargando…</div></div>');}
   return true;}
+const adminOk=()=>typeof TECH!=='undefined'&&TECH&&typeof ghTok==='function'&&!!ghTok();
 async function pinta(fresh){if(!sitio())return;const PD=await jsLoad(PUB_PATH,PUB_DEF,fresh);
   const P=(PD.items||[]).slice(0,12),pub=$('iaPub');
   pub.style.display=P.length?'':'none';
   pub.innerHTML=`<b>📰 Noticias de BasatiNA</b>`+P.map(x=>`<div class="iaN" data-id="${X(x.id)}"><div class="iaM">${X([x.pueblo,x.cat].filter(Boolean).join(' · '))}${x.pub?' · '+X(cuando(x.pub)):''}</div>
     <div class="iaT">${X(x.titulo)}</div><div class="iaX">${X(x.texto)}</div>
-    <div class="iaS">Según ${(x.fuentes||[]).filter((f,i,a)=>a.findIndex(y=>y.f===f.f)===i).map(f=>`<a data-u="${X(f.u)}">${X(f.f)}</a>`).join(', ')}</div></div>`).join('')+
-    `<div class="iaPie">Redactadas por BasatiNA con ayuda de IA a partir de lo que cuentan varios medios, y revisadas a mano. La noticia completa está en cada medio.</div>`;
+    <div class="iaS">Según ${(x.fuentes||[]).filter((f,i,a)=>a.findIndex(y=>y.f===f.f)===i).map(f=>`<a data-u="${X(f.u)}">${X(f.f)}</a>`).join(', ')}</div>
+    ${adminOk()?`<div class="iaBt tech"><span class="iaM" style="flex:1 1 auto;align-self:center">${x.auto?'🤖 Publicada sola por la IA':'✋ Publicada a mano'}</span><button class="btn" data-ret="${X(x.id)}">↩️ Retirar</button></div>`:''}</div>`).join('')+
+    `<div class="iaPie">Redactadas por BasatiNA con ayuda de IA a partir de lo que cuentan al menos dos medios. Las de sucesos se revisan siempre a mano. La noticia completa está en cada medio.</div>`;
   pub.querySelectorAll('.iaX').forEach(e=>e.onclick=()=>e.closest('.iaN').classList.toggle('abierta'));
+  // ↩️ Retirar (solo Administrador): la quita de lo público y la marca como «retirada» en los borradores
+  pub.querySelectorAll('button[data-ret]').forEach(b=>b.onclick=async()=>{const id=b.dataset.ret;
+    if(!confirm('¿Retirar esta noticia? Dejará de verse en la app.'))return;b.disabled=true;
+    try{await jsEdit(PUB_PATH,PUB_DEF,d=>{d.items=(d.items||[]).filter(y=>y.id!==id);},'IA: noticia retirada');
+      try{await brEdit(d=>{const it=(d.items||[]).find(y=>y.id===id);if(it){it.estado='retirada';it.retirada=new Date().toISOString().slice(0,16)+'Z';}},'IA: noticia retirada');}catch(e){}
+      toast('↩️ Retirada');pinta(true);}
+    catch(e){b.disabled=false;toast('❌ '+e.message);}});
   pub.querySelectorAll('a[data-u]').forEach(a=>a.onclick=()=>abre(a.dataset.u));
   // administrador
   const adm=$('iaAdm');if(!adm)return;
   if(!(typeof TECH!=='undefined'&&TECH)||!ghTok()){adm.innerHTML='<b>🤖 Borradores de la IA</b><div class="note">Hace falta la llave de GitHub en este móvil.</div>';return;}
   let D;try{D=await brLoad();}catch(e){adm.innerHTML=`<b>🤖 Borradores de la IA</b><div class="note">❌ ${X(e.message)}</div>`;return;}
   const L=D.items||[],Pd=L.filter(x=>x.estado==='borrador'||x.estado==='duda');
-  adm.innerHTML=`<b>🤖 Borradores de la IA</b><div class="note">${Pd.length?`${Pd.length} pendiente(s). Corrige lo que haga falta y dale a Publicar. Las de sucesos, siempre revisadas a mano.`:'No hay borradores pendientes.'}${D.t?' · Última pasada del robot: '+X(cuando(D.t)):''}</div>`+
+  adm.innerHTML=`<b>🤖 Borradores de la IA</b><div class="note">${Pd.length?`${Pd.length} pendiente(s) que la IA no se ha atrevido a publicar sola. Corrige lo que haga falta y dale a Publicar. Las de sucesos, siempre revisadas a mano.`:'No hay borradores pendientes.'}${D.t?' · Última pasada del robot: '+X(cuando(D.t)):''}</div>`+
     Pd.map(x=>`<div class="iaB ${x.estado==='duda'?'duda':''}" data-id="${X(x.id)}">
-      <div class="iaM" style="font-size:12.5px;color:#5b6660">${x.estado==='duda'?'⚠️ CON DUDAS · ':''}${X([x.cat,x.pueblo].filter(Boolean).join(' · '))} · ${X(cuando(x.creada))}</div>
+      <div class="iaM" style="font-size:12.5px;color:#5b6660">${x.auto_motivo?'✋ No publicada sola: '+X(x.auto_motivo)+' · ':''}${x.estado==='duda'?'⚠️ CON DUDAS · ':''}${X([x.cat,x.pueblo].filter(Boolean).join(' · '))} · ${X(cuando(x.creada))}</div>
       <input class="iaIt" value="${X(x.titulo)}" aria-label="Titular"><textarea class="iaIx" aria-label="Texto">${X(x.texto)}</textarea>
       ${(x.dudas||[]).length?`<ul class="iaD">${x.dudas.map(d=>`<li>${X(d)}</li>`).join('')}</ul>`:''}
       ${(x.datos||[]).length?`<div class="iaF">Datos comparados: ${x.datos.map(d=>`${d.coinciden===false?'❌':'✅'} ${X(d.dato)}`).join(' · ')}</div>`:''}
