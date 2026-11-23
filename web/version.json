@@ -1,5 +1,5 @@
 {
- "version": 494,
+ "version": 495,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -174,7 +174,7 @@
   "rios-plus.js": "5192291277dd6af85ec7d7205cb10b82fdd929fa",
   "rios.js": "4d50b340bbe3b5703f78995c5308add42a86273e",
   "rutas-ui.js": "ab4bea599ab2a8b2e0c4a77317f5ba4316138015",
-  "rutas.js": "4be913d5cfda5a21ae2dbd652561e2b036737fd9",
+  "rutas.js": "062f9b102e7d4c3be13c64bb0d9b6c43915aa065",
   "servicios-ui.js": "e855a8e81b2c7a7bc117bb38c8d9310e619b7fe2",
   "servicios.js": "3fceaf65b00adee7da7842140593c4dac4796b16",
   "seta.svg": "35a4b97d267a6d106f67b400620c70cd79609803",
