@@ -1,0 +1,21 @@
+# Comprueba qué medios permiten la minería de textos (tools/ia_medios.py). Solo en ramas ia-*: no toca la app.
+name: "IA: ¿qué medios dejan leer sus textos?"
+on:
+  push:
+    branches: ['ia-*']
+    paths: ['tools/ia_medios.py']
+permissions:
+  contents: write
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/ia_medios.py
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add tools/ia_medios.txt
+          git commit -m "Comprobación de medios para la IA" || exit 0
+          git push
