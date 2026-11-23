@@ -1,6 +1,6 @@
 # 🤖 IA de BasatiNA (23 nov. 2026): noticias propias (borradores) y «Navarra hoy».
 #   tools/ia_noticias.py → ia_borradores.json en el repositorio PRIVADO basatina-borradores (llave: secreto BORRADORES_TOKEN)
-#                          las publicadas desde la app van a noticias/ia_publicadas.json (público)
+#                          las seguras las publica sola en noticias/ia_publicadas.json (público); el resto, desde la app
 #   (cada 3 h de 7 a 22 h, hora de Madrid en invierno)
 #   tools/ia_hoy.py      → noticias/navarra_hoy.json   (a las 7:20)
 # La clave va en el secreto ANTHROPIC_API_KEY. Si hay dudas, se acaba el saldo o falla la clave,
@@ -39,6 +39,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IA_AUTO: '1'          # '0' = no publica nada sola (todo a revisión a mano)
         run: python3 tools/ia_noticias.py
       - name: Navarra hoy
         if: github.event.schedule == '20 6 * * *' || github.event_name == 'push' || github.event.inputs.tarea == 'hoy' || github.event.inputs.tarea == 'las-dos'

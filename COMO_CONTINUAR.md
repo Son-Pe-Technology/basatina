@@ -258,3 +258,10 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 - **🔒 Pantalla quieta en los juegos (22 nov. 2026)** (`web/juego-fijo.js`, se carga el último): al pulsar ▶️ en «Atrapa las truchas» y en «La Nutria del Arga», el juego se centra y la página deja de moverse hasta que acaba la partida o se cambia de pantalla. Para otro juego, una línea en `JF` (id del botón → caja del juego).
 - **Sin explicaciones repetidas (22 nov. 2026)** (`fsIntro` en `fotos-secciones.js`): en las secciones con foto se ocultan el título y la explicación de la primera tarjeta (repetían la cabecera). Las explicaciones con avisos importantes (oficial, 112, orientativo, no gestiona, previsión…; `FS_AVISO`) se quedan.
 - **🗂️ Menú con fotos (22 nov. 2026)** (`web/menu-fotos.js`, después de `inicio-fotos.js`): cabecera del menú con el paisaje de la estación y cada grupo como cuadro con foto (nuestras y las que ya usa la app). Para cambiar una foto: `MF_FOTO` (nombre del grupo en minúsculas → archivo).
+
+### 🤖 Noticias de la IA que se publican solas (23 nov. 2026)
+- `tools/ia_noticias.py` → `auto_publicar()`: a cada borrador pendiente le hace UNA pasada de arreglo (`SIS_ARREGLO`): quita o deja en general los datos que no coinciden, reescribe frases copiadas y descarta las repetidas de las últimas 48 h.
+- Solo se publica sola (en `noticias/ia_publicadas.json`, con `"auto": true`) si: 2 medios o más, sin dudas después del arreglo, sin frases copiadas, no es de Sucesos ni lleva datos de particulares. Hay además un filtro de palabras de sucesos (`SUCESOS`) que manda a revisión aunque la IA diga que es publicable.
+- Lo que no se publica queda en «Borradores de la IA» con el motivo (`auto_motivo`), y llega el aviso al correo.
+- En la app (Administrador), cada noticia publicada tiene **↩️ Retirar**.
+- Apagarlo: `IA_AUTO: '0'` en `.github/workflows/ia.yml`. Gasto: `IA_MAX_AUTO` (6 pasadas por vez).

@@ -14,8 +14,13 @@ Qué hace:
      De los demás medios usa solo el titular (eso siempre se puede).
   4. La IA escribe una noticia corta CON SUS PALABRAS y compara los datos entre medios.
   5. Se comprueba que no copia frases (8 palabras seguidas iguales que un medio = duda).
-  6. Se guarda como «borrador» (o «duda» si algo no cuadra). NO se publica nada solo:
-     lo publicáis vosotros desde Administrador (botón Publicar). Si hay dudas, llega un aviso al correo.
+  6. Se guarda como «borrador» (o «duda» si algo no cuadra).
+  7. PUBLICACIÓN SOLA (23 nov. 2026, lo pidió Pedro): la IA hace una pasada más a cada borrador pendiente:
+     quita o deja en general los datos que no coinciden, reescribe frases copiadas y mira si ya está publicada.
+     Solo la publica sola (noticias/ia_publicadas.json, con "auto": true) si después NO le queda ninguna duda,
+     la cuentan 2 medios o más, no es de sucesos y no lleva datos de particulares. Si no, se queda para revisar
+     a mano en Administrador (y llega un aviso al correo). En la app hay un botón «Retirar» por si algo sale mal.
+     Para apagarla: variable IA_AUTO=0 en el workflow.
 Reglas que se le dan a la IA: sin política, sin nombres ni datos personales de particulares, solo hechos
 que digan las fuentes, siempre «según…», nada inventado.
 """
@@ -30,6 +35,14 @@ ARCH = os.environ.get("IA_ARCH", "priv/ia_borradores.json")   # en el repositori
 VIEJO = "noticias/ia_borradores.json"                          # donde estaban antes (público): se pasan al privado y se borra
 MAX_NUEVAS = int(os.environ.get("IA_MAX_NUEVAS", "6"))   # noticias nuevas por pasada (controla el gasto)
 DIAS = 7                                                    # los borradores se guardan una semana
+PUB = "noticias/ia_publicadas.json"                          # lo que ve todo el mundo
+AUTO = os.environ.get("IA_AUTO", "1") == "1"                # publicar solas las seguras
+MAX_AUTO = int(os.environ.get("IA_MAX_AUTO", "6"))          # pasadas de arreglo por vez (controla el gasto)
+# Palabras de sucesos: si salen en el titular o el texto, NUNCA se publica sola (aunque la IA diga otra cosa).
+SUCESOS = re.compile(r"\b(accident|atropell|herid|fallec|muere|muri|muert|cadaver|detenid|detenci|arrest|investigad|"
+                     r"agresi|agred|robo|robad|hurto|asalt|incendi|desaparec|rescat|apunal|acuchill|violen|maltrat|"
+                     r"juicio|juzgad|condena|tribunal|fiscal|denunci|guardia civil|policia|ertzaintza|bomberos|sos navarra|"
+                     r"112|herido|grave|choque|colision|vuelco|ahog|suicid|abus|estafa|drogas?|okupa)", re.I)
 
 
 def nrm(s):
@@ -96,6 +109,91 @@ Responde SOLO con JSON:
 "apta": false si no hay hechos suficientes o el tema no encaja (política, opinión, publicidad)."""
 
 
+SIS_ARREGLO = """Eres el editor jefe de BasatiNA, una app sin ánimo de lucro de Navarra. Te paso un BORRADOR de noticia
+escrito por otra IA, sus dudas, los textos de los medios y los titulares que BasatiNA ya ha publicado en las últimas 48 h.
+Tu trabajo: dejarla lista para publicar SIN revisión humana, o decir que no se puede. Nunca inventes nada.
+- Dato que no coincide entre medios: quítalo o déjalo en general («varias personas», «esta semana», «cerca de»).
+  Si ese dato es el centro de la noticia y sin él no se entiende, "publicable": false.
+- Frases copiadas: ningún trozo de más de 5 palabras seguidas igual que un medio. Reescribe con tus palabras.
+- Si cuenta el MISMO hecho que una de las ya publicadas, pon su id en "repetida".
+- "publicable": false si es de sucesos (accidentes, heridos, fallecidos, detenciones, robos, incendios, rescates,
+  desaparecidos, juicios, agresiones), si lleva nombres o datos de particulares, si es política u opinión,
+  o si te queda cualquier duda.
+- Estilo: neutro, 3 a 5 frases, titular de máximo 90 caracteres, «según X» si un dato solo lo da un medio.
+Responde SOLO con JSON:
+{"titulo":"…","texto":"…","quedan_dudas":["…"],"repetida":null,"publicable":true,"motivo":"si no es publicable, por qué, en pocas palabras"}"""
+
+
+def bloqueo(it):
+    """Motivos para NO publicar sola, antes de gastar IA."""
+    if (it.get("cat") or "") == "Sucesos": return "sucesos"
+    if len({f.get("f") for f in it.get("fuentes", [])}) < 2: return "menos de 2 medios"
+    if any("datos personales" in (d or "").lower() for d in it.get("dudas", [])): return "datos personales"
+    if SUCESOS.search(nrm(it.get("titulo", "") + " " + it.get("texto", ""))): return "parece de sucesos"
+    return ""
+
+
+def auto_publicar(B, ahora):
+    """Arregla y publica solas las noticias seguras. Devuelve cuántas ha publicado."""
+    if not AUTO: print("Publicación sola apagada (IA_AUTO=0)"); return 0
+    ah = ahora.strftime("%Y-%m-%dT%H:%MZ")
+    try: P = json.load(open(PUB, encoding="utf-8"))
+    except Exception: P = {"items": []}
+    P.setdefault("items", [])
+    hace48 = (ahora - datetime.timedelta(hours=48)).strftime("%Y-%m-%dT%H:%MZ")
+    recientes = [x for x in P["items"] if x.get("pub", "") >= hace48]
+    hechas = intentos = 0
+    for it in B["items"]:
+        if intentos >= MAX_AUTO: break
+        if it.get("estado") not in ("borrador", "duda") or it.get("auto_intento"): continue
+        it["auto_intento"] = ah
+        m = bloqueo(it)
+        if m: it["auto_motivo"] = m; print("  ✋", m, "·", it["titulo"]); continue
+        leidos = [(f, texto_de(f["u"])) for f in it.get("fuentes", []) if f.get("f") in LEER]
+        leidos = [(f, t) for f, t in leidos if len(t) > 200]
+        if not leidos: it["auto_motivo"] = "sin texto para comprobar"; continue
+        intentos += 1
+        fuentes_txt = "\n\n".join(f"### {f['f']} — {f.get('t','')}\n{t}" for f, t in leidos)
+        otros = "\n".join(f"- {f['f']}: {f.get('t','')}" for f in it["fuentes"] if f.get("f") not in LEER)
+        datos = "\n".join(f"- {'OK' if d.get('coinciden', True) else 'NO COINCIDE'}: {d.get('dato','')}" for d in it.get("datos", []))
+        pub = "\n".join(f"- id={x.get('id')}: {x.get('titulo')}" for x in recientes) or "(ninguno)"
+        msg = (f"BORRADOR\nTitular: {it['titulo']}\nTexto: {it['texto']}\nCategoría: {it.get('cat','')}\n"
+               f"Dudas: {'; '.join(it.get('dudas', [])) or '(ninguna)'}\nDatos comparados:\n{datos or '(ninguno)'}\n\n"
+               f"TEXTOS DE LOS MEDIOS:\n{fuentes_txt}\n\nOTROS MEDIOS (solo titular):\n{otros or '(ninguno)'}\n\n"
+               f"YA PUBLICADAS (48 h):\n{pub}")
+        try:
+            R = json_de(llamar(SIS_ARREGLO, msg, 900))
+        except IAError as e:
+            avisar_error(e)
+            if str(e) in ("sin_saldo", "clave_mala"): break
+            continue
+        if not isinstance(R, dict): continue
+        rep = R.get("repetida")
+        if rep and any(str(x.get("id")) == str(rep) for x in recientes):
+            it["estado"] = "descartada"; it["auto_motivo"] = f"repetida ({rep})"; print("  ♻️ repetida ·", it["titulo"]); continue
+        t, x = (R.get("titulo") or "").strip()[:120], (R.get("texto") or "").strip()[:1500]
+        quedan = [d for d in R.get("quedan_dudas", []) if d]
+        motivo = ""
+        if not R.get("publicable") or not t or not x: motivo = R.get("motivo") or "la IA no la ve publicable"
+        elif quedan: motivo = "quedan dudas"
+        elif tejas(x) & set().union(*(tejas(tt) for _, tt in leidos)): motivo = "sigue copiando frases"
+        elif SUCESOS.search(nrm(t + " " + x)): motivo = "parece de sucesos"
+        if motivo:
+            it["auto_motivo"] = motivo
+            if quedan: it["dudas"] = list(dict.fromkeys(it.get("dudas", []) + quedan))[:10]
+            print("  ✋", motivo, "·", it["titulo"]); continue
+        it.update({"titulo": t, "texto": x, "estado": "publicada", "pub": ah, "auto": True, "dudas": []})
+        P["items"] = [y for y in P["items"] if y.get("id") != it["id"]]
+        nueva = {"id": it["id"], "pub": ah, "titulo": t, "texto": x, "pueblo": it.get("pueblo", ""), "cat": it.get("cat", ""),
+                 "fuentes": [{"f": f["f"], "u": f["u"]} for f in it["fuentes"]], "auto": True}
+        P["items"].insert(0, nueva); recientes.append(nueva); hechas += 1
+        print("  ✅ publicada sola ·", t)
+    if hechas:
+        P["items"] = P["items"][:40]; P["t"] = ah
+        json.dump(P, open(PUB, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return hechas
+
+
 def migrar():
     """Una sola vez: pasa los borradores del archivo público antiguo al privado y borra el público."""
     if not os.path.exists(VIEJO): return
@@ -123,10 +221,12 @@ def main():
     usadas = {f["u"] for x in B["items"] for f in x.get("fuentes", [])}
     hace24 = (ahora - datetime.timedelta(hours=24)).strftime("%Y-%m-%dT%H:%MZ")
     L = [x for x in N.get("items", []) if x.get("d", "") >= hace24 and x.get("u") not in usadas]
-    if len(L) < 2: print("Pocos titulares nuevos"); return
+    if len(L) < 2:
+        print("Pocos titulares nuevos"); L = []
+    G = []
     lista = "\n".join(f"{i}. [{x['f']}] {x['t']}" for i, x in enumerate(L))
     try:
-        G = json_de(llamar(SIS_GRUPOS, lista, 1500))
+        if L: G = json_de(llamar(SIS_GRUPOS, lista, 1500))
     except IAError as e:
         avisar_error(e); return
     nuevas, dudas = 0, 0
@@ -175,14 +275,17 @@ def main():
                               "datos": R.get("datos", [])[:12], "dudas": du})
         nuevas += 1; dudas += bool(du)
         print("  +", "DUDA" if du else "ok", R["titulo"])
+    solas = auto_publicar(B, ahora)
     B["t"] = ahora.strftime("%Y-%m-%dT%H:%MZ")
     os.makedirs(os.path.dirname(ARCH) or ".", exist_ok=True)
     json.dump(B, open(ARCH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     pend = sum(1 for x in B["items"] if x["estado"] in ("borrador", "duda"))
-    print(f"Nuevas: {nuevas} · con dudas: {dudas} · pendientes de revisar: {pend}")
-    if dudas:
+    hoy_pend = sum(1 for x in B["items"] if x["estado"] in ("borrador", "duda") and x.get("creada") == B["t"])
+    print(f"Nuevas: {nuevas} · con dudas: {dudas} · publicadas solas: {solas} · pendientes de revisar: {pend}")
+    if hoy_pend:
         avisar("🤖 IA: hay noticias con dudas para revisar",
-               f"Hay {dudas} noticia(s) nueva(s) con dudas ({pend} pendientes en total). Revísalas en la app: Noticias → Borradores de la IA (modo Administrador).")
+               f"Hay {hoy_pend} noticia(s) nueva(s) que la IA no ha publicado sola ({pend} pendientes en total). "
+               f"Revísalas en la app: Noticias → Borradores de la IA (modo Administrador).")
 
 
 if __name__ == "__main__":
