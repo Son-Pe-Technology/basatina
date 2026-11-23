@@ -53,6 +53,8 @@ const M6_SUB={mtiempo:['Inicio','Lo de hoy en Navarra'],noticias:['Noticias','Ti
 /* 👤 Lo mío */
 const M6_MIO=[['Tu cuenta',['cuenta','diario','sitios','misdep','mivias']],['Cuadrilla BasatiNA',['comunidad','fotos','buzon','refranes','enviar']],['Ajustes',['ajustes','about']]];
 /* fuera del menú (las pantallas siguen existiendo) */
+const M6_MIOSUB={cuenta:'Tu cuenta de BasatiNA',diario:'Tus salidas al monte',sitios:'Tus rincones guardados',misdep:'Tus equipos y partidos',mivias:'Tus carreteras de siempre',
+ comunidad:'Avisos de la gente',fotos:'Las fotos de la Cuadrilla',buzon:'Cuéntanos qué mejorarías',refranes:'Los dichos de cada pueblo',enviar:'Solo administradores',ajustes:'Avisos, letra e iconos',about:'Quiénes somos, fuentes y créditos'};
 const M6_FUERA=['desaparecidos','hist','puertos','relax','natura','libre','comarcas','mercados','curiosas','padel','rural'];
 /* juegos: todos en una pantalla */
 const M6_JUEGOS=['jcadenas','jdonde','jlugar','jsopa','jcruci','jsudoku','jchinchon','jparejas','jsoli','jnutria','psombras','pcontar','ptruchas','jclasif'];
@@ -68,14 +70,16 @@ section.rwOnly>div.m6Tabs.m6Tabs.m6Tabs{display:flex!important}
 .m6Tabs::-webkit-scrollbar{display:none}
 .m6Tabs button{flex:none;border:1.5px solid #d6e2d1;background:#fff;color:#2f4a2a;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:700;white-space:nowrap;cursor:pointer}
 .m6Tabs button.on{background:#3d7031;border-color:#3d7031;color:#fff}
-body.bna #bnaDGrid>.dgroup.m6G{grid-column:auto;aspect-ratio:1/1;min-height:0!important;height:auto!important}
+body.bna #bnaDGrid>.dgroup.m6G{grid-column:auto;min-height:64px}
+#bnaDGrid .dsub[data-m6s]>button small.m6S{display:block;font-size:12px;font-weight:400;color:#5b6660;margin-top:1px;line-height:1.25}
+#bnaDGrid .dsub[data-m6s]>button>span:not(.bt){display:block;text-align:left}
 #m6Mio{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#2f4a2a;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
 #m6Mio svg{width:22px;height:22px}
 #t-lomio .m6MioG{background:#fff;border-radius:20px;padding:6px;box-shadow:0 6px 18px rgba(29,45,35,.10);margin-bottom:12px}
 #t-lomio .m6MioG>b{display:block;font-size:12px;color:#5b6660;text-transform:uppercase;letter-spacing:.07em;padding:8px 10px 4px}
 #t-lomio button[data-t]{display:flex;align-items:center;gap:12px;width:100%;border:none;background:none;padding:9px 10px;border-radius:14px;font:inherit;text-align:left;color:inherit;cursor:pointer}
 #t-lomio button[data-t]:active{background:#eef3ec}
-#t-lomio button[data-t] .bt,#t-lomio button[data-t] .icb{display:none!important}
+#t-lomio button[data-t] .icb{display:none!important}#t-lomio .m6Bt{flex:none;display:inline-flex!important;align-items:center;justify-content:center}
 .m6Jg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .m6Jg button{display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:#fff;border-radius:18px;padding:12px 6px;box-shadow:0 2px 10px rgba(29,45,35,.08);font:inherit;font-size:13px;font-weight:700;color:#2a302c;cursor:pointer;text-align:center;line-height:1.2}
 .m6Jg button:active{transform:scale(.96)}
@@ -97,28 +101,40 @@ function pintaJuegos(){const g=$('m6Jg');if(!g)return;
     return `<button data-j="${t}"><span class="m6Ji" style="background-color:${JCOL[i%JCOL.length]}">${X(e)}</span><span>${X(n.replace(/\s*\(.*\)$/,''))}</span></button>`;}).join('');
   g.querySelectorAll('[data-j]').forEach(b=>b.onclick=()=>showTab(b.dataset.j));}
 
+/* ---------- iconos (23 nov. 2026: Pedro quiere iconos en vez de fotos en el menú) ---------- */
+const M6_ICO={'g:Hoy':['i-inicio','g','house'],'g:Tiempo y ríos':['i-tiempo','b','cloud-sun'],'g:Naturaleza y salidas':['i-hoja','g','tree'],
+ 'g:Moverse':['i-carretera','r','car'],'g:Vivir en Navarra':['i-casa','g','buildings'],'g:Ocio':['i-agenda','r','calendar'],juegos:['i-juego','b','game-controller'],super:['i-cesta','r','basket'],lomio:['i-ajustes','b','user']};
+try{Object.entries(M6_ICO).forEach(([k,[n,f,ic]])=>{BNK[k]=n;BNF[k]=f;if(!ICK[k])ICK[k]=ic;if(!ICC[k])ICC[k]={g:'#2e7d32',b:'#1565c0',r:'#e53935'}[f];});}catch(e){}
+function iconos(){try{applyIcons((CFG.iconos||'pro')==='pro');}catch(e){}}
+/* línea corta debajo del nombre de cada apartado */
+function subs(){grid.querySelectorAll('.dsub[data-m6s]>button[data-t]').forEach(b=>{const s=M6_SUB[b.dataset.t];if(!s)return;
+  const sp=[...b.querySelectorAll(':scope>span')].filter(x=>!x.classList.contains('bt')).pop();if(!sp)return;
+  if(sp.textContent!==s[0])sp.textContent=s[0];let sm=sp.querySelector('small.m6S');if(!sm){sp.insertAdjacentHTML('beforeend',`<small class="m6S">${X(s[1])}</small>`);}});}
+
 /* ---------- colocar los botones ---------- */
 let viejo=null,hecho=false;
-function grupoHTML(k,f){return `<div class="dgroup mfF m6G" data-m6="${X(k)}" style="--mf:url('${f}')"><span data-k="${X(k)}">${X(k)}</span><i>▸</i></div><div class="dsub mfLs" data-m6s="${X(k)}"></div>`;}
+function grupoHTML(k,f){return `<div class="dgroup m6G" data-m6="${X(k)}"><span data-k="${X(k)}">${X(k)}</span><i>▸</i></div><div class="dsub mfLs" data-m6s="${X(k)}"></div>`;}
 function texto(b,t){const s=M6_SUB[t];if(!s)return;b.dataset.txt=s[0];const bb=b.querySelector('.mfLt b'),sm=b.querySelector('.mfLt small');
   if(bb){bb.textContent=s[0];if(sm)sm.textContent=s[1];else bb.insertAdjacentHTML('afterend',`<small>${X(s[1])}</small>`);}
   else{const sp=[...b.querySelectorAll(':scope>span')].pop();if(sp&&!sp.classList.contains('bt'))sp.textContent=s[0];}
   const sin=b.querySelector('span.mfLi');if(sin&&M6_FOTO[t])sin.outerHTML=`<img class="mfLi" src="${M6_FOTO[t]}" alt="" loading="lazy">`;}
 const M6_FOTO={mtiempo:'foto-inicio-otono.webp',juegos:'foto-cadenas-escudo.webp'};
-function coloca(){
+function coloca(){let nuevos=false;
   if(!hecho){hecho=true;
     viejo=document.createElement('div');viejo.id='m6Viejo';
     [...grid.children].forEach(el=>{if(el.matches('.dgroup,.dsub')&&!el.classList.contains('m6G')&&!el.dataset.m6s&&el.id!=='dgApp'&&!(el.previousElementSibling&&el.previousElementSibling.id==='dgApp'))viejo.appendChild(el);});
     grid.appendChild(viejo);
     grid.insertAdjacentHTML('afterbegin',M6_GRUPOS.map(([k,f])=>grupoHTML(k,f)).join(''));
+    iconos();
     grid.querySelectorAll('.dgroup.m6G').forEach(g=>g.onclick=()=>{const o=!g.classList.contains('open');dr.querySelectorAll('.dgroup').forEach(x=>x.classList.remove('open'));if(o)g.classList.add('open');});
     // 👤 Lo mío también abajo del todo del menú, por si alguien no ve el icono
-    grid.insertAdjacentHTML('beforeend','<button class="m6MioB" data-m6go="lomio" style="grid-column:1/-1"><span>👤 Lo mío y ajustes</span></button>');
+    let tl='';try{tl=bnTile('lomio',20,34);}catch(e){}
+    grid.insertAdjacentHTML('beforeend',`<button class="m6MioB" id="lomio" data-m6go="lomio" style="grid-column:1/-1">${tl}<span>Lo mío y ajustes</span></button>`);
     grid.querySelector('[data-m6go]').onclick=()=>{showTab('lomio');try{menu(false);}catch(e){}};}
   // los botones al grupo que les toca
   M6_GRUPOS.forEach(([k,,L])=>{const sub=grid.querySelector(`.dsub[data-m6s="${k}"]`);L.forEach(t=>{let b=btn(t);
     if(!b&&t==='juegos'){b=document.createElement('button');b.dataset.t='juegos';b.dataset.emo='🎲 ';b.dataset.txt='Juegos';b.innerHTML='<span>Juegos</span>';b.onclick=()=>{showTab('juegos');try{menu(false);}catch(e){}};}
-    if(b&&b.parentElement!==sub)sub.appendChild(b);if(b)texto(b,t);});
+    if(b&&b.parentElement!==sub){sub.appendChild(b);nuevos=true;}if(b)texto(b,t);});
     // orden fijo
     L.forEach(t=>{const b=sub.querySelector(`button[data-t="${t}"]`);if(b)sub.appendChild(b);});});
   // el resto: a lo escondido (siguen existiendo para las pestañas, la búsqueda y Lo mío)
@@ -126,16 +142,16 @@ function coloca(){
   grid.querySelectorAll('button[data-t]').forEach(b=>{const t=b.dataset.t;if(enMenu.has(t))return;
     if(b.closest('.dsub')&&b.closest('.dsub').previousElementSibling&&b.closest('.dsub').previousElementSibling.id==='dgApp')return; // Administrador
     if(b.closest('#m6Viejo'))return;viejo.appendChild(b);});
-  pintaMio();}
+  if(nuevos)iconos();subs();pintaMio();}
 /* ---------- 👤 Lo mío ---------- */
 function pintaMio(){const L=$('m6MioL');if(!L)return;
   if(!L.dataset.ok){L.dataset.ok=1;L.innerHTML=M6_MIO.map(([n],i)=>`<div class="m6MioG" data-g="${i}"><b>${X(n)}</b></div>`).join('');}
   M6_MIO.forEach(([,ts],i)=>{const g=L.querySelector(`[data-g="${i}"]`);ts.forEach(t=>{const b0=btn(t);if(!b0)return;
     let c=g.querySelector(`button[data-t="${t}"]`);
     if(!c){c=document.createElement('button');c.dataset.t=t;c.className='m6Tab'+(b0.classList.contains('tech')?' tech':'');c.onclick=()=>showTab(t);g.appendChild(c);}
-    const tx=(b0.querySelector('.mfLt b')||{}).textContent||b0.dataset.txt||b0.textContent.trim(),sm=(b0.querySelector('.mfLt small')||{}).textContent||'';
-    const im=b0.querySelector('img.mfLi');
-    const h=`${im?`<img class="mfLi" src="${X(im.getAttribute('src'))}" alt="" style="width:46px;height:46px;border-radius:12px;object-fit:cover;flex:none">`:'<span style="width:46px;height:46px;border-radius:12px;background:#eef4ea;flex:none"></span>'}<span style="flex:1"><b style="display:block">${X(tx)}</b>${sm?`<small style="color:#5b6660">${X(sm)}</small>`:''}</span><span style="color:#3d7031;font-weight:900">›</span>`;
+    const tx=(b0.querySelector('.mfLt b')||{}).textContent||b0.dataset.txt||b0.textContent.trim(),sm=(b0.querySelector('.mfLt small')||{}).textContent||M6_MIOSUB[t]||'';
+    let ic='';try{ic=bnTile(t,22,42);}catch(e){}
+    const h=`${ic?ic.replace('class="bt ','class="m6Bt bt '):'<span style="width:42px;height:42px;border-radius:13px;background:#eef4ea;flex:none"></span>'}<span style="flex:1"><b style="display:block">${X(tx)}</b>${sm?`<small style="color:#5b6660">${X(sm)}</small>`:''}</span><span style="color:#3d7031;font-weight:900">›</span>`;
     if(c.dataset.h!==h){c.innerHTML=h;c.dataset.h=h;}});});
   try{if(typeof techApply==='function')techApply();}catch(e){}}
 /* icono arriba a la derecha */

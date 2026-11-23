@@ -275,3 +275,4 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 - **Recolección** está ahora en Flora y fauna → botón **🧺 Temporada** (lista `NREC` con «Temporada: de… a…» y el filtro «Ahora es temporada»); la ficha de una especie que esté en `NREC` lleva su temporada de recogida.
 - El **Mapa de riadas** se abre desde Ríos → Previsión.
 - **Pantalla nueva**: ponla en `M6_GRUPOS` (o en una familia de `M6_FAM`) y su nombre y línea corta en `M6_SUB`; si no, queda fuera del menú (se encuentra con el buscador).
+- **23 nov. 2026 (noche):** Pedro pidió volver a los **iconos** en el menú: ya no se carga `web/menu-fotos.js` (se queda en el repositorio por si se quiere volver). Los grupos llevan icono en casilla de color (`M6_ICO` en `menu6.js`, usa `BNK`/`BNF` y `applyIcons`) y cada apartado su línea corta (`subs()`).
