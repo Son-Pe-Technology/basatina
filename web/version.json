@@ -1,5 +1,5 @@
 {
- "version": 501,
+ "version": 502,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -193,7 +193,7 @@
   "territorio.js": "fbb4202f86cc78ace2bc43ceeb1db8f98031fea7",
   "tiempo-ahora.js": "b3520c554649c2005efb9cde73127bc38a4edf60",
   "tiendas.js": "b94d22f0dbd2cff8aa3b817c646e45ac4dfd5bb5",
-  "viaje.js": "22a81f1d14307849143d9de3fb82125cd65fd975",
+  "viaje.js": "27a2bf121f5bea2a68e44e48e5d4859aab793408",
   "vivienda.js": "ce3e6e7063d10a77745f92621c0474b4b4355dc3",
   "voluntariado.js": "30e1b2f4a98a9fa5c46773ab5e80e809b36294c0"
  },
