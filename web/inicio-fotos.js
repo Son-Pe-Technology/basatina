@@ -26,7 +26,7 @@ const IF_ACC={tiempo:'foto-inicio-acc-tiempo.webp',caudal:'foto-inicio-acc-rios.
   monte:'foto-inicio-acc-pie.webp',deporte:'foto-inicio-acc-deporte.webp',cultura:'foto-inicio-acc-agenda.webp',natura:'foto-inicio-acc-recol.webp',
   // 23 nov. 2026: para los accesos que se pueden añadir con «Editar»
   mtiempo:'foto-inicio-acc-inicio.webp',noticias:'foto-inicio-acc-prensa.webp',curiosas:'foto-inicio-acc-prensa.webp',sismo:'foto-inicio-acc-sismo.webp',
-  gas:'foto-inicio-acc-gas.webp',pueblos:'foto-inicio-acc-localidades.webp',cocina:'foto-inicio-acc-comidas.webp',comer:'foto-inicio-acc-comidas.webp',vivienda:'foto-inicio-acc-vivienda.webp'};
+  gas:'foto-inicio-acc-gas.webp',pueblos:'foto-inicio-acc-localidades.webp',cocina:'foto-inicio-acc-comidas.webp',comer:'foto-inicio-acc-comidas.webp',vivienda:'foto-inicio-acc-vivienda.webp',empleo:'foto-inicio-acc-empleo.webp'};
 // río del carrusel (RZ_RIOS de novedades.js + arga) → foto
 const IF_RIO={arga:'foto-inicio-rio-arga.webp',irati:'foto-inicio-rio-irati.webp',ega:'foto-inicio-rio-ega.webp',aragon:'foto-inicio-rio-aragon.webp',ebro:'foto-inicio-rio-ebro.webp'};
 const IF_CRED=[
@@ -47,6 +47,7 @@ const IF_CRED=[
  ['Localidades: pueblo al pie del monte','Pedro Iglesias Goñi','foto propia',''],
  ['Comidas: chistorra, morcilla y panceta','Embutidos Arrieta','foto cedida',''],
  ['Vivienda: grúas de obra junto a El Sadar, Pamplona','Pedro Iglesias Goñi','foto propia',''],
+ ['Empleo: obra de viviendas, Pamplona','Pedro Iglesias Goñi','foto propia (retocada con IA)',''],
  ['Agenda: Sanfermines','San Fermín Pamplona (Flickr)','CC0','https://commons.wikimedia.org/wiki/File:San_Ferm%C3%ADn_la_fiesta_est%C3%A1_en_la_calle_(42031343420).jpg'],
  ['Recolección: setas en el bosque','GenGH','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Oudemansiella_mucida,_Asturias_04.jpg']];
 

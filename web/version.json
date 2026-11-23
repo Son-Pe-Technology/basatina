@@ -1,5 +1,5 @@
 {
- "version": 519,
+ "version": 520,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -77,6 +77,7 @@
   "foto-inicio-acc-cerca.webp": "a46c46c7aecd530339ba40aea7e8174f32b3191f",
   "foto-inicio-acc-comidas.webp": "1bf321de78f558ad57812e31df5baa76741d385d",
   "foto-inicio-acc-deporte.webp": "2ad5d2872edef8042a7825bfcef1bb63facc6708",
+  "foto-inicio-acc-empleo.webp": "ce692594ab449bc3234c6e17c6139422e6ee3a26",
   "foto-inicio-acc-gas.webp": "efe9a2df9e33114fc6e9cb30bad7189ab25ea95c",
   "foto-inicio-acc-inicio.webp": "78d707154c452fcc45957d43032ac6fc0c53f157",
   "foto-inicio-acc-localidades.webp": "a0443200f5d529982a9c89eee14c0dc9088c6452",
@@ -145,9 +146,9 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "2fa11be73fe249d956e77837aa9f7b403830bf76",
   "idiomas.js": "0d682a188bef213304dcf6a95a41c2989132d3f5",
-  "index.html": "2fbfad87b49423325971321b12d058827f0db95d",
+  "index.html": "620494894c8e10ac697b6c18b41ec9ab65643e5c",
   "inicio-centro.js": "22c970073b8ea4397c2ec3e7163a18b0d4961dc1",
-  "inicio-fotos.js": "924b087b70f72dc2fc4da3e1158d475a064b0a9b",
+  "inicio-fotos.js": "a91f99b2203e45d49462000a228d99cb02c6b450",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
   "juegos-peques.js": "1c6b2124ed7b40dbe00032cc76db9b33003c0a11",
