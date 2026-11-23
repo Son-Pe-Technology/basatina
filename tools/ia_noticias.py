@@ -1,7 +1,7 @@
 """
 📰🤖 Noticias propias de BasatiNA escritas con IA (23 nov. 2026). Lo ejecuta .github/workflows/ia.yml.
 
-  python3 tools/ia_noticias.py   ->  priv/ia_borradores.json  (repositorio PRIVADO suapedrito-z/basatina-borradores)
+  python3 tools/ia_noticias.py   ->  priv/ia_borradores.json  (repositorio PRIVADO Son-Pe-Technology/basatina-borradores)
 
 Los borradores van al repositorio privado para que nadie los vea antes de revisarlos. Las que publicáis
 desde la app pasan a noticias/ia_publicadas.json (público).

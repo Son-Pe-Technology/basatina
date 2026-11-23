@@ -13,7 +13,7 @@ Lo ejecuta GitHub Actions (.github/workflows/servicios.yml) cada mes. Necesita: 
 """
 import io, json, re, sys, time, zipfile, urllib.request, collections
 
-UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/suapedrito-z/basatina)"}
+UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)"}
 INFO = []
 
 def get(url, tries=3):

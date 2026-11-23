@@ -1,7 +1,7 @@
 """Lista las capas WMS de IDENA relacionadas con bosques/vegetación (para el mapa forestal de la app)."""
 import re, ssl, urllib.request
 CTX = ssl._create_unverified_context()   # solo para listar capas del Ministerio
-UA = {"User-Agent": "PedritoControlRioArga/2.0 (+https://github.com/suapedrito-z/basatina)"}
+UA = {"User-Agent": "PedritoControlRioArga/2.0 (+https://github.com/Son-Pe-Technology/basatina)"}
 out = []
 for url in ["https://idena.navarra.es/ogc/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0",
             "https://wms.mapama.gob.es/sig/Biodiversidad/MFE/wms.aspx?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0"]:

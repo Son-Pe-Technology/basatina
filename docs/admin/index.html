@@ -61,7 +61,7 @@ code{background:#0b1219;padding:1px 5px;border-radius:5px}
 <div id="msg"></div>
 
 <script>
-const OWNER='suapedrito-z',REPO='basatina',FILE='docs/contenido.json',API='https://api.github.com/repos/'+OWNER+'/'+REPO;
+const OWNER='Son-Pe-Technology',REPO='basatina',FILE='docs/contenido.json',API='https://api.github.com/repos/'+OWNER+'/'+REPO;
 let TOK=localStorage.getItem('sp_tok')||'',C=null,ORIG='',SHA=null,WHO='';
 const $=id=>document.getElementById(id);
 const msg=(t,ms=3500)=>{const m=$('msg');m.innerHTML=t;m.style.display='block';clearTimeout(msg.t);if(ms)msg.t=setTimeout(()=>m.style.display='none',ms);};

@@ -224,7 +224,7 @@ public class RiverJob extends JobService {
        Cada mañana (a la hora elegida en Ajustes) manda un dato histórico o curioso de Navarra.
        Lee efemerides/navarra.json de GitHub (si no hay internet, usa la última copia guardada).
        Misma lógica que web/efemerides.js: dato del día (MM-DD) o, si no hay, una curiosidad. */
-    static final String DATO_URL = "https://raw.githubusercontent.com/suapedrito-z/basatina/main/efemerides/navarra.json";
+    static final String DATO_URL = "https://raw.githubusercontent.com/Son-Pe-Technology/basatina/main/efemerides/navarra.json";
     static final String CH_DATO = "dato_dia_2";
     // OJO: la misma lista que EF_NO en web/efemerides.js. MAYÚSCULAS = siglas.
     static final String[] NO_DATO = {"elecci", "electoral", "partido politico", "parlament", "gobierno", "diputacion", "congreso de los diputados", "senado", "ministr", "alcald", "concejal",
@@ -323,7 +323,7 @@ public class RiverJob extends JobService {
        Lee noticias/curiosas.json (robot tools/curiosas.py): dest = [{k:"AAAA-MM-DD-m|t|n", t, u, f}].
        Mismo turno que turno_de() del robot y cuTurno() de web/curiosas.js. Al tocar el aviso se abre la noticia.
        Se activa en Ajustes → «😄 Noticia curiosa» (cfg.curiosa). */
-    static final String CUR_URL = "https://raw.githubusercontent.com/suapedrito-z/basatina/main/noticias/curiosas.json";
+    static final String CUR_URL = "https://raw.githubusercontent.com/Son-Pe-Technology/basatina/main/noticias/curiosas.json";
     static final String CH_CUR = "noticia_curiosa_2";
 
     static void checkCuriosa(Context c) throws Exception {

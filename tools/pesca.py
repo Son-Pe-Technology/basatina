@@ -11,7 +11,7 @@ from pyproj import Transformer       # pip install pyproj
 CAPAS = {
     "especial": "https://idena.navarra.es/descargas/CAZAPE_Lin_AgRegEsp.zip",
 }
-UA = {"User-Agent": "PedritoControlRioArga/2.0 (+https://github.com/suapedrito-z/basatina)"}
+UA = {"User-Agent": "PedritoControlRioArga/2.0 (+https://github.com/Son-Pe-Technology/basatina)"}
 
 def simplify(pts, tol):
     if len(pts) < 3:

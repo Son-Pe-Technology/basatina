@@ -23,6 +23,8 @@
 - DOTACI_Pol_OJM :: Oficinas de Justicia en los Municipios (OJM)
 - DOTACI_Pol_AOJM :: Agrupaciones de Oficinas de Justicia en los Municipios (AOJM)
 - GANADE_Pol_PastosMI :: Mapa índice de los municipios cubiertos en el mapa de pastos
+- ortofoto_500_141_Lapoblacion_2026 :: Ortofoto verdadera Lapoblación 2026 (resolución 3.5 cm)
+- ortofoto_500_Lapoblacion_2026 :: Ortofoto verdadera Lapoblación 2026 (resolución 3.5 cm)
 - CATAST_Pol_Concejo :: Concejos (Catastro)
 - CATAST_Pol_Municipio :: Municipios (Catastro)
 - EDAFOL_Pol_Suelos25mMI :: Mapa índice de los municipios cubiertos en el mapa de suelos (1:25.000)

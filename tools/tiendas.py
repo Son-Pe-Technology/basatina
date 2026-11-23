@@ -13,7 +13,7 @@ Lo ejecuta GitHub Actions (.github/workflows/tiendas.yml) el día 5 de cada mes.
 """
 import json, math, sys, time, urllib.parse, urllib.request, datetime, collections
 
-UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/suapedrito-z/basatina)"}
+UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)"}
 SERVIDORES = ["https://overpass-api.de/api/interpreter",
               "https://overpass.private.coffee/api/interpreter",
               "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]

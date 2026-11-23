@@ -10,7 +10,7 @@ así si el Gobierno cambia el archivo no hay que tocar nada aquí.
 """
 import json, sys, time, urllib.request, urllib.parse, io, csv, re
 
-UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/suapedrito-z/basatina)", "Accept": "*/*"}
+UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)", "Accept": "*/*"}
 API = "https://datosabiertos.navarra.es/api/3/action/"
 CONJ = {
     "hotel": "establecimientos-hoteleros-en-activo-del-registro-de-turismo-de-navarra",
