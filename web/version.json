@@ -1,5 +1,5 @@
 {
- "version": 520,
+ "version": 521,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -85,6 +85,7 @@
   "foto-inicio-acc-prensa.webp": "92ca1e7661f66187ffd793d37436f08fd14031e3",
   "foto-inicio-acc-recol.webp": "d5c6a7fb48b9f2d52d252667c9b6cd3cf3eda666",
   "foto-inicio-acc-rios.webp": "6a4498765828d6bd4e197fe7b762138115900ffc",
+  "foto-inicio-acc-salud.webp": "2588b890232686b32c74c8b5131d83883b0aa356",
   "foto-inicio-acc-sismo.webp": "2cbb69645307b772cef7114c651b6244a2b8dc8e",
   "foto-inicio-acc-tiempo.webp": "585641f165d439b201dec8fe653c918adf30148e",
   "foto-inicio-acc-vivienda.webp": "504d4ba22b5b98f3a83ddd9c34126b30bd17ccb8",
@@ -146,9 +147,9 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "2fa11be73fe249d956e77837aa9f7b403830bf76",
   "idiomas.js": "0d682a188bef213304dcf6a95a41c2989132d3f5",
-  "index.html": "620494894c8e10ac697b6c18b41ec9ab65643e5c",
+  "index.html": "c83e5f70fdf1a403d617b6785b68bc1fdda05add",
   "inicio-centro.js": "22c970073b8ea4397c2ec3e7163a18b0d4961dc1",
-  "inicio-fotos.js": "a91f99b2203e45d49462000a228d99cb02c6b450",
+  "inicio-fotos.js": "451f015bdc8e7a2eaadf6af2745229aadadbf868",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
   "juegos-peques.js": "1c6b2124ed7b40dbe00032cc76db9b33003c0a11",
