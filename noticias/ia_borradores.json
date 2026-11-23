@@ -1,0 +1,211 @@
+{
+ "items": [
+  {
+   "id": "967fcdce4760",
+   "creada": "2026-11-23T08:57Z",
+   "estado": "duda",
+   "titulo": "Euskadiko Orkestra trae a Baluarte obras de Falla, Debussy y Stravinsky",
+   "texto": "La Sala Principal del Baluarte acogerá este martes 24 de noviembre a las 19:30 horas el tercer concierto de la temporada 2026/27 de Euskadiko Orkestra, dirigida por Lucas Macías. El programa incluye la Suite nº 2 de El sombrero de tres picos de Manuel de Falla (13 minutos), La mer de Claude Debussy (23 minutos) y la suite de El pájaro de fuego de Ígor Stravinsky (23 minutos), además de la obertura Abestu Euskadiko Orkestrarekin (12 minutos). Las tres obras exploran la modernidad de principios del siglo XX desde diferentes perspectivas. Las entradas se pueden adquirir en la web de la orquesta.",
+   "pueblo": "Pamplona",
+   "cat": "Música clásica",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/ciclo-de-conciertos-euskadiko-orkestra-baluarte-241126/",
+     "t": "Euskadiko Orkestra y Lucas Macías llevan a Baluarte a Falla, Debussy y Stravinsky este martes"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/23/francis-garcia-pedro-larumbe-reviven-clasicos-80-s-pago-cirsus-842871-15.html",
+     "t": "Francis García y Pedro Larumbe reviven los “Clásicos de los 80´s” en Pago de Cirsus"
+    }
+   ],
+   "leidas": [
+    "Pamplona Actual"
+   ],
+   "datos": [
+    {
+     "dato": "Fecha y hora: martes 24 de noviembre a las 19:30 horas",
+     "coinciden": true
+    },
+    {
+     "dato": "Lugar: Sala Principal del Baluarte, Pamplona",
+     "coinciden": true
+    },
+    {
+     "dato": "Director: Lucas Macías",
+     "coinciden": true
+    },
+    {
+     "dato": "Orquesta: Euskadiko Orkestra",
+     "coinciden": true
+    },
+    {
+     "dato": "Tres obras principales: Falla, Debussy y Stravinsky",
+     "coinciden": true
+    }
+   ],
+   "dudas": [
+    "Alguna frase se parece mucho a la de un medio: reescribir antes de publicar."
+   ]
+  },
+  {
+   "id": "d0e99040be82",
+   "creada": "2026-11-23T08:57Z",
+   "estado": "duda",
+   "titulo": "Motorista herido tras caída en zona rural de Cárcar",
+   "texto": "Un motorista resultó herido este domingo tras sufrir una caída en una zona rural de Cárcar, en el paraje de El Montel, a las 17:31 horas. Presentaba un traumatismo en la pierna con pronóstico reservado. Bomberos de Lodosa, equipos médicos, ambulancias de soporte vital avanzado y básico, y Policía Foral acudieron al lugar. El herido fue trasladado al Hospital Universitario de Navarra.",
+   "pueblo": "Cárcar",
+   "cat": "Accidentes",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-merindad-de-estella/herido-un-motorista-de-47-anos-tras-caerse-en-una-zona-rural-de-carcar/",
+     "t": "Motorista de 47 años sufre caída en zona rural de Cárcar y resulta herido"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-herido-motorista-60-anos-chocar-coche-pamplona-20261122133346.html",
+     "t": "Herido un motorista de 60 años tras chocar con un coche en Pamplona"
+    }
+   ],
+   "leidas": [
+    "Pamplona Actual"
+   ],
+   "datos": [
+    {
+     "dato": "Hora del accidente",
+     "coinciden": true,
+     "valor": "17:31 horas"
+    },
+    {
+     "dato": "Tipo de lesión",
+     "coinciden": true,
+     "valor": "Traumatismo en la pierna"
+    },
+    {
+     "dato": "Lugar",
+     "coinciden": true,
+     "valor": "Paraje El Montel, zona rural de Cárcar"
+    },
+    {
+     "dato": "Servicios de emergencia",
+     "coinciden": true,
+     "valor": "Bomberos Lodosa, equipos médicos, ambulancias, Policía Foral"
+    }
+   ],
+   "dudas": [
+    "Discrepancia en la edad del motorista: Pamplona Actual indica 47 años, Europa Press menciona 60 años",
+    "Europa Press habla de choque con coche en Pamplona, pero Pamplona Actual describe una caída en zona rural de Cárcar. Pueden ser accidentes distintos o información conflictiva",
+    "Alguna frase se parece mucho a la de un medio: reescribir antes de publicar."
+   ]
+  },
+  {
+   "id": "8c0b2b802147",
+   "creada": "2026-11-23T08:57Z",
+   "estado": "duda",
+   "titulo": "Peio Etxeberria revalida su txapela del Cuatro y Medio",
+   "texto": "El pelotari de Zenotz se proclamó campeón del Cuatro y Medio Eusko Label 2026 al vencer a Javier Zabala por 22-20 en el Bizkaia Frontoia de Bilbao. El encuentro duró 1 hora y 14 minutos y se decidió en los últimos tantos, con casi 2.700 espectadores. Etxeberria, que llegaba como defensor del título, tuvo que remontar desde un inicio irregular y un problema físico en el ecuador del partido. Con esta victoria, el navarro suma su segunda txapela consecutiva en la especialidad.",
+   "pueblo": "Bilbao",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/pelota/2026/11/22/etxeberria-he-seguido-he-creido-843413-47.html",
+     "t": "Etxeberria: \"He seguido y he creído\""
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/pelota/2026/11/22/zabala-me-he-visto-campeon-hay-levantarse-843412-47.html",
+     "t": "Zabala: \"Me he visto campeón, pero hay que levantarse\""
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-deportes/peio-etxeberria-revalida-la-txapela-del-cuatro-y-medio-tras-imponerse-a-zabala-por-22-20/",
+     "t": "Peio Etxeberria vence a Zabala y revalida la txapela del Cuatro y Medio con un ajustado 22-20"
+    }
+   ],
+   "leidas": [
+    "Pamplona Actual"
+   ],
+   "datos": [
+    {
+     "dato": "Resultado final: Etxeberria 22, Zabala 20",
+     "coinciden": true
+    },
+    {
+     "dato": "Ubicación: Bizkaia Frontoia de Bilbao",
+     "coinciden": true
+    },
+    {
+     "dato": "Duración del partido: 1 hora y 14 minutos",
+     "coinciden": true
+    },
+    {
+     "dato": "Segunda txapela consecutiva para Etxeberria",
+     "coinciden": true
+    },
+    {
+     "dato": "Espectadores: casi 2.700",
+     "coinciden": true
+    }
+   ],
+   "dudas": [
+    "Alguna frase se parece mucho a la de un medio: reescribir antes de publicar."
+   ]
+  },
+  {
+   "id": "2934108a45a7",
+   "creada": "2026-11-23T08:57Z",
+   "estado": "borrador",
+   "titulo": "Osasuna vence 1-0 al Málaga en El Sadar con gol de Budimir",
+   "texto": "Osasuna ganó este domingo 1-0 al Málaga en El Sadar. El gol llegó en el minuto 19, de cabeza por Budimir. El equipo local controló buena parte del encuentro, especialmente en la primera mitad, pero sufrió en los minutos finales. Catena fue expulsado en el 91 por segunda amarilla, dejando a Osasuna con un jugador menos en la prolongación. Asistieron 19.813 espectadores.",
+   "pueblo": "Pamplona",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Cadena SER",
+     "u": "https://cadenaser.com/navarra/2026/11/22/osasuna-sufre-para-ganar-al-colista-malaga-en-el-sadar-radio-pamplona/",
+     "t": "Osasuna sufre para ganar al colista Málaga en el Sadar"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/galeria-la-victoria-de-osasuna-contra-el-malaga-1-0-en-imagenes/",
+     "t": "Osasuna vence al Málaga 1-0 y deja imágenes imperdibles de su triunfo"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/budimir-da-a-osasuna-una-victoria-sufrida-ante-el-malaga-en-el-sadar/",
+     "t": "Budimir impulsa a Osasuna a un triunfo trabajado frente al Málaga en El Sadar"
+    }
+   ],
+   "leidas": [
+    "Pamplona Actual"
+   ],
+   "datos": [
+    {
+     "dato": "Resultado: Osasuna 1-0 Málaga",
+     "coinciden": true
+    },
+    {
+     "dato": "Gol de Budimir en el minuto 19 de cabeza",
+     "coinciden": true
+    },
+    {
+     "dato": "Estadio: El Sadar",
+     "coinciden": true
+    },
+    {
+     "dato": "Asistencia: 19.813 espectadores",
+     "coinciden": true
+    },
+    {
+     "dato": "Expulsión de Catena en el minuto 91",
+     "coinciden": true
+    }
+   ],
+   "dudas": []
+  }
+ ],
+ "t": "2026-11-23T08:57Z"
+}
