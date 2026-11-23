@@ -1,6 +1,102 @@
 {
  "items": [
   {
+   "id": "9c923bf1e5ab",
+   "pub": "2026-11-23T21:52Z",
+   "titulo": "Budimir destaca la importancia de cerrar encuentros tras vencer al Málaga",
+   "texto": "Ante Budimir, autor del gol en la victoria de Osasuna ante el Málaga (1-0) del domingo, analizó el partido en declaraciones a DAZN. El delantero reconoció que el conjunto andaluz presentó una defensa más sólida en los últimos encuentros, lo que complicó el desarrollo del partido. Budimir lamentó no haber aprovechado las ocasiones del primer tiempo para sentenciar, evitando así el sufrimiento posterior. Pidió más efectividad en ataque para cerrar los encuentros antes. El jugador ve la victoria como un impulso anímico de cara al próximo duelo ante el Valencia.",
+   "pueblo": "Pamplona",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/22/reflexion-budimir-fuego-nace-chispa-pequena-final-grande-843418-32.html"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/22/civil-budimir-843405-32.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/budimir-hay-que-tener-mas-maldad-en-el-ultimo-cuarto-de-campo-para-cerrar-los-partidos/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "7b8eca7909b1",
+   "pub": "2026-11-23T21:52Z",
+   "titulo": "Pamplona aprueba presupuestos de 299,6 millones para 2027, un nuevo récord",
+   "texto": "El Ayuntamiento de Pamplona ha aprobado su propuesta presupuestaria para 2027 por 299.607.465,56 euros, un 1,9% más que en 2026 y la cifra más alta de su historia por tercer año consecutivo. La concejala de Hacienda, Garbiñe Bueno Zabalza, presentó las cuentas el lunes, que serán debatidas en comisiones esta semana con votación prevista a mediados de diciembre. Las prioridades incluyen terminar obras como la reforma de Sarasate (7,3 millones), invertir 2,7 millones en vivienda asequible y 900.000 euros en el servicio de bicicleta eléctrica. El gasto en personal subirá un 5,7% hasta 129,8 millones, mientras que cerca del 38% del presupuesto se dedicará a políticas sociales.",
+   "pueblo": "Pamplona",
+   "cat": "Administración",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-presupuesta-2996-millones-para-2027-un-19-mas-y-la-cifra-mas-alta-de-su-historia/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-proyecto-presupuestos-ayuntamiento-pamplona-2027-alcanza-2996-millones-euros-19-mas-20261123113112.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/presentacion-del-proyecto-de-presupuesto-del-ayuntamiento-de-pamplona-para-2027/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/el-proyecto-de-presupuesto-del-ayuntamiento-para-2027-alcanza-los-2996-millones"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "85ed07b4aee3",
+   "pub": "2026-11-23T21:52Z",
+   "titulo": "Acuerdo de 15 millones entre sindicatos y SNS para mejorar condiciones laborales",
+   "texto": "La Intersindical de Salud, que agrupa LAB, SATSE, SAE, UGT y AFAPNA, ha alcanzado un pacto con el Servicio Navarro de Salud tras meses de negociación. El acuerdo moviliza 15 millones de euros destinados a reforzar plantillas con más de 120 profesionales sanitarios, eximir de turnos nocturnos a trabajadores mayores de 55 años y compensar excesos de jornada. También incluye oportunidades de formación ampliada y estudios para convertir puestos a tiempo parcial en jornada completa. Un millón de euros se reserva para cubrir bajas derivadas de la exención de noches, con plazo extraordinario para solicitarla hasta marzo de 2027.",
+   "pueblo": "Navarra",
+   "cat": "Laboral",
+   "fuentes": [
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-intersindical-salud-cifra-15-millones-acuerdo-sns-hemos-conseguido-mejoras-derechos-laborales-20261123113854.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/los-sindicatos-firmante-del-acuerdo-con-el-sns-o-valoran-el-acuerdo-por-15-millones-para-reforzar-la-plantilla-y-eximir-de-noches-a-mayores-de-55-anos/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/23/mejorar-guardias-noches-mayores-55-anos-medidas-acordadas-salud-sindicatos-843451-15.html"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-salud-alcanza-acuerdo-cinco-sindicatos-mejorar-condiciones-laborales-profesionales-20261123090920.html"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "4f258f503699",
+   "pub": "2026-11-23T21:52Z",
+   "titulo": "Pamplona sortea 461 abonos para cinco instalaciones deportivas",
+   "texto": "El Ayuntamiento de Pamplona abre este lunes el plazo para participar en un sorteo de accesos anuales a cinco complejos deportivos. Las personas empadronadas en la ciudad desde el 1 de enero de 2026 pueden inscribirse hasta el 4 de diciembre llamando al 010 o 948 420 100. El sorteo se celebrará el 11 de diciembre y los abonos funcionarán durante 2027. Se distribuirán 175 accesos en Institución Oberena, 125 en UDC Rochapea, 75 en Ciudad Deportiva Amaya, 75 en UDC Txantrea KKE y 11 en SDC Echavacoiz, con el 10% reservado para personas con discapacidad reconocida igual o superior al 33%. Los precios varían según la instalación y la edad.",
+   "pueblo": "Pamplona",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-sortea-461-abonos-anuales-para-cinco-instalaciones-deportivas-con-inscripcion-hasta-el-4-de-diciembre/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-sorteara-461-abonos-anuales-para-las-instalaciones-deportivas"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "c1b6225970ce",
    "pub": "2026-11-23T19:45Z",
    "titulo": "Osasuna visitará al Amorebieta en segunda ronda de Copa del Rey",
@@ -20,5 +116,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-23T19:45Z"
+ "t": "2026-11-23T21:52Z"
 }
