@@ -1,7 +1,7 @@
-Generado 2026-11-12 · farmacias 602 · espacios 207 · transporte 1037
+Generado 2026-11-23 · farmacias 602 · espacios 207 · transporte 1037
 ## DOTACI_Sym_Farmacias: 602 elementos · campos ['FEATURE', 'IDFARMACIA', 'TITULAR', 'DIRECCION', 'POBLACION', 'CMUNICIPIO', 'MUNICIPIO', 'ZONA', 'HELPBIDEA', 'X25830', 'Y25830', 'BEGINLIFE']
    ejemplo {"IDFARMACIA": "F00242", "TITULAR": "Pascual Echavarri, Miguel Angel", "DIRECCION": "CARRETERA  DE ARIZALA/ARITZALA ERREPIDEA, 1", "POBLACION": "Abárzuza / Abartzuza", "CMUNICIPIO": 2, "MUNICIPIO": "Abárzuza / Abartzuza", "ZONA": "Villatuerta", "HELPBIDEA": 325.0}
-catálogo WMS: 1303 capas
+catálogo WMS: 1364 capas
 
 # Capas del catálogo que parecen de espacios protegidos o transporte:
   SIGPAC_Pol_Humedales :: SIGPAC. Humedales y turberas
