@@ -1,5 +1,5 @@
 {
- "version": 500,
+ "version": 501,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -190,7 +190,7 @@
   "sonpe3.jpg": "0f31794604b30913105ca6205697811fa64826f7",
   "sonpe3_ico.jpg": "566285e1373e631847647a7a33c61e12b27b7ea4",
   "temas.js": "94cce4ca01d9969e97259e9dab18fe68e62cc479",
-  "territorio.js": "f455bd22b2af0b175bbf07e9831f5f0d740bff60",
+  "territorio.js": "fbb4202f86cc78ace2bc43ceeb1db8f98031fea7",
   "tiempo-ahora.js": "b3520c554649c2005efb9cde73127bc38a4edf60",
   "tiendas.js": "b94d22f0dbd2cff8aa3b817c646e45ac4dfd5bb5",
   "viaje.js": "22a81f1d14307849143d9de3fb82125cd65fd975",
