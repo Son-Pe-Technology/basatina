@@ -1,19 +1,19 @@
-Noticias curiosas 2026-11-22T21:03 (turno 2026-11-22-n)
-Telecinco           30 leídos ·   5 curiosas · https://www.telecinco.es/noticias/curioso/rss.xml
+Noticias curiosas 2026-11-23T08:57 (turno 2026-11-23-m)
+Telecinco           30 leídos ·   6 curiosas · https://www.telecinco.es/noticias/curioso/rss.xml
 Telecinco           30 leídos ·   0 curiosas · https://www.telecinco.es/noticias/rss.xml
 Cuatro              30 leídos ·   0 curiosas · https://www.cuatro.com/noticias/rss.xml
 Antena 3            20 leídos ·   0 curiosas · https://www.antena3.com/noticias/rss/4043815.xml
 laSexta             18 leídos ·   0 curiosas · https://www.lasexta.com/rss/351410.xml
-20minutos          189 leídos ·   0 curiosas · https://www.20minutos.es/rss/
+20minutos          188 leídos ·   1 curiosas · https://www.20minutos.es/rss/
 El Español          30 leídos ·   0 curiosas · https://www.elespanol.com/rss/curiosidades/
 COPE                50 leídos ·   0 curiosas · https://www.cope.es/rss/actualidad/sociedad.xml
 ABC                 25 leídos ·   0 curiosas · https://www.abc.es/rss/2.0/sociedad/
 La Vanguardia      100 leídos ·   0 curiosas · https://www.lavanguardia.com/rss/vida.xml
-HuffPost            54 leídos ·   1 curiosas · https://www.huffingtonpost.es/feeds/index.xml
-elDiario.es        112 leídos ·   0 curiosas · https://www.eldiario.es/rss/
-Cadena SER         100 leídos ·   0 curiosas · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
+HuffPost            61 leídos ·   1 curiosas · https://www.huffingtonpost.es/feeds/index.xml
+elDiario.es        100 leídos ·   0 curiosas · https://www.eldiario.es/rss/
+Cadena SER         100 leídos ·   1 curiosas · https://cadenaser.com/arc/outboundfeeds/rss/?outputType=xml
 El Correo          100 leídos ·   0 curiosas · https://www.elcorreo.com/rss/2.0/?section=
-Diario de Navarra  114 leídos ·   0 curiosas · https://www.diariodenavarra.es/rss/contenidos.xml
-Google Noticias    265 leídos ·  15 curiosas · 5 búsquedas (12 medios)
-Total: 21
-Noticia del turno: Telecinco · La plaga de gallinas invasoras que campa a sus anchas por el campus universitario de Puerto Real, Cádiz: "Son un problema de salud pública"
+Diario de Navarra  113 leídos ·   0 curiosas · https://www.diariodenavarra.es/rss/contenidos.xml
+Google Noticias    232 leídos ·  16 curiosas · 5 búsquedas (13 medios)
+Total: 25
+Noticia del turno: La Opinión de Zamora · De las latas de las abuelas a una curiosa trampa para insectos: los tesoros que guarda un museo de Zamora
