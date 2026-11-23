@@ -1015,7 +1015,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="card" id="enMias" style="display:none"></div>
 <div class="note" style="margin:6px">⚠️ No te pongas en peligro por una foto, y menos con el río crecido. Ante el riesgo, haz caso siempre a los avisos oficiales.</div>
 <div class="card tech" style="display:none"><b>🔧 Dónde se guardan las fotos (Cloudinary)</b>
- <div class="note">1) Crea una cuenta gratis en cloudinary.com con info@sonpe-technology.es. 2) Settings → Upload → «Add upload preset»: modo <b>Unsigned</b>, carpeta <b>basatina/recibidas</b>. 3) Settings → Security → en «Restricted media types» <b>desmarca «Resource list»</b> (si no, aquí no se ven las recibidas). 4) Pega aquí el «Cloud name» y el nombre del preset.</div>
+ <div class="note">1) Crea una cuenta gratis en cloudinary.com con administracion@sonpe-technology.es. 2) Settings → Upload → «Add upload preset»: modo <b>Unsigned</b>, carpeta <b>basatina/recibidas</b>. 3) Settings → Security → en «Restricted media types» <b>desmarca «Resource list»</b> (si no, aquí no se ven las recibidas). 4) Pega aquí el «Cloud name» y el nombre del preset.</div>
  <input id="kyCl" class="town" autocomplete="off" placeholder="Cloud name" style="width:100%;box-sizing:border-box;margin-top:6px">
  <input id="kyClP" class="town" autocomplete="off" placeholder="Nombre del upload preset (sin firmar)" style="width:100%;box-sizing:border-box;margin-top:6px">
  <div class="row"><button class="btn pri" id="kyClS">💾 Guardar</button></div><div class="note" id="kyClM"></div></div>
@@ -4675,7 +4675,7 @@ async function foJustificante(d){
     else line('NO CONSTA la autorización junto a esta foto. No debe publicarse.',{b:1,after:2});
     y+=3;line('Condiciones y privacidad aceptadas ('+FO_VER+')',{b:1,s:12,after:1});
     pdfTxt(FO_COND).split('\n').slice(1).forEach(t=>line(t,{s:9,after:1}));
-    y+=4;line('Justificante generado por la app BasatiNA el '+new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'})+'. Reproduce los datos guardados junto a la foto en el momento del envío. El correo recibido en info@sonpe-technology.es con la misma información sirve como prueba adicional.',{s:8.5});
+    y+=4;line('Justificante generado por la app BasatiNA el '+new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'})+'. Reproduce los datos guardados junto a la foto en el momento del envío. El correo recibido en participa@basatina.es con la misma información sirve como prueba adicional.',{s:8.5});
     const n='justificante-foto-'+String(d.id).split('/').pop()+'.pdf';
     if(APP&&window.AndroidNet.shareFile){window.AndroidNet.shareFile(n,doc.output('datauristring').split(',')[1],'application/pdf');}
     else if(APP){toast('⬆️ Para guardar PDFs actualiza la app: menú → Buscar nueva versión');}
