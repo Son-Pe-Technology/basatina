@@ -17,6 +17,7 @@ const $=id=>document.getElementById(id);
 // 23 nov. 2026 (noche): Pedro pidió quitar TODAS las fotos. Con IF_FOTOS=false se quedan solo el orden
 // (palabra y refrán en dos columnas, la semana 2×2), sin paisaje en la cabecera, ni fotos en accesos, río ni créditos.
 const IF_FOTOS=false;
+const IF_CAB_INI=true;   // 23 nov. 2026 (noche): Pedro vuelve a querer el paisaje arriba, solo en el Inicio
 const IF_CAB={otono:'foto-inicio-otono.webp',invierno:'foto-inicio-invierno.webp',primavera:'foto-inicio-primavera.webp',verano:'foto-inicio-verano.webp'};
 const ifEst=()=>{const m=new Date().getMonth()+1;return m>=3&&m<=5?'primavera':m>=6&&m<=8?'verano':m>=9&&m<=11?'otono':'invierno';};
 // clave del acceso directo (BNL de index.html) → foto
@@ -80,7 +81,7 @@ document.head.appendChild(st);
 
 const enIni=()=>typeof isBna==='function'&&isBna()&&(typeof BNTAB==='undefined'||BNTAB==='mtiempo');
 // 22 nov. 2026: la barra de arriba (logo y hora) lleva el paisaje de la estación en TODAS las pantallas (más baja fuera del Inicio)
-function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top&&IF_FOTOS);
+function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top&&(IF_FOTOS||(IF_CAB_INI&&on)));
   if(top)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
 function ifAcc(){if(!IF_FOTOS)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=IF_ACC[b.dataset.go];
   if(!f||b.classList.contains('ifF'))return;b.classList.add('ifF');b.style.backgroundImage=`url("${f}")`;});}
