@@ -14,6 +14,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "paexposicionmiradasdepamplonaenlacoleccion20251128",
+   "t": "Miradas de Pamplona en la colección de arte municipal",
+   "cat": "expo",
+   "f": "2025-11-28",
+   "ff": "2027-01-31",
+   "h": "",
+   "lugar": "Civivox Pompelo",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-miradas-de-pamplona-en-la-coleccion-de-arte-municipal-civivox-pompelo",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "paexposicioncoleccioncigacivivoxpompelo20260214",
    "t": "Colección Ciga",
    "cat": "expo",
@@ -40,6 +53,32 @@
    "src": "Cultura Navarra"
   },
   {
+   "id": "paexposicionmuseodememoriasinconstantes20260902",
+   "t": "Museo de memorias inconstantes",
+   "cat": "expo",
+   "f": "2026-09-02",
+   "ff": "2027-01-24",
+   "h": "",
+   "lugar": "Museo Universidad de Navarra (MUN)",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-museo-de-memorias-inconstantes",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paexposicionradixlarealidaddeunautopiamuse20260911",
+   "t": "Radix: la realidad de una utopía",
+   "cat": "expo",
+   "f": "2026-09-11",
+   "ff": "2027-01-31",
+   "h": "",
+   "lugar": "Museo de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-radix-la-realidad-de-una-utopia-museo-de-navarra",
+   "desc": "Exposición",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "paconfluencias2026miradashaciaotrasdiscipl20260924",
    "t": "CONFLUENCIAS 2026. MIRADAS HACIA OTRAS DISCIPLINAS",
    "cat": "otros",
@@ -49,6 +88,19 @@
    "lugar": "Sala de Armas de la Ciudadela - Sala de Exposiciones Municipal",
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/confluencias-2026-miradas-hacia-otras-disciplinas",
+   "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pasolicituddevisitaguiadalacomparsadegigan20261001",
+   "t": "Solicitud de visita guiada a la Comparsa de Gigantes y Cabezudos de Pamplona",
+   "cat": "otros",
+   "f": "2026-10-01",
+   "ff": "2027-01-29",
+   "h": "",
+   "lugar": "Estación de autobuses",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/solicitud-de-visita-guiada-la-comparsa-de-gigantes-y-cabezudos-de-pamplona",
    "desc": "",
    "src": "Ayuntamiento de Pamplona"
   },
@@ -114,19 +166,6 @@
    "lugar": "Biblioteca Pública de la Txantrea",
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/exposicion-melodia-baterako-akordea-biblioteca-txantrea",
-   "desc": "Exposición",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paexposicion25anosbailandoenelbarriocivivo20261103",
-   "t": "25 años bailando en el barrio",
-   "cat": "expo",
-   "f": "2026-11-03",
-   "ff": "2026-11-22",
-   "h": "",
-   "lugar": "Civivox Condestable",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-25-anos-bailando-en-el-barrio-civivox-condestable",
    "desc": "Exposición",
    "src": "Ayuntamiento de Pamplona"
   },
@@ -326,19 +365,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "paiisemananavarradelaciberseguridad20261116",
-   "t": "II Semana Navarra de la Ciberseguridad",
-   "cat": "otros",
-   "f": "2026-11-16",
-   "ff": "2026-11-22",
-   "h": "",
-   "lugar": "",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ii-semana-navarra-de-la-ciberseguridad",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "pafestivaldemusicahamaika202620261118",
    "t": "Festival de música Hamaika 2026",
    "cat": "concierto",
@@ -352,42 +378,29 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "pateatrolafedelavulgarent20261121",
-   "t": "La fé de La Vulgar",
-   "cat": "teatro",
-   "f": "2026-11-21",
-   "ff": "2026-11-22",
+   "id": "paexposicionmatthiasmalefond20261120",
+   "t": "Matthias Malefond",
+   "cat": "expo",
+   "f": "2026-11-20",
+   "ff": "2027-01-24",
    "h": "",
-   "lugar": "Escuela Navarra de Teatro (ENT)",
+   "lugar": "Sala del Horno de la Ciudadela - Sala de Exposiciones Municipal",
    "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/teatro-la-fe-de-la-vulgar-ent",
-   "desc": "Teatro",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-matthias-malefond",
+   "desc": "Exposición",
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "cntradicionycreacionnuevasmusicasparagaita20261122",
-   "t": "Tradición y creación: nuevas músicas para Gaita Navarra",
-   "cat": "concierto",
-   "f": "2026-11-22",
-   "ff": "",
-   "h": "12:00",
-   "lugar": "",
-   "pueblo": "Artajona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-22/musica/tradicion-y-creacion-nuevas-musicas-para-gaita-navarra",
-   "desc": "GAITEROS DE ARTAJONA- ARTAXOAKO GAITEROAK",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "paconciertolorca9020261122",
-   "t": "Lorca90",
-   "cat": "concierto",
-   "f": "2026-11-22",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Conservatorio Superior de Música de Navarra",
+   "id": "paexposicionmirendoiz20261120",
+   "t": "Miren Doiz",
+   "cat": "expo",
+   "f": "2026-11-20",
+   "ff": "2027-01-24",
+   "h": "",
+   "lugar": "Sala del Polvorín de la Ciudadela - Sala de Exposiciones Municipal",
    "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/concierto-lorca90",
-   "desc": "Concierto",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-miren-doiz",
+   "desc": "Exposición",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -2170,7 +2183,33 @@
    "url": "https://www.pamplona.es/actualidad/eventos/teatro-gran-concierto-de-ano-nuevo-teatro-gayarre",
    "desc": "Teatro",
    "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paespectaculowolfcircateatrogayarre20270107",
+   "t": "Wolf Circa",
+   "cat": "teatro",
+   "f": "2027-01-07",
+   "ff": "",
+   "h": "20:00",
+   "lugar": "Teatro Gayarre",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/espectaculo-wolf-circa-teatro-gayarre",
+   "desc": "Espectáculo",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "cnmaslowindustries20270107",
+   "t": "Maslow Industries",
+   "cat": "expo",
+   "f": "2027-01-07",
+   "ff": "2027-02-04",
+   "h": "",
+   "lugar": "Centro Cultural",
+   "pueblo": "Valle De Elorz Elortzibar",
+   "url": "https://www.culturanavarra.es/es/agenda/2027-01-07/arte-contemporaneo/maslow-industries",
+   "desc": "NUDO 5 Instalación",
+   "src": "Cultura Navarra"
   }
  ],
- "act": "2026-11-22 06:22"
+ "act": "2026-11-23 06:37"
 }
