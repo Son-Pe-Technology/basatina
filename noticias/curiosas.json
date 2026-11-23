@@ -1,14 +1,7 @@
 {
-"t": "2026-11-23T13:43Z",
-"turno": "2026-11-23-t",
+"t": "2026-11-23T19:23Z",
+"turno": "2026-11-23-n",
 "dest": [
-{
-"k": "2026-11-19-n",
-"t": "151 robots batieron un récord Guinness con una coreografía sincronizada en China",
-"u": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPZ1VKZzdGVFJxM0VNejVSdTh1YXFTRTNlaUZZRHRSZGlLbU42WTM1R185Q3JMZEZTWERRU19nOWxhd1ZvZ0dvZTlza2FxS0JYMFdkWElKTDEzdlRacVE4ZjFVZm0wVzJPSjI5Ul93SHRXempBd2hsalp3ZzRiUnVONmZVZUU3UUxlckdwUWlpNW1lXzJzNFkyY211TW9HblFkd2pYZDFRaTEwNUdia0dXQnYxdw?oc=5",
-"f": "Revista Que",
-"d": "2026-11-19T15:00Z"
-},
 {
 "k": "2026-11-20-m",
 "t": "Estos son los récord Guinness más alucinantes de la gastronomía",
@@ -85,6 +78,13 @@
 "u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOdmExS0NEc0JDbHR3SmRWTGtSMFM3X2lvdEJOTUdLQ01mc1Fwam0wU1paTldNRXdPeFdteml6M1dpTk5DZFRmLWxaVEo4VW9nbmhTcVJHZWRLMGpDUjVhLTFvSm9tSnBqcTdMcUNBTDAwNndWdkJqTVI3VnFrdjc5OXdaaEc3cndCZWhDX21Xb05vdml5V1RrSEpJZE1kYnFyZmfSAacBQVVfeXFMT09KaS0yYjNMRDFBN2FQQTFzdk5QQXNzYUJnS2g2OUk4b1lfMnRaWnlmTWJqc2hqeEswMklUZGVTbEV3RkJDSGtrc3JvSmdyaFktUWNmYkN2TWJDVm9lekcyUzdQdi14dmxwX3ZpY05DNnBHazVkT2xISGxDbEJtTFV0NndRT19vZDROdDA3bFVjbC1FcHBqUmlGMUdSQVpKWXNZWUlTSVk?oc=5",
 "f": "Deia",
 "d": "2026-11-22T19:58Z"
+},
+{
+"k": "2026-11-23-n",
+"t": "\"El agua caliente se congela antes que la fría\": el curioso fenómeno que la ciencia sigue investigando",
+"u": "https://www.telecinco.es/noticias/curioso/20261123/agua-caliente-congela-antes-que-fria-efecto-mpemba_18_020611322.html",
+"f": "Telecinco",
+"d": "2026-11-23T05:15Z"
 }
 ],
 "items": [
@@ -117,24 +117,10 @@
 "p": 5
 },
 {
-"t": "Ni Vigo, ni Barcelona: el Belén más alto del mundo está en Alicante, tiene un Récord Guinness, es de estilo modernista y está en un paseo marítimo con seis millones de teselas",
-"u": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPYVdWYUc1ZVdsbFBZZ01rNmktel9BZGVsblRXODJVVU9hcmZuMFhFSnFYZVFhenFMWlhKZE90c0taempCaTBHcjF2a0JncTJ2MldzRmE5bndJc1F0T3VkaGtzOHVYbHh0a0JtaGQzUnY2QmY5eHNFcFAzR0pSX21SV3R4TmlVTUJYeXZTUEtSdzF3eElhNjhqNTJGM2t6Tm5jWW05RVBCSHhaYkQ2WlhrVVMwazBXZFdxbzhsSmJZT1BnTlVhQWfSAcYBQVVfeXFMT2FXVmFHNWVXbGxQWWdNazZpLXpfQWRlbG5UVzgyVVVPYXJmbjBYRUpxWGVRYXpxTFpYSmRPdHNLWnpqQmkwR3IxdmtCZ3EydjJXc0ZhOW53SXNRdE91ZGhrczh1WGx4dGtCbWhkM1J2NkJmOXhzRXBQM0dKUl9tUld0eE5pVU1CWHl2U1BLUncxd3hJYTY4ajUyRjNrek5uY1ltOUVQQkh4WmJENlpYa1VTMGswV2RXcW84bEpiWU9QZ05VYUFn?oc=5",
-"f": "Viajar",
-"d": "2026-11-20T13:59Z",
-"p": 5
-},
-{
 "t": "Un camarero recibe una inesperada carta de un cliente y se hace viral",
-"u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOdmExS0NEc0JDbHR3SmRWTGtSMFM3X2lvdEJOTUdLQ01mc1Fwam0wU1paTldNRXdPeFdteml6M1dpTk5DZFRmLWxaVEo4VW9nbmhTcVJHZWRLMGpDUjVhLTFvSm9tSnBqcTdMcUNBTDAwNndWdkJqTVI3VnFrdjc5OXdaaEc3cndCZWhDX21Xb05vdml5V1RrSEpJZE1kYnFyZmfSAacBQVVfeXFMT09KaS0yYjNMRDFBN2FQQTFzdk5QQXNzYUJnS2g2OUk4b1lfMnRaWnlmTWJqc2hqeEswMklUZGVTbEV3RkJDSGtrc3JvSmdyaFktUWNmYkN2TWJDVm9lekcyUzdQdi14dmxwX3ZpY05DNnBHazVkT2xISGxDbEJtTFV0NndRT19vZDROdDA3bFVjbC1FcHBqUmlGMUdSQVpKWXNZWUlTSVk?oc=5",
-"f": "Deia",
+"u": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNYnRyaUtmelB5NjhiejY2QUd2VzhXWWU4OGtmVmU0OUhqX19yeFNoSHVKalpJM3IyTVhtSW1lSTlWX3hjcWR4cVhuaWJyV0dXVlFMQW1QSXZST2h3X2R5UENiZ2dSbDV1M1B6eVRwOFZxSDZCeEx6eEw0c0JCRkJIX1p0eVNaekJpTjRPOUU0X0JZOHl5MndLck10MmhSU21Hcjd3LWNyQVpJZncyNjBnZTRjU03SAboBQVVfeXFMT2NmV3BZRXhiT2t6Qm45bHpUazNIbW80VzhPX0pmYV9ybGV3NUQ5OGdBNEt5dUxwcFhpRk1idVU3aUxGTEkyemNSbnRTMDVQVDV6YlVOMVo0QUs3RldycjM3eEJXTmhOOWtCcGVkUWxJUTEya29VdWc5RnU4OWRsaVZxWkhlUWRTcFEweWN3WERpSEZyMEJmOC1lQ0lkRGxGV210dXJhd2lKMnVrd1BTZDZ5NnEyLW1GT2JB?oc=5",
+"f": "Noticias de Gipuzkoa",
 "d": "2026-11-22T19:58Z",
-"p": 4
-},
-{
-"t": "La plaga de gallinas invasoras que campa a sus anchas por el campus universitario de Puerto Real, Cádiz: \"Son un problema de salud pública\"",
-"u": "https://www.telecinco.es/noticias/andalucia/20261122/plaga-gallinas-invasoras-campus-puerto-real-problema-salud_18_020758694.html",
-"f": "Telecinco",
-"d": "2026-11-22T18:45Z",
 "p": 4
 },
 {
@@ -152,10 +138,38 @@
 "p": 4
 },
 {
+"t": "Pan Baobao, el leopardo viral de un zoológico de China que se niega a ponerlo a dieta: \"Se hace mayor\"",
+"u": "https://www.20minutos.es/gonzoo/pan-baobao-leopardo-viral-un-zoologico-china-que-se-niega-ponerlo-dieta-se-hace-mayor-no-deberia-perder-peso_7064775_0.html",
+"f": "20minutos",
+"d": "2026-11-23T17:32Z",
+"p": 3
+},
+{
+"t": "El curioso caso de la casa real danesa frente al misterio de la española (y que muestra cómo están las cosas en la familia)",
+"u": "https://www.huffingtonpost.es/life/influencers-celebrities/el-curioso-caso-casa-real-danesa-frente-misterio-espanola-y-muestra-como-cosas-familia-f202611.html",
+"f": "HuffPost",
+"d": "2026-11-23T16:08Z",
+"p": 3
+},
+{
+"t": "Qué es el brain stacking: lo que dice la ciencia sobre el fenómeno viral de TikTok para potenciar la mente",
+"u": "https://www.eldiario.es/spin/brain-stacking-dice-ciencia-fenomeno-viral-tiktok-potenciar-mente-pm_1_13686655.html",
+"f": "elDiario.es",
+"d": "2026-11-23T16:00Z",
+"p": 3
+},
+{
+"t": "Cuatro de cada diez personas con VIH y carga viral indetectable evitan tener sexo por el miedo a contagiar a otros",
+"u": "https://www.20minutos.es/salud/40-personas-con-vih-carga-viral-indetectable-evitan-relaciones-sexuales-por-miedo_7064596_0.html",
+"f": "20minutos",
+"d": "2026-11-23T13:01Z",
+"p": 3
+},
+{
 "t": "Lo bautizó Margaret Thatcher, iba a ser una «ciudad bitcoin» y casi acaba en la chatarra: el curioso crucero que llegará a Ferrol",
-"u": "https://news.google.com/rss/articles/CBMioAJBVV95cUxNYmtMQk1wNHNWOU93UlBlVTEtYW83RnM4NHRBRE9BM3ZqRG9XYVAyVWZ4dGh1cURVaVViejlfcENtbFFvSGRmVVlzTTFyR3lFZVdEaDRxRVBrX3IxclQyeUM3Z1hEdVF5OU9jaHhEeUcyanBDLVFTMFNXbG5IbW1QRGROdjBVdGpDS01ydS0wNk1fTUxSMlplWjQ4RjVnX1NoNkc0R3pBbU0zMzA0ampWNEpwSDRhSGQzU0lQYTRoSFNQM2ZiTDh5QTViZmRRMm1XUXpfZFc5VENxajVFVkJtT2I1YWZSUXE3RXhfVXB1Z0NNTlRwbUM4QTB1SzlPSmlSQWwzODdvN0lIOHN2OVRGZ08zYzRjMTdjLWktMUVWMzTSAaACQVVfeXFMTWJrTEJNcDRzVjlPd1JQZVUxLWFvN0ZzODR0QURPQTN2akRvV2FQMlVmeHRodXFEVWlVYno5X3BDbWxRb0hkZlVZc00xckd5RWVXRGg0cUVQa19yMXJUMnlDN2dYRHVReTlPY2h4RHlHMmpwQy1RUzBTV2xuSG1tUERkTnYwVXRqQ0tNcnUtMDZNX01MUjJaZVo0OEY1Z19TaDZHNEd6QW1NMzMwNGpqVjRKcEg0YUhkM1NJUGE0aEhTUDNmYkw4eUE1YmZkUTJtV1F6X2RXOVRDcWo1RVZCbU9iNWFmUlFxN0V4X1VwdWdDTU5UcG1DOEEwdUs5T0ppUkFsMzg3bzdJSDhzdjlURmdPM2M0YzE3Yy1pLTFFVjM0?oc=5",
+"u": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPTC10a0V6UW5qSFVCUWMtX21VdG5NcGE2NFZER0hWdzQyX0FaY0RSNFRHLVJIR0I0OHQ4LUtiWEJ4aXNrVjZVUFdCQktXR3JUbUQ0TXdyM3o2dEhmMHl5Y01KQzNUYnlXVGVoRnMtQXgtZG53Q0NWZVFScGJSbTZzal9Wb09YQ25kR2ZYb0ZBWk9hOWtMUE82aHlyNjZNWDJ2a0I4c0RfMV94S3NiNkd5cmVhYXJJUThZSk0zMm5JcUFoMFhIWng3WHd1NmhrajNXWGZzVkR2aWVhRVJzSVZaLXM3RzM5elNSeHlhb3FXeUdBVXpiakNxdWlnbkRKTVhIb0E3dNIBoAJBVV95cUxNYmtMQk1wNHNWOU93UlBlVTEtYW83RnM4NHRBRE9BM3ZqRG9XYVAyVWZ4dGh1cURVaVViejlfcENtbFFvSGRmVVlzTTFyR3lFZVdEaDRxRVBrX3IxclQyeUM3Z1hEdVF5OU9jaHhEeUcyanBDLVFTMFNXbG5IbW1QRGROdjBVdGpDS01ydS0wNk1fTUxSMlplWjQ4RjVnX1NoNkc0R3pBbU0zMzA0ampWNEpwSDRhSGQzU0lQYTRoSFNQM2ZiTDh5QTViZmRRMm1XUXpfZFc5VENxajVFVkJtT2I1YWZSUXE3RXhfVXB1Z0NNTlRwbUM4QTB1SzlPSmlSQWwzODdvN0lIOHN2OVRGZ08zYzRjMTdjLWktMUVWMzQ?oc=5",
 "f": "La Voz de Galicia",
-"d": "2026-11-23T10:34Z",
+"d": "2026-11-23T10:38Z",
 "p": 3
 },
 {
@@ -173,7 +187,7 @@
 "p": 3
 },
 {
-"t": "Alcaraz, tras conseguir su última hazaña en Turín: \"Es impresionante estar al lado de las grandes leyendas\"",
+"t": "Alcaraz, tras conseguir su última hazaña: \"Es impresionante estar al lado de las grandes leyendas\"",
 "u": "https://www.20minutos.es/deportes/tenis/carlos-alcaraz-tras-conseguir-una-hazana-solo-lograda-por-agassi-federer-djokovic-es-impresionante-estar-lado-leyendas_7064383_0.html",
 "f": "20minutos",
 "d": "2026-11-23T07:18Z",
@@ -201,17 +215,10 @@
 "p": 3
 },
 {
-"t": "¿Lamine Yamal e Inés García van a ser padres? La curiosa celebración del jugador que hace saltar los rumores",
-"u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQc3VGRkVQWXowY0ZWcThVdXZzZUNLYU9XTE1OUnBwT252d1M0dVJtLW95czVhdnhwS3J2a0xyZ2xCMzF5Z2FIdDBNYkZITndyR3VkVXZEUmticHU5RndhSjZONU5kY21uQ0IzUWhaekFJRzNlMW5UWlgzWXhmYWdUWjRHQmlWdmU0RThVcWZmR2wxTngxNFdlQTQ4Q2RBdXYxZlQ1T3RsMWZyT1V3TXV3VHlkOGs3ZW9uc0dIaEQyU2VhMzNsbzhzMHV6dE5hWC1TTVNrVTNKQThpa0N2b203aU5NVU45Zm5qT3kwMHh0Y1d2UzItZ3fSAYoCQVVfeXFMT1VpaVFqUEFNWWgzbF94TGMtcWk5Q2wxQUowbHZUMUhiVWJjVjJHaGNYNlY3SUVlb3d1VFJrTkZwbVZXWUJUZVVDc1BJcjRDUlp5SmFJalBQUUFpUE1keXRQNmFBZm1JRXA1Y0YyNTZ5cVZNcjN0c0tvbjVKRkMybzJXMDVUSTF3akRIZ2pWMnlRUVFFQm1KMk5LQUtwMWpaWkFZdWkyaGxHZXdXblBnOUpCa044OUt1NHpLTzN5WXU2Y3M4WmpBODNCNkpVcFdrcE0zQ1F5X044MC1xTmpnakJZOWZOZm9mQUZpazZoUlhVcmFDY3dYOHlic0FHbXY0aHNuWDk0ckE1Nnc?oc=5",
-"f": "La Razón",
-"d": "2026-11-22T18:50Z",
-"p": 3
-},
-{
-"t": "Jennifer Lawrence se hace viral por un comentario en Instagram y ahora confiesa que se equivocó en un detalle",
-"u": "https://www.huffingtonpost.es/life/influencers-celebrities/jennifer-lawrence-viral-comentario-instagram-confiesa-equivoco-detalle-f202611.html",
-"f": "HuffPost",
-"d": "2026-11-22T17:43Z",
+"t": "La plaga de gallinas invasoras que campa a sus anchas por el campus universitario de Puerto Real, Cádiz: \"Son un problema de salud pública\"",
+"u": "https://www.telecinco.es/noticias/andalucia/20261122/plaga-gallinas-invasoras-campus-puerto-real-problema-salud_18_020758694.html",
+"f": "Telecinco",
+"d": "2026-11-22T18:45Z",
 "p": 3
 },
 {
@@ -236,6 +243,20 @@
 "p": 3
 },
 {
+"t": "¿Lamine Yamal e Inés García van a ser padres? La curiosa celebración del jugador que hace saltar los rumores",
+"u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQc3VGRkVQWXowY0ZWcThVdXZzZUNLYU9XTE1OUnBwT252d1M0dVJtLW95czVhdnhwS3J2a0xyZ2xCMzF5Z2FIdDBNYkZITndyR3VkVXZEUmticHU5RndhSjZONU5kY21uQ0IzUWhaekFJRzNlMW5UWlgzWXhmYWdUWjRHQmlWdmU0RThVcWZmR2wxTngxNFdlQTQ4Q2RBdXYxZlQ1T3RsMWZyT1V3TXV3VHlkOGs3ZW9uc0dIaEQyU2VhMzNsbzhzMHV6dE5hWC1TTVNrVTNKQThpa0N2b203aU5NVU45Zm5qT3kwMHh0Y1d2UzItZ3fSAYoCQVVfeXFMT1VpaVFqUEFNWWgzbF94TGMtcWk5Q2wxQUowbHZUMUhiVWJjVjJHaGNYNlY3SUVlb3d1VFJrTkZwbVZXWUJUZVVDc1BJcjRDUlp5SmFJalBQUUFpUE1keXRQNmFBZm1JRXA1Y0YyNTZ5cVZNcjN0c0tvbjVKRkMybzJXMDVUSTF3akRIZ2pWMnlRUVFFQm1KMk5LQUtwMWpaWkFZdWkyaGxHZXdXblBnOUpCa044OUt1NHpLTzN5WXU2Y3M4WmpBODNCNkpVcFdrcE0zQ1F5X044MC1xTmpnakJZOWZOZm9mQUZpazZoUlhVcmFDY3dYOHlic0FHbXY0aHNuWDk0ckE1Nnc?oc=5",
+"f": "La Razón",
+"d": "2026-11-22T18:50Z",
+"p": 2
+},
+{
+"t": "Jennifer Lawrence se hace viral por un comentario en Instagram y ahora confiesa que se equivocó en un detalle",
+"u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaFlkZHNjRlVoRWJvSVl4OTNsdGE4ZFVlUGhRWW4tOG00bndmR3dwZnNIeHFZRnRUeW4xRnZPSWJlWmdJNGx5aDE1eFFkU0NJcDNyR0tnM3JvbUdMQ2dfQXN3ZFhwSnZiYTN5SUxiRU1ITGdYX3JlMzJPckpfOVZYMU9xZXRFemM2ekZDWWNhVzJEcTJFY2dvT1lSYm43SW5MZjJaRFgxcks1WC15Tm4zLVFaVkJkNHoxOWNWMGl6QktVN1k3eHhnQ2hQb2hUMlU2X1hyUHdBTm84UdIB7gFBVV95cUxQOVQzSnlweFFTWDl4ZUVfdlZOdTIxRE5McEN5V2RiR0lSa0pva1YwdGJFVmh5OWpod1BVU09IZVQwajdKaEJvaWVJbGtxd1o5dWpIdEtRU1hLVlE1Qk5yS3hVUW1VeE8tVjBNSFNXUl82NWJOS0RXSC1IbW5rWjlFRjdOR0Z1TTdNMkphTFAtZ08taHNrNVhjSl9RX2xDMDJZUDBCZm5aNU5YN2tzcnJwN2ctT2w1Z09Fd042WVNjXzRNTThhS25hemw3OVJ0MXpWWGU3Y0lGRnlpQTJWLVFtLXoyaTd2aFlqTnVKeE1R?oc=5",
+"f": "El HuffPost",
+"d": "2026-11-22T17:43Z",
+"p": 2
+},
+{
 "t": "El refugio de Gabriel Rufián en un pueblo de Tarragona de solo 642 habitantes: \"Es curioso, pero me flipa\"",
 "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUG5VRDltMTlNdkdNbUVyNV9ldWI0eGNOTG1Dbk9ndWZZRXpiM0xoX2h3ZENZQ05zcG1oQ1BpVklabDBOZW9LdmFhV1pLSG11VEVMa3Q2ZFpBZVhna0ZMUHktUGlQbm5nNUNsMUdXZmszTVlWMUV4dzdtdFRBX2I0aXJhTzNqWFFrUFVEeWJBUFpPd3ZOYjlJTGx6ZzBUQ3NjdldlSXp5d1dsdw?oc=5",
 "f": "El Confidencial",
@@ -254,13 +275,6 @@
 "u": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRTF5V3lqWDVFeXN3T1dPUjJEcnlLWllnOWtZT3NUSTlUbmJ4SFdrZ2QtRW5uSG1ZU3JPS01IQnlTQjV1V1ZEQXVQTEtwX3VNeThNTTkyRjZyUmNMMWtJWjZubWRCOTJ6SFV5YzhfRzBZM0ZKSlBUWUFScHNHZklRUHNHYzUwa0hpTE5FVmJxMHczZGN1SG9ab2FjdUUtX2ZidmJQYVkyZEo5dTM2WXRXVk53NnFOQdIBuwFBVV95cUxQdkpXeDl0dmV5X2tJbThxTThlZkhCWlFmNkxQcVVYeWJ1NEdXTFR0SnV6akd6T1NKMU50SzU5U3FQcWlrTU9HUDhGcE1EVGNDWFNpdzE3aHFSTVF0MGkyeE5WMDhRUE1JWVNtenUyY0hjbXEzMk0zRG43TlV6U09ESVQ5YXZDYkJzVEduZ1ZsLTRfQUdwY1VyYjNOT1J2UmNMVEZZUGhxQzY0QTh1SUdWZ3RzRmdobElzOXlJ?oc=5",
 "f": "El Correo Gallego",
 "d": "2026-11-22T05:02Z",
-"p": 2
-},
-{
-"t": "La curiosa historia de cómo germinó una planta de tomate en Surtsey, la isla volcánica controlada por científicos que se formó en 1963",
-"u": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQTVduazd4RktfRGJQZjM0amFrUkc2ekZ5SGVIVEhxT1h6NF8zOEh4UG9hTHJZWGhvbm8zbWJnWUVIbzdVUkdtX3lrU09SdExXMmJoTGdwRGN4RWNUSWlOam04SklHbk5sWGU0SDBVbG1jY2xzcGtIOXd1WGp5QVpZaG9PQi1hWFdwR2E5Wkd3VG5JbFpHcXhyY2NrOFdrMUp5ZkppdmlfajZTYkhzMWo0Z3VYVFdhNFNlN0RJT19ta3BKaGhLRGZ1WGhveEF5WktUVHRPMXhYNTdXWExJYkRsWDE4Sk1YdGZpU0FKTFlhUk1SV0REa3diTjQwX2JJMUg5UFl0bjFFWnVPYTJncmfSAaICQVVfeXFMT1hTMm84d0lVeHhuZDJ1T0pyaTFuMFl6TWRiQUlrOU1VM0wtNXp2c0ZURHRaU3BaSUtESldyMnhhQUpfY1ktV1JfOV83OG03Y2xObGh3SW1HN1hJTlMxU3VGT0lIdzY3TEw2bVFwQVU2QWhYRHlxbzZYNEU4NTNtWHRQMnZMUTlHTFVEdGRqaS04YWp0U1dabTVFRkdaM3pRX05XbXRiU2drM1Y3azJCbWxuVFU5dnRDd3I4SWI1WVl2cDU0a0RwUFJaTXJfYXk4WUxGN1otbGM1QnEzR29VLUU2U0YwYU10VjFqNi1NRVlLemkyTXk3Vm13MDNQUERFTl9qODJXbkJ5NF9ldTF6NDFaeU8tRDlETGFKVHJESGtfeWc?oc=5",
-"f": "La Razón",
-"d": "2026-11-21T15:57Z",
 "p": 2
 }
 ]
