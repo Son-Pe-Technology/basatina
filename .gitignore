@@ -10,3 +10,4 @@ keystore/
 *.jks
 __pycache__/
 __pycache__/
+priv/
