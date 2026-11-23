@@ -1,10 +1,1 @@
-gasolineras 256 23/11/2026 7:24:15
-overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Network is unreachable>
-overpass https://overpass.private.coffee/api/interpreter The read operation timed out
-recarga 91
-overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Network is unreachable>
-overpass https://overpass.private.coffee/api/interpreter HTTP Error 504: Gateway Timeout
-overpass https://overpass.kumi.systems/api/interpreter The read operation timed out
-overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Network is unreachable>
-overpass https://overpass.private.coffee/api/interpreter The read operation timed out
-overpass https://overpass.kumi.systems/api/interpreter The read operation timed out
+gasolineras 256 23/11/2026 13:12:21
