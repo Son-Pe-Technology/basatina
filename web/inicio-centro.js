@@ -25,7 +25,7 @@ const I={ola:'<path d="M2 9c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 15c2
  megafono:'<path d="M4 10v4h3l7 4V6l-7 4zM17 9a4 4 0 0 1 0 6"/>',flecha:'<path d="M9 6l6 6-6 6"/>'};
 const ic=(n,s)=>`<svg class="icS" width="${s||18}" height="${s||18}" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${I[n]}</g></svg>`;
 const st=document.createElement('style');st.textContent=`
-${S} .bnaH{font-size:22px!important;font-weight:900!important;border-left:5px solid #3d7031;padding-left:10px!important;margin:18px 2px 10px!important;line-height:1.15}
+${S} .bnaH{font-size:17px!important;font-weight:900!important;border-left:4px solid #3d7031;padding-left:9px!important;margin:16px 2px 8px!important;line-height:1.15}
 /* 1 · río */
 ${S} #rzTk{border-radius:20px!important;border:1px solid rgba(29,45,35,.06)!important;box-shadow:0 4px 16px rgba(29,45,35,.08)!important;margin-bottom:12px}
 ${S} #rzTk .anC,${S} #anTk .anC{position:relative}
@@ -93,7 +93,7 @@ ${S} #cuCard .cuT{font-size:15.5px!important;font-weight:800!important;color:#1d
 ${S} #cuCard .cuM{font-size:12.5px!important;color:#7a6a5f!important}
 ${S} #cuCard .cuO{border:1.5px solid #e65100!important;color:#d84315!important;background:#fff!important;border-radius:999px!important;padding:6px 12px!important;font-weight:800!important;font-size:13.5px!important}
 /* 5 · la semana */
-${S} #seHome>b{font-size:22px!important;font-weight:900!important;margin:18px 4px 10px!important}
+${S} #seHome>b{font-size:17px!important;font-weight:900!important;margin:16px 4px 8px!important}
 body.bna.ifIni #seBody{gap:12px!important}
 body.bna.ifIni #seBody>.card.seF{padding:12px 10px 10px!important;border-radius:20px!important;border:1px solid rgba(29,45,35,.06)!important;box-shadow:0 4px 16px rgba(29,45,35,.08)!important;display:flex;flex-direction:column;gap:10px}
 body.bna.ifIni #seBody>.card.seF>b{display:flex!important;align-items:center;gap:8px;font-size:15.5px!important;font-weight:900!important;line-height:1.2!important}
