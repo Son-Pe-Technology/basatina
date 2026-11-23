@@ -14,6 +14,9 @@
    ===================================================================== */
 (function(){
 const $=id=>document.getElementById(id);
+// 23 nov. 2026 (noche): Pedro pidió quitar TODAS las fotos. Con IF_FOTOS=false se quedan solo el orden
+// (palabra y refrán en dos columnas, la semana 2×2), sin paisaje en la cabecera, ni fotos en accesos, río ni créditos.
+const IF_FOTOS=false;
 const IF_CAB={otono:'foto-inicio-otono.webp',invierno:'foto-inicio-invierno.webp',primavera:'foto-inicio-primavera.webp',verano:'foto-inicio-verano.webp'};
 const ifEst=()=>{const m=new Date().getMonth()+1;return m>=3&&m<=5?'primavera':m>=6&&m<=8?'verano':m>=9&&m<=11?'otono':'invierno';};
 // clave del acceso directo (BNL de index.html) → foto
@@ -44,7 +47,7 @@ const st=document.createElement('style');st.textContent=`
 body.bna.ifTop header{background:#dfe9ee var(--ifCab) center 62%/cover no-repeat!important;position:relative;overflow:hidden}
 body.bna.ifTop header:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.8) 34%,rgba(255,255,255,0) 66%)}
 body.bna.ifTop .topbar{position:relative;z-index:1;padding-bottom:40px}
-body.bna.ifIni .topbar{padding-bottom:64px}
+body.bna.ifTop.ifIni .topbar{padding-bottom:64px}
 body.bna.ifTop .topbar:after{display:none}
 /* 2. accesos directos con foto */
 body.bna .bnaQ button.ifF{position:relative;aspect-ratio:4/3;padding:0!important;overflow:hidden;justify-content:flex-end;background:#8aa096 center/cover no-repeat;
@@ -77,20 +80,20 @@ document.head.appendChild(st);
 
 const enIni=()=>typeof isBna==='function'&&isBna()&&(typeof BNTAB==='undefined'||BNTAB==='mtiempo');
 // 22 nov. 2026: la barra de arriba (logo y hora) lleva el paisaje de la estación en TODAS las pantallas (más baja fuera del Inicio)
-function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top);
+function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top&&IF_FOTOS);
   if(top)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
-function ifAcc(){document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=IF_ACC[b.dataset.go];
+function ifAcc(){if(!IF_FOTOS)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=IF_ACC[b.dataset.go];
   if(!f||b.classList.contains('ifF'))return;b.classList.add('ifF');b.style.backgroundImage=`url("${f}")`;});}
 function ifRio(){const el=$('rzTk');if(!el)return;const e=el.querySelector('.anE');if(!e)return;
   let r=null,n='';try{const R=rzRios();if(R.length){const x=R[RZ.i%R.length];r=x.r;n=x.rio;}}catch(x){}
-  if(!r||!IF_RIO[r]){e.classList.remove('ifR');e.style.backgroundImage='';return;}
+  if(!IF_FOTOS||!r||!IF_RIO[r]){e.classList.remove('ifR');e.style.backgroundImage='';return;}
   e.classList.add('ifR');e.style.backgroundImage=`url("${IF_RIO[r]}")`;if(!e.querySelector('b'))e.insertAdjacentHTML('beforeend','<b></b>');const t='Río '+n,bb=e.querySelector('b');if(bb.textContent!==t)bb.textContent=t;}
 function ifPar(){const pd=$('pdCard'),rf=$('rfCard');if(!pd||!rf)return;let w=$('ifPar');
   if(!w){w=document.createElement('div');w.id='ifPar';pd.parentNode.insertBefore(w,pd);}
   if(pd.parentNode!==w)w.appendChild(pd);if(rf.parentNode!==w)w.appendChild(rf);}
 function ifSem(){const b=$('seBody');if(!b||b.dataset.if)return;b.dataset.if=1;
   b.addEventListener('click',e=>{if(enIni()&&e.target.closest('.card')&&!e.target.closest('a,button'))showTab('semana');});}
-function ifCred(){const sec=$('t-mtiempo');if(!sec||sec.querySelector('.ifCred'))return;const d=document.createElement('details');d.className='ifCred';
+function ifCred(){if(!IF_FOTOS)return;const sec=$('t-mtiempo');if(!sec||sec.querySelector('.ifCred'))return;const d=document.createElement('details');d.className='ifCred';
   d.innerHTML='<summary>📷 Fotos del Inicio: autores y licencias</summary>'+IF_CRED.map(([q,a,l,u])=>`${q}: ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l})`).join(' · ')+'.';
   const pie=sec.querySelector('.bnaPie');pie?sec.insertBefore(d,pie):sec.appendChild(d);
   d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
