@@ -1,5 +1,5 @@
 {
- "version": 493,
+ "version": 494,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -16,7 +16,7 @@
   "bna-montserrat.woff2": "a5ec54920b589ebe2af3bc3bb7754a476db68abf",
   "c12.jpg": "ac3fa4c4bc823c0b64c7c69990cf891eb00e6319",
   "c14.jpg": "00f5a26af1b6c701d5ffd8b64b9832f8c3b3fe03",
-  "caza.js": "1dc720ba2afab96bb26e7a969959b414c67966a8",
+  "caza.js": "b3e1118f68338647c8ef2068f9a92c5c2545774f",
   "chinchon.js": "b45c8fb64fd79aa3e3993f1dc4e6ade151490161",
   "clasif.js": "0004711610da36b9809e2b438a73ba17f489b07b",
   "comunidad.js": "95af5a87dd7aa6bd56225db998fe60ffd43634e9",
