@@ -1,4 +1,4 @@
-RUTAS DE NAVARRA PARA ESCAPADAS (2026-11-14)
+RUTAS DE NAVARRA PARA ESCAPADAS (2026-11-23)
 Total: 364 rutas · OSM recibidas 263 · IDENA 127 · repetidas quitadas 23
 Rutas de OSM descartadas: {'casi toda fuera de Navarra': 24, 'menos de 1 km': 8}
 Senderos de IDENA sin GPX descargable (0): 
@@ -37,9 +37,9 @@ Senderos de IDENA sin GPX descargable (0):
 
 ## Por distancia
 - menos de 5 km: 101
-- 10-20 km: 95
 - 5-10 km: 94
-- 20-30 km: 63
+- 10-20 km: 94
+- 20-30 km: 64
 - más de 30 km: 11
 
 ## Circular o lineal
@@ -74,17 +74,17 @@ Tamaño de rutas.json: 1085 KB
 - Saint-Jean-Pied-de-Port – Roncesvalles [osm] · Camino Francés - 01 · etapa 7: Orreaga – Pekotxeta [osm]
 
 ## Lista (grupo · zona · nombre · km · desnivel + · dificultad · sale de)
-- Camino de Santiago · Baztan-Bidasoa · Baztango Donejakue bidea · etapa 3: Irurita – Urdazubi · 20.0 km · +381 m · Difícil · Irurita
-- Camino de Santiago · Baztan-Bidasoa · Baztango Donejakue bidea · etapa 4: Urdazubi – Dantxarinea · 8.9 km · +255 m · Fácil · Urdazubi
+- Camino de Santiago · Baztan-Bidasoa · Baztango Donejakue bidea · etapa 3: Irurita – Urdazubi · 20.0 km · +403 m · Difícil · Irurita
+- Camino de Santiago · Baztan-Bidasoa · Baztango Donejakue bidea · etapa 4: Urdazubi – Dantxarinea · 9.1 km · +240 m · Fácil · Urdazubi
 - Camino de Santiago · Baztan-Bidasoa · Belateko ekialdeko aldaera (Baztango Donejakue bidea) · 9.4 km · +526 m · Moderada · Berroeta
-- Camino de Santiago · Pamplona y Comarca · Baztango Donejakue bidea · etapa 1: Trinidad de Arre – Aritzu · 19.7 km · +217 m · Moderada · Trinidad de Arre
+- Camino de Santiago · Pamplona y Comarca · Baztango Donejakue bidea · etapa 1: Trinidad de Arre – Aritzu · 19.7 km · +218 m · Moderada · Trinidad de Arre
 - Camino de Santiago · Pamplona y Comarca · Camino Aragonés · etapa 2: Ezperun – Aldunate · 20.0 km · +292 m · Moderada · Ezperun
 - Camino de Santiago · Pamplona y Comarca · Camino francés · etapa 4: Pamplona – Puente la Reina/Gares · 23.8 km · +349 m · Difícil · Pamplona
 - Camino de Santiago · Pirineo · Camino Francés (Alternative) · 23.1 km · +1251 m · Difícil · Pekotxeta
 - Camino de Santiago · Pirineo · Camino francés · etapa 1: Entrada en Navarra – Orreaga/Roncesvalles · 15.8 km · +850 m · Moderada · Pekotxeta
 - Camino de Santiago · Pirineo · Camino francés · etapa 2: Orreaga/Roncesvalles – Zubiri · 20.8 km · +215 m · Difícil · Orreaga
 - Camino de Santiago · Pirineo · Camino francés · etapa 3: Zubiri – Pamplona · 19.3 km · +64 m · Moderada · Zubiri
-- Camino de Santiago · Plazaola-Sakana-Ultzama · Baztango Donejakue bidea · etapa 2: Aritzu – Irurita · 19.9 km · +500 m · Difícil · Aritzu
+- Camino de Santiago · Plazaola-Sakana-Ultzama · Baztango Donejakue bidea · etapa 2: Aritzu – Irurita · 20.0 km · +488 m · Difícil · Aritzu
 - Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 1: Ziordia – Etxarri Aranatz · 20.4 km · +108 m · Moderada · Ziordia
 - Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 2: Etxarri Aranatz – Etxeberri · 20.0 km · +34 m · Moderada · Etxarri Aranatz
 - Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 3: Etxeberri – Pamplona · 22.0 km · +163 m · Moderada · Etxeberri
@@ -101,7 +101,7 @@ Tamaño de rutas.json: 1085 KB
 - Camino de Santiago · Tierra Estella · Camino francés · etapa 7: Los Arcos – Viana · 17.2 km · +181 m · Moderada · Los Arcos
 - Camino de Santiago · Tierra Estella · Camino francés · etapa 8: Viana – Salida de Navarra · 5.7 km · +42 m · Fácil · Viana
 - Camino de Santiago · Tierra Estella · Inaziotar bidea (Navarra): Genevilla – Meano · 28.3 km · +508 m · Difícil · Genevilla
-- Camino de Santiago · Zona Media · Camino Aragonés · etapa 1: Puente la Reina – Ezperun · 20.1 km · +356 m · Moderada · Puente la Reina
+- Camino de Santiago · Zona Media · Camino Aragonés · etapa 1: Puente la Reina – Ezperun · 20.1 km · +366 m · Moderada · Puente la Reina
 - Camino de Santiago · Zona Media · Camino francés · etapa 5: Puente la Reina/Gares – Estella-Lizarra · 20.3 km · +252 m · Moderada · Puente la Reina
 - Grandes travesías · Baztan-Bidasoa · E.GR 11-GR 12 · Bustitza - Uztakorta · 21.3 km · +1065 m · Difícil · Aurtitz
 - Grandes travesías · Baztan-Bidasoa · E.GR 11-GR 12 · Lesaka-Bustitza · 14.3 km · +228 m · Moderada · Aurtitz
@@ -181,9 +181,9 @@ Tamaño de rutas.json: 1085 KB
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 121 · E13 Epaipide ibilbidea: Berastegi - Ugaldetxo · 20.4 km · +860 m · Difícil · Erreka
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 121 · E14 Epaipide ibilbidea: Ugaldetxo - Aritxulegi · 19.7 km · +943 m · Difícil · Arano
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 D.1 · Arbizu-Gañolarri · 6.2 km · +372 m · Fácil · Arbizu
-- Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 1: Azkarate – Alli · 20.1 km · +979 m · Difícil · Azkarate
+- Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 1: Azkarate – Alli · 20.1 km · +969 m · Difícil · Azkarate
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 2: Alli – San Migel · 20.0 km · +840 m · Difícil · Alli
-- Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 3: San Migel – Lizarragabengoa · 13.0 km · +383 m · Moderada · San Migel
+- Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 3: San Migel – Lizarragabengoa · 13.0 km · +381 m · Moderada · San Migel
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 282 · Artzaintza naturbidea · etapa 1: Gaintza – Unanu · 20.1 km · +675 m · Difícil · Gaintza
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 282 · Artzaintza naturbidea · etapa 2: Unanu – Andía · 22.6 km · +837 m · Difícil · Unanu
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 282 · Artzaintza naturbidea · etapa 4: Venta de Urbasa – Ziordia · 17.5 km · +309 m · Moderada · Venta de Urbasa
@@ -198,8 +198,8 @@ Tamaño de rutas.json: 1085 KB
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 323.9 · Bernoako Galtzada: Bakaiku - Santa Marina · 3.6 km · +533 m · Moderada · Bakaiku
 - Grandes travesías · Sangüesa-Prepirineo · GR 1 · Etapa 1. Sos del Rey Católico / Cáseda · 18.7 km · +86 m · Moderada · Gabarderal
 - Grandes travesías · Sangüesa-Prepirineo · GR 1 · Etapa 2. Cáseda - Uxue / Ujué · 14.2 km · +569 m · Moderada · Cáseda
-- Grandes travesías · Sangüesa-Prepirineo · GR 1 · Sendero Histórico: Navarra · etapa 1: Torre de Peña – Ujué · 20.7 km · +447 m · Difícil · Torre de Peña
-- Grandes travesías · Sangüesa-Prepirineo · GR 1 · Sendero Histórico: Zaragoza (Navarra): Petilla de Aragón – Petilla de Aragón · 12.5 km · +268 m · Moderada · Petilla de Aragón
+- Grandes travesías · Sangüesa-Prepirineo · GR 1 · Sendero Histórico: Navarra · etapa 1: Torre de Peña – Ujué · 20.7 km · +426 m · Difícil · Torre de Peña
+- Grandes travesías · Sangüesa-Prepirineo · GR 1 · Sendero Histórico: Zaragoza (Navarra): Petilla de Aragón – Petilla de Aragón · 12.5 km · +275 m · Moderada · Petilla de Aragón
 - Grandes travesías · Tierra Estella · GR 1 · Etapa 6. Allo - Los Arcos · 22.4 km · +302 m · Difícil · Allo
 - Grandes travesías · Tierra Estella · GR 1 · Etapa 7. Los Arcos - Codés · 17.3 km · +581 m · Moderada · Los Arcos
 - Grandes travesías · Tierra Estella · GR 1 · Etapa 8. Codés - Portillo de Nazar - Santa Cruz de Campezo / Santikurutze Kanpezu · 11.5 km · +441 m · Moderada · Nuestra Señora de Codés
@@ -212,7 +212,7 @@ Tamaño de rutas.json: 1085 KB
 - Grandes travesías · Zona Media · GR 1 · Etapa 3. Uxue / Ujué - Olite / Erriberri · 15.0 km · +0 m · Moderada · Ujué
 - Grandes travesías · Zona Media · GR 1 · Etapa 4. Olite / Erriberri - Larraga · 26.0 km · +137 m · Difícil · Olite
 - Grandes travesías · Zona Media · GR 1 · Etapa 5. Larraga - Allo · 18.8 km · +196 m · Moderada · Larraga
-- Grandes travesías · Zona Media · GR 1 · Sendero Histórico: Navarra · etapa 4: Berbinzana – Nuestra Señora de Andión · 8.7 km · +139 m · Fácil · Berbinzana
+- Grandes travesías · Zona Media · GR 1 · Sendero Histórico: Navarra · etapa 4: Berbinzana – Nuestra Señora de Andión · 8.8 km · +152 m · Fácil · Berbinzana
 - Grandes travesías · Zona Media · GR 220 · Iruñerriko itzulia · etapa 5: Lete – Muniáin de Guesálaz · 11.4 km · +837 m · Moderada · Lete
 - Senderos y paseos · Baztan-Bidasoa · Arrarats - Begaña · 10.1 km · +447 m · Moderada · Arrarats
 - Senderos y paseos · Baztan-Bidasoa · Aurkidiko itzulia · 9.7 km · +553 m · Moderada · Zubieta
@@ -236,7 +236,7 @@ Tamaño de rutas.json: 1085 KB
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 16 · Larun · 14.2 km · +442 m · Moderada · Garaitarreta
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 4 · Baztangoiza · 12.2 km · +229 m · Moderada · Arizkun
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 6 · Aritzakun · 13.4 km · +493 m · Moderada · Telleria
-- Senderos y paseos · Baztan-Bidasoa · PR-NA 90 · Sorginen bidea · 12.7 km · +379 m · Moderada · Zugarramurdi
+- Senderos y paseos · Baztan-Bidasoa · PR-NA 90 · Sorginen bidea · 12.7 km · +375 m · Moderada · Zugarramurdi
 - Senderos y paseos · Baztan-Bidasoa · Parque Natural Señorío de Bertiz – Subida a Aizkolegi · 20.9 km · +658 m · Difícil · Bertiz
 - Senderos y paseos · Baztan-Bidasoa · Pottoka Urdinaren ibilbidea · 5.8 km · +66 m · Fácil · Etxartea
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 12 · Xorroxin · 4.7 km · +67 m · Fácil · Erratzu
@@ -247,7 +247,7 @@ Tamaño de rutas.json: 1085 KB
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 5 · Argarata - Santa Krutz · 4.4 km · +56 m · Fácil · Urritzokieta
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 7 · Leurtzako ibilbidea · 3.4 km · +43 m · Fácil · Beintza-Labaien
 - Senderos y paseos · Baztan-Bidasoa · SL-NA · Alkurruntz · 3.4 km · +11 m · Fácil · Amaiur
-- Senderos y paseos · Baztan-Bidasoa · SL-NA · Ibaineta · 5.0 km · +184 m · Fácil · Etxartea
+- Senderos y paseos · Baztan-Bidasoa · SL-NA · Ibaineta · 5.0 km · +186 m · Fácil · Etxartea
 - Senderos y paseos · Baztan-Bidasoa · Uraren bidea · 7.5 km · +14 m · Fácil · Zubieta
 - Senderos y paseos · Baztan-Bidasoa · Vértice geodésico de Frain - Lesaka - Cinco Villas · 10.8 km · +454 m · Moderada · Lesaka
 - Senderos y paseos · Baztan-Bidasoa · Zentinelako ibilbide arkeologikoa · 4.2 km · +197 m · Fácil · Lakain-Apezborro
@@ -365,7 +365,7 @@ Tamaño de rutas.json: 1085 KB
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 133 · Trikuharrien ibilbidea · 14.1 km · +544 m · Moderada · Bakaiku
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 133.1 · Trikuharrien ibilbidea - bariantea · 4.1 km · +0 m · Fácil · Lizarragabengoa
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 193 · Leitza-Ixkibar-Aitzmurdi · 11.8 km · +457 m · Moderada · Leitza
-- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 82 · Aralarko Done Mikel · 18.8 km · +606 m · Difícil · Baraibar
+- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 82 · Aralarko Done Mikel · 18.9 km · +604 m · Difícil · Baraibar
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 86 · Albiasuko behatokia · 11.4 km · +122 m · Moderada · Lekunberri
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Roble milenario de Orkin - MN43 · 3.2 km · +22 m · Fácil · Arraitz-Orkin
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL NA-138 · 1.2 km · +69 m · Fácil · Irurtzun
@@ -380,7 +380,7 @@ Tamaño de rutas.json: 1085 KB
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Saien balkoiaren ibilbidea · 3.6 km · +228 m · Fácil · Irurtzun
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Trinidad de Erga desde Irurtzun · 7.0 km · +584 m · Moderada · Irurtzun
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Uitzi - Dolmen Goldaburu - Mergelu - Atume · 8.9 km · +285 m · Fácil · Uitzi
-- Senderos y paseos · Sangüesa-Prepirineo · Aita Santuaren ibilbidea - Agur Harria · 12.3 km · +197 m · Moderada · Javier
+- Senderos y paseos · Sangüesa-Prepirineo · Aita Santuaren ibilbidea - Agur Harria · 12.3 km · +198 m · Moderada · Javier
 - Senderos y paseos · Sangüesa-Prepirineo · Alto de las Ripas y Farrandillo desde Javier · 13.6 km · +402 m · Moderada · Javier
 - Senderos y paseos · Sangüesa-Prepirineo · Ermita de San Román y el nevero de Aoiz · 8.6 km · +289 m · Fácil · Aoiz
 - Senderos y paseos · Sangüesa-Prepirineo · Ermita de la Trinidad - Acantilados de la Piedra y San Adrián - Foz de Lumbier · 12.0 km · +486 m · Moderada · Lumbier
