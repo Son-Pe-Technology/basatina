@@ -1118,6 +1118,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 </section>
 </div>
 
+<script src="mapa-elevado.js?v=1f9c4ab2"></script>
 <script src="rios.js?v=4d50b340"></script>
 <script src="pesca.js?v=fc5edcf7"></script>
 <div id="zfoot"><img src="sonpe3_ico.jpg" alt="" onerror="this.style.display='none'"><span>Propiedad de <b>Son&amp;Pe Technology Systems</b></span></div>
@@ -1942,6 +1943,7 @@ function rainCol(r){return r>=15?'#7b2fbf':r>=5?'#1d4fa8':r>=1?'#2f8fd8':r>=0.1?
 function mtDraw(){const cv=document.getElementById('mtc');if(cv.clientWidth<10)return;const W=cv.clientWidth,H=Math.round(W*(NB.n-NB.s)/((NB.e-NB.w)*Math.cos(42.6*Math.PI/180)));
   cv.dataset.h=H;const x=fitCanvas(cv);x.fillStyle='#0b1118';x.fillRect(0,0,W,H);
   if(mtImg&&mtImg.complete&&!mtImg.bad&&mtImg.naturalWidth){x.globalAlpha=.9;x.drawImage(mtImg,0,0,W,H);x.globalAlpha=1;}
+  if(typeof navElev==='function')navElev(x,W,H);   // Navarra levantada sobre el resto (mapa-elevado.js)
   else{x.fillStyle='#93a4b5';x.font='12px system-ui';x.fillText(T(mtImg&&mtImg.bad?'Mapa base no disponible ahora':'Cargando mapa base…'),10,H-12);}
   const P=(la,lo)=>[W*(lo-NB.w)/(NB.e-NB.w),H*(NB.n-la)/(NB.n-NB.s)];mtHits=[];const hh=new Date().getHours();
   const box=(px,py,ico,txt,col,hit)=>{x.font='bold 12px system-ui';const tw=x.measureText(txt).width,bw=tw+(ico?22:8),bx=px-bw/2,by=py-11;
