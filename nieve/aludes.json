@@ -1,5 +1,5 @@
 {
- "t": "2026-11-23T08:58Z",
+ "t": "2026-11-23T16:32Z",
  "aludes": "Agencia Estatal de Meteorología\n\nInformación nivológica para el Pirineo navarro y aragonés\n\nElaborado el día 4 de mayo de 2026\n\nA fecha 4 de mayo se da por finalizada la campaña de predicción\nde peligro de aludes en el Pirineo navarro y aragonés. No\nobstante, si las condiciones meteorológicas así lo requirieran,\nse emitiría una predicción especial. Se recuerda que, siempre\nque haya nieve, la ausencia total de peligro no existe. Hay que\ntener presente que, en circunstancias desfavorables, con aludes\nde tamaño 1 (alud pequeño o colada) y tamaño 2 (alud mediano) se\npueden sufrir severos daños personales.",
  "montana": [
   {
@@ -8,7 +8,7 @@
   },
   {
    "dia": 1,
-   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nPredicción de montaña\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nEstado del cielo\nNuboso o muy nuboso, por nubes medias y altas, tendiendo a quedar cubierto por la tarde, con nubes bajas y visibilidad localmente reducida.\nPrecipitaciones\nDébiles en la segunda mitad del día, localmente moderadas a últimas horas, sin descartar que puedan ser persistentes. Cota de nieve en descenso, de 1600-1700 a 1400-1500 metros.\nTormentas\nNo se esperan.\nTemperaturas\nMínimas con pocos cambios. Máximas en descenso, ligero en la divisoria. Heladas débiles en cotas altas.\nViento\nFlojo o moderado de componente sur, intensificándose y girando a oeste, con intervalos fuertes en cotas altas durante la segunda mitad del día.\nPredicción"
+   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nPredicción de montaña\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nEstado del cielo\nNuboso o muy nuboso, con nubes medias y altas, tendiendo a cubrirse por la tarde, con nubes bajas y visibilidad localmente reducida.\nPrecipitaciones\nDébiles o localmente moderadas durante la segunda mitad del día. Cota de nieve en torno a 1600-1800 metros, pudiendo descender algo más a últimas horas.\nTormentas\nNo se esperan.\nTemperaturas\nEn descenso, ligero de las máximas. Las mínimas se producirán al final del día. Heladas débiles, localmente moderadas en cumbres.\nViento\nPredominio de viento fuerte de componente sur, intensificándose y girando a oeste a últimas horas. Serán probables las rachas muy fuertes en cotas altas en horas centrales.\nAltitud de la isoterma de 0 ºC en la atmósfera libre\n2500 m\nAltitud de la isoterma de -10 ºC en la atmósfera libre\n4600 m\nViento en atmósfera libre a 1500 metros\nS 50 km/h\nViento en atmósfera libre a 3000 metros\nSW 90 km/h\nRoncesvalles\n940 m\nIsaba\n820 m\n-2\n-10\n-1\nPico Ori\n2021 m\n-5\n-15\n-4\nMesa de los Tres Reyes\n2428 m\nPredicción"
   }
  ]
 }
