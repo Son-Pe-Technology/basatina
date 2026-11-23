@@ -1,7 +1,10 @@
 """
 📰🤖 Noticias propias de BasatiNA escritas con IA (23 nov. 2026). Lo ejecuta .github/workflows/ia.yml.
 
-  python3 tools/ia_noticias.py   ->  noticias/ia_borradores.json
+  python3 tools/ia_noticias.py   ->  priv/ia_borradores.json  (repositorio PRIVADO suapedrito-z/basatina-borradores)
+
+Los borradores van al repositorio privado para que nadie los vea antes de revisarlos. Las que publicáis
+desde la app pasan a noticias/ia_publicadas.json (público).
 
 Qué hace:
   1. Coge los titulares de las últimas 24 h (noticias/noticias.json, que prepara tools/noticias.py).
@@ -23,7 +26,8 @@ from ia import llamar, json_de, avisar, avisar_error, IAError
 LEER = ["Navarra Capital", "Pamplona Actual", "Onda Vasca", "Orain", "Ayuntamiento de Pamplona"]
 # Europa Press: su aviso legal no se pudo leer el 23 nov. 2026 → de momento solo su titular.
 UA = "Mozilla/5.0 (BasatiNA/1.0; +https://basatina.es)"
-ARCH = "noticias/ia_borradores.json"
+ARCH = os.environ.get("IA_ARCH", "priv/ia_borradores.json")   # en el repositorio privado (el workflow lo baja a priv/)
+VIEJO = "noticias/ia_borradores.json"                          # donde estaban antes (público): se pasan al privado y se borra
 MAX_NUEVAS = int(os.environ.get("IA_MAX_NUEVAS", "6"))   # noticias nuevas por pasada (controla el gasto)
 DIAS = 7                                                    # los borradores se guardan una semana
 
@@ -92,7 +96,23 @@ Responde SOLO con JSON:
 "apta": false si no hay hechos suficientes o el tema no encaja (política, opinión, publicidad)."""
 
 
+def migrar():
+    """Una sola vez: pasa los borradores del archivo público antiguo al privado y borra el público."""
+    if not os.path.exists(VIEJO): return
+    try: V = json.load(open(VIEJO, encoding="utf-8")).get("items", [])
+    except Exception: V = []
+    try: B = json.load(open(ARCH, encoding="utf-8"))
+    except Exception: B = {"items": []}
+    ids = {x.get("id") for x in B.get("items", [])}
+    B["items"] = B.get("items", []) + [x for x in V if x.get("id") not in ids]
+    os.makedirs(os.path.dirname(ARCH) or ".", exist_ok=True)
+    json.dump(B, open(ARCH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    os.remove(VIEJO)
+    print(f"Migrados {len(V)} borradores al repositorio privado; borrado {VIEJO}")
+
+
 def main():
+    migrar()
     ahora = datetime.datetime.now(datetime.timezone.utc)
     try: N = json.load(open("noticias/noticias.json", encoding="utf-8"))
     except Exception: print("Sin noticias.json"); return
@@ -156,7 +176,7 @@ def main():
         nuevas += 1; dudas += bool(du)
         print("  +", "DUDA" if du else "ok", R["titulo"])
     B["t"] = ahora.strftime("%Y-%m-%dT%H:%MZ")
-    os.makedirs("noticias", exist_ok=True)
+    os.makedirs(os.path.dirname(ARCH) or ".", exist_ok=True)
     json.dump(B, open(ARCH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     pend = sum(1 for x in B["items"] if x["estado"] in ("borrador", "duda"))
     print(f"Nuevas: {nuevas} · con dudas: {dudas} · pendientes de revisar: {pend}")

@@ -1,5 +1,7 @@
 # 🤖 IA de BasatiNA (23 nov. 2026): noticias propias (borradores) y «Navarra hoy».
-#   tools/ia_noticias.py → noticias/ia_borradores.json (cada 3 h de 7 a 22 h, hora de Madrid en invierno)
+#   tools/ia_noticias.py → ia_borradores.json en el repositorio PRIVADO basatina-borradores (llave: secreto BORRADORES_TOKEN)
+#                          las publicadas desde la app van a noticias/ia_publicadas.json (público)
+#   (cada 3 h de 7 a 22 h, hora de Madrid en invierno)
 #   tools/ia_hoy.py      → noticias/navarra_hoy.json   (a las 7:20)
 # La clave va en el secreto ANTHROPIC_API_KEY. Si hay dudas, se acaba el saldo o falla la clave,
 # el robot abre un aviso (issue con la etiqueta «ia») y GitHub manda un correo.
@@ -26,6 +28,12 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Bajar los borradores (repositorio privado)
+        uses: actions/checkout@v4
+        with:
+          repository: suapedrito-z/basatina-borradores
+          token: ${{ secrets.BORRADORES_TOKEN }}
+          path: priv
       - name: Noticias propias
         if: github.event.schedule != '20 6 * * *' && github.event.inputs.tarea != 'hoy'
         env:
@@ -38,10 +46,18 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 tools/ia_hoy.py
+      - name: Guardar los borradores (repositorio privado)
+        run: |
+          cd priv
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A .
+          git commit -m "IA: borradores" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs && git push && break; sleep $((i*10)); done
       - name: Guardar en el repositorio
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add noticias/
+          git add -A noticias/
           git commit -m "IA: noticias propias / Navarra hoy" || exit 0
           for i in 1 2 3 4 5; do git pull --rebase -X theirs && git push && break; sleep $((i*10)); done

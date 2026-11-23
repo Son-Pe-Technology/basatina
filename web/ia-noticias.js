@@ -2,13 +2,29 @@
    🤖 IA DE BASATINA EN LA APP (23 nov. 2026) — se carga el último
    1. Noticias → «Noticias de BasatiNA»: las que escribió la IA y vosotros publicasteis (con «Según…» y enlaces).
    2. Noticias → «Borradores de la IA» (solo Administrador): leer, corregir, Publicar o Descartar.
-      Los cambios se guardan en GitHub (noticias/ia_borradores.json) con la misma llave que las demás listas.
+      Los borradores están en un repositorio PRIVADO (suapedrito-z/basatina-borradores, ia_borradores.json):
+      solo los ve quien tenga una llave con acceso a él. Al Publicar, la noticia se copia a
+      noticias/ia_publicadas.json (público), que es lo que ve todo el mundo.
    3. Inicio → «Navarra hoy»: el resumen de la mañana (noticias/navarra_hoy.json), arriba de «Ahora en Navarra».
    Los archivos los prepara el robot (tools/ia_noticias.py y tools/ia_hoy.py, .github/workflows/ia.yml).
    ===================================================================== */
 (function(){
 const $=id=>document.getElementById(id);
-const IA_PATH='noticias/ia_borradores.json',IA_DEF={items:[]},HOY_PATH='noticias/navarra_hoy.json';
+const PUB_PATH='noticias/ia_publicadas.json',PUB_DEF={items:[]},HOY_PATH='noticias/navarra_hoy.json';
+/* borradores: repositorio privado, leído y escrito con la llave del móvil */
+const BR_REPO='https://api.github.com/repos/suapedrito-z/basatina-borradores',BR_API=BR_REPO+'/contents/ia_borradores.json';
+const brH=()=>({Authorization:'Bearer '+ghTok(),Accept:'application/vnd.github+json'});
+let BR={d:{items:[]},sha:null};
+async function brLoad(){const r=await fetch(BR_API+'?t='+Date.now(),{headers:brH(),cache:'no-store'});
+  if(r.ok){const j=await r.json();BR={d:JSON.parse(ub64(j.content)),sha:j.sha};return BR.d;}
+  if(r.status===404){const q=await fetch(BR_REPO,{headers:brH(),cache:'no-store'});
+    if(!q.ok)throw new Error('La llave de este móvil no tiene acceso al repositorio basatina-borradores');
+    BR={d:{items:[]},sha:null};return BR.d;}
+  throw new Error('GitHub respondió '+r.status);}
+async function brEdit(fn,msg){await brLoad();fn(BR.d);
+  const r=await fetch(BR_API,{method:'PUT',headers:Object.assign({'Content-Type':'application/json'},brH()),
+    body:JSON.stringify({message:msg+' ('+(edName()||'app')+')',content:b64u(JSON.stringify(BR.d,null,1)),sha:BR.sha||undefined})});
+  if(!r.ok)throw new Error('No se pudo guardar ('+r.status+')');BR.sha=(await r.json()).content.sha;}
 const X=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const abre=u=>{if(window.amAbre)amAbre(u);else if(typeof APP!=='undefined'&&APP&&window.AndroidNet&&AndroidNet.openUrl)AndroidNet.openUrl(u);else window.open(u,'_blank');};
 const cuando=d=>{try{return typeof hace==='function'?hace(d):new Date(d).toLocaleString('es-ES');}catch(e){return '';}};
@@ -38,8 +54,8 @@ document.head.appendChild(st);
 function sitio(){const sec=$('t-noticias'),nc=$('nwC');if(!sec||!nc)return null;const ref=nc.closest('.card')||sec.querySelector('.card');
   if(!$('iaPub')){ref.insertAdjacentHTML('beforebegin','<div class="card" id="iaPub" style="display:none"></div><div class="card tech" id="iaAdm"><b>🤖 Borradores de la IA</b><div class="note">Cargando…</div></div>');}
   return true;}
-async function pinta(fresh){if(!sitio())return;const D=await jsLoad(IA_PATH,IA_DEF,fresh),L=D.items||[];
-  const P=L.filter(x=>x.estado==='publicada').slice(0,12),pub=$('iaPub');
+async function pinta(fresh){if(!sitio())return;const PD=await jsLoad(PUB_PATH,PUB_DEF,fresh);
+  const P=(PD.items||[]).slice(0,12),pub=$('iaPub');
   pub.style.display=P.length?'':'none';
   pub.innerHTML=`<b>📰 Noticias de BasatiNA</b>`+P.map(x=>`<div class="iaN" data-id="${X(x.id)}"><div class="iaM">${X([x.pueblo,x.cat].filter(Boolean).join(' · '))}${x.pub?' · '+X(cuando(x.pub)):''}</div>
     <div class="iaT">${X(x.titulo)}</div><div class="iaX">${X(x.texto)}</div>
@@ -48,7 +64,10 @@ async function pinta(fresh){if(!sitio())return;const D=await jsLoad(IA_PATH,IA_D
   pub.querySelectorAll('.iaX').forEach(e=>e.onclick=()=>e.closest('.iaN').classList.toggle('abierta'));
   pub.querySelectorAll('a[data-u]').forEach(a=>a.onclick=()=>abre(a.dataset.u));
   // administrador
-  const adm=$('iaAdm');if(!adm)return;const Pd=L.filter(x=>x.estado==='borrador'||x.estado==='duda');
+  const adm=$('iaAdm');if(!adm)return;
+  if(!(typeof TECH!=='undefined'&&TECH)||!ghTok()){adm.innerHTML='<b>🤖 Borradores de la IA</b><div class="note">Hace falta la llave de GitHub en este móvil.</div>';return;}
+  let D;try{D=await brLoad();}catch(e){adm.innerHTML=`<b>🤖 Borradores de la IA</b><div class="note">❌ ${X(e.message)}</div>`;return;}
+  const L=D.items||[],Pd=L.filter(x=>x.estado==='borrador'||x.estado==='duda');
   adm.innerHTML=`<b>🤖 Borradores de la IA</b><div class="note">${Pd.length?`${Pd.length} pendiente(s). Corrige lo que haga falta y dale a Publicar. Las de sucesos, siempre revisadas a mano.`:'No hay borradores pendientes.'}${D.t?' · Última pasada del robot: '+X(cuando(D.t)):''}</div>`+
     Pd.map(x=>`<div class="iaB ${x.estado==='duda'?'duda':''}" data-id="${X(x.id)}">
       <div class="iaM" style="font-size:12.5px;color:#5b6660">${x.estado==='duda'?'⚠️ CON DUDAS · ':''}${X([x.cat,x.pueblo].filter(Boolean).join(' · '))} · ${X(cuando(x.creada))}</div>
@@ -62,8 +81,15 @@ async function pinta(fresh){if(!sitio())return;const D=await jsLoad(IA_PATH,IA_D
     const t=c.querySelector('.iaIt').value.trim(),x=c.querySelector('.iaIx').value.trim();
     if(a==='des'&&!confirm('¿Descartar esta noticia?'))return;
     b.disabled=true;
-    try{await jsEdit(IA_PATH,IA_DEF,d=>{const it=(d.items||[]).find(y=>y.id===id);if(!it)return;it.titulo=t;it.texto=x;
-        if(a==='pub'){it.estado='publicada';it.pub=new Date().toISOString().slice(0,16)+'Z';}if(a==='des')it.estado='descartada';},
+    try{const pubF=new Date().toISOString().slice(0,16)+'Z';
+      if(a==='pub'){const it=((BR.d||{}).items||[]).find(y=>y.id===id);if(!it)throw new Error('No encuentro el borrador; recarga');
+        // 1) se copia al archivo público (solo lo que se ve en la app)
+        await jsEdit(PUB_PATH,PUB_DEF,d=>{d.items=(d.items||[]).filter(y=>y.id!==id);
+          d.items.unshift({id,pub:pubF,titulo:t,texto:x,pueblo:it.pueblo||'',cat:it.cat||'',fuentes:(it.fuentes||[]).map(f=>({f:f.f,u:f.u}))});
+          d.items=d.items.slice(0,40);},'IA: noticia publicada');}
+      // 2) se marca en los borradores (privado)
+      await brEdit(d=>{const it=(d.items||[]).find(y=>y.id===id);if(!it)return;it.titulo=t;it.texto=x;
+        if(a==='pub'){it.estado='publicada';it.pub=pubF;}if(a==='des')it.estado='descartada';},
         a==='pub'?'IA: noticia publicada':a==='des'?'IA: noticia descartada':'IA: noticia corregida');
       toast(a==='pub'?'✅ Publicada':a==='des'?'🗑️ Descartada':'💾 Guardado');pinta(true);}
     catch(e){b.disabled=false;toast('❌ '+e.message);}});}

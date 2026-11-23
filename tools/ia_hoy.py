@@ -39,7 +39,7 @@ def main():
         except Exception as e:
             print("tiempo", n, e)
     try:
-        P = [x for x in json.load(open("noticias/ia_borradores.json", encoding="utf-8")).get("items", []) if x.get("estado") == "publicada"][:3]
+        P = json.load(open("noticias/ia_publicadas.json", encoding="utf-8")).get("items", [])[:3]
         if P: datos += ["NOTICIAS DE BASATINA:"] + [f"- {x['titulo']}: {x['texto'][:300]}" for x in P]
     except Exception: pass
     try:
