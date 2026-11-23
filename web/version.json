@@ -1,5 +1,5 @@
 {
- "version": 485,
+ "version": 486,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -178,7 +178,7 @@
   "servicios-ui.js": "e855a8e81b2c7a7bc117bb38c8d9310e619b7fe2",
   "servicios.js": "722f589c59fd4860d3ad6d39361a1a1da88ff97a",
   "seta.svg": "35a4b97d267a6d106f67b400620c70cd79609803",
-  "sismo.js": "60dfee4c4f7b51b488d0948648abe3f2eb3009c3",
+  "sismo.js": "5e5be06cb556cb919e2c140b630b69b972773911",
   "sonido-calor.mp3": "6c60fa789890dabeebee2e48aa73103e7e2ba938",
   "sonido-helada.mp3": "9a298061aa9f72434553e32ba9cba182c8a0701f",
   "sonido-lluvia.mp3": "56fb7863378913f98901b0046027addb105c5867",
