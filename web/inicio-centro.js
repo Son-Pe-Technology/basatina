@@ -16,10 +16,8 @@ const $=id=>document.getElementById(id);
 const enIni=()=>typeof isBna==='function'&&isBna();
 const S='body.bna #t-mtiempo';
 // fotos (todas ya están en la app; autores en los créditos del Inicio y de cada sección)
-const F={palabra:'foto-natveg-cabecera.webp',refran:'foto-prev-valle.webp',curiosa:'foto-inicio-acc-cerca.webp',
-  sem:['foto-esc-tiempo.webp','foto-clima-miren.webp','foto-esc-cielo.webp','foto-inicio-acc-carreteras.webp'],
-  ag:{Cultura:'foto-inicio-acc-agenda.webp',Deporte:'foto-inicio-acc-deporte.webp',Mercado:'foto-super-tab-semana.webp',Cielo:'foto-astro-cabecera.webp',
-      Salud:'foto-salud-cielo.webp','Tu calendario':'foto-agenda-cabecera.webp'}};
+// 23 nov. 2026 (noche): Pedro pidió quitar TODAS las fotos de la app → sin fotos, colores lisos
+const F={ag:{},semCol:['#3f7cae','#6b5fa8','#3d7031','#b8612a']};
 const I={ola:'<path d="M2 9c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>',
  cal:'<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="12" cy="15" r="1.4"/>',
  hoja:'<path d="M5 19c8 0 14-5 14-14-9 0-14 6-14 14zM5 19l7-7"/>',
@@ -70,8 +68,8 @@ ${S} #anTk .bdg.ok{background:#e6f2e3!important;color:#2e6b2a!important}${S} #an
 ${S} #anTk .anC .icFl{flex:none;color:#1d1d1d;align-self:center}
 /* 3 · palabra y refrán */
 ${S} #ifPar{gap:12px!important;margin:14px 0!important}
-${S} #pdCard{position:relative;overflow:hidden;border-radius:20px!important;min-height:150px;background:#2f4a2c url("${F.palabra}") center/cover no-repeat!important;color:#fff!important;border:none!important;box-shadow:0 4px 16px rgba(29,45,35,.14);padding:14px!important;justify-content:space-between}
-${S} #pdCard:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,10,.55),rgba(10,30,10,.15) 45%,rgba(10,30,10,.6));pointer-events:none}
+${S} #pdCard{position:relative;overflow:hidden;border-radius:20px!important;min-height:150px;background:linear-gradient(135deg,#3d7031,#24502f)!important;color:#fff!important;border:none!important;box-shadow:0 4px 16px rgba(29,45,35,.14);padding:14px!important;justify-content:space-between}
+
 ${S} #pdCard>*{position:relative;z-index:1}
 ${S} #pdCard .pdK{display:flex!important;align-items:center;gap:8px;color:#fff!important;text-transform:none!important;letter-spacing:0!important;font-size:14.5px!important;font-weight:800!important;line-height:1.2}
 ${S} #pdCard .pdK .icS{flex:none;width:30px;height:30px;padding:6px;box-sizing:border-box;border-radius:9px;background:rgba(255,255,255,.18);color:#fff}
@@ -81,14 +79,14 @@ ${S} #pdCard .pdN{color:#eef5ea!important}${S} #pdCard .pdF{display:none!importa
 ${S} #rfCard{position:relative;overflow:hidden;border-radius:20px!important;background:#f1ebfb!important;border:1px solid #e0d4f5!important;box-shadow:0 4px 16px rgba(80,40,120,.10);padding:0!important;min-height:150px}
 ${S} #rfCard .rfX{display:flex!important;flex-direction:column;gap:6px;padding:0 12px}
 ${S} #rfCard .rfK{display:flex!important;align-items:center;gap:7px;margin:0 -12px;padding:10px 12px;min-height:44px;box-sizing:border-box;color:#5b1f8a!important;text-transform:none!important;letter-spacing:0!important;font-size:14.5px!important;font-weight:900!important;
-  background:linear-gradient(90deg,rgba(241,235,251,.97) 45%,rgba(241,235,251,.15)),url("${F.refran}") right center/cover no-repeat}
+  background:#e9ddf8}
 ${S} #rfCard .rfK .icS{flex:none;width:28px;height:28px;padding:5px;box-sizing:border-box;border-radius:8px;background:#6a2fa3;color:#fff}
 ${S} #rfCard .rfT{font-style:italic;font-size:15px!important;line-height:1.3!important;color:#2a1740!important;-webkit-line-clamp:4!important}
 ${S} #rfCard .rfM{color:#6a4a8c!important}
 ${S} #rfCard .rfB{margin:6px 12px 12px!important;align-self:flex-start;border:1.5px solid #6a2fa3!important;color:#5b1f8a!important;background:#fff!important;border-radius:999px!important;padding:6px 14px!important;font-weight:800!important;font-size:13.5px!important}
 /* 4 · noticia curiosa */
 ${S} #cuCard{align-items:center!important;gap:12px!important;padding:10px 12px!important;border-radius:20px!important;background:#fdf1e6!important;border:1px solid #f5d9bf!important;box-shadow:0 4px 16px rgba(120,60,10,.08);margin:12px 0!important}
-${S} #cuCard .cuI{flex:none;width:76px;height:76px;border-radius:14px;background:#d9b99a url("${F.curiosa}") center/cover no-repeat;font-size:0!important}
+${S} #cuCard .cuI{flex:none;width:76px;height:76px;border-radius:14px;background:#f6c9a3;font-size:0!important;display:none!important}
 ${S} #cuCard .cuK{display:flex!important;align-items:center;gap:6px;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;font-weight:900!important;color:#d84315!important}
 ${S} #cuCard .cuK .icS{flex:none;color:#d84315}
 ${S} #cuCard .cuT{font-size:15.5px!important;font-weight:800!important;color:#1d1d1d}
@@ -101,7 +99,7 @@ body.bna.ifIni #seBody>.card.seF{padding:12px 10px 10px!important;border-radius:
 body.bna.ifIni #seBody>.card.seF>b{display:flex!important;align-items:center;gap:8px;font-size:15.5px!important;font-weight:900!important;line-height:1.2!important}
 body.bna.ifIni #seBody>.card.seF>b .seI{flex:none;font-size:30px;line-height:1}
 body.bna.ifIni #seBody>.card.seF>:not(b):not(.seP){display:none!important}
-body.bna.ifIni #seBody .seP{position:relative;height:118px;border-radius:14px;background:#7d8f86 center/cover no-repeat;overflow:hidden;display:flex;align-items:flex-end;padding:8px}
+body.bna.ifIni #seBody .seP{position:relative;height:118px;border-radius:14px;background:#7d8f86;overflow:hidden;display:flex;align-items:flex-end;padding:8px}
 body.bna.ifIni #seBody .seP:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.45))}
 body.bna.ifIni #seBody .seV{position:relative;flex:1;min-width:0;border:1.5px solid rgba(255,255,255,.75);border-radius:14px;background:rgba(20,30,25,.38);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff;padding:6px 10px}
 body.bna.ifIni #seBody .seV small{display:block;font-size:12px;opacity:.95;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -132,7 +130,7 @@ function semana(){if(!document.body.classList.contains('ifIni'))return;const B=$
     if(!val)return;
     const m=b.textContent.match(EMO);if(m){b.innerHTML=`<span class="seI">${m[1]}</span><span>${b.textContent.replace(EMO,'')}</span>`;}
     c.classList.add('seF');
-    c.insertAdjacentHTML('beforeend',`<div class="seP" style="background-image:url('${F.sem[i%F.sem.length]}')"><div class="seV"><small></small><b></b></div></div>`);
+    c.insertAdjacentHTML('beforeend',`<div class="seP" style="background:${F.semCol[i%F.semCol.length]}"><div class="seV"><small></small><b></b></div></div>`);
     const v=c.querySelector('.seV');v.querySelector('small').textContent=lab.trim();v.querySelector('b').textContent=val;});}
 function todo(){try{rio();agenda();pares();curiosa();semana();}catch(e){console.log('inicio-centro',e);}}
 const H=$('t-mtiempo');if(H)new MutationObserver(todo).observe(H,{childList:true,subtree:true});
