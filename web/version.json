@@ -1,5 +1,5 @@
 {
- "version": 509,
+ "version": 510,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -138,8 +138,8 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "2fa11be73fe249d956e77837aa9f7b403830bf76",
   "idiomas.js": "0d682a188bef213304dcf6a95a41c2989132d3f5",
-  "index.html": "8eba6e96fe52e3ab4cd679b8f268162f93a45253",
-  "inicio-centro.js": "c104ccd55f1547871458408679a5f79fd9507093",
+  "index.html": "78dc7b2423d91148db0bbf071000e984f2a68ae4",
+  "inicio-centro.js": "22c970073b8ea4397c2ec3e7163a18b0d4961dc1",
   "inicio-fotos.js": "10af97888d423e1b11d276b6034baa7def8101a4",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
