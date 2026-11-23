@@ -1,6 +1,54 @@
 {
  "items": [
   {
+   "id": "9c923bf1e5ab",
+   "creada": "2026-11-23T08:58Z",
+   "estado": "borrador",
+   "titulo": "Budimir analiza la victoria de Osasuna ante Málaga: «Falta eficacia»",
+   "texto": "El delantero croata marcó el gol que dio los tres puntos a Osasuna el domingo contra el conjunto andaluz con resultado de 1-0. En declaraciones a DAZN, Budimir destacó la importancia del triunfo y reconoció que el Málaga presentó una defensa complicada, mostrándose más organizado en los últimos encuentros. El jugador lamentó que su equipo no aprovechara las ocasiones del primer tiempo para sentenciar el partido, lo que obligó a sufrir después. Budimir subrayó que Osasuna debe mejorar su capacidad ofensiva en el área para cerrar los encuentros antes, evitando apuros innecesarios. De cara al próximo duelo ante Valencia, el delantero ve la victoria como un impulso anímico para afrontar los próximos rivales.",
+   "pueblo": "Pamplona",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/22/reflexion-budimir-fuego-nace-chispa-pequena-final-grande-843418-32.html",
+     "t": "La reflexión de Budimir: \"El fuego nace de una chispa pequeña y, al final, se hace grande\""
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/22/civil-budimir-843405-32.html",
+     "t": "Por lo civil o por lo Budimir"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/budimir-hay-que-tener-mas-maldad-en-el-ultimo-cuarto-de-campo-para-cerrar-los-partidos/",
+     "t": "Budimir pide más maldad en el área para asegurar victorias"
+    }
+   ],
+   "leidas": [
+    "Pamplona Actual"
+   ],
+   "datos": [
+    {
+     "dato": "Resultado: Osasuna 1-0 Málaga",
+     "coinciden": true
+    },
+    {
+     "dato": "Autor del gol: Ante Budimir",
+     "coinciden": true
+    },
+    {
+     "dato": "Próximo rival: Valencia",
+     "coinciden": true
+    },
+    {
+     "dato": "Día del partido: domingo",
+     "coinciden": true
+    }
+   ],
+   "dudas": []
+  },
+  {
    "id": "967fcdce4760",
    "creada": "2026-11-23T08:57Z",
    "estado": "duda",
@@ -207,5 +255,5 @@
    "dudas": []
   }
  ],
- "t": "2026-11-23T08:57Z"
+ "t": "2026-11-23T08:58Z"
 }
