@@ -17,31 +17,37 @@ const $=id=>document.getElementById(id);
 // 23 nov. 2026 (noche): Pedro pidió quitar TODAS las fotos. Con IF_FOTOS=false se quedan solo el orden
 // (palabra y refrán en dos columnas, la semana 2×2), sin paisaje en la cabecera, ni fotos en accesos, río ni créditos.
 const IF_FOTOS=false;
-const IF_CAB_INI=true;   // 23 nov. 2026 (noche): Pedro vuelve a querer el paisaje arriba, solo en el Inicio
+const IF_CAB_INI=true;
+const IF_ACC_ON=true;   // 23 nov. 2026 (noche): vuelven las fotos de los accesos directos, con fotos nuevas de Pedro   // 23 nov. 2026 (noche): Pedro vuelve a querer el paisaje arriba, solo en el Inicio
 const IF_CAB={otono:'foto-inicio-otono.webp',invierno:'foto-inicio-invierno.webp',primavera:'foto-inicio-primavera.webp',verano:'foto-inicio-verano.webp'};
 const ifEst=()=>{const m=new Date().getMonth()+1;return m>=3&&m<=5?'primavera':m>=6&&m<=8?'verano':m>=9&&m<=11?'otono':'invierno';};
 // clave del acceso directo (BNL de index.html) → foto
 const IF_ACC={tiempo:'foto-inicio-acc-tiempo.webp',caudal:'foto-inicio-acc-rios.webp',incid:'foto-inicio-acc-carreteras.webp',cerca:'foto-inicio-acc-cerca.webp',
-  monte:'foto-inicio-acc-pie.webp',deporte:'foto-inicio-acc-deporte.webp',cultura:'foto-inicio-acc-agenda.webp',natura:'foto-inicio-acc-recol.webp'};
+  monte:'foto-inicio-acc-pie.webp',deporte:'foto-inicio-acc-deporte.webp',cultura:'foto-inicio-acc-agenda.webp',natura:'foto-inicio-acc-recol.webp',
+  // 23 nov. 2026: para los accesos que se pueden añadir con «Editar»
+  mtiempo:'foto-inicio-acc-inicio.webp',noticias:'foto-inicio-acc-prensa.webp',curiosas:'foto-inicio-acc-prensa.webp',sismo:'foto-inicio-acc-sismo.webp',
+  gas:'foto-inicio-acc-gas.webp',pueblos:'foto-inicio-acc-localidades.webp',cocina:'foto-inicio-acc-comidas.webp',comer:'foto-inicio-acc-comidas.webp'};
 // río del carrusel (RZ_RIOS de novedades.js + arga) → foto
 const IF_RIO={arga:'foto-inicio-rio-arga.webp',irati:'foto-inicio-rio-irati.webp',ega:'foto-inicio-rio-ega.webp',aragon:'foto-inicio-rio-aragon.webp',ebro:'foto-inicio-rio-ebro.webp'};
 const IF_CRED=[
- ['Ríos y río Arga: puente de la Rabia, Zubiri','Pedro Iglesias Goñi','foto propia',''],
  ['Cabecera de otoño: hayedo','Pedro Iglesias Goñi','foto propia',''],
  ['Cabecera de invierno: nevada en el parque','Pedro Iglesias Goñi','foto propia',''],
  ['Cabecera de primavera: doble arcoíris','Pedro Iglesias Goñi','foto propia',''],
  ['Cabecera de verano: Nacedero del Urederra','Pedro Iglesias Goñi','foto propia',''],
- ['El tiempo: tormenta al atardecer','Pedro Iglesias Goñi','foto propia',''],
- ['Cerca de mí: Palacio Real de Olite','Pedro Iglesias Goñi','foto propia',''],
+ ['El tiempo: gotas de lluvia en el cristal','Amplio Espectro','foto cedida',''],
+ ['Ríos: río entre árboles','Pedro Iglesias Goñi','foto propia',''],
+ ['Carreteras: carretera bajo un cielo aborregado','Pedro Iglesias Goñi','foto propia',''],
+ ['Cerca de mí: Monumento a los Fueros, Pamplona','Pedro Iglesias Goñi','foto propia',''],
  ['NA a Pie: camino en el bosque','Pedro Iglesias Goñi','foto propia',''],
- ['Deporte: Frontón Labrit, Pamplona','Pedro Iglesias Goñi','foto propia',''],
- ['Carreteras: Puente de Hierro, Sangüesa','Zarateman','CC0','https://commons.wikimedia.org/wiki/File:Sanguesa_-_Puente_de_Hierro_1.jpg'],
+ ['Deporte: estadio de El Sadar','Pedro Iglesias Goñi','foto propia',''],
+ ['Inicio: Ayuntamiento de Pamplona con los gigantes','Pedro Iglesias Goñi','foto propia',''],
+ ['Noticias: vendedor de periódicos (foto antigua)','[autor por confirmar]','[licencia por confirmar]',''],
+ ['Actividad sísmica: cueva','Pedro Iglesias Goñi','foto propia',''],
+ ['Gasolineras: gasolinera de noche','Pedro Iglesias Goñi','foto propia',''],
+ ['Localidades: pueblo al pie del monte','Pedro Iglesias Goñi','foto propia',''],
+ ['Comidas: chistorra, morcilla y panceta','Embutidos Arrieta','foto cedida',''],
  ['Agenda: Sanfermines','San Fermín Pamplona (Flickr)','CC0','https://commons.wikimedia.org/wiki/File:San_Ferm%C3%ADn_la_fiesta_est%C3%A1_en_la_calle_(42031343420).jpg'],
- ['Recolección: setas en el bosque','GenGH','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Oudemansiella_mucida,_Asturias_04.jpg'],
- ['Río Irati, Aoiz/Agoitz','OTELARRE','CC0','https://commons.wikimedia.org/wiki/File:Agoitzko_Zubia_.jpg'],
- ['Río Ega, Estella-Lizarra','Krzysztof Golik','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Ega_river_in_Estella-Lizarra_(2).jpg'],
- ['Río Aragón, Sangüesa','Millars','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Puente_de_Hierro,_Sang%C3%BCesa_02.jpg'],
- ['Río Ebro, Tudela','Miguel Ángel García','CC BY 2.0','https://commons.wikimedia.org/wiki/File:Rio_Ebro,_Tudela,_Navarra._(14468162020).jpg']];
+ ['Recolección: setas en el bosque','GenGH','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Oudemansiella_mucida,_Asturias_04.jpg']];
 
 const st=document.createElement('style');st.textContent=`
 /* 1. cabecera con paisaje (solo en el Inicio) */
@@ -83,7 +89,7 @@ const enIni=()=>typeof isBna==='function'&&isBna()&&(typeof BNTAB==='undefined'|
 // 22 nov. 2026: la barra de arriba (logo y hora) lleva el paisaje de la estación en TODAS las pantallas (más baja fuera del Inicio)
 function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top&&(IF_FOTOS||(IF_CAB_INI&&on)));
   if(top)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
-function ifAcc(){if(!IF_FOTOS)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=IF_ACC[b.dataset.go];
+function ifAcc(){if(!IF_FOTOS&&!IF_ACC_ON)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=IF_ACC[b.dataset.go];
   if(!f||b.classList.contains('ifF'))return;b.classList.add('ifF');b.style.backgroundImage=`url("${f}")`;});}
 function ifRio(){const el=$('rzTk');if(!el)return;const e=el.querySelector('.anE');if(!e)return;
   let r=null,n='';try{const R=rzRios();if(R.length){const x=R[RZ.i%R.length];r=x.r;n=x.rio;}}catch(x){}
@@ -94,7 +100,7 @@ function ifPar(){const pd=$('pdCard'),rf=$('rfCard');if(!pd||!rf)return;let w=$(
   if(pd.parentNode!==w)w.appendChild(pd);if(rf.parentNode!==w)w.appendChild(rf);}
 function ifSem(){const b=$('seBody');if(!b||b.dataset.if)return;b.dataset.if=1;
   b.addEventListener('click',e=>{if(enIni()&&e.target.closest('.card')&&!e.target.closest('a,button'))showTab('semana');});}
-function ifCred(){if(!IF_FOTOS)return;const sec=$('t-mtiempo');if(!sec||sec.querySelector('.ifCred'))return;const d=document.createElement('details');d.className='ifCred';
+function ifCred(){if(!IF_FOTOS&&!IF_ACC_ON)return;const sec=$('t-mtiempo');if(!sec||sec.querySelector('.ifCred'))return;const d=document.createElement('details');d.className='ifCred';
   d.innerHTML='<summary>📷 Fotos del Inicio: autores y licencias</summary>'+IF_CRED.map(([q,a,l,u])=>`${q}: ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l})`).join(' · ')+'.';
   const pie=sec.querySelector('.bnaPie');pie?sec.insertBefore(d,pie):sec.appendChild(d);
   d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
