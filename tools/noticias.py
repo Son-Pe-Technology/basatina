@@ -23,6 +23,9 @@ Lo ejecuta GitHub Actions (.github/workflows/noticias.yml) cada 2 horas. Los dat
 así que no cambian la versión de la pantalla: la app los lee de GitHub al abrir «Titulares».
 """
 import json, re, html, time, datetime, email.utils, urllib.request, urllib.parse, unicodedata, os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from reglas_noticias import prohibida   # 24 nov. 2026: suicidios, delitos sexuales, Iglesia, menores (salvo logros)
 
 UA = {"User-Agent": "Mozilla/5.0 (BasatiNA/1.0; +https://basatina.es)"}
 # (nombre, web donde buscar el RSS, dominio, palabra obligatoria para medios nacionales)
@@ -180,6 +183,7 @@ for nombre, home, dom, palabra in MEDIOS:
         nt = " " + nrm(x["t"]) + " "
         if pal and pal not in nt and pal not in nrm(x["u"]): continue
         if any(w in nt for w in NO): continue
+        if prohibida(x["t"]): continue
         k = re.sub(r"\W+", "", nt)[:70]
         if k in vistos: continue
         vistos.add(k)
