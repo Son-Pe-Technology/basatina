@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
         // botón/gesto «atrás»: desde Android 13 (y obligatorio en 16) se avisa así
         if (android.os.Build.VERSION.SDK_INT >= 33) {
             getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,
-                    () -> { if (web.canGoBack()) web.goBack(); else moveTaskToBack(true); });
+                    this::atras);
         }
 
         WebSettings s = web.getSettings();
@@ -291,8 +291,18 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    public void onBackPressed() {
-        if (web.canGoBack()) web.goBack(); else super.onBackPressed();
+    public void onBackPressed() { atras(); }
+
+    /** Botón/gesto «atrás»: primero decide la página (basatinaAtras en web/atras.js): cierra ventanas,
+     *  el menú o la ficha abierta, o vuelve a la pantalla anterior. Si devuelve false (Inicio sin nada
+     *  abierto), la app se va al fondo. Si la página es vieja y no tiene esa función, se usa el historial. */
+    private void atras() {
+        web.evaluateJavascript("(function(){try{return typeof basatinaAtras==='function'?!!basatinaAtras():null;}catch(e){return null;}})()",
+                r -> {
+                    if ("true".equals(r)) return;
+                    if ("false".equals(r)) { moveTaskToBack(true); return; }
+                    if (web.canGoBack()) web.goBack(); else moveTaskToBack(true);
+                });
     }
 
     /** Lo que la página puede llamar como AndroidNet.get(url, id) y AndroidNet.share(texto). */
