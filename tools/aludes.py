@@ -13,7 +13,10 @@ Los datos van fuera de web/: no cambian la versión de la pantalla.
 """
 import json, os, re, time, datetime, urllib.request, urllib.parse
 
-KEY = (json.load(open("config/aemet.json")) or {}).get("key", "")
+# 24 nov. 2026: la clave va en los «secretos» de GitHub (AEMET_KEY); el archivo solo por si aún no está el secreto
+KEY = os.environ.get("AEMET_KEY", "").strip()
+if not KEY and os.path.exists("config/aemet.json"):
+    KEY = (json.load(open("config/aemet.json")) or {}).get("key", "")
 API = "https://opendata.aemet.es/opendata/api/"
 UA = {"User-Agent": "BasatiNA/1.0 (+https://basatina.es)", "Accept": "application/json"}
 
