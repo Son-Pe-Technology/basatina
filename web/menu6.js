@@ -73,8 +73,12 @@ section.rwOnly>div.m6Tabs.m6Tabs.m6Tabs{display:flex!important}
 body.bna #bnaDGrid>.dgroup.m6G{grid-column:1/-1;min-height:58px}
 body.bna #bnaDGrid>.dgroup.m6Solo>i{visibility:hidden}
 /* 24 nov. 2026: foto arriba del menú (la misma del Inicio, cambia con la estación) */
-body.bna #drawer .dhead.m6Foto{background:linear-gradient(180deg,rgba(10,25,15,.25),rgba(10,25,15,.55)),var(--m6f) center/cover no-repeat!important;min-height:120px}
-body.bna #drawer .dhead.m6Foto b,body.bna #drawer .dhead.m6Foto .lema{text-shadow:0 1px 4px rgba(0,0,0,.6)}
+/* igual que la cabecera del Inicio: velo blanco arriba, foto limpia abajo y sin los picos de montes */
+body.bna #drawer .dhead.m6Foto{background:linear-gradient(180deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.8) 38%,rgba(255,255,255,0) 72%),var(--m6f) center 62%/cover no-repeat!important;
+  min-height:130px;color:#1d2b22!important;align-items:flex-start;padding:18px 16px 46px!important;border-radius:0 0 22px 22px;box-shadow:0 4px 14px rgba(29,45,35,.12)}
+body.bna #drawer .dhead.m6Foto:after,body.bna #drawer .dhead.m6Foto:before,body.bna #drawer .dhead.m6Foto .pvDM{display:none!important}
+body.bna #drawer .dhead.m6Foto,body.bna #drawer .dhead.m6Foto *{text-shadow:none!important}
+body.bna #drawer .dhead.m6Foto b{color:#1d2b22!important}body.bna #drawer .dhead.m6Foto .lema{color:#3b4a40!important;opacity:1}
 #bnaDGrid .dsub[data-m6s]>button small.m6S{display:block;font-size:12px;font-weight:400;color:#5b6660;margin-top:1px;line-height:1.25}
 #bnaDGrid .dsub[data-m6s]>button>span:not(.bt){display:block;text-align:left}
 #m6Mio{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#2f4a2a;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
