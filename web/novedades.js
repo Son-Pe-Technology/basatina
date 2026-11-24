@@ -252,8 +252,37 @@ async function hoyNw(){if(Date.now()-HOY.t<20*60e3)return;HOY.t=Date.now();
     HOY.nw=out;}catch(e){HOY.t=0;}
   rzDraw();}
 const hoyHace=d=>{const m=Math.round((Date.now()-Date.parse(d))/60e3);return !(m>=0)?'':m<60?'hace '+Math.max(1,m)+' min':'hace '+Math.round(m/60)+' h';};
-function hoyLista(R){const A=APP?R.map((x,n)=>({k:'rio',n})):[{k:'web'}],B=HOY.nw.map(x=>({k:'nw',x})),C=ANT.L.filter(x=>x.d===0).map(x=>({k:'ag',x}));
-  const L=[];for(let i=0;i<Math.max(A.length,B.length,C.length);i++){if(A[i])L.push(A[i]);if(B[i])L.push(B[i]);if(C[i])L.push(C[i]);}return L;}
+/* 24 nov. 2026 (Pedro): nuevo orden de «Ahora en Navarra»:
+   1. titulares de hoy · 2. resumen del tiempo en una frase («Abrígate», «No te olvides el paraguas», «Jornada tranquila»…)
+   3. cartelera de cine de hoy · 4. lo de hoy de la agenda (cultura, deporte, mercados, cielo…) · 5. ríos */
+function hoyLista(R){const L=[];HOY.nw.forEach(x=>L.push({k:'nw',x}));if(HOY.wx)L.push({k:'wx',x:HOY.wx});if(HOY.ci)L.push({k:'ci',x:HOY.ci});
+  ANT.L.filter(x=>x.d===0).forEach(x=>L.push({k:'ag',x}));(APP?R.map((x,n)=>({k:'rio',n})):[{k:'web'}]).forEach(x=>L.push(x));return L;}
+// 🌤️ el tiempo de hoy en una frase (Open-Meteo, el pueblo elegido; ayer para saber si cambia)
+async function hoyWx(){if(HOY.wxT&&Date.now()-HOY.wxT<60*60e3)return;HOY.wxT=Date.now();
+  try{const T=(typeof TOWNS!=='undefined'&&TOWNS[TOWN])||TOWNS[0];
+    const j=await getJSON(`${OM}?latitude=${T[1]}&longitude=${T[2]}&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_min,precipitation_probability_max,precipitation_sum,snowfall_sum,wind_gusts_10m_max&past_days=1&forecast_days=1${TZ}`);
+    const d=j&&j.daily;if(!d||!d.time||d.time.length<2)return;const g=(k,i)=>d[k]?d[k][i]:null;
+    const c=g('weather_code',1),tx=g('temperature_2m_max',1),tn=g('temperature_2m_min',1),stn=g('apparent_temperature_min',1),pp=g('precipitation_probability_max',1)||0,
+      pr=g('precipitation_sum',1)||0,nv=g('snowfall_sum',1)||0,rf=g('wind_gusts_10m_max',1)||0,ty=g('temperature_2m_max',0),ny=g('temperature_2m_min',0);
+    let ico='🌤️',f,s=[];
+    if(c>=95){ico='⛈️';f='Ojo, hoy puede haber tormentas';}
+    else if(nv>=0.5||(c>=71&&c<=77)||c===85||c===86){ico='❄️';f='Hoy puede nevar: sal con cuidado';}
+    else if(pp>=60||pr>=2){ico='☂️';f='No te olvides el paraguas';}
+    else if(rf>=60){ico='💨';f='Día de viento: rachas de '+Math.round(rf)+' km/h';}
+    else if(tn!=null&&(tn<=2||(stn!=null&&stn<=0))){ico='🧣';f='Abrígate, que hoy hace frío';}
+    else if(tx!=null&&tx>=32){ico='🥵';f='Día de calor: bebe agua y busca la sombra';}
+    else if(ty!=null&&Math.abs(tx-ty)<3&&Math.abs(tn-ny)<3){ico='😌';f='Jornada tranquila, no se esperan grandes cambios';}
+    else if(ty!=null&&tx-ty>=3){ico='🌡️';f='Hoy sube la temperatura';}
+    else if(ty!=null&&ty-tx>=3){ico='🌡️';f='Hoy baja la temperatura';}
+    else{f='Día sin sobresaltos';}
+    if(tx!=null)s.push(`Máx ${Math.round(tx)}° · Mín ${Math.round(tn)}°`);if(pp>=20)s.push(`lluvia ${Math.round(pp)} %`);
+    HOY.wx={ico,f,s:s.join(' · '),pueblo:T[0]};rzDraw();}catch(e){HOY.wxT=0;}}
+// 🎬 cartelera de hoy (ocio.js, tools/ocio.py)
+function hoyCi(){if(HOY.ci)return;const pinta=()=>{const O=window.OCIO;if(!O||!O.cines)return;const P=new Map();let n=0;
+    O.cines.forEach(c=>(c.p||[]).forEach(p=>{if((p.s||[]).length){n++;P.set(p.t,(P.get(p.t)||0)+1);}}));
+    if(!P.size)return;const top=[...P.entries()].sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>x[0]);
+    HOY.ci={n:P.size,c:O.cines.filter(c=>(c.p||[]).some(p=>(p.s||[]).length)).length,top};rzDraw();};
+  if(window.OCIO)pinta();else if(typeof svLoad==='function')svLoad('ocio.js','OCIO',pinta);}
 function rzDraw(){const el=$('rzTk');if(!el)return;const R=rzRios(),L=hoyLista(R);
   if(!L.length){el.style.display='none';return;}el.style.display='';
   const n=L.length,it=L[RZ.i%n];
@@ -266,6 +295,12 @@ function rzDraw(){const el=$('rzTk');if(!el)return;const R=rzRios(),L=hoyLista(R
       return `<div class="rzZ ${bd[0]}"><small class="rzL"><span>${rzZc(x.r,z)}</span></small><b>${fmtN(v.v,v.u==='m'?2:v.v<10?1:0)}<i> ${v.u}</i>${tr}</b><small class="rzN">${E(rzSitio(v.name||c))}</small></div>`;}).join('');
     el.innerHTML=`<div class="anC hoyR"><span class="anE">${typeof bnTile==='function'?bnTile('caudal',20,34):'🌊'}</span><div><small class="anW"><span>Río</span> ${E(x.rio)} · <span>ahora</span></small><div class="rzG">${cols}</div></div><span class="bdg ${peor[0]}"><span>${peor[1]}</span></span></div>`+pie;
     el.querySelector('.anC').onclick=()=>{showTab('caudal');if(x.r!=='arga'&&typeof rivShow==='function')setTimeout(()=>rivShow(x.r),150);};}
+  else if(it.k==='wx'){const x=it.x;
+    el.innerHTML=`<div class="anC hoyX hoyW"><span class="anE">${x.ico}</span><div><small class="anW"><span>El tiempo hoy</span> · ${E(x.pueblo)}</small><b>${E(x.f)}</b>${x.s?`<small>${E(x.s)}</small>`:''}</div><span class="bdg az"><span>Tiempo</span></span></div>`+pie;
+    el.querySelector('.anC').onclick=()=>showTab('tiempo');}
+  else if(it.k==='ci'){const x=it.x;
+    el.innerHTML=`<div class="anC hoyX hoyC"><span class="anE">🎬</span><div><small class="anW"><span>Cartelera de hoy</span> · ${x.n} <span>películas</span> · ${x.c} <span>cines</span></small><b>${E(x.top.join(' · '))}</b></div><span class="bdg az"><span>Cine</span></span></div>`+pie;
+    el.querySelector('.anC').onclick=()=>showTab('cines');}
   else if(it.k==='nw'){const x=it.x;
     el.innerHTML=`<div class="anC hoyX hoyN"><span class="anE">📰</span><div><small class="anW"><span>Titulares de hoy</span></small><b>${E(x.t)}</b><small>${E(x.f)} · ${hoyHace(x.d)}</small></div><span class="bdg az"><span>Noticia</span></span></div>`+pie;
     el.querySelector('.anC').onclick=()=>{if(window.amAbre)amAbre(x.u);else showTab('noticias');};}
@@ -290,6 +325,7 @@ rzTimer();
 document.head.insertAdjacentHTML('beforeend','<style>#rzTk{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 8px rgba(29,45,35,.05);overflow:hidden}body:not(.bna) #rzTk{background:var(--panel)}#rzTk .anC{display:flex;align-items:center;gap:11px;padding:12px 12px 10px;cursor:pointer;animation:anIn .45s ease}#rzTk .anC>div{flex:1;min-width:0}#rzTk .anC b{display:block;font-size:14.5px}#rzTk .anC small{display:block;color:var(--mut);font-size:12.5px}#rzTk .anW{color:#0D6285!important;font-weight:800}#rzTk .anE{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:none}#rzTk .anF{display:flex;align-items:center;gap:8px;padding:0 10px 8px}#rzTk .anF button{border:none;background:#F3F6F1;color:inherit;border-radius:12px;width:46px;height:38px;font-size:26px;font-weight:700;line-height:1;cursor:pointer;flex:none}#rzTk .anF span{font-size:11.5px;color:var(--mut)}#rzTk .anBar{flex:1;height:4px;background:rgba(127,127,127,.18);border-radius:3px;overflow:hidden}#rzTk .anBar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#097BA4,#1e88e5);animation:anProg 7s linear forwards}</style>');
 setTimeout(rzLoad,APP?8000:1500);   // en la web, enseguida (solo lee un archivo)
 setTimeout(hoyNw,2500);   // titulares de hoy en «Ahora en Navarra»
+setTimeout(hoyWx,3000);setTimeout(hoyCi,4000);setInterval(()=>{if(!document.hidden)hoyWx();},30*60e3);
 
 /* =====================================================================
    9. ACTUALIZACIÓN SOLA de la pantalla (sin tocar «Buscar nueva versión»)

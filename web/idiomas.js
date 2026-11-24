@@ -2237,5 +2237,10 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
 
 // 📰 «Ahora en Navarra» con titulares de hoy (web/novedades.js, 24 nov. 2026)
 (function(){const T={
- "Titulares de hoy":["Gaurko izenburuak","Today's headlines","Les titres du jour"],"Noticia":["Albistea","News","Actualité"]};
+ "Titulares de hoy":["Gaurko izenburuak","Today's headlines","Les titres du jour"],
+ "El tiempo hoy":["Gaurko eguraldia","Today's weather","La météo du jour"],"Tiempo":["Eguraldia","Weather","Météo"],"Cartelera de hoy":["Gaurko kartelera","Today's films","Films du jour"],"películas":["film","films","films"],"cines":["zinema","cinemas","cinémas"],"Cine":["Zinema","Cinema","Cinéma"],
+ "Ojo, hoy puede haber tormentas":["Kontuz, gaur ekaitzak egon daitezke","Watch out, storms possible today","Attention, orages possibles aujourd’hui"],"Hoy puede nevar: sal con cuidado":["Gaur elurra egin dezake: kontuz ibili","It may snow today: take care","Il peut neiger aujourd’hui : prudence"],
+ "No te olvides el paraguas":["Ez ahaztu aterkia","Don't forget your umbrella","N’oublie pas ton parapluie"],"Abrígate, que hoy hace frío":["Ondo bildu, gaur hotz egiten du","Wrap up, it's cold today","Couvre-toi, il fait froid aujourd’hui"],
+ "Día de calor: bebe agua y busca la sombra":["Bero eguna: edan ura eta bilatu itzala","Hot day: drink water and find shade","Journée chaude : bois de l’eau et cherche l’ombre"],"Jornada tranquila, no se esperan grandes cambios":["Egun lasaia, ez da aldaketa handirik espero","A calm day, no big changes expected","Journée calme, pas de grands changements"],
+ "Hoy sube la temperatura":["Gaur tenperatura igo egingo da","Temperatures rise today","Les températures montent aujourd’hui"],"Hoy baja la temperatura":["Gaur tenperatura jaitsi egingo da","Temperatures drop today","Les températures baissent aujourd’hui"],"Día sin sobresaltos":["Ezustekorik gabeko eguna","An uneventful day","Journée sans surprise"],"Noticia":["Albistea","News","Actualité"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
