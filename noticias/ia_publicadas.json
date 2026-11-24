@@ -1,6 +1,44 @@
 {
  "items": [
   {
+   "id": "896eca29b4ef",
+   "pub": "2026-11-24T16:07Z",
+   "titulo": "Dos heridos en colisión frontal en la NA-122 en Cárcar",
+   "texto": "Dos personas resultaron heridas este martes en un choque frontal entre dos turismos en la carretera NA-122 de Cárcar, según informó la Policía Foral. El accidente ocurrió a las 12:08 horas en el kilómetro 28, cuando los vehículos circulaban en sentidos opuestos. Uno de los conductores quedó atrapado y fue rescatado por los bomberos, siendo trasladado en estado grave al Hospital Universitario de Navarra. El otro conductor sufrió heridas leves. El Grupo de Atestados de Tudela investiga las causas del siniestro.",
+   "pueblo": "Cárcar",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-merindad-de-estella/dos-heridos-uno-grave-tras-una-colision-frontal-entre-dos-turismos-en-la-na-122-en-carcar/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/tierra-estella/2026/11/24/dos-heridos-caracter-grave-colision-frontal-dos-vehiculos-carcar-843605-19.html"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "04dedec3cbc6",
+   "pub": "2026-11-24T16:07Z",
+   "titulo": "Sector 11: el 56,9% de plazas de Pamplona van para residentes tras la zona azul",
+   "texto": "El Ayuntamiento ha puesto en marcha el 1 de noviembre la zona de estacionamiento regulado en torno al Sadar, denominada Sector 11. Según datos municipales de un estudio realizado entre el 9 y el 15 de noviembre, más de la mitad de las plazas están ocupadas por residentes con tarjeta de acceso, mientras el resto funcionan como aparcamiento de rotación. Las calles más pobladas registran ocupación significativamente superior: Labiano y travesía Ana Velasco superan el 90%, mientras que zonas con menos viviendas como Mari Abrigo apenas alcanzan el 7,7%. La ocupación general de la zona ha disminuido respecto a antes de la medida, con un 83,7% de los vehículos realizando rotación.",
+   "pueblo": "Pamplona",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-milagrosa-arrosadia/los-primeros-datos-de-funcionamiento-del-sector-11-revelan-que-mas-de-la-mitad-de-las-plazas-disponibles-han-quedado-a/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/los-primeros-datos-de-funcionamiento-del-sector-11-revelan-que-mas-de-la-mitad"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "bfe0e650fcf1",
    "pub": "2026-11-24T13:14Z",
    "titulo": "Pamplona enciende la iluminación navideña el 30 de noviembre con espectáculo musical",
@@ -356,5 +394,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-24T13:14Z"
+ "t": "2026-11-24T16:07Z"
 }
