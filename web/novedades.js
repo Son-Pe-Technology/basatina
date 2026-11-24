@@ -341,23 +341,31 @@ setTimeout(hoyWx,3000);setTimeout(hoyCi,4000);setInterval(()=>{if(!document.hidd
    Solo la primera vez (cuando aún se usa la pantalla que trae el APK, file:///android_asset/) hace falta
    AndroidNet.reload(), que cambia a la carpeta descargada: al ser otra dirección, no hay caché que estorbe. */
 window.bnaRecargar=function(){try{if(/android_asset/.test(location.href)&&window.AndroidNet&&window.AndroidNet.reload){window.AndroidNet.reload();return;}}catch(e){}location.reload();};
-if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=false,LAST=0;
-  const libre=()=>!document.querySelector('input:focus,textarea:focus,select:focus,#pinBox[style*="flex"],#nvLang,#muBox,#bnaAccBox')&&(typeof BNTAB==='undefined'||BNTAB==='mtiempo');
-  // 20 nov. 2026: si no estás en Inicio, ya no espera callada: avisa con un botón «Recargar» para aplicarla en ese momento
-  let AVISADO=false;
-  const aplicar=()=>{if(!PEND)return;if(!libre()){if(!AVISADO){AVISADO=true;toast('✨ Hay una versión nueva de la pantalla','Recargar',()=>{PEND=false;bnaRecargar();});}return;}PEND=false;toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);};
+/* 24 nov. 2026 (Pedro): la actualización de pantalla ya NO avisa ni recarga mientras usas la app.
+   La pantalla nueva se descarga sola en segundo plano (AndroidNet.updateWeb) y se aplica en silencio:
+   - al abrir la app la próxima vez (lee ya los archivos nuevos), o
+   - al volver a la app después de tenerla más de 3 minutos en segundo plano (recarga y vuelve a la pantalla donde estabas).
+   Solo con «Buscar actualizaciones» del menú se aplica al momento. Lo de una APK nueva sigue avisando (hay que instalarla). */
+if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=false,LAST=0,OCULTA=0;
+  const ESPERA=3*60e3;
+  const recargar=()=>{PEND=false;try{const sec=document.querySelector('section.on[id^="t-"]');sessionStorage.setItem('bnaTabTras',sec?sec.id.slice(2):'');}catch(e){}bnaRecargar();};
   const _cu=checkUpdate;
-  checkUpdate=async function(manual){if(manual){if(PEND){PEND=false;menu(false);toast('✨ BasatiNA actualizada');setTimeout(bnaRecargar,1200);return;}return _cu(true);}   // ya descargada: recargar en vez de «Ya tienes la última versión»
+  checkUpdate=async function(manual){if(manual){if(PEND){menu(false);toast('✨ BasatiNA actualizada');setTimeout(recargar,1200);return;}return _cu(true);}   // ya descargada: recargar en vez de «Ya tienes la última versión»
     if(Date.now()-LAST<60e3)return;LAST=Date.now();
     const r=await updWeb().catch(()=>({ok:false}));if(!r||!r.ok)return;
     if(r.apk>r.myApk&&r.apkUrl){if(typeof bnMudanza==='function'&&bnMudanza())return;
       if(r.play)return;   // Google Play ya actualiza la app sola
       if(window.AndroidNet.installApk&&typeof apkInstalar==='function'){toast('📲 Hay una versión nueva de la app ('+r.apk+')','Instalar',()=>apkInstalar(r.apkUrl));return;}   // app 21+: se instala desde dentro
       toast('📲 Hay una versión nueva de la app ('+r.apk+')','Descargar',()=>window.AndroidNet.openUrl(r.apkUrl));return;}
-    if(r.changed>0){PEND=true;aplicar();}};
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden){if(PEND)aplicar();else checkUpdate(false);}});
+    if(r.changed>0)PEND=true;};   // descargada: se aplicará en silencio (ver arriba)
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){OCULTA=Date.now();return;}
+    const fuera=OCULTA?Date.now()-OCULTA:0;OCULTA=0;
+    if(PEND&&fuera>=ESPERA&&!document.querySelector('input:focus,textarea:focus'))recargar();
+    else checkUpdate(false);});
   setInterval(()=>checkUpdate(false),30*60e3);
-  const _st9=showTab;showTab=function(t){_st9(t);if(t==='mtiempo')setTimeout(aplicar,500);};}
+  // después de recargar, volver a la pantalla donde estaba
+  try{const t=sessionStorage.getItem('bnaTabTras');if(t){sessionStorage.removeItem('bnaTabTras');if(t!=='mtiempo'&&t!=='mapa')setTimeout(()=>{try{showTab(t);}catch(e){}},300);}}catch(e){}}
 /* =====================================================================
    6. NA SALUD
    ===================================================================== */
