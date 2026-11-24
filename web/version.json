@@ -1,5 +1,5 @@
 {
- "version": 528,
+ "version": 529,
  "apk": 35,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -9,7 +9,7 @@
   "arbustos.js": "2c48ced4e33ef2f743b9edcc48f3243e00ccfb59",
   "astrocampo.js": "5d8c8c42af21d1b01bacf72eef64944a8e337817",
   "baraja.js": "3442aebcdc566f04279ed0ac7b1224c8592a2da0",
-  "bici.js": "c6dab4a8bb826f37ef57eb7cf5e9cb00784aca3e",
+  "bici.js": "97f7d825d8a7a5c0d777171679f26d18c1db4408",
   "bna-lato-400.woff2": "fcd4136085f2a03481d9958cc6793a5ed98e714c",
   "bna-lato-700.woff2": "2ac78601179c3a63ba3f3f3081556b12ddcaf655",
   "bna-lato-900.woff2": "898d9808304dc157f5dcb18ca169ec6e2b96b3d7",
