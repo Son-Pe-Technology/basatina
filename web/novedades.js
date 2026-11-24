@@ -167,7 +167,7 @@ async function anLoad(){if(ANT.busy)return;ANT.busy=true;const D=anDias(),L=[];
     try{const S=await saCalc(typeof TOWN!=='undefined'?TOWN:0);if(S)S.dias.forEach((x,i)=>{if(x.cab.lv>=2)L.push({d:i,f:x.f,h:'',ico:'🧠',t:'',tl:['Día propenso a dolores de cabeza',''],s:'',sw:x.cab.why,tab:'salud',bd:['ro','Salud'],o:-2});});}catch(x){}
   }catch(e){console.log('anLoad',e);}
   const pr=a=>a.o<0?a.o:a.o===2?9:0;L.sort((a,b)=>a.d-b.d||pr(a)-pr(b)||hNum(a.h)-hNum(b.h)||a.o-b.o);
-  ANT.L=L;ANT.t=Date.now();ANT.day=hoyYmd();if(ANT.i>=anVis().length)ANT.i=0;ANT.busy=false;anDraw();}
+  ANT.L=L;ANT.t=Date.now();ANT.day=hoyYmd();if(ANT.i>=anVis().length)ANT.i=0;ANT.busy=false;anDraw();if(typeof rzDraw==='function')rzDraw();}
 function anDraw(){const el=$('anTk');if(!el)return;const L=anVis();
   const fil=`<div class="anS">${AN_FIL.map(([k,n])=>`<button data-f="${k}" class="${k===ANT.f?'on':''}"><span>${n}</span>${ANT.L.length?' '+(k?ANT.L.filter(x=>k==='otros'?!['cultura','deporte'].includes(x.tab):x.tab===k).length:ANT.L.length):''}</button>`).join('')}</div>`;
   const bindF=()=>el.querySelectorAll('[data-f]').forEach(b=>b.onclick=e=>{e.stopPropagation();ANT.f=b.dataset.f;ANT.i=0;try{localStorage.setItem('anFil',ANT.f);}catch(x){}anDraw();anTimer();});
@@ -238,27 +238,58 @@ const RZ_ZC={alta:'Curso alto',media:'Curso medio',baja:'Desembocadura'};
 const rzZc=(r,z)=>r==='ebro'&&z==='baja'?'Curso bajo':RZ_ZC[z];
 // nombre corto del sitio: «Irati en Aoiz» → «Aoiz»
 const rzSitio=n=>{const p=(typeof prettyName==='function'?prettyName(n):n)||'';const m=p.match(/ en (.+)$/);return m?m[1]:p;};
-function rzDraw(){const el=$('rzTk');if(!el)return;const R=rzRios();
-  if(!APP){el.style.display='';   // versión web: el SAIH no deja leer sus datos desde otra web, así que invitamos a la app
-    el.innerHTML=`<div class="anC"><span class="anE">${typeof bnTile==='function'?bnTile('caudal',20,34):'🌊'}</span><div><small class="anW"><span>Ríos en directo</span></small><b style="font-size:15px"><span>Arga, Irati, Ega, Aragón y Ebro</span></b><div class="note" style="margin-top:2px"><span>Caudal arriba, en medio y abajo, al minuto y con avisos: en la app para Android.</span></div><button class="btn pri" id="rzDl" style="margin-top:8px">📲 <span>Descargar la app</span></button></div></div>`;
-    const b=el.querySelector('#rzDl');if(b)b.onclick=e=>{e.stopPropagation();if(typeof window.nvDescargar==='function')window.nvDescargar();};return;}
-  if(!R.length){el.style.display='none';return;}el.style.display='';
-  const x=R[RZ.i%R.length];let peor=['ok','Normal',0];
-  const cols=x.zs.map(([z,c])=>{const v=rzValor(c),bd=rzBd(x.r,c,v);if(bd[2]>peor[2])peor=bd;const tr=/arriba/i.test(v.tr)?' ↑':/abajo/i.test(v.tr)?' ↓':'';
-    return `<div class="rzZ ${bd[0]}"><small class="rzL"><span>${rzZc(x.r,z)}</span></small><b>${fmtN(v.v,v.u==='m'?2:v.v<10?1:0)}<i> ${v.u}</i>${tr}</b><small class="rzN">${E(rzSitio(v.name||c))}</small></div>`;}).join('');
-  el.innerHTML=`<div class="anC"><span class="anE">${typeof bnTile==='function'?bnTile('caudal',20,34):'🌊'}</span><div><small class="anW"><span>Río</span> ${E(x.rio)} · <span>ahora</span></small><div class="rzG">${cols}</div></div><span class="bdg ${peor[0]}"><span>${peor[1]}</span></span></div>
-    <div class="anF"><button class="anP" aria-label="Anterior">‹</button><span>${RZ.i%R.length+1} / ${R.length}</span><div class="anBar"><i></i></div><button class="anX" aria-label="Siguiente">›</button></div>`;
-  el.querySelector('.anC').onclick=()=>{showTab('caudal');if(x.r!=='arga'&&typeof rivShow==='function')setTimeout(()=>rivShow(x.r),150);};
-  el.querySelector('.anP').onclick=e=>{e.stopPropagation();RZ.i=(RZ.i-1+R.length)%R.length;rzDraw();rzTimer();};
-  el.querySelector('.anX').onclick=e=>{e.stopPropagation();RZ.i=(RZ.i+1)%R.length;rzDraw();rzTimer();};}
+/* 5c. 24 nov. 2026 (petición de Pedro): «Ahora en Navarra» junta en UN solo carrusel
+   los ríos + los titulares de HOY + lo de HOY de la agenda (cultura, deporte, mercados, cielo, tu calendario…).
+   El carrusel de abajo (#anTk, hoy/mañana/pasado) ya no se ve: sigue cargándose escondido
+   porque de él (ANT.L) salen las cosas de hoy. Van mezclados por turnos: río, titular, agenda, río…
+   Titulares: noticias/noticias.json (el mismo robot de Titulares), sin Sucesos, un medio cada vez, máx. 12. */
+const HOY={nw:[],t:0};
+async function hoyNw(){if(Date.now()-HOY.t<20*60e3)return;HOY.t=Date.now();
+  try{const D=await jsLoad('noticias/noticias.json',{items:[]});const h=hoyYmd();
+    const L=(D.items||[]).filter(x=>x&&x.t&&x.d&&x.c!=='Sucesos'&&ymd(new Date(x.d))===h).sort((a,b)=>b.d.localeCompare(a.d));
+    const G={};L.forEach(x=>(G[x.f]=G[x.f]||[]).push(x));const M=Object.values(G),out=[];
+    for(let k=0;out.length<12&&M.some(g=>g.length);k++){const g=M[k%M.length];if(g.length)out.push(g.shift());}
+    HOY.nw=out;}catch(e){HOY.t=0;}
+  rzDraw();}
+const hoyHace=d=>{const m=Math.round((Date.now()-Date.parse(d))/60e3);return !(m>=0)?'':m<60?'hace '+Math.max(1,m)+' min':'hace '+Math.round(m/60)+' h';};
+function hoyLista(R){const A=APP?R.map((x,n)=>({k:'rio',n})):[{k:'web'}],B=HOY.nw.map(x=>({k:'nw',x})),C=ANT.L.filter(x=>x.d===0).map(x=>({k:'ag',x}));
+  const L=[];for(let i=0;i<Math.max(A.length,B.length,C.length);i++){if(A[i])L.push(A[i]);if(B[i])L.push(B[i]);if(C[i])L.push(C[i]);}return L;}
+function rzDraw(){const el=$('rzTk');if(!el)return;const R=rzRios(),L=hoyLista(R);
+  if(!L.length){el.style.display='none';return;}el.style.display='';
+  const n=L.length,it=L[RZ.i%n];
+  const pie=n>1?`<div class="anF"><button class="anP" aria-label="Anterior">‹</button><span>${RZ.i%n+1} / ${n}</span><div class="anBar"><i></i></div><button class="anX" aria-label="Siguiente">›</button></div>`:'';
+  if(it.k==='web'){   // versión web: el SAIH no deja leer sus datos desde otra web, así que invitamos a la app
+    el.innerHTML=`<div class="anC"><span class="anE">${typeof bnTile==='function'?bnTile('caudal',20,34):'🌊'}</span><div><small class="anW"><span>Ríos en directo</span></small><b style="font-size:15px"><span>Arga, Irati, Ega, Aragón y Ebro</span></b><div class="note" style="margin-top:2px"><span>Caudal arriba, en medio y abajo, al minuto y con avisos: en la app para Android.</span></div><button class="btn pri" id="rzDl" style="margin-top:8px">📲 <span>Descargar la app</span></button></div></div>`+pie;
+    const b=el.querySelector('#rzDl');if(b)b.onclick=e=>{e.stopPropagation();if(typeof window.nvDescargar==='function')window.nvDescargar();};}
+  else if(it.k==='rio'){const x=R[it.n];let peor=['ok','Normal',0];
+    const cols=x.zs.map(([z,c])=>{const v=rzValor(c),bd=rzBd(x.r,c,v);if(bd[2]>peor[2])peor=bd;const tr=/arriba/i.test(v.tr)?' ↑':/abajo/i.test(v.tr)?' ↓':'';
+      return `<div class="rzZ ${bd[0]}"><small class="rzL"><span>${rzZc(x.r,z)}</span></small><b>${fmtN(v.v,v.u==='m'?2:v.v<10?1:0)}<i> ${v.u}</i>${tr}</b><small class="rzN">${E(rzSitio(v.name||c))}</small></div>`;}).join('');
+    el.innerHTML=`<div class="anC hoyR"><span class="anE">${typeof bnTile==='function'?bnTile('caudal',20,34):'🌊'}</span><div><small class="anW"><span>Río</span> ${E(x.rio)} · <span>ahora</span></small><div class="rzG">${cols}</div></div><span class="bdg ${peor[0]}"><span>${peor[1]}</span></span></div>`+pie;
+    el.querySelector('.anC').onclick=()=>{showTab('caudal');if(x.r!=='arga'&&typeof rivShow==='function')setTimeout(()=>rivShow(x.r),150);};}
+  else if(it.k==='nw'){const x=it.x;
+    el.innerHTML=`<div class="anC hoyX hoyN"><span class="anE">📰</span><div><small class="anW"><span>Titulares de hoy</span></small><b>${E(x.t)}</b><small>${E(x.f)} · ${hoyHace(x.d)}</small></div><span class="bdg az"><span>Noticia</span></span></div>`+pie;
+    el.querySelector('.anC').onclick=()=>{if(window.amAbre)amAbre(x.u);else showTab('noticias');};}
+  else{const x=it.x;
+    const tit=x.tl?`<span>${E(x.tl[0])}</span>${x.tl[1]?': '+E(x.tl[1]):''}`:E(x.t);
+    const cuando=`<span>Hoy</span>${x.h?' · '+E(x.h)+(/\d$/.test(x.h)?' h':''):''}${x.hasta?' · <span>hasta el</span> '+E(fLarga(x.hasta)):''}${x.res?' · <span>Resultado</span> '+E(x.res):''}`;
+    el.innerHTML=`<div class="anC hoyX hoyA"><span class="anE">${x.ico||'📌'}</span><div><small class="anW">${cuando}</small><b>${tit}</b>${x.sw?`<small>${saWhy(x.sw)}</small>`:x.s?`<small>${E(x.s)}</small>`:''}</div><span class="bdg ${x.bd[0]}"><span>${x.bd[1]}</span></span></div>`+pie;
+    el.querySelector('.anC').onclick=()=>{if(x.cal){if(typeof bnDiGo==='function')bnDiGo('cal');return;}
+      if(x.tab==='cultura'){try{AGSEL=x.f;AGMES=x.f.slice(0,7);}catch(e){}}showTab(x.tab);};}
+  const p=el.querySelector('.anP'),q=el.querySelector('.anX');
+  if(p)p.onclick=e=>{e.stopPropagation();RZ.i=(RZ.i-1+n)%n;rzDraw();rzTimer();};
+  if(q)q.onclick=e=>{e.stopPropagation();RZ.i=(RZ.i+1)%n;rzDraw();rzTimer();};}
+// el carrusel de abajo ya no se ve (sus cosas de hoy van arriba) · estilos de titulares y agenda dentro del de los ríos
+document.head.insertAdjacentHTML('beforeend','<style>#anTk{display:none!important}#rzTk .hoyX b{display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:15.5px!important;line-height:1.28!important;font-weight:800}#rzTk .hoyX .anE{font-size:24px}#rzTk .hoyA .anW{color:#2e6b2a!important}#rzTk .hoyX .bdg{background:#e3f0fb!important;color:#1565c0!important;border:none!important}#rzTk .hoyX .bdg.ok{background:#e6f2e3!important;color:#2e6b2a!important}#rzTk .hoyX .bdg.am{background:#fff1d6!important;color:#9a5b00!important}#rzTk .hoyX .bdg.ro{background:#fde4e4!important;color:#b3261e!important}</style>');
 document.head.insertAdjacentHTML('beforeend','<style>#rzTk .rzG{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:5px}#rzTk .rzZ{min-width:0;border-radius:10px;padding:5px 7px;background:rgba(13,98,133,.07)}#rzTk .rzZ.am{background:rgba(255,176,32,.16)}#rzTk .rzZ.ro{background:rgba(220,50,50,.14)}#rzTk .rzZ b{font-size:15px!important;white-space:nowrap}#rzTk .rzZ b i{font-style:normal;font-size:11px;font-weight:600;color:var(--mut)}#rzTk .rzZ small{font-size:11px!important}#rzTk .rzZ .rzN,#rzTk .rzZ .rzL{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#rzTk .rzZ .rzL{font-size:10.5px!important;letter-spacing:-.15px}</style>');
-function rzTick(){const n=rzLista().length;if(n){RZ.i=(RZ.i+1)%n;rzDraw();}rzLoad();}
+function rzTick(){const n=hoyLista(rzRios()).length;if(n){RZ.i=(RZ.i+1)%n;rzDraw();}rzLoad();hoyNw();
+  if(ANT.day&&ANT.day!==hoyYmd()&&!ANT.busy)anLoad();}   // al cambiar de día, vuelve a mirar qué hay hoy
 // los ríos pasan más despacio (cada 7 s) y desfasados del carrusel de abajo, para que no cambien los dos a la vez
 const RZ_MS=9000;
 function rzTimer(){clearInterval(RZ.tm);clearTimeout(RZ.to);RZ.to=setTimeout(()=>{RZ.tm=setInterval(()=>{if(!document.hidden&&(typeof BNTAB==='undefined'||BNTAB==='mtiempo'))rzTick();},RZ_MS);},1500);}
 rzTimer();
 document.head.insertAdjacentHTML('beforeend','<style>#rzTk{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 8px rgba(29,45,35,.05);overflow:hidden}body:not(.bna) #rzTk{background:var(--panel)}#rzTk .anC{display:flex;align-items:center;gap:11px;padding:12px 12px 10px;cursor:pointer;animation:anIn .45s ease}#rzTk .anC>div{flex:1;min-width:0}#rzTk .anC b{display:block;font-size:14.5px}#rzTk .anC small{display:block;color:var(--mut);font-size:12.5px}#rzTk .anW{color:#0D6285!important;font-weight:800}#rzTk .anE{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:none}#rzTk .anF{display:flex;align-items:center;gap:8px;padding:0 10px 8px}#rzTk .anF button{border:none;background:#F3F6F1;color:inherit;border-radius:12px;width:46px;height:38px;font-size:26px;font-weight:700;line-height:1;cursor:pointer;flex:none}#rzTk .anF span{font-size:11.5px;color:var(--mut)}#rzTk .anBar{flex:1;height:4px;background:rgba(127,127,127,.18);border-radius:3px;overflow:hidden}#rzTk .anBar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#097BA4,#1e88e5);animation:anProg 7s linear forwards}</style>');
 setTimeout(rzLoad,APP?8000:1500);   // en la web, enseguida (solo lee un archivo)
+setTimeout(hoyNw,2500);   // titulares de hoy en «Ahora en Navarra»
 
 /* =====================================================================
    9. ACTUALIZACIÓN SOLA de la pantalla (sin tocar «Buscar nueva versión»)
