@@ -83,6 +83,23 @@ body.bna #drawer .dhead.m6Foto b{color:#1d2b22!important}body.bna #drawer .dhead
 #bnaDGrid .dsub[data-m6s]>button>span:not(.bt){display:block;text-align:left}
 #m6Mio{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#2f4a2a;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
 #m6Mio svg{width:22px;height:22px}
+body.bna #m6Acc{margin:4px 12px 10px}
+body.bna #m6Acc .m6AccT{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5b6660;margin:0 4px 8px}
+body.bna #m6Acc .m6AccF{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+body.bna #m6Acc button{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;padding:2px 0;font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;color:#1d2b22;cursor:pointer;min-height:44px;text-align:center}
+body.bna #m6Acc button .bt{border-radius:50%!important;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+body.bna #m6Acc button:active .bt{transform:scale(.94)}
+#m6AccCfg .m6AccN{font-size:13px;color:#5b6660;padding:0 10px 8px}
+#m6AccCfg .m6AccM{display:flex;gap:6px;padding:0 8px 8px}
+#m6AccCfg .m6AccM button{flex:1;min-height:40px;border-radius:12px;border:1px solid #d5dfd2;background:#fff;font-family:inherit;font-size:14px;font-weight:700;color:#1d2b22}
+#m6AccCfg .m6AccM button.on{background:#3d7031;border-color:#3d7031;color:#fff}
+#m6AccCfg .m6AccC{display:flex;flex-wrap:wrap;gap:6px;padding:0 8px 8px}
+#m6AccCfg .m6AccC button{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:4px 10px 4px 5px;border-radius:999px;border:1px solid #d5dfd2;background:#fff;font-family:inherit;font-size:14px;color:#1d2b22}
+#m6AccCfg .m6AccC button.on{border-color:#3d7031;background:#eef4ea;font-weight:700}
+#m6AccCfg .m6AccC em{font-style:normal;background:#3d7031;color:#fff;border-radius:50%;width:20px;height:20px;font-size:12px;display:inline-flex;align-items:center;justify-content:center}
+#m6AccCfg .m6AccC .bt,#m6AccCfg .m6AccP .bt{border-radius:50%!important}
+#m6AccCfg .m6AccP{display:flex;flex-wrap:wrap;gap:10px}
+#m6AccCfg .m6AccP span{display:inline-flex;align-items:center;gap:6px;font-size:14px}
 #t-lomio .m6MioG{background:#fff;border-radius:20px;padding:6px;box-shadow:0 6px 18px rgba(29,45,35,.10);margin-bottom:12px}
 #t-lomio .m6MioG>b{display:block;font-size:12px;color:#5b6660;text-transform:uppercase;letter-spacing:.07em;padding:8px 10px 4px}
 #t-lomio button[data-t]{display:flex;align-items:center;gap:12px;width:100%;border:none;background:none;padding:9px 10px;border-radius:14px;font:inherit;text-align:left;color:inherit;cursor:pointer}
@@ -219,20 +236,58 @@ if(typeof window.biFicha==='function'){const _f=window.biFicha;window.biFicha=fu
 /* El mapa de riadas (que se abría desde Crecidas históricas) se abre ahora desde Previsión */
 function riadas(){const s=$('t-prev');if(!s||$('m6Riadas'))return;s.insertAdjacentHTML('beforeend','<div class="card" id="m6Riadas"><b>🎚️ Mapa de riadas</b><div class="note">Elige tú el caudal y mira hasta dónde llegaría el agua.</div><div class="row"><button class="btn pri" onclick="showTab(\'libre\')">Abrir el mapa de riadas</button></div></div>');}
 
+/* ---------- ⭐ Accesos rápidos del menú (24 nov. 2026, Pedro: propuesta D) ----------
+   Cuatro círculos arriba del menú, debajo del buscador.
+   · Por defecto salen las 4 pantallas que más usa cada persona: cada vez que abres una
+     se suma 1 en el móvil (localStorage «bnaUso»; no sale del teléfono).
+   · En 👤 Lo mío › «Accesos rápidos del menú» se pueden elegir a mano (localStorage «bnaAcc»). */
+const ACC_DEF=['tiempo','caudal','incid','gas'];
+const ACC_CORTO={mtiempo:'Inicio',noticias:'Noticias',cerca:'Cerca',tiempo:'El tiempo',caudal:'Ríos',sismo:'Terremotos',biodiversidad:'Flora y fauna',monte:'Salir',
+ incid:'Carreteras',gas:'Gasolina',bus:'Transporte',pueblos:'Localidades',comer:'Comer',super:'Compras',salud:'Salud',vivienda:'Vivienda',empleo:'Empleo',
+ voluntariado:'Voluntariado',mascotas:'Mascotas',cultura:'Agenda',juegos:'Juegos'};
+const ACC_TODAS=Object.keys(ACC_CORTO);
+const lsJ=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v;}catch(e){return d;}};
+const lsP=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
+const TR=t=>typeof window.trT==='function'?trT(t):t;
+function accUso(t){const k=FAM_DE[t]||t;if(!ACC_CORTO[k]||k==='mtiempo')return;const u=lsJ('bnaUso',{});u[k]=(u[k]||0)+1;lsP('bnaUso',u);}
+function accLista(){const yo=lsJ('bnaAcc',null);
+  // automático: los más usados; si hay empate (o aún no hay uso), manda el orden de ACC_DEF
+  const u=lsJ('bnaUso',{}),peso=t=>(u[t]||0)*10-(ACC_DEF.includes(t)?ACC_DEF.indexOf(t)-5:0);
+  const auto=ACC_TODAS.filter(t=>t!=='mtiempo').sort((a,b)=>peso(b)-peso(a));
+  if(!Array.isArray(yo))return auto.slice(0,4);
+  const L=yo.filter(t=>ACC_CORTO[t]).slice(0,4);auto.forEach(t=>{if(L.length<4&&!L.includes(t))L.push(t);});return L;}
+function icoAcc(t,s,box){let h='';try{h=bnTile(t,s,box);}catch(e){}return h||`<span class="bt g" style="width:${box}px;height:${box}px"></span>`;}
+function pintaAcc(){const sr=$('bnaSRes')||$('bnaSearch');if(!sr)return;let r=$('m6Acc');
+  if(!r){sr.insertAdjacentHTML('afterend','<div id="m6Acc"><b class="m6AccT">Lo que más usas</b><div class="m6AccF"></div></div>');r=$('m6Acc');}
+  r.querySelector('.m6AccT').textContent=TR(Array.isArray(lsJ('bnaAcc',null))?'Tus accesos':'Lo que más usas');
+  const f=r.querySelector('.m6AccF'),L=accLista(),h=L.map(t=>`<button data-acc="${t}">${icoAcc(t,24,56)}<span>${X(TR(ACC_CORTO[t]))}</span></button>`).join('');
+  if(f.dataset.h!==h){f.innerHTML=h;f.dataset.h=h;f.querySelectorAll('[data-acc]').forEach(b=>b.onclick=()=>{try{menu(false);}catch(e){}showTab(b.dataset.acc);});}}
+/* elegirlos en Lo mío */
+function pintaAccCfg(){const L=$('m6MioL');if(!L)return;let c=$('m6AccCfg');
+  if(!c){L.insertAdjacentHTML('afterbegin','<div class="m6MioG" id="m6AccCfg"><b>Accesos rápidos del menú</b><div class="m6AccN"></div><div class="m6AccM"><button data-m="auto">Los que más uso</button><button data-m="yo">Elegirlos yo</button></div><div class="m6AccC"></div></div>');c=$('m6AccCfg');
+    c.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{lsP('bnaAcc',b.dataset.m==='yo'?accLista():null);if(b.dataset.m==='auto')try{localStorage.removeItem('bnaAcc');}catch(e){}pintaAccCfg();pintaAcc();});}
+  const yo=lsJ('bnaAcc',null),esYo=Array.isArray(yo),act=accLista();
+  c.querySelectorAll('[data-m]').forEach(b=>b.classList.toggle('on',(b.dataset.m==='yo')===esYo));
+  c.querySelector('.m6AccN').textContent=TR(esYo?'Toca para poner o quitar. Caben 4: el orden es el orden en que los tocas.':'Los 4 círculos de arriba del menú se ponen solos con las pantallas que más abres.');
+  const ch=c.querySelector('.m6AccC');
+  ch.innerHTML=esYo?ACC_TODAS.map(t=>{const i=yo.indexOf(t);return `<button data-c="${t}" class="${i>=0?'on':''}">${icoAcc(t,16,28)}<span>${X(TR(ACC_CORTO[t]))}</span>${i>=0?`<em>${i+1}</em>`:''}</button>`;}).join('')
+    :`<div class="m6AccP">${act.map(t=>`<span>${icoAcc(t,16,28)}${X(TR(ACC_CORTO[t]))}</span>`).join('')}</div>`;
+  ch.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{let y=lsJ('bnaAcc',[]);if(!Array.isArray(y))y=[];const t=b.dataset.c;
+    if(y.includes(t))y=y.filter(x=>x!==t);else{if(y.length>=4)y.shift();y.push(t);}lsP('bnaAcc',y);pintaAccCfg();pintaAcc();});}
 /* ---------- enganches ---------- */
 let CUR='';
 const _s=showTab;showTab=function(t){const r=_s.apply(this,arguments);
-  try{pestanas(t);[250,1000].forEach(d=>setTimeout(()=>{if(CUR===t)pestanas(t);},d));if(t==='juegos')pintaJuegos();if(t==='lomio')pintaMio();if(t==='biodiversidad')recUI();if(t==='prev')riadas();
+  try{accUso(t);pestanas(t);[250,1000].forEach(d=>setTimeout(()=>{if(CUR===t)pestanas(t);},d));if(t==='juegos')pintaJuegos();if(t==='lomio'){pintaMio();pintaAccCfg();}if(t==='biodiversidad')recUI();if(t==='prev')riadas();
     CUR=t;if(M6_LEMA[t])[0,300,900].forEach(d=>setTimeout(()=>{const sm=document.querySelector('#pvSec .pvsT small');if(sm&&CUR===t)sm.textContent=M6_LEMA[t];},d));
     const mio=$('m6Mio');if(mio)mio.style.background=t==='lomio'?'#3d7031':'';if(mio)mio.style.color=t==='lomio'?'#fff':'';}catch(e){console.warn('menu6',e);}
   return r;};
 window.showTab=showTab;
-function todo(){try{coloca();iconoMio();}catch(e){console.warn('menu6',e);}}
+function todo(){try{coloca();iconoMio();pintaAcc();}catch(e){console.warn('menu6',e);}}
 todo();setTimeout(todo,800);setTimeout(todo,3000);
 let pend=0;new MutationObserver(()=>{if(pend)return;pend=setTimeout(()=>{pend=0;todo();},120);}).observe(grid,{childList:true});
 // al abrir el menú, todos los grupos empiezan cerrados (23 nov. 2026, Pedro: si no, se quedaba abierto el último)
 // Se vigila la clase «on» del menú porque se abre desde varios sitios (☰, la barra de abajo, el logo…).
 let abierto=dr.classList.contains('on');
-new MutationObserver(()=>{const on=dr.classList.contains('on');if(on&&!abierto){dr.querySelectorAll('.dgroup.open').forEach(x=>x.classList.remove('open'));dr.scrollTop=0;}abierto=on;})
+new MutationObserver(()=>{const on=dr.classList.contains('on');if(on&&!abierto){pintaAcc();dr.querySelectorAll('.dgroup.open').forEach(x=>x.classList.remove('open'));dr.scrollTop=0;}abierto=on;})
   .observe(dr,{attributes:true,attributeFilter:['class']});
 })();
