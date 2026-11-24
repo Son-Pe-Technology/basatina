@@ -197,7 +197,7 @@ SALVO los de «Navarros por el mundo», que pueden ser de un solo medio.
 extranjero (deporte, ciencia, cocina, arte, empresa…). Son de las que más interesan: ponlas las primeras.
 Descarta SIEMPRE: política (partidos, elecciones, parlamento, gobierno como debate político), opinión, columnas,
 entrevistas, programas de radio, publicidad de empresas, esquelas, noticias que no sean de Navarra ni de gente de Navarra,
-suicidios, agresiones o delitos sexuales (sí las concentraciones contra ellas), la Iglesia y lo religioso, y menores
+suicidios, agresiones o delitos sexuales (sí las concentraciones contra ellas), los curas, la Iglesia como institución y las religiones (las romerías, procesiones y fiestas SÍ), y menores
 (salvo sus logros: deporte, estudios, premios).
 Ordena por interés para la gente de Navarra. Máximo 10 grupos.
 Responde SOLO con JSON: [{"ids":[n,n,...],"tema":"resumen de 6-10 palabras","cat":"una de: Navarra|Pamplona|Navarros por el mundo|Deportes|Cultura|Economía|Sociedad|Medio ambiente|Salud|Educación|Sucesos|El tiempo"}]"""
@@ -215,7 +215,7 @@ con los hechos que cuentan varios medios. Reglas obligatorias:
 - Sucesos: solo lo esencial y sin detalles morbosos; «presunto» para quien no está juzgado; di quién lo informa
   («según la Policía Foral»).
 - Sin política ni opiniones. Tono neutro, claro, para todo el mundo.
-- NUNCA: suicidios, agresiones o delitos sexuales (sí concentraciones contra ellas), la Iglesia o lo religioso, ni
+- NUNCA: suicidios, agresiones o delitos sexuales (sí concentraciones contra ellas), los curas, la Iglesia como institución o las religiones (las romerías, procesiones y fiestas SÍ), ni
   menores salvo sus logros. Si el tema es uno de esos, "apta": false.
 - 3 a 5 frases. Titular de máximo 90 caracteres, sin clickbait.
 Responde SOLO con JSON:
