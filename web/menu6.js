@@ -71,6 +71,10 @@ section.rwOnly>div.m6Tabs.m6Tabs.m6Tabs{display:flex!important}
 .m6Tabs button{flex:none;border:1.5px solid #d6e2d1;background:#fff;color:#2f4a2a;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:700;white-space:nowrap;cursor:pointer}
 .m6Tabs button.on{background:#3d7031;border-color:#3d7031;color:#fff}
 body.bna #bnaDGrid>.dgroup.m6G{grid-column:1/-1;min-height:58px}
+/* foto del grupo «Hoy» (24 nov. 2026, prueba que pidió Pedro: el corazón con las manos) */
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]{min-height:150px;background:url('foto-menu-hoy.webp') right center/cover no-repeat,#8aa1c4 !important;border-color:transparent !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]>span{color:#fff !important;font-size:20px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]>i{color:#fff !important;text-shadow:0 1px 4px rgba(0,0,0,.5)}
 body.bna #bnaDGrid>.dgroup.m6Solo>i{visibility:hidden}
 /* 24 nov. 2026: foto arriba del menú (la misma del Inicio, cambia con la estación) */
 /* igual que la cabecera del Inicio: velo blanco arriba, foto limpia abajo y sin los picos de montes */
