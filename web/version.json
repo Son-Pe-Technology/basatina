@@ -1,5 +1,5 @@
 {
- "version": 548,
+ "version": 550,
  "apk": 36,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -24,7 +24,7 @@
   "clasif.js": "0004711610da36b9809e2b438a73ba17f489b07b",
   "claves.js": "91e6cd855a6b88c3b97602fbded040e6266af997",
   "comunidad.js": "95af5a87dd7aa6bd56225db998fe60ffd43634e9",
-  "cuenta.js": "5b2ec0b6af2966fe4592db46533001f49ff358ea",
+  "cuenta.js": "b7d0a65754e9fc3f296888c46d98069877c30a1d",
   "curiosas.js": "7291e3870bd25337b93b2f079825a2ca2c8302cc",
   "deporte-rural.js": "2ea48eebce5c0e9dbc9431ff5563697718aa2d3e",
   "efemerides.js": "b4dea96ea7390c02d0e634b7f745f9f463bdba7a",
@@ -158,7 +158,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "dd533243e8e479795c02ded43c87364ebeeadb33",
-  "index.html": "ce1b6e5f39b6fd3d4da9ed97cab280273bb5c50b",
+  "index.html": "bb9c6afe091262af0ea93943a817d0be444e48b0",
   "inicio-centro.js": "84eef5216dadc6502fd22760dbcf76b1a049a085",
   "inicio-fotos.js": "3fb532d76cdc5e0a87ea5b3873ae341ad88445cf",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
@@ -186,6 +186,7 @@
   "oficial.js": "46ac7c138053015c79616283cade6121cf6c7403",
   "padel-ui.js": "d2dd507f21c4f4210f267617956dd04b2e507c21",
   "padel.js": "323b700256fba14f8a8e70f8ff5d305b96829ccd",
+  "perfil-foto.js": "a96a66fda187c3eb1f453c9ce05ced74a1a5d3be",
   "pesca.js": "fc5edcf733469882190e678cf2e8032222e8b523",
   "plegables.js": "b635931204d822f2040d9245d2cf2f14308debad",
   "pnoa.jpg": "2ace269ed17d224cdca74f3033d27f5306e56dee",
