@@ -46,5 +46,11 @@ async function mudanza(){if(MUDADO||!(window.bnSuper&&window.bnSuper()))return;M
   catch(e){MUDADO=false;console.log('mudanza claves',e);}}
 setTimeout(mudanza,4000);
 const _s=showTab;showTab=function(){_s.apply(this,arguments);setTimeout(mudanza,1500);};
-window.bnClaves={estado:async()=>{const d=await clLoad(true);return Object.fromEntries(CL_N.map(n=>[n,!!(d[n]||'').trim()]));}};
+// para el Panel de administración (superadmin.js): estado de cada clave y guardar/borrar
+window.bnClaves={lista:CL_N,
+  estado:async()=>{const d=await clLoad(true);return Object.fromEntries(CL_N.map(n=>[n,!!(d[n]||'').trim()]));},
+  guarda:async(n,v)=>{if(!CL_N.includes(n))throw new Error('clave desconocida');await clGuarda(n,(v||'').trim());
+    // que la app use ya la nueva, sin reiniciar
+    try{if(n==='tomtom'){TTKEY=null;TTT={};}}catch(e){}
+    try{if(n==='rainbow'||n==='aemet'){RDF=[];RDT={};MTRT={};rdLoad();aeLoad();}}catch(e){}}};
 })();
