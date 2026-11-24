@@ -1,6 +1,29 @@
 {
  "items": [
   {
+   "id": "8c0b2b802147",
+   "pub": "2026-11-24T10:08Z",
+   "titulo": "Etxeberria conquista su segunda txapela consecutiva del Cuatro y Medio",
+   "texto": "El pelotari de Zenotz se impuso a Javier Zabala por 22-20 en la final del Cuatro y Medio Eusko Label 2026, disputada en el Bizkaia Frontoia de Bilbao. El encuentro duró 1 hora y 14 minutos y se definió en los últimos puntos con casi 2.700 espectadores presenciando un partido muy igualado. Etxeberria remontó desde una salida irregular y pese a sufrir un problema físico en mitad del partido. Con esta victoria, el navarro suma su segundo título consecutivo en la especialidad.",
+   "pueblo": "Bilbao",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/pelota/2026/11/22/etxeberria-he-seguido-he-creido-843413-47.html"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/deportes/pelota/2026/11/22/zabala-me-he-visto-campeon-hay-levantarse-843412-47.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-deportes/peio-etxeberria-revalida-la-txapela-del-cuatro-y-medio-tras-imponerse-a-zabala-por-22-20/"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "0450774090dd",
    "pub": "2026-11-24T09:51Z",
    "titulo": "Iruña Rock completa su cartel 2027 con cinco bandas nuevas",
@@ -272,5 +295,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-24T09:51Z"
+ "t": "2026-11-24T10:08Z"
 }
