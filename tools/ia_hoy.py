@@ -51,7 +51,10 @@ def main():
         if A: datos += ["AGENDA DE HOY:"] + [f"- {e['t']} · {e.get('h','')} · {e.get('lugar','')} {e.get('pueblo','')}" for e in A]
     except Exception: pass
     try:
-        D = [p for p in json.load(open("deporte/partidos.json", encoding="utf-8")).get("partidos", []) if p.get("f") == hoy][:4]
+        # 24 nov. 2026: fuera los partidos mal apuntados (sin los dos equipos: «Liga…, jornada 1» contra «Estadio…»)
+        raro = lambda x: any(w in (x or "").lower() for w in ("liga", "jornada", "estadio", "polideportivo", "pabellón", "campo de"))
+        D = [p for p in json.load(open("deporte/partidos.json", encoding="utf-8")).get("partidos", [])
+             if p.get("f") == hoy and not raro(p.get("loc")) and not raro(p.get("vis"))][:4]
         if D: datos += ["PARTIDOS DE HOY:"] + [f"- {p['loc']} – {p['vis']} ({p.get('comp','')}) {p.get('h','')}" for p in D]
     except Exception: pass
     try:

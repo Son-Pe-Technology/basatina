@@ -18,7 +18,12 @@ Qué hace:
   7. PUBLICACIÓN SOLA (23 nov. 2026, lo pidió Pedro): la IA hace una pasada más a cada borrador pendiente:
      quita o deja en general los datos que no coinciden, reescribe frases copiadas y mira si ya está publicada.
      Solo la publica sola (noticias/ia_publicadas.json, con "auto": true) si después NO le queda ninguna duda,
-     la cuentan 2 medios o más, no es de sucesos y no lleva datos de particulares. Si no, se queda para revisar
+     la cuentan 2 medios o más, no copia frases y no lleva datos de particulares.
+     24 nov. 2026 (Pedro): más autónoma. Si copia frases o se le cuela un dato personal, se le pide que lo
+     reescriba hasta 3 veces. Los sucesos normales salen solos pero ANÓNIMOS (sin nombres, edades, nacionalidad,
+     calle ni matrículas: lo comprueba el código, no solo la IA). Los GRAVES (muertes, delitos sexuales, menores,
+     armas, malos tratos, casos de violencia machista) van siempre a mano. Los borradores caducan a las 48 h,
+     las repetidas se descartan solas y las categorías salen de una lista fija (CATS). Si no, se queda para revisar
      a mano en Administrador (y llega un aviso al correo). En la app hay un botón «Retirar» por si algo sale mal.
      Para apagarla: variable IA_AUTO=0 en el workflow.
 Reglas que se le dan a la IA: sin política, sin nombres ni datos personales de particulares, solo hechos
@@ -38,11 +43,40 @@ DIAS = 7                                                    # los borradores se 
 PUB = "noticias/ia_publicadas.json"                          # lo que ve todo el mundo
 AUTO = os.environ.get("IA_AUTO", "1") == "1"                # publicar solas las seguras
 MAX_AUTO = int(os.environ.get("IA_MAX_AUTO", "6"))          # pasadas de arreglo por vez (controla el gasto)
-# Palabras de sucesos: si salen en el titular o el texto, NUNCA se publica sola (aunque la IA diga otra cosa).
-SUCESOS = re.compile(r"\b(accident|atropell|herid|fallec|muere|muri|muert|cadaver|detenid|detenci|arrest|investigad|"
-                     r"agresi|agred|robo|robad|hurto|asalt|incendi|desaparec|rescat|apunal|acuchill|violen|maltrat|"
-                     r"juicio|juzgad|condena|tribunal|fiscal|denunci|guardia civil|policia|ertzaintza|bomberos|sos navarra|"
-                     r"112|herido|grave|choque|colision|vuelco|ahog|suicid|abus|estafa|drogas?|okupa)", re.I)
+# 24 nov. 2026 (lo pidió Pedro): más autónoma. Los sucesos «normales» (accidentes, heridos, detenciones, robos,
+# incendios, rescates…) se pueden publicar solos SI van anónimos: sin nombres de particulares, sin edades, sin
+# nacionalidad u origen, sin calle exacta ni matrículas. Lo GRAVE va SIEMPRE a revisión a mano.
+# GRAVES: muertes, suicidios, delitos sexuales, menores, armas y violencia machista/de género (cuando es un caso).
+GRAVES = re.compile(r"\b(fallec|muere|muri|muert|cadaver|suicid|homicid|asesin|violaci|violad|sexual|abus|pederast|"
+                    r"apunal|acuchill|arma blanca|arma de fuego|dispar|secuestr|maltrat)", re.I)
+# menores: solo cuenta si además es un suceso («la Virgen con el Niño» no es un suceso)
+# (se mira con mayúsculas y tildes: «Niño» con mayúscula es el Niño Jesús de una talla, no un niño)
+NINOS = re.compile(r"\b([Mm]enor(es)?|niñ[oa]s?|bebés?|[Aa]dolescentes?)\b")
+VIOGEN = re.compile(r"\bviolencia (de genero|machista|vicaria)", re.I)
+CASO = re.compile(r"\b(detenid|detenci|arrest|agred|juicio|juzgad|condena|orden de alejamiento)", re.I)
+# Sucesos normales (se pueden publicar solos si pasan el control de datos personales)
+SUCESOS = re.compile(r"\b(accident|atropell|herid|detenid|detenci|arrest|agresi|agred|robo|robad|hurto|asalt|incendi|"
+                     r"desaparec|rescat|juicio|juzgad|condena|denunci|guardia civil|policia|ertzaintza|bomberos|sos navarra|"
+                     r"choque|colision|vuelco|ahog|estafa|droga|okupa)", re.I)
+# Datos personales que NO pueden salir en una noticia publicada sola
+# edad de una PERSONA («un hombre de 45 años», «el conductor, de 30 años», «(45)»); «programa de 10 años» no cuenta
+PERSONA = r"(hombre|mujer|joven|chic[oa]|vecin[oa]|conductor[a]?|motorista|ciclista|senderista|montaner[oa]|varon|ancian[oa]|persona|" \
+          r"detenid[oa]|herid[oa]|victima|individuo|sujeto|pasajer[oa]|peaton|trabajador[a]?|operari[oa]|menor|nin[oa]|bebe|acusad[oa]|investigad[oa])"
+EDAD = re.compile(r"\b" + PERSONA + r"\b[^.]{0,25}?\bde\s+\d{1,3}\s+anos\b|\(\d{1,2}\)|\bde\s+\d{1,3}\s+anos\s+de\s+edad|"
+                  r"treintaner|veinteaner|cuarenton|sexagenari|septuagenari|octogenari|nonagenari|quinceaner", re.I)
+ORIGEN = re.compile(r"\b(de nacionalidad|de origen|marroqu|argelin|rumano|rumana|colombian|ecuatorian|senegal|nigerian|"
+                    r"paquistan|chin[oa]s?\b|latinoamerican|magreb|subsahar|extranjer|gitan|etnia)", re.I)
+CALLE = re.compile(r"\b(calle|c/|avenida|avda\.?|plaza|portal|n\.?º|numero)\s+[A-ZÁÉÍÓÚÑ0-9]", re.U)
+MATRI = re.compile(r"\b\d{4}\s?[BCDFGHJKLMNPRSTVWXYZ]{3}\b")
+# lista fija de categorías (antes salían «Deportes», «deporte», «Música clásica»…)
+CATS = ["Navarra", "Pamplona", "Deportes", "Cultura", "Economía", "Sociedad", "Medio ambiente", "Salud", "Educación", "Sucesos", "El tiempo"]
+SIN_CAT = {"deporte": "Deportes", "futbol": "Deportes", "musica": "Cultura", "musica clasica": "Cultura", "patrimonio": "Cultura",
+           "ocio": "Cultura", "fiestas": "Cultura", "laboral": "Economía", "empleo": "Economía", "empresa": "Economía",
+           "administracion": "Navarra", "urbanismo": "Navarra", "politica": "Navarra", "vivienda": "Sociedad",
+           "seguridad": "Sucesos", "emergencias": "Sucesos", "accidentes": "Sucesos", "justicia": "Sucesos", "trafico": "Sucesos",
+           "meteorologia": "El tiempo", "tiempo": "El tiempo", "naturaleza": "Medio ambiente", "sanidad": "Salud", "euskera": "Educación"}
+CADUCA_H = 48            # un borrador pendiente más viejo que esto ya no interesa: se marca «caducada»
+REESCRIBE = 3            # intentos de reescritura si copia frases
 
 
 def nrm(s):
@@ -85,13 +119,79 @@ def tejas(t, n=8):
     return {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
 
 
+VACIAS = set("de la el los las y en a al del un una unos unas por con para que se su sus es son lo le les o u e como mas este esta "
+             "este ese esa han ha hay fue sera sobre entre desde hasta tras ante sin muy ya no si".split())
+
+
+def propias(textos):
+    """Palabras que en los medios van con mayúscula a mitad de frase (nombres propios, títulos, sitios)."""
+    P = set()
+    for t in textos:
+        for m in re.finditer(r"(?<![.!?¿¡:]\s)(?<!^)\b([A-ZÁÉÍÓÚÑ][\wáéíóúñü]+)", t or ""):
+            P.add(nrm(m.group(1)))
+    return P
+
+
+def copias(texto, fuentes):
+    """Trozos de 8 palabras iguales que un medio, SIN contar los que son casi solo nombres propios, cifras o títulos
+    (p. ej. «obras de Falla, Debussy y Stravinsky» no se puede decir de otra manera)."""
+    pr = propias(fuentes)
+    malos = set()
+    for g in tejas(texto) & set().union(*(tejas(t) for t in fuentes)):
+        w = g.split()
+        contenido = [x for x in w if x not in VACIAS and x not in pr and not x.isdigit()]
+        if len(contenido) >= 3: malos.add(g)
+    return malos
+
+
+def categoria(c):
+    c0 = (c or "").strip()
+    for k in CATS:
+        if nrm(k) == nrm(c0): return k
+    return SIN_CAT.get(nrm(c0), "Navarra")
+
+
+def personales(t):
+    """Qué datos personales lleva un texto publicado solo (lista vacía = limpio).
+    La calle exacta y las matrículas solo importan en sucesos (un concierto en la plaza del Castillo está bien)."""
+    n = nrm(t); f = []
+    if EDAD.search(n): f.append("edades")
+    if ORIGEN.search(n): f.append("nacionalidad u origen")
+    if SUCESOS.search(n) or grave(t):
+        if CALLE.search(t or ""): f.append("calle o portal exactos")
+        if MATRI.search((t or "").upper()): f.append("matrículas")
+    return f
+
+
+def grave(t):
+    n = nrm(t)
+    return bool(GRAVES.search(n) or (VIOGEN.search(n) and CASO.search(n)) or (NINOS.search(t or "") and SUCESOS.search(n)))
+
+
+def palabras(t):
+    return {x for x in re.findall(r"\w+", nrm(t)) if len(x) > 3 and x not in VACIAS}
+
+
+def parecida(it, publicadas):
+    """¿Cuenta lo mismo que una ya publicada? (mismas fuentes o titular muy parecido)"""
+    us = {f.get("u") for f in it.get("fuentes", [])}
+    a, at = palabras(it.get("titulo", "")), palabras(it.get("titulo", "") + " " + it.get("texto", ""))
+    for x in publicadas:
+        if us & {f.get("u") for f in x.get("fuentes", [])}: return x
+        b, bt = palabras(x.get("titulo", "")), palabras(x.get("titulo", "") + " " + x.get("texto", ""))
+        if a and b and len(a & b) / len(a | b) >= 0.45: return x
+        # mismo tema contado con otras palabras (probado el 24 nov. 2026: repetidas ≥ 0,25; distintas ≤ 0,09)
+        if at and bt and len(at & bt) / len(at | bt) >= 0.2: return x
+    return None
+
+
 SIS_GRUPOS = """Eres el editor de BasatiNA, una app de Navarra. Te paso titulares numerados de varios medios.
 Agrupa los que cuentan EXACTAMENTE el mismo hecho (mismo sitio, mismo día, mismos protagonistas: dos accidentes en
 pueblos distintos son hechos distintos). Solo grupos con al menos 2 medios DISTINTOS (el mismo medio dos veces no cuenta).
 Descarta: política (partidos, elecciones, parlamento, gobierno como debate político), opinión, columnas,
 entrevistas, programas de radio, publicidad de empresas, esquelas, y noticias que no sean de Navarra.
 Ordena por interés para la gente de Navarra. Máximo 10 grupos.
-Responde SOLO con JSON: [{"ids":[n,n,...],"tema":"resumen de 6-10 palabras","cat":"Navarra|Deportes|El tiempo|Sucesos|Cultura|Economía"}]"""
+Responde SOLO con JSON: [{"ids":[n,n,...],"tema":"resumen de 6-10 palabras","cat":"una de: Navarra|Pamplona|Deportes|Cultura|Economía|Sociedad|Medio ambiente|Salud|Educación|Sucesos|El tiempo"}]"""
 
 SIS_NOTICIA = """Eres periodista de BasatiNA, una app sin ánimo de lucro de Navarra. Escribe una noticia breve y PROPIA
 con los hechos que cuentan varios medios. Reglas obligatorias:
@@ -100,12 +200,15 @@ con los hechos que cuentan varios medios. Reglas obligatorias:
 - Solo hechos que digan las fuentes. Nada inventado ni supuesto. Si un dato solo lo da un medio, di «según X».
 - Compara los datos entre medios (lugar, pueblo, cifras, edades, horas, fechas, resultados). Si NO coinciden,
   no elijas uno: apúntalo en "dudas".
-- Datos personales: NUNCA nombres ni apellidos de particulares (víctimas, heridos, detenidos, vecinos), ni edad
-  junto al pueblo de una víctima. Personas públicas (deportistas, cargos, artistas) sí, con su nombre.
+- Datos personales: NUNCA nombres ni apellidos de particulares (víctimas, heridos, detenidos, vecinos), NUNCA edades
+  («un hombre», «una mujer», «un joven» basta), NUNCA nacionalidad u origen, ni calle o portal exactos, ni matrículas.
+  Personas públicas (deportistas, cargos, artistas) sí, con su nombre.
+- Sucesos: solo lo esencial y sin detalles morbosos; «presunto» para quien no está juzgado; di quién lo informa
+  («según la Policía Foral»).
 - Sin política ni opiniones. Tono neutro, claro, para todo el mundo.
 - 3 a 5 frases. Titular de máximo 90 caracteres, sin clickbait.
 Responde SOLO con JSON:
-{"titulo":"…","texto":"…","pueblo":"…","cat":"…","datos":[{"dato":"…","coinciden":true}],"dudas":["…"],"personales":false,"apta":true}
+{"titulo":"…","texto":"…","pueblo":"…","cat":"Navarra|Pamplona|Deportes|Cultura|Economía|Sociedad|Medio ambiente|Salud|Educación|Sucesos|El tiempo","datos":[{"dato":"…","coinciden":true}],"dudas":["…"],"personales":false,"apta":true}
 "apta": false si no hay hechos suficientes o el tema no encaja (política, opinión, publicidad)."""
 
 
@@ -114,11 +217,14 @@ escrito por otra IA, sus dudas, los textos de los medios y los titulares que Bas
 Tu trabajo: dejarla lista para publicar SIN revisión humana, o decir que no se puede. Nunca inventes nada.
 - Dato que no coincide entre medios: quítalo o déjalo en general («varias personas», «esta semana», «cerca de»).
   Si ese dato es el centro de la noticia y sin él no se entiende, "publicable": false.
-- Frases copiadas: ningún trozo de más de 5 palabras seguidas igual que un medio. Reescribe con tus palabras.
+- Frases copiadas: ningún trozo de más de 5 palabras seguidas igual que un medio. Reescribe con tus palabras
+  (los nombres propios y los títulos de obras o eventos sí se pueden repetir).
 - Si cuenta el MISMO hecho que una de las ya publicadas, pon su id en "repetida".
-- "publicable": false si es de sucesos (accidentes, heridos, fallecidos, detenciones, robos, incendios, rescates,
-  desaparecidos, juicios, agresiones), si lleva nombres o datos de particulares, si es política u opinión,
-  o si te queda cualquier duda.
+- Sucesos (accidentes, heridos, detenciones, robos, incendios, rescates, juicios…): SÍ se pueden publicar, pero
+  ANÓNIMOS: quita nombres y apellidos de particulares, edades, nacionalidad u origen, calle o portal exactos y
+  matrículas. Solo lo esencial, sin morbo, «presunto» si no hay sentencia, y quién lo informa («según la Policía Foral»).
+- "publicable": false si hay muertos, suicidio, delitos sexuales, menores, armas o un caso de violencia machista;
+  si es política u opinión; o si te queda cualquier duda.
 - Estilo: neutro, 3 a 5 frases, titular de máximo 90 caracteres, «según X» si un dato solo lo da un medio.
 Responde SOLO con JSON:
 {"titulo":"…","texto":"…","quedan_dudas":["…"],"repetida":null,"publicable":true,"motivo":"si no es publicable, por qué, en pocas palabras"}"""
@@ -126,10 +232,8 @@ Responde SOLO con JSON:
 
 def bloqueo(it):
     """Motivos para NO publicar sola, antes de gastar IA."""
-    if (it.get("cat") or "") == "Sucesos": return "sucesos"
     if len({f.get("f") for f in it.get("fuentes", [])}) < 2: return "menos de 2 medios"
-    if any("datos personales" in (d or "").lower() for d in it.get("dudas", [])): return "datos personales"
-    if SUCESOS.search(nrm(it.get("titulo", "") + " " + it.get("texto", ""))): return "parece de sucesos"
+    if grave(it.get("titulo", "") + " " + it.get("texto", "")): return "suceso grave (muertes, delitos sexuales, menores, armas o violencia machista): siempre a mano"
     return ""
 
 
@@ -143,10 +247,20 @@ def auto_publicar(B, ahora):
     hace48 = (ahora - datetime.timedelta(hours=48)).strftime("%Y-%m-%dT%H:%MZ")
     recientes = [x for x in P["items"] if x.get("pub", "") >= hace48]
     hechas = intentos = 0
+    caduca = (ahora - datetime.timedelta(hours=CADUCA_H)).strftime("%Y-%m-%dT%H:%MZ")
+    for it in B["items"]:
+        if it.get("estado") not in ("borrador", "duda"): continue
+        it["cat"] = categoria(it.get("cat"))
+        if it.get("creada", "") < caduca:
+            it["estado"] = "caducada"; it["auto_motivo"] = f"más de {CADUCA_H} h sin publicar"; continue
+        rep_ = parecida(it, recientes)
+        if rep_:
+            it["estado"] = "descartada"; it["auto_motivo"] = f"repetida ({rep_.get('id')})"; print("  ♻️ repetida ·", it["titulo"]); continue
     for it in B["items"]:
         if intentos >= MAX_AUTO: break
-        if it.get("estado") not in ("borrador", "duda") or it.get("auto_intento"): continue
-        it["auto_intento"] = ah
+        # «auto_v»: versión de las reglas con que se miró. Con reglas nuevas se vuelve a intentar una vez.
+        if it.get("estado") not in ("borrador", "duda") or it.get("auto_v") == 2: continue
+        it["auto_intento"] = ah; it["auto_v"] = 2
         m = bloqueo(it)
         if m: it["auto_motivo"] = m; print("  ✋", m, "·", it["titulo"]); continue
         leidos = [(f, texto_de(f["u"])) for f in it.get("fuentes", []) if f.get("f") in LEER]
@@ -168,6 +282,20 @@ def auto_publicar(B, ahora):
             if str(e) in ("sin_saldo", "clave_mala"): break
             continue
         if not isinstance(R, dict): continue
+        # reescribir solo hasta REESCRIBE veces si copia frases o se le cuela un dato personal
+        textos = [tt for _, tt in leidos]
+        for _ in range(REESCRIBE - 1):
+            t0, x0 = (R.get("titulo") or ""), (R.get("texto") or "")
+            cp, dp = copias(t0 + " " + x0, textos), personales(t0 + " " + x0)
+            if not (cp or dp) or not R.get("publicable"): break
+            extra = ""
+            if cp: extra += "\n\nTU VERSIÓN COPIA ESTOS TROZOS LITERALES DE UN MEDIO. Reescríbela entera, con otras palabras y otro orden:\n- " + "\n- ".join(sorted(cp)[:10])
+            if dp: extra += "\n\nTU VERSIÓN LLEVA DATOS PERSONALES QUE NO PUEDEN SALIR (" + ", ".join(dp) + "). Quítalos."
+            try:
+                R2 = json_de(llamar(SIS_ARREGLO, msg + "\n\nTU ÚLTIMA VERSIÓN:\nTitular: " + t0 + "\nTexto: " + x0 + extra, 900))
+                if isinstance(R2, dict) and R2.get("titulo") and R2.get("texto"): R = R2
+            except IAError as e:
+                avisar_error(e); break
         rep = R.get("repetida")
         if rep and any(str(x.get("id")) == str(rep) for x in recientes):
             it["estado"] = "descartada"; it["auto_motivo"] = f"repetida ({rep})"; print("  ♻️ repetida ·", it["titulo"]); continue
@@ -176,15 +304,17 @@ def auto_publicar(B, ahora):
         motivo = ""
         if not R.get("publicable") or not t or not x: motivo = R.get("motivo") or "la IA no la ve publicable"
         elif quedan: motivo = "quedan dudas"
-        elif tejas(x) & set().union(*(tejas(tt) for _, tt in leidos)): motivo = "sigue copiando frases"
-        elif SUCESOS.search(nrm(t + " " + x)): motivo = "parece de sucesos"
+        elif copias(t + " " + x, textos): motivo = "sigue copiando frases"
+        elif grave(t + " " + x): motivo = "suceso grave: siempre a mano"
+        elif personales(t + " " + x): motivo = "lleva " + ", ".join(personales(t + " " + x))
         if motivo:
             it["auto_motivo"] = motivo
             if quedan: it["dudas"] = list(dict.fromkeys(it.get("dudas", []) + quedan))[:10]
             print("  ✋", motivo, "·", it["titulo"]); continue
         it.update({"titulo": t, "texto": x, "estado": "publicada", "pub": ah, "auto": True, "dudas": []})
+        it.pop("auto_motivo", None)
         P["items"] = [y for y in P["items"] if y.get("id") != it["id"]]
-        nueva = {"id": it["id"], "pub": ah, "titulo": t, "texto": x, "pueblo": it.get("pueblo", ""), "cat": it.get("cat", ""),
+        nueva = {"id": it["id"], "pub": ah, "titulo": t, "texto": x, "pueblo": it.get("pueblo", ""), "cat": categoria(it.get("cat")),
                  "fuentes": [{"f": f["f"], "u": f["u"]} for f in it["fuentes"]], "auto": True}
         P["items"].insert(0, nueva); recientes.append(nueva); hechas += 1
         print("  ✅ publicada sola ·", t)
@@ -254,8 +384,8 @@ def main():
         if not R.get("apta", True) or not R.get("titulo") or not R.get("texto"): continue
         du = [d for d in R.get("dudas", []) if d]
         # ¿copia frases? (8 palabras seguidas iguales que algún medio). Si copia, se le pide UNA vez que lo reescriba.
-        fuente_tejas = set().union(*(tejas(t) for _, t in leidos))
-        iguales = tejas(R["texto"]) & fuente_tejas
+        textos = [t for _, t in leidos]
+        iguales = copias(R["texto"], textos)
         if iguales:
             try:
                 R2 = json_de(llamar(SIS_NOTICIA, msg + "\n\nTU VERSIÓN ANTERIOR COPIABA ESTOS TROZOS LITERALES DE LOS MEDIOS. "
@@ -263,11 +393,11 @@ def main():
                 if R2.get("titulo") and R2.get("texto"): R = R2; du = [d for d in R.get("dudas", []) if d]
             except IAError as e:
                 avisar_error(e)
-            iguales = tejas(R["texto"]) & fuente_tejas
+            iguales = copias(R["texto"], textos)
         if iguales: du.append("Alguna frase se parece mucho a la de un medio: reescribir antes de publicar.")
         if R.get("personales"): du.append("Puede llevar datos personales: revisar.")
-        cat = R.get("cat") or g.get("cat") or "Navarra"
-        if cat == "Sucesos": du.append("Sucesos: revisar siempre a mano.")
+        cat = categoria(R.get("cat") or g.get("cat"))
+        if grave(R["titulo"] + " " + R["texto"]): du.append("Suceso grave: revisar siempre a mano.")
         k = hashlib.sha1("|".join(sorted(x["u"] for x in xs)).encode()).hexdigest()[:12]
         B["items"].insert(0, {"id": k, "creada": ahora.strftime("%Y-%m-%dT%H:%MZ"), "estado": "duda" if du else "borrador",
                               "titulo": R["titulo"][:120], "texto": R["texto"][:1500], "pueblo": R.get("pueblo", ""), "cat": cat,
