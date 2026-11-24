@@ -32,6 +32,7 @@ que digan las fuentes, siempre «según…», nada inventado.
 import json, os, re, sys, html, hashlib, datetime, urllib.request, urllib.robotparser, urllib.parse, unicodedata
 sys.path.insert(0, os.path.dirname(__file__))
 from ia import llamar, json_de, avisar, avisar_error, IAError
+from reglas_noticias import prohibida, PROTESTA   # temas que no se publican NUNCA (suicidios, delitos sexuales, Iglesia, menores salvo logros)
 
 LEER = ["Navarra Capital", "Pamplona Actual", "Onda Vasca", "Orain", "Ayuntamiento de Pamplona"]
 # Europa Press: su aviso legal no se pudo leer el 23 nov. 2026 → de momento solo su titular.
@@ -69,11 +70,12 @@ ORIGEN = re.compile(r"\b(de nacionalidad|de origen|marroqu|argelin|rumano|rumana
 CALLE = re.compile(r"\b(calle|c/|avenida|avda\.?|plaza|portal|n\.?º|numero)\s+[A-ZÁÉÍÓÚÑ0-9]", re.U)
 MATRI = re.compile(r"\b\d{4}\s?[BCDFGHJKLMNPRSTVWXYZ]{3}\b")
 # lista fija de categorías (antes salían «Deportes», «deporte», «Música clásica»…)
-CATS = ["Navarra", "Pamplona", "Deportes", "Cultura", "Economía", "Sociedad", "Medio ambiente", "Salud", "Educación", "Sucesos", "El tiempo"]
+CATS = ["Navarra", "Pamplona", "Navarros por el mundo", "Deportes", "Cultura", "Economía", "Sociedad", "Medio ambiente", "Salud", "Educación", "Sucesos", "El tiempo"]
 SIN_CAT = {"deporte": "Deportes", "futbol": "Deportes", "musica": "Cultura", "musica clasica": "Cultura", "patrimonio": "Cultura",
            "ocio": "Cultura", "fiestas": "Cultura", "laboral": "Economía", "empleo": "Economía", "empresa": "Economía",
            "administracion": "Navarra", "urbanismo": "Navarra", "politica": "Navarra", "vivienda": "Sociedad",
            "seguridad": "Sucesos", "emergencias": "Sucesos", "accidentes": "Sucesos", "justicia": "Sucesos", "trafico": "Sucesos",
+           "navarros fuera": "Navarros por el mundo", "navarros en el mundo": "Navarros por el mundo", "diaspora": "Navarros por el mundo",
            "meteorologia": "El tiempo", "tiempo": "El tiempo", "naturaleza": "Medio ambiente", "sanidad": "Salud", "euskera": "Educación"}
 CADUCA_H = 48            # un borrador pendiente más viejo que esto ya no interesa: se marca «caducada»
 REESCRIBE = 3            # intentos de reescritura si copia frases
@@ -165,6 +167,8 @@ def personales(t):
 
 def grave(t):
     n = nrm(t)
+    # concentraciones y campañas contra la violencia (sin un caso concreto) no son un suceso grave
+    if PROTESTA.search(n) and not CASO.search(n): return False
     return bool(GRAVES.search(n) or (VIOGEN.search(n) and CASO.search(n)) or (NINOS.search(t or "") and SUCESOS.search(n)))
 
 
@@ -187,11 +191,16 @@ def parecida(it, publicadas):
 
 SIS_GRUPOS = """Eres el editor de BasatiNA, una app de Navarra. Te paso titulares numerados de varios medios.
 Agrupa los que cuentan EXACTAMENTE el mismo hecho (mismo sitio, mismo día, mismos protagonistas: dos accidentes en
-pueblos distintos son hechos distintos). Solo grupos con al menos 2 medios DISTINTOS (el mismo medio dos veces no cuenta).
-Descarta: política (partidos, elecciones, parlamento, gobierno como debate político), opinión, columnas,
-entrevistas, programas de radio, publicidad de empresas, esquelas, y noticias que no sean de Navarra.
+pueblos distintos son hechos distintos). Solo grupos con al menos 2 medios DISTINTOS (el mismo medio dos veces no cuenta),
+SALVO los de «Navarros por el mundo», que pueden ser de un solo medio.
+«Navarros por el mundo»: logros y noticias bonitas de gente de Navarra que vive o triunfa fuera de Navarra o en el
+extranjero (deporte, ciencia, cocina, arte, empresa…). Son de las que más interesan: ponlas las primeras.
+Descarta SIEMPRE: política (partidos, elecciones, parlamento, gobierno como debate político), opinión, columnas,
+entrevistas, programas de radio, publicidad de empresas, esquelas, noticias que no sean de Navarra ni de gente de Navarra,
+suicidios, agresiones o delitos sexuales (sí las concentraciones contra ellas), la Iglesia y lo religioso, y menores
+(salvo sus logros: deporte, estudios, premios).
 Ordena por interés para la gente de Navarra. Máximo 10 grupos.
-Responde SOLO con JSON: [{"ids":[n,n,...],"tema":"resumen de 6-10 palabras","cat":"una de: Navarra|Pamplona|Deportes|Cultura|Economía|Sociedad|Medio ambiente|Salud|Educación|Sucesos|El tiempo"}]"""
+Responde SOLO con JSON: [{"ids":[n,n,...],"tema":"resumen de 6-10 palabras","cat":"una de: Navarra|Pamplona|Navarros por el mundo|Deportes|Cultura|Economía|Sociedad|Medio ambiente|Salud|Educación|Sucesos|El tiempo"}]"""
 
 SIS_NOTICIA = """Eres periodista de BasatiNA, una app sin ánimo de lucro de Navarra. Escribe una noticia breve y PROPIA
 con los hechos que cuentan varios medios. Reglas obligatorias:
@@ -206,9 +215,11 @@ con los hechos que cuentan varios medios. Reglas obligatorias:
 - Sucesos: solo lo esencial y sin detalles morbosos; «presunto» para quien no está juzgado; di quién lo informa
   («según la Policía Foral»).
 - Sin política ni opiniones. Tono neutro, claro, para todo el mundo.
+- NUNCA: suicidios, agresiones o delitos sexuales (sí concentraciones contra ellas), la Iglesia o lo religioso, ni
+  menores salvo sus logros. Si el tema es uno de esos, "apta": false.
 - 3 a 5 frases. Titular de máximo 90 caracteres, sin clickbait.
 Responde SOLO con JSON:
-{"titulo":"…","texto":"…","pueblo":"…","cat":"Navarra|Pamplona|Deportes|Cultura|Economía|Sociedad|Medio ambiente|Salud|Educación|Sucesos|El tiempo","datos":[{"dato":"…","coinciden":true}],"dudas":["…"],"personales":false,"apta":true}
+{"titulo":"…","texto":"…","pueblo":"…","cat":"Navarra|Pamplona|Navarros por el mundo|Deportes|Cultura|Economía|Sociedad|Medio ambiente|Salud|Educación|Sucesos|El tiempo","datos":[{"dato":"…","coinciden":true}],"dudas":["…"],"personales":false,"apta":true}
 "apta": false si no hay hechos suficientes o el tema no encaja (política, opinión, publicidad)."""
 
 
@@ -232,7 +243,7 @@ Responde SOLO con JSON:
 
 def bloqueo(it):
     """Motivos para NO publicar sola, antes de gastar IA."""
-    if len({f.get("f") for f in it.get("fuentes", [])}) < 2: return "menos de 2 medios"
+    if len({f.get("f") for f in it.get("fuentes", [])}) < 2 and categoria(it.get("cat")) != "Navarros por el mundo": return "menos de 2 medios"
     if grave(it.get("titulo", "") + " " + it.get("texto", "")): return "suceso grave (muertes, delitos sexuales, menores, armas o violencia machista): siempre a mano"
     return ""
 
@@ -253,6 +264,9 @@ def auto_publicar(B, ahora):
         it["cat"] = categoria(it.get("cat"))
         if it.get("creada", "") < caduca:
             it["estado"] = "caducada"; it["auto_motivo"] = f"más de {CADUCA_H} h sin publicar"; continue
+        pr = prohibida(it.get("titulo", "") + " " + it.get("texto", ""))
+        if pr:
+            it["estado"] = "descartada"; it["auto_motivo"] = pr; print("  🚫", pr, "·", it["titulo"]); continue
         rep_ = parecida(it, recientes)
         if rep_:
             it["estado"] = "descartada"; it["auto_motivo"] = f"repetida ({rep_.get('id')})"; print("  ♻️ repetida ·", it["titulo"]); continue
@@ -305,12 +319,16 @@ def auto_publicar(B, ahora):
         if not R.get("publicable") or not t or not x: motivo = R.get("motivo") or "la IA no la ve publicable"
         elif quedan: motivo = "quedan dudas"
         elif copias(t + " " + x, textos): motivo = "sigue copiando frases"
+        elif prohibida(t + " " + x):
+            it["estado"] = "descartada"; it["auto_motivo"] = prohibida(t + " " + x); print("  🚫", it["auto_motivo"], "·", t); continue
         elif grave(t + " " + x): motivo = "suceso grave: siempre a mano"
         elif personales(t + " " + x): motivo = "lleva " + ", ".join(personales(t + " " + x))
         if motivo:
             it["auto_motivo"] = motivo
             if quedan: it["dudas"] = list(dict.fromkeys(it.get("dudas", []) + quedan))[:10]
             print("  ✋", motivo, "·", it["titulo"]); continue
+        if parecida({"titulo": t, "texto": x, "fuentes": it.get("fuentes", [])}, recientes):
+            it["estado"] = "descartada"; it["auto_motivo"] = "repetida (en esta misma pasada)"; print("  ♻️ repetida ·", t); continue
         it.update({"titulo": t, "texto": x, "estado": "publicada", "pub": ah, "auto": True, "dudas": []})
         it.pop("auto_motivo", None)
         P["items"] = [y for y in P["items"] if y.get("id") != it["id"]]
@@ -364,7 +382,8 @@ def main():
         if nuevas >= MAX_NUEVAS: break
         xs = [L[i] for i in g.get("ids", []) if isinstance(i, int) and 0 <= i < len(L)]
         medios = {x["f"] for x in xs}
-        if len(medios) < 2: continue
+        if len(medios) < 2 and categoria(g.get("cat")) != "Navarros por el mundo": continue
+        if prohibida(" ".join(x["t"] for x in xs)): print("  🚫", prohibida(" ".join(x["t"] for x in xs)), "·", g.get("tema")); continue
         leidos = []
         for x in xs:
             if x["f"] in LEER:
@@ -382,6 +401,7 @@ def main():
             if str(e) in ("sin_saldo", "clave_mala"): break
             continue
         if not R.get("apta", True) or not R.get("titulo") or not R.get("texto"): continue
+        if prohibida(R["titulo"] + " " + R["texto"]): print("  🚫", prohibida(R["titulo"] + " " + R["texto"]), "·", R["titulo"]); continue
         du = [d for d in R.get("dudas", []) if d]
         # ¿copia frases? (8 palabras seguidas iguales que algún medio). Si copia, se le pide UNA vez que lo reescriba.
         textos = [t for _, t in leidos]
