@@ -1,14 +1,7 @@
 {
-"t": "2026-11-24T07:43Z",
-"turno": "2026-11-24-m",
+"t": "2026-11-24T13:38Z",
+"turno": "2026-11-24-t",
 "dest": [
-{
-"k": "2026-11-20-t",
-"t": "María Casado, protagonista de los memes del debate: de sus tacones en la mesa a su ausencia en pantalla",
-"u": "https://www.20minutos.es/gonzoo/maria-casado-protagonista-los-memes-cara-cara-entre-sanchez-feijoo-sus-tacones-mesa-su-ausencia-pantalla_7063510_0.html",
-"f": "20minutos",
-"d": "2026-11-20T09:38Z"
-},
 {
 "k": "2026-11-20-n",
 "t": "Ni Vigo, ni Barcelona: el Belén más alto del mundo está en Alicante, tiene un Récord Guinness, es de estilo modernista y está en un paseo marítimo con seis millones de teselas",
@@ -85,6 +78,13 @@
 "u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS3lWMGZjWmNrUW9Bdy1UdXFVOG1VUWFCX2daOVl1UjhpWWtIam1jLXpsaE0yT3BfSVVHN3J2WGVNYUVkRUhaaUxCNnYwYUV0RF9tbnFhRzZueFdEYVpXX25oWXZNY0QwWFhOZzJSZFgyQlNuNDdzMXZyTnhjeVhpWVczdzU1eXdiSVdNQjh6NXo1YVVqc3V1SGlkRHpxd0NyZ0JieTdiZ0phdm52N1R1UWR2Z2p4LWhRSlJra2FwdjFKdnRN?oc=5",
 "f": "La Opinión A Coruña",
 "d": "2026-11-22T09:00Z"
+},
+{
+"k": "2026-11-24-t",
+"t": "\"El Beagle es un perro alegre, curioso y lleno de energía\". El adiestrador Ángel Osuna habla de su carácter y cuidados",
+"u": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNcUtaM0RaX3JmZUt5SmNuWHFPS1FvZElmU3pramhhempFb19VM0t2LXhfeFlYNEZfcTgzS21oNGNpc3QwRDZxQXNCUUVlSjQyUzl1NkprY1k5Q3NDTFdKeUlKbkJoOXJqTVQyWHVFWTVfWDhqUWZhcHVpVTZXb19NRk9nbjZxbjcwM3JpaWlENDQwbzljM0VSRlBIcGl0X2ZYNUJHdlpEbXprNGV1eWc4NXdPUVJEdmtId0JrTWdCQzZJZ0dBZ2VNQVZ4MjdITm15dHlqaTIzWS1jYUFPdmsyMVhfVmUtY0R6cVhtejI4QlNGUjhQM05PLS1RNW5BNncyeS1MM25sYXRnUDZYckJyOGZtZlNMcm9XLTFoOHZBel9ud0FGSFJCU0M3VGNPV0ZzNHc?oc=5",
+"f": "Onda Cero",
+"d": "2026-11-24T12:40Z"
 }
 ],
 "items": [
@@ -103,11 +103,11 @@
 "p": 5
 },
 {
-"t": "Una patinadora india de 18 años bate un récord Guinness al recorrer 50 metros en solo 6,86 segundos",
-"u": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdnZoTmZ6N0xOaXFqZWdxU1g4UWxKeVA2UnNibUJuS1hINUJmVDFCRkk0TE4wcmp3aHFkYmhKRFNfY1FOOTlCTTMtNGJFUlpMY2Q0NmVRbWh0dHo2V0JNRngyUDl1dnJ3cTEyTnRYbGwwZlM2ZjJncm1sZ2pxck5nRmFCR1pRX2F6el9vZDZRQVFTeWNDRTV4UEhvZXZNeG5MUmE3QlRGRXBDckZSNUdMT2FqQzJ4d1F1Y2dPXzVQUXVJS19PNnA3cnNXTTQ0OVU0eFhoVVJ30gHbAUFVX3lxTFAtVVVBZkpUTEZDRTBoYURxQXFIcl9Bd08xTkVLbC0weXktM0FIMmZBYzJiR0t0blRxdmRsWkRrejF4UUlPbUNrck9FaG1OR3lndnZ6X0FLOFF2RzV3VXdsZGZSNGNKNXNWSW9uaXNpeW82VXRidElqOGpDSVRTTjJXRl9ESkZVbXQ3RUJaOHNhMnlWRHhnQVFIZ0pUbUI0WWZDb2tvclNiT1pveGJNYVdQVENLNkxUM1FZaV9LcVR2cDF3RUY0R3dWMGJqRHk0RXp1bklKXzBTYW5jMA?oc=5",
-"f": "La Vanguardia",
-"d": "2026-11-21T08:56Z",
-"p": 5
+"t": "\"El Beagle es un perro alegre, curioso y lleno de energía\". El adiestrador Ángel Osuna habla de su carácter y cuidados",
+"u": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNcUtaM0RaX3JmZUt5SmNuWHFPS1FvZElmU3pramhhempFb19VM0t2LXhfeFlYNEZfcTgzS21oNGNpc3QwRDZxQXNCUUVlSjQyUzl1NkprY1k5Q3NDTFdKeUlKbkJoOXJqTVQyWHVFWTVfWDhqUWZhcHVpVTZXb19NRk9nbjZxbjcwM3JpaWlENDQwbzljM0VSRlBIcGl0X2ZYNUJHdlpEbXprNGV1eWc4NXdPUVJEdmtId0JrTWdCQzZJZ0dBZ2VNQVZ4MjdITm15dHlqaTIzWS1jYUFPdmsyMVhfVmUtY0R6cVhtejI4QlNGUjhQM05PLS1RNW5BNncyeS1MM25sYXRnUDZYckJyOGZtZlNMcm9XLTFoOHZBel9ud0FGSFJCU0M3VGNPV0ZzNHc?oc=5",
+"f": "Onda Cero",
+"d": "2026-11-24T12:40Z",
+"p": 4
 },
 {
 "t": "De las latas de las abuelas a una curiosa trampa para insectos: los tesoros que guarda un museo de Zamora",
@@ -122,6 +122,27 @@
 "f": "La Opinión A Coruña",
 "d": "2026-11-22T09:00Z",
 "p": 4
+},
+{
+"t": "Morro Fino y Marketing Divertido premiados en los premios Agripina",
+"u": "https://cadenaser.com/aragon/2026/11/24/morro-fino-y-marketing-divertido-premiados-en-los-premios-agripina-radio-huesca/",
+"f": "Cadena SER",
+"d": "2026-11-24T13:02Z",
+"p": 3
+},
+{
+"t": "El curioso motivo por el que nunca llegamos a escuchar el verdadero final de algunas canciones",
+"u": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQS0ZzMG5MeVJKVW4wWUxWUHBVMmptY0ZOZ0FWQWhBWnFFVkxFa1h2YWIzbk04aHNBNzhFX0V2aDBDb1ZxUkVQbjFfaGxiR1hlWFpPcUZ6ZUFvTnh0V2FHZDJPTk1DVXBNSkRNcHZvWlpyOHFpaHR0eFVPQ0Z5TTl3em1obFhKMkNnSGNpcjdXc3NBOU5ESlRYMFRJaTAxVkpRUVNjZExUTENiX2hYN044Nnlqc2YwbkFkUWJ6ZXBKSDV5dmZ4amx4UXloR0VrUnozZ0VEcFhTc3VfaTdw?oc=5",
+"f": "Crónica Balear",
+"d": "2026-11-24T11:42Z",
+"p": 3
+},
+{
+"t": "Una empresa indonesia quiere criar gatos dorados asiáticos para venderlos como mascotas",
+"u": "https://www.20minutos.es/animaleros/una-empresa-indonesia-quiere-criar-gatos-dorados-asiaticos-una-especie-amenazada-para-venderlos-como-mascotas_7065025_0.html",
+"f": "20minutos",
+"d": "2026-11-24T11:00Z",
+"p": 3
 },
 {
 "t": "España exige algo insólito a los centros de datos: la energía renovable debe generarse cuando se consume",
@@ -142,34 +163,6 @@
 "u": "https://www.huffingtonpost.es/life/influencers-celebrities/el-curioso-caso-casa-real-danesa-frente-misterio-espanola-y-muestra-como-cosas-familia-f202611.html",
 "f": "HuffPost",
 "d": "2026-11-23T16:08Z",
-"p": 3
-},
-{
-"t": "Cuatro de cada diez personas con VIH y carga viral indetectable evitan tener sexo por el miedo a contagiar a otros",
-"u": "https://www.20minutos.es/salud/40-personas-con-vih-carga-viral-indetectable-evitan-relaciones-sexuales-por-miedo_7064596_0.html",
-"f": "20minutos",
-"d": "2026-11-23T13:01Z",
-"p": 3
-},
-{
-"t": "Lo bautizó Margaret Thatcher, iba a ser una «ciudad bitcoin» y casi acaba en la chatarra: el curioso crucero que llegará a Ferrol",
-"u": "https://news.google.com/rss/articles/CBMioAJBVV95cUxNYmtMQk1wNHNWOU93UlBlVTEtYW83RnM4NHRBRE9BM3ZqRG9XYVAyVWZ4dGh1cURVaVViejlfcENtbFFvSGRmVVlzTTFyR3lFZVdEaDRxRVBrX3IxclQyeUM3Z1hEdVF5OU9jaHhEeUcyanBDLVFTMFNXbG5IbW1QRGROdjBVdGpDS01ydS0wNk1fTUxSMlplWjQ4RjVnX1NoNkc0R3pBbU0zMzA0ampWNEpwSDRhSGQzU0lQYTRoSFNQM2ZiTDh5QTViZmRRMm1XUXpfZFc5VENxajVFVkJtT2I1YWZSUXE3RXhfVXB1Z0NNTlRwbUM4QTB1SzlPSmlSQWwzODdvN0lIOHN2OVRGZ08zYzRjMTdjLWktMUVWMzTSAaACQVVfeXFMTWJrTEJNcDRzVjlPd1JQZVUxLWFvN0ZzODR0QURPQTN2akRvV2FQMlVmeHRodXFEVWlVYno5X3BDbWxRb0hkZlVZc00xckd5RWVXRGg0cUVQa19yMXJUMnlDN2dYRHVReTlPY2h4RHlHMmpwQy1RUzBTV2xuSG1tUERkTnYwVXRqQ0tNcnUtMDZNX01MUjJaZVo0OEY1Z19TaDZHNEd6QW1NMzMwNGpqVjRKcEg0YUhkM1NJUGE0aEhTUDNmYkw4eUE1YmZkUTJtV1F6X2RXOVRDcWo1RVZCbU9iNWFmUlFxN0V4X1VwdWdDTU5UcG1DOEEwdUs5T0ppUkFsMzg3bzdJSDhzdjlURmdPM2M0YzE3Yy1pLTFFVjM0?oc=5",
-"f": "La Voz de Galicia",
-"d": "2026-11-23T10:34Z",
-"p": 3
-},
-{
-"t": "Desde la cara de culpa hasta el ronroneo: seis cosas que crees saber de tu perro o tu gato y que no siempre son ciertas",
-"u": "https://www.huffingtonpost.es/life/animales/desde-cara-culpa-ronroneo-seis-cosas-crees-perro-gato-ciencia-matiza-f202611.html",
-"f": "HuffPost",
-"d": "2026-11-23T08:57Z",
-"p": 3
-},
-{
-"t": "Luis Miguel Dominguín y su doble alternativa: una curiosa historia del toreo",
-"u": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQVMybXJYRXZ1RXlYVUxjUFdoM2hyUnVGeFNYWXFmMWtJeUpFVEFGaXo5WlpGTld0S3VmdFEwaU5IWlMybWc4M05CZS1JRUI2YXJoQURreG92WU5wZWtQY3BCLXFUZjFBOGJvQ0NJcjNFN1hid0ljdGRQalJVZXBoQ3J6QXNPdXhFbWxpb1dnTjVBRDR0eHdYNUlaalRWdHF1c2hlR3FJM2t1eUZX?oc=5",
-"f": "Tendido Digital",
-"d": "2026-11-23T07:50Z",
 "p": 3
 },
 {
@@ -201,11 +194,18 @@
 "p": 3
 },
 {
-"t": "Un vagón del Tramvia Blau de Barcelona, a la venta en Wallapop por 44.760 euros: \"¡Se vende un pedazo de la historia!\"",
-"u": "https://www.telecinco.es/noticias/catalunya/20261121/vagon-tramvia-blau-barcelona-venta-wallapop-44760-euros_18_020737187.html",
-"f": "Telecinco",
-"d": "2026-11-21T09:21Z",
-"p": 3
+"t": "Lo bautizó Margaret Thatcher, iba a ser una «ciudad bitcoin» y casi acaba en la chatarra: el curioso crucero que llegará a Ferrol",
+"u": "https://news.google.com/rss/articles/CBMioAJBVV95cUxNYmtMQk1wNHNWOU93UlBlVTEtYW83RnM4NHRBRE9BM3ZqRG9XYVAyVWZ4dGh1cURVaVViejlfcENtbFFvSGRmVVlzTTFyR3lFZVdEaDRxRVBrX3IxclQyeUM3Z1hEdVF5OU9jaHhEeUcyanBDLVFTMFNXbG5IbW1QRGROdjBVdGpDS01ydS0wNk1fTUxSMlplWjQ4RjVnX1NoNkc0R3pBbU0zMzA0ampWNEpwSDRhSGQzU0lQYTRoSFNQM2ZiTDh5QTViZmRRMm1XUXpfZFc5VENxajVFVkJtT2I1YWZSUXE3RXhfVXB1Z0NNTlRwbUM4QTB1SzlPSmlSQWwzODdvN0lIOHN2OVRGZ08zYzRjMTdjLWktMUVWMzTSAaACQVVfeXFMTWJrTEJNcDRzVjlPd1JQZVUxLWFvN0ZzODR0QURPQTN2akRvV2FQMlVmeHRodXFEVWlVYno5X3BDbWxRb0hkZlVZc00xckd5RWVXRGg0cUVQa19yMXJUMnlDN2dYRHVReTlPY2h4RHlHMmpwQy1RUzBTV2xuSG1tUERkTnYwVXRqQ0tNcnUtMDZNX01MUjJaZVo0OEY1Z19TaDZHNEd6QW1NMzMwNGpqVjRKcEg0YUhkM1NJUGE0aEhTUDNmYkw4eUE1YmZkUTJtV1F6X2RXOVRDcWo1RVZCbU9iNWFmUlFxN0V4X1VwdWdDTU5UcG1DOEEwdUs5T0ppUkFsMzg3bzdJSDhzdjlURmdPM2M0YzE3Yy1pLTFFVjM0?oc=5",
+"f": "La Voz de Galicia",
+"d": "2026-11-23T10:34Z",
+"p": 2
+},
+{
+"t": "Luis Miguel Dominguín y su doble alternativa: una curiosa historia del toreo",
+"u": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQVMybXJYRXZ1RXlYVUxjUFdoM2hyUnVGeFNYWXFmMWtJeUpFVEFGaXo5WlpGTld0S3VmdFEwaU5IWlMybWc4M05CZS1JRUI2YXJoQURreG92WU5wZWtQY3BCLXFUZjFBOGJvQ0NJcjNFN1hid0ljdGRQalJVZXBoQ3J6QXNPdXhFbWxpb1dnTjVBRDR0eHdYNUlaalRWdHF1c2hlR3FJM2t1eUZX?oc=5",
+"f": "Tendido Digital",
+"d": "2026-11-23T07:50Z",
+"p": 2
 },
 {
 "t": "Intensa y surrealista campaña",
@@ -230,7 +230,7 @@
 },
 {
 "t": "¿Lamine Yamal e Inés García van a ser padres? La curiosa celebración del jugador que hace saltar los rumores",
-"u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQc3VGRkVQWXowY0ZWcThVdXZzZUNLYU9XTE1OUnBwT252d1M0dVJtLW95czVhdnhwS3J2a0xyZ2xCMzF5Z2FIdDBNYkZITndyR3VkVXZEUmticHU5RndhSjZONU5kY21uQ0IzUWhaekFJRzNlMW5UWlgzWXhmYWdUWjRHQmlWdmU0RThVcWZmR2wxTngxNFdlQTQ4Q2RBdXYxZlQ1T3RsMWZyT1V3TXV3VHlkOGs3ZW9uc0dIaEQyU2VhMzNsbzhzMHV6dE5hWC1TTVNrVTNKQThpa0N2b203aU5NVU45Zm5qT3kwMHh0Y1d2UzItZ3fSAYoCQVVfeXFMT1VpaVFqUEFNWWgzbF94TGMtcWk5Q2wxQUowbHZUMUhiVWJjVjJHaGNYNlY3SUVlb3d1VFJrTkZwbVZXWUJUZVVDc1BJcjRDUlp5SmFJalBQUUFpUE1keXRQNmFBZm1JRXA1Y0YyNTZ5cVZNcjN0c0tvbjVKRkMybzJXMDVUSTF3akRIZ2pWMnlRUVFFQm1KMk5LQUtwMWpaWkFZdWkyaGxHZXdXblBnOUpCa044OUt1NHpLTzN5WXU2Y3M4WmpBODNCNkpVcFdrcE0zQ1F5X044MC1xTmpnakJZOWZOZm9mQUZpazZoUlhVcmFDY3dYOHlic0FHbXY0aHNuWDk0ckE1Nnc?oc=5",
+"u": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPVWlpUWpQQU1ZaDNsX3hMYy1xaTlDbDFBSjBsdlQxSGJVYmNWMkdoY1g2VjdJRWVvd3VUUmtORnBtVldZQlRlVUNzUElyNENSWnlKYUlqUFBRQWlQTWR5dFA2YUFmbUlFcDVjRjI1NnlxVk1yM3RzS29uNUpGQzJvMlcwNVRJMXdqREhnalYyeVFRUUVCbUoyTktBS3AxalpaQVl1aTJobEdld1duUGc5SkJrTjg5S3U0ektPM3lZdTZjczhaakE4M0I2SlVwV2twTTNDUXlfTjgwLXFOamdqQlk5Zk5mb2ZBRmlrNmhSWFVyYUNjd1g4eWJzQUdtdjRoc25YOTRyQTU2d9IBigJBVV95cUxPVWlpUWpQQU1ZaDNsX3hMYy1xaTlDbDFBSjBsdlQxSGJVYmNWMkdoY1g2VjdJRWVvd3VUUmtORnBtVldZQlRlVUNzUElyNENSWnlKYUlqUFBRQWlQTWR5dFA2YUFmbUlFcDVjRjI1NnlxVk1yM3RzS29uNUpGQzJvMlcwNVRJMXdqREhnalYyeVFRUUVCbUoyTktBS3AxalpaQVl1aTJobEdld1duUGc5SkJrTjg5S3U0ektPM3lZdTZjczhaakE4M0I2SlVwV2twTTNDUXlfTjgwLXFOamdqQlk5Zk5mb2ZBRmlrNmhSWFVyYUNjd1g4eWJzQUdtdjRoc25YOTRyQTU2dw?oc=5",
 "f": "La Razón",
 "d": "2026-11-22T18:50Z",
 "p": 2
@@ -240,20 +240,6 @@
 "u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaFlkZHNjRlVoRWJvSVl4OTNsdGE4ZFVlUGhRWW4tOG00bndmR3dwZnNIeHFZRnRUeW4xRnZPSWJlWmdJNGx5aDE1eFFkU0NJcDNyR0tnM3JvbUdMQ2dfQXN3ZFhwSnZiYTN5SUxiRU1ITGdYX3JlMzJPckpfOVZYMU9xZXRFemM2ekZDWWNhVzJEcTJFY2dvT1lSYm43SW5MZjJaRFgxcks1WC15Tm4zLVFaVkJkNHoxOWNWMGl6QktVN1k3eHhnQ2hQb2hUMlU2X1hyUHdBTm84UdIB7gFBVV95cUxQOVQzSnlweFFTWDl4ZUVfdlZOdTIxRE5McEN5V2RiR0lSa0pva1YwdGJFVmh5OWpod1BVU09IZVQwajdKaEJvaWVJbGtxd1o5dWpIdEtRU1hLVlE1Qk5yS3hVUW1VeE8tVjBNSFNXUl82NWJOS0RXSC1IbW5rWjlFRjdOR0Z1TTdNMkphTFAtZ08taHNrNVhjSl9RX2xDMDJZUDBCZm5aNU5YN2tzcnJwN2ctT2w1Z09Fd042WVNjXzRNTThhS25hemw3OVJ0MXpWWGU3Y0lGRnlpQTJWLVFtLXoyaTd2aFlqTnVKeE1R?oc=5",
 "f": "El HuffPost",
 "d": "2026-11-22T17:43Z",
-"p": 2
-},
-{
-"t": "El refugio de Gabriel Rufián en un pueblo de Tarragona de solo 642 habitantes: \"Es curioso, pero me flipa\"",
-"u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUG5VRDltMTlNdkdNbUVyNV9ldWI0eGNOTG1Dbk9ndWZZRXpiM0xoX2h3ZENZQ05zcG1oQ1BpVklabDBOZW9LdmFhV1pLSG11VEVMa3Q2ZFpBZVhna0ZMUHktUGlQbm5nNUNsMUdXZmszTVlWMUV4dzdtdFRBX2I0aXJhTzNqWFFrUFVEeWJBUFpPd3ZOYjlJTGx6ZzBUQ3NjdldlSXp5d1dsdw?oc=5",
-"f": "El Confidencial",
-"d": "2026-11-22T13:09Z",
-"p": 2
-},
-{
-"t": "Cambio insólito en Zubieta: la árbitra María Planes se lesiona el tobillo en el Real Sociedad - Sevilla",
-"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOMXhYYWZPdzZ5aFVwTDhpSnhNbUdfejNGZmpoNW1WRVFCYUowZ21CMDBiX0xsTUZGbEdiQjRGNlNEN1NtMmg1RDZUVFl5aXJCaFpoeTZOOVhEcXhwRzVhcENlTjU5QWdGTkZpVTR3TkxXVTNld2JxaFpPNndQMndLMkphd1lINDRfa1B3Tnk2UzdaLUhUZ1QteWFCTjNXb3JMQUQ0Tk5hVGJiaEpjNjl5VE1seG9rU2dhdUFBMEVWOVJ3TlFP0gHKAUFVX3lxTE9Vdk5GMUkwb3ZjaHdHMEp2U0pXU2diWHNNZWZhRmlidWxfUnB6MFRZaV9keFdJaldrRE1MYUVJOHRxbE1xR08xMFRYRm1jOTJybEtfQ211U21HTXAzS2hub21BS3hULXU1UUNOTGQwV3VXazZ2SG8wYVAxak5pd21rR2E3WVRaUk9PUGxTcDFiY01nZC0tbFVYTk16MkFxbFNzRmsyaG1uOHpWWVBNZEZaZVdseFY1M0RFSmhwLXBsekI2YmVmNmVrdkE?oc=5",
-"f": "El Diario Vasco",
-"d": "2026-11-22T11:52Z",
 "p": 2
 }
 ]
