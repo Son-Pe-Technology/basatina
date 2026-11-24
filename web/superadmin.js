@@ -73,7 +73,7 @@ function pinta(){const n=yo()?total():0;
   if(!f&&ini){f=document.createElement('button');f.id='sadBan';f.onclick=()=>showTab('superadm');ini.prepend(f);}
   if(f){const p=[];if(PEND.alertas)p.push(`${PEND.alertas} alerta${PEND.alertas>1?'s':''}`);if(PEND.denuncias)p.push(`${PEND.denuncias} denuncia${PEND.denuncias>1?'s':''}`);if(PEND.ia)p.push(`${PEND.ia} noticia${PEND.ia>1?'s':''} de la IA`);
     f.innerHTML=`<span style="font-size:20px">🛡️</span><span style="flex:1;text-align:left"><b>Pendiente de aprobar</b><br><small>${X(p.join(' · '))}</small></span><span class="sadN2">${n}</span>`;}
-  if($('t-superadm')&&$('t-superadm').classList.contains('on')&&!document.activeElement?.matches?.('#sadKeys input')){panel();claves();}}
+  if($('t-superadm')&&$('t-superadm').classList.contains('on')&&!document.activeElement?.matches?.('#sadKeys input, #sadIA input')){panel();claves();gastoIA();}}
 
 /* ---------- ⭐ Panel de administración ---------- */
 const st=document.createElement('style');st.textContent=`
@@ -115,6 +115,7 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
    <div class="card"><b>🛠️ Herramientas</b><div class="sadHerr">
      <button data-ir="ajustes">⚙️ Ajustes y avisos</button><button data-ir="cuenta">👤 Mi cuenta</button><button data-ir="creditos">📚 Fuentes y créditos</button>
      ${herr.map((b,i)=>`<button data-hx="${i}">${X(b.textContent.trim())}</button>`).join('')}</div></div>
+   <div class="card" id="sadIA"><b>🤖 Gasto de la IA</b><div class="note">Cargando…</div></div>
    <div class="card" id="sadKeys"><b>🔐 Claves de servicios</b><div class="note">Cargando…</div></div>
    <div class="card"><b>🔑 Llave de GitHub</b><div class="note" style="margin-top:4px;line-height:1.5">${ghTok()?'✅ Este móvil tiene la llave.':'❌ Este móvil no tiene la llave.'} Sirve para editar contenidos, la agenda, las fotos y las noticias de la IA.
      Si la guardáis en la nube, vuestros otros móviles la cogen solos al entrar con vuestra cuenta. Solo la podéis leer Sonia y tú.</div>
@@ -122,7 +123,7 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
    <div class="card"><div class="note" style="line-height:1.5">El modo Administrador solo se abre con vuestras cuentas y se cierra solo si sales de la cuenta. Ya no hay PIN.</div></div>`;
   el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;v==='mod'?abrirMod():v==='ia'?abrirIA():showTab(v);});
   el.querySelectorAll('[data-hx]').forEach(b=>b.onclick=()=>{const h=herr[+b.dataset.hx];if(h)h.click();try{menu(false);}catch(e){}});
-  $('sadRf').onclick=async()=>{$('sadRf').disabled=true;await pendientes(true);panel();claves();};
+  $('sadRf').onclick=async()=>{$('sadRf').disabled=true;await pendientes(true);panel();claves();gastoIA();};
   const km=t=>{$('sadKm').textContent=t;};
   if($('sadGu'))$('sadGu').onclick=async()=>{km('Guardando…');try{const t=await C.cmTok();await C.fsPatch('admin','llaves',{gh:ghTok(),quien:s.nombre,cuando:new Date().toISOString()},t.it);km('✅ Guardada en la nube. Vuestros otros móviles la cogerán al entrar.');}catch(e){km('❌ No se pudo guardar ('+e.message+'). ¿Están publicadas las reglas nuevas?');}};
   $('sadQu').onclick=async()=>{if(!confirm('¿Quitar la llave de la nube? Los móviles que ya la tienen la siguen teniendo.'))return;km('Quitando…');try{const t=await C.cmTok();await C.fsDel('admin','llaves',t.it);km('🗑️ Quitada de la nube.');}catch(e){km('❌ '+e.message);}};
@@ -150,7 +151,33 @@ async function claves(){const el=$('sadKeys');if(!el||!window.bnClaves)return;le
     if(v.length<10)return m.textContent='Pega la clave completa.';if(/\s/.test(v))return m.textContent='La clave no puede llevar espacios: revisa que no se haya colado nada.';
     b.disabled=true;m.textContent='Guardando…';try{await window.bnClaves.guarda(k,v);m.textContent='✅ Guardada'+(k==='aemet'?'. Ponla también en GitHub (secreto AEMET_KEY).':'.');setTimeout(claves,1500);}
     catch(e){b.disabled=false;m.textContent='❌ '+e.message;}});}
-svHook('superadm',async()=>{panel();claves();
+/* 🤖 gasto de la IA (24 nov. 2026): lo apunta el robot en noticias/ia_gasto.json; el crédito cargado se apunta aquí
+   (Firestore admin/ia, solo administradores) para calcular lo que queda. Claude Console: platform.claude.com */
+const IA_WEB={saldo:'https://platform.claude.com/settings/billing',coste:'https://platform.claude.com/cost'};
+async function gastoIA(){const el=$('sadIA');if(!el)return;let G={},A={};
+  try{const r=await fetch(GH_RAW+'noticias/ia_gasto.json?t='+Math.floor(Date.now()/300000));if(r.ok)G=await r.json();}catch(e){}
+  try{const t=await C.cmTok();A=C.decD(await C.fs('/admin/ia',{},t.it));}catch(e){}
+  const hoy=new Date(),mes=hoy.toISOString().slice(0,7),M=G[mes]||{},dias=new Date(hoy.getFullYear(),hoy.getMonth()+1,0).getDate();
+  // el primer mes se cuenta desde el primer día con gasto (23 nov. 2026), no desde el día 1
+  const desde=mes==='2026-11'?23:1,pasados=Math.max(1,hoy.getDate()-desde+1),resto=dias-desde+1;
+  const prev=(M.dolares||0)/pasados*resto,total=Object.values(G).reduce((a,x)=>a+((x&&x.dolares)||0),0);
+  // «da para»: con el gasto medio por día × 30 (el mes de arranque es corto y engañaría)
+  const carg=+A.cargado||0,queda=carg?carg-total:null,porMes=(M.dolares||0)/pasados*30,meses=queda!=null&&porMes>0?queda/porMes:null;
+  const usd=v=>(v||0).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' $';
+  el.innerHTML=`<b>🤖 Gasto de la IA</b><div class="note" style="margin-top:2px">Noticias propias, «Navarra hoy» y correcciones. Datos del robot (se actualizan en cada pasada).</div>
+    <div class="kpi" style="margin-top:8px;flex-wrap:wrap"><div><span class="note">Este mes</span><b>${usd(M.dolares)}</b></div><div><span class="note">Previsión del mes</span><b>${usd(prev)}</b></div>
+    <div><span class="note">Llamadas este mes</span><b>${M.llamadas||0}</b></div></div>
+    ${carg?`<div class="kpi" style="margin-top:6px;flex-wrap:wrap"><div><span class="note">Queda (aprox.)</span><b style="color:${queda<3?'#c62828':'inherit'}">${usd(queda)}</b></div><div><span class="note">Cargado en total</span><b>${usd(carg)}</b></div>
+      ${meses!=null?`<div><span class="note">Da para</span><b>${meses<1?'menos de 1 mes':'≈ '+Math.floor(meses)+' mes'+(Math.floor(meses)>1?'es':'')}</b></div>`:''}</div>
+      ${queda<3?'<div class="note" style="color:#c62828;margin-top:4px">⚠️ Queda poco crédito: cuando se acabe, la IA deja de escribir noticias.</div>':''}`
+     :'<div class="note" style="margin-top:6px">Apunta abajo cuánto crédito habéis cargado y te digo cuánto queda.</div>'}
+    <div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap"><input class="town" id="sadIAc" type="number" min="0" step="1" inputmode="decimal" placeholder="Crédito cargado en total ($)" value="${carg||''}" style="flex:1;min-width:0"><button class="btn" id="sadIAg">Guardar</button></div>
+    <div class="note" style="margin-top:4px">Cada vez que carguéis crédito, suma lo nuevo aquí (p. ej. 20 + 10 = 30). Es aproximado: lo exacto está en la web de Claude.</div>
+    <div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap"><button class="btn pri" data-iaw="saldo">💳 Ver saldo / cargar</button><button class="btn" data-iaw="coste">📈 Gasto por días</button></div><div class="note" id="sadIAm"></div>`;
+  el.querySelectorAll('[data-iaw]').forEach(b=>b.onclick=()=>{const u=IA_WEB[b.dataset.iaw];try{C.abre(u);}catch(e){window.open(u,'_blank');}});
+  $('sadIAg').onclick=async()=>{const v=+$('sadIAc').value;if(!(v>=0))return $('sadIAm').textContent='Pon una cantidad.';$('sadIAm').textContent='Guardando…';
+    try{const t=await C.cmTok();await C.fsPatch('admin','ia',{cargado:v,cuando:new Date().toISOString()},t.it);gastoIA();}catch(e){$('sadIAm').textContent='❌ '+e.message;}};}
+svHook('superadm',async()=>{panel();claves();gastoIA();
   // subtítulo propio en la cabecera (si no, saldría el de la escena «pueblo»)
   setTimeout(()=>{document.querySelectorAll('#t-superadm .pvsT small, #pvSec .pvsT small').forEach(e=>{if($('t-superadm').classList.contains('on'))e.textContent='Solo para Pedro y Sonia';});},150);
   await pendientes(true);});
