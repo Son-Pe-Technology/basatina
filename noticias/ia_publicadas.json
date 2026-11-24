@@ -1,6 +1,25 @@
 {
  "items": [
   {
+   "id": "8dd414f621db",
+   "pub": "2026-11-24T18:58Z",
+   "titulo": "Navarra acogerá una planta de almacenamiento energético de 380 MW",
+   "texto": "Las empresas Sungrow Renewables y Actuate Energy anunciaron este martes una inversión de 300 millones de euros en siete plantas de almacenamiento de energía con baterías en distintos puntos de España. El proyecto navarro, denominado Navarra Cluster, se ubicará en Olite y Cordovilla y formará parte de esta iniciativa que sumará 380 MW de potencia y 1,5 GWh de capacidad. Será la mayor operación de este tipo realizada hasta ahora en el país. Algunos activos ya están en construcción, mientras que el resto comenzará las obras en los próximos meses, con previsión de estar operativos entre 2027 y el primer semestre de 2028.",
+   "pueblo": "Olite, Cordovilla",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/olite-y-cordovilla-en-el-macroproyecto-nacional-de-almacenamiento-energetico-de-sungrow-y-actuate/"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/negocios-al-dia/tres-alumnis-de-creanavarra-llevan-el-talento-del-diseno-navarro-a-talentu-gazteak-2026/"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "896eca29b4ef",
    "pub": "2026-11-24T16:07Z",
    "titulo": "Dos heridos en colisión frontal en la NA-122 en Cárcar",
@@ -394,5 +413,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-24T16:07Z"
+ "t": "2026-11-24T18:58Z"
 }
