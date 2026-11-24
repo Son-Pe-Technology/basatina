@@ -53,6 +53,13 @@ service cloud.firestore {
       allow read, write: if esAdmin();
     }
 
+    // ---------- 🔑 claves de servicios (24 nov. 2026) ----------
+    // claves/app: AEMET, TomTom, Pl@ntNet, Rainbow y Web3Forms. Antes estaban en config/*.json de GitHub (público).
+    // Las lee cualquier móvil que haya entrado en Firebase (también los anónimos); escribir, solo administradores (regla de arriba).
+    match /claves/{d} {
+      allow get: if usuario();
+    }
+
     // ---------- avisos (lo que ve la gente) ----------
     match /avisos/{id} {
       // lista pública: solo publicados (la app pide where estado == 'publicado')

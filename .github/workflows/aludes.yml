@@ -16,6 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Descargar de AEMET
+        env:
+          AEMET_KEY: ${{ secrets.AEMET_KEY }}
         run: python3 tools/aludes.py
       - name: Guardar en el repositorio
         run: |
