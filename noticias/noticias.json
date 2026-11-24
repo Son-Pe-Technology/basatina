@@ -1,6 +1,69 @@
 {
-"t": "2026-11-24T08:50Z",
+"t": "2026-11-24T09:48Z",
 "items": [
+{
+"t": "El cortometraje navarro 'Marta' lidera jornada sobre fibromialgia en la Casa de las Mujeres",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-sociedad/el-cortometraje-navarro-marta-protagoniza-el-viernes-una-jornada-sobre-fibromialgia-en-la-casa-de-las-mujeres/",
+"f": "Pamplona Actual",
+"d": "2026-11-24T09:45Z",
+"c": "Navarra"
+},
+{
+"t": "La Hospitalización a Domicilio del Reina Sofía de Tudela celebra 20 años y anuncia nueva sede en 2027",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/la-hospitalizacion-a-domicilio-del-reina-sofia-de-tudela-cumple-20-anos-con-30-camas-y-nueva-sede-en-2027/",
+"f": "Pamplona Actual",
+"d": "2026-11-24T09:23Z",
+"c": "Navarra"
+},
+{
+"t": "Policía Foral intercepta a un patinete eléctrico que circulaba a más de 60 km/h por la carretera N-121-C",
+"u": "https://www.diariodenavarra.es/noticias/navarra/tudela-ribera/2026/11/24/policia-foral-intercepta-patinete-electrico-circulaba-60-km-h-carretera-n-121-c-843565-22.html",
+"f": "Diario de Navarra",
+"d": "2026-11-24T09:20Z",
+"c": "Sucesos"
+},
+{
+"t": "Policía Foral intercepta en Tudela un patinete eléctrico deslimitado a 75 km/h en una carretera interurbana",
+"u": "https://www.europapress.es/navarra/noticia-policia-foral-intercepta-tudela-patinete-electrico-deslimitado-75-km-carretera-interurbana-20261124101948.html",
+"f": "Europa Press",
+"d": "2026-11-24T09:19Z",
+"c": "Sucesos"
+},
+{
+"t": "La policía de Tudela detiene un patinete eléctrico modificado que circulaba a 75 km/h en Tarazona",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/interceptan-en-tudela-un-patinete-electrico-trucado-para-alcanzar-75-km-h-en-la-carretera-de-tarazona/",
+"f": "Pamplona Actual",
+"d": "2026-11-24T09:15Z",
+"c": "Sucesos"
+},
+{
+"t": "La Ciudadela de Pamplona celebra la XV Carrera Infantil de Navidad el 19 de diciembre",
+"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/la-ciudadela-de-pamplona-acoge-el-19-de-diciembre-la-xv-carrera-infantil-de-la-navidad/",
+"f": "Pamplona Actual",
+"d": "2026-11-24T09:10Z",
+"c": "Deportes"
+},
+{
+"t": "23 NOV 2026 | EL PARTIDAZO DE COPE",
+"u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/23-nov-2026-partidazo-cope-20261124_3480654.html",
+"f": "COPE",
+"d": "2026-11-24T08:52Z",
+"c": "Navarra"
+},
+{
+"t": "Un trabajador muerto y otro herido grave tras ser arrollados por un conducto drogado cuando colocaban luces navideñas en Santander",
+"u": "https://www.diariodenavarra.es/noticias/sucesos/2026/11/24/trabajador-muerto-herido-grave-arrollados-conducto-drogado-colocaban-luces-navidenas-santander-843561-122.html",
+"f": "Diario de Navarra",
+"d": "2026-11-24T08:51Z",
+"c": "Sucesos"
+},
+{
+"t": "3ª PARTE | 23 NOV 2026 | EL PARTIDAZO DE COPE",
+"u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/2a-parte-23-nov-2026-partidazo-cope-20261124_3480652.html",
+"f": "COPE",
+"d": "2026-11-24T08:47Z",
+"c": "Navarra"
+},
 {
 "t": "Hurón albino se pierde en el Casco Viejo de Pamplona y genera misterio",
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-casco-viejo/buscan-a-un-huron-albino-desaparecido-en-el-casco-viejo-de-pamplona/",
@@ -58,6 +121,13 @@
 "c": "Cultura"
 },
 {
+"t": "Josep Roca, sumiller: \"Cuando abrimos El Celler de Can Roca, no pensamos que sería importante. De hecho, el primer día no vino nadie, ni el segundo ni el tercero\"",
+"u": "https://www.diariodenavarra.es/noticias/vivir/gastronomia/2026/11/24/josep-roca-sumiller-abrimos-celler-can-roca-no-pensamos-seria-importante-hecho-primer-dia-no-vino-nadie-segundo-tercero-843553-109.html",
+"f": "Diario de Navarra",
+"d": "2026-11-24T07:37Z",
+"c": "Navarra"
+},
+{
 "t": "Sungrow lidera la evolución de la recarga eléctrica con soluciones de hasta 3,5 MW en Genera 2026",
 "u": "https://pamplonaactual.com/negocios-al-dia/sungrow-impulso-en-genera-2026-la-evolucion-de-la-recarga-electrica-con-nuevas-soluciones-de-hasta-35-mw/",
 "f": "Pamplona Actual",
@@ -81,13 +151,6 @@
 {
 "t": "Vivir la violencia de género en Navarra con 20 años y lograr salir: \"Mi pasado me dejó cicatrices, pero no consiguió quitarme las ganas de vivir\"",
 "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/24/vivir-violencia-genero-navarra-20-anos-lograr-salir-mi-pasado-me-dejo-cicatrices-no-consiguio-quitarme-ganas-vivir-843462-15.html",
-"f": "Diario de Navarra",
-"d": "2026-11-24T04:00Z",
-"c": "Navarra"
-},
-{
-"t": "Salud atendió en 2025 a más de 1.200 víctimas de violencia de género en Navarra: \"La mayoría presenta síntomas sutiles y difusos como dolor crónico, insomnio, cefaleas...\"",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/24/salud-atendio-2025-1-200-victimas-violencia-genero-navarra-mayoria-presenta-sintomas-sutiles-difusos-dolor-cronico-insomnio-cefaleas-843467-15.html",
 "f": "Diario de Navarra",
 "d": "2026-11-24T04:00Z",
 "c": "Navarra"
@@ -121,17 +184,10 @@
 "c": "Navarra"
 },
 {
-"t": "23 NOV 2026 | EL PARTIDAZO DE COPE",
-"u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/23-nov-2026-partidazo-cope-20261124_3480654.html",
-"f": "COPE",
-"d": "2026-11-24T00:50Z",
-"c": "Navarra"
-},
-{
 "t": "2ª PARTE | 23 NOV 2026 | EL PARTIDAZO DE COPE",
-"u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/2a-parte-23-nov-2026-partidazo-cope-20261124_3480652.html",
+"u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/2a-parte-23-nov-2026-partidazo-cope-20261124_3480648.html",
 "f": "COPE",
-"d": "2026-11-24T00:45Z",
+"d": "2026-11-23T23:41Z",
 "c": "Navarra"
 },
 {
@@ -195,41 +251,6 @@
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-villava/agao-ofrecera-una-gala-lirica-en-villava-por-san-andres-con-arias-y-romanzas-de-opera-y-zarzuela/",
 "f": "Pamplona Actual",
 "d": "2026-11-23T20:34Z",
-"c": "Navarra"
-},
-{
-"t": "El ICE retiene a un estudiante español en EEUU durante diez días con visado en regla",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-nacional/un-joven-estudiante-espanol-lleva-diez-dias-retenido-por-el-ice-pese-a-tener-el-visado-en-regla-en-eeuu/",
-"f": "Pamplona Actual",
-"d": "2026-11-23T20:18Z",
-"c": "Navarra"
-},
-{
-"t": "Tafalla, Peralta y Pamplona ofrecen proyecciones de cortometrajes de Navarra, Tierra de Cine este martes",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/tafalla-peralta-y-pamplona-acogen-este-martes-nuevas-proyecciones-de-los-cortometrajes-de-navarra-tierra-de-cine/",
-"f": "Pamplona Actual",
-"d": "2026-11-23T20:10Z",
-"c": "Cultura"
-},
-{
-"t": "Rockson Yeboah se lesiona el ligamento lateral interno de la rodilla derecha",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/rockson-yeboah-sufre-un-esguince-del-ligamento-lateral-interno-de-la-rodilla-derecha/",
-"f": "Pamplona Actual",
-"d": "2026-11-23T20:03Z",
-"c": "Deportes"
-},
-{
-"t": "El Papa saluda a Indurain y anima a montar en bicicleta porque promueve un estilo de vida \"saludable\"",
-"u": "https://www.diariodenavarra.es/noticias/deportes/ciclismo/2026/11/23/papa-saluda-indurain-anima-montar-bicicleta-promueve-estilo-vida-saludable-843519-42.html",
-"f": "Diario de Navarra",
-"d": "2026-11-23T19:44Z",
-"c": "Navarra"
-},
-{
-"t": "Pamplona recibe informe sobre 1.259 alcorques defectuosos y mejoras para el arbolado",
-"u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/entregan-al-ayuntamiento-de-pamplona-un-informe-con-1259-alcorques-defectuosos-y-propuestas-para-mejorar-el-arbolado/",
-"f": "Pamplona Actual",
-"d": "2026-11-23T19:36Z",
 "c": "Navarra"
 },
 {
@@ -366,13 +387,6 @@
 "c": "Navarra"
 },
 {
-"t": "Salud pacta con sindicatos la exención de noches para mayores de 55 años",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/23/mejorar-guardias-noches-mayores-55-anos-medidas-acordadas-salud-sindicatos-843451-15.html",
-"f": "Diario de Navarra",
-"d": "2026-11-23T09:38Z",
-"c": "Navarra"
-},
-{
 "t": "Más de 500 personas participan en la edición 2026-2027 del programa de práctica oral de euskera Mintzakide",
 "u": "https://www.pamplona.es/actualidad/noticias/mas-de-500-personas-participan-en-la-edicion-2026-2027-del-programa-de-practica",
 "f": "Ayuntamiento de Pamplona",
@@ -413,13 +427,6 @@
 "f": "Navarra Capital",
 "d": "2026-11-22T21:45Z",
 "c": "Navarra"
-},
-{
-"t": "Tráfico explica el nuevo 'carril de nieve' y pide extremar la precaución ante el invierno: \"Muchas veces, los quitanieves no están porque no pueden llegar a los sitios\"",
-"u": "https://www.cope.es/emisoras/navarra/noticias/trafico-explica-nuevo-carril-nieve-pide-extremar-precaucion-invierno-muchas-veces-quitanieves-no-no-llegar-sitios-20261122_3479419.html",
-"f": "COPE",
-"d": "2026-11-22T09:45Z",
-"c": "El tiempo"
 }
 ]
 }
