@@ -25,9 +25,9 @@ const IT='https://identitytoolkit.googleapis.com/v1/accounts:';
 const PRIV_URL='https://basatina.es/privacidad.html#cuentas',NORMAS_URL='https://basatina.es/normas-comunidad.html',BORRAR_URL='https://basatina.es/borrar-cuenta.html';
 const CU_NORMAS=2;   // versión de docs/normas-comunidad.html
 // lo que se guarda en la cuenta (claves de localStorage). «roads» = Mis carreteras (va dentro de CFG).
-const CU_K=['sitios','diario','notas','agendaMia','dpFav','dpMios','cmMios','cmOcultos','cmVotos','roads'];
+const CU_K=['sitios','diario','notas','agendaMia','dpFav','dpMios','cmMios','cmOcultos','cmVotos','roads','bnaAvatar','bnaFoto'];   // bnaAvatar/bnaFoto: imagen de perfil (perfil-foto.js)
 const CU_NOM={sitios:'Mis sitios secretos',diario:'Mi diario de salidas (sin fotos)',notas:'Notas',agendaMia:'Mi calendario',dpFav:'Equipos y ligas favoritos',dpMios:'Mi calendario deportivo',
-  cmMios:'Mis avisos',cmOcultos:'Colaboradores ocultos',cmVotos:'Mis votos',roads:'Mis carreteras'};
+  cmMios:'Mis avisos',cmOcultos:'Colaboradores ocultos',cmVotos:'Mis votos',roads:'Mis carreteras',bnaAvatar:'Tu avatar',bnaFoto:'Tu foto'};
 // palabras que no se aceptan en el apodo (además de las de las reglas de Firestore)
 // (se comparan sin tildes y cambiando 0→o, 1→i, 3→e, 4→a, 5→s, 7→t; los administradores pueden quitar cualquier otro)
 const AP_NO=['puta','puto','polla','mierda','gilipo','cabron','maricon','zorra','follar','joder','nazi','hitler','idiota','subnormal','retrasad','negrata','sudaca','admin','basatina','moderad','oficial','sonpe','policia','guardiacivil'];
@@ -157,9 +157,9 @@ async function cuRender(){const el=$('cuBody');if(!el)return;const a=ses();
   let p=perfil();if(!p){el.innerHTML='<div class="card"><div class="note">Cargando tu cuenta…</div></div>';try{p=await cargaPerfil();}catch(e){}}
   if(!p)return cuApodo(el,null);
   const m=meta(),email=jwt(a.it).email;
-  el.innerHTML=`<div class="card"><div class="row" style="align-items:center;gap:10px"><div style="font-size:40px">👤</div><div style="flex:1"><b style="font-size:19px">${esc(p.apodo)}</b><div class="note">${esc(email)} · ✅ correo confirmado</div></div></div>
+  el.innerHTML=`<div class="card"><div class="row" style="align-items:center;gap:10px"><div id="cuAvT">${window.bnPerfilImg?window.bnPerfilImg(48):'<span style="font-size:40px">👤</span>'}</div><div style="flex:1"><b style="font-size:19px">${esc(p.apodo)}</b><div class="note">${esc(email)} · ✅ correo confirmado</div></div></div>
      ${p.quitado&&/^Vecino\d{4}$/.test(p.apodo)?`<div class="note" style="margin-top:6px;color:#b71c1c">🏷️ Un administrador cambió tu apodo anterior porque no cumplía las normas. Puedes elegir otro.</div>`:''}</div>
-   <div class="card"><b>☁️ Mi Espacio en la cuenta</b><div class="note" style="margin-top:4px;line-height:1.5">Se guarda solo: ${CU_K.map(k=>CU_NOM[k]).join(', ')}.<br>Las <b>fotos</b> del diario y el <b>diario de dolores</b> se quedan solo en este móvil.</div>
+   <div class="card"><b>☁️ Mi Espacio en la cuenta</b><div class="note" style="margin-top:4px;line-height:1.5">Se guarda solo: ${CU_K.filter(k=>k!=='bnaFoto'||(window.bnSuper&&window.bnSuper())).map(k=>CU_NOM[k]).join(', ')}.<br>Las <b>fotos</b> del diario y el <b>diario de dolores</b> se quedan solo en este móvil.</div>
      <div class="note" id="cuSy" style="margin-top:4px">${m.ult?'Última vez: '+new Date(m.ult).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'Todavía no se ha guardado.'}</div>
      <div class="row" style="margin-top:6px"><button class="btn" id="cuSn">🔄 Guardar y traer ahora</button></div></div>
    <div class="card"><b>⚙️ Cuenta</b><div class="row" style="margin-top:6px;flex-wrap:wrap;gap:6px"><button class="btn" id="cuCA">🏷️ Cambiar apodo</button><button class="btn" id="cuCP">🔑 Cambiar contraseña</button><button class="btn" id="cuOut">🚪 Cerrar sesión</button></div><div id="cuX"></div></div>
