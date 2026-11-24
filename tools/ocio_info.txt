@@ -1,28 +1,8 @@
 cartelera: cines encontrados [('193', 'Golem Baiona'), ('194', 'Golem La Morea'), ('195', 'Golem Yamaguchi'), ('198', 'Cines Los Llanos Zinemak'), ('199', 'Cines Itaroa'), ('200', 'Ocine Tudela'), ('350', 'Cines Viana Las Cañas')]
-   193 Golem Baiona 7 películas, 11 sesiones hoy
-   194 Golem La Morea 13 películas, 21 sesiones hoy
-   195 Golem Yamaguchi 7 películas, 9 sesiones hoy
-   198 Cines Los Llanos Zinemak 3 películas, 3 sesiones hoy
-   199 Cines Itaroa 11 películas, 19 sesiones hoy
+   193 Golem Baiona 7 películas, 14 sesiones hoy
+   194 Golem La Morea 13 películas, 28 sesiones hoy
+   195 Golem Yamaguchi 7 películas, 14 sesiones hoy
+   198 Cines Los Llanos Zinemak 0 películas, 0 sesiones hoy
+   199 Cines Itaroa 11 películas, 25 sesiones hoy
    200 Ocine Tudela 0 películas, 0 sesiones hoy
    350 Cines Viana Las Cañas 0 películas, 0 sesiones hoy
-moto: Valle de Roncal y Belagua
-    82.6 km · 80 min · sube 1951 m · máx 1770 m
-moto: Selva de Irati y puerto de Larrau
-    83.1 km · 103 min · sube 2223 m · máx 1578 m
-moto: Camino de Roncesvalles e Ibañeta
-    53.4 km · 91 min · sube 989 m · máx 1058 m
-moto: Belate, Baztan y Otxondo
-    74.7 km · 73 min · sube 983 m · máx 843 m
-moto: Sierras de Urbasa y Andía
-    94.3 km · 89 min · sube 1212 m · máx 1005 m
-moto: Foces, Yesa y Leyre
-    70.7 km · 80 min · sube 758 m · máx 714 m
-moto: Zona Media: Olite y Ujué
-    59.5 km · 75 min · sube 611 m · máx 799 m
-moto: Aralar y Leitzaran
-    57.2 km · 66 min · sube 886 m · máx 699 m
-moto: Ribera y Bardenas
-    56.7 km · 61 min · sube 456 m · máx 426 m
-moto: Sierra del Perdón y Camino
-    47.6 km · 55 min · sube 671 m · máx 674 m
