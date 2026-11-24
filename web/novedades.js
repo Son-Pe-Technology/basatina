@@ -344,10 +344,10 @@ window.bnaRecargar=function(){try{if(/android_asset/.test(location.href)&&window
 /* 24 nov. 2026 (Pedro): la actualización de pantalla ya NO avisa ni recarga mientras usas la app.
    La pantalla nueva se descarga sola en segundo plano (AndroidNet.updateWeb) y se aplica en silencio:
    - al abrir la app la próxima vez (lee ya los archivos nuevos), o
-   - al volver a la app después de tenerla más de 3 minutos en segundo plano (recarga y vuelve a la pantalla donde estabas).
+   - al volver a la app después de tenerla 30 segundos o más en segundo plano (recarga y vuelve a la pantalla donde estabas).
    Solo con «Buscar actualizaciones» del menú se aplica al momento. Lo de una APK nueva sigue avisando (hay que instalarla). */
 if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=false,LAST=0,OCULTA=0;
-  const ESPERA=3*60e3;
+  const ESPERA=30e3;
   const recargar=()=>{PEND=false;try{const sec=document.querySelector('section.on[id^="t-"]');sessionStorage.setItem('bnaTabTras',sec?sec.id.slice(2):'');}catch(e){}bnaRecargar();};
   const _cu=checkUpdate;
   checkUpdate=async function(manual){if(manual){if(PEND){menu(false);toast('✨ BasatiNA actualizada');setTimeout(recargar,1200);return;}return _cu(true);}   // ya descargada: recargar en vez de «Ya tienes la última versión»
@@ -358,11 +358,15 @@ if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=f
       if(window.AndroidNet.installApk&&typeof apkInstalar==='function'){toast('📲 Hay una versión nueva de la app ('+r.apk+')','Instalar',()=>apkInstalar(r.apkUrl));return;}   // app 21+: se instala desde dentro
       toast('📲 Hay una versión nueva de la app ('+r.apk+')','Descargar',()=>window.AndroidNet.openUrl(r.apkUrl));return;}
     if(r.changed>0)PEND=true;};   // descargada: se aplicará en silencio (ver arriba)
+  /* 24 nov. 2026 (tarde): no se veían las actualizaciones. El botón «atrás» ya no cierra la app (solo la
+     manda al fondo), así que casi nunca se «abre de cero», y además la descarga se hacía al volver, con lo
+     que hacían falta dos vueltas de más de 3 minutos. Ahora: al salir de la app se descarga ya la pantalla
+     nueva, y al volver tras 30 segundos o más se aplica en silencio (nunca mientras la estás usando). */
   document.addEventListener('visibilitychange',()=>{
-    if(document.hidden){OCULTA=Date.now();return;}
+    if(document.hidden){OCULTA=Date.now();if(!PEND){LAST=0;checkUpdate(false);}return;}
     const fuera=OCULTA?Date.now()-OCULTA:0;OCULTA=0;
     if(PEND&&fuera>=ESPERA&&!document.querySelector('input:focus,textarea:focus'))recargar();
-    else checkUpdate(false);});
+    else if(!PEND)checkUpdate(false);});
   setInterval(()=>checkUpdate(false),30*60e3);
   // después de recargar, volver a la pantalla donde estaba
   try{const t=sessionStorage.getItem('bnaTabTras');if(t){sessionStorage.removeItem('bnaTabTras');if(t!=='mtiempo'&&t!=='mapa')setTimeout(()=>{try{showTab(t);}catch(e){}},300);}}catch(e){}}
