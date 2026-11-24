@@ -3,7 +3,7 @@
 
   python3 tools/aludes.py   ->  nieve/aludes.json  y  nieve/aludes_info.txt
 
-Usa la clave de AEMET que la app guarda en config/aemet.json (la misma del radar y los rayos).
+Usa la clave de AEMET del secreto AEMET_KEY de GitHub (la app usa la misma, guardada en Firestore claves/app).
   · Boletín de peligro de aludes (nivológica), zona 1 = Pirineo navarro y aragonés.
     AEMET solo lo publica en temporada (más o menos de diciembre a abril/mayo).
   · Predicción de montaña del Pirineo navarro (zona «nav1»), hoy y mañana.
@@ -13,10 +13,8 @@ Los datos van fuera de web/: no cambian la versión de la pantalla.
 """
 import json, os, re, time, datetime, urllib.request, urllib.parse
 
-# 24 nov. 2026: la clave va en los «secretos» de GitHub (AEMET_KEY); el archivo solo por si aún no está el secreto
+# 24 nov. 2026: la clave va SOLO en los «secretos» de GitHub (Settings → Secrets → Actions → AEMET_KEY)
 KEY = os.environ.get("AEMET_KEY", "").strip()
-if not KEY and os.path.exists("config/aemet.json"):
-    KEY = (json.load(open("config/aemet.json")) or {}).get("key", "")
 API = "https://opendata.aemet.es/opendata/api/"
 UA = {"User-Agent": "BasatiNA/1.0 (+https://basatina.es)", "Accept": "application/json"}
 
@@ -63,7 +61,7 @@ def limpia(t):
 out = {"t": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "aludes": "", "montana": []}
 info = []
 if not KEY:
-    info.append("Sin clave de AEMET en config/aemet.json")
+    info.append("Sin clave de AEMET: falta el secreto AEMET_KEY en GitHub")
 else:
     a = limpia(aemet("prediccion/especifica/nivologica/1"))
     out["aludes"] = a
