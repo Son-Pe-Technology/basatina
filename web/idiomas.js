@@ -2234,3 +2234,8 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Juega y aprende sobre Navarra":["Jolastu eta ikasi Nafarroari buruz","Play and learn about Navarre","Joue et apprends sur la Navarre"],"Tu cuenta, tus cosas y ajustes":["Zure kontua, zure gauzak eta ezarpenak","Your account, your things and settings","Ton compte, tes affaires et réglages"],
  "Temporada":["Garaia","Season","Saison"],"Ahora es temporada":["Orain da garaia","In season now","C’est la saison"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
+
+// 📰 «Ahora en Navarra» con titulares de hoy (web/novedades.js, 24 nov. 2026)
+(function(){const T={
+ "Titulares de hoy":["Gaurko izenburuak","Today's headlines","Les titres du jour"],"Noticia":["Albistea","News","Actualité"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();

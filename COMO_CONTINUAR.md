@@ -284,3 +284,10 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 - Drive de Son&Pe: `BasatiNA → Titulares → <tema>` (33 carpetas: campo, lluvia, osasuna, pamplona…).
 - Para pasarlas: bajar las fotos a una carpeta con la misma estructura y `python3 tools/fotos_titulares.py <carpeta>` → recorta 4:3, quita repetidas y escribe `web/tit-*.webp` + `web/titulares-fotos.json` (sueltos: la actualización de la app solo baja archivos sueltos de `web/`).
 - `web/titulares-fotos.js` pone la foto en «Titulares de Navarra» según las palabras del titular (lista `TEMAS` de `tools/fotos_titulares.py`; gana el primer tema que encaje). Sin fotos en el tema → sin foto. Nunca fotos de los medios.
+
+### 🏠 Inicio más limpio (24 nov. 2026, petición de Pedro)
+- **«Ahora en Navarra» = un solo carrusel** (`#rzTk`, `rzDraw`/`hoyLista` en `web/novedades.js`, apartado 5c): ríos + **titulares de hoy** (de `noticias/noticias.json`, sin Sucesos, un medio cada vez, máx. 12; al tocar se abre la noticia) + **lo de hoy** de la agenda (cultura, deporte, mercados, cielo, tu calendario, salud). Van mezclados por turnos (río, titular, agenda…), cada 9 s.
+- El carrusel de abajo (`#anTk`, hoy/mañana/pasado) **ya no se ve**: sigue cargándose escondido porque de `ANT.L` salen las cosas de hoy.
+- **Palabra del día y Refrán del día sin fondo de color** (tarjeta blanca, `web/inicio-centro.js`).
+- **«La semana en Navarra» fuera del Inicio** (`#seHome{display:none}` en `inicio-centro.js`; la pantalla «La semana» sigue existiendo).
+- Icono de **Accesibilidad** en Información legal: ♿ → 🫶 (`LEG` en `web/legal.js`).

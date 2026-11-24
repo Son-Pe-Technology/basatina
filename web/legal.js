@@ -71,7 +71,7 @@
 </ul>
 <p>Si crees que no cumplimos algo de esto, dínoslo: ${mail}.</p>`],
 
-  ['♿','Accesibilidad',()=>`
+  ['🫶','Accesibilidad',()=>`
 <p>Queremos que BasatiNA la pueda usar todo el mundo. Tomamos como referencia las pautas WCAG 2.1 (nivel AA), aunque la app <b>no está certificada</b> y aún nos queda trabajo.</p>
 <p><b>Lo que ya tiene:</b></p>
 <ul>

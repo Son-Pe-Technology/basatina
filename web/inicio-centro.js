@@ -68,21 +68,22 @@ ${S} #anTk .bdg.ok{background:#e6f2e3!important;color:#2e6b2a!important}${S} #an
 ${S} #anTk .anC .icFl{flex:none;color:#1d1d1d;align-self:center}
 /* 3 · palabra y refrán */
 ${S} #ifPar{gap:12px!important;margin:14px 0!important}
-${S} #pdCard{position:relative;overflow:hidden;border-radius:20px!important;min-height:150px;background:linear-gradient(135deg,#3d7031,#24502f)!important;color:#fff!important;border:none!important;box-shadow:0 4px 16px rgba(29,45,35,.14);padding:14px!important;justify-content:space-between}
+/* 24 nov. 2026 (Pedro): palabra y refrán SIN fondo de color: tarjeta blanca como las demás */
+${S} #pdCard{position:relative;overflow:hidden;border-radius:20px!important;min-height:150px;background:#fff!important;color:#1d1d1d!important;border:1px solid rgba(29,45,35,.08)!important;box-shadow:0 4px 16px rgba(29,45,35,.08);padding:14px!important;justify-content:space-between}
 
 ${S} #pdCard>*{position:relative;z-index:1}
-${S} #pdCard .pdK{display:flex!important;align-items:center;gap:8px;color:#fff!important;text-transform:none!important;letter-spacing:0!important;font-size:14.5px!important;font-weight:800!important;line-height:1.2}
-${S} #pdCard .pdK .icS{flex:none;width:30px;height:30px;padding:6px;box-sizing:border-box;border-radius:9px;background:rgba(255,255,255,.18);color:#fff}
-${S} #pdCard .pdP{font-size:19px!important;color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,.6);margin-top:auto}
-${S} #pdCard .pdP b{color:#fff!important;font-size:22px!important}
-${S} #pdCard .pdN{color:#eef5ea!important}${S} #pdCard .pdF{display:none!important}
-${S} #rfCard{position:relative;overflow:hidden;border-radius:20px!important;background:#f1ebfb!important;border:1px solid #e0d4f5!important;box-shadow:0 4px 16px rgba(80,40,120,.10);padding:0!important;min-height:150px}
+${S} #pdCard .pdK{display:flex!important;align-items:center;gap:8px;color:#2e6b2a!important;text-transform:none!important;letter-spacing:0!important;font-size:14.5px!important;font-weight:800!important;line-height:1.2}
+${S} #pdCard .pdK .icS{flex:none;width:30px;height:30px;padding:6px;box-sizing:border-box;border-radius:9px;background:#2e6b2a;color:#fff}
+${S} #pdCard .pdP{font-size:19px!important;color:#1d1d1d!important;text-shadow:none!important;margin-top:auto}
+${S} #pdCard .pdP b{color:#1b5e20!important;font-size:22px!important}
+${S} #pdCard .pdN{color:#5b6660!important}${S} #pdCard .pdF{display:none!important}
+${S} #rfCard{position:relative;overflow:hidden;border-radius:20px!important;background:#fff!important;border:1px solid rgba(29,45,35,.08)!important;box-shadow:0 4px 16px rgba(29,45,35,.08);padding:0!important;min-height:150px}
 ${S} #rfCard .rfX{display:flex!important;flex-direction:column;gap:6px;padding:0 12px}
 ${S} #rfCard .rfK{display:flex!important;align-items:center;gap:7px;margin:0 -12px;padding:10px 12px;min-height:44px;box-sizing:border-box;color:#5b1f8a!important;text-transform:none!important;letter-spacing:0!important;font-size:14.5px!important;font-weight:900!important;
-  background:#e9ddf8}
+  background:transparent}
 ${S} #rfCard .rfK .icS{flex:none;width:28px;height:28px;padding:5px;box-sizing:border-box;border-radius:8px;background:#6a2fa3;color:#fff}
-${S} #rfCard .rfT{font-style:italic;font-size:15px!important;line-height:1.3!important;color:#2a1740!important;-webkit-line-clamp:4!important}
-${S} #rfCard .rfM{color:#6a4a8c!important}
+${S} #rfCard .rfT{font-style:italic;font-size:15px!important;line-height:1.3!important;color:#1d1d1d!important;-webkit-line-clamp:4!important}
+${S} #rfCard .rfM{color:#5b6660!important}
 ${S} #rfCard .rfB{margin:6px 12px 12px!important;align-self:flex-start;border:1.5px solid #6a2fa3!important;color:#5b1f8a!important;background:#fff!important;border-radius:999px!important;padding:6px 14px!important;font-weight:800!important;font-size:13.5px!important}
 /* 4 · noticia curiosa */
 ${S} #cuCard{align-items:center!important;gap:12px!important;padding:10px 12px!important;border-radius:20px!important;background:#fdf1e6!important;border:1px solid #f5d9bf!important;box-shadow:0 4px 16px rgba(120,60,10,.08);margin:12px 0!important}
@@ -92,7 +93,8 @@ ${S} #cuCard .cuK .icS{flex:none;color:#d84315}
 ${S} #cuCard .cuT{font-size:15.5px!important;font-weight:800!important;color:#1d1d1d}
 ${S} #cuCard .cuM{font-size:12.5px!important;color:#7a6a5f!important}
 ${S} #cuCard .cuO{border:1.5px solid #e65100!important;color:#d84315!important;background:#fff!important;border-radius:999px!important;padding:6px 12px!important;font-weight:800!important;font-size:13.5px!important}
-/* 5 · la semana */
+/* 5 · la semana · 24 nov. 2026 (Pedro): fuera del Inicio */
+${S} #seHome{display:none!important}
 ${S} #seHome>b{font-size:17px!important;font-weight:900!important;margin:16px 4px 8px!important}
 body.bna.ifIni #seBody{gap:12px!important}
 body.bna.ifIni #seBody>.card.seF{padding:12px 10px 10px!important;border-radius:20px!important;border:1px solid rgba(29,45,35,.06)!important;box-shadow:0 4px 16px rgba(29,45,35,.08)!important;display:flex;flex-direction:column;gap:10px}
@@ -107,7 +109,8 @@ body.bna.ifIni #seBody .seV b{display:block;font-size:17px;font-weight:900;line-
 document.head.appendChild(st);
 
 /* 1 · río: olas delante del título */
-function rio(){const w=document.querySelector('#rzTk .anW');if(w&&!w.querySelector('.icS'))w.insertAdjacentHTML('afterbegin',ic('ola',20));}
+function rio(){const w=document.querySelector('#rzTk .anC.hoyR .anW');   // solo en las tarjetas de río (no en titulares ni agenda)
+  if(w&&!w.querySelector('.icS'))w.insertAdjacentHTML('afterbegin',ic('ola',20));}
 /* 2 · agenda: foto según la etiqueta, calendario delante de la fecha y flecha a la derecha */
 function agenda(){const c=document.querySelector('#anTk .anC');if(!c)return;const e=c.querySelector('.anE'),bd=c.querySelector('.bdg'),t=bd?bd.textContent.trim():'';
   const f=F.ag[t]||(Object.keys(F.ag).find(k=>T(k)===t)&&F.ag[Object.keys(F.ag).find(k=>T(k)===t)]);
