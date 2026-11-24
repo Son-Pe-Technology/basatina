@@ -20,6 +20,7 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 | `web/*.js` (rios, pesca, caza, monte, sismo, pueblos, energia, viaje, agenda) | Datos generados por GitHub Actions. No editar a mano |
 | `web/eu.js` | Motor de traducción + diccionario de euskera |
 | `web/idiomas.js` | Diccionarios nuevos: euskera (textos nuevos), inglés y francés. Clave = texto exacto en castellano |
+| `web/atras.js` | Botón «atrás» del móvil (24 nov. 2026): `basatinaAtras()` cierra ventanas, menú y fichas o vuelve a la pantalla anterior; lo llama `MainActivity.atras()` (APK 36+) |
 | `web/novedades.js` | Cambios del 13 nov. 2026 (ver abajo). Se carga el último |
 | `tools/*.py` | Scripts que descargan datos (los ejecuta GitHub Actions, que sí tiene internet) |
 | `.github/workflows/*.yml` | Tareas automáticas: `build.yml` compila la APK; el resto actualiza datos |
