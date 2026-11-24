@@ -61,7 +61,7 @@ async function pinta(fresh){if(!sitio())return;const PD=await jsLoad(PUB_PATH,PU
   pub.innerHTML=`<b>📰 Noticias de BasatiNA</b>`+P.map(x=>`<div class="iaN" data-id="${X(x.id)}"><div class="iaM">${X([x.pueblo,x.cat].filter(Boolean).join(' · '))}${x.pub?' · '+X(cuando(x.pub)):''}</div>
     <div class="iaT">${X(x.titulo)}</div><div class="iaX">${X(x.texto)}</div>
     <div class="iaS">Según ${(x.fuentes||[]).filter((f,i,a)=>a.findIndex(y=>y.f===f.f)===i).map(f=>`<a data-u="${X(f.u)}">${X(f.f)}</a>`).join(', ')}</div>
-    ${adminOk()?`<div class="iaBt tech"><span class="iaM" style="flex:1 1 auto;align-self:center">${x.auto?'🤖 Publicada sola por la IA':'✋ Publicada a mano'}</span><button class="btn" data-ret="${X(x.id)}">↩️ Retirar</button></div>`:''}</div>`).join('')+
+    ${adminOk()?`<div class="iaBt tech"><span class="iaM" style="flex:1 1 auto;align-self:center">${x.auto?'🤖 Publicada sola por la IA':'✋ Publicada a mano'}</span><button class="btn" data-cor="${X(x.id)}">✏️ Corregir</button><button class="btn" data-ret="${X(x.id)}">↩️ Retirar</button></div>`:''}</div>`).join('')+
     `<div class="iaPie">Redactadas por BasatiNA con ayuda de IA a partir de lo que cuentan al menos dos medios. Las de sucesos se revisan siempre a mano. La noticia completa está en cada medio.</div>`;
   pub.querySelectorAll('.iaX').forEach(e=>e.onclick=()=>e.closest('.iaN').classList.toggle('abierta'));
   // ↩️ Retirar (solo Administrador): la quita de lo público y la marca como «retirada» en los borradores
@@ -72,6 +72,20 @@ async function pinta(fresh){if(!sitio())return;const PD=await jsLoad(PUB_PATH,PU
       toast('↩️ Retirada');pinta(true);}
     catch(e){b.disabled=false;toast('❌ '+e.message);}});
   pub.querySelectorAll('a[data-u]').forEach(a=>a.onclick=()=>abre(a.dataset.u));
+  // ✏️ Corregir (24 nov. 2026, Pedro): cambiar titular y texto de una noticia ya publicada (erratas, datos…)
+  pub.querySelectorAll('button[data-cor]').forEach(b=>b.onclick=()=>{const id=b.dataset.cor,n=b.closest('.iaN'),x=P.find(y=>y.id===id);if(!x||n.querySelector('.iaEd'))return;
+    n.classList.add('abierta');const ed=document.createElement('div');ed.className='iaEd';
+    ed.innerHTML=`<input class="iaIt" value="${X(x.titulo)}" aria-label="Titular" style="width:100%;box-sizing:border-box;margin-top:8px">
+      <textarea class="iaIx" aria-label="Texto" style="width:100%;box-sizing:border-box;min-height:140px;margin-top:6px">${X(x.texto)}</textarea>
+      <div class="iaBt"><button class="btn pri" data-g="1">💾 Guardar</button><button class="btn" data-c="1">Cancelar</button></div><div class="iaM" data-m="1"></div>`;
+    n.querySelector('.iaT').style.display='none';n.querySelector('.iaX').style.display='none';b.closest('.iaBt').before(ed);
+    ed.querySelector('[data-c]').onclick=()=>pinta(false);
+    ed.querySelector('[data-g]').onclick=async e=>{const t=ed.querySelector('.iaIt').value.trim(),tx=ed.querySelector('.iaIx').value.trim(),m=ed.querySelector('[data-m]');
+      if(!t||!tx)return m.textContent='El titular y el texto no pueden quedar vacíos.';e.target.disabled=true;m.textContent='Guardando…';
+      try{await jsEdit(PUB_PATH,PUB_DEF,d=>{const it=(d.items||[]).find(y=>y.id===id);if(!it)throw new Error('ya no está publicada');it.titulo=t;it.texto=tx;it.corregida=new Date().toISOString().slice(0,16)+'Z';},'Noticia corregida a mano');
+        try{await brEdit(d=>{const it=(d.items||[]).find(y=>y.id===id);if(it){it.titulo=t;it.texto=tx;}},'Noticia corregida a mano');}catch(x){}
+        toast('✏️ Noticia corregida');pinta(true);}
+      catch(x){e.target.disabled=false;m.textContent='❌ '+x.message;}};});
   // administrador
   const adm=$('iaAdm');if(!adm)return;
   if(!(typeof TECH!=='undefined'&&TECH)||!ghTok()){adm.innerHTML='<b>🤖 Borradores de la IA</b><div class="note">Hace falta la llave de GitHub en este móvil.</div>';return;}
@@ -114,8 +128,19 @@ async function hoy(){const H=$('bnaHome');if(!H)return;const now=H.querySelector
   if(!c){c=document.createElement('article');c.id='iaHoy';}
   if(now.firstElementChild!==c)now.prepend(c);
   const h=`<div class="iaHk"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></g></svg><span>Navarra hoy</span></div>
-    <div class="iaHt">${X(HOY.titulo)}</div><ul>${HOY.lineas.map(l=>`<li>${X(l)}</li>`).join('')}</ul><div class="iaPie">Resumen hecho por BasatiNA con ayuda de IA, con datos de Open‑Meteo, la agenda y los titulares de los medios.</div>`;
-  if(c.dataset.h!==h){c.innerHTML=h;c.dataset.h=h;}}
+    <div class="iaHt">${X(HOY.titulo)}</div><ul>${HOY.lineas.map(l=>`<li>${X(l)}</li>`).join('')}</ul><div class="iaPie">Resumen hecho por BasatiNA con ayuda de IA, con datos de Open‑Meteo, la agenda y los titulares de los medios.</div>${adminOk()?'<div class="iaBt"><button class="btn" id="iaHoyCor">✏️ Corregir</button></div>':''}`;
+  if(c.dataset.h!==h){c.innerHTML=h;c.dataset.h=h;
+    const cb=$('iaHoyCor');if(cb)cb.onclick=()=>{   // ✏️ corregir «Navarra hoy» (24 nov. 2026): una línea por renglón
+      c.querySelector('ul').outerHTML=`<div class="iaEd"><input id="iaHoyT" value="${X(HOY.titulo)}" aria-label="Titular" style="width:100%;box-sizing:border-box;margin-top:4px">
+        <textarea id="iaHoyL" aria-label="Líneas" style="width:100%;box-sizing:border-box;min-height:160px;margin-top:6px">${X(HOY.lineas.join('\n'))}</textarea>
+        <div class="iaPie">Una línea por renglón.</div><div class="iaBt"><button class="btn pri" id="iaHoyG">💾 Guardar</button><button class="btn" id="iaHoyC">Cancelar</button></div><div class="iaPie" id="iaHoyM"></div></div>`;
+      c.querySelector('.iaHt').style.display='none';cb.style.display='none';
+      $('iaHoyC').onclick=()=>{c.dataset.h='';hoy();};
+      $('iaHoyG').onclick=async()=>{const t=$('iaHoyT').value.trim(),L=$('iaHoyL').value.split('\n').map(x=>x.trim()).filter(Boolean);
+        if(!t||!L.length)return $('iaHoyM').textContent='No puede quedar vacío.';$('iaHoyG').disabled=true;$('iaHoyM').textContent='Guardando…';
+        try{await jsEdit(HOY_PATH,{},d=>{d.titulo=t;d.lineas=L.slice(0,8);d.corregido=new Date().toISOString().slice(0,16)+'Z';},'Navarra hoy corregido a mano');
+          HOY=Object.assign({},HOY,{titulo:t,lineas:L.slice(0,8)});c.dataset.h='';toast('✏️ «Navarra hoy» corregido');hoy();}
+        catch(x){$('iaHoyG').disabled=false;$('iaHoyM').textContent='❌ '+x.message;}};};}}
 const H=$('bnaHome');if(H)new MutationObserver(()=>{if(!$('iaHoy')||!H.querySelector('.bnaNow')||H.querySelector('.bnaNow').firstElementChild!==$('iaHoy'))hoy();}).observe(H,{childList:true,subtree:true});
 setTimeout(hoy,1200);setInterval(()=>{if(!document.hidden)hoy();},30*60e3);
 })();
