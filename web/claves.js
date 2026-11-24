@@ -7,8 +7,8 @@
      que ha entrado en Firebase (todos lo hacen solos, como «colaborador anónimo») y solo lo pueden
      cambiar los administradores (firestore.rules).
    - Guardar una clave desde el modo Administrador (los botones de siempre) la guarda en Firestore, no en GitHub.
-   - Mudanza: la primera vez que Pedro o Sonia abren la app con su cuenta, las claves que aún estén en
-     config/*.json se copian solas a Firestore. Después se borran del repositorio.
+   - Mudanza hecha el 24 nov. 2026: claves copiadas a Firestore, renovadas en cada servicio y config/*.json
+     borrados del repositorio (las viejas, que siguen en el historial de GitHub, ya no valen).
    - Los robots de GitHub (tools/aludes.py) usan la clave de AEMET de los «secretos» de GitHub (AEMET_KEY).
    OJO: una clave que usa el móvil nunca es secreta del todo (quien sepa puede sacarla de la app). Por eso
    conviene además limitar cada clave en la web de su servicio cuando se pueda.
@@ -21,9 +21,8 @@ let CL=null,CL_P=null;
 // lee claves/app una vez por sesión
 function clLoad(forzar){if(CL&&!forzar)return Promise.resolve(CL);if(CL_P&&!forzar)return CL_P;
   CL_P=(async()=>{try{const t=await C.cmTok();CL=C.decD(await C.fs('/claves/app',{},t.it));}catch(e){if(!CL)CL={};}CL_P=null;return CL;})();return CL_P;}
-// la de antes, por si Firestore no tiene aún la clave (hasta que se borren los archivos)
-async function viejo(n){try{const r=await fetch(GH_RAW+'config/'+n+'.json?t='+Math.floor(Date.now()/600000));if(r.ok)return ((await r.json()).key||'').trim();}catch(e){}return '';}
-async function clave(n){const d=await clLoad();let v=(d[n]||'').trim();if(!v)v=await viejo(n);return v;}
+// 24 nov. 2026: claves renovadas y config/*.json borrados de GitHub → ya solo se leen de Firestore
+async function clave(n){const d=await clLoad();return (d[n]||'').trim();}
 
 // keyGet y ttLoadKey (index.html) leen ahora de aquí
 try{keyGet=async function(n){if(KEYS[n])return KEYS[n];KEYS[n]=await clave(n);return KEYS[n];};}catch(e){}
@@ -36,16 +35,6 @@ try{const _gp=ghPut;ghPut=async function(path,b64,msg,sha){const m=/^config\/([a
       try{await clGuarda(m[1],v);return {ok:true};}catch(e){throw new Error('no se pudo guardar en la base de datos ('+e.message+'). ¿Has entrado con tu cuenta de administración y están publicadas las reglas?');}}
     return _gp.apply(this,arguments);};}catch(e){}
 
-// mudanza: Pedro o Sonia copian a Firestore las claves que siguen en GitHub
-let MUDADO=false;
-async function mudanza(){if(MUDADO||!(window.bnSuper&&window.bnSuper()))return;MUDADO=true;
-  try{const d=await clLoad(true),nuevo={};
-    for(const n of CL_N){if(!(d[n]||'').trim()){const v=await viejo(n);if(v)nuevo[n]=v;}}
-    if(Object.keys(nuevo).length){const t=await C.cmTok();await C.fsPatch('claves','app',nuevo,t.it);await clLoad(true);
-      toast('🔑 Claves de servicios copiadas a la base de datos ('+Object.keys(nuevo).length+')');}}
-  catch(e){MUDADO=false;console.log('mudanza claves',e);}}
-setTimeout(mudanza,4000);
-const _s=showTab;showTab=function(){_s.apply(this,arguments);setTimeout(mudanza,1500);};
 // para el Panel de administración (superadmin.js): estado de cada clave y guardar/borrar
 window.bnClaves={lista:CL_N,
   estado:async()=>{const d=await clLoad(true);return Object.fromEntries(CL_N.map(n=>[n,!!(d[n]||'').trim()]));},
