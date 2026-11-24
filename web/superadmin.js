@@ -113,7 +113,7 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
      ${P.err&&P.err.length?`<div class="note" style="margin-top:6px">⚠️ No se ha podido mirar todo (${X(P.err.join('; '))}). ¿Están publicadas las reglas nuevas de Firestore?</div>`:''}
      ${P.ia==null?'<div class="note" style="margin-top:6px">Para ver las noticias de la IA hace falta la llave de GitHub (abajo).</div>':''}</div>
    <div class="card"><b>🛠️ Herramientas</b><div class="sadHerr">
-     <button data-ir="ajustes">⚙️ Ajustes y avisos</button><button data-ir="cuenta">👤 Mi cuenta</button><button data-ir="creditos">📚 Fuentes y créditos</button>
+     <button data-ir="noticias">📰 Corregir noticias</button><button data-ir="ajustes">⚙️ Ajustes y avisos</button><button data-ir="cuenta">👤 Mi cuenta</button><button data-ir="creditos">📚 Fuentes y créditos</button>
      ${herr.map((b,i)=>`<button data-hx="${i}">${X(b.textContent.trim())}</button>`).join('')}</div></div>
    <div class="card" id="sadIA"><b>🤖 Gasto de la IA</b><div class="note">Cargando…</div></div>
    <div class="card" id="sadKeys"><b>🔐 Claves de servicios</b><div class="note">Cargando…</div></div>
