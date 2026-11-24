@@ -2244,3 +2244,13 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Día de calor: bebe agua y busca la sombra":["Bero eguna: edan ura eta bilatu itzala","Hot day: drink water and find shade","Journée chaude : bois de l’eau et cherche l’ombre"],"Jornada tranquila, no se esperan grandes cambios":["Egun lasaia, ez da aldaketa handirik espero","A calm day, no big changes expected","Journée calme, pas de grands changements"],
  "Hoy sube la temperatura":["Gaur tenperatura igo egingo da","Temperatures rise today","Les températures montent aujourd’hui"],"Hoy baja la temperatura":["Gaur tenperatura jaitsi egingo da","Temperatures drop today","Les températures baissent aujourd’hui"],"Día sin sobresaltos":["Ezustekorik gabeko eguna","An uneventful day","Journée sans surprise"],"Noticia":["Albistea","News","Actualité"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
+
+// ⭐ Accesos rápidos del menú (web/menu6.js, 24 nov. 2026)
+(function(){const T={
+ "Lo que más usas":["Gehien erabiltzen duzuna","Most used","Le plus utilisé"],"Tus accesos":["Zure lasterbideak","Your shortcuts","Tes raccourcis"],
+ "Accesos rápidos del menú":["Menuko lasterbideak","Menu shortcuts","Raccourcis du menu"],"Los que más uso":["Gehien erabiltzen ditudanak","The ones I use most","Les plus utilisés"],"Elegirlos yo":["Nik aukeratu","Choose them myself","Les choisir moi-même"],
+ "Toca para poner o quitar. Caben 4: el orden es el orden en que los tocas.":["Ukitu jartzeko edo kentzeko. 4 sartzen dira: ukitzen dituzun ordenan.","Tap to add or remove. Up to 4, in the order you tap them.","Touche pour ajouter ou retirer. 4 maximum, dans l’ordre où tu les touches."],
+ "Los 4 círculos de arriba del menú se ponen solos con las pantallas que más abres.":["Menuko goiko 4 zirkuluak gehien irekitzen dituzun pantailekin jartzen dira berez.","The 4 circles at the top of the menu fill in by themselves with the screens you open most.","Les 4 cercles en haut du menu se remplissent tout seuls avec les écrans que tu ouvres le plus."],
+ "Cerca":["Hurbil","Nearby","À côté"],"Ríos":["Ibaiak","Rivers","Rivières"],"Carreteras":["Errepideak","Roads","Routes"],"Gasolina":["Gasolina","Fuel","Carburant"],"Transporte":["Garraioa","Transport","Transports"],
+ "Salir":["Irten","Go out","Sortir"],"Comer":["Jan","Eat","Manger"],"Compras":["Erosketak","Shopping","Courses"],"Terremotos":["Lurrikarak","Earthquakes","Séismes"],"Agenda":["Agenda","What's on","Agenda"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();

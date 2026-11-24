@@ -291,3 +291,9 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 - **Palabra del día y Refrán del día sin fondo de color** (tarjeta blanca, `web/inicio-centro.js`).
 - **«La semana en Navarra» fuera del Inicio** (`#seHome{display:none}` en `inicio-centro.js`; la pantalla «La semana» sigue existiendo).
 - Icono de **Accesibilidad** en Información legal: ♿ → 🫶 (`LEG` en `web/legal.js`).
+
+## ⭐ Accesos rápidos del menú (24 nov. 2026)
+- En web/menu6.js (bloque «Accesos rápidos del menú»): 4 círculos debajo del buscador del menú.
+- Por defecto, las 4 pantallas que más abre cada persona (contador en el móvil, localStorage `bnaUso`; las pestañas de una familia suman a su cabeza, p. ej. Radar → El tiempo). Sin uso: El tiempo, Ríos, Carreteras, Gasolina (ACC_DEF).
+- En 👤 Lo mío › «Accesos rápidos del menú»: «Los que más uso» o «Elegirlos yo» (localStorage `bnaAcc`, máx. 4; si eliges un 5.º sale el 1.º).
+- Para añadir una pantalla elegible: ponla en ACC_CORTO con su nombre corto.
