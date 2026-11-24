@@ -1,5 +1,5 @@
 {
- "t": "2026-11-24T09:53Z",
+ "t": "2026-11-24T16:41Z",
  "aludes": "Agencia Estatal de Meteorología\n\nInformación nivológica para el Pirineo navarro y aragonés\n\nElaborado el día 4 de mayo de 2026\n\nA fecha 4 de mayo se da por finalizada la campaña de predicción\nde peligro de aludes en el Pirineo navarro y aragonés. No\nobstante, si las condiciones meteorológicas así lo requirieran,\nse emitiría una predicción especial. Se recuerda que, siempre\nque haya nieve, la ausencia total de peligro no existe. Hay que\ntener presente que, en circunstancias desfavorables, con aludes\nde tamaño 1 (alud pequeño o colada) y tamaño 2 (alud mediano) se\npueden sufrir severos daños personales.",
  "montana": [
   {
@@ -8,7 +8,7 @@
   },
   {
    "dia": 1,
-   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nPredicción de montaña\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nEstado del cielo\nPredominio de muy nuboso o cubierto, con nubosidad media, baja y de evolución diurna y visibilidad localmente reducida.\nPrecipitaciones\nDébiles o localmente moderadas, que podrían ser persistentes en la segunda mitad del día y a veces como chubascos. Cota de nieve en torno a 1200-1400 metros.\nTormentas\nNo se esperan.\nTemperaturas\nEn descenso. Heladas débiles, moderadas en cotas altas.\nViento\nFuerte de componente oeste, con probabilidad de rachas muy fuertes en cotas altas.\nPredicción"
+   "txt": "Agencia Estatal de Meteorología - AEMET - Gobierno de España\nPredicción de montaña\n© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.\nEstado del cielo\nMuy nuboso o cubierto, con nubosidad media, baja y de evolución diurna y visibilidad localmente reducida.\nPrecipitaciones\nDébiles o moderadas persistentes, más intensas por la tarde y en forma de nieve por encima de 1100-1300 metros.\nTormentas\nNo se descarta alguna tormenta ocasional.\nTemperaturas\nEn descenso. Heladas débiles generalizadas, moderadas en cotas altas.\nViento\nFuerte de componente oeste, con rachas muy fuertes en cotas altas y zonas expuestas.\nAltitud de la isoterma de 0 ºC en la atmósfera libre\n1400 m\nAltitud de la isoterma de -10 ºC en la atmósfera libre\n3100 m\nViento en atmósfera libre a 1500 metros\nW 50 km/h\nViento en atmósfera libre a 3000 metros\nNW 70 km/h\n-2\nRoncesvalles\n940 m\n-1\n-2\nIsaba\n820 m\n-4\n-13\n-2\n-11\nPico Ori\n2021 m\n-7\n-17\n-4\n-15\nMesa de los Tres Reyes\n2428 m\nPredicción"
   }
  ]
 }
