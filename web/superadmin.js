@@ -42,8 +42,8 @@ async function sync(){const s=yo();
       if(!ghTok()){try{const d=C.decD(await C.fs('/admin/llaves',{},t.it));if(d.gh&&/^(github_pat_|ghp_)/.test(d.gh)){localStorage.setItem('ghTok',d.gh);if(!localStorage.getItem('edName'))localStorage.setItem('edName',s.nombre);toast('🔑 Llave de GitHub traída de la nube');}}catch(e){}}
     }catch(e){console.log('superadmin',e);}
     pendientes();
-  }else if(ss.get('techSuper')==='1'){
-    // ha salido de la cuenta: se cierra lo que se abrió por ella
+  }else if(TECH||ss.get('techSuper')==='1'){
+    // sin cuenta de súper administrador no hay modo administrador (desde el 24 nov. 2026 ya no hay PIN)
     TECH=false;ss.set('tech',null);ss.set('techSuper',null);
     try{const ad=JSON.parse(ss.get('cmAdm')||'null');if(ad&&SA_MAILS[ad.email])ss.set('cmAdm',null);}catch(e){}
     try{techApply();}catch(e){}AVISADO=false;PEND=null;pinta();
@@ -118,12 +118,10 @@ async function panel(){const el=$('saBody');if(!el)return;const s=yo();
    <div class="card"><b>🔑 Llave de GitHub</b><div class="note" style="margin-top:4px;line-height:1.5">${ghTok()?'✅ Este móvil tiene la llave.':'❌ Este móvil no tiene la llave.'} Sirve para editar contenidos, la agenda, las fotos y las noticias de la IA.
      Si la guardáis en la nube, vuestros otros móviles la cogen solos al entrar con vuestra cuenta. Solo la podéis leer Sonia y tú.</div>
      <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px">${ghTok()?'<button class="btn pri" id="saGu">☁️ Guardar en la nube</button>':''}<button class="btn" id="saQu">🗑️ Quitar de la nube</button>${ghTok()?'':'<button class="btn" id="saPeg">📋 Pegar llave</button>'}</div><div class="note" id="saKm"></div></div>
-   <div class="card"><div class="note" style="line-height:1.5">El modo Administrador se cierra solo si sales de tu cuenta. El PIN sigue sirviendo en móviles sin vuestra cuenta.</div>
-     <div class="row" style="margin-top:8px"><button class="btn" id="saCambiaPin">🔑 Cambiar PIN</button></div></div>`;
+   <div class="card"><div class="note" style="line-height:1.5">El modo Administrador solo se abre con vuestras cuentas y se cierra solo si sales de la cuenta. Ya no hay PIN.</div></div>`;
   el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;v==='mod'?abrirMod():v==='ia'?abrirIA():showTab(v);});
   el.querySelectorAll('[data-hx]').forEach(b=>b.onclick=()=>{const h=herr[+b.dataset.hx];if(h)h.click();try{menu(false);}catch(e){}});
   $('saRf').onclick=async()=>{$('saRf').disabled=true;await pendientes(true);panel();};
-  if($('saCambiaPin'))$('saCambiaPin').onclick=()=>{const p=$('dPin');if(p)p.click();};
   const km=t=>{$('saKm').textContent=t;};
   if($('saGu'))$('saGu').onclick=async()=>{km('Guardando…');try{const t=await C.cmTok();await C.fsPatch('admin','llaves',{gh:ghTok(),quien:s.nombre,cuando:new Date().toISOString()},t.it);km('✅ Guardada en la nube. Vuestros otros móviles la cogerán al entrar.');}catch(e){km('❌ No se pudo guardar ('+e.message+'). ¿Están publicadas las reglas nuevas?');}};
   $('saQu').onclick=async()=>{if(!confirm('¿Quitar la llave de la nube? Los móviles que ya la tienen la siguen teniendo.'))return;km('Quitando…');try{const t=await C.cmTok();await C.fsDel('admin','llaves',t.it);km('🗑️ Quitada de la nube.');}catch(e){km('❌ '+e.message);}};
@@ -139,6 +137,13 @@ function boton(){const sub=document.querySelector('#dgApp + .dsub');if(!sub||$('
   b.innerHTML='⭐ Panel de administración<span class="saN" style="display:none">0</span>';
   b.onclick=()=>{showTab('superadm');try{menu(false);}catch(e){}};sub.prepend(b);}
 boton();
+
+/* ---------- adiós al PIN (24 nov. 2026, lo pidió Pedro) ----------
+   Tocar 5 veces el logo ya no pide PIN: a Pedro y Sonia les abre el panel; a los demás no les hace nada.
+   Si un móvil tenía abierto el modo administrador con el PIN antiguo, se cierra al arrancar. */
+try{pinOpen=function(){if(yo()){showTab('superadm');try{menu(false);}catch(e){}}};}catch(e){}
+{const d=$('dPin');if(d)d.remove();}
+if(TECH&&!yo()){TECH=false;ss.set('tech',null);ss.set('techSuper',null);try{techApply();}catch(e){}}
 
 /* ---------- cuándo mirar ---------- */
 // al abrir, al cambiar de pantalla (entrar/salir de la cuenta pasa en «Mi cuenta»), al volver a la app y cada 2 min
