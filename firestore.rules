@@ -5,10 +5,15 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // ---------- ayudas ----------
+    // administradores: la cuenta compartida de administración y, desde el 24 nov. 2026, las cuentas
+    // de Pedro y Sonia (súper administradores, con el correo confirmado). Mismos correos que SA_MAILS en web/superadmin.js.
+    // Lo que solo leen ellos (p. ej. admin/llaves, la llave de GitHub) queda protegido por la regla «pueden todo».
     function esAdmin() {
       return request.auth != null
         && request.auth.token.firebase.sign_in_provider == 'password'
-        && request.auth.token.email == 'administracion@sonpe-technology.es';
+        && (request.auth.token.email == 'administracion@sonpe-technology.es'
+            || (request.auth.token.email in ['pedro@sonpe-technology.es', 'sonia@sonpe-technology.es']
+                && request.auth.token.email_verified == true));
     }
     // cada móvil entra como usuario anónimo (su uid es el «código de colaborador»)
     // o con su cuenta de correo y contraseña (nov. 2026)
