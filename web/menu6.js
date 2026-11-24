@@ -75,6 +75,13 @@ body.bna #bnaDGrid>.dgroup.m6G{grid-column:1/-1;min-height:58px}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]{min-height:150px;background:url('foto-menu-hoy.webp') right center/cover no-repeat,#8aa1c4 !important;border-color:transparent !important}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]>span{color:#fff !important;font-size:20px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.55)}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]>i{color:#fff !important;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+/* fotos de otros grupos (24 nov. 2026, fotos de Pedro): oscurecidas a la izquierda para que se lea el nombre */
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft{min-height:140px;border-color:transparent !important;background-size:cover !important;background-position:center !important;background-repeat:no-repeat !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Localidades"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-loc.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Tiempo y ríos"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-rios.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Naturaleza y salidas"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-nat.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span{color:#fff !important;font-size:20px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft>i{color:#fff !important;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 body.bna #bnaDGrid>.dgroup.m6Solo>i{visibility:hidden}
 /* 24 nov. 2026: foto arriba del menú (la misma del Inicio, cambia con la estación) */
 /* igual que la cabecera del Inicio: velo blanco arriba, foto limpia abajo y sin los picos de montes */
@@ -156,6 +163,7 @@ function coloca(){let nuevos=false;
     grid.insertAdjacentHTML('afterbegin',M6_GRUPOS.map(([k,f])=>grupoHTML(k,f)).join(''));
     // Localidades suelta en el menú (24 nov. 2026, Pedro): va directa, sin desplegable
     grid.querySelector('.dsub[data-m6s="Hoy"]').insertAdjacentHTML('afterend','<div class="dgroup m6G m6Solo" data-m6="Localidades"><span data-k="Localidades">Localidades</span><i>▸</i></div>');
+    ['Localidades','Tiempo y ríos','Naturaleza y salidas'].forEach(k=>{const g=grid.querySelector(`.dgroup.m6G[data-m6="${k}"]`);if(g)g.classList.add('m6Ft');});
     iconos();
     { const l=grid.querySelector('.m6Solo');l.onclick=e=>{e.stopPropagation();showTab('pueblos');try{menu(false);}catch(x){}};}
     // foto de arriba del menú
