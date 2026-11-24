@@ -1,6 +1,63 @@
 {
  "items": [
   {
+   "id": "0450774090dd",
+   "pub": "2026-11-24T09:51Z",
+   "titulo": "Iruña Rock completa su cartel 2027 con cinco bandas nuevas",
+   "texto": "El festival de Pamplona ha anunciado cinco grupos adicionales para su próxima edición: Non Servium, La Mala Pékora, Raimundo el Canastero, Arpaviejas y Askazi. La cita se celebrará el 28 y 29 de mayo en la Ciudadela con un total de 15 formaciones que abarcan distintas generaciones y estilos. Se suman a los ya confirmados: Segismundo Toxicómano, Jarfaiter, Sons of Aguirre y Scila, Josetxu Piperrak, Kaos Etíliko, Nafarroa 1512, Hell Beer Boys, Against You, Maruja Limón y The Capaces. Los abonos de dos jornadas se comercializan a 55 euros.",
+   "pueblo": "Pamplona",
+   "cat": "Cultura",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/cultura-ocio/cultura/2026/11/23/iruna-rock-suma-cinco-grupos-completa-programacion-mayo-2027-843455-104.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/iruna-rock-cierra-su-cartel-con-cinco-bandas-mas-para-su-cita-de-mayo-en-la-ciudadela/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "51f1b6d77f09",
+   "pub": "2026-11-24T09:51Z",
+   "titulo": "Detenido tras intentar robar en un bar y huir con patinete",
+   "texto": "La Policía Municipal de Pamplona detuvo el fin de semana a un varón presuntamente responsable de dos delitos. Intentó sustraer la caja registradora de un bar del Casco Viejo mediante la fuerza, enfrentándose con una trabajadora, pero no logró llevársela. Los responsables del local facilitaron a los agentes datos sobre el sospechoso. Horas después, en San Juan, reportaron que alguien había abandonado un patinete eléctrico en el suelo y se había marchado. Los policías identificaron al mismo individuo por su descripción y lo arrestaron por ambas acciones.",
+   "pueblo": "Pamplona",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/23/intenta-llevarse-caja-registradora-bar-pamplona-e-intenta-huir-patinete-robado-843490-16.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/detenido-un-joven-de-27-anos-por-intentar-robar-la-caja-de-un-bar-del-casco-viejo-y-hurtar-un-patinete/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "e5d8076a15b8",
+   "pub": "2026-11-24T09:51Z",
+   "titulo": "Pamplona inicia reparaciones en el Parque de las Pioneras con inversión de 122.422 euros",
+   "texto": "El Ayuntamiento comienza este lunes los trabajos de recuperación del Parque de las Pioneras en Lezkairu, que se prolongarán durante aproximadamente un mes. La empresa Lacunza Hnos. subsanará defectos detectados en pavimentos, sistemas de riego y elementos de jardinería tras una década de uso desde la finalización del proyecto en 2014. La inversión alcanza 122.422,61 euros e incluye reparación de losas, sellado de juntas y rehabilitación de bordillos. Además, en diciembre se replantarán 75 arces en la pradera central con un presupuesto de 37.852,99 euros a cargo de Eulen. El contrato exige subcontratación con empresas sociales y uso de hormigón reciclado.",
+   "pueblo": "Pamplona",
+   "cat": "Navarra",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-lezkairu-santa-maria-la-real/comienzan-las-obras-de-reparacion-del-parque-de-las-pioneras-de-lezkairu-con-un-presupuesto-de-122423-euros/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/este-lunes-comienzan-las-obras-de-reparacion-del-parque-de-las-pioneras-en"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "9a576de9f2f8",
    "pub": "2026-11-24T09:30Z",
    "titulo": "Rafael Moneo presenta el proyecto de Casa de Cultura en el Cuartel de Sementales",
@@ -215,5 +272,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-24T09:30Z"
+ "t": "2026-11-24T09:51Z"
 }
