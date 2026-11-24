@@ -36,7 +36,7 @@ const IF_CRED=[
  ['Cabecera de verano: Nacedero del Urederra','Pedro Iglesias Goñi','foto propia',''],
  ['El tiempo: gotas de lluvia en el cristal','Amplio Espectro','foto cedida',''],
  ['Ríos: río entre árboles','Pedro Iglesias Goñi','foto propia',''],
- ['Carreteras: carretera bajo un cielo aborregado','Pedro Iglesias Goñi','foto propia',''],
+ ['Carreteras: carretera con niebla en el bosque','Pedro Iglesias Goñi','foto propia',''],
  ['Cerca de mí: Monumento a los Fueros, Pamplona','Pedro Iglesias Goñi','foto propia',''],
  ['NA a Pie: camino en el bosque','Pedro Iglesias Goñi','foto propia',''],
  ['Deporte: estadio de El Sadar','Pedro Iglesias Goñi','foto propia',''],
