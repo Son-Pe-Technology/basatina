@@ -71,12 +71,9 @@ section.rwOnly>div.m6Tabs.m6Tabs.m6Tabs{display:flex!important}
 .m6Tabs button{flex:none;border:1.5px solid #d6e2d1;background:#fff;color:#2f4a2a;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:700;white-space:nowrap;cursor:pointer}
 .m6Tabs button.on{background:#3d7031;border-color:#3d7031;color:#fff}
 body.bna #bnaDGrid>.dgroup.m6G{grid-column:1/-1;min-height:58px}
-/* foto del grupo «Hoy» (24 nov. 2026, prueba que pidió Pedro: el corazón con las manos) */
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]{min-height:150px;background:url('foto-menu-hoy.webp') right center/cover no-repeat,#8aa1c4 !important;border-color:transparent !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]>span{color:#fff !important;font-size:20px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.55)}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]>i{color:#fff !important;text-shadow:0 1px 4px rgba(0,0,0,.5)}
 /* fotos de otros grupos (24 nov. 2026, fotos de Pedro): oscurecidas a la izquierda para que se lea el nombre */
 body.bna #bnaDGrid>.dgroup.m6G.m6Ft{min-height:140px;border-color:transparent !important;background-size:cover !important;background-position:center !important;background-repeat:no-repeat !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-hoy.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Localidades"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-loc.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Tiempo y ríos"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-rios.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Naturaleza y salidas"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-nat.webp') !important}
@@ -166,7 +163,7 @@ function coloca(){let nuevos=false;
     grid.insertAdjacentHTML('afterbegin',M6_GRUPOS.map(([k,f])=>grupoHTML(k,f)).join(''));
     // Localidades suelta en el menú (24 nov. 2026, Pedro): va directa, sin desplegable
     grid.querySelector('.dsub[data-m6s="Hoy"]').insertAdjacentHTML('afterend','<div class="dgroup m6G m6Solo" data-m6="Localidades"><span data-k="Localidades">Localidades</span><i>▸</i></div>');
-    ['Localidades','Tiempo y ríos','Naturaleza y salidas','Moverse','Vivir en Navarra','Ocio'].forEach(k=>{const g=grid.querySelector(`.dgroup.m6G[data-m6="${k}"]`);if(g)g.classList.add('m6Ft');});
+    ['Hoy','Localidades','Tiempo y ríos','Naturaleza y salidas','Moverse','Vivir en Navarra','Ocio'].forEach(k=>{const g=grid.querySelector(`.dgroup.m6G[data-m6="${k}"]`);if(g)g.classList.add('m6Ft');});
     iconos();
     { const l=grid.querySelector('.m6Solo');l.onclick=e=>{e.stopPropagation();showTab('pueblos');try{menu(false);}catch(x){}};}
     // foto de arriba del menú
