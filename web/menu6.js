@@ -26,7 +26,7 @@ const M6_GRUPOS=[
  ['Tiempo y ríos','foto-esc-tiempo.webp',['tiempo','caudal','sismo']],
  ['Naturaleza y salidas','foto-biodiv-pedro.webp',['biodiversidad','monte']],
  ['Moverse','foto-incid-burguete.webp',['incid','gas','bus']],
- ['Vivir en Navarra','foto-esc-pueblo.webp',['pueblos','comer','super','salud','vivienda','empleo','voluntariado','mascotas']],
+ ['Vivir en Navarra','foto-esc-pueblo.webp',['comer','super','salud','vivienda','empleo','voluntariado','mascotas']],
  ['Ocio','foto-agenda-cabecera.webp',['cultura','juegos']]];
 /* familias: la primera es la que sale en el menú; las demás, como pestañas dentro */
 const M6_FAM={
@@ -70,7 +70,11 @@ section.rwOnly>div.m6Tabs.m6Tabs.m6Tabs{display:flex!important}
 .m6Tabs::-webkit-scrollbar{display:none}
 .m6Tabs button{flex:none;border:1.5px solid #d6e2d1;background:#fff;color:#2f4a2a;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:700;white-space:nowrap;cursor:pointer}
 .m6Tabs button.on{background:#3d7031;border-color:#3d7031;color:#fff}
-body.bna #bnaDGrid>.dgroup.m6G{grid-column:auto;min-height:64px}
+body.bna #bnaDGrid>.dgroup.m6G{grid-column:1/-1;min-height:58px}
+body.bna #bnaDGrid>.dgroup.m6Solo>i{visibility:hidden}
+/* 24 nov. 2026: foto arriba del menú (la misma del Inicio, cambia con la estación) */
+body.bna #drawer .dhead.m6Foto{background:linear-gradient(180deg,rgba(10,25,15,.25),rgba(10,25,15,.55)),var(--m6f) center/cover no-repeat!important;min-height:120px}
+body.bna #drawer .dhead.m6Foto b,body.bna #drawer .dhead.m6Foto .lema{text-shadow:0 1px 4px rgba(0,0,0,.6)}
 #bnaDGrid .dsub[data-m6s]>button small.m6S{display:block;font-size:12px;font-weight:400;color:#5b6660;margin-top:1px;line-height:1.25}
 #bnaDGrid .dsub[data-m6s]>button>span:not(.bt){display:block;text-align:left}
 #m6Mio{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#2f4a2a;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
@@ -103,7 +107,7 @@ function pintaJuegos(){const g=$('m6Jg');if(!g)return;
 
 /* ---------- iconos (23 nov. 2026: Pedro quiere iconos en vez de fotos en el menú) ---------- */
 const M6_ICO={'g:Hoy':['i-inicio','g','house'],'g:Tiempo y ríos':['i-tiempo','b','cloud-sun'],'g:Naturaleza y salidas':['i-hoja','g','tree'],
- 'g:Moverse':['i-carretera','r','car'],'g:Vivir en Navarra':['i-casa','g','buildings'],'g:Ocio':['i-agenda','r','calendar'],juegos:['i-juego','b','game-controller'],super:['i-cesta','r','basket'],lomio:['i-ajustes','b','user']};
+ 'g:Moverse':['i-carretera','r','car'],'g:Vivir en Navarra':['i-casa','g','buildings'],'g:Ocio':['i-agenda','r','calendar'],'g:Localidades':['i-pin','g','map-pin'],juegos:['i-juego','b','game-controller'],super:['i-cesta','r','basket'],lomio:['i-ajustes','b','user']};
 try{Object.entries(M6_ICO).forEach(([k,[n,f,ic]])=>{BNK[k]=n;BNF[k]=f;if(!ICK[k])ICK[k]=ic;if(!ICC[k])ICC[k]={g:'#2e7d32',b:'#1565c0',r:'#e53935'}[f];});}catch(e){}
 function iconos(){try{applyIcons((CFG.iconos||'pro')==='pro');}catch(e){}}
 /* línea corta debajo del nombre de cada apartado */
@@ -125,12 +129,15 @@ function coloca(){let nuevos=false;
     [...grid.children].forEach(el=>{if(el.matches('.dgroup,.dsub')&&!el.classList.contains('m6G')&&!el.dataset.m6s&&el.id!=='dgApp'&&!(el.previousElementSibling&&el.previousElementSibling.id==='dgApp'))viejo.appendChild(el);});
     grid.appendChild(viejo);
     grid.insertAdjacentHTML('afterbegin',M6_GRUPOS.map(([k,f])=>grupoHTML(k,f)).join(''));
+    // Localidades suelta en el menú (24 nov. 2026, Pedro): va directa, sin desplegable
+    grid.querySelector('.dsub[data-m6s="Hoy"]').insertAdjacentHTML('afterend','<div class="dgroup m6G m6Solo" data-m6="Localidades"><span data-k="Localidades">Localidades</span><i>▸</i></div>');
     iconos();
-    grid.querySelectorAll('.dgroup.m6G').forEach(g=>g.onclick=()=>{const o=!g.classList.contains('open');dr.querySelectorAll('.dgroup').forEach(x=>x.classList.remove('open'));if(o)g.classList.add('open');});
-    // 👤 Lo mío también abajo del todo del menú, por si alguien no ve el icono
-    let tl='';try{tl=bnTile('lomio',20,34);}catch(e){}
-    grid.insertAdjacentHTML('beforeend',`<button class="m6MioB" id="lomio" data-m6go="lomio" style="grid-column:1/-1">${tl}<span>Lo mío y ajustes</span></button>`);
-    grid.querySelector('[data-m6go]').onclick=()=>{showTab('lomio');try{menu(false);}catch(e){}};}
+    { const l=grid.querySelector('.m6Solo');l.onclick=e=>{e.stopPropagation();showTab('pueblos');try{menu(false);}catch(x){}};}
+    // foto de arriba del menú
+    { const h=dr.querySelector('.dhead');const m=new Date().getMonth()+1,est=m>=3&&m<=5?'primavera':m>=6&&m<=8?'verano':m>=9&&m<=11?'otono':'invierno';
+      if(h){h.classList.add('m6Foto');h.style.setProperty('--m6f',`url('foto-inicio-${est}.webp')`);} }
+    grid.querySelectorAll('.dgroup.m6G:not(.m6Solo)').forEach(g=>g.onclick=()=>{const o=!g.classList.contains('open');dr.querySelectorAll('.dgroup').forEach(x=>x.classList.remove('open'));if(o)g.classList.add('open');});
+  }
   // los botones al grupo que les toca
   M6_GRUPOS.forEach(([k,,L])=>{const sub=grid.querySelector(`.dsub[data-m6s="${k}"]`);L.forEach(t=>{let b=btn(t);
     if(!b&&t==='juegos'){b=document.createElement('button');b.dataset.t='juegos';b.dataset.emo='🎲 ';b.dataset.txt='Juegos';b.innerHTML='<span>Juegos</span>';b.onclick=()=>{showTab('juegos');try{menu(false);}catch(e){}};}
