@@ -1,8 +1,8 @@
 cartelera: cines encontrados [('193', 'Golem Baiona'), ('194', 'Golem La Morea'), ('195', 'Golem Yamaguchi'), ('198', 'Cines Los Llanos Zinemak'), ('199', 'Cines Itaroa'), ('200', 'Ocine Tudela'), ('350', 'Cines Viana Las Cañas')]
-   193 Golem Baiona 7 películas, 14 sesiones hoy
+   193 Golem Baiona 7 películas, 16 sesiones hoy
    194 Golem La Morea 13 películas, 28 sesiones hoy
-   195 Golem Yamaguchi 7 películas, 14 sesiones hoy
+   195 Golem Yamaguchi 8 películas, 14 sesiones hoy
    198 Cines Los Llanos Zinemak 0 películas, 0 sesiones hoy
-   199 Cines Itaroa 11 películas, 25 sesiones hoy
+   199 Cines Itaroa 13 películas, 25 sesiones hoy
    200 Ocine Tudela 0 películas, 0 sesiones hoy
    350 Cines Viana Las Cañas 0 películas, 0 sesiones hoy
