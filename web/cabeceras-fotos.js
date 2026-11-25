@@ -39,7 +39,14 @@ const CF={
  picnic:['foto-cab2-picnic.webp','merendero en el hayedo en otoño (foto libre)','','',''],
  juegos:['foto-cab2-juegos.webp','fuegos artificiales',S,PR,''],
  sismo:['foto-cab2-sismo.webp','paredes de una foz',S,PR,''],
- medic:['foto-cab2-medic2.webp','margarita entre la hierba',S,PR,'']
+ medic:['foto-cab2-medic2.webp','margarita entre la hierba',S,PR,''],
+ // 25 nov. 2026 (3.ª tanda): 7 cabeceras más, elegidas por Pedro (Actividad sísmica cambia de foto)
+ gas:['foto-cab2-gas.webp','gasolinera de noche (foto libre)','','',''],
+ puertos:['foto-cab2-puertos.webp','pueblo del Pirineo navarro',S,PR,''],
+ cultura:['foto-cab2-cultura.webp','Plaza del Castillo de Pamplona al atardecer',S,PR,''],
+ cines:['foto-cab2-cines.webp','sala de cine (foto libre)','','',''],
+ deporte:['foto-cab2-deporte.webp','partido de pelota en un frontón de Pamplona',P,PR,''],
+ peques:['foto-cab2-peques.webp','gigante en San Fermín (foto libre)','','','']
 };
 const st=document.createElement('style');st.textContent=`
 body.bna #pvSec.cfFoto{background:#1d2b36 center/cover no-repeat}
