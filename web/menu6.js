@@ -55,7 +55,7 @@ const M6_MIO=[['Tu cuenta',['cuenta','diario','sitios','misdep','mivias']],['Cua
 /* fuera del menú (las pantallas siguen existiendo) */
 const M6_MIOSUB={cuenta:'Tu cuenta de BasatiNA',diario:'Tus salidas al monte',sitios:'Tus rincones guardados',misdep:'Tus equipos y partidos',mivias:'Tus carreteras de siempre',
  comunidad:'Avisos de la gente',fotos:'Las fotos de la Cuadrilla',buzon:'Cuéntanos qué mejorarías',refranes:'Los dichos de cada pueblo',enviar:'Solo administradores',ajustes:'Avisos, letra e iconos',about:'Quiénes somos, fuentes y créditos'};
-const M6_FUERA=['desaparecidos','hist','puertos','relax','natura','libre','comarcas','mercados','curiosas','padel','rural'];
+const M6_FUERA=['desaparecidos','hist','relax','natura','libre','comarcas','mercados','curiosas','padel','rural'];
 /* juegos: todos en una pantalla */
 const M6_JUEGOS=['jcadenas','jdonde','jlugar','jsopa','jcruci','jsudoku','jchinchon','jparejas','jsoli','jnutria','psombras','pcontar','ptruchas','jclasif'];
 
@@ -73,13 +73,13 @@ section.rwOnly>div.m6Tabs.m6Tabs.m6Tabs{display:flex!important}
 body.bna #bnaDGrid>.dgroup.m6G{grid-column:1/-1;min-height:58px}
 /* fotos de otros grupos (24 nov. 2026, fotos de Pedro): oscurecidas a la izquierda para que se lea el nombre */
 body.bna #bnaDGrid>.dgroup.m6G.m6Ft{min-height:140px;border-color:transparent !important;background-size:cover !important;background-position:center !important;background-repeat:no-repeat !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-hoy.webp') !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Localidades"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-loc.webp') !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Tiempo y ríos"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-rios.webp') !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Naturaleza y salidas"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-nat.webp') !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Moverse"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-mov.webp') !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Vivir en Navarra"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-vivir.webp') !important}
-body.bna #bnaDGrid>.dgroup.m6G[data-m6="Ocio"]{background-image:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%,rgba(0,0,0,0)),url('foto-menu-ocio.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-hoy.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Localidades"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-loc.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Tiempo y ríos"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-rios.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Naturaleza y salidas"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-nat.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Moverse"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-mov.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Vivir en Navarra"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-vivir.webp') !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Ocio"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-ocio.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span{color:#fff !important;font-size:20px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 body.bna #bnaDGrid>.dgroup.m6G.m6Ft>i{color:#fff !important;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 body.bna #bnaDGrid>.dgroup.m6Solo>i{visibility:hidden}
@@ -303,3 +303,14 @@ let abierto=dr.classList.contains('on');
 new MutationObserver(()=>{const on=dr.classList.contains('on');if(on&&!abierto){pintaAcc();dr.querySelectorAll('.dgroup.open').forEach(x=>x.classList.remove('open'));dr.scrollTop=0;}abierto=on;})
   .observe(dr,{attributes:true,attributeFilter:['class']});
 })();
+/* 25 nov. 2026: Pedro quitó «Puertos de montaña» de la app (los puertos ya salen en Incidencias).
+   Si algún acceso viejo (accesos directos, Mi espacio…) intenta abrirla, va a Incidencias. */
+(function(){const _s=showTab;showTab=function(t){if(t==='puertos'){arguments[0]='incid';}return _s.apply(this,arguments);};})();
+/* 25 nov. 2026 (lo pidió Pedro): en los 7 grupos con foto, el icono y el nombre van abajo y más
+   pequeños, para que se vea mejor la foto. La sombra oscura solo está en la franja de abajo. */
+(function(){const st=document.createElement('style');st.textContent=`
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft{align-items:flex-end !important;padding:0 14px 10px !important}
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span{display:flex !important;align-items:center;gap:8px;font-size:15px !important;font-weight:700 !important;letter-spacing:.01em;text-shadow:0 1px 4px rgba(0,0,0,.7) !important}
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span .bt{width:30px !important;height:30px !important;min-width:30px;border-radius:9px !important;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span .bt svg{width:18px !important;height:18px !important}
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft>i{font-size:12px;margin-bottom:6px}`;document.head.appendChild(st);})();
