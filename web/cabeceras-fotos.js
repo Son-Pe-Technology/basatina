@@ -4,7 +4,7 @@
    vuelto a poner foto SOLO en la cabecera de estas secciones: la cabecera animada («Navarra viva»,
    #pvSec) se cambia por la foto, con el título encima. No toca pestañas ni tarjetas.
    Fotos: web/foto-cab2-<sección>.webp (900×375, WebP, SUELTAS en web/: el actualizador no entra en carpetas).
-   Créditos: letra pequeña al final de cada sección (CF_CRED). Para añadir otra sección: una línea en CF.
+   Créditos: letra pequeña al final de cada sección. Si el autor va vacío (''), solo sale qué es la foto. Para añadir otra sección: una línea en CF.
    ===================================================================== */
 (function(){
 const $=id=>document.getElementById(id);
@@ -20,7 +20,17 @@ const CF={
  cocina:['foto-cab2-cocina.webp','garbanzos con chorizo',A,CE,''],
  patrimonio:['foto-cab2-patrimonio.webp','Virgen de Orreaga/Roncesvalles, Real Colegiata de Roncesvalles',P,PR,''],
  biodiversidad:['foto-cab2-biodiversidad.webp','Nacedero del Urederra',S,PR,''],
- ident:['foto-cab2-ident.webp','ardilla roja con una nuez',S,PR,''],
+ ident:['foto-cab2-ident.webp','araña cangrejo sobre flores amarillas',S,PR,''],
+ // 25 nov. 2026: 10 cabeceras más, elegidas por Pedro
+ noticias:['foto-cab2-noticias.webp','imprenta antigua','','',''],
+ cerca:['foto-cab2-cerca.webp','Casco Viejo de Pamplona con la torre de San Cernin','','',''],
+ radar:['foto-cab2-radar.webp','nubes mammatus antes de la tormenta',M,PR,''],
+ nieve:['foto-cab2-nieve.webp','parque nevado',P,PR,''],
+ astro:['foto-cab2-astro.webp','Luna entre los árboles',P,PR,''],
+ energia:['foto-cab2-energia.webp','aerogeneradores al atardecer',M,PR,''],
+ clima:['foto-cab2-clima.webp','nube de tormenta',P,PR,''],
+ emb:['foto-cab2-emb.webp','embalse visto desde el monte',S,PR,''],
+ prev:['foto-cab2-prev.webp','sol entre las nubes',S,PR,''],
  enp:['foto-cab2-enp.webp','río entre hayedos',S,PR,''],
  medic:['foto-cab2-medic.webp','campo de lavanda',M,PR,'']
 };
@@ -40,7 +50,7 @@ function cab(t){const el=$('pvSec');if(!el)return;const f=CF[t];
   else if(el.classList.contains('cfFoto')){el.classList.remove('cfFoto');el.style.backgroundImage='';}}
 function cred(t){const f=CF[t];if(!f)return;const sec=document.querySelector('section.on')||$('t-'+t);if(!sec)return;
   let d=sec.querySelector(':scope>.cfCred');if(!d){d=document.createElement('div');d.className='cfCred';sec.appendChild(d);}
-  const [,q,a,l,u]=f;d.innerHTML=`📷 Cabecera: ${q}, ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l}).`;
+  const [,q,a,l,u]=f;d.innerHTML=a?`📷 Cabecera: ${q}, ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l}).`:`📷 Cabecera: ${q}.`;   // sin autor: solo qué es
   d.querySelectorAll('a').forEach(x=>x.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(x.href);}});}
 const _st=showTab;showTab=function(t){_st.apply(this,arguments);try{cab(t);cred(t);}catch(e){console.log('cabeceras',e);}};
 // al volver a la app, la animación puede haber vuelto a arrancar
