@@ -7,3 +7,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ControlArga"
 include ':app'
+include ':wear'   // ⌚ BasatiNA para Wear OS (25 nov. 2026)

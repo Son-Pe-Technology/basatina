@@ -1,0 +1,39 @@
+plugins { id 'com.android.application' }
+
+// ⌚ BasatiNA para Wear OS (25 nov. 2026). App del reloj, independiente (no necesita el móvil).
+// Va en Google Play DENTRO de la misma ficha que la del móvil: por eso lleva el MISMO applicationId
+// y la MISMA firma. El versionCode tiene que ser distinto al del móvil y no repetirse nunca:
+// el del reloj empieza en 2000001 (2 000 000 + número de versión del reloj).
+android {
+    namespace 'es.sonpe.basatina.wear'
+    compileSdk 36
+    defaultConfig {
+        applicationId "es.sonpe.basatina"
+        minSdk 30          // Wear OS 3 o posterior (Galaxy Watch 4 en adelante, Pixel Watch…)
+        targetSdk 36
+        versionCode 2000001
+        versionName "1.0-reloj"
+    }
+    signingConfigs {
+        arga {
+            storeFile file('../keystore/arga2.jks')
+            storePassword System.getenv('KEYSTORE_PASS') ?: ''
+            keyAlias 'arga'
+            keyPassword System.getenv('KEYSTORE_PASS') ?: ''
+        }
+    }
+    buildTypes {
+        release { minifyEnabled false; signingConfig signingConfigs.arga }
+        debug { signingConfig signingConfigs.arga }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    lint { checkReleaseBuilds false; abortOnError false }
+}
+
+dependencies {
+    // complicaciones (los datos pequeños que se ponen en la esfera del reloj)
+    implementation 'androidx.wear.watchface:watchface-complications-data-source:1.2.1'
+}
