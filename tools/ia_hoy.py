@@ -1,5 +1,5 @@
 """
-☀️🤖 «Navarra hoy»: resumen de la mañana escrito con IA (23 nov. 2026). Lo ejecuta .github/workflows/ia.yml a las 7:20.
+☀️🤖 «Navarra hoy»: resumen de la mañana escrito con IA (23 nov. 2026). Lo ejecuta .github/workflows/ia.yml a las 5:40 (hora de Madrid), para que esté a las 6:30.
 
   python3 tools/ia_hoy.py   ->  noticias/navarra_hoy.json
 
