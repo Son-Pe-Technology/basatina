@@ -10,7 +10,8 @@ android {
     defaultConfig {
         applicationId "es.sonpe.basatina"
         minSdk 30          // Wear OS 3 o posterior (Galaxy Watch 4 en adelante, Pixel Watch…)
-        targetSdk 36
+        // 35 y no 36: con 36, Android 16 cambia el permiso del pulsómetro (BODY_SENSORS → health.READ_HEART_RATE)
+        targetSdk 35
         versionCode 2000001
         versionName "1.0-reloj"
     }

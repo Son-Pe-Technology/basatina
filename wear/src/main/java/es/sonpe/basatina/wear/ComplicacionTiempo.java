@@ -11,7 +11,7 @@ import androidx.wear.watchface.complications.datasource.ComplicationDataSourceSe
 import androidx.wear.watchface.complications.datasource.ComplicationRequest;
 
 /**
- * ⌚ Complicación «BasatiNA · Temperatura» (25 nov. 2026): la temperatura de Pamplona en la esfera del reloj.
+ * ⌚ Complicación «BasatiNA · Temperatura» (25 nov. 2026): la temperatura donde estás (o en Pamplona) en la esfera del reloj.
  * El reloj la pide cada 30 min (UPDATE_PERIOD_SECONDS en el manifiesto). Al tocarla se abre la app.
  */
 public class ComplicacionTiempo extends ComplicationDataSourceService {
@@ -35,7 +35,7 @@ public class ComplicacionTiempo extends ComplicationDataSourceService {
         PendingIntent pi = PendingIntent.getActivity(this, 1, new Intent(this, Principal.class), PendingIntent.FLAG_IMMUTABLE);
         return new ShortTextComplicationData.Builder(
                 new PlainComplicationText.Builder(valor).build(),
-                new PlainComplicationText.Builder("Temperatura en Pamplona: " + valor).build())
+                new PlainComplicationText.Builder("Temperatura: " + valor).build())
             .setTitle(new PlainComplicationText.Builder(titulo).build())
             .setTapAction(pi).build();
     }

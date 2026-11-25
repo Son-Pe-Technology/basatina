@@ -1,93 +1,78 @@
 package es.sonpe.basatina.wear;
 
-import android.app.Activity;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * ⌚ Pantalla del reloj (25 nov. 2026). Una sola pantalla que se mueve con el dedo o con la corona/bisel:
- *   el tiempo en Pamplona · lluvia de la próxima hora · el Arga en Burlada · el embalse de Eugui.
- * Primero enseña lo guardado (al momento) y luego lo actualiza de internet.
- * Hecha sin librerías de diseño (solo Android): pesa poco y se compila sin sorpresas.
- * Los márgenes grandes (15 %) son para que nada se corte en las pantallas redondas.
+ * ⌚ Pantalla principal del reloj (25 nov. 2026): el tiempo donde estás y los accesos:
+ *   🥾 Rutas cerca (seguir una ruta de NA a Pie con el GPS) · ❤️ Actividad libre (registrar sin ruta)
+ *   🧭 Brújula · ⚖️ Peso (para calcular las kcal).
+ * Los permisos (ubicación, pulsómetro, pasos, notificación) se piden la primera vez que se usan.
  */
-public class Principal extends Activity {
-    static final int VERDE = 0xFF6FCF7C, AMARILLO = 0xFFFFC94A, ROJO = 0xFFFF6B6B, GRIS = 0xFFB0B8B4, AZUL = 0xFF7CC4FF;
-    LinearLayout caja; ScrollView sv; long ultima = 0;
+public class Principal extends Pantalla {
+    long ultima = 0; Runnable pendiente = null;
 
-    @Override protected void onCreate(Bundle b) {
-        super.onCreate(b);
-        sv = new ScrollView(this); sv.setBackgroundColor(Color.BLACK); sv.setFillViewport(true);
-        sv.setVerticalScrollBarEnabled(false);
-        caja = new LinearLayout(this); caja.setOrientation(LinearLayout.VERTICAL); caja.setGravity(Gravity.CENTER_HORIZONTAL);
-        int w = getResources().getDisplayMetrics().widthPixels, m = (int) (w * 0.15);
-        caja.setPadding(m, (int) (w * 0.12), m, (int) (w * 0.22));
-        sv.addView(caja); setContentView(sv);
-        pinta(Datos.guardados(this));
-    }
-
+    @Override protected void onCreate(Bundle b) {super.onCreate(b); pinta(Datos.guardados(this));}
     @Override protected void onResume() {
-        super.onResume();
-        sv.requestFocus();     // para que la corona o el bisel giratorio muevan la pantalla
-        if (System.currentTimeMillis() - ultima > 5 * 60_000L) actualiza();
+        super.onResume(); pinta(Datos.guardados(this));
+        if (System.currentTimeMillis() - ultima > 10 * 60_000L) {
+            ultima = System.currentTimeMillis();
+            new Thread(() -> {Datos d = Datos.actualiza(this); runOnUiThread(() -> pinta(d));}).start();
+        }
     }
 
-    void actualiza() {
-        ultima = System.currentTimeMillis();
-        new Thread(() -> {final Datos d = Datos.actualiza(this); runOnUiThread(() -> pinta(d));}).start();
-    }
-
-    // ---------- dibujo ----------
     void pinta(Datos d) {
-        caja.removeAllViews();
-        t("BasatiNA", 13, GRIS, true);
-        // el tiempo
+        limpia(); t("BasatiNA", 13, GRIS, true);
         if (!Double.isNaN(d.temp)) {
-            t(Datos.icono(d.codigo, d.dia) + " " + Datos.n0(d.temp) + "°", 40, Color.WHITE, true);
-            t(Datos.desc(d.codigo) + " · Pamplona", 14, Color.WHITE, false);
-            if (!Double.isNaN(d.max)) t("↑ " + Datos.n0(d.max) + "°   ↓ " + Datos.n0(d.min) + "°", 14, GRIS, false);
-            hueco(8);
-            String ll;
-            if (!Double.isNaN(d.lluviaMm) && d.lluviaMm >= 0.1) ll = "🌧️ " + Datos.n1(d.lluviaMm) + " mm en la próxima hora";
-            else if (d.probLluvia >= 0) ll = "☂️ Lluvia próxima hora: " + d.probLluvia + " %";
-            else ll = "";
-            if (!ll.isEmpty()) t(ll, 14, d.probLluvia >= 60 || d.lluviaMm >= 1 ? AZUL : Color.WHITE, false);
-            if (!Double.isNaN(d.viento) && d.viento >= 30) t("💨 Viento " + Datos.n0(d.viento) + " km/h", 14, AMARILLO, false);
-        } else t("Sin datos del tiempo todavía", 14, GRIS, false);
-        // el río
-        hueco(14); t("Río Arga · Burlada", 13, GRIS, true);
-        if (!Double.isNaN(d.caudal)) {
-            int nv = d.nivelRio(); int col = nv == 2 ? ROJO : nv == 1 ? AMARILLO : VERDE;
-            String fl = Double.isNaN(d.subidaHora) ? "" : d.subidaHora > 2 ? " ↗" : d.subidaHora < -2 ? " ↘" : " →";
-            t(Datos.n1(d.caudal) + " m³/s" + fl, 26, col, true);
-            t(nv == 2 ? "⚠️ Crecida: sigue los avisos oficiales (112)" : nv == 1 ? "Caudal alto: atento" : "Caudal normal", 13, col, false);
-            if (!Double.isNaN(d.subidaHora) && Math.abs(d.subidaHora) >= 2)
-                t((d.subidaHora > 0 ? "Sube " : "Baja ") + Datos.n0(Math.abs(d.subidaHora)) + " m³/s por hora", 13, GRIS, false);
-        } else t("Sin datos del río todavía", 14, GRIS, false);
-        if (!Double.isNaN(d.eugui)) {hueco(8); t("💧 Embalse de Eugui: " + Datos.n0(d.eugui) + " %", 14, Color.WHITE, false);}
-        // pie
-        hueco(14);
-        long tt = Math.max(d.tTiempo, d.tRio);
-        t(tt > 0 ? "Actualizado a las " + DateFormat.format("HH:mm", tt) : "Buscando datos…", 12, GRIS, false);
-        TextView bt = t("↻ Actualizar", 15, AZUL, true); bt.setPadding(0, dp(10), 0, dp(10));
-        bt.setOnClickListener(v -> {bt.setText("Actualizando…"); actualiza();});
-        t("Datos: Open‑Meteo y SAIH Ebro. App no oficial: ante el riesgo, haz caso siempre a los avisos oficiales.", 11, GRIS, false);
+            t(Datos.icono(d.codigo, d.dia) + " " + Datos.n0(d.temp) + "°", 36, Color.WHITE, true);
+            t(Datos.desc(d.codigo) + (d.aqui ? " · aquí" : " · Pamplona"), 13, Color.WHITE, false);
+            if (!Double.isNaN(d.max)) t("↑ " + Datos.n0(d.max) + "°   ↓ " + Datos.n0(d.min) + "°", 13, GRIS, false);
+            if (!Double.isNaN(d.lluviaMm) && d.lluviaMm >= 0.1) t("🌧️ " + Datos.n1(d.lluviaMm) + " mm en la próxima hora", 13, AZUL, false);
+            else if (d.probLluvia >= 0) t("☂️ Lluvia próxima hora: " + d.probLluvia + " %", 13, d.probLluvia >= 60 ? AZUL : Color.WHITE, false);
+            if (!Double.isNaN(d.viento) && d.viento >= 30) t("💨 Viento " + Datos.n0(d.viento) + " km/h", 13, AMARILLO, false);
+            t("a las " + DateFormat.format("HH:mm", d.tTiempo), 11, GRIS, false);
+        } else t("Cargando el tiempo…", 13, GRIS, false);
+        hueco(8);
+        if (Grabacion.activo()) boton("▶️ Actividad en curso", 0xFF2E7D32, v -> startActivity(new Intent(this, Seguir.class)));
+        else {
+            boton("🥾 Rutas cerca", BOTON, v -> conPermisos(() -> startActivity(new Intent(this, RutasCerca.class))));
+            boton("❤️ Actividad libre", BOTON, v -> conPermisos(() -> startActivity(new Intent(this, Seguir.class).putExtra("empezar", true))));
+        }
+        boton("🧭 Brújula", BOTON, v -> startActivity(new Intent(this, Brujula.class)));
+        int peso = Datos.sp(this).getInt("peso", 75);
+        boton("⚖️ Peso: " + peso + " kg", 0xFF1B2A30, v -> {
+            int p = Datos.sp(this).getInt("peso", 75) + 5; if (p > 130) p = 45;             // 45, 50 … 130 kg
+            Datos.sp(this).edit().putInt("peso", p).apply(); pinta(Datos.guardados(this));
+        }).setTextSize(13);
+        t("Toca «Peso» para cambiarlo (sirve para calcular las kcal).", 10, GRIS, false);
+        hueco(6); t("Datos: Open‑Meteo, OpenStreetMap e IDENA. App no oficial.", 10, GRIS, false);
     }
 
-    TextView t(String s, int sp, int color, boolean negrita) {
-        TextView v = new TextView(this); v.setText(s); v.setTextSize(TypedValue.COMPLEX_UNIT_SP, sp); v.setTextColor(color);
-        v.setGravity(Gravity.CENTER_HORIZONTAL); if (negrita) v.setTypeface(Typeface.DEFAULT_BOLD);
-        caja.addView(v, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        return v;
+    // ---------- permisos ----------
+    void conPermisos(Runnable r) {
+        List<String> P = new ArrayList<>();
+        for (String p : new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.BODY_SENSORS, Manifest.permission.ACTIVITY_RECOGNITION})
+            if (checkSelfPermission(p) != PackageManager.PERMISSION_GRANTED) P.add(p);
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) P.add(Manifest.permission.POST_NOTIFICATIONS);
+        if (P.isEmpty()) {r.run(); return;}
+        pendiente = r; requestPermissions(P.toArray(new String[0]), 1);
     }
-    void hueco(int d) {View v = new View(this); caja.addView(v, new LinearLayout.LayoutParams(1, dp(d)));}
-    int dp(int d) {return (int) (d * getResources().getDisplayMetrics().density);}
+    @Override public void onRequestPermissionsResult(int code, String[] p, int[] res) {
+        super.onRequestPermissionsResult(code, p, res);
+        Runnable r = pendiente; pendiente = null;
+        // sin GPS no se puede; sin pulsómetro o pasos, sigue (esos datos salen como «--»)
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            limpia(); t("Sin permiso de ubicación no se puede usar el GPS. Dáselo en Ajustes › Aplicaciones › BasatiNA › Permisos.", 14, AMARILLO, false);
+            boton("Volver", BOTON, v -> pinta(Datos.guardados(this))); return;
+        }
+        if (r != null) r.run();
+    }
 }
