@@ -139,3 +139,8 @@ function todo(){try{rio();agenda();pares();curiosa();semana();}catch(e){console.
 const H=$('t-mtiempo');if(H)new MutationObserver(todo).observe(H,{childList:true,subtree:true});
 todo();setTimeout(todo,800);setTimeout(todo,3000);
 })();
+/* 25 nov. 2026 (lo pidió Pedro): en «Titulares de hoy», una foto pequeña del niño vendedor de
+   periódicos en lugar del icono del periódico. Solo en esa tarjeta (.hoyN); el resto sigue igual. */
+(function(){const st=document.createElement('style');st.textContent=`
+.anC.hoyN>.anE{flex:none;width:58px!important;height:58px!important;min-height:0!important;align-self:center!important;border-radius:12px!important;background:#8a8a8a url("foto-titulares.webp") center/cover no-repeat!important;font-size:0!important;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.anC.hoyN>.anE>*{display:none!important}`;document.head.appendChild(st);})();

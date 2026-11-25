@@ -30,6 +30,7 @@ const IF_ACC={tiempo:'foto-inicio-acc-tiempo.webp',caudal:'foto-inicio-acc-rios.
 // río del carrusel (RZ_RIOS de novedades.js + arga) → foto
 const IF_RIO={arga:'foto-inicio-rio-arga.webp',irati:'foto-inicio-rio-irati.webp',ega:'foto-inicio-rio-ega.webp',aragon:'foto-inicio-rio-aragon.webp',ebro:'foto-inicio-rio-ebro.webp'};
 const IF_CRED=[
+ ['Titulares de hoy: niño vendedor de periódicos (foto antigua)','foto libre','dominio público',''],
  ['Cabecera de otoño: hayedo','Pedro Iglesias Goñi','foto propia',''],
  ['Cabecera de invierno: nevada en el parque','Pedro Iglesias Goñi','foto propia',''],
  ['Cabecera de primavera: doble arcoíris','Pedro Iglesias Goñi','foto propia',''],
