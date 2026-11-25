@@ -32,7 +32,14 @@ const CF={
  emb:['foto-cab2-emb.webp','embalse de Yesa visto desde el monte',S,PR,''],
  prev:['foto-cab2-prev.webp','sol entre las nubes',S,PR,''],
  enp:['foto-cab2-enp.webp','río entre hayedos',S,PR,''],
- medic:['foto-cab2-medic.webp','campo de lavanda',M,PR,'']
+ // 25 nov. 2026 (2.ª tanda): 7 cabeceras más, elegidas por Pedro (Plantas medicinales cambia la lavanda por la margarita)
+ monte:['foto-cab2-monte.webp','camino entre hayas en otoño',S,PR,''],
+ pedalea:['foto-cab2-pedalea.webp','bicis públicas en el Casco Viejo de Pamplona (foto libre)','','',''],
+ moto:['foto-cab2-moto.webp','moto por una carretera entre árboles (foto libre)','','',''],
+ picnic:['foto-cab2-picnic.webp','merendero en el hayedo en otoño (foto libre)','','',''],
+ juegos:['foto-cab2-juegos.webp','fuegos artificiales',S,PR,''],
+ sismo:['foto-cab2-sismo.webp','paredes de una foz',S,PR,''],
+ medic:['foto-cab2-medic2.webp','margarita entre la hierba',S,PR,'']
 };
 const st=document.createElement('style');st.textContent=`
 body.bna #pvSec.cfFoto{background:#1d2b36 center/cover no-repeat}
