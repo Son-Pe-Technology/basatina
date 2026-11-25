@@ -69,3 +69,25 @@ const _st=showTab;showTab=function(t){_st.apply(this,arguments);try{cab(t);cred(
 // al volver a la app, la animación puede haber vuelto a arrancar
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&typeof BNTAB!=='undefined'&&CF[BNTAB])setTimeout(()=>cab(BNTAB),50);});
 })();
+/* =====================================================================
+   🔍 FOTO ENTERA AL TOCAR LA CABECERA (25 nov. 2026, lo pidió Pedro)
+   La cabecera es un recorte apaisado (900×375). Al tocarla se abre el visor de fotos (#foBox) con la foto
+   entera: web/foto-full-<sección>.webp (máx. 1600 px, SUELTA en web/). Si una sección no tiene foto entera,
+   se enseña la de la cabecera. Para añadir una: guarda foto-full-<sección>.webp y pon la sección en CF_FULL.
+   ===================================================================== */
+(function(){
+const CF_FULL=new Set(['noticias','cerca','radar','nieve','astro','energia','clima','emb','prev','ident','gas','sismo','cultura','cines','deporte','peques']);
+const st=document.createElement('style');st.textContent='body.bna #pvSec.cfFoto{cursor:zoom-in}#pvSec.cfFoto .cfLupa{position:absolute;right:10px;top:8px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;pointer-events:none}#pvSec:not(.cfFoto) .cfLupa{display:none}';
+document.head.appendChild(st);
+function abre(){const el=document.getElementById('pvSec');if(!el||!el.classList.contains('cfFoto'))return;
+  const t=typeof BNTAB!=='undefined'?BNTAB:'';const m=(el.style.backgroundImage||'').match(/url\("?([^")]+)"?\)/);if(!m)return;
+  const box=document.getElementById('foBox'),img=document.getElementById('foBoxI'),tx=document.getElementById('foBoxT');if(!box||!img)return;
+  img.src=CF_FULL.has(t)?`foto-full-${t}.webp`:m[1];
+  const cr=document.querySelector('section.on>.cfCred');if(tx)tx.innerHTML=cr?`<div style="font-size:13px;opacity:.85">${cr.innerHTML}</div>`:'';
+  box.style.display='flex';}
+function pon(){const el=document.getElementById('pvSec');if(!el||el.dataset.cfZ)return;el.dataset.cfZ=1;
+  el.addEventListener('click',e=>{if(e.target.closest('button,a'))return;abre();});
+  el.insertAdjacentHTML('beforeend','<span class="cfLupa" aria-hidden="true">⤢</span>');}
+const _s=showTab;showTab=function(t){const r=_s.apply(this,arguments);try{pon();}catch(e){}return r;};
+setTimeout(pon,1500);
+})();
