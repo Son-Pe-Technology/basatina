@@ -1,6 +1,25 @@
 {
  "items": [
   {
+   "id": "bf91d810c42d",
+   "pub": "2026-11-25T18:52Z",
+   "titulo": "Accidente laboral grave en una obra de Artica",
+   "texto": "Un trabajador sufrió una caída desde aproximadamente cinco metros el miércoles en una obra de Artica (Berrioplano) y resultó herido de gravedad. Los servicios de emergencia se desplazaron al lugar tras recibir el aviso a las 14:08 horas y trasladaron al herido al Hospital Universitario de Navarra, donde quedó ingresado con politraumatismos graves. La Policía Foral investiga las causas del accidente.",
+   "pueblo": "Berrioplano",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-berrioplano/herido-grave-un-trabajador-de-55-anos-tras-caer-desde-unos-5-metros-en-una-obra-de-artica/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/25/herido-grave-hombre-55-anos-sufrir-accidente-laboral-artica-843749-16.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "5ab6c585ed7a",
    "pub": "2026-11-25T16:05Z",
    "titulo": "Navarra aprueba el Plan de Salud 2030 con enfoque en prevención y equidad",
@@ -589,5 +608,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-25T16:05Z"
+ "t": "2026-11-25T18:52Z"
 }
