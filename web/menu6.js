@@ -55,7 +55,7 @@ const M6_MIO=[['Tu cuenta',['cuenta','diario','sitios','misdep','mivias']],['Cua
 /* fuera del menú (las pantallas siguen existiendo) */
 const M6_MIOSUB={cuenta:'Tu cuenta de BasatiNA',diario:'Tus salidas al monte',sitios:'Tus rincones guardados',misdep:'Tus equipos y partidos',mivias:'Tus carreteras de siempre',
  comunidad:'Avisos de la gente',fotos:'Las fotos de la Cuadrilla',buzon:'Cuéntanos qué mejorarías',refranes:'Los dichos de cada pueblo',enviar:'Solo administradores',ajustes:'Avisos, letra e iconos',about:'Quiénes somos, fuentes y créditos'};
-const M6_FUERA=['desaparecidos','hist','puertos','relax','natura','libre','comarcas','mercados','curiosas','padel','rural'];
+const M6_FUERA=['desaparecidos','hist','relax','natura','libre','comarcas','mercados','curiosas','padel','rural'];
 /* juegos: todos en una pantalla */
 const M6_JUEGOS=['jcadenas','jdonde','jlugar','jsopa','jcruci','jsudoku','jchinchon','jparejas','jsoli','jnutria','psombras','pcontar','ptruchas','jclasif'];
 
@@ -303,3 +303,6 @@ let abierto=dr.classList.contains('on');
 new MutationObserver(()=>{const on=dr.classList.contains('on');if(on&&!abierto){pintaAcc();dr.querySelectorAll('.dgroup.open').forEach(x=>x.classList.remove('open'));dr.scrollTop=0;}abierto=on;})
   .observe(dr,{attributes:true,attributeFilter:['class']});
 })();
+/* 25 nov. 2026: Pedro quitó «Puertos de montaña» de la app (los puertos ya salen en Incidencias).
+   Si algún acceso viejo (accesos directos, Mi espacio…) intenta abrirla, va a Incidencias. */
+(function(){const _s=showTab;showTab=function(t){if(t==='puertos'){arguments[0]='incid';}return _s.apply(this,arguments);};})();

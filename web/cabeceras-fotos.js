@@ -42,7 +42,6 @@ const CF={
  medic:['foto-cab2-medic2.webp','margarita entre la hierba',S,PR,''],
  // 25 nov. 2026 (3.ª tanda): 7 cabeceras más, elegidas por Pedro (Actividad sísmica cambia de foto)
  gas:['foto-cab2-gas.webp','gasolinera de noche (foto libre)','','',''],
- puertos:['foto-cab2-puertos.webp','Ochagavía (valle de Salazar)',S,PR,''],
  cultura:['foto-cab2-cultura.webp','Plaza del Castillo de Pamplona al atardecer',S,PR,''],
  cines:['foto-cab2-cines.webp','sala de cine (foto libre)','','',''],
  deporte:['foto-cab2-deporte.webp','partido de pelota en el frontón Labrit (Pamplona)',P,PR,''],

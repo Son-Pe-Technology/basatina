@@ -471,7 +471,6 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
   <div class="dsub">
     <button data-t="incid">🚧 Incidencias: obras, cortes…</button>
     <button data-t="gas">⛽ Gasolineras y precios</button>
-    <button data-t="puertos">🏔️ Puertos de montaña</button>
     <button data-t="camaras">📷 Cámaras en directo</button>
   </div>
   <div class="dgroup"><span>Localidades</span><i>▸</i></div>
@@ -914,10 +913,6 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="card"><div style="position:relative"><canvas id="gsc" height="380"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="gscIn">＋</button><button class="btn mtb" id="gscOut">－</button></div></div><div class="note" id="gsLeg" style="margin-top:4px"></div><div id="gsFicha" style="margin-top:8px"></div></div>
 <div class="card"><b id="gsListT">📋 Las más baratas</b><div id="gsList"></div></div>
 <div class="note" style="margin:0 6px 10px">Los precios se actualizan varias veces al día. Puede faltar algún punto de recarga.</div>
-</section>
-<section id="t-puertos">
-<div class="card"><b>🏔️ Puertos de montaña</b><div class="note">Estado de cada puerto: cortes e incidencias oficiales, nieve y temperatura previstas y la cámara más cercana. Antes de subir en invierno, mira siempre la información oficial (848 423 500).</div></div>
-<div id="puList"><div class="card"><div class="note">Cargando…</div></div></div>
 </section>
 <section id="t-radar">
 <div class="card"><b>🌧️ Radar de lluvia</b><div class="note">Dónde está lloviendo (o nevando) ahora y en las últimas 2 horas. Dale a ▶️ para ver hacia dónde se mueve.</div>
@@ -3565,8 +3560,7 @@ async function ceGo(){const msg=document.getElementById('ceMsg'),el=document.get
    blk('⛽ Gasolineras',gs.map(x=>({...x,pt:x.o.pt})).map(x=>row('⛽',x.o.n,[x.o.g95?'95: '+fmtN(x.o.g95,3)+' €':'',x.o.dA?'diésel: '+fmtN(x.o.dA,3)+' €':''].filter(Boolean).join(' · '),x,act(()=>openNav(x.o.pt[0],x.o.pt[1])))))+
    blk('⚡ Recarga eléctrica',rc.map(x=>({...x,pt:x.o.pt})).map(x=>row('⚡',x.o.n||'Punto de recarga',x.o.kw,x,act(()=>openNav(x.o.pt[0],x.o.pt[1])))))+
    blk('🥾 Para salir al monte',mn.map(x=>({...x,pt:x.o.q})).map(x=>row(x.o.L[1].split(' ')[0],x.o.L[5].map(a=>x.o.f.a[a]).find(Boolean)||x.o.L[1],x.o.L[1].replace(/^\S+\s/,''),x,act(()=>showTab('monte')))))+
-   blk('📷 Cámaras',cm.map(x=>({...x,pt:x.o.pt})).map(x=>row('📷',x.o.n,x.o.c,x,act(()=>caBig(x.o)))))+
-   blk('🏔️ Puertos de montaña',pt.map(x=>({...x,pt:x.o.pt})).map(x=>row('🏔️',x.o.n,x.o.ele?Math.round(x.o.ele)+' m':'',x,act(()=>showTab('puertos')))))||'<div class="card"><div class="note">No he encontrado nada cerca. ¿Estás fuera de Navarra?</div></div>';
+   blk('📷 Cámaras',cm.map(x=>({...x,pt:x.o.pt})).map(x=>row('📷',x.o.n,x.o.c,x,act(()=>caBig(x.o)))))||'<div class="card"><div class="note">No he encontrado nada cerca. ¿Estás fuera de Navarra?</div></div>';
   el.querySelectorAll('[data-a]').forEach(d=>d.onclick=()=>ACT[d.dataset.a]());msg.textContent='Toca cualquier cosa de la lista para verla o ir.';}
 document.getElementById('ceGo').onclick=ceGo;
 
@@ -5180,10 +5174,10 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="inicio-fotos.js?v=3fb532d7"></script>
 <script src="inicio-centro.js?v=84eef521"></script>
 <script src="ia-noticias.js?v=bb253b9d"></script>
-<script src="menu6.js?v=b0ef4bd9"></script>
+<script src="menu6.js?v=ba4dd047"></script>
 <script src="superadmin.js?v=1a5be785"></script>
 <script src="perfil-foto.js?v=a96a66fd"></script>
-<script src="cabeceras-fotos.js?v=6b8aeefb"></script>
+<script src="cabeceras-fotos.js?v=df5a664c"></script>
 <script src="atras.js?v=cc33948e"></script>
 <script src="cierre.js?v=2656e954"></script>
 <script src="ajustes-plegable.js?v=f28194ff"></script>
