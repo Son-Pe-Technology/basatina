@@ -131,10 +131,11 @@ function pdDraw(){const el=$('pdCard');if(!el)return;const p=pdHoy();
   el.onclick=()=>{if(p[2])el.classList.toggle('abierta');};}
 
 /* 🗣️ Refrán del día (19 nov. 2026): sale de los refranes que manda la gente desde «Refranes de tu pueblo»
-   (Cuadrilla BasatiNA → participa@basatina.es) y que publicáis desde el modo Administrador (participa/refranes.json).
+   y que aprobáis en el ⭐ Panel de administración (desde el 25 nov. 2026 están en Firestore «refranes»: window.RFX de ampliacion.js).
    Todos ven el mismo refrán cada día. Si aún no hay ninguno publicado, la franja invita a mandar el primero. */
 async function rfHoyDraw(){const el=$('rfCard');if(!el||typeof jsLoad!=='function')return;let L=[];
-  try{L=((await jsLoad('participa/refranes.json',{refranes:[]}))||{}).refranes||[];}catch(e){}
+  try{L=window.RFX?await window.RFX.publicados():((await jsLoad('participa/refranes.json',{refranes:[]}))||{}).refranes||[];}catch(e){}
+  L=L.slice().sort((a,b)=>String(a.id).localeCompare(String(b.id)));
   const env='<button class="rfB" aria-label="Envía el refrán de tu pueblo">Envía el tuyo ›</button>';
   if(!L.length){el.innerHTML=`<div class="rfI">🗣️</div><div class="rfX"><div class="rfK">Refrán del día</div><div class="rfT">¿Qué se dice en tu pueblo? Manda tu refrán y saldrá aquí para toda Navarra.</div></div>${env}`;}
   else{const d=new Date(),n=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),r=L[(n*5)%L.length];

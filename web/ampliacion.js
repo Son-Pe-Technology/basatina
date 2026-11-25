@@ -396,7 +396,39 @@ async function mvRender(){$('mvR').value=(CFG.roads||[]).join(', ');const el=$('
 svHook('mivias',mvRender);
 
 /* ---------- 8. CUADRILLA: refranes, correos ---------- */
+/* 🗣️ Refranes (25 nov. 2026, lo pidió Pedro): ya no llegan por correo ni hace falta la llave de GitHub.
+   - La gente los manda (anónimo) y se guardan en Firestore «refranes» con estado «pendiente».
+   - Pedro y Sonia los ven en el ⭐ Panel de administración y pulsan ✅ Publicar o 🗑️ Eliminar (web/superadmin.js).
+   - Todos ven solo los publicados (lo controla firestore.rules, bloque «refranes»).
+   - participa/refranes.json queda solo como copia antigua: lo que había ahí se pasa solo a Firestore
+     la primera vez que un administrador abre «Refranes de tu pueblo». Si Firestore falla, se lee de ahí. */
 const RF_PATH='participa/refranes.json',RF_DEF={refranes:[]};
+const RFX=(function(){
+  const C=()=>{if(!window.CMX)throw new Error('Sin conexión con la base de datos');return window.CMX;};
+  const esAdm=()=>typeof window.bnSuper==='function'&&window.bnSuper();
+  async function tokAdm(){if(!esAdm())throw new Error('Entra en «Mi cuenta» con vuestra cuenta de administrador');return (await C().cmTok()).it;}
+  const crea=(id,o)=>({update:{name:C().nom('refranes',id),fields:C().encF(o)},currentDocument:{exists:false},updateTransforms:[{fieldPath:'creado',setToServerValue:'REQUEST_TIME'}]});
+  // los publicados (para todos); si Firestore falla, la copia antigua de GitHub
+  async function publicados(){try{return await C().fsQuery('refranes','estado','publicado');}
+    catch(e){try{return ((await jsLoad(RF_PATH,RF_DEF))||{}).refranes||[];}catch(e2){return [];}}}
+  // los que esperan aprobación (solo administradores)
+  async function pendientes(){const L=await C().fsQuery('refranes','estado','pendiente',await tokAdm());return L.sort((a,b)=>(a.creado||0)-(b.creado||0));}
+  async function aprobar(id){await C().fsPatch('refranes',id,{estado:'publicado'},await tokAdm());}
+  async function eliminar(id){await C().fsDel('refranes',id,await tokAdm());}
+  // quitar uno publicado: se marca «quitado» (así el paso de la copia antigua no lo vuelve a poner)
+  async function quitar(id){await C().fsPatch('refranes',id,{estado:'quitado'},await tokAdm());}
+  async function publicarYa(t,s,p){await C().fsCommit([crea(C().rnd(20),{t,s,p,estado:'publicado'})],await tokAdm());}
+  // la gente: anónimo, queda pendiente. Como mucho uno por minuto (lo comprueban las reglas con limites_rf).
+  async function enviar(t,s,p){const u=await C().cmTok();
+    await C().fsCommit([crea(C().rnd(20),{t,s,p,estado:'pendiente'}),
+      {update:{name:C().nom('limites_rf',u.uid),fields:{}},updateTransforms:[{fieldPath:'ultimo',setToServerValue:'REQUEST_TIME'}]}],u.it);}
+  // pasar a Firestore, una sola vez, lo que había en participa/refranes.json
+  let MIG=false;
+  async function migrar(){if(MIG||!esAdm())return;MIG=true;let L=[];try{L=((await jsLoad(RF_PATH,RF_DEF))||{}).refranes||[];}catch(e){}
+    const tok=await tokAdm();
+    for(const r of L){if(!r||!r.t)continue;try{await C().fsCommit([crea('j_'+String(r.id).replace(/[^a-zA-Z0-9]/g,''),{t:r.t,s:r.s||'',p:r.p||'',estado:'publicado'})],tok);}catch(e){}}}
+  return {publicados,pendientes,aprobar,eliminar,quitar,publicarYa,enviar,migrar,esAdm};})();
+window.RFX=RFX;
 svSec('refranes',`<div class="card"><b>🗣️ Refranes de nuestros pueblos</b><div class="note">Dichos, refranes y frases de toda la vida de tu pueblo o valle. Mándanos el tuyo: lo revisamos y lo publicamos aquí.</div>
  <div class="row"><input id="rfQ" class="town" placeholder="🔎 Buscar refrán o pueblo…" style="flex:1;box-sizing:border-box"></div></div><div id="rfL"><div class="card"><div class="note">Cargando…</div></div></div>
  <div class="card"><b>✍️ Envía un refrán</b><textarea id="rfT" class="town" rows="2" maxlength="300" placeholder="El refrán o dicho" style="width:100%;box-sizing:border-box;margin-top:6px"></textarea>
@@ -407,22 +439,24 @@ svSec('refranes',`<div class="card"><b>🗣️ Refranes de nuestros pueblos</b><
  <input type="checkbox" id="rfH" style="display:none" tabindex="-1" autocomplete="off">
  <div class="row"><button class="btn pri" id="rfE">📨 Enviar</button></div><div class="note" id="rfM"></div><div class="note">Es anónimo: no pedimos tu nombre ni tu correo.</div></div>`);
 nuevo('refranes','Participa','🗣️ Refranes de tu pueblo','pueblo','i-refran','r');
-let RFED=null;
-async function rfRender(){const G=await jsLoad(RF_PATH,RF_DEF),q=N(($('rfQ')||{}).value||'');
-  const L=(G.refranes||[]).filter(r=>!q||N(r.t+' '+(r.s||'')+' '+(r.p||'')).includes(q)).sort((a,b)=>(a.p||'').localeCompare(b.p||'','es'));
-  $('rfL').innerHTML=`<div class="card">${L.length?L.map(r=>`<div class="amRow" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${esc(r.t)}»</div>${r.s?`<div class="note">${esc(r.s)}</div>`:''}<div class="note">📍 ${esc(r.p||'Navarra')}</div>
-     ${TECH?`<div class="row"><button class="btn" data-del="${esc(r.id)}">🗑️ Quitar</button></div>`:''}</div>`).join(''):'<div class="note">Todavía no hay refranes. ¡Sé el primero en mandar uno!</div>'}
-   ${TECH?`<div style="margin-top:8px;border-top:1px solid var(--line);padding-top:8px"><b>➕ Publicar refrán (administrador)</b><input id="rfAT" class="town" placeholder="Refrán" style="width:100%;box-sizing:border-box;margin-top:4px"><input id="rfAS" class="town" placeholder="Significado" style="width:100%;box-sizing:border-box;margin-top:4px"><input id="rfAP" class="town" placeholder="Pueblo" style="width:100%;box-sizing:border-box;margin-top:4px"><div class="row"><button class="btn pri" id="rfAG">💾 Publicar</button></div></div>`:''}</div>`;
-  if(TECH){$('rfAG').onclick=async()=>{const t=$('rfAT').value.trim();if(!t)return;try{await jsEdit(RF_PATH,RF_DEF,d=>{(d.refranes=d.refranes||[]).push({id:Date.now().toString(36),t,s:$('rfAS').value.trim(),p:$('rfAP').value.trim()});},'Refrán nuevo');toast('✅ Publicado');rfRender();}catch(e){toast('❌ '+e.message);}};
-    $('rfL').querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{if(!confirm('¿Quitar este refrán?'))return;try{await jsEdit(RF_PATH,RF_DEF,d=>{d.refranes=(d.refranes||[]).filter(r=>r.id!==b.dataset.del);},'Refrán quitado');rfRender();}catch(e){toast('❌ '+e.message);}});}}
+async function rfRender(){const el=$('rfL');if(!el)return;
+  if(TECH&&RFX.esAdm()){try{await RFX.migrar();}catch(e){}}
+  const G=await RFX.publicados(),q=N(($('rfQ')||{}).value||'');
+  const L=G.filter(r=>!q||N(r.t+' '+(r.s||'')+' '+(r.p||'')).includes(q)).sort((a,b)=>(a.p||'').localeCompare(b.p||'','es'));
+  const adm=TECH&&RFX.esAdm();
+  el.innerHTML=`<div class="card">${adm?'<div class="note" style="margin-bottom:6px">⭐ Los refranes que manda la gente os esperan en el <a href="#" id="rfPan">Panel de administración</a>.</div>':''}${L.length?L.map(r=>`<div class="amRow" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${esc(r.t)}»</div>${r.s?`<div class="note">${esc(r.s)}</div>`:''}<div class="note">📍 ${esc(r.p||'Navarra')}</div>
+     ${adm?`<div class="row"><button class="btn" data-del="${esc(r.id)}">🗑️ Quitar</button></div>`:''}</div>`).join(''):'<div class="note">Todavía no hay refranes. ¡Sé el primero en mandar uno!</div>'}
+   ${adm?`<div style="margin-top:8px;border-top:1px solid var(--line);padding-top:8px"><b>➕ Publicar refrán (administrador)</b><input id="rfAT" class="town" placeholder="Refrán" style="width:100%;box-sizing:border-box;margin-top:4px"><input id="rfAS" class="town" placeholder="Significado" style="width:100%;box-sizing:border-box;margin-top:4px"><input id="rfAP" class="town" placeholder="Pueblo" style="width:100%;box-sizing:border-box;margin-top:4px"><div class="row"><button class="btn pri" id="rfAG">💾 Publicar</button></div></div>`:''}</div>`;
+  if(adm){$('rfPan').onclick=e=>{e.preventDefault();showTab('superadm');};
+    $('rfAG').onclick=async()=>{const t=$('rfAT').value.trim();if(t.length<5){toast('❌ Escribe el refrán');return;}try{await RFX.publicarYa(t,$('rfAS').value.trim().slice(0,200),$('rfAP').value.trim().slice(0,60));toast('✅ Publicado');rfRender();}catch(e){toast('❌ '+e.message);}};
+    el.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{if(!confirm('¿Quitar este refrán?'))return;try{await RFX.quitar(b.dataset.del);toast('🗑️ Quitado');rfRender();}catch(e){toast('❌ '+e.message);}});}}
 (function(){$('rfQ').oninput=()=>rfRender();
   $('rfE').onclick=async()=>{const m=$('rfM'),t=$('rfT').value.trim();if($('rfH').checked)return;if(t.length<5){m.textContent='❌ Escribe el refrán.';return;}
     if(![...document.querySelectorAll('.rfOk')].every(c=>c.checked)){m.textContent='❌ Marca las dos casillas.';return;}
-    const ult=+(lsGet('rfUlt',0)||0);if(Date.now()-ult<30000){m.textContent='⏳ Espera unos segundos.';return;}
-    const k=await amKey('participa');if(!k){m.textContent='⏳ El envío todavía no está activado. Inténtalo más tarde.';return;}
-    m.textContent='Enviando…';try{const ok=await w3Send(k,{subject:'BasatiNA · 🗣️ Refrán nuevo',from_name:'Cuadrilla BasatiNA',refran:t,significado:$('rfS').value.trim()||'—',pueblo:$('rfP').value.trim()||'—',casillas:'14 años o más · sin datos personales',botcheck:false});
-      if(ok){m.textContent='✅ ¡Eskerrik asko! Lo revisaremos y saldrá publicado.';['rfT','rfS','rfP'].forEach(i=>$(i).value='');document.querySelectorAll('.rfOk').forEach(c=>c.checked=false);lsSet('rfUlt',Date.now());}
-      else m.textContent='❌ No se pudo enviar. Prueba otra vez.';}catch(e){m.textContent='❌ No se pudo enviar. Prueba otra vez.';}};})();
+    const ult=+(lsGet('rfUlt',0)||0);if(Date.now()-ult<60000){m.textContent='⏳ Espera un minuto antes de mandar otro.';return;}
+    m.textContent='Enviando…';try{await RFX.enviar(t,$('rfS').value.trim().slice(0,200),$('rfP').value.trim().slice(0,60));
+      m.textContent='✅ ¡Eskerrik asko! Lo revisaremos y saldrá publicado.';['rfT','rfS','rfP'].forEach(i=>$(i).value='');document.querySelectorAll('.rfOk').forEach(c=>c.checked=false);lsSet('rfUlt',Date.now());}
+    catch(e){m.textContent=/PERMISSION|403/i.test(e.message)?'⏳ Espera un minuto antes de mandar otro.':'❌ No se pudo enviar. Prueba otra vez.';}};})();
 svHook('refranes',rfRender);
 
 // correos: participa@basatina.es (buzón, fotos, refranes) y alertas@basatina.es (alertas ciudadanas). Cada uno con su clave de Web3Forms.

@@ -52,16 +52,18 @@ async function sync(){const s=yo();
 /* ---------- lo pendiente de aprobar ---------- */
 let PEND=null,PEND_T=0,PEND_BUSY=false;
 async function pendientes(forzar){const s=yo();if(!s||PEND_BUSY)return PEND;if(!forzar&&PEND&&Date.now()-PEND_T<120000){pinta();return PEND;}
-  PEND_BUSY=true;const P={alertas:null,denuncias:null,ia:null,err:[]};
+  PEND_BUSY=true;const P={alertas:null,denuncias:null,ia:null,refranes:null,rfL:[],err:[]};
   try{const t=await C.cmTok();
     const [a,d]=await Promise.allSettled([C.fsQuery('avisos','estado','pendiente',t.it),C.fsQuery('denuncias',null,null,t.it)]);
     if(a.status==='fulfilled')P.alertas=a.value.length;else P.err.push('alertas: '+a.reason.message);
     if(d.status==='fulfilled')P.denuncias=d.value.length;else P.err.push('denuncias: '+d.reason.message);
+    // 🗣️ refranes que ha mandado la gente (25 nov. 2026)
+    if(window.RFX){try{P.rfL=await window.RFX.pendientes();P.refranes=P.rfL.length;}catch(e){P.err.push('refranes: '+e.message);}}
   }catch(e){P.err.push(e.message);}
   if(ghTok()){try{const r=await fetch(BR_API+'?t='+Date.now(),{headers:{Authorization:'Bearer '+ghTok(),Accept:'application/vnd.github.raw+json'},cache:'no-store'});
       if(r.ok){const j=await r.json();P.ia=(j.items||[]).filter(x=>x.estado==='borrador'||x.estado==='duda').length;}else if(r.status===404)P.ia=0;}catch(e){}}
   PEND=P;PEND_T=Date.now();PEND_BUSY=false;pinta();return P;}
-const total=()=>PEND?(PEND.alertas||0)+(PEND.denuncias||0)+(PEND.ia||0):0;
+const total=()=>PEND?(PEND.alertas||0)+(PEND.denuncias||0)+(PEND.ia||0)+(PEND.refranes||0):0;
 
 /* ---------- avisos a la vista: Inicio y menú ---------- */
 function pinta(){const n=yo()?total():0;
@@ -71,7 +73,7 @@ function pinta(){const n=yo()?total():0;
   let f=$('sadBan');const ini=$('t-mapa');
   if(!n){if(f)f.remove();return;}
   if(!f&&ini){f=document.createElement('button');f.id='sadBan';f.onclick=()=>showTab('superadm');ini.prepend(f);}
-  if(f){const p=[];if(PEND.alertas)p.push(`${PEND.alertas} alerta${PEND.alertas>1?'s':''}`);if(PEND.denuncias)p.push(`${PEND.denuncias} denuncia${PEND.denuncias>1?'s':''}`);if(PEND.ia)p.push(`${PEND.ia} noticia${PEND.ia>1?'s':''} de la IA`);
+  if(f){const p=[];if(PEND.alertas)p.push(`${PEND.alertas} alerta${PEND.alertas>1?'s':''}`);if(PEND.denuncias)p.push(`${PEND.denuncias} denuncia${PEND.denuncias>1?'s':''}`);if(PEND.ia)p.push(`${PEND.ia} noticia${PEND.ia>1?'s':''} de la IA`);if(PEND.refranes)p.push(`${PEND.refranes} refrán${PEND.refranes>1?'es':''}`);
     f.innerHTML=`<span style="font-size:20px">🛡️</span><span style="flex:1;text-align:left"><b>Pendiente de aprobar</b><br><small>${X(p.join(' · '))}</small></span><span class="sadN2">${n}</span>`;}
   if($('t-superadm')&&$('t-superadm').classList.contains('on')&&!document.activeElement?.matches?.('#sadKeys input, #sadIA input')){panel();claves();gastoIA();}}
 
@@ -109,9 +111,12 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
    <div class="card"><b>⏳ Pendiente de aprobar</b>
      <div class="sadFila"><span class="sadI">📣</span><span class="sadT"><b>Alertas ciudadanas</b><small>Avisos de la gente esperando a ser publicados</small></span>${num(P.alertas)}<button class="btn" data-ir="mod">Revisar</button></div>
      <div class="sadFila"><span class="sadI">🚩</span><span class="sadT"><b>Denuncias</b><small>Avisos publicados que alguien ha denunciado</small></span>${num(P.denuncias)}<button class="btn" data-ir="mod">Revisar</button></div>
+     <div class="sadFila"><span class="sadI">🗣️</span><span class="sadT"><b>Refranes</b><small>Los que ha mandado la gente (abajo)</small></span>${num(P.refranes)}<button class="btn" data-ir="rfAbajo">Ver</button></div>
      <div class="sadFila"><span class="sadI">🤖</span><span class="sadT"><b>Noticias de la IA</b><small>Borradores que la IA no ha publicado sola</small></span>${num(P.ia)}<button class="btn" data-ir="ia">Revisar</button></div>
      ${P.err&&P.err.length?`<div class="note" style="margin-top:6px">⚠️ No se ha podido mirar todo (${X(P.err.join('; '))}). ¿Están publicadas las reglas nuevas de Firestore?</div>`:''}
      ${P.ia==null?'<div class="note" style="margin-top:6px">Para ver las noticias de la IA hace falta la llave de GitHub (abajo).</div>':''}</div>
+   <div class="card" id="sadRfC"><b>🗣️ Refranes por aprobar</b>${(P.rfL||[]).length?P.rfL.map(r=>`<div class="sadFila" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${X(r.t)}»</div>${r.s?`<div class="note">${X(r.s)}</div>`:''}<div class="note">📍 ${X(r.p||'sin pueblo')}${r.creado?' · '+X(new Date(r.creado).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})):''}</div>
+     <div class="row" style="gap:6px;margin-top:6px"><button class="btn pri" data-rfok="${X(r.id)}">✅ Publicar</button><button class="btn" data-rfno="${X(r.id)}">🗑️ Eliminar</button></div></div>`).join(''):`<div class="note" style="margin-top:6px">${P.refranes==null?'No se han podido mirar (¿están publicadas las reglas nuevas de Firestore?).':'No hay ninguno esperando. 👍'}</div>`}</div>
    <div class="card"><b>🛠️ Herramientas</b><div class="sadHerr">
      <button data-ir="noticias">📰 Corregir noticias</button><button data-ir="ajustes">⚙️ Ajustes y avisos</button><button data-ir="cuenta">👤 Mi cuenta</button><button data-ir="creditos">📚 Fuentes y créditos</button>
      ${herr.map((b,i)=>`<button data-hx="${i}">${X(b.textContent.trim())}</button>`).join('')}</div></div>
@@ -121,7 +126,12 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
      Si la guardáis en la nube, vuestros otros móviles la cogen solos al entrar con vuestra cuenta. Solo la podéis leer Sonia y tú.</div>
      <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px">${ghTok()?'<button class="btn pri" id="sadGu">☁️ Guardar en la nube</button>':''}<button class="btn" id="sadQu">🗑️ Quitar de la nube</button>${ghTok()?'':'<button class="btn" id="sadPeg">📋 Pegar llave</button>'}</div><div class="note" id="sadKm"></div></div>
    <div class="card"><div class="note" style="line-height:1.5">El modo Administrador solo se abre con vuestras cuentas y se cierra solo si sales de la cuenta. Ya no hay PIN.</div></div>`;
-  el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;v==='mod'?abrirMod():v==='ia'?abrirIA():showTab(v);});
+  el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;if(v==='rfAbajo'){const c=$('sadRfC');if(c)c.scrollIntoView({behavior:'smooth',block:'start'});return;}v==='mod'?abrirMod():v==='ia'?abrirIA():showTab(v);});
+  // 🗣️ publicar o eliminar refranes con un toque
+  const rfHecho=async(b,fn,txt)=>{el.querySelectorAll('[data-rfok],[data-rfno]').forEach(x=>x.disabled=true);
+    try{await fn();toast(txt);}catch(e){toast('❌ '+e.message);}await pendientes(true);panel();};
+  el.querySelectorAll('[data-rfok]').forEach(b=>b.onclick=()=>rfHecho(b,()=>window.RFX.aprobar(b.dataset.rfok),'✅ Refrán publicado'));
+  el.querySelectorAll('[data-rfno]').forEach(b=>b.onclick=()=>{if(confirm('¿Eliminar este refrán? No se publicará.'))rfHecho(b,()=>window.RFX.eliminar(b.dataset.rfno),'🗑️ Refrán eliminado');});
   el.querySelectorAll('[data-hx]').forEach(b=>b.onclick=()=>{const h=herr[+b.dataset.hx];if(h)h.click();try{menu(false);}catch(e){}});
   $('sadRf').onclick=async()=>{$('sadRf').disabled=true;await pendientes(true);panel();claves();gastoIA();};
   const km=t=>{$('sadKm').textContent=t;};
