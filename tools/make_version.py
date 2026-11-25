@@ -20,7 +20,8 @@ nuevo = re.sub(r'(<script src=")([^"?]+)(?:\?v=[0-9a-f]+)?"', _huella, html)
 if nuevo != html:
     open(idx, "w", encoding="utf-8").write(nuevo)
 files = {f: hashlib.sha1(open(os.path.join(web, f), "rb").read()).hexdigest()
-         for f in sorted(os.listdir(web)) if f != "version.json" and not f.startswith(".")}
+         for f in sorted(os.listdir(web)) if f != "version.json" and not f.startswith(".")
+         and os.path.isfile(os.path.join(web, f))}   # las carpetas (p. ej. fotos-full/) no se bajan a los móviles
 apk = int(re.search(r"versionCode (\d+)", open(os.path.join(root, "app", "build.gradle")).read()).group(1))
 version = old["version"] + (1 if files != old.get("files") else 0)
 out = {"version": version, "apk": apk, "files": files,
