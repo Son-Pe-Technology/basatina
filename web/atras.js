@@ -47,7 +47,10 @@ function cierraVentana(){
 }
 
 // 3. fichas dentro de la pantalla con su botón «‹ Volver»
-const VOLVER=/^(‹|◀|←|⬅)/;
+// Solo cuenta como «volver» una flecha CON texto detrás («‹ Volver», «‹ Todas las localidades»…).
+// Una flecha sola («‹», «◀») es pasar de mes, de foto o mover en un juego: NO se pulsa
+// (25 nov. 2026: en Cartelera/Agenda, «atrás» cambiaba el mes del calendario).
+const VOLVER=/^(‹|◀|←|⬅)\s*\p{L}/u;
 function volverDentro(){
   const rv=document.getElementById('ruVolver');
   if(vis(rv)){rv.click();return true;}
