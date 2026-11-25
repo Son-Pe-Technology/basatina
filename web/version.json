@@ -1,5 +1,5 @@
 {
- "version": 559,
+ "version": 560,
  "apk": 36,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -193,7 +193,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "dd533243e8e479795c02ded43c87364ebeeadb33",
-  "index.html": "b788012b6b67e18ffbbc126499f5ad7d3cb10145",
+  "index.html": "d0dbbd8ec8049c794d0af0f558d8bf2036bb83c7",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
@@ -232,6 +232,7 @@
   "relax.js": "5da061a10b6e516428eeb8e968478e323614b20a",
   "rios-plus.js": "5192291277dd6af85ec7d7205cb10b82fdd929fa",
   "rios.js": "4d50b340bbe3b5703f78995c5308add42a86273e",
+  "ruta-gps.js": "b2d7dc1968148a712f7cc8c7021c20f8cb691691",
   "rutas-ui.js": "ab4bea599ab2a8b2e0c4a77317f5ba4316138015",
   "rutas.js": "062f9b102e7d4c3be13c64bb0d9b6c43915aa065",
   "servicios-ui.js": "e855a8e81b2c7a7bc117bb38c8d9310e619b7fe2",

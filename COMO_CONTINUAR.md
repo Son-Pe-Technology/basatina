@@ -21,6 +21,7 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 | `web/eu.js` | Motor de traducción + diccionario de euskera |
 | `web/idiomas.js` | Diccionarios nuevos: euskera (textos nuevos), inglés y francés. Clave = texto exacto en castellano |
 | `web/atras.js` | Botón «atrás» del móvil (24 nov. 2026): `basatinaAtras()` cierra ventanas, menú y fichas o vuelve a la pantalla anterior; lo llama `MainActivity.atras()` (APK 36+) |
+| `web/ruta-gps.js` | Seguir una ruta de NA a Pie con el GPS (25 nov. 2026, fase 1): posición en el mapa, lo que queda, hora de llegada y aviso si te sales más de 40 m. Solo con la app abierta y la pantalla encendida (la fase 2, con APK, lo hará en segundo plano) |
 | `web/novedades.js` | Cambios del 13 nov. 2026 (ver abajo). Se carga el último |
 | `tools/*.py` | Scripts que descargan datos (los ejecuta GitHub Actions, que sí tiene internet) |
 | `.github/workflows/*.yml` | Tareas automáticas: `build.yml` compila la APK; el resto actualiza datos |
