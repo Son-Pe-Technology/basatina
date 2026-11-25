@@ -1,6 +1,25 @@
 {
  "items": [
   {
+   "id": "ea30af7e5bd6",
+   "pub": "2026-11-25T05:03Z",
+   "titulo": "Nil Moliner lleva su gira mundial a Pamplona el 16 de abril",
+   "texto": "El músico navarro Nil Moliner actuará en la sala Zentral de Pamplona el 16 de abril dentro del NEXO World Tour, su primer recorrido internacional. La gira iniciará en febrero con actuaciones en Ámsterdam, París, Londres y Dublín, proseguirá por ciudades españolas en abril y mayo, y finalizará con fechas en Chile, Colombia y México. Las entradas se comercializarán a partir del 27 de noviembre a las 12:00 horas a través de nilmoliner.com. El concierto reunirá temas de su carrera junto a canciones del álbum «NEXO», que ha alcanzado más de 60 millones de reproducciones en plataformas digitales.",
+   "pueblo": "Pamplona",
+   "cat": "Cultura",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/nil-moliner-vuelve-a-pamplona-el-16-de-abril-con-su-gira-nexo-la-primera-de-alcance-mundial/"
+    },
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/endika-landa-nuevo-presidente-de-la-navarra-natur-all-grupo-iparlat-y-kaiku/"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "8dd414f621db",
    "pub": "2026-11-24T18:58Z",
    "titulo": "Navarra acogerá una planta de almacenamiento energético de 380 MW",
@@ -413,5 +432,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-24T18:58Z"
+ "t": "2026-11-25T05:03Z"
 }
