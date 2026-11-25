@@ -72,8 +72,9 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&typeof BN
 /* =====================================================================
    🔍 FOTO ENTERA AL TOCAR LA CABECERA (25 nov. 2026, lo pidió Pedro)
    La cabecera es un recorte apaisado (900×375). Al tocarla se abre el visor de fotos (#foBox) con la foto
-   entera: web/foto-full-<sección>.webp (máx. 1600 px, SUELTA en web/). Si una sección no tiene foto entera,
-   se enseña la de la cabecera. Para añadir una: guarda foto-full-<sección>.webp y pon la sección en CF_FULL.
+   entera: web/fotos-full/foto-full-<sección>.webp (máx. 1600 px, en la CARPETA fotos-full para que el
+   actualizador no la baje a todos los móviles: se pide a GitHub solo al tocar la cabecera). Si una sección no tiene foto entera,
+   se enseña la de la cabecera. Para añadir una: guárdala en web/fotos-full/ y pon la sección en CF_FULL.
    ===================================================================== */
 (function(){
 const CF_FULL=new Set(['noticias','cerca','radar','nieve','astro','energia','clima','emb','prev','ident','gas','sismo','cultura','cines','deporte','peques']);
@@ -82,7 +83,10 @@ document.head.appendChild(st);
 function abre(){const el=document.getElementById('pvSec');if(!el||!el.classList.contains('cfFoto'))return;
   const t=typeof BNTAB!=='undefined'?BNTAB:'';const m=(el.style.backgroundImage||'').match(/url\("?([^")]+)"?\)/);if(!m)return;
   const box=document.getElementById('foBox'),img=document.getElementById('foBoxI'),tx=document.getElementById('foBoxT');if(!box||!img)return;
-  img.src=CF_FULL.has(t)?`foto-full-${t}.webp`:m[1];
+  // las fotos enteras NO van sueltas en web/ (el actualizador las bajaría a todos los móviles): están en
+  // web/fotos-full/ y se piden a GitHub solo cuando alguien toca la cabecera. Sin internet, se ve la cabecera.
+  img.onerror=()=>{img.onerror=null;img.src=m[1];};
+  img.src=CF_FULL.has(t)?`${typeof GH_RAW!=='undefined'?GH_RAW:'https://raw.githubusercontent.com/Son-Pe-Technology/basatina/main/'}web/fotos-full/foto-full-${t}.webp`:m[1];
   const cr=document.querySelector('section.on>.cfCred');if(tx)tx.innerHTML=cr?`<div style="font-size:13px;opacity:.85">${cr.innerHTML}</div>`:'';
   box.style.display='flex';}
 function pon(){const el=document.getElementById('pvSec');if(!el||el.dataset.cfZ)return;el.dataset.cfZ=1;

@@ -32,7 +32,9 @@ android {
     }
     // Las fotos y mapas ya van comprimidos: no volver a comprimirlos
     lint { checkReleaseBuilds false; abortOnError false }
-    androidResources { noCompress 'jpg', 'png' }
+    // ignoreAssetsPattern: los de siempre de Android + la carpeta web/fotos-full (fotos enteras de las cabeceras,
+    // 25 nov. 2026): no van dentro de la APK; la app las pide a GitHub solo cuando alguien toca una cabecera.
+    androidResources { noCompress 'jpg', 'png'; ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:<dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:<dir>fotos-full' }
     // Los archivos de la pantalla (simulador, fotos, mapas) están en la carpeta web/ del repositorio
     sourceSets { main { assets { srcDirs = ['../web'] } } }
 }
