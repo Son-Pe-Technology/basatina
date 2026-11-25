@@ -2,14 +2,16 @@
 #   tools/ia_noticias.py → ia_borradores.json en el repositorio PRIVADO basatina-borradores (llave: secreto BORRADORES_TOKEN)
 #                          las seguras las publica sola en noticias/ia_publicadas.json (público); el resto, desde la app
 #   (cada 3 h de 7 a 22 h, hora de Madrid en invierno)
-#   tools/ia_hoy.py      → noticias/navarra_hoy.json   (a las 7:20)
+#   tools/ia_hoy.py      → noticias/navarra_hoy.json   (a las 5:40 hora de Madrid, listo para el desayuno de las 6:30;
+#                          dos horarios en UTC para que valga en invierno y en verano: solo se hace una vez al día)
 # La clave va en el secreto ANTHROPIC_API_KEY. Si hay dudas, se acaba el saldo o falla la clave,
 # el robot abre un aviso (issue con la etiqueta «ia») y GitHub manda un correo.
 name: "IA: noticias propias y Navarra hoy"
 on:
   schedule:
     - cron: '5 6-21/3 * * *'    # noticias
-    - cron: '20 6 * * *'        # Navarra hoy
+    - cron: '40 3 * * *'        # Navarra hoy (5:40 en verano)
+    - cron: '40 4 * * *'        # Navarra hoy (5:40 en invierno)
   push:
     branches: [main]
     paths: ['tools/ia.py', 'tools/ia_noticias.py', 'tools/ia_hoy.py', '.github/workflows/ia.yml']
@@ -35,18 +37,26 @@ jobs:
           token: ${{ secrets.BORRADORES_TOKEN }}
           path: priv
       - name: Noticias propias
-        if: github.event.schedule != '20 6 * * *' && github.event.inputs.tarea != 'hoy'
+        if: github.event.schedule != '40 3 * * *' && github.event.schedule != '40 4 * * *' && github.event.inputs.tarea != 'hoy'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IA_AUTO: '1'          # '0' = no publica nada sola (todo a revisión a mano)
         run: python3 tools/ia_noticias.py
       - name: Navarra hoy
-        if: github.event.schedule == '20 6 * * *' || github.event_name == 'push' || github.event.inputs.tarea == 'hoy' || github.event.inputs.tarea == 'las-dos'
+        if: github.event.schedule == '40 3 * * *' || github.event.schedule == '40 4 * * *' || github.event_name == 'push' || github.event.inputs.tarea == 'hoy' || github.event.inputs.tarea == 'las-dos'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 tools/ia_hoy.py
+        run: |
+          # Con horario: solo entre las 5 y las 9 de la mañana (hora de Madrid) y si hoy no está hecho ya.
+          # Así en invierno no sale a las 4:40 y en verano no se repite a las 6:40 (no gasta crédito dos veces).
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            H=$(TZ=Europe/Madrid date +%-H); HOY=$(TZ=Europe/Madrid date +%F)
+            if [ "$H" -lt 5 ] || [ "$H" -gt 9 ]; then echo "Fuera de hora ($H h): nada"; exit 0; fi
+            if python3 -c "import json,sys;sys.exit(0 if json.load(open('noticias/navarra_hoy.json')).get('f')=='$HOY' else 1)" 2>/dev/null; then echo "Navarra hoy ya está hecho"; exit 0; fi
+          fi
+          python3 tools/ia_hoy.py
       - name: Guardar los borradores (repositorio privado)
         run: |
           cd priv
