@@ -4,7 +4,7 @@
 name: Construir APK
 on:
   push:
-    paths: ['app/**', 'build.gradle', 'settings.gradle', 'gradle.properties', '.github/workflows/build.yml']
+    paths: ['app/**', 'wear/**', 'build.gradle', 'settings.gradle', 'gradle.properties', '.github/workflows/build.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -46,6 +46,14 @@ jobs:
         with:
           name: BasatiNA-GooglePlay-AAB
           path: app/build/outputs/bundle/release/*.aab
+      # ⌚ BasatiNA para Wear OS (25 nov. 2026): el paquete del reloj para Google Play (pista «Wear OS»)
+      # y el APK para probarlo instalándolo a mano en el reloj
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BasatiNA-Reloj-WearOS
+          path: |
+            wear/build/outputs/bundle/release/*.aab
+            wear/build/outputs/apk/release/*.apk
       - name: Publicar versión nueva
         if: github.ref == 'refs/heads/main'
         env:
