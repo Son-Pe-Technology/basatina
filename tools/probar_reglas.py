@@ -74,6 +74,13 @@ def aviso(uid, apodo, tok, id_):
         {'update': {'name': nom('limites', uid), 'fields': {}}, 'updateTransforms': [{'fieldPath': 'ultimo', 'setToServerValue': 'REQUEST_TIME'}]}], tok)
 
 
+def refran(uid, tok, id_, estado='pendiente'):
+    return commit([
+        {'update': {'name': nom('refranes', id_), 'fields': {'t': S('Prueba automática de reglas'), 's': S(''), 'p': S('Prueba'), 'estado': S(estado)}},
+         'currentDocument': {'exists': False}, 'updateTransforms': [{'fieldPath': 'creado', 'setToServerValue': 'REQUEST_TIME'}]},
+        {'update': {'name': nom('limites_rf', uid), 'fields': {}}, 'updateTransforms': [{'fieldPath': 'ultimo', 'setToServerValue': 'REQUEST_TIME'}]}], tok)
+
+
 def main():
     sa = os.environ.get('FIREBASE_SA')
     if not sa: print('Falta el secreto FIREBASE_SA.'); sys.exit(1)
@@ -93,15 +100,17 @@ def main():
             commit([{'update': {'name': nom('usuarios', uid), 'fields': {'apodo': S(ap), 'apodoK': S(ap.lower()), 'normas': I(2)}},
                      'updateTransforms': [{'fieldPath': 'creado', 'setToServerValue': 'REQUEST_TIME'}, {'fieldPath': 'cambiado', 'setToServerValue': 'REQUEST_TIME'}]},
                     {'update': {'name': nom('apodos', ap.lower()), 'fields': {'uid': S(uid)}}}], adm)
-            docs += [nom('usuarios', uid), nom('apodos', ap.lower()), nom('espacio', uid), nom('limites', uid)]
+            docs += [nom('usuarios', uid), nom('apodos', ap.lower()), nom('espacio', uid), nom('limites', uid), nom('limites_rf', uid)]
         j = pide(IT + 'signUp?key=' + KEY, {'returnSecureToken': True})
         U['anon'] = {'uid': j['localId'], 'tok': j['idToken']}
-        docs.append(nom('limites', j['localId']))
+        docs += [nom('limites', j['localId']), nom('limites_rf', j['localId'])]
         try: est_previo = pide(f'{FS}/estadisticas/{manana}', tok=adm).get('fields')
         except urllib.error.HTTPError: est_previo = None
         A, B, C, N = U['A'], U['B'], U['C'], U['anon']
         X, Y, Z = 'pruebaX' + R, 'pruebaY' + R, 'pruebaZ' + R
         docs += [nom('avisos', i) for i in (X, Y, Z)] + [nom('avisos_priv', i) for i in (X, Y, Z)]
+        RF1, RF2, RF3 = 'pruebaRf1' + R, 'pruebaRf2' + R, 'pruebaRf3' + R
+        docs += [nom('refranes', i) for i in (RF1, RF2, RF3)]
         print('Cuentas de prueba creadas. Empiezan las pruebas:\n')
 
         # --- perfiles y Mi Espacio ---
@@ -135,6 +144,16 @@ def main():
         prueba(23, 'Sin entrar, suma +50 al contador', 'denegado', lambda: commit([{'transform': {'document': nom('estadisticas', manana), 'fieldTransforms': [{'fieldPath': 'activos', 'increment': I(50)}]}}], None))
         prueba(24, 'Sin entrar, lee el contador', 'denegado', lambda: pide(f"{FS}/estadisticas/{manana}"))
         prueba(25, 'A borra su propio aviso', 'permitido', lambda: commit([{'delete': nom('avisos', X)}, {'delete': nom('avisos_priv', X)}], A['tok']))
+
+        # --- 🗣️ refranes (25 nov. 2026) ---
+        prueba(26, 'Anónimo manda un refrán (queda pendiente)', 'permitido', lambda: refran(N['uid'], N['tok'], RF1))
+        prueba(27, 'Anónimo manda otro refrán enseguida (límite de 1 min)', 'denegado', lambda: refran(N['uid'], N['tok'], RF2))
+        prueba(28, 'B manda un refrán ya publicado', 'denegado', lambda: refran(B['uid'], B['tok'], RF3, 'publicado'))
+        prueba(29, 'Sin entrar, lee el refrán pendiente', 'denegado', lambda: pide(f"{FS}/refranes/{RF1}"))
+        prueba(30, 'Anónimo se publica él mismo el refrán', 'denegado', lambda: commit([{'update': {'name': nom('refranes', RF1), 'fields': {'estado': S('publicado')}}, 'updateMask': {'fieldPaths': ['estado']}}], N['tok']))
+        prueba(31, 'Anónimo borra el refrán pendiente', 'denegado', lambda: commit([{'delete': nom('refranes', RF1)}], N['tok']))
+        commit([{'update': {'name': nom('refranes', RF1), 'fields': {'estado': S('publicado')}}, 'updateMask': {'fieldPaths': ['estado']}}], adm)
+        prueba(32, 'Sin entrar, lee el refrán ya publicado', 'permitido', lambda: pide(f"{FS}/refranes/{RF1}"))
     finally:
         # --- limpiar SIEMPRE ---
         try:

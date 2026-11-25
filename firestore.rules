@@ -239,6 +239,34 @@ service cloud.firestore {
       allow delete: if usuario() && request.auth.uid == uid;
     }
 
+    // ---------- 🗣️ refranes de la gente (25 nov. 2026, lo pidió Pedro) ----------
+    // La gente los manda desde «Refranes de tu pueblo» (anónimo, vale el acceso anónimo) y quedan «pendiente».
+    // Pedro y Sonia los aprueban o eliminan desde el ⭐ Panel de administración (regla de administradores, arriba).
+    // Todos ven solo los publicados. No se guarda quién lo mandó.
+    match /refranes/{id} {
+      allow get, list: if resource.data.estado == 'publicado';
+      allow create: if usuario() && !bloqueado()
+        && request.resource.data.keys().hasOnly(['t', 's', 'p', 'estado', 'creado'])
+        && request.resource.data.keys().hasAll(['t', 's', 'p', 'estado', 'creado'])
+        && request.resource.data.estado == 'pendiente'
+        && request.resource.data.t is string && request.resource.data.t.size() >= 5 && request.resource.data.t.size() <= 300
+        && request.resource.data.s is string && request.resource.data.s.size() <= 200
+        && request.resource.data.p is string && request.resource.data.p.size() <= 60
+        && request.resource.data.creado == request.time
+        // como mucho un refrán por minuto y móvil
+        && getAfter(doc('limites_rf', request.auth.uid)).data.ultimo == request.time;
+    }
+    match /limites_rf/{uid} {
+      allow get: if usuario() && request.auth.uid == uid;
+      allow create: if usuario() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['ultimo'])
+        && request.resource.data.ultimo == request.time;
+      allow update: if usuario() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['ultimo'])
+        && request.resource.data.ultimo == request.time
+        && request.time > resource.data.ultimo + duration.value(1, 'm');
+    }
+
     // ---------- bloqueados: solo administradores (regla de arriba) ----------
   }
 }
