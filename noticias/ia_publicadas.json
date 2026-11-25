@@ -1,6 +1,48 @@
 {
  "items": [
   {
+   "id": "ec47e16290bf",
+   "pub": "2026-11-25T21:56Z",
+   "titulo": "La CNMV autoriza la OPA de Ohmnia sobre Azkoyen por 244,5 millones",
+   "texto": "La Comisión Nacional del Mercado de Valores ha autorizado la oferta pública de adquisición del grupo navarro Azkoyen presentada por Ohmnia Electronics. La operación valora la compañía en 244,5 millones de euros, a 10 euros por acción, y necesita la aceptación de más de la mitad de las 24.450.000 acciones en un plazo de 15 días naturales. CaixaBank y Banco de Sabadell avalan la operación con 122,25 millones de euros cada uno. Ohmnia ha anunciado que, si prospera, se fusionará con Azkoyen antes de finales de 2027 y mantendrá los empleos, centros productivos y actividades navarras.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-economia/la-cnmv-autoriza-la-opa-de-ohmnia-electronics-sobre-el-100-de-azkoyen/"
+    },
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/la-cnmv-autoriza-la-opa-sobre-el-grupo-navarro-azkoyen-a-10-euros-la-accion/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-cnmv-autoriza-opa-grupo-ohmnia-azkoyen-20261125183148.html"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "91a62179ca77",
+   "pub": "2026-11-25T21:56Z",
+   "titulo": "El grupo portugués Casais adquiere el 80% de la constructora ACR",
+   "texto": "El Grupo Casais ha cerrado la adquisición del 80% de ACR, constructora navarra. Michel Elizalde continúa como consejero delegado y mantiene su participación accionarial. La operación, segunda que Casais realiza en España en doce meses, busca reforzar la presencia del grupo portugués y potenciar la construcción industrializada y sostenible. ACR conserva su marca, equipo directivo y autonomía operativa. La colaboración entre ambas empresas comenzó en 2023 con un proyecto conjunto en Madrid y se formalizó en junio de 2026 con la creación de CREE Iberia.",
+   "pueblo": "Navarra",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-economia/el-grupo-portugues-casais-compra-el-80-de-la-constructora-acr-fundada-por-el-navarro-javier-oses/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/2026/11/25/portuguesa-casais-compra-80-constructora-navarra-acr-843754-84.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "bf91d810c42d",
    "pub": "2026-11-25T18:52Z",
    "titulo": "Accidente laboral grave en una obra de Artica",
@@ -608,5 +650,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-25T18:52Z"
+ "t": "2026-11-25T21:56Z"
 }
