@@ -1,6 +1,44 @@
 {
  "items": [
   {
+   "id": "5ab6c585ed7a",
+   "pub": "2026-11-25T16:05Z",
+   "titulo": "Navarra aprueba el Plan de Salud 2030 con enfoque en prevención y equidad",
+   "texto": "El Gobierno navarro aprobó este miércoles el Plan de Salud Horizonte 2030, documento que orientará la política sanitaria hasta 2030. El plan debe ser votado en el Parlamento antes de su implementación. Responde a retos como el envejecimiento demográfico, las enfermedades crónicas y los problemas de salud mental, reconociendo que el bienestar depende también de factores educativos, laborales y ambientales. Se estructura en cinco objetivos: políticas saludables e inclusivas; atención a lo largo de todas las edades; reducción de enfermedades graves; modernización del sistema sanitario; e impulso de la investigación e innovación. Su elaboración ha contado con participación de profesionales, administraciones locales, universidades y ciudadanía.",
+   "pueblo": "Navarra",
+   "cat": "Salud",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/25/licitadas-obras-ampliacion-centro-salud-txantrea-843733-16.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/el-gobierno-de-navarra-aprueba-el-plan-de-salud-horizonte-2030-con-cinco-objetivos-para-una-sanidad-mas-preventiva-y-equitativa/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "850fcb97f38d",
+   "pub": "2026-11-25T16:05Z",
+   "titulo": "Pamplona abre inscripciones para vivienda municipal con la ordenanza Aukera",
+   "texto": "El Ayuntamiento de Pamplona ha iniciado el registro de demandantes de vivienda municipal con la entrada en vigor de Aukera, la nueva ordenanza que regula el acceso a las viviendas públicas. El programa ofrece tres modalidades: emergencia habitacional económica, estabilización y transición. Las dos primeras requieren valoración previa de servicios sociales y son principalmente viviendas compartidas con acompañamiento obligatorio. La modalidad de transición permite solicitud directa telemática o presencial en la Oficina de Vivienda. La inscripción es gratuita y afecta a 215 viviendas con carácter público, transitorio y temporal. El objetivo es favorecer la inclusión social mediante itinerarios personalizados y acompañamiento profesional.",
+   "pueblo": "Pamplona",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/ya-te-puedes-inscribir-en-el-registro-de-demandantes-de-vivienda-municipal-de-pamplona/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/abierto-el-plazo-para-solicitar-la-inscripcion-en-el-registro-de-demandantes-de"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "a50e4a5d4cc1",
    "pub": "2026-11-25T13:19Z",
    "titulo": "Pamplona conmemora el 25-N enfocado en la violencia hacia mujeres mayores",
@@ -551,5 +589,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-25T13:19Z"
+ "t": "2026-11-25T16:05Z"
 }
