@@ -36,13 +36,8 @@
 - GEOM_AREA: 84 · [('486133.25', 1), ('17251.13', 1), ('31293.64', 1), ('4538.1', 1), ('9943.27', 1), ('142889.27', 1), ('392991.02', 1), ('38129.83', 1)]
 - GEOM_PERI: 84 · [('4233.54', 1), ('661.12', 1), ('859.45', 1), ('326.75', 1), ('587.83', 1), ('1893.77', 1), ('3123.37', 1), ('1047.39', 1)]
 - BEGINLIFE: 1 · [('29/10/2026', 84)]
-overpass https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
-overpass https://overpass.private.coffee/api/interpreter The read operation timed out
-overpass https://overpass.kumi.systems/api/interpreter HTTP Error 504: Gateway Timeout
-overpass https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
-overpass https://overpass.private.coffee/api/interpreter HTTP Error 504: Gateway Timeout
 
-## OSM centrales: Counter({'hydro': 100, 'solar': 74, 'wind': 53, 'biomass': 3, 'gas': 3, 'biogas': 2, '?': 2})
+## OSM centrales: Counter({'hydro': 100, 'solar': 75, 'wind': 53, 'biomass': 3, 'gas': 3, 'biogas': 2, '?': 2})
  * {'src': 'hydro', 'n': 'Electra Cárcar', 'mw': '', 'op': '', 'pt': [42.4615, -2.338], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [43.1417, -1.6071], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.3583, -2.0527], 'w': ''}
@@ -96,8 +91,8 @@ overpass https://overpass.private.coffee/api/interpreter HTTP Error 504: Gateway
  * {'src': 'hydro', 'n': 'Central Hidráulica Artesiaga', 'mw': '1.15 MW', 'op': 'Iberdrola', 'pt': [43.1105, -1.5324], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.8948, -1.3012], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica Irurtzun', 'mw': '0.98 MW', 'op': 'Hidroelectrica Dos Hermanas', 'pt': [42.9249, -1.8309], 'w': ''}
- * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Olaldea', 'mw': '3.29 MW', 'op': 'Acciona', 'pt': [42.917, -1.2921], 'w': ''}
- * {'src': 'hydro', 'n': 'Central Hidráulica de Olaldea II', 'mw': '0.72 MW', 'op': 'Acciona', 'pt': [42.9161, -1.2909], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Olaldea', 'mw': '3.29 MW', 'op': 'Hidráulicas de la Cuenca del Norte', 'pt': [42.917, -1.2921], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central Hidroeléctrica Olaldea 2', 'mw': '0,75 MW', 'op': 'Hidráulicas de la Cuenca del Norte', 'pt': [42.9166, -1.2894], 'w': ''}
  * {'src': 'hydro', 'n': 'Barazpea', 'mw': 'small_installation', 'op': '', 'pt': [42.8025, -1.7784], 'w': ''}
  * {'src': 'hydro', 'n': 'Urdaizko Zentral Hidroelektrikoa', 'mw': 'small_installation', 'op': '', 'pt': [42.9089, -1.5324], 'w': ''}
  * {'src': 'hydro', 'n': 'Ubaun', 'mw': '', 'op': '', 'pt': [43.1017, -1.6212], 'w': ''}
@@ -159,7 +154,6 @@ REE fallo generacion/estructura-generacion?start_date=2026-09-01T00:00&end_date=
 ## REE días: 0
 REE fallo generacion/potencia-instalada?start_date=2025-01-01T00:00&end_date=2025-12-31T23:59&time_t HTTP Error 500: Internal Server Error
 ## REE potencia instalada: {}
-open-meteo reintento 0 <urlopen error _ssl.c:1063: The handshake operation timed out>
 ## calibración eólica {'eol': 1.043, 'eolMW': 1775.2} [('2025-11', 355893, 390571.9), ('2025-12', 155101, 215047.6), ('2026-01', 292132, 310122.9), ('2026-02', 294375, 266250.0), ('2026-03', 359444, 301917.5), ('2026-04', 258566, 240368.8), ('2026-05', 162121, 169512.7), ('2026-06', 201179, 206508.3), ('2026-07', 250218, 261649.7), ('2026-08', 163556, 237102.1), ('2026-09', 211222, None), ('2026-10', 175775, None)]
 open-meteo reintento 0 <urlopen error _ssl.c:1063: The handshake operation timed out>
 ## calibración solar {'eol': 1.043, 'eolMW': 1775.2, 'sol': 0.726, 'solMW': 453.9}
