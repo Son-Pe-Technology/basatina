@@ -1,14 +1,7 @@
 {
-"t": "2026-11-24T20:17Z",
-"turno": "2026-11-24-n",
+"t": "2026-11-25T07:47Z",
+"turno": "2026-11-25-m",
 "dest": [
-{
-"k": "2026-11-21-m",
-"t": "Desde la iglesia más alta del mundo a la colección más grande de perros: los 14 récords españoles destacados en Guinness World Records 2027",
-"u": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMjNvbk1HM0dCSV9TZUZ3c0pidmlVUnYyZFJTLW9KdzNESVZGN25rbnZtUHdhVGt4Z3BZNjRMdmZ0bHh3eGNvbm5XTk8tX29aYl8zUUlOcEhqeFdEWHlZMzlRbU5SeFM2RDdBajZoYll6cHplNE5CV0NzR29fRmNRQUpTNUtsMjVUV3RSaGVVcVh3QUFsTVFKMUp0dzBRWVhTRjVrZ0JiclpCTGFWdnUzejVYMERzT0E?oc=5",
-"f": "El Confidencial",
-"d": "2026-11-21T01:00Z"
-},
 {
 "k": "2026-11-21-t",
 "t": "Una patinadora india de 18 años bate un récord Guinness al recorrer 50 metros en solo 6,86 segundos",
@@ -85,6 +78,13 @@
 "u": "https://www.20minutos.es/madrid/video-emilio-delgado-machacandose-gimnasio-que-se-ha-hecho-viral-combate-es-las-urnas-no-peleamos-solos_7065362_0.html",
 "f": "20minutos",
 "d": "2026-11-24T19:00Z"
+},
+{
+"k": "2026-11-25-m",
+"t": "El vídeo viral que prueba que en un bar de Vitoria \"te sale más caro el azúcar si eres árabe\": \"No tengo nada en contra de ellos, pero les cobramos 10 céntimos más\"",
+"u": "https://www.telecinco.es/noticias/euskadi/20261125/bar-vitoria-racismo-arabes-recargo-azucar-video-viral_18_020797858.html",
+"f": "Telecinco",
+"d": "2026-11-25T04:30Z"
 }
 ],
 "items": [
@@ -110,13 +110,6 @@
 "p": 4
 },
 {
-"t": "De las latas de las abuelas a una curiosa trampa para insectos: los tesoros que guarda un museo de Zamora",
-"u": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTjVOX0pTRWdfbGZNQzlXQjlTX3BrSTI4dk1sdGhoaXRZVnZhNGxSdXYtaGppTkZzNzJQczdJSkl1R2JFaVhHWUdIV1JkOEtjRUxhOTY2dktxRVFhNjNMS2pmaUNKOEk3UjFEMlZEQy15U3o0Q1ZMdGN6b1B1WUJRWWlxWDJ1VXFqUnh2ZEN5MkllRzB1bDdORmlmQm1JWGNxRDF2ZU130gGrAUFVX3lxTE9GdU16UkNYb0xZN0FrSHRnRmwtRVBYR2F3MW9SS0FTY2ZZVXVGVkRxMC1kQTF1dXExM0J3WDBKR3pRRC04ekQ1dE1WeHlIZ1hRUG4tOGYxQ24wYUo4b3lic002d1drMG1GN0RiUExjcWpKTUN1N2dMeWNrdVZWZlZxYmJsU2xvU0lFQkJtbHZLWi02THhmU19PZm5EczdsTUFCTEUyLXRxTWJqUQ?oc=5",
-"f": "La Opinión de Zamora",
-"d": "2026-11-23T06:00Z",
-"p": 4
-},
-{
 "t": "A Coruña entra en el Libro Guinness de los récords con un 'pequeño' gesto: 'Lo conseguí a la segunda. No me lo tomo como un juego'",
 "u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS3lWMGZjWmNrUW9Bdy1UdXFVOG1VUWFCX2daOVl1UjhpWWtIam1jLXpsaE0yT3BfSVVHN3J2WGVNYUVkRUhaaUxCNnYwYUV0RF9tbnFhRzZueFdEYVpXX25oWXZNY0QwWFhOZzJSZFgyQlNuNDdzMXZyTnhjeVhpWVczdzU1eXdiSVdNQjh6NXo1YVVqc3V1SGlkRHpxd0NyZ0JieTdiZ0phdm52N1R1UWR2Z2p4LWhRSlJra2FwdjFKdnRN?oc=5",
 "f": "La Opinión A Coruña",
@@ -124,7 +117,35 @@
 "p": 4
 },
 {
-"t": "El vídeo viral de Emilio Delgado machacándose en el gimnasio: \"La pelea es en las urnas, no combatimos solos\"",
+"t": "El vídeo viral que prueba que en un bar de Vitoria \"te sale más caro el azúcar si eres árabe\": \"No tengo nada en contra de ellos, pero les cobramos 10 céntimos más\"",
+"u": "https://www.telecinco.es/noticias/euskadi/20261125/bar-vitoria-racismo-arabes-recargo-azucar-video-viral_18_020797858.html",
+"f": "Telecinco",
+"d": "2026-11-25T04:30Z",
+"p": 3
+},
+{
+"t": "Tom Cruise se cuela en 'GTA 6' y lo han descubierto: así es el curioso homenaje a su icónico villano en 'Collateral'",
+"u": "https://www.20minutos.es/cinemania/noticias/gta-6-tom-cruise-collateral-cameo-iconico-villano_7065120_0.html",
+"f": "20minutos",
+"d": "2026-11-25T04:00Z",
+"p": 3
+},
+{
+"t": "La curiosa visita de un joven Luis Ocaña a Mallorca antes de ganar el Tour de Francia",
+"u": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQUzFNNFV4UFVEbnFMZjB3alhOTkE0aEhYdzJZZFVNbWFCQzNmN3RIUVkycHVHU1pNNUJQZl9QRy00dEFlN2VGZjdXanBCQVhPR1JZUkF3YzVUaHRBSF82MjNLc0gxRFZNMEJfZTRCTDc1NXpweHJPQWdmckV2bWhFV09DRkFjMHhyUC1vZGFGcTZRc2h5M3VJejRjMkpmZUY5b0ZpYTM2WWhZU1hWeU52S3VoWEtmWkxGaTBlbC1pTkJlMGlncUM0d0lsSENIcHh0WS00c0pR0gHWAUFVX3lxTFBTMU00VXhQVURucUxmMHdqWE5OQTRoSFh3MllkVU1tYUJDM2Y3dEhRWTJwdUdTWk01QlBmX1BHLTR0QWU3ZUZmN1dqcEJBWE9HUllSQXdjNVRodEFIXzYyM0tzSDFEVk0wQl9lNEJMNzU1enB4ck9BZ2ZyRXZtaEVXT0NGQWMweHJQLW9kYUZxNlFzaHkzdUl6NGMySmZlRjlvRmlhMzZZaFlTWFZ5TnZLdWhYS2ZaTEZpMGVsLWlOQmUwaWdxQzR3SWxIQ0hweHRZLTRzSlE?oc=5",
+"f": "Ultima Hora",
+"d": "2026-11-25T03:48Z",
+"p": 3
+},
+{
+"t": "Sibari Republic abre una novedosa tienda en Vitoria: colas para comprar su sérum viral y talleres de cerámica",
+"u": "https://www.elcorreo.com/alavadmoda/belleza/sibari-republic-abre-novedosa-tienda-vitoria-colas-comprar-serum-viral-talleres-ceramica-20261125133618-nt.html",
+"f": "El Correo",
+"d": "2026-11-25T00:11Z",
+"p": 3
+},
+{
+"t": "El vídeo viral de Emilio Delgado machacándose en el gimnasio: \"El combate es en las urnas\"",
 "u": "https://www.20minutos.es/madrid/video-emilio-delgado-machacandose-gimnasio-que-se-ha-hecho-viral-combate-es-las-urnas-no-peleamos-solos_7065362_0.html",
 "f": "20minutos",
 "d": "2026-11-24T19:00Z",
@@ -135,13 +156,6 @@
 "u": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPVVhYNWpaaWo5cl9TT0VTZkppNThOSmtXandtZnd1aUZrTHk1aTlUVWlsb19sU285SDVfVHBjQ25xV0lINkswUFQtRUg3SFEtVWVKUU1LamMyVzJ5bFFWR0R4dXRtcDNGMkplSjRaWGdaR19YZHRlRFY1NzhQOVdqa3NISHlJR1BjejZ0a2NpYndpdEJ2MFhsWjJ1ZmFyM3lT?oc=5",
 "f": "Hogarmania",
 "d": "2026-11-24T18:09Z",
-"p": 3
-},
-{
-"t": "80 años de azafatas, abróchense el cinturón: anécdotas, desafíos y la leyenda de los baños...",
-"u": "https://www.elcorreo.com/xlsemanal/iberia-azafatas-reinas-del-aire-historia-20261123164039-ntrc.html",
-"f": "El Correo",
-"d": "2026-11-24T18:02Z",
 "p": 3
 },
 {
@@ -226,34 +240,6 @@
 "u": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPTC10a0V6UW5qSFVCUWMtX21VdG5NcGE2NFZER0hWdzQyX0FaY0RSNFRHLVJIR0I0OHQ4LUtiWEJ4aXNrVjZVUFdCQktXR3JUbUQ0TXdyM3o2dEhmMHl5Y01KQzNUYnlXVGVoRnMtQXgtZG53Q0NWZVFScGJSbTZzal9Wb09YQ25kR2ZYb0ZBWk9hOWtMUE82aHlyNjZNWDJ2a0I4c0RfMV94S3NiNkd5cmVhYXJJUThZSk0zMm5JcUFoMFhIWng3WHd1NmhrajNXWGZzVkR2aWVhRVJzSVZaLXM3RzM5elNSeHlhb3FXeUdBVXpiakNxdWlnbkRKTVhIb0E3dNIBoAJBVV95cUxNYmtMQk1wNHNWOU93UlBlVTEtYW83RnM4NHRBRE9BM3ZqRG9XYVAyVWZ4dGh1cURVaVViejlfcENtbFFvSGRmVVlzTTFyR3lFZVdEaDRxRVBrX3IxclQyeUM3Z1hEdVF5OU9jaHhEeUcyanBDLVFTMFNXbG5IbW1QRGROdjBVdGpDS01ydS0wNk1fTUxSMlplWjQ4RjVnX1NoNkc0R3pBbU0zMzA0ampWNEpwSDRhSGQzU0lQYTRoSFNQM2ZiTDh5QTViZmRRMm1XUXpfZFc5VENxajVFVkJtT2I1YWZSUXE3RXhfVXB1Z0NNTlRwbUM4QTB1SzlPSmlSQWwzODdvN0lIOHN2OVRGZ08zYzRjMTdjLWktMUVWMzQ?oc=5",
 "f": "La Voz de Galicia",
 "d": "2026-11-23T10:38Z",
-"p": 2
-},
-{
-"t": "Luis Miguel Dominguín y su doble alternativa: una curiosa historia del toreo",
-"u": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQVMybXJYRXZ1RXlYVUxjUFdoM2hyUnVGeFNYWXFmMWtJeUpFVEFGaXo5WlpGTld0S3VmdFEwaU5IWlMybWc4M05CZS1JRUI2YXJoQURreG92WU5wZWtQY3BCLXFUZjFBOGJvQ0NJcjNFN1hid0ljdGRQalJVZXBoQ3J6QXNPdXhFbWxpb1dnTjVBRDR0eHdYNUlaalRWdHF1c2hlR3FJM2t1eUZX?oc=5",
-"f": "Tendido Digital",
-"d": "2026-11-23T07:50Z",
-"p": 2
-},
-{
-"t": "Intensa y surrealista campaña",
-"u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSVhPWjBEc3NJUUluVjJmT1JLdmlmbkpZNVhxaW9adHlQandIMVE1VDZxMlBkSjJpUjdkNFVpWktxb1J0NjhuemE5X0hDb0NWWmFIaWoybmxmSklZS0k2U28wbGdqT0VWRFpUY1Z2OG1keGFMUjZTZG1jdjhNblpEd2llYlF0YnJrVVRWZi1WYzBSRmpkSEwwU1g1dkd2TFlHR0tyUlBHNVhTZ9IBqgFBVV95cUxQSW5STDFkS3BuOUVXUTVfa09OXy1uMmU0b3BkU3dYeDJlX0JNNmVnQ3V3Q01ZT28wSnRPVmg4YkJtSnRDSkJ2SDVfOEl3UzRYRU1oMF9LcEQ0amhtWFdBdWswNjd6MXZtbkwyOXk0bDNyZVpPMGR0Yy1iTnR6dnAzVHlnSWFrZ0k3bVpxR2JoVklVMkhpQUlHSG1MZUZXellvQnR0Q0M1Sy1tdw?oc=5",
-"f": "Periódico de Ibiza y Formentera",
-"d": "2026-11-23T02:58Z",
-"p": 2
-},
-{
-"t": "Javier Vicedo Alós. Del verso surrealista a la expresionista abstracción",
-"u": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPYkVBNzhEY0NVc3VIbHVQa0NSVFN3MWRzazhlZzVsRkI5OVB6QXVpR2REOVFrOHNPY282YnZBZHpRb0RfQUZwZmFBeWhuT3dfN2ltVWtlQ01nOFpMS0E2MlE3OTdwS2xpa0JkdGNIWFV5MVRmV2tNWWhBT0xJbWxXd3I2N0ZtTXBsQXVXYVZJZ1Z4M2xOQURXNDdrWVBVZGR1aHNPbmVjOGR5MElwQXE0YnZHVUNHem1JQUFJWjg1Q3MwMXAwT0k0M1NyMTA3TWprNF93enNFY0tYWTBfZWVvSjJva0k1Snh6QzJFVklVY2I0djdzOGJ4SGZCNGVCelcyMnfSAYcCQVVfeXFMUFZUTHRVQUNsd2Z1TE45amswZkxtbE9RVmNVU1JZekVNSWtfN0dndzZuOUFjeXM3TTJIWURtcWZjNDZJMm5vZEh3cy1Pa3MwelJSMjdSNVlQcGx4Zjl0LVBBdEpNQ1BGbXkwY3lhOEwwdjNhWFgwQ0ZJYl9qSnlOeGxqZ1hPTWVodGJ1amhSTEFzZ1lIRlRETXAxTW5aLWZNMzRwaHNiNXVQQ1kweWVjbVdJbWZqdUpDX0lJN2p1aWZMQ2h6a2JKYWFKcmw2Z2ZTR0tjR3dheTliXzg2NUlndVV0eXU0QXkyb0gxaVJsblNmRktzMmllcFJsRnhxWEMxNlJDOF9tYm8?oc=5",
-"f": "El Español",
-"d": "2026-11-23T01:21Z",
-"p": 2
-},
-{
-"t": "La curiosa comparativa de Kiko Narváez con el nivel de Sorloth en el Atleti: \"No sabes si le toca la Primitiva o si le falta un número...\"",
-"u": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxOUjlYY1pyODFpOE54cGdKcWJBQ1BUTnRlQzllRTVwbWk3NkxmbWhWTnBTNHpyeWRDVElDc1JPbU9qTWYxckg3VWFWOW5VZkVic1JKWUJiRzVYNTBzaVNzZFd4bkdCSG5Gdm9YWDRBMC1ybTl4ZUtmY3pOanNHZHpyUUQ3SDJkNElWcWFONDJORi1WbGl4YWZINHI4d2s1MzhyWXFDZm1QczVjRXpZWnhBRlpjSlJlczZNdDBXdDZmeUgzMjRQVVFoS1JXcW1pdENFcUszVjJsa0h0bXZKb3JWSi1uZjBLM1ZnWURudHZRb1hqX0wtZzFVSG9IWk1xazkwOFViSGt1cm5xdURVVllRMEhZOGUyYVhiQ3NzVG5BOE1XTWcxQTF4NtIBqAJBVV95cUxOUjlYY1pyODFpOE54cGdKcWJBQ1BUTnRlQzllRTVwbWk3NkxmbWhWTnBTNHpyeWRDVElDc1JPbU9qTWYxckg3VWFWOW5VZkVic1JKWUJiRzVYNTBzaVNzZFd4bkdCSG5Gdm9YWDRBMC1ybTl4ZUtmY3pOanNHZHpyUUQ3SDJkNElWcWFONDJORi1WbGl4YWZINHI4d2s1MzhyWXFDZm1QczVjRXpZWnhBRlpjSlJlczZNdDBXdDZmeUgzMjRQVVFoS1JXcW1pdENFcUszVjJsa0h0bXZKb3JWSi1uZjBLM1ZnWURudHZRb1hqX0wtZzFVSG9IWk1xazkwOFViSGt1cm5xdURVVllRMEhZOGUyYVhiQ3NzVG5BOE1XTWcxQTF4Ng?oc=5",
-"f": "Cadena SER",
-"d": "2026-11-22T23:48Z",
 "p": 2
 }
 ]
