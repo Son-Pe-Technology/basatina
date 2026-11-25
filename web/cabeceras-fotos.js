@@ -22,14 +22,14 @@ const CF={
  biodiversidad:['foto-cab2-biodiversidad.webp','Nacedero del Urederra',S,PR,''],
  ident:['foto-cab2-ident.webp','araña cangrejo sobre flores amarillas',S,PR,''],
  // 25 nov. 2026: 10 cabeceras más, elegidas por Pedro
- noticias:['foto-cab2-noticias.webp','imprenta antigua','','',''],
- cerca:['foto-cab2-cerca.webp','Casco Viejo de Pamplona con la torre de San Cernin','','',''],
+ noticias:['foto-cab2-noticias.webp','imprenta antigua (foto libre)','','',''],
+ cerca:['foto-cab2-cerca.webp','Casco Viejo de Pamplona con la torre de San Cernin (foto libre)','','',''],
  radar:['foto-cab2-radar.webp','nubes mammatus antes de la tormenta',M,PR,''],
  nieve:['foto-cab2-nieve.webp','parque nevado',P,PR,''],
  astro:['foto-cab2-astro.webp','Luna entre los árboles',P,PR,''],
  energia:['foto-cab2-energia.webp','aerogeneradores al atardecer',M,PR,''],
  clima:['foto-cab2-clima.webp','nube de tormenta',P,PR,''],
- emb:['foto-cab2-emb.webp','embalse visto desde el monte',S,PR,''],
+ emb:['foto-cab2-emb.webp','embalse de Yesa visto desde el monte',S,PR,''],
  prev:['foto-cab2-prev.webp','sol entre las nubes',S,PR,''],
  enp:['foto-cab2-enp.webp','río entre hayedos',S,PR,''],
  medic:['foto-cab2-medic.webp','campo de lavanda',M,PR,'']
