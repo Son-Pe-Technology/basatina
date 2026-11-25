@@ -1,6 +1,98 @@
 {
  "items": [
   {
+   "id": "a50e4a5d4cc1",
+   "pub": "2026-11-25T13:19Z",
+   "titulo": "Pamplona conmemora el 25-N enfocado en la violencia hacia mujeres mayores",
+   "texto": "El Ayuntamiento de Pamplona celebró este miércoles en la Plaza Consistorial un acto institucional por el Día Internacional contra la Violencia hacia las Mujeres con la lectura de la declaración «Ni olvidadas ni invisibilizadas», suscrita por cuarenta entidades navarras. Este año la conmemoración puso el foco en las mujeres mayores, que sufren violencias agravadas por dependencia económica, brecha digital y falta de visibilidad. Según la Delegación del Gobierno, el 5% de las mujeres de más de 65 años ha padecido violencia física de pareja, el 2,9% violencia sexual y el 8,8% violencia económica. El Consistorio se comprometió a mejorar la detección y prevención, reforzar la formación de profesionales y garantizar acceso a recursos adaptados a cada situación.",
+   "pueblo": "Pamplona",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Cadena SER",
+     "u": "https://cadenaser.com/navarra/2026/11/25/navarra-se-suma-al-25-n-con-un-llamamiento-a-combatir-la-violencia-machista-y-reforzar-la-atencion-a-las-victimas-radio-pamplona/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-gobierno-navarra-recuerda-red-publica-apoyo-victimas-violencia-genero-no-estan-solas-20261125131632.html"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-ayuntamiento-pamplona-conmemora-dia-contra-violencia-mujeres-acto-plaza-consistorial-20261125115026.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-dedica-el-25n-a-las-mujeres-mayores-con-la-declaracion-ni-olvidadas-ni-invisibilizadas/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-policia-foral-destaca-atencion-proteccion-cadena-unidades-contra-violencia-genero-20261125102704.html"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-de-pamplona-conmemora-el-dia-internacional-contra-la-violencia"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "a4e07379bec0",
+   "pub": "2026-11-25T13:19Z",
+   "titulo": "San Jorge concluye medición de contaminación con análisis de plantas",
+   "texto": "Vecinos del barrio han entregado las macetas utilizadas en un proyecto de ciencia ciudadana para evaluar la calidad del aire. Durante cinco semanas, 43 plantas de raigrás —25 en balcones de hogares y 18 en rotondas— acumularon partículas contaminantes que analizará el Instituto de Agrobiotecnología (IdAB-CSIC). Los laboratorios determinarán la presencia de metales pesados y otros elementos para conocer los niveles de polución. Los participantes recibieron formación sobre contaminación atmosférica en las instalaciones científicas. El Ayuntamiento de Pamplona y el IdAB-CSIC presentarán los resultados el 23 de febrero de 2027 en Civivox San Jorge, que servirán de referencia para comparar datos tras los cambios en la reorganización del tráfico previstos en la zona.",
+   "pueblo": "Pamplona",
+   "cat": "Medio ambiente",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-san-jorge/los-vecinos-de-san-jorge-cierran-la-fase-de-campo-del-estudio-sobre-la-calidad-del-aire-de-su-barrio/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/el-proyecto-para-medir-la-calidad-del-aire-en-el-barrio-de-san-jorge-concluye"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "0241448dc905",
+   "pub": "2026-11-25T13:19Z",
+   "titulo": "720 alumnos de Pamplona participan en talleres sobre convivencia y pluralismo",
+   "texto": "Siete colegios pamploneses desarrollan durante el último trimestre del año el programa municipal «Bidaia. Una vida conviviendo», dirigido al alumnado de tercer ciclo de Primaria. La iniciativa, que llega a 720 escolares, propone reflexionar críticamente sobre estereotipos, prejuicios raciales y culturales mediante actividades dinámicas y participativas. Los talleres, impartidos en euskera y castellano por la asociación Lantxotegi Elkartea, combinan trabajo intelectual con experiencias corporales y emocionales que culminan en una creación artística expuesta en cada centro. El Ayuntamiento financia el proyecto mediante una enmienda presupuestaria del grupo Socialista.",
+   "pueblo": "Pamplona",
+   "cat": "Educación",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/720-escolares-de-siete-centros-de-pamplona-participan-en-bidaia-un-programa-para-trabajar-la-diversidad-cultural/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/un-total-de-720-escolares-de-siete-centros-participan-en-el-programa-educativo"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "7f72189f9e84",
+   "pub": "2026-11-25T13:19Z",
+   "titulo": "Pamplona elaborará una ordenanza para regular el vaso reutilizable único",
+   "texto": "El Ayuntamiento de Pamplona desarrolla un proceso participativo para crear una ordenanza que unifique la gestión del vaso reutilizable, inicialmente en la ciudad y con posibilidad de extenderse a toda Navarra. Tres sesiones de trabajo durante noviembre, diciembre y enero permitirán diagnosticar la situación actual, definir un modelo de gestión y presentar la propuesta final. La norma regulará obligaciones para garantizar la devolución de fianzas, el lavado, recuperación y reutilización efectiva de los vasos, estableciendo un sistema de depósito retornable transparente. Participarán representantes de hostelería, entidades gestoras de espacios públicos y asociaciones que utilizan vasos en fiestas y eventos. Hasta ahora se han aplicado solo recomendaciones y campañas, sin garantizar un circuito homogéneo de reutilización.",
+   "pueblo": "Pamplona",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-abre-un-proceso-participativo-para-regular-un-vaso-reutilizable-unico-con-devolucion-de-fianzas/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-propone-un-proceso-participativo-para-definir-en-el-mes-de"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "006a7d805f08",
    "pub": "2026-11-25T10:11Z",
    "titulo": "Siete investigados por estafas del 'hijo en apuros' en Navarra",
@@ -459,5 +551,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-25T10:11Z"
+ "t": "2026-11-25T13:19Z"
 }
