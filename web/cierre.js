@@ -70,6 +70,10 @@ function panel(){const sub=$('dgApp')&&$('dgApp').nextElementSibling;if(!sub)ret
         try{localStorage.setItem('bnaCierre',JSON.stringify(C));}catch(e){}pinta(C);panel();
         try{toast(cerrar?'🚧 Cerrada para los demás (tarda unos minutos en llegar)':'✅ Abierta para todos (tarda unos minutos en llegar)');}catch(e){}}
       catch(e){try{toast('❌ '+e.message);}catch(x){}}};}
-  b.textContent=C&&C.cerrada?'🚧 App en obras: ABRIR para todos':'🚧 App en obras: cerrar para todos';}
+  /* 26 nov. 2026 (Pedro): icono en cuadrado de color (cono naranja), como el resto del menú */
+  try{ICK.ciBtn='traffic-cone';ICC.ciBtn='#ef6c00';}catch(e){}
+  const tx=C&&C.cerrada?'App en obras: ABRIR para todos':'App en obras: cerrar para todos';
+  b.dataset.emo='🚧 ';b.dataset.txt=tx;      // lo que usa applyIcons al repintar el menú
+  b.innerHTML=(document.body.classList.contains('pro')&&typeof icoBox==='function'?icoBox('ciBtn',16,28):'🚧 ')+'<span>'+tx+'</span>';}
 panel();setTimeout(panel,1500);
 })();
