@@ -74,6 +74,6 @@ function panel(){const sub=$('dgApp')&&$('dgApp').nextElementSibling;if(!sub)ret
   try{ICK.ciBtn='traffic-cone';ICC.ciBtn='#ef6c00';}catch(e){}
   const tx=C&&C.cerrada?'App en obras: ABRIR para todos':'App en obras: cerrar para todos';
   b.dataset.emo='🚧 ';b.dataset.txt=tx;      // lo que usa applyIcons al repintar el menú
-  b.innerHTML=(document.body.classList.contains('pro')&&typeof icoBox==='function'?icoBox('ciBtn',16,28):'🚧 ')+'<span>'+tx+'</span>';}
+  b.innerHTML=(typeof icoAdm==='function'?icoAdm('ciBtn','🚧 '):document.body.classList.contains('pro')&&typeof icoBox==='function'?icoBox('ciBtn',16,28):'🚧 ')+'<span>'+tx+'</span>';}
 panel();setTimeout(panel,1500);
 })();

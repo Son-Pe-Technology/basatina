@@ -98,6 +98,8 @@ const st=document.createElement('style');st.textContent=`
 .sadNum{font-size:20px;font-weight:900;min-width:28px;text-align:right}
 .sadNum.hay{color:#d32f2f}
 .sadHerr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+/* 26 nov. 2026 (Pedro): «Administrador» a todo lo ancho, como las tarjetas de arriba, pero bajito */
+body.bna #bnaDGrid>#dgApp{grid-column:1/-1;min-height:52px;padding:8px 14px}
 .sadHerr button{text-align:left;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.1);background:#f7faf5;font:inherit;font-size:14px;cursor:pointer}`;
 document.head.appendChild(st);
 
@@ -214,17 +216,25 @@ svHook('superadm',async()=>{panel();claves();gastoIA();
   await pendientes(true);});
 
 /* ---------- botón en el menú (grupo Administrador, el primero) ---------- */
+/* 26 nov. 2026 (Pedro): los botones del grupo Administrador, todos con el mismo formato (baldosa como el resto, cada uno con su dibujo) */
+function icoAdm(k,emo){const pro=document.body.classList.contains('pro');if(!pro)return emo;
+  try{if(typeof isBna==='function'&&isBna()&&typeof bnTile==='function'){const t=bnTile(k,20,34);if(t)return t;}}catch(e){}
+  return typeof icoBox==='function'?icoBox(k,16,28):emo;}
+window.icoAdm=icoAdm;
+// «Descargas de la app» no tenía dibujo (salía el emoji 📊)
+try{ICK.descargas='chart-bar';ICC.descargas='#455a64';}catch(e){}
 function boton(){const sub=document.querySelector('#dgApp + .dsub');if(!sub||$('sadBtn'))return;
   const b=document.createElement('button');b.id='sadBtn';b.dataset.t='superadm';b.style.display='none';
   /* 26 nov. 2026 (Pedro): icono en cuadrado de color, como el resto del menú (antes el emoji ⭐) */
   try{ICP.star=ICP.star||'<path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/>';
     ICK.superadm='star';ICC.superadm='#f2a900';}catch(e){}
   b.dataset.emo='⭐ ';b.dataset.txt='Panel de administración';
-  b.innerHTML=(document.body.classList.contains('pro')&&typeof icoBox==='function'?icoBox('superadm',16,28):'⭐ ')+'<span>Panel de administración</span><span class="sadN" style="display:none">0</span>';
+  b.innerHTML=icoAdm('superadm','⭐ ')+'<span>Panel de administración</span><span class="sadN" style="display:none">0</span>';
   b.onclick=()=>{showTab('superadm');try{menu(false);}catch(e){}};sub.prepend(b);}
 boton();
 // cuando se repintan los iconos del menú, que vuelva el número rojo de pendientes
 try{const _ai=applyIcons;applyIcons=function(){_ai.apply(this,arguments);try{pinta();}catch(e){}};}catch(e){}
+try{if(document.body.classList.contains('pro'))applyIcons(true);}catch(e){}   // para que «Descargas» coja su dibujo
 
 /* ---------- adiós al PIN (24 nov. 2026, lo pidió Pedro) ----------
    Tocar 5 veces el logo ya no pide PIN: a Pedro y Sonia les abre el panel; a los demás no les hace nada.
