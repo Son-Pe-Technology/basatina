@@ -1,5 +1,5 @@
 {
- "version": 578,
+ "version": 579,
  "apk": 37,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -193,7 +193,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "594333a288c03f266a71d44d9c96891a111c6612",
-  "index.html": "f212d7230907f29b95fa4a1782c33ef7c9549331",
+  "index.html": "49e5b55915e6827668940217d7651f71b74b5abf",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
   "inicio-vivo.js": "cc153909045bc9d63e176ea21a235c218248f790",
@@ -375,7 +375,7 @@
   "tit-vivienda-c7ba0d88c82.webp": "a741bbcb51a7a335c1d7ec74923dd6aec7f37403",
   "tit-vivienda-c9d4b4b2b99.webp": "4323db5756e5216cd3590e0a085d90a626f29535",
   "tit-vivienda-cf3b54afc6f.webp": "342e9044e8c0164f1cd1dd62d49867f2f441f566",
-  "titulares-fotos.js": "81a86e0a01b60dd4b7d38f3b10dee225bc6d6684",
+  "titulares-fotos.js": "84579637a46f9baf3de33c91784b1d8e51f6f602",
   "titulares-fotos.json": "0fce3acf19ad9894f83bb6454425d7e24c6bf6ad",
   "viaje.js": "8fd4451a530271932e4f370bb464dbd31708c8bb",
   "vivienda.js": "ce3e6e7063d10a77745f92621c0474b4b4355dc3",

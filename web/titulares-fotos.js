@@ -12,7 +12,12 @@
 const N=s=>' '+String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9ñ\- ]+/g,' ').replace(/\s+/g,' ')+' ';
 let TF=null;
 async function carga(){if(TF)return TF;
-  try{TF=await fetch('titulares-fotos.json',{cache:'no-cache'}).then(r=>r.json());}catch(e){TF={temas:{},fotos:{}};}
+  /* 26 nov. 2026: en el móvil la pantalla se abre como archivo (file://) y ahí Android NO deja usar fetch() con
+     archivos del propio móvil: por eso en la app no salían las fotos. Se lee con XMLHttpRequest, que sí funciona
+     (en file:// responde con estado 0 aunque vaya bien); en la web, igual que antes. */
+  const lee=u=>new Promise((ok,ko)=>{try{const x=new XMLHttpRequest();x.open('GET',u+(location.protocol==='file:'?'':'?t='+Date.now()),true);
+    x.onload=()=>{try{if(x.status&&x.status!==200)return ko(new Error(x.status));ok(JSON.parse(x.responseText));}catch(e){ko(e);}};x.onerror=()=>ko(new Error('xhr'));x.send();}catch(e){ko(e);}});
+  try{TF=await lee('titulares-fotos.json');}catch(e){try{TF=await fetch('titulares-fotos.json',{cache:'no-cache'}).then(r=>r.json());}catch(e2){TF={temas:{},fotos:{}};}}
   TF.claves=Object.entries(TF.temas||{}).map(([k,L])=>[k,L.map(w=>{const n=N(w);return w.startsWith(' ')||w.endsWith(' ')?n:n.trim();})]);
   return TF;}
 const hash=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h;};
