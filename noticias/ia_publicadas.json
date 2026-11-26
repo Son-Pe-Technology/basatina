@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "fc4f7e600c91",
+   "pub": "2026-11-26T04:01Z",
+   "titulo": "Navarra homenajea a 33 pelotaris tras triunfar en el Mundial",
+   "texto": "La presidenta María Chivite Navascués ha recibido en el Palacio de Navarra a los 33 deportistas navarros que participaron en el XX Campeonato Mundial de Pelota Vasca, celebrado del 15 al 24 de octubre en Buenos Aires y Colonia del Sacramento. La delegación navarra fue decisiva en que España revalidara el título mundial con 18 medallas: siete oros, nueve platas y dos bronces. Según Chivite, la pelota vasca goza de buena salud en Navarra gracias al trabajo de federaciones, clubes y asociaciones. La presidenta realizó una mención especial al papel de las mujeres pelotaris.",
+   "pueblo": "Pamplona",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-deportes/recibimiento-en-el-palacio-de-navarra-a-los-33-pelotaris-navarros-que-brillaron-en-el-mundial-de-argentina/"
+    }
+   ]
+  },
+  {
    "id": "9b507c45d26f",
    "pub": "2026-11-26T04:01Z",
    "titulo": "Robos en Gorráiz generan malestar vecinal por falta de respuestas",
@@ -776,25 +790,6 @@
     {
      "f": "Europa Press",
      "u": "https://www.europapress.es/navarra/noticia-salud-alcanza-acuerdo-cinco-sindicatos-mejorar-condiciones-laborales-profesionales-20261123090920.html"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "4f258f503699",
-   "pub": "2026-11-23T21:52Z",
-   "titulo": "Pamplona sortea 461 abonos para cinco instalaciones deportivas",
-   "texto": "El Ayuntamiento de Pamplona abre este lunes el plazo para participar en un sorteo de accesos anuales a cinco complejos deportivos. Las personas empadronadas en la ciudad desde el 1 de enero de 2026 pueden inscribirse hasta el 4 de diciembre llamando al 010 o 948 420 100. El sorteo se celebrará el 11 de diciembre y los abonos funcionarán durante 2027. Se distribuirán 175 accesos en Institución Oberena, 125 en UDC Rochapea, 75 en Ciudad Deportiva Amaya, 75 en UDC Txantrea KKE y 11 en SDC Echavacoiz, con el 10% reservado para personas con discapacidad reconocida igual o superior al 33%. Los precios varían según la instalación y la edad.",
-   "pueblo": "Pamplona",
-   "cat": "Deportes",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-sortea-461-abonos-anuales-para-cinco-instalaciones-deportivas-con-inscripcion-hasta-el-4-de-diciembre/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-sorteara-461-abonos-anuales-para-las-instalaciones-deportivas"
     }
    ],
    "auto": true
