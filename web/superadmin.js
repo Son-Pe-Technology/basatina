@@ -74,7 +74,9 @@ const total=()=>PEND?(PEND.alertas||0)+(PEND.denuncias||0)+(PEND.ia||0)+(PEND.re
 /* ---------- avisos a la vista: Inicio y menú ---------- */
 function pinta(){const n=yo()?total():0;
   // número rojo en el botón del menú
-  const b=$('sadBtn');if(b){b.style.display=yo()?'':'none';const k=b.querySelector('.sadN');if(k){k.textContent=n;k.style.display=n?'':'none';}}
+  const b=$('sadBtn');if(b){b.style.display=yo()?'':'none';let k=b.querySelector('.sadN');
+    if(!k){k=document.createElement('span');k.className='sadN';b.appendChild(k);}   // applyIcons rehace el botón y lo quita
+    k.textContent=n;k.style.display=n?'':'none';}
   // franja en el Inicio
   let f=$('sadBan');const ini=$('t-mapa');
   if(!n){if(f)f.remove();return;}
@@ -207,9 +209,15 @@ svHook('superadm',async()=>{panel();claves();gastoIA();
 /* ---------- botón en el menú (grupo Administrador, el primero) ---------- */
 function boton(){const sub=document.querySelector('#dgApp + .dsub');if(!sub||$('sadBtn'))return;
   const b=document.createElement('button');b.id='sadBtn';b.dataset.t='superadm';b.style.display='none';
-  b.innerHTML='⭐ Panel de administración<span class="sadN" style="display:none">0</span>';
+  /* 26 nov. 2026 (Pedro): icono en cuadrado de color, como el resto del menú (antes el emoji ⭐) */
+  try{ICP.star=ICP.star||'<path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/>';
+    ICK.superadm='star';ICC.superadm='#f2a900';}catch(e){}
+  b.dataset.emo='⭐ ';b.dataset.txt='Panel de administración';
+  b.innerHTML=(document.body.classList.contains('pro')&&typeof icoBox==='function'?icoBox('superadm',16,28):'⭐ ')+'<span>Panel de administración</span><span class="sadN" style="display:none">0</span>';
   b.onclick=()=>{showTab('superadm');try{menu(false);}catch(e){}};sub.prepend(b);}
 boton();
+// cuando se repintan los iconos del menú, que vuelva el número rojo de pendientes
+try{const _ai=applyIcons;applyIcons=function(){_ai.apply(this,arguments);try{pinta();}catch(e){}};}catch(e){}
 
 /* ---------- adiós al PIN (24 nov. 2026, lo pidió Pedro) ----------
    Tocar 5 veces el logo ya no pide PIN: a Pedro y Sonia les abre el panel; a los demás no les hace nada.
