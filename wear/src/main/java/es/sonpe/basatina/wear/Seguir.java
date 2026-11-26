@@ -58,6 +58,7 @@ public class Seguir extends Pantalla implements SensorEventListener {
             resumen = true;
         }
         limpia(); Rutas.Ruta r = s.ruta;
+        if (r != null && s.activo) Teselas.guardaZona(this, r);      // 🗺️ baja el mapa de la zona para usarlo sin cobertura
         t(r != null ? r.n : "Actividad libre", 12, GRIS, true);
         if (s.error != null) t("⚠️ " + s.error, 13, AMARILLO, false);
         if (resumen) {t("🏁 Actividad terminada", 16, VERDE, true);}
@@ -94,6 +95,7 @@ public class Seguir extends Pantalla implements SensorEventListener {
         t("👣 " + String.format(Datos.ES, "%,d", s.pasos) + " pasos   🔥 " + Math.round(s.kcal(peso)) + " kcal", 14, android.graphics.Color.WHITE, false);
         if (!resumen && !Double.isNaN(s.la)) t("GPS ±" + Math.round(s.acc) + " m", 11, s.acc <= 15 ? VERDE : s.acc <= 40 ? AMARILLO : ROJO, false);
         hueco(6);
+        if (!resumen) boton("🗺️ Ver en el mapa", 0xFF2E8B57, v -> startActivity(new android.content.Intent(this, Mapa.class)));
         if (resumen) boton("Volver", BOTON, v -> finish());
         else boton(System.currentTimeMillis() - confirmar < 4000 ? "Toca otra vez para terminar" : "⏹ Terminar", 0xFF8E2A2A, v -> {
             if (System.currentTimeMillis() - confirmar < 4000) {Grabacion.para(this); resumen = true; tFin = System.currentTimeMillis();}
