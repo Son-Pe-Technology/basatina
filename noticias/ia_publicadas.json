@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "f9044af692a6",
+   "pub": "2026-11-26T03:59Z",
+   "titulo": "María Asurmendi y Javier Martínez, Medallas de Oro al Mérito Deportivo",
+   "texto": "El Gobierno de Navarra ha distinguido con la Medalla de Oro al Mérito Deportivo 2026 a la baloncestista María Asurmendi y al futbolista Javier Martínez, máximo reconocimiento foral en el deporte. Asurmendi acumula más de veinte temporadas en competición de élite con dos Ligas, tres Copas de la Reina y experiencia en la selección española. Martínez fue campeón del mundo con España en 2010 y ganó dos Ligas de Campeones con el Bayern de Múnich. La entrega de medallas será el 16 de diciembre en el Palacio de Navarra. El Gobierno también concede seis Medallas de Plata y seis Menciones de Honor a entidades deportivas y voluntarios.",
+   "pueblo": "Pamplona",
+   "cat": "Deportes",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-deportes/maria-asurmendi-y-javier-martinez-medallas-de-oro-al-merito-deportivo-de-navarra-2026/"
+    }
+   ]
+  },
+  {
    "id": "d776bd63b466",
    "pub": "2026-11-26T03:58Z",
    "titulo": "Alberto Liñán, nuevo responsable técnico de Schneider Electric en Puente la Reina",
