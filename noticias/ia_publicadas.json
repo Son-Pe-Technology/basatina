@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "c810f72f76bc",
+   "pub": "2026-11-26T22:38Z",
+   "titulo": "Grosso, elegida mejor cadena de pizza artesanal del mundo",
+   "texto": "La pizzería Grosso, con local en Pamplona, ha ganado el primer puesto en el ranking 50 Top World Artisan Pizza Chains 2026, anunciado el 25 de noviembre en Milán. Es la tercera ocasión en que la empresa española logra este reconocimiento, tras obtenerlo también en 2023 y 2024. Según su cofundador Hugo Rodríguez de Prada, el premio supone «un orgullo, pero sobre todo una responsabilidad». La cadena, fundada en 2017, cuenta con 50 locales en España y elabora sus pizzas siguiendo la tradición napolitana, con masas de fermentación larga e ingredientes importados de Italia.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comer-muy-bien/una-cadena-con-un-restaurante-en-el-centro-de-pamplona-elegida-la-mejor-de-pizza-artesanal-del-mundo/"
+    }
+   ]
+  },
+  {
    "id": "6d1b2965f0c0",
    "pub": "2026-11-26T21:54Z",
    "titulo": "Pacientes de clínica dental protestan en Pamplona por cierre repentino",
@@ -734,25 +748,6 @@
     {
      "f": "Pamplona Actual",
      "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-deportes/peio-etxeberria-revalida-la-txapela-del-cuatro-y-medio-tras-imponerse-a-zabala-por-22-20/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "0450774090dd",
-   "pub": "2026-11-24T09:51Z",
-   "titulo": "Iruña Rock completa su cartel 2027 con cinco bandas nuevas",
-   "texto": "El festival de Pamplona ha anunciado cinco grupos adicionales para su próxima edición: Non Servium, La Mala Pékora, Raimundo el Canastero, Arpaviejas y Askazi. La cita se celebrará el 28 y 29 de mayo en la Ciudadela con un total de 15 formaciones que abarcan distintas generaciones y estilos. Se suman a los ya confirmados: Segismundo Toxicómano, Jarfaiter, Sons of Aguirre y Scila, Josetxu Piperrak, Kaos Etíliko, Nafarroa 1512, Hell Beer Boys, Against You, Maruja Limón y The Capaces. Los abonos de dos jornadas se comercializan a 55 euros.",
-   "pueblo": "Pamplona",
-   "cat": "Cultura",
-   "fuentes": [
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/cultura-ocio/cultura/2026/11/23/iruna-rock-suma-cinco-grupos-completa-programacion-mayo-2027-843455-104.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/iruna-rock-cierra-su-cartel-con-cinco-bandas-mas-para-su-cita-de-mayo-en-la-ciudadela/"
     }
    ],
    "auto": true
