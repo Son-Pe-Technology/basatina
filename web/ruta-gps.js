@@ -53,12 +53,12 @@ function rumbo(la1, lo1, la2, lo2) {
   return [['el norte', '⬆️'], ['el noreste', '↗️'], ['el este', '➡️'], ['el sureste', '↘️'], ['el sur', '⬇️'], ['el suroeste', '↙️'], ['el oeste', '⬅️'], ['el noroeste', '↖️']][Math.round(a / 45) % 8];
 }
 
-/* ---------- desnivel y tiempo (DIN 33466, como en la ficha) ---------- */
+/* ---------- desnivel y tiempo (MIDE desde el 26 nov. 2026, como en la ficha; antes DIN 33466) ---------- */
 function desnivel(r, km0, km1) {   // metros de subida y bajada entre dos puntos kilométricos, con el perfil
   const p = r.pf, n = p.length, i0 = Math.max(0, Math.round(km0 / r.km * (n - 1))), i1 = Math.min(n - 1, Math.round(km1 / r.km * (n - 1)));
   let up = 0, dn = 0; for (let i = i0 + 1; i <= i1; i++) {const d = p[i] - p[i - 1]; if (d > 0) up += d; else dn -= d;} return [up, dn];
 }
-function din(km, up, dn) {const h = km / 4, v = up / 300 + dn / 500; return Math.max(h, v) + Math.min(h, v) / 2;}   // horas
+function din(km, up, dn) {const h = km / 4, v = up / 400 + dn / 600; return Math.max(h, v) + Math.min(h, v) / 2;}   // horas
 const hhmm = d => d.toLocaleTimeString('es-ES', {hour: '2-digit', minute: '2-digit'});
 const dur = h => {const m = Math.max(1, Math.round(h * 60)); return m < 60 ? m + ' min' : Math.floor(m / 60) + ' h ' + String(m % 60).padStart(2, '0') + ' min';};
 

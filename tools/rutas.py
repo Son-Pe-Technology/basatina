@@ -249,46 +249,124 @@ def om_alturas(pts):  # plan B: Open-Meteo, despacio
     return out
 
 
+# ---- Modelo del terreno del IGN de 5 m (MDT05, «Elevacion4258_5» del servicio WCS del IGN, gratis, CC BY 4.0).
+# 26 nov. 2026 (lo pidió Pedro: rutas «muy profesionales»): 6 veces más fino que Copernicus (30 m). Se baja por
+# casillas de 0,05° (~5 × 4 km, unos 3 MB cada una) solo donde pasan rutas. Fuera de España (Francia) da 0:
+# ahí se usa Copernicus. Las alturas se interpolan entre los 4 píxeles vecinos (bilineal).
+IGN_C = 0.05
+IGN = {}
+
+
+def ign_casilla(k):
+    if k in IGN: return IGN[k]
+    IGN[k] = None
+    la0, lo0 = k[0] * IGN_C, k[1] * IGN_C
+    u = ("https://servicios.idee.es/wcs-inspire/mdt?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=Elevacion4258_5"
+         f"&SUBSET=Lat({la0:.4f},{la0 + IGN_C:.4f})&SUBSET=Long({lo0:.4f},{lo0 + IGN_C:.4f})&FORMAT=image/tiff")
+    for intento in range(3):
+        try:
+            import tifffile, io
+            t = tifffile.TiffFile(io.BytesIO(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=120).read()))
+            pg = t.pages[0]; tags = {g.name: g.value for g in pg.tags.values()}
+            tp, sc = tags["ModelTiepointTag"], tags["ModelPixelScaleTag"]
+            IGN[k] = (tp[3], tp[4], sc[0], sc[1], pg.asarray()); return IGN[k]
+        except Exception as e:
+            log("MDT05 del IGN falló", k, type(e).__name__, intento + 1); time.sleep(5 * (intento + 1))
+    return None
+
+
+def ign_prepara(pts):
+    """Baja a la vez (4 en paralelo) las casillas del IGN que hacen falta para estos puntos."""
+    ks = {(math.floor(p[0] / IGN_C), math.floor(p[1] / IGN_C)) for p in pts} - set(IGN)
+    if not ks: return
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(4) as ex: list(ex.map(ign_casilla, ks))
+
+
+def ign_altura(la, lo):
+    c = IGN.get((math.floor(la / IGN_C), math.floor(lo / IGN_C)))
+    if not c: return None
+    x0, y0, dx, dy, z = c; fx, fy = (lo - x0) / dx - .5, (y0 - la) / dy - .5
+    i, j = int(math.floor(fy)), int(math.floor(fx)); a, b = fy - i, fx - j
+    i = max(0, min(z.shape[0] - 2, i)); j = max(0, min(z.shape[1] - 2, j))
+    v = [float(z[i, j]), float(z[i, j + 1]), float(z[i + 1, j]), float(z[i + 1, j + 1])]
+    if min(v) <= 0: return None          # sin dato (fuera de España)
+    return v[0] * (1 - a) * (1 - b) + v[1] * (1 - a) * b + v[2] * a * (1 - b) + v[3] * a * b
+
+
+FUENTE_Z = collections.Counter()
+
+
 def alturas(pts):
     if PRUEBA: return [500 + 300 * math.sin(i / 20) for i in range(len(pts))]
+    ign_prepara(pts)
     out, faltan = [], []
     for i, p in enumerate(pts):
+        e = ign_altura(p[0], p[1])
+        if e is not None: out.append(e); FUENTE_Z["ign5"] += 1; continue
         h = hoja(p[0], p[1])
         if h:
             ds, z = h; r, c = ds.index(p[1], p[0])
-            if 0 <= r < z.shape[0] and 0 <= c < z.shape[1] and z[r, c] > -100: out.append(float(z[r, c])); continue
+            if 0 <= r < z.shape[0] and 0 <= c < z.shape[1] and z[r, c] > -100: out.append(float(z[r, c])); FUENTE_Z["cop30"] += 1; continue
         out.append(None); faltan.append(i)
     if faltan:
-        for i, e in zip(faltan, om_alturas([pts[i] for i in faltan])): out[i] = e
+        for i, e in zip(faltan, om_alturas([pts[i] for i in faltan])): out[i] = e; FUENTE_Z["om"] += 1
     return out
 
 
+NPF = 250   # puntos del perfil que se guardan para la app
+
+
 def ficha_alturas(lin, pf=None):
-    """Perfil de 150 alturas y sus cifras. Las del modelo del terreno se suavizan (media de 5 vecinos)
-    y el desnivel se suma solo cuando sube o baja más de 10 m, para que el ruido no lo infle."""
-    if not pf:
-        z = alturas(muestrear(lin, n=150))
-        pf = [sum(z[max(0, k - 2):k + 3]) / len(z[max(0, k - 2):k + 3]) for k in range(len(z))]
-    up = dn = 0.0; ref = pf[0]
-    for e in pf[1:]:
-        if e - ref >= 10: up += e - ref; ref = e
-        elif ref - e >= 10: dn += ref - e; ref = e
-    return [round(e) for e in pf], round(up), round(dn)
+    """Alturas cada 10 m por el camino con el MDT de 5 m, suavizadas en 50 m (quita el ruido de taludes y de
+    que el trazado vaya unos metros a un lado) y desnivel sumado solo cuando sube o baja 8 m seguidos.
+    Calibrado el 26 nov. 2026 con los desniveles oficiales de 19 etapas de los GR 1, GR 12 y GR 321 (IDENA /
+    Nafarmendi): error medio del 8,5 % (con el método anterior, Copernicus 30 m, era del 26 %). Devuelve el perfil para la app (NPF puntos), el desnivel
+    y las pendientes máximas (subiendo y bajando, en tramos de 100 m, con el km donde están)."""
+    tot = largo(lin); n = max(NPF, int(tot * 100) + 1)
+    z = alturas(muestrear(lin, n=n))
+    z = [sum(z[max(0, k - 2):k + 3]) / len(z[max(0, k - 2):k + 3]) for k in range(len(z))]
+    up = dn = 0.0; ref = z[0]
+    for e in z[1:]:
+        if e - ref >= 8: up += e - ref; ref = e
+        elif ref - e >= 8: dn += ref - e; ref = e
+    paso = tot / (n - 1) * 1000 if n > 1 else 10          # metros entre puntos (~10)
+    w = max(1, round(100 / paso)); ps, pb = (0, 0), (0, 0)
+    for k in range(0, n - w):
+        g = (z[k + w] - z[k]) / (w * paso) * 100; kmx = (k + w / 2) * paso / 1000
+        if g > ps[0]: ps = (g, kmx)
+        if -g > pb[0]: pb = (-g, kmx)
+    # perfil para la app: media de cada trozo (no un punto suelto), para que no salgan picos falsos
+    pf = []
+    for k in range(NPF):
+        a = round(k * (n - 1) / (NPF - 1)); r_ = max(1, (n - 1) // (NPF - 1) // 2)
+        seg = z[max(0, a - r_):a + r_ + 1]; pf.append(sum(seg) / len(seg))
+    return ([round(e) for e in pf], round(up), round(dn),
+            [round(ps[0]), round(ps[1], 1)], [round(pb[0]), round(pb[1], 1)])
 
 
 def tiempo_din(kms, up, dn):
-    """Tiempo de marcha (norma DIN 33466): 4 km/h en llano, 300 m/h subiendo y 500 m/h bajando.
-    Se suma el mayor de horizontal y vertical más la mitad del menor. Sin contar paradas."""
-    h, v = kms / 4, up / 300 + dn / 500
+    """Horario MIDE (Método de Información de Excursiones, el de las federaciones de montaña en España):
+    4 km/h en llano, 400 m/h subiendo y 600 m/h bajando. Se suma el mayor de horizontal y vertical más la
+    mitad del menor. Sin contar paradas. (Antes se usaba la norma alemana DIN 33466: 300 y 500 m/h.)"""
+    h, v = kms / 4, up / 400 + dn / 600
     return max(h, v) + min(h, v) / 2
 
 
-def dificultad(horas, up, mx):
+def mide_esfuerzo(horas):  # MIDE, apartado «esfuerzo» (1 a 5) según el horario
+    return 1 if horas <= 1 else 2 if horas <= 3 else 3 if horas <= 6 else 4 if horas <= 10 else 5
+
+
+def dificultad(horas, up, mx, sac=0):
     if horas <= 3 and up <= 400: d = "Fácil"
     elif horas <= 6 and up <= 900: d = "Moderada"
     elif horas <= 9 and up <= 1500: d = "Difícil"
     else: d = "Muy difícil"
     if mx >= 1900 and d in ("Fácil", "Moderada"): d = "Difícil"   # alta montaña del Pirineo: un grado más
+    # escala SAC de OpenStreetMap (T1…T6) de los tramos: T4 (alpina) = al menos Difícil, T5-T6 = Muy difícil
+    if sac >= 5: d = "Muy difícil"
+    elif sac >= 4 and d in ("Fácil", "Moderada"): d = "Difícil"
+    elif sac >= 3 and d == "Fácil": d = "Moderada"
     return d
 
 
@@ -353,6 +431,128 @@ for el in pie:
                 "web": tg.get("website") or tg.get("url") or ""})
 log("Rutas de OSM con línea:", len(osm), "· descartes:", dict(descartes))
 
+# ------------------------------------------------------------------ 1b. tipo de camino y puntos de interés (26 nov. 2026)
+# Dos consultas más a OpenStreetMap (separadas, para que los servidores no se ahoguen) traen:
+#  - las vías (caminos, pistas, carreteras) que forman las rutas a pie, con sus etiquetas: así se sabe
+#    qué parte de cada ruta va por senda, por pista o por asfalto, y su escala de dificultad SAC (T1…T6);
+#  - cimas, fuentes, agua potable, refugios, cabañas, miradores, collados, cuevas, cascadas y restos históricos.
+# Si falla, las rutas salen igual, sin esos datos.
+Q_VIAS = """[out:json][timeout:900];
+area["ISO3166-2"~"^ES-N[AC]$"]["boundary"="administrative"]->.na;
+rel["type"="route"]["route"~"^(hiking|foot|walking)$"](area.na)->.r;
+way(r.r)["highway"];
+out tags geom;"""
+Q_POIS = """[out:json][timeout:600];
+area["ISO3166-2"~"^ES-N[AC]$"]["boundary"="administrative"]->.na;
+(node["natural"~"^(peak|saddle)$"]["name"](area.na);
+ node["natural"="spring"](area.na);
+ node["amenity"="drinking_water"](area.na);
+ nwr["tourism"~"^(alpine_hut|wilderness_hut|viewpoint)$"](area.na);
+ nwr["amenity"="shelter"](area.na);
+ node["natural"="cave_entrance"]["name"](area.na);
+ node["waterway"="waterfall"](area.na);
+ nwr["historic"~"^(castle|ruins|archaeological_site|monument|tower|dolmen|megalith)$"]["name"](area.na);
+);
+out center tags;"""
+SIN_ASF = {"unpaved", "gravel", "fine_gravel", "dirt", "ground", "earth", "compacted", "grass", "mud", "rock", "pebblestone", "sand", "woodchips"}
+SAC = {"hiking": 1, "mountain_hiking": 2, "demanding_mountain_hiking": 3, "alpine_hiking": 4, "demanding_alpine_hiking": 5, "difficult_alpine_hiking": 6}
+
+
+def tipo_via(tg):
+    """s = senda, p = pista, a = asfalto (o cemento, adoquín…)."""
+    h, sf = tg.get("highway", ""), tg.get("surface", "")
+    if h in ("path", "footway", "bridleway", "steps", "via_ferrata"): return "a" if sf in ("asphalt", "paved", "concrete") and h == "footway" else "s"
+    if h == "track": return "a" if sf in ("asphalt", "paved", "concrete", "concrete:plates") or tg.get("tracktype") == "grade1" and sf not in SIN_ASF and sf else "p"
+    return "p" if sf in SIN_ASF else "a"
+
+
+def tipo_poi(tg):
+    n, a, t, h = tg.get("natural", ""), tg.get("amenity", ""), tg.get("tourism", ""), tg.get("historic", "")
+    if n == "peak": return "cima"
+    if n == "saddle": return "collado"
+    if n == "spring": return "fuente"
+    if a == "drinking_water": return "agua"
+    if t in ("alpine_hut", "wilderness_hut") or a == "shelter": return "refugio"
+    if t == "viewpoint": return "mirador"
+    if n == "cave_entrance": return "cueva"
+    if tg.get("waterway") == "waterfall": return "cascada"
+    if h: return "historia"
+    return ""
+
+
+VIAS = None; POIS = None
+if not PRUEBA:
+    try:
+        pv = []
+        for el in overpass(Q_VIAS)["elements"]:
+            tg = el.get("tags", {})
+            if el.get("type") != "way" or not el.get("geometry"): continue
+            t = tipo_via(tg); sc = SAC.get(tg.get("sac_scale", ""), 0)
+            g = [[q["lat"], q["lon"]] for q in el["geometry"] if q]
+            for a, b in zip(g, g[1:]):     # puntos cada ~15 m a lo largo de la vía
+                n_ = max(1, int(km(a, b) / 0.015))
+                for k in range(n_): f = k / n_; pv.append((a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, (t, sc)))
+        VIAS = Rejilla(pv, 0.0005) if pv else None
+        log("Vías de las rutas:", len(pv), "puntos")
+    except BaseException as e:   # overpass() acaba con SystemExit si no contesta nadie
+        log("Sin tipo de camino:", type(e).__name__, e)
+    try:
+        pp = []
+        for el in overpass(Q_POIS)["elements"]:
+            tg = el.get("tags", {}); tp = tipo_poi(tg)
+            if not tp: continue
+            c = el.get("center") or el
+            if "lat" not in c: continue
+            nm = (tg.get("name") or tg.get("name:es") or tg.get("name:eu") or "").strip()
+            pp.append((c["lat"], c["lon"], (tp, nm, tg.get("ele", ""))))
+        POIS = Rejilla(pp, 0.002) if pp else None
+        log("Puntos de interés:", len(pp))
+    except BaseException as e:
+        log("Sin puntos de interés:", type(e).__name__, e)
+
+
+def composicion(lin):
+    """% de senda, pista y asfalto y la SAC más alta (con al menos 150 m). None si se reconoce menos del 70 %."""
+    if not VIAS: return None, 0
+    m = muestrear(lin, paso=0.025); c = collections.Counter(); sacs = collections.Counter()
+    for p in m:
+        best, bd = None, 0.015
+        for it in VIAS.cerca(p, 1):
+            d = km(p, it)
+            if d < bd: bd, best = d, it[2]
+        if best: c[best[0]] += 1; sacs[best[1]] += 1
+    tot = sum(c.values())
+    if tot < 0.7 * len(m): return None, 0
+    pct = [round(100 * c[k] / tot) for k in "spa"]
+    pct[pct.index(max(pct))] += 100 - sum(pct)
+    sac = max([k for k, v in sacs.items() if k and v * 0.025 >= 0.15] or [0])
+    return pct, sac
+
+
+DIST_POI = {"cima": 0.15, "collado": 0.08, "mirador": 0.1, "historia": 0.1, "cascada": 0.1}
+NOM_POI = {"cima": "Cima", "collado": "Collado", "fuente": "Fuente", "agua": "Agua potable", "refugio": "Refugio",
+           "mirador": "Mirador", "cueva": "Cueva", "cascada": "Cascada", "historia": "Patrimonio"}
+
+
+def puntos_interes(lin):
+    """Puntos de interés a pocos metros del camino, en orden, con el km donde están."""
+    if not POIS: return []
+    m = muestrear(lin, paso=0.025); vistos = {}
+    for k, p in enumerate(m):
+        for it in POIS.cerca(p, 1):
+            tp, nm, ele = it[2]; d = km(p, it)
+            if d > DIST_POI.get(tp, 0.06): continue
+            key = (tp, nm or f"{it[0]:.4f},{it[1]:.4f}")
+            if key not in vistos or d < vistos[key][0]: vistos[key] = (d, k * 0.025, tp, nm, it[0], it[1], ele)
+    out = sorted(vistos.values(), key=lambda v: v[1])
+    # del mismo tipo y muy juntos (p. ej. cinco dólmenes del mismo collado o tres fuentes en 100 m): se queda uno
+    res = []
+    for d, kmx, tp, nm, la, lo, ele in out:
+        if any(r[1] == tp and abs(r[0] - kmx) < 0.3 for r in res): continue
+        res.append([round(kmx, 1), tp, nm or NOM_POI[tp], round(la, 5), round(lo, 5)])
+    return res[:30]
+
+
 # ------------------------------------------------------------------ 2. IDENA (desde web/monte.js)
 MON = carga_js("web/monte.js")
 idena = []
@@ -381,6 +581,13 @@ def gpx_pts(txt):  # puntos [lat, lon] del track (o de la ruta), con lat y lon e
     return []
 
 
+# Si el servidor del Gobierno no contesta (pasa a menudo), se usa la línea que se bajó la vez anterior
+# (rutas/rutas.json guarda la dirección del GPX en «gpx_oficial»). Así no se pierden rutas por un mal día.
+try:
+    ANTES = {r["gpx_oficial"]: r["lin"] for r in json.load(open("rutas/rutas.json", encoding="utf-8"))["rutas"] if r.get("gpx_oficial")}
+except Exception:
+    ANTES = {}
+de_antes = []
 # Senderos recomendados: se vuelve a pedir su GPX (con más paciencia que en monte.py)
 sin_gpx = []; fallos = collections.Counter()   # fallos seguidos por servidor: a los 5 se deja de intentar
 for f in (MON.get("PATRIM_Sym_Senderismo") or {}).get("f", []):
@@ -393,11 +600,12 @@ for f in (MON.get("PATRIM_Sym_Senderismo") or {}).get("f", []):
             except Exception as e:
                 log("GPX falló", intento + 1, u, e); time.sleep(3)
         else: fallos[host] += 1
+    if (len(pts) < 2 or largo(pts) < 1) and ANTES.get(u): pts = ANTES[u]; de_antes.append(a.get("NOMBRE", ""))
     if len(pts) < 2 or largo(pts) < 1: sin_gpx.append(a.get("NOMBRE", "")); continue
     idena.append({"fuente": "idena", "capa": "PATRIM_Sym_Senderismo", "n": a.get("NOMBRE", ""), "ref": "", "tipo": "Local",
                   "lin": pts, "circ": km(pts[0], pts[-1]) < 0.3, "desde": "", "hasta": "", "txt": "", "destaca": a.get("DESCRIPCIO", ""),
                   "web": a.get("URL", ""), "gpx": u})
-log("Rutas de IDENA con línea:", len(idena), "· senderos sin GPX:", len(sin_gpx))
+log("Rutas de IDENA con línea:", len(idena), "· senderos sin GPX:", len(sin_gpx), "· con la línea de la vez anterior:", len(de_antes))
 
 
 # ------------------------------------------------------------------ 3. rutas largas: etapas
@@ -493,11 +701,14 @@ salida = []
 for n_, r in enumerate(finales, 1):
     lin = r["lin"]
     try:
-        pf, up, dn = ficha_alturas(lin, r.get("pf0"))
+        pf, up, dn, psub, pbaj = ficha_alturas(lin, r.get("pf0"))
     except Exception as e:
         log("sin alturas:", r["n"], e); continue
     if n_ % 25 == 0: log("fichas", n_, "/", len(finales))
     kms = r["km"]; horas = tiempo_din(kms, up, dn); mx, mn = max(pf), min(pf)
+    comp, sac = composicion(lin); wp = puntos_interes(lin)
+    for w in wp:   # altitud de cada punto de interés con el mismo modelo del terreno
+        e = ign_altura(w[3], w[4]); w.append(round(e) if e is not None else "")
     p0, d0 = pueblo_cerca(lin[0]); p1, d1 = pueblo_cerca(lin[-1])
     # pueblos por los que pasa, en orden (a menos de 500 m del camino), sin el de salida ni el de llegada
     vistos, paso_por = {p0["n"], p1["n"]}, []
@@ -515,7 +726,7 @@ for n_, r in enumerate(finales, 1):
     k = pf.index(mx)
     if k <= 3: t += f" El punto más alto ({mx} m) es la salida."
     elif k >= len(pf) - 4 and not r["circ"]: t += f" El punto más alto ({mx} m) es la llegada."
-    else: t += f" Punto más alto: {mx} m, hacia el km {coma(kms * k / 149)}."
+    else: t += f" Punto más alto: {mx} m, hacia el km {coma(kms * k / (len(pf) - 1))}."
     t += f" Sube {up} m y baja {dn} m en {coma(kms)} km."
     if r["txt"] and r["txt"].lower() not in t.lower(): t += " " + r["txt"].rstrip(".") + "."
     nombre = r["n"] or (f"{r['ref']}: {ini} – {fin}" if r["ref"] else (f"Circular desde {ini}" if r["circ"] else f"{ini} – {fin}"))
@@ -528,7 +739,8 @@ for n_, r in enumerate(finales, 1):
         "n": nombre, "ref": r["ref"], "tipo": r["tipo"], "grupo": GRUPO[r["tipo"]], "zona": zona_de(lin[0]),
         "pueblo": ini, "muni": MUNIS.get(p0["m"], {}).get("n", ""), "fin": fin,
         "km": round(kms, 1), "up": up, "dn": dn, "mx": mx, "mn": mn, "circ": 1 if r["circ"] else 0,
-        "h": round(horas, 1), "dif": dificultad(horas, up, mx), "pasa": paso_por[:12], "desc": t,
+        "h": round(horas, 1), "mide": mide_esfuerzo(horas), "dif": dificultad(horas, up, mx, sac), "pasa": paso_por[:12], "desc": t,
+        "ps": psub, "pb": pbaj, "comp": comp or "", "sac": sac or "", "wp": wp,
         "destaca": r.get("destaca", ""), "web": r.get("web", ""), "osm": r.get("osm") or "", "gpx_oficial": r.get("gpx", ""), "fuente": fuentes,
         "lin": [[round(p[0], 5), round(p[1], 5)] for p in simplificar(lin, 0.00008)], "pf": pf,
     })
@@ -540,7 +752,7 @@ app = [{k: v for k, v in r.items() if k not in ("gpx_oficial",) and v not in (""
 if not PRUEBA:
     open("web/rutas.js", "w", encoding="utf-8").write(
         "// Rutas de Navarra para Escapadas: © colaboradores de OpenStreetMap (ODbL) y © Gobierno de Navarra · IDENA (CC BY 4.0);"
-        " alturas: Copernicus DEM GLO-30. Generado por tools/rutas.py\nwindow.RUTAS=" + json.dumps({"t": time.strftime("%Y-%m-%d"), "rutas": app},
+        " alturas: MDT05 del IGN (CC BY 4.0) y Copernicus DEM GLO-30 donde no llega. Generado por tools/rutas.py\nwindow.RUTAS=" + json.dumps({"t": time.strftime("%Y-%m-%d"), "rutas": app},
         ensure_ascii=False, separators=(",", ":")) + ";\n")
 
 # ------------------------------------------------------------------ 6. resumen
@@ -549,6 +761,9 @@ L.append(f"RUTAS DE NAVARRA PARA ESCAPADAS ({time.strftime('%Y-%m-%d')})")
 L.append(f"Total: {len(salida)} rutas · OSM recibidas {len(pie)} · IDENA {len(idena)} · repetidas quitadas {len(repes)}")
 L.append(f"Rutas de OSM descartadas: {dict(descartes)}")
 L.append(f"Senderos de IDENA sin GPX descargable ({len(sin_gpx)}): " + "; ".join(sin_gpx))
+L.append(f"Senderos de IDENA con la línea de la vez anterior (el servidor no contestó) ({len(de_antes)}): " + "; ".join(de_antes))
+L.append(f"Alturas: {dict(FUENTE_Z)} (ign5 = MDT de 5 m del IGN, cop30 = Copernicus 30 m, om = Open-Meteo)")
+L.append(f"Con tipo de camino: {sum(1 for r in salida if r['comp'])} · con puntos de interés: {sum(1 for r in salida if r['wp'])} · puntos de interés en total: {sum(len(r['wp']) for r in salida)}")
 
 
 def bloque(t, c):
@@ -562,11 +777,14 @@ bloque("Por zona", C(r["zona"] for r in salida))
 bloque("Por dificultad (estimada)", C(r["dif"] for r in salida))
 bloque("Por distancia", C("menos de 5 km" if r["km"] < 5 else "5-10 km" if r["km"] < 10 else "10-20 km" if r["km"] < 20
                           else "20-30 km" if r["km"] < 30 else "más de 30 km" for r in salida))
+bloque("Esfuerzo MIDE (1-5)", C(r["mide"] for r in salida))
+bloque("Escala SAC más alta", C(f"T{r['sac']}" if r["sac"] else "sin dato" for r in salida))
 bloque("Circular o lineal", C("circular" if r["circ"] else "lineal" for r in salida))
 L.append(f"\nTamaño de rutas.json: {os.path.getsize('rutas/rutas.json') // 1024} KB")
 L.append("\n## Repetidas quitadas (se queda · se quita)")
 for a, fa, b, fb in repes: L.append(f"- {a} [{fa}] · {b} [{fb}]")
 L.append("\n## Lista (grupo · zona · nombre · km · desnivel + · dificultad · sale de)")
-for r in salida: L.append(f"- {r['grupo']} · {r['zona']} · {r['n']} · {r['km']} km · +{r['up']} m · {r['dif']} · {r['pueblo']}")
+for r in salida: L.append(f"- {r['grupo']} · {r['zona']} · {r['n']} · {r['km']} km · +{r['up']} m · {r['dif']} · MIDE {r['mide']} · máx. {r['ps'][0]} % · {r['pueblo']}"
+                         + (f" · senda/pista/asfalto {r['comp']}" if r['comp'] else "") + (f" · {len(r['wp'])} puntos" if r['wp'] else ""))
 open("rutas/rutas_info.txt", "w", encoding="utf-8").write("\n".join(L) + "\n")
 print("\n".join(L[:45]))
