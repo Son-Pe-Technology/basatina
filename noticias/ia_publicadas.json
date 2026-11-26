@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "4a9dc991b20b",
+   "pub": "2026-11-26T11:25Z",
+   "titulo": "Cira World gana el Architecture MasterPrize 2026 por su colección Lar",
+   "texto": "La empresa navarra Cira World ha recibido el premio Product Design Award 2026 en la categoría de Iluminación de los Architecture MasterPrize, unos galardones internacionales con sede en Los Ángeles. El reconocimiento premia su primera colección, Lar, compuesta por lámparas y un cubilete diseñados a partir de extintores fuera de uso que se transforman en objetos de diseño. Las piezas se fabrican en talleres navarros y cada una incluye un pasaporte digital que certifica su origen y proceso de elaboración. La ceremonia de entrega tuvo lugar en el Museo Guggenheim Bilbao, donde acudieron Sonia Moneo, fundadora de Cira World, y Silvia García, responsable de Calidad, Medio Ambiente y Operaciones.",
+   "pueblo": "Navarra",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/la-navarra-cira-world-prodein-gana-el-architecture-masterprize-2026-de-illumination/"
+    }
+   ]
+  },
+  {
    "id": "11567e48c0b2",
    "pub": "2026-11-26T11:25Z",
    "titulo": "Ysium Medical busca socios europeos para proyectos de formación sanitaria",
@@ -732,29 +746,6 @@
     {
      "f": "Diario de Navarra",
      "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/23/rockson-yeboah-sufre-esguince-rodilla-derecha-843507-32.html"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "9d7d7df693c1",
-   "pub": "2026-11-24T09:30Z",
-   "titulo": "La Guardia Civil paraliza una venta ambulante de pescado en Castejón",
-   "texto": "Una patrulla de la Guardia Civil detectó irregularidades sanitarias en una furgoneta que comercializaba pescado en Castejón. Una veterinaria de Salud Pública inspeccionó el vehículo y constató que parte del género estaba en el suelo, junto a productos de limpieza, y que faltaba inscripción en el registro sanitario. Las autoridades ordenaron detener la venta inmediatamente. Tras verificar que el pescado mantenía condiciones adecuadas, se autorizó su transporte sin necesidad de decomiso.",
-   "pueblo": "Castejón",
-   "cat": "Sucesos",
-   "fuentes": [
-    {
-     "f": "COPE",
-     "u": "https://www.cope.es/emisoras/navarra/noticias/guardia-civil-paraliza-puesto-venta-pescado-castejon-graves-irregularidades-sanitarias-20261124_3480780.html"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/tudela-ribera/2026/11/24/detectan-irregularidades-sanitarias-puesto-venta-ambulante-pescado-castejon-843560-22.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/guardia-civil-detecta-irregularidades-sanitarias-en-una-venta-ambulante-de-pescado-en-castejon/"
     }
    ],
    "auto": true
