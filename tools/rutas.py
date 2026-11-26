@@ -432,16 +432,18 @@ for el in pie:
 log("Rutas de OSM con línea:", len(osm), "· descartes:", dict(descartes))
 
 # ------------------------------------------------------------------ 1b. tipo de camino y puntos de interés (26 nov. 2026)
-# Una segunda consulta a OpenStreetMap trae:
-#  - las vías (caminos, pistas, carreteras) a menos de 25 m de las rutas a pie, con sus etiquetas: así se sabe
+# Dos consultas más a OpenStreetMap (separadas, para que los servidores no se ahoguen) traen:
+#  - las vías (caminos, pistas, carreteras) que forman las rutas a pie, con sus etiquetas: así se sabe
 #    qué parte de cada ruta va por senda, por pista o por asfalto, y su escala de dificultad SAC (T1…T6);
 #  - cimas, fuentes, agua potable, refugios, cabañas, miradores, collados, cuevas, cascadas y restos históricos.
 # Si falla, las rutas salen igual, sin esos datos.
-Q_EXTRA = """[out:json][timeout:900];
+Q_VIAS = """[out:json][timeout:900];
 area["ISO3166-2"~"^ES-N[AC]$"]["boundary"="administrative"]->.na;
 rel["type"="route"]["route"~"^(hiking|foot|walking)$"](area.na)->.r;
-way(around.r:25)["highway"];
-out tags geom;
+way(r.r)["highway"];
+out tags geom;"""
+Q_POIS = """[out:json][timeout:600];
+area["ISO3166-2"~"^ES-N[AC]$"]["boundary"="administrative"]->.na;
 (node["natural"~"^(peak|saddle)$"]["name"](area.na);
  node["natural"="spring"](area.na);
  node["amenity"="drinking_water"](area.na);
@@ -481,28 +483,32 @@ def tipo_poi(tg):
 VIAS = None; POIS = None
 if not PRUEBA:
     try:
-        ex = overpass(Q_EXTRA)["elements"]
-        pv = []; pp = []
-        for el in ex:
+        pv = []
+        for el in overpass(Q_VIAS)["elements"]:
             tg = el.get("tags", {})
-            if el["type"] == "way" and tg.get("highway") and el.get("geometry"):
-                t = tipo_via(tg); sc = SAC.get(tg.get("sac_scale", ""), 0)
-                g = [[q["lat"], q["lon"]] for q in el["geometry"] if q]
-                for a, b in zip(g, g[1:]):     # puntos cada ~15 m a lo largo de la vía
-                    n_ = max(1, int(km(a, b) / 0.015))
-                    for k in range(n_): f = k / n_; pv.append((a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, (t, sc)))
-                continue
-            tp = tipo_poi(tg)
+            if el.get("type") != "way" or not el.get("geometry"): continue
+            t = tipo_via(tg); sc = SAC.get(tg.get("sac_scale", ""), 0)
+            g = [[q["lat"], q["lon"]] for q in el["geometry"] if q]
+            for a, b in zip(g, g[1:]):     # puntos cada ~15 m a lo largo de la vía
+                n_ = max(1, int(km(a, b) / 0.015))
+                for k in range(n_): f = k / n_; pv.append((a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, (t, sc)))
+        VIAS = Rejilla(pv, 0.0005) if pv else None
+        log("Vías de las rutas:", len(pv), "puntos")
+    except BaseException as e:   # overpass() acaba con SystemExit si no contesta nadie
+        log("Sin tipo de camino:", type(e).__name__, e)
+    try:
+        pp = []
+        for el in overpass(Q_POIS)["elements"]:
+            tg = el.get("tags", {}); tp = tipo_poi(tg)
             if not tp: continue
             c = el.get("center") or el
             if "lat" not in c: continue
             nm = (tg.get("name") or tg.get("name:es") or tg.get("name:eu") or "").strip()
             pp.append((c["lat"], c["lon"], (tp, nm, tg.get("ele", ""))))
-        VIAS = Rejilla(pv, 0.0005) if pv else None
         POIS = Rejilla(pp, 0.002) if pp else None
-        log("Vías cerca de las rutas:", len(pv), "puntos · puntos de interés:", len(pp))
-    except BaseException as e:   # overpass() acaba con SystemExit si no contesta nadie
-        log("Sin tipo de camino ni puntos de interés:", type(e).__name__, e)
+        log("Puntos de interés:", len(pp))
+    except BaseException as e:
+        log("Sin puntos de interés:", type(e).__name__, e)
 
 
 def composicion(lin):
@@ -575,6 +581,13 @@ def gpx_pts(txt):  # puntos [lat, lon] del track (o de la ruta), con lat y lon e
     return []
 
 
+# Si el servidor del Gobierno no contesta (pasa a menudo), se usa la línea que se bajó la vez anterior
+# (rutas/rutas.json guarda la dirección del GPX en «gpx_oficial»). Así no se pierden rutas por un mal día.
+try:
+    ANTES = {r["gpx_oficial"]: r["lin"] for r in json.load(open("rutas/rutas.json", encoding="utf-8"))["rutas"] if r.get("gpx_oficial")}
+except Exception:
+    ANTES = {}
+de_antes = []
 # Senderos recomendados: se vuelve a pedir su GPX (con más paciencia que en monte.py)
 sin_gpx = []; fallos = collections.Counter()   # fallos seguidos por servidor: a los 5 se deja de intentar
 for f in (MON.get("PATRIM_Sym_Senderismo") or {}).get("f", []):
@@ -587,11 +600,12 @@ for f in (MON.get("PATRIM_Sym_Senderismo") or {}).get("f", []):
             except Exception as e:
                 log("GPX falló", intento + 1, u, e); time.sleep(3)
         else: fallos[host] += 1
+    if (len(pts) < 2 or largo(pts) < 1) and ANTES.get(u): pts = ANTES[u]; de_antes.append(a.get("NOMBRE", ""))
     if len(pts) < 2 or largo(pts) < 1: sin_gpx.append(a.get("NOMBRE", "")); continue
     idena.append({"fuente": "idena", "capa": "PATRIM_Sym_Senderismo", "n": a.get("NOMBRE", ""), "ref": "", "tipo": "Local",
                   "lin": pts, "circ": km(pts[0], pts[-1]) < 0.3, "desde": "", "hasta": "", "txt": "", "destaca": a.get("DESCRIPCIO", ""),
                   "web": a.get("URL", ""), "gpx": u})
-log("Rutas de IDENA con línea:", len(idena), "· senderos sin GPX:", len(sin_gpx))
+log("Rutas de IDENA con línea:", len(idena), "· senderos sin GPX:", len(sin_gpx), "· con la línea de la vez anterior:", len(de_antes))
 
 
 # ------------------------------------------------------------------ 3. rutas largas: etapas
@@ -747,6 +761,7 @@ L.append(f"RUTAS DE NAVARRA PARA ESCAPADAS ({time.strftime('%Y-%m-%d')})")
 L.append(f"Total: {len(salida)} rutas · OSM recibidas {len(pie)} · IDENA {len(idena)} · repetidas quitadas {len(repes)}")
 L.append(f"Rutas de OSM descartadas: {dict(descartes)}")
 L.append(f"Senderos de IDENA sin GPX descargable ({len(sin_gpx)}): " + "; ".join(sin_gpx))
+L.append(f"Senderos de IDENA con la línea de la vez anterior (el servidor no contestó) ({len(de_antes)}): " + "; ".join(de_antes))
 L.append(f"Alturas: {dict(FUENTE_Z)} (ign5 = MDT de 5 m del IGN, cop30 = Copernicus 30 m, om = Open-Meteo)")
 L.append(f"Con tipo de camino: {sum(1 for r in salida if r['comp'])} · con puntos de interés: {sum(1 for r in salida if r['wp'])} · puntos de interés en total: {sum(len(r['wp']) for r in salida)}")
 
