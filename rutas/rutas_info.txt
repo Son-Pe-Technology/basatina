@@ -3,8 +3,8 @@ Total: 364 rutas · OSM recibidas 263 · IDENA 127 · repetidas quitadas 23
 Rutas de OSM descartadas: {'casi toda fuera de Navarra': 24, 'menos de 1 km': 8}
 Senderos de IDENA sin GPX descargable (0): 
 Senderos de IDENA con la línea de la vez anterior (el servidor no contestó) (76): Errea - Measkoitz - Castros de Measkoitz y Otamendi; Uitzi - Dolmen Goldaburu - Mergelu - Atume; Arrarats - Begaña; Alto de Moncayuelo; Elosta y Malkorraundi desde Gorriti; San Cristóbal - Ezkaba desde Berriosuso; Sierra del Perdón - Paseo a la ermita de Santa Águeda; Madalen desde Hiriberri; Senda de San Virila - Monasterio de Leyre; Migoleta desde Igal - vértice de Bioleta; Zarrantz – Zarrantzmendi. Valle de Imotz; Idoate - Ermita de San Miguel; Camino de Santiago baztanés y dolmen de Lantz; Sima de Igúzquiza y Monte de la Purísima; Ermita de la Trinidad - Acantilados de la Piedra y San Adrián - Foz de Lumbier; Foz de Lumbier; Montejurra desde Dicastillo, descenso por Arellano; Recorrido botánico de la Universidad de Navarra; Larragueta - cerro de La Fuente - Monte Ezkidi; Alto de Santa Cruz desde Beriáin; Dolmen de Armaria - Baratxueta - Oiartzabal - dolmen de Usetxi; Mañeru - Markalagain - Dolmen de Morea y Menhir de Markalagain; Olcoz - castro de Murugain - Ermita del Santo Cristo - Muruarte de Reta; Ascenso a Montarraga - Santa María de Eunate (Obanos - Eunate); Arriaundi - ruinas del Monasterio de San Esteban (Osinaga); Ruta en Caparroso - Iglesia del Santo Cristo - Vértice geodésico de Caparroso; Narval - Fuente de Txindelapea y torreón; Peña de Etxauri desde Azanza; Labiano - Cerro de Bizkaia - panorámicas sobre el Valle de Elorz y la sierra de Alaiz; Foz de Aspurz y Foz de Santa Colomba SL.NA - 111; Tajonar y castro de San Salvador; Peña de Unzué; Trinidad de Erga desde Irurtzun; Sierra del Perdón desde Subiza; Eltxumendi desde Oteiza; Alto de Ekoien desde Belascoáin; Miravalles desde Gazólaz; Monte Santo Domingo; Parque fluvial del río Elorz; Rura por la Sierra de Bizkai - Atondo - Ochovi; Parque Arantzadi - recorrido botánico; Bardenas Reales - Castildetierra - Castillo de Peñaflor; Monte San Pesdro - Cáseda; Higa de Monreal - subida directa; La Vuelta de Belate; Castillo de Aixita - Dos Hermanas; Torre de Celigüeta e Iglesia de Guerguitiáin desde Induráin; Ruta a la ermita del Calvario de Los Arcos; Ezkaba - San Cristóbal desde Berriozar; Ruta de Eguíllor - Castillo de Garaño; Cascada de Xorroxin - Gorostapalo (Baztan); Sierra Saldise - Cima de Mortxe; Cueva y cascada de Azanzorea. Vidángoz; Ruta en el Valle de Ollo - Saleras, Arteta y Ultzurrun; Manantial de Arteta y cascada de Artazul; San Pelayo y castro de Muruzar - La Valdorba; Ujué - Txutxu Alto; Sierra del Perdón oriental - Bordatxar y Aitzkibel; San Bernabé y Peña del Abrigo - Unzué; Anie y Añelarra - bordeando la Reserva Natural de Larra; Parque Natural Señorío de Bertiz – Subida a Aizkolegi; Alto de las Ripas y Farrandillo desde Javier; Tres hayas - Irupagoeta desde Auritz / Burguete; Vértice geodésico de Frain - Lesaka - Cinco Villas; Igantzi - Reserva Natural de San Juan Xar; Despoblado de Mendinueta y castillo de Legin - Cinco Villas; Ermita de San Román y el nevero de Aoiz; Mirador de Zamariain desde Garaioa - Valle de Aezkoa; Cascada de Garralda; Mirador de Lazkua y castro de Altikogaña; Encina de Eraul / Eraulgo arteal - Monumento Natural 1; Selva de Irati - Malgorra; Roble milenario de Orkin - MN43; Nagore - Peñas de Uroa - Ermita románica de Santa María de Arce; Egukizko Muinoa - Leitza - Ezkurra; Barranco de Obantzea
-Alturas: {'ign5': 417798, 'cop30': 4025} (ign5 = MDT de 5 m del IGN, cop30 = Copernicus 30 m, om = Open-Meteo)
-Con tipo de camino: 218 · con puntos de interés: 324 · puntos de interés en total: 2177
+Alturas: {'ign5': 417794, 'cop30': 4025} (ign5 = MDT de 5 m del IGN, cop30 = Copernicus 30 m, om = Open-Meteo)
+Con tipo de camino: 218 · con puntos de interés: 324 · puntos de interés en total: 1960
 
 ## Por grupo
 - Senderos y paseos: 215
@@ -63,7 +63,7 @@ Con tipo de camino: 218 · con puntos de interés: 324 · puntos de interés en 
 - lineal: 210
 - circular: 154
 
-Tamaño de rutas.json: 1367 KB
+Tamaño de rutas.json: 1355 KB
 
 ## Repetidas quitadas (se queda · se quita)
 - Etapa 4. Olite / Erriberri - Larraga [idena] · Sendero Histórico: Navarra · etapa 3: Olite – Berbinzana [osm]
@@ -91,83 +91,83 @@ Tamaño de rutas.json: 1367 KB
 - Saint-Jean-Pied-de-Port – Roncesvalles [osm] · Camino Francés - 01 · etapa 7: Orreaga – Pekotxeta [osm]
 
 ## Lista (grupo · zona · nombre · km · desnivel + · dificultad · sale de)
-- Camino de Santiago · Baztan-Bidasoa · Baztango Donejakue bidea · etapa 3: Irurita – Urdazubi · 20.0 km · +615 m · Difícil · MIDE 4 · máx. 53 % · Irurita · 16 puntos
+- Camino de Santiago · Baztan-Bidasoa · Baztango Donejakue bidea · etapa 3: Irurita – Urdazubi · 20.0 km · +615 m · Difícil · MIDE 4 · máx. 53 % · Irurita · 14 puntos
 - Camino de Santiago · Baztan-Bidasoa · Baztango Donejakue bidea · etapa 4: Urdazubi – Dantxarinea · 9.1 km · +338 m · Fácil · MIDE 2 · máx. 41 % · Urdazubi
 - Camino de Santiago · Baztan-Bidasoa · Belateko ekialdeko aldaera (Baztango Donejakue bidea) · 9.4 km · +542 m · Moderada · MIDE 3 · máx. 28 % · Berroeta · senda/pista/asfalto [22, 71, 7] · 4 puntos
 - Camino de Santiago · Pamplona y Comarca · Baztango Donejakue bidea · etapa 1: Trinidad de Arre – Aritzu · 19.7 km · +338 m · Moderada · MIDE 3 · máx. 22 % · Trinidad de Arre · 6 puntos
 - Camino de Santiago · Pamplona y Comarca · Camino Aragonés · etapa 2: Ezperun – Aldunate · 20.0 km · +527 m · Difícil · MIDE 4 · máx. 25 % · Ezperun · 10 puntos
-- Camino de Santiago · Pamplona y Comarca · Camino francés · etapa 4: Pamplona – Puente la Reina/Gares · 23.8 km · +404 m · Difícil · MIDE 4 · máx. 25 % · Pamplona · 27 puntos
-- Camino de Santiago · Pirineo · Camino Francés (Alternative) · 23.1 km · +1422 m · Difícil · MIDE 4 · máx. 30 % · Pekotxeta · senda/pista/asfalto [19, 5, 76] · 10 puntos
+- Camino de Santiago · Pamplona y Comarca · Camino francés · etapa 4: Pamplona – Puente la Reina/Gares · 23.8 km · +404 m · Difícil · MIDE 4 · máx. 25 % · Pamplona · 22 puntos
+- Camino de Santiago · Pirineo · Camino Francés (Alternative) · 23.1 km · +1422 m · Difícil · MIDE 4 · máx. 30 % · Pekotxeta · senda/pista/asfalto [19, 5, 76] · 9 puntos
 - Camino de Santiago · Pirineo · Camino francés · etapa 1: Entrada en Navarra – Orreaga/Roncesvalles · 15.8 km · +972 m · Difícil · MIDE 3 · máx. 33 % · Pekotxeta · 6 puntos
 - Camino de Santiago · Pirineo · Camino francés · etapa 2: Orreaga/Roncesvalles – Zubiri · 20.8 km · +343 m · Difícil · MIDE 4 · máx. 22 % · Orreaga · 20 puntos
-- Camino de Santiago · Pirineo · Camino francés · etapa 3: Zubiri – Pamplona · 19.3 km · +249 m · Moderada · MIDE 3 · máx. 20 % · Zubiri · 23 puntos
-- Camino de Santiago · Plazaola-Sakana-Ultzama · Baztango Donejakue bidea · etapa 2: Aritzu – Irurita · 20.0 km · +812 m · Difícil · MIDE 4 · máx. 40 % · Aritzu · 19 puntos
-- Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 1: Ziordia – Etxarri Aranatz · 20.4 km · +160 m · Moderada · MIDE 3 · máx. 19 % · Ziordia · 5 puntos
+- Camino de Santiago · Pirineo · Camino francés · etapa 3: Zubiri – Pamplona · 19.3 km · +249 m · Moderada · MIDE 3 · máx. 20 % · Zubiri · 21 puntos
+- Camino de Santiago · Plazaola-Sakana-Ultzama · Baztango Donejakue bidea · etapa 2: Aritzu – Irurita · 20.0 km · +812 m · Difícil · MIDE 4 · máx. 40 % · Aritzu · 15 puntos
+- Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 1: Ziordia – Etxarri Aranatz · 20.4 km · +160 m · Moderada · MIDE 3 · máx. 19 % · Ziordia · 4 puntos
 - Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 2: Etxarri Aranatz – Etxeberri · 20.0 km · +84 m · Moderada · MIDE 3 · máx. 11 % · Etxarri Aranatz · 6 puntos
-- Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 3: Etxeberri – Pamplona · 22.0 km · +219 m · Moderada · MIDE 3 · máx. 37 % · Etxeberri · 12 puntos
-- Camino de Santiago · Plazaola-Sakana-Ultzama · Sakanako Donejakue bidea · etapa 1: Ziordia – Arbizu · 20.0 km · +92 m · Moderada · MIDE 3 · máx. 15 % · Ziordia · 5 puntos
+- Camino de Santiago · Plazaola-Sakana-Ultzama · Camino de las Asturias · etapa 3: Etxeberri – Pamplona · 22.0 km · +219 m · Moderada · MIDE 3 · máx. 37 % · Etxeberri · 10 puntos
+- Camino de Santiago · Plazaola-Sakana-Ultzama · Sakanako Donejakue bidea · etapa 1: Ziordia – Arbizu · 20.0 km · +92 m · Moderada · MIDE 3 · máx. 15 % · Ziordia · 4 puntos
 - Camino de Santiago · Plazaola-Sakana-Ultzama · Sakanako Donejakue bidea · etapa 2: Arbizu – Irurtzun · 20.2 km · +111 m · Moderada · MIDE 3 · máx. 21 % · Arbizu · 4 puntos
 - Camino de Santiago · Sangüesa-Prepirineo · Camino Aragonés · etapa 3: Aldunate – Urbanización Náutica de Leire · 26.4 km · +648 m · Difícil · MIDE 4 · máx. 34 % · Aldunate · 5 puntos
 - Camino de Santiago · Sangüesa-Prepirineo · Camino aragonés · etapa 1: Entrada en Navarra – Sangüesa/Zangoza · 7.5 km · +0 m · Fácil · MIDE 2 · máx. 9 % · Javier · 3 puntos
 - Camino de Santiago · Sangüesa-Prepirineo · Camino aragonés · etapa 2: Sangüesa/Zangoza – Monreal/Elo · 25.3 km · +566 m · Difícil · MIDE 4 · máx. 31 % · Sangüesa · 8 puntos
-- Camino de Santiago · Sangüesa-Prepirineo · Camino aragonés · etapa 3: Monreal/Elo – Puente la Reina/Gares · 30.6 km · +511 m · Difícil · MIDE 4 · máx. 28 % · Monreal · 14 puntos
+- Camino de Santiago · Sangüesa-Prepirineo · Camino aragonés · etapa 3: Monreal/Elo – Puente la Reina/Gares · 30.6 km · +511 m · Difícil · MIDE 4 · máx. 28 % · Monreal · 13 puntos
 - Camino de Santiago · Sangüesa-Prepirineo · Camino de Santiago · 12.4 km · +346 m · Moderada · MIDE 3 · máx. 19 % · Sangüesa · senda/pista/asfalto [4, 71, 25] · 3 puntos
-- Camino de Santiago · Tierra Estella · Camino Francés - 01 · etapa 2: Los Arcos – Estella-Lizarra · 20.1 km · +398 m · Moderada · MIDE 3 · máx. 25 % · Los Arcos · 13 puntos
+- Camino de Santiago · Tierra Estella · Camino Francés - 01 · etapa 2: Los Arcos – Estella-Lizarra · 20.1 km · +398 m · Moderada · MIDE 3 · máx. 25 % · Los Arcos · 10 puntos
 - Camino de Santiago · Tierra Estella · Camino de Santiago · 1.2 km · +0 m · Fácil · MIDE 1 · máx. 1 % · Caserío de Echávarri · senda/pista/asfalto [100, 0, 0]
-- Camino de Santiago · Tierra Estella · Camino francés · etapa 6: Estella-Lizarra – Los Arcos · 19.7 km · +392 m · Moderada · MIDE 3 · máx. 22 % · Estella-Lizarra · 10 puntos
+- Camino de Santiago · Tierra Estella · Camino francés · etapa 6: Estella-Lizarra – Los Arcos · 19.7 km · +392 m · Moderada · MIDE 3 · máx. 22 % · Estella-Lizarra · 9 puntos
 - Camino de Santiago · Tierra Estella · Camino francés · etapa 7: Los Arcos – Viana · 17.2 km · +300 m · Moderada · MIDE 3 · máx. 23 % · Los Arcos · senda/pista/asfalto [10, 72, 18] · 6 puntos
-- Camino de Santiago · Tierra Estella · Camino francés · etapa 8: Viana – Salida de Navarra · 5.7 km · +24 m · Fácil · MIDE 2 · máx. 15 % · Viana · 7 puntos
+- Camino de Santiago · Tierra Estella · Camino francés · etapa 8: Viana – Salida de Navarra · 5.7 km · +24 m · Fácil · MIDE 2 · máx. 15 % · Viana · 6 puntos
 - Camino de Santiago · Tierra Estella · Inaziotar bidea (Navarra): Genevilla – Meano · 28.3 km · +702 m · Difícil · MIDE 4 · máx. 46 % · Genevilla · 3 puntos
-- Camino de Santiago · Zona Media · Camino Aragonés · etapa 1: Puente la Reina – Ezperun · 20.1 km · +582 m · Difícil · MIDE 4 · máx. 33 % · Puente la Reina · 11 puntos
-- Camino de Santiago · Zona Media · Camino francés · etapa 5: Puente la Reina/Gares – Estella-Lizarra · 20.3 km · +399 m · Moderada · MIDE 3 · máx. 25 % · Puente la Reina · 12 puntos
+- Camino de Santiago · Zona Media · Camino Aragonés · etapa 1: Puente la Reina – Ezperun · 20.1 km · +582 m · Difícil · MIDE 4 · máx. 33 % · Puente la Reina · 10 puntos
+- Camino de Santiago · Zona Media · Camino francés · etapa 5: Puente la Reina/Gares – Estella-Lizarra · 20.3 km · +399 m · Moderada · MIDE 3 · máx. 25 % · Puente la Reina · 11 puntos
 - Grandes travesías · Baztan-Bidasoa · E.GR 11-GR 12 · Bustitza - Uztakorta · 21.3 km · +1186 m · Difícil · MIDE 4 · máx. 30 % · Aurtitz · senda/pista/asfalto [48, 39, 13] · 16 puntos
-- Grandes travesías · Baztan-Bidasoa · E.GR 11-GR 12 · Lesaka-Bustitza · 14.3 km · +284 m · Moderada · MIDE 3 · máx. 25 % · Aurtitz · senda/pista/asfalto [60, 6, 34] · 10 puntos
-- Grandes travesías · Baztan-Bidasoa · E11-12 · Lakaingo lepoa - Bustitza · 25.8 km · +1781 m · Muy difícil · MIDE 4 · máx. 40 % · Lakain-Apezborro · senda/pista/asfalto [48, 36, 16] · 22 puntos
+- Grandes travesías · Baztan-Bidasoa · E.GR 11-GR 12 · Lesaka-Bustitza · 14.3 km · +284 m · Moderada · MIDE 3 · máx. 25 % · Aurtitz · senda/pista/asfalto [60, 6, 34] · 8 puntos
+- Grandes travesías · Baztan-Bidasoa · E11-12 · Lakaingo lepoa - Bustitza · 25.8 km · +1781 m · Muy difícil · MIDE 4 · máx. 40 % · Lakain-Apezborro · senda/pista/asfalto [48, 36, 16] · 21 puntos
 - Grandes travesías · Baztan-Bidasoa · GR 10 · La traversée des Pyrénées - sec.9 · etapa 1: Telleria – Azkar · 20.0 km · +657 m · Difícil · MIDE 4 · máx. 43 % · Telleria · 1 puntos
 - Grandes travesías · Baztan-Bidasoa · GR 10 · La traversée des Pyrénées - sec.9 · etapa 2: Azkar – Endarlatsa · 20.5 km · +1396 m · Difícil · MIDE 4 · máx. 43 % · Azkar · 1 puntos
 - Grandes travesías · Baztan-Bidasoa · GR 11 · Senda Pirenaica - E35 · 35.4 km · +1801 m · Muy difícil · MIDE 5 · máx. 38 % · Elizondo · senda/pista/asfalto [50, 46, 4] · 30 puntos
 - Grandes travesías · Baztan-Bidasoa · GR 11 · Senda Pirenaica - E36 · 30.5 km · +1083 m · Muy difícil · MIDE 5 · máx. 26 % · Elizondo · senda/pista/asfalto [28, 62, 10] · 30 puntos
 - Grandes travesías · Baztan-Bidasoa · GR 11 · Senda Pirenaica - E37 · 31.6 km · +808 m · Muy difícil · MIDE 4 · máx. 23 % · Bera · senda/pista/asfalto [12, 43, 45] · 12 puntos
-- Grandes travesías · Baztan-Bidasoa · GR 11.3 · Lesakako aldaera · 12.6 km · +354 m · Moderada · MIDE 3 · máx. 22 % · Gorosurreta · senda/pista/asfalto [33, 32, 35] · 11 puntos
-- Grandes travesías · Baztan-Bidasoa · GR 12 · Etapa 4. Gorostieta - Belate · 14.6 km · +562 m · Moderada · MIDE 3 · máx. 28 % · Beintza-Labaien · 22 puntos
+- Grandes travesías · Baztan-Bidasoa · GR 11.3 · Lesakako aldaera · 12.6 km · +354 m · Moderada · MIDE 3 · máx. 22 % · Gorosurreta · senda/pista/asfalto [33, 32, 35] · 9 puntos
+- Grandes travesías · Baztan-Bidasoa · GR 12 · Etapa 4. Gorostieta - Belate · 14.6 km · +562 m · Moderada · MIDE 3 · máx. 28 % · Beintza-Labaien · 19 puntos
 - Grandes travesías · Baztan-Bidasoa · GR 121 · E15 Epaipide ibilbidea: Aritxulegi - Behobia · 14.8 km · +831 m · Moderada · MIDE 3 · máx. 37 % · Endarlatsa · senda/pista/asfalto [54, 28, 18] · 1 puntos
 - Grandes travesías · Baztan-Bidasoa · GR 285 · E04 Mendibai ibilbidea: Ereñotzu - Behobia · 36.1 km · +1642 m · Muy difícil · MIDE 5 · máx. 37 % · Endarlatsa · senda/pista/asfalto [50, 37, 13] · 2 puntos
 - Grandes travesías · Baztan-Bidasoa · GRT 3 · Bera (GR11) - Ibardin (GR10) · 4.8 km · +358 m · Fácil · MIDE 2 · máx. 22 % · Bera · senda/pista/asfalto [7, 87, 6] · 3 puntos
-- Grandes travesías · Baztan-Bidasoa · GRT 5 · Elizondo - Berderiz - Argibel - Elizondo · 22.8 km · +917 m · Difícil · MIDE 4 · máx. 29 % · Antzanborda · senda/pista/asfalto [51, 42, 7] · 25 puntos
+- Grandes travesías · Baztan-Bidasoa · GRT 5 · Elizondo - Berderiz - Argibel - Elizondo · 22.8 km · +917 m · Difícil · MIDE 4 · máx. 29 % · Antzanborda · senda/pista/asfalto [51, 42, 7] · 22 puntos
 - Grandes travesías · Baztan-Bidasoa · Variante 1.1 · 3.4 km · +94 m · Fácil · MIDE 2 · máx. 11 % · Kaule · senda/pista/asfalto [1, 99, 0] · 5 puntos
 - Grandes travesías · Baztan-Bidasoa · Variante 2.1 · 4.9 km · +784 m · Moderada · MIDE 2 · máx. 34 % · Eltzaurdia · senda/pista/asfalto [75, 25, 0] · 1 puntos
 - Grandes travesías · Baztan-Bidasoa · Variante 2.2 · 8.2 km · +222 m · Fácil · MIDE 2 · máx. 18 % · Kaule · senda/pista/asfalto [31, 69, 0] · 7 puntos
 - Grandes travesías · Baztan-Bidasoa · Variante 2.3 · 6.4 km · +540 m · Moderada · MIDE 2 · máx. 24 % · Arizkun · senda/pista/asfalto [24, 31, 45] · 7 puntos
 - Grandes travesías · Baztan-Bidasoa · Étape 01 · 25.0 km · +1108 m · Difícil · MIDE 4 · máx. 41 % · Garaitarreta · senda/pista/asfalto [30, 38, 32] · 18 puntos
-- Grandes travesías · Baztan-Bidasoa · Étape 02 · 27.1 km · +906 m · Difícil · MIDE 4 · máx. 24 % · Garaitarreta · senda/pista/asfalto [23, 67, 10] · 30 puntos
-- Grandes travesías · Baztan-Bidasoa · Étape 03 · 14.4 km · +742 m · Moderada · MIDE 3 · máx. 30 % · Elizondo · senda/pista/asfalto [41, 33, 26] · 12 puntos
+- Grandes travesías · Baztan-Bidasoa · Étape 02 · 27.1 km · +906 m · Difícil · MIDE 4 · máx. 24 % · Garaitarreta · senda/pista/asfalto [23, 67, 10] · 29 puntos
+- Grandes travesías · Baztan-Bidasoa · Étape 03 · 14.4 km · +742 m · Moderada · MIDE 3 · máx. 30 % · Elizondo · senda/pista/asfalto [41, 33, 26] · 11 puntos
 - Grandes travesías · La Ribera · Camino Jacobeo del Ebro · etapa 1: Milagro – Castejón · 14.7 km · +25 m · Moderada · MIDE 3 · máx. 8 % · Milagro · 1 puntos
-- Grandes travesías · La Ribera · Camino Jacobeo del Ebro · etapa 2: Castejón – Fontellas · 20.9 km · +49 m · Moderada · MIDE 3 · máx. 10 % · Castejón · 11 puntos
+- Grandes travesías · La Ribera · Camino Jacobeo del Ebro · etapa 2: Castejón – Fontellas · 20.9 km · +49 m · Moderada · MIDE 3 · máx. 10 % · Castejón · 9 puntos
 - Grandes travesías · La Ribera · Camino Jacobeo del Ebro · etapa 3: Fontellas – Cortes · 26.8 km · +50 m · Difícil · MIDE 4 · máx. 10 % · Fontellas · 2 puntos
 - Grandes travesías · La Ribera · GR 99 · Camino natural de Ebro - Tramo central · etapa 1: Azagra – San Adrián · 15.8 km · +90 m · Moderada · MIDE 3 · máx. 18 % · Azagra
-- Grandes travesías · Pamplona y Comarca · GR 220 · Iruñerriko itzulia · etapa 1: Muniáin de Guesálaz – Arlegui · 21.7 km · +1158 m · Difícil · MIDE 4 · máx. 50 % · Muniáin de Guesálaz · 14 puntos
-- Grandes travesías · Pamplona y Comarca · GR 220 · Iruñerriko itzulia · etapa 2: Arlegui – Yelz · 20.1 km · +846 m · Difícil · MIDE 4 · máx. 51 % · Arlegui · 16 puntos
+- Grandes travesías · Pamplona y Comarca · GR 220 · Iruñerriko itzulia · etapa 1: Muniáin de Guesálaz – Arlegui · 21.7 km · +1158 m · Difícil · MIDE 4 · máx. 50 % · Muniáin de Guesálaz · 13 puntos
+- Grandes travesías · Pamplona y Comarca · GR 220 · Iruñerriko itzulia · etapa 2: Arlegui – Yelz · 20.1 km · +846 m · Difícil · MIDE 4 · máx. 51 % · Arlegui · 14 puntos
 - Grandes travesías · Pamplona y Comarca · GR 220 · Iruñerriko itzulia · etapa 3: Yelz – Azoz · 20.0 km · +688 m · Difícil · MIDE 4 · máx. 40 % · Yelz · 11 puntos
 - Grandes travesías · Pamplona y Comarca · GR 220 · Iruñerriko itzulia · etapa 4: Azoz – Lete · 20.0 km · +1060 m · Difícil · MIDE 4 · máx. 40 % · Azoz · 7 puntos
 - Grandes travesías · Pamplona y Comarca · GR 225 · 1938ko Ezkabako Ihesa · etapa 1: Garrués – Leranotz · 20.2 km · +859 m · Difícil · MIDE 4 · máx. 41 % · Garrués · 10 puntos
 - Grandes travesías · Pirineo · GR 11 · Senda Pirenaica - E31 · 10.6 km · +111 m · Moderada · MIDE 3 · máx. 19 % · Isaba · senda/pista/asfalto [64, 33, 3] · 3 puntos
-- Grandes travesías · Pirineo · GR 11 · Senda Pirenaica - E32 · 20.9 km · +695 m · Difícil · MIDE 4 · máx. 15 % · Ochagavía · senda/pista/asfalto [20, 76, 4] · 10 puntos
-- Grandes travesías · Pirineo · GR 11 · Senda Pirenaica - E33 · 20.4 km · +746 m · Difícil · MIDE 4 · máx. 24 % · Hiriberri · senda/pista/asfalto [48, 50, 2] · 21 puntos
-- Grandes travesías · Pirineo · GR 11 · Senda Pirenaica - E34 · 17.2 km · +613 m · Moderada · MIDE 3 · máx. 24 % · Auritz · senda/pista/asfalto [45, 47, 8] · 12 puntos
+- Grandes travesías · Pirineo · GR 11 · Senda Pirenaica - E32 · 20.9 km · +695 m · Difícil · MIDE 4 · máx. 15 % · Ochagavía · senda/pista/asfalto [20, 76, 4] · 9 puntos
+- Grandes travesías · Pirineo · GR 11 · Senda Pirenaica - E33 · 20.4 km · +746 m · Difícil · MIDE 4 · máx. 24 % · Hiriberri · senda/pista/asfalto [48, 50, 2] · 19 puntos
+- Grandes travesías · Pirineo · GR 11 · Senda Pirenaica - E34 · 17.2 km · +613 m · Moderada · MIDE 3 · máx. 24 % · Auritz · senda/pista/asfalto [45, 47, 8] · 8 puntos
 - Grandes travesías · Pirineo · GR 11.4 · Variante de Ezkaurre · 12.4 km · +786 m · Difícil · MIDE 3 · máx. 60 % · Isaba · senda/pista/asfalto [90, 9, 1] · 6 puntos
-- Grandes travesías · Pirineo · GR 12 D. Etapa 2. Aztakarri - Sorogain-Lastur · 3.4 km · +136 m · Fácil · MIDE 2 · máx. 22 % · Sorogain-Lastur · 8 puntos
+- Grandes travesías · Pirineo · GR 12 D. Etapa 2. Aztakarri - Sorogain-Lastur · 3.4 km · +136 m · Fácil · MIDE 2 · máx. 22 % · Sorogain-Lastur · 6 puntos
 - Grandes travesías · Pirineo · GR 12 · Etapa 6. Aztakarri - Azpegi · 20.8 km · +890 m · Difícil · MIDE 4 · máx. 44 % · Sorogain-Lastur · senda/pista/asfalto [19, 62, 19] · 30 puntos
-- Grandes travesías · Pirineo · GR 12 · Etapa 7. Azpegi - Iturzaeta · 29.6 km · +1835 m · Muy difícil · MIDE 5 · máx. 51 % · Orbaizetako Ola · senda/pista/asfalto [70, 24, 6] · 12 puntos
-- Grandes travesías · Pirineo · GR 12 · Etapa 8. Iturzaeta - Belagua · 15.8 km · +619 m · Moderada · MIDE 3 · máx. 52 % · Pikatua · 14 puntos
-- Grandes travesías · Pirineo · GR 12 · Etapa 9. Belagua - Belagua · 21.0 km · +1103 m · Difícil · MIDE 4 · máx. 34 % · Uztárroz · 8 puntos
+- Grandes travesías · Pirineo · GR 12 · Etapa 7. Azpegi - Iturzaeta · 29.6 km · +1835 m · Muy difícil · MIDE 5 · máx. 51 % · Orbaizetako Ola · senda/pista/asfalto [70, 24, 6] · 6 puntos
+- Grandes travesías · Pirineo · GR 12 · Etapa 8. Iturzaeta - Belagua · 15.8 km · +619 m · Moderada · MIDE 3 · máx. 52 % · Pikatua · 13 puntos
+- Grandes travesías · Pirineo · GR 12 · Etapa 9. Belagua - Belagua · 21.0 km · +1103 m · Difícil · MIDE 4 · máx. 34 % · Uztárroz · 7 puntos
 - Grandes travesías · Pirineo · GR 12 · Euskal Herriko ibilaldia · etapa 1: Kintoa – Orreaga · 20.1 km · +1317 m · Difícil · MIDE 4 · máx. 58 % · Kintoa · 30 puntos
-- Grandes travesías · Pirineo · GR 12 · Euskal Herriko ibilaldia · etapa 2: Orreaga – Irabiako Uharka · 20.0 km · +1114 m · Difícil · MIDE 4 · máx. 52 % · Orreaga · 30 puntos
+- Grandes travesías · Pirineo · GR 12 · Euskal Herriko ibilaldia · etapa 2: Orreaga – Irabiako Uharka · 20.0 km · +1114 m · Difícil · MIDE 4 · máx. 52 % · Orreaga · 24 puntos
 - Grandes travesías · Pirineo · GR 12 · Euskal Herriko ibilaldia · etapa 3: Irabiako Uharka – Pikatua · 22.9 km · +2157 m · Muy difícil · MIDE 5 · máx. 65 % · Irabiako Uharka · 3 puntos
-- Grandes travesías · Pirineo · GR 225 · 1938ko Ezkabako Ihesa · etapa 2: Leranotz – Kintoa · 23.6 km · +1509 m · Muy difícil · MIDE 4 · máx. 49 % · Leranotz · 29 puntos
-- Grandes travesías · Pirineo · GR 321 · Etapa 1. Burgui / Burgi - Isaba / Izaba · 21.2 km · +806 m · Difícil · MIDE 4 · máx. 49 % · Burgui · senda/pista/asfalto [77, 14, 9] · 6 puntos
+- Grandes travesías · Pirineo · GR 225 · 1938ko Ezkabako Ihesa · etapa 2: Leranotz – Kintoa · 23.6 km · +1509 m · Muy difícil · MIDE 4 · máx. 49 % · Leranotz · 11 puntos
+- Grandes travesías · Pirineo · GR 321 · Etapa 1. Burgui / Burgi - Isaba / Izaba · 21.2 km · +806 m · Difícil · MIDE 4 · máx. 49 % · Burgui · senda/pista/asfalto [77, 14, 9] · 5 puntos
 - Grandes travesías · Pirineo · GR 321 · Etapa 2. Isaba / Izaba - Refugio Ángel Olorón. Belagua · 13.9 km · +882 m · Moderada · MIDE 3 · máx. 40 % · Isaba · senda/pista/asfalto [78, 7, 15] · 5 puntos
 - Grandes travesías · Pirineo · GR 321 · Etapa 321.1 Ruta de los Contrabandistas / Kontrabandisteen Bidea · 17.4 km · +1180 m · Difícil · MIDE 4 · máx. 55 % · Isaba · senda/pista/asfalto [97, 2, 1] · 9 puntos
-- Grandes travesías · Pirineo · GR 321 · Etapa 321.2 Camino Real - Errege Bidea · 6.9 km · +543 m · Moderada · MIDE 2 · máx. 52 % · Uztárroz · senda/pista/asfalto [72, 11, 17] · 4 puntos
+- Grandes travesías · Pirineo · GR 321 · Etapa 321.2 Camino Real - Errege Bidea · 6.9 km · +543 m · Moderada · MIDE 2 · máx. 52 % · Uztárroz · senda/pista/asfalto [72, 11, 17] · 3 puntos
 - Grandes travesías · Pirineo · GR 321 · Etapa D.1. Burgui / Burgi - Vidángoz / Bidankoze · 13.0 km · +643 m · Moderada · MIDE 3 · máx. 31 % · Burgui · senda/pista/asfalto [74, 15, 11] · 7 puntos
 - Grandes travesías · Pirineo · GR 321 · Etapa D.2. Roncal / Erronkari - Garde · 4.7 km · +224 m · Fácil · MIDE 2 · máx. 40 % · Roncal · senda/pista/asfalto [72, 24, 4] · 1 puntos
 - Grandes travesías · Pirineo · GR 321 · Etapa D.3. Isaba / Izaba - Uztárroz / Uztarroze · 6.4 km · +592 m · Moderada · MIDE 3 · máx. 50 % · Isaba · 1 puntos
@@ -176,21 +176,21 @@ Tamaño de rutas.json: 1367 KB
 - Grandes travesías · Pirineo · GR 321.D.3 · Errege bidea: Izaba - Uztarroze bide-adarra · 8.1 km · +585 m · Moderada · MIDE 3 · máx. 32 % · Isaba · senda/pista/asfalto [85, 13, 2] · 2 puntos
 - Grandes travesías · Pirineo · GR 322 · Nafarroa Xtrem · etapa 1: Kintoa – Saigots · 21.8 km · +1511 m · Muy difícil · MIDE 4 · máx. 45 % · Kintoa · 30 puntos
 - Grandes travesías · Pirineo · GR 322 · Nafarroa Xtrem · etapa 2: Saigots – Iragi · 14.1 km · +1175 m · Difícil · MIDE 4 · máx. 61 % · Saigots · 12 puntos
-- Grandes travesías · Pirineo · GRT 10 · Larrau/Tunel del Ori (GR12) – Paso de las Alforjas (GR11) · 10.4 km · +361 m · Moderada · MIDE 3 · máx. 37 % · Irati · senda/pista/asfalto [27, 73, 0] · 11 puntos
-- Grandes travesías · Pirineo · GRT 5 · Elizondo - Berderiz - Izpegi - Buztanzelaiko lepoa · 23.2 km · +655 m · Difícil · MIDE 4 · máx. 45 % · Iñarbil · senda/pista/asfalto [65, 30, 5] · 21 puntos
-- Grandes travesías · Pirineo · GRT 7 · Lepoeder (GR12) - Auritz (GR11) · 5.9 km · +16 m · Fácil · MIDE 2 · máx. 13 % · Orreaga · senda/pista/asfalto [6, 86, 8] · 9 puntos
+- Grandes travesías · Pirineo · GRT 10 · Larrau/Tunel del Ori (GR12) – Paso de las Alforjas (GR11) · 10.4 km · +361 m · Moderada · MIDE 3 · máx. 37 % · Irati · senda/pista/asfalto [27, 73, 0] · 10 puntos
+- Grandes travesías · Pirineo · GRT 5 · Elizondo - Berderiz - Izpegi - Buztanzelaiko lepoa · 23.2 km · +655 m · Difícil · MIDE 4 · máx. 45 % · Iñarbil · senda/pista/asfalto [65, 30, 5] · 19 puntos
+- Grandes travesías · Pirineo · GRT 7 · Lepoeder (GR12) - Auritz (GR11) · 5.9 km · +16 m · Fácil · MIDE 2 · máx. 13 % · Orreaga · senda/pista/asfalto [6, 86, 8] · 8 puntos
 - Grandes travesías · Pirineo · GRT 8 · Txutxurieta (GR11) - Azpegi (GR12) · 8.6 km · +283 m · Fácil · MIDE 2 · máx. 25 % · Orbaizetako Ola · senda/pista/asfalto [45, 49, 6] · 3 puntos
 - Grandes travesías · Pirineo · GRT 9 · Urbeltza (GR12) - Burdin hesiak pasabidea (GR11) · 9.3 km · +149 m · Moderada · MIDE 3 · máx. 32 % · Irati · senda/pista/asfalto [48, 47, 5] · 5 puntos
-- Grandes travesías · Pirineo · Saint-Jean-Pied-de-Port – Roncesvalles · 24.1 km · +590 m · Difícil · MIDE 4 · máx. 30 % · Orreaga · senda/pista/asfalto [5, 37, 58] · 13 puntos
-- Grandes travesías · Pirineo · Variante 3.1 · 12.8 km · +562 m · Moderada · MIDE 3 · máx. 29 % · Beartzun · senda/pista/asfalto [28, 53, 19] · 17 puntos
+- Grandes travesías · Pirineo · Saint-Jean-Pied-de-Port – Roncesvalles · 24.1 km · +590 m · Difícil · MIDE 4 · máx. 30 % · Orreaga · senda/pista/asfalto [5, 37, 58] · 12 puntos
+- Grandes travesías · Pirineo · Variante 3.1 · 12.8 km · +562 m · Moderada · MIDE 3 · máx. 29 % · Beartzun · senda/pista/asfalto [28, 53, 19] · 13 puntos
 - Grandes travesías · Pirineo · Variante 4.2 · 3.7 km · +264 m · Fácil · MIDE 2 · máx. 31 % · Orbaizetako Ola · senda/pista/asfalto [26, 0, 74]
 - Grandes travesías · Pirineo · Via Sancti Martini - Camino de Zaragoza / Chemin de Saragosse · etapa 1: Uztárroz – San Martín · 16.2 km · +295 m · Moderada · MIDE 3 · máx. 41 % · Uztárroz · 6 puntos
 - Grandes travesías · Pirineo · Via Sancti Martini - Camino de Zaragoza / Chemin de Saragosse · etapa 2: San Martín – Castillonuevo · 19.6 km · +1006 m · Difícil · MIDE 4 · máx. 77 % · San Martín
-- Grandes travesías · Pirineo · Étape 04 · 33.3 km · +1460 m · Muy difícil · MIDE 5 · máx. 34 % · Beartzun · senda/pista/asfalto [23, 36, 41] · 30 puntos
+- Grandes travesías · Pirineo · Étape 04 · 33.3 km · +1460 m · Muy difícil · MIDE 5 · máx. 34 % · Beartzun · senda/pista/asfalto [23, 36, 41] · 27 puntos
 - Grandes travesías · Pirineo · Étape 05 · 22.2 km · +1796 m · Muy difícil · MIDE 4 · máx. 39 % · Orbaizetako Ola · senda/pista/asfalto [66, 20, 14]
 - Grandes travesías · Pirineo · Étape 06 · 18.7 km · +1097 m · Difícil · MIDE 4 · máx. 41 % · Pikatua · senda/pista/asfalto [80, 19, 1] · 5 puntos
-- Grandes travesías · Plazaola-Sakana-Ultzama · GR 12 · Etapa 1. Etxegarate - Lizarrusti · 13.5 km · +775 m · Moderada · MIDE 3 · máx. 30 % · Altsasu · 19 puntos
-- Grandes travesías · Plazaola-Sakana-Ultzama · GR 12 · Etapa 2. Lizarrusti - Lekunberri · 23.0 km · +736 m · Difícil · MIDE 4 · máx. 42 % · Lizarragabengoa · senda/pista/asfalto [45, 42, 13] · 11 puntos
+- Grandes travesías · Plazaola-Sakana-Ultzama · GR 12 · Etapa 1. Etxegarate - Lizarrusti · 13.5 km · +775 m · Moderada · MIDE 3 · máx. 30 % · Altsasu · 17 puntos
+- Grandes travesías · Plazaola-Sakana-Ultzama · GR 12 · Etapa 2. Lizarrusti - Lekunberri · 23.0 km · +736 m · Difícil · MIDE 4 · máx. 42 % · Lizarragabengoa · senda/pista/asfalto [45, 42, 13] · 9 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 12 · Etapa 3. Lekunberri - Gorostieta · 17.5 km · +877 m · Moderada · MIDE 3 · máx. 30 % · Lekunberri · 8 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 12 · Etapa 5. Belate - Aztakarri · 24.4 km · +1302 m · Difícil · MIDE 4 · máx. 36 % · Arraitz-Orkin · 30 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 121 · E11 Epaipide ibilbidea: Lizarrusti - Amezketa · 16.8 km · +1073 m · Difícil · MIDE 4 · máx. 34 % · Azkarate · senda/pista/asfalto [89, 8, 3] · 3 puntos
@@ -201,13 +201,13 @@ Tamaño de rutas.json: 1367 KB
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 1: Azkarate – Alli · 20.1 km · +1243 m · Difícil · MIDE 4 · máx. 47 % · Azkarate · 5 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 2: Alli – San Migel · 20.0 km · +1077 m · Difícil · MIDE 4 · máx. 67 % · Alli · 6 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 20 · Aralarko bira · etapa 3: San Migel – Lizarragabengoa · 13.0 km · +634 m · Moderada · MIDE 3 · máx. 64 % · San Migel · 10 puntos
-- Grandes travesías · Plazaola-Sakana-Ultzama · GR 282 · Artzaintza naturbidea · etapa 1: Gaintza – Unanu · 20.1 km · +1020 m · Difícil · MIDE 4 · máx. 43 % · Gaintza · 12 puntos
+- Grandes travesías · Plazaola-Sakana-Ultzama · GR 282 · Artzaintza naturbidea · etapa 1: Gaintza – Unanu · 20.1 km · +1020 m · Difícil · MIDE 4 · máx. 43 % · Gaintza · 11 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 282 · Artzaintza naturbidea · etapa 2: Unanu – Andía · 22.6 km · +1040 m · Difícil · MIDE 4 · máx. 33 % · Unanu · 11 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 282 · Artzaintza naturbidea · etapa 4: Venta de Urbasa – Ziordia · 17.5 km · +403 m · Moderada · MIDE 3 · máx. 25 % · Venta de Urbasa · 1 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 323 · Bernoako Galtzada: Etxarri Aranatz - Urdiain · 18.2 km · +425 m · Moderada · MIDE 3 · máx. 26 % · Urdiain · senda/pista/asfalto [52, 23, 25] · 5 puntos
-- Grandes travesías · Plazaola-Sakana-Ultzama · GR 323 · Bernoako Galtzada: Urdiain - Etxarri Aranatz · 14.6 km · +659 m · Moderada · MIDE 3 · máx. 26 % · Urdiain · senda/pista/asfalto [58, 22, 20] · 15 puntos
+- Grandes travesías · Plazaola-Sakana-Ultzama · GR 323 · Bernoako Galtzada: Urdiain - Etxarri Aranatz · 14.6 km · +659 m · Moderada · MIDE 3 · máx. 26 % · Urdiain · senda/pista/asfalto [58, 22, 20] · 10 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 323.1 · Bernoako Galtzada: Etxarri-Aranatz - Bakaiku · 4.5 km · +33 m · Fácil · MIDE 2 · máx. 9 % · Etxarri Aranatz · senda/pista/asfalto [0, 47, 53] · 1 puntos
-- Grandes travesías · Plazaola-Sakana-Ultzama · GR 323.10 · Bernoako Galtzada: Bakaiku - Lizarragako portua · 4.7 km · +8 m · Fácil · MIDE 2 · máx. 8 % · Lizarraga · senda/pista/asfalto [68, 21, 11] · 4 puntos
+- Grandes travesías · Plazaola-Sakana-Ultzama · GR 323.10 · Bernoako Galtzada: Bakaiku - Lizarragako portua · 4.7 km · +8 m · Fácil · MIDE 2 · máx. 8 % · Lizarraga · senda/pista/asfalto [68, 21, 11] · 3 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 323.10 · Bernoako Galtzada: Bakaiku - Santa Marina (Iruaitzeta ondotik) · 4.2 km · +619 m · Moderada · MIDE 2 · máx. 37 % · Bakaiku · senda/pista/asfalto [50, 38, 12] · 3 puntos
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 323.3 · Bernoako Galtzada: Iturmendi · 3.4 km · +42 m · Fácil · MIDE 1 · máx. 12 % · Iturmendi · senda/pista/asfalto [0, 4, 96]
 - Grandes travesías · Plazaola-Sakana-Ultzama · GR 323.6 · Bernoako Galtzada: Urdiain - Iturmendi - Bakaiku · 3.0 km · +0 m · Fácil · MIDE 1 · máx. 4 % · Urdiain · senda/pista/asfalto [0, 36, 64] · 1 puntos
@@ -226,58 +226,58 @@ Tamaño de rutas.json: 1367 KB
 - Grandes travesías · Tierra Estella · GR 99 · Camino natural de Ebro - Tramo central · etapa 2: San Adrián – Lodosa · 20.0 km · +160 m · Moderada · MIDE 3 · máx. 20 % · San Adrián
 - Grandes travesías · Tierra Estella · GR 99 · Camino natural de Ebro - Tramo central · etapa 3: Lodosa – Recajo · 26.8 km · +58 m · Difícil · MIDE 4 · máx. 9 % · Lodosa
 - Grandes travesías · Tierra Estella · GR 99 · Camino natural de Ebro - Tramo central · etapa 4: Recajo – Viana · 12.6 km · +83 m · Moderada · MIDE 3 · máx. 16 % · Recajo
-- Grandes travesías · Zona Media · GR 1 · Etapa 3. Uxue / Ujué - Olite / Erriberri · 15.0 km · +26 m · Moderada · MIDE 3 · máx. 13 % · Ujué · senda/pista/asfalto [7, 79, 14] · 5 puntos
+- Grandes travesías · Zona Media · GR 1 · Etapa 3. Uxue / Ujué - Olite / Erriberri · 15.0 km · +26 m · Moderada · MIDE 3 · máx. 13 % · Ujué · senda/pista/asfalto [7, 79, 14] · 3 puntos
 - Grandes travesías · Zona Media · GR 1 · Etapa 4. Olite / Erriberri - Larraga · 26.0 km · +192 m · Difícil · MIDE 4 · máx. 17 % · Olite · 2 puntos
 - Grandes travesías · Zona Media · GR 1 · Etapa 5. Larraga - Allo · 18.8 km · +251 m · Moderada · MIDE 3 · máx. 13 % · Larraga · senda/pista/asfalto [0, 97, 3] · 1 puntos
 - Grandes travesías · Zona Media · GR 1 · Sendero Histórico: Navarra · etapa 4: Berbinzana – Nuestra Señora de Andión · 8.8 km · +159 m · Fácil · MIDE 2 · máx. 20 % · Berbinzana
-- Grandes travesías · Zona Media · GR 220 · Iruñerriko itzulia · etapa 5: Lete – Muniáin de Guesálaz · 11.4 km · +856 m · Moderada · MIDE 3 · máx. 37 % · Lete · 20 puntos
-- Senderos y paseos · Baztan-Bidasoa · Arrarats - Begaña · 10.1 km · +461 m · Moderada · MIDE 3 · máx. 22 % · Arrarats · 4 puntos
+- Grandes travesías · Zona Media · GR 220 · Iruñerriko itzulia · etapa 5: Lete – Muniáin de Guesálaz · 11.4 km · +856 m · Moderada · MIDE 3 · máx. 37 % · Lete · 11 puntos
+- Senderos y paseos · Baztan-Bidasoa · Arrarats - Begaña · 10.1 km · +462 m · Moderada · MIDE 3 · máx. 22 % · Arrarats · 4 puntos
 - Senderos y paseos · Baztan-Bidasoa · Aurkidiko itzulia · 9.7 km · +572 m · Moderada · MIDE 3 · máx. 30 % · Zubieta · senda/pista/asfalto [36, 23, 41] · 3 puntos
 - Senderos y paseos · Baztan-Bidasoa · Cascada de Xorroxin - Gorostapalo (Baztan) · 1.3 km · +34 m · Fácil · MIDE 1 · máx. 16 % · Gorostapalo · senda/pista/asfalto [16, 82, 2] · 2 puntos
-- Senderos y paseos · Baztan-Bidasoa · Igantzi - Reserva Natural de San Juan Xar · 4.2 km · +137 m · Fácil · MIDE 2 · máx. 24 % · Arantza · senda/pista/asfalto [44, 0, 56] · 4 puntos
+- Senderos y paseos · Baztan-Bidasoa · Igantzi - Reserva Natural de San Juan Xar · 4.2 km · +137 m · Fácil · MIDE 2 · máx. 24 % · Arantza · senda/pista/asfalto [44, 0, 56] · 3 puntos
 - Senderos y paseos · Baztan-Bidasoa · Iturburua · 6.3 km · +140 m · Fácil · MIDE 2 · máx. 21 % · Bertiz · senda/pista/asfalto [86, 7, 7] · 4 puntos
 - Senderos y paseos · Baztan-Bidasoa · Mendrasako itzulia · 6.7 km · +248 m · Fácil · MIDE 2 · máx. 26 % · Zubieta · senda/pista/asfalto [11, 31, 58]
 - Senderos y paseos · Baztan-Bidasoa · PR-GI 1010 · Aiako Harriko tontorrei bira · 10.7 km · +437 m · Moderada · MIDE 3 · máx. 33 % · Endara · senda/pista/asfalto [83, 17, 0] · 2 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-Gi 1007 · Artikutzako trenbide zaharra · 11.1 km · +721 m · Moderada · MIDE 3 · máx. 37 % · Endara · senda/pista/asfalto [52, 40, 8]
-- Senderos y paseos · Baztan-Bidasoa · PR-NA 1 · Abartan · 12.7 km · +596 m · Moderada · MIDE 3 · máx. 31 % · Ziga · senda/pista/asfalto [21, 50, 29] · 13 puntos
-- Senderos y paseos · Baztan-Bidasoa · PR-NA 10 · Arantzako zirkoa · 14.1 km · +739 m · Difícil · MIDE 3 · máx. 24 % · Eguzkialdea · senda/pista/asfalto [45, 37, 18] · 14 puntos
+- Senderos y paseos · Baztan-Bidasoa · PR-NA 1 · Abartan · 12.7 km · +596 m · Moderada · MIDE 3 · máx. 31 % · Ziga · senda/pista/asfalto [21, 50, 29] · 11 puntos
+- Senderos y paseos · Baztan-Bidasoa · PR-NA 10 · Arantzako zirkoa · 14.1 km · +739 m · Difícil · MIDE 3 · máx. 24 % · Eguzkialdea · senda/pista/asfalto [45, 37, 18] · 13 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 100 · Ibargoiora · 10.0 km · +274 m · Moderada · MIDE 3 · máx. 18 % · Donamaria · senda/pista/asfalto [21, 12, 67] · 4 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 101: Saldias – Saldias · 12.9 km · +668 m · Moderada · MIDE 3 · máx. 27 % · Saldias · senda/pista/asfalto [42, 42, 16] · 7 puntos
-- Senderos y paseos · Baztan-Bidasoa · PR-NA 102 · Leurtzako basoa · 3.2 km · +201 m · Fácil · MIDE 2 · máx. 22 % · Beintza-Labaien · senda/pista/asfalto [84, 10, 6] · 7 puntos
+- Senderos y paseos · Baztan-Bidasoa · PR-NA 102 · Leurtzako basoa · 3.2 km · +201 m · Fácil · MIDE 2 · máx. 22 % · Beintza-Labaien · senda/pista/asfalto [84, 10, 6] · 6 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 102.1 · Leurtzatik Beintza Labaienera · 4.8 km · +210 m · Fácil · MIDE 2 · máx. 24 % · Beintza-Labaien · senda/pista/asfalto [73, 20, 7] · 2 puntos
-- Senderos y paseos · Baztan-Bidasoa · PR-NA 11 · San Antón - Domiko · 14.5 km · +728 m · Moderada · MIDE 3 · máx. 29 % · Auzoberri · senda/pista/asfalto [42, 47, 11] · 22 puntos
+- Senderos y paseos · Baztan-Bidasoa · PR-NA 11 · San Antón - Domiko · 14.5 km · +728 m · Moderada · MIDE 3 · máx. 29 % · Auzoberri · senda/pista/asfalto [42, 47, 11] · 18 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 12 · Azkua · 9.5 km · +677 m · Moderada · MIDE 3 · máx. 32 % · Etxalar · senda/pista/asfalto [35, 43, 22] · 6 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 15 · Atxuria · 9.8 km · +520 m · Moderada · MIDE 3 · máx. 32 % · Etxalar · senda/pista/asfalto [21, 76, 3] · 5 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 16 · Larun · 14.2 km · +489 m · Moderada · MIDE 3 · máx. 27 % · Garaitarreta · senda/pista/asfalto [11, 57, 32] · 16 puntos
 - Senderos y paseos · Baztan-Bidasoa · PR-NA 4 · Baztangoiza · 12.2 km · +314 m · Moderada · MIDE 3 · máx. 22 % · Arizkun · senda/pista/asfalto [27, 25, 48] · 7 puntos
-- Senderos y paseos · Baztan-Bidasoa · PR-NA 6 · Aritzakun · 13.4 km · +578 m · Moderada · MIDE 3 · máx. 43 % · Telleria · senda/pista/asfalto [66, 29, 5] · 14 puntos
-- Senderos y paseos · Baztan-Bidasoa · PR-NA 90 · Sorginen bidea · 12.7 km · +426 m · Moderada · MIDE 3 · máx. 25 % · Zugarramurdi · senda/pista/asfalto [48, 33, 19] · 10 puntos
+- Senderos y paseos · Baztan-Bidasoa · PR-NA 6 · Aritzakun · 13.4 km · +578 m · Moderada · MIDE 3 · máx. 43 % · Telleria · senda/pista/asfalto [66, 29, 5] · 9 puntos
+- Senderos y paseos · Baztan-Bidasoa · PR-NA 90 · Sorginen bidea · 12.7 km · +426 m · Moderada · MIDE 3 · máx. 25 % · Zugarramurdi · senda/pista/asfalto [48, 33, 19] · 8 puntos
 - Senderos y paseos · Baztan-Bidasoa · Parque Natural Señorío de Bertiz – Subida a Aizkolegi · 20.9 km · +737 m · Difícil · MIDE 4 · máx. 34 % · Bertiz · 5 puntos
-- Senderos y paseos · Baztan-Bidasoa · Pottoka Urdinaren ibilbidea · 5.8 km · +71 m · Fácil · MIDE 2 · máx. 26 % · Etxartea · senda/pista/asfalto [20, 8, 72] · 10 puntos
+- Senderos y paseos · Baztan-Bidasoa · Pottoka Urdinaren ibilbidea · 5.8 km · +71 m · Fácil · MIDE 2 · máx. 26 % · Etxartea · senda/pista/asfalto [20, 8, 72] · 8 puntos
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 12 · Xorroxin · 4.7 km · +94 m · Fácil · MIDE 2 · máx. 21 % · Erratzu · senda/pista/asfalto [30, 22, 48] · 3 puntos
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 14 · Azkarreko itzulia · 3.3 km · +0 m · Fácil · MIDE 2 · máx. 3 % · Urdazubi · senda/pista/asfalto [72, 13, 15] · 3 puntos
-- Senderos y paseos · Baztan-Bidasoa · SL-NA 15 · Otsondottiki · 8.4 km · +357 m · Fácil · MIDE 2 · máx. 22 % · Urdazubi · senda/pista/asfalto [3, 81, 16] · 4 puntos
-- Senderos y paseos · Baztan-Bidasoa · SL-NA 17 · Axularren txokoa · 4.9 km · +211 m · Fácil · MIDE 2 · máx. 31 % · Alkerdi · senda/pista/asfalto [38, 19, 43] · 4 puntos
+- Senderos y paseos · Baztan-Bidasoa · SL-NA 15 · Otsondottiki · 8.4 km · +357 m · Fácil · MIDE 2 · máx. 22 % · Urdazubi · senda/pista/asfalto [3, 81, 16] · 3 puntos
+- Senderos y paseos · Baztan-Bidasoa · SL-NA 17 · Axularren txokoa · 4.9 km · +211 m · Fácil · MIDE 2 · máx. 31 % · Alkerdi · senda/pista/asfalto [38, 19, 43] · 2 puntos
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 2 · Chemin des Palombières · 5.2 km · +182 m · Fácil · MIDE 2 · máx. 16 % · Gorosurreta · senda/pista/asfalto [41, 59, 0] · 5 puntos
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 5 · Argarata - Santa Krutz · 4.4 km · +59 m · Fácil · MIDE 2 · máx. 14 % · Urritzokieta · senda/pista/asfalto [25, 9, 66] · 2 puntos
 - Senderos y paseos · Baztan-Bidasoa · SL-NA 7 · Leurtzako ibilbidea · 3.4 km · +41 m · Fácil · MIDE 1 · máx. 15 % · Beintza-Labaien · senda/pista/asfalto [33, 53, 14] · 2 puntos
-- Senderos y paseos · Baztan-Bidasoa · SL-NA · Alkurruntz · 3.4 km · +9 m · Fácil · MIDE 2 · máx. 7 % · Amaiur · senda/pista/asfalto [18, 65, 17] · 4 puntos
-- Senderos y paseos · Baztan-Bidasoa · SL-NA · Ibaineta · 5.0 km · +204 m · Fácil · MIDE 2 · máx. 31 % · Etxartea · senda/pista/asfalto [83, 17, 0] · 8 puntos
+- Senderos y paseos · Baztan-Bidasoa · SL-NA · Alkurruntz · 3.4 km · +9 m · Fácil · MIDE 2 · máx. 7 % · Amaiur · senda/pista/asfalto [18, 65, 17] · 2 puntos
+- Senderos y paseos · Baztan-Bidasoa · SL-NA · Ibaineta · 5.0 km · +204 m · Fácil · MIDE 2 · máx. 31 % · Etxartea · senda/pista/asfalto [83, 17, 0] · 7 puntos
 - Senderos y paseos · Baztan-Bidasoa · Uraren bidea · 7.5 km · +43 m · Fácil · MIDE 2 · máx. 13 % · Zubieta · senda/pista/asfalto [29, 56, 15] · 2 puntos
-- Senderos y paseos · Baztan-Bidasoa · Vértice geodésico de Frain - Lesaka - Cinco Villas · 10.9 km · +504 m · Moderada · MIDE 3 · máx. 26 % · Lesaka · 7 puntos
+- Senderos y paseos · Baztan-Bidasoa · Vértice geodésico de Frain - Lesaka - Cinco Villas · 10.9 km · +504 m · Moderada · MIDE 3 · máx. 26 % · Lesaka · 6 puntos
 - Senderos y paseos · Baztan-Bidasoa · Zentinelako ibilbide arkeologikoa · 4.2 km · +195 m · Fácil · MIDE 2 · máx. 17 % · Lakain-Apezborro · senda/pista/asfalto [9, 91, 0] · 4 puntos
 - Senderos y paseos · La Ribera · Alto de Moncayuelo · 10.5 km · +166 m · Fácil · MIDE 2 · máx. 16 % · Falces
 - Senderos y paseos · La Ribera · Bardenas Reales - Castildetierra - Castillo de Peñaflor · 13.7 km · +175 m · Moderada · MIDE 3 · máx. 11 % · Arguedas · 2 puntos
 - Senderos y paseos · La Ribera · Camino Natural del Agua Soriano. Camino Antonino · 114.5 km · +811 m · Muy difícil · MIDE 5 · máx. 16 % · Fitero · senda/pista/asfalto [21, 61, 18] · 4 puntos
 - Senderos y paseos · La Ribera · Ruta de las Salinas · 3.3 km · +146 m · Fácil · MIDE 2 · máx. 25 % · Valtierra · senda/pista/asfalto [100, 0, 0] · 1 puntos
 - Senderos y paseos · Pamplona y Comarca · Alto de Ekoien desde Belascoáin · 14.7 km · +739 m · Moderada · MIDE 3 · máx. 33 % · Belascoáin · 5 puntos
-- Senderos y paseos · Pamplona y Comarca · Alto de Santa Cruz desde Beriáin · 9.0 km · +154 m · Fácil · MIDE 2 · máx. 23 % · Beriáin · 2 puntos
+- Senderos y paseos · Pamplona y Comarca · Alto de Santa Cruz desde Beriáin · 9.0 km · +155 m · Fácil · MIDE 2 · máx. 23 % · Beriáin · 2 puntos
 - Senderos y paseos · Pamplona y Comarca · Alzuza · 4.4 km · +176 m · Fácil · MIDE 2 · máx. 31 % · Alzuza · senda/pista/asfalto [55, 37, 8] · 4 puntos
 - Senderos y paseos · Pamplona y Comarca · Argako Ibai-pasealekua · 34.3 km · +98 m · Difícil · MIDE 4 · máx. 8 % · Otazu · senda/pista/asfalto [22, 29, 49] · 28 puntos
-- Senderos y paseos · Pamplona y Comarca · Castillo de Irulegui · 3.9 km · +243 m · Fácil · MIDE 2 · máx. 45 % · Laquidáin · senda/pista/asfalto [67, 28, 5] · 6 puntos
-- Senderos y paseos · Pamplona y Comarca · Despoblado de Mendinueta y castillo de Legin - Cinco Villas · 8.9 km · +341 m · Fácil · MIDE 2 · máx. 38 % · Urroz Villa · 5 puntos
+- Senderos y paseos · Pamplona y Comarca · Castillo de Irulegui · 3.9 km · +243 m · Fácil · MIDE 2 · máx. 45 % · Laquidáin · senda/pista/asfalto [67, 28, 5] · 5 puntos
+- Senderos y paseos · Pamplona y Comarca · Despoblado de Mendinueta y castillo de Legin - Cinco Villas · 8.9 km · +341 m · Fácil · MIDE 2 · máx. 38 % · Urroz Villa · 4 puntos
 - Senderos y paseos · Pamplona y Comarca · Eltxumendi desde Oteiza · 5.4 km · +354 m · Fácil · MIDE 2 · máx. 32 % · Oteiza · 2 puntos
-- Senderos y paseos · Pamplona y Comarca · Ezkaba - San Cristóbal desde Berriozar · 8.6 km · +495 m · Moderada · MIDE 3 · máx. 44 % · Berriozar · 2 puntos
+- Senderos y paseos · Pamplona y Comarca · Ezkaba - San Cristóbal desde Berriozar · 8.6 km · +493 m · Moderada · MIDE 3 · máx. 45 % · Berriozar · 2 puntos
 - Senderos y paseos · Pamplona y Comarca · Idoate - Ermita de San Miguel · 4.9 km · +187 m · Fácil · MIDE 2 · máx. 20 % · Idoate · 1 puntos
 - Senderos y paseos · Pamplona y Comarca · Labiano - Cerro de Bizkaia - panorámicas sobre el Valle de Elorz y la sierra de Alaiz · 5.2 km · +194 m · Fácil · MIDE 2 · máx. 25 % · Labiano · 2 puntos
 - Senderos y paseos · Pamplona y Comarca · Larragueta - cerro de La Fuente - Monte Ezkidi · 6.7 km · +319 m · Fácil · MIDE 2 · máx. 24 % · Añezkar · 5 puntos
@@ -285,32 +285,32 @@ Tamaño de rutas.json: 1367 KB
 - Senderos y paseos · Pamplona y Comarca · Monte Ezkaba · 5.6 km · +475 m · Moderada · MIDE 2 · máx. 26 % · Villava · senda/pista/asfalto [81, 17, 2] · 4 puntos
 - Senderos y paseos · Pamplona y Comarca · Monte Gazolatz · 3.1 km · +66 m · Fácil · MIDE 1 · máx. 8 % · Gazólaz · senda/pista/asfalto [15, 85, 0] · 4 puntos
 - Senderos y paseos · Pamplona y Comarca · Monte Santo Domingo · 7.5 km · +124 m · Fácil · MIDE 2 · máx. 27 % · Noáin · 1 puntos
-- Senderos y paseos · Pamplona y Comarca · Narval - Fuente de Txindelapea y torreón · 9.1 km · +367 m · Moderada · MIDE 3 · máx. 30 % · Arre · 4 puntos
-- Senderos y paseos · Pamplona y Comarca · Parque Arantzadi - recorrido botánico · 4.7 km · +14 m · Fácil · MIDE 2 · máx. 25 % · Pamplona · 11 puntos
+- Senderos y paseos · Pamplona y Comarca · Narval - Fuente de Txindelapea y torreón · 9.1 km · +366 m · Moderada · MIDE 3 · máx. 30 % · Arre · 4 puntos
+- Senderos y paseos · Pamplona y Comarca · Parque Arantzadi - recorrido botánico · 4.7 km · +18 m · Fácil · MIDE 2 · máx. 25 % · Pamplona · 10 puntos
 - Senderos y paseos · Pamplona y Comarca · Paseo Elorz-Sadar · 10.9 km · +58 m · Fácil · MIDE 2 · máx. 8 % · Barañáin · senda/pista/asfalto [48, 1, 51] · 2 puntos
 - Senderos y paseos · Pamplona y Comarca · Paseo Fluvial Río Elorz · 7.4 km · +0 m · Fácil · MIDE 2 · máx. 9 % · Salinas de Pamplona · senda/pista/asfalto [10, 81, 9]
 - Senderos y paseos · Pamplona y Comarca · Paseo del Ulzama · 6.9 km · +35 m · Fácil · MIDE 2 · máx. 9 % · Huarte · senda/pista/asfalto [23, 0, 77] · 9 puntos
-- Senderos y paseos · Pamplona y Comarca · Peña de Etxauri desde Azanza · 7.7 km · +322 m · Fácil · MIDE 2 · máx. 32 % · Azanza · 10 puntos
+- Senderos y paseos · Pamplona y Comarca · Peña de Etxauri desde Azanza · 7.7 km · +322 m · Fácil · MIDE 2 · máx. 32 % · Azanza · 7 puntos
 - Senderos y paseos · Pamplona y Comarca · Recorrido botánico de la Universidad de Navarra · 4.7 km · +26 m · Fácil · MIDE 2 · máx. 9 % · Cordovilla
 - Senderos y paseos · Pamplona y Comarca · SL-NA 172 · Circular de Ezkaba · 7.2 km · +225 m · Fácil · MIDE 2 · máx. 16 % · Ezcaba · senda/pista/asfalto [0, 83, 17] · 1 puntos
 - Senderos y paseos · Pamplona y Comarca · San Cristóbal - Ezkaba desde Berriosuso · 7.9 km · +427 m · Moderada · MIDE 2 · máx. 27 % · Berriosuso · 2 puntos
-- Senderos y paseos · Pamplona y Comarca · Sierra del Perdón desde Subiza · 7.6 km · +399 m · Fácil · MIDE 2 · máx. 43 % · Subiza · 3 puntos
+- Senderos y paseos · Pamplona y Comarca · Sierra del Perdón desde Subiza · 7.6 km · +399 m · Fácil · MIDE 2 · máx. 43 % · Subiza · 2 puntos
 - Senderos y paseos · Pamplona y Comarca · Sierra del Perdón oriental - Bordatxar y Aitzkibel · 6.2 km · +426 m · Moderada · MIDE 2 · máx. 43 % · Subiza · 4 puntos
-- Senderos y paseos · Pamplona y Comarca · Tajonar y castro de San Salvador · 5.6 km · +257 m · Fácil · MIDE 2 · máx. 33 % · Tajonar · 3 puntos
+- Senderos y paseos · Pamplona y Comarca · Tajonar y castro de San Salvador · 5.6 km · +256 m · Fácil · MIDE 2 · máx. 33 % · Tajonar · 3 puntos
 - Senderos y paseos · Pamplona y Comarca · Xabierraldia (Iruña - Xabierko gaztelua) · 29.8 km · +595 m · Difícil · MIDE 4 · máx. 13 % · Sarriguren · senda/pista/asfalto [10, 49, 41] · 9 puntos
 - Senderos y paseos · Pirineo · Aintzioa - Esnotz · 2.4 km · +51 m · Fácil · MIDE 1 · máx. 15 % · Aintzioa · senda/pista/asfalto [52, 33, 15]
-- Senderos y paseos · Pirineo · Anie y Añelarra - bordeando la Reserva Natural de Larra · 15.0 km · +965 m · Difícil · MIDE 3 · máx. 47 % · Uztárroz · 7 puntos
+- Senderos y paseos · Pirineo · Anie y Añelarra - bordeando la Reserva Natural de Larra · 15.0 km · +965 m · Difícil · MIDE 3 · máx. 47 % · Uztárroz · 6 puntos
 - Senderos y paseos · Pirineo · Aurizberri - Esnotz ibilbidea · 10.9 km · +168 m · Moderada · MIDE 3 · máx. 12 % · Aurizberri · senda/pista/asfalto [6, 61, 33] · 4 puntos
 - Senderos y paseos · Pirineo · Basajaunberroko basoa · 3.9 km · +49 m · Fácil · MIDE 2 · máx. 8 % · Orreaga · senda/pista/asfalto [2, 85, 13] · 2 puntos
 - Senderos y paseos · Pirineo · Berraguko bidea · 2.9 km · +95 m · Fácil · MIDE 1 · máx. 19 % · Aurizberri · senda/pista/asfalto [23, 51, 26] · 3 puntos
-- Senderos y paseos · Pirineo · Cascada de Garralda · 4.2 km · +106 m · Fácil · MIDE 2 · máx. 30 % · Garralda · senda/pista/asfalto [28, 25, 47] · 1 puntos
+- Senderos y paseos · Pirineo · Cascada de Garralda · 4.2 km · +115 m · Fácil · MIDE 2 · máx. 30 % · Garralda · senda/pista/asfalto [29, 24, 47] · 1 puntos
 - Senderos y paseos · Pirineo · Cueva y cascada de Azanzorea. Vidángoz · 2.7 km · +131 m · Fácil · MIDE 1 · máx. 34 % · Vidángoz · 1 puntos
 - Senderos y paseos · Pirineo · Dolmen de Armaria - Baratxueta - Oiartzabal - dolmen de Usetxi · 9.1 km · +412 m · Moderada · MIDE 3 · máx. 35 % · Usetxi · 7 puntos
 - Senderos y paseos · Pirineo · Errea - Measkoitz - Castros de Measkoitz y Otamendi · 7.4 km · +247 m · Fácil · MIDE 2 · máx. 27 % · Errea · 2 puntos
 - Senderos y paseos · Pirineo · Errekaidorra · 10.1 km · +236 m · Moderada · MIDE 3 · máx. 32 % · Nuestra Señora de las Nieves · senda/pista/asfalto [33, 62, 5] · 3 puntos
 - Senderos y paseos · Pirineo · Erro - Mezkiritz · 6.4 km · +16 m · Fácil · MIDE 2 · máx. 11 % · Mezkiritz · senda/pista/asfalto [13, 60, 27]
 - Senderos y paseos · Pirineo · Erro - Zilbeti · 6.2 km · +193 m · Fácil · MIDE 2 · máx. 13 % · Erro · senda/pista/asfalto [0, 0, 100] · 2 puntos
-- Senderos y paseos · Pirineo · Gainekoleta – Orreaga · 7.4 km · +337 m · Fácil · MIDE 2 · máx. 22 % · Gainekoleta · senda/pista/asfalto [0, 76, 24] · 11 puntos
+- Senderos y paseos · Pirineo · Gainekoleta – Orreaga · 7.4 km · +337 m · Fácil · MIDE 2 · máx. 22 % · Gainekoleta · senda/pista/asfalto [0, 76, 24] · 10 puntos
 - Senderos y paseos · Pirineo · Gotorlekuko bidea · 5.1 km · +167 m · Fácil · MIDE 2 · máx. 25 % · Erro · senda/pista/asfalto [21, 57, 22] · 3 puntos
 - Senderos y paseos · Pirineo · Loizu - Aintzioa · 4.6 km · +41 m · Fácil · MIDE 2 · máx. 16 % · Aintzioa · senda/pista/asfalto [49, 46, 5]
 - Senderos y paseos · Pirineo · Loizu - Ardaitz · 8.6 km · +401 m · Moderada · MIDE 2 · máx. 24 % · Ardaitz · senda/pista/asfalto [52, 45, 3] · 1 puntos
@@ -318,7 +318,7 @@ Tamaño de rutas.json: 1367 KB
 - Senderos y paseos · Pirineo · Mirador de Zamariain desde Garaioa - Valle de Aezkoa · 6.7 km · +302 m · Fácil · MIDE 2 · máx. 24 % · Garaioa · senda/pista/asfalto [21, 75, 4] · 3 puntos
 - Senderos y paseos · Pirineo · Muskildako hariztiaren bidexka · 4.3 km · +107 m · Fácil · MIDE 2 · máx. 29 % · Bizkarreta-Gerendiain · senda/pista/asfalto [13, 71, 16] · 3 puntos
 - Senderos y paseos · Pirineo · Orondritz - Esnotz · 2.4 km · +0 m · Fácil · MIDE 1 · máx. 3 % · Esnotz · senda/pista/asfalto [40, 40, 20]
-- Senderos y paseos · Pirineo · PR-NA 3 · Beartzun · 13.0 km · +547 m · Moderada · MIDE 3 · máx. 28 % · Beartzun · senda/pista/asfalto [49, 37, 14] · 13 puntos
+- Senderos y paseos · Pirineo · PR-NA 3 · Beartzun · 13.0 km · +547 m · Moderada · MIDE 3 · máx. 28 % · Beartzun · senda/pista/asfalto [49, 37, 14] · 11 puntos
 - Senderos y paseos · Pirineo · PR-NA 7 · Iñarbegi · 6.5 km · +35 m · Fácil · MIDE 2 · máx. 13 % · Beartzun · senda/pista/asfalto [49, 12, 39] · 6 puntos
 - Senderos y paseos · Pirineo · Paxula – Iratiko Etxolak · 4.1 km · +53 m · Fácil · MIDE 2 · máx. 25 % · Nuestra Señora de las Nieves · senda/pista/asfalto [21, 78, 1]
 - Senderos y paseos · Pirineo · SL-NA 50 · San Frantziskoko Muinoa · 2.9 km · +0 m · Fácil · MIDE 1 · máx. 4 % · Hiriberri · senda/pista/asfalto [70, 30, 0] · 2 puntos
@@ -334,10 +334,10 @@ Tamaño de rutas.json: 1367 KB
 - Senderos y paseos · Pirineo · SL-NA 54 · Abaurrea Bidean · 6.3 km · +252 m · Fácil · MIDE 2 · máx. 26 % · Abaurregaina · senda/pista/asfalto [2, 94, 4] · 1 puntos
 - Senderos y paseos · Pirineo · SL-NA 54C · C Paradisuak - Erlan · 4.4 km · +110 m · Fácil · MIDE 2 · máx. 18 % · Irabiako Uharka · senda/pista/asfalto [40, 45, 15]
 - Senderos y paseos · Pirineo · SL-NA 55 · Iturta Otarratz · 4.2 km · +215 m · Fácil · MIDE 2 · máx. 15 % · Garaioa · senda/pista/asfalto [28, 67, 5] · 1 puntos
-- Senderos y paseos · Pirineo · SL-NA 55A · Sorginen bidea · 1.8 km · +8 m · Fácil · MIDE 1 · máx. 10 % · Hiriberri · senda/pista/asfalto [0, 62, 38] · 4 puntos
+- Senderos y paseos · Pirineo · SL-NA 55A · Sorginen bidea · 1.8 km · +8 m · Fácil · MIDE 1 · máx. 10 % · Hiriberri · senda/pista/asfalto [0, 62, 38] · 1 puntos
 - Senderos y paseos · Pirineo · SL-NA 56A · Arburuko Begiratokia · 3.4 km · +249 m · Fácil · MIDE 2 · máx. 25 % · Orbaizeta · senda/pista/asfalto [70, 28, 2] · 2 puntos
 - Senderos y paseos · Pirineo · SL-NA 57A · Arlekiko Gaztelua eta Lutoko Haitzuloak · 2.0 km · +215 m · Fácil · MIDE 1 · máx. 26 % · Orbaizetako Ola · senda/pista/asfalto [99, 1, 0] · 1 puntos
-- Senderos y paseos · Pirineo · SL-NA 57B · Ursarioko Basoa · 3.3 km · +113 m · Fácil · MIDE 2 · máx. 19 % · Orbaizetako Ola · senda/pista/asfalto [84, 0, 16] · 6 puntos
+- Senderos y paseos · Pirineo · SL-NA 57B · Ursarioko Basoa · 3.3 km · +113 m · Fácil · MIDE 2 · máx. 19 % · Orbaizetako Ola · senda/pista/asfalto [84, 0, 16] · 4 puntos
 - Senderos y paseos · Pirineo · SL-NA 58A · A Zamariaingo behatokia · 3.2 km · +25 m · Fácil · MIDE 2 · máx. 23 % · Olaldea · senda/pista/asfalto [43, 57, 0] · 2 puntos
 - Senderos y paseos · Pirineo · SL-NA 59A · Artetxeko Haitzuloak · 2.0 km · +33 m · Fácil · MIDE 1 · máx. 10 % · Garaioa · senda/pista/asfalto [69, 31, 0] · 2 puntos
 - Senderos y paseos · Pirineo · SL-NA 59B · Arlekia-Lauzaran · 5.9 km · +215 m · Fácil · MIDE 2 · máx. 31 % · Orbaizetako Ola · senda/pista/asfalto [45, 55, 0] · 1 puntos
@@ -354,43 +354,43 @@ Tamaño de rutas.json: 1367 KB
 - Senderos y paseos · Pirineo · SL-NA 72 · Cueva de Azanzorea · 1.0 km · +107 m · Fácil · MIDE 1 · máx. 43 % · Vidángoz · senda/pista/asfalto [100, 0, 0] · 1 puntos
 - Senderos y paseos · Pirineo · SL-NA 78 · Foz de Burgui · 1.2 km · +0 m · Fácil · MIDE 1 · máx. 5 % · Burgui · senda/pista/asfalto [77, 19, 4] · 1 puntos
 - Senderos y paseos · Pirineo · SL-NA 79 · Artikomendia · 5.3 km · +267 m · Fácil · MIDE 2 · máx. 22 % · Isaba · senda/pista/asfalto [95, 4, 1] · 2 puntos
-- Senderos y paseos · Pirineo · SL-NA · Elorrieta · 5.8 km · +298 m · Fácil · MIDE 2 · máx. 27 % · Iñarbil · senda/pista/asfalto [72, 28, 0] · 7 puntos
+- Senderos y paseos · Pirineo · SL-NA · Elorrieta · 5.8 km · +298 m · Fácil · MIDE 2 · máx. 27 % · Iñarbil · senda/pista/asfalto [72, 28, 0] · 6 puntos
 - Senderos y paseos · Pirineo · Selva de Irati - Malgorra · 8.2 km · +440 m · Moderada · MIDE 2 · máx. 41 % · Pikatua · 1 puntos
-- Senderos y paseos · Pirineo · Sorogaingo pagadiaren bidexka · 2.8 km · +54 m · Fácil · MIDE 1 · máx. 17 % · Sorogain-Lastur · senda/pista/asfalto [48, 3, 49] · 3 puntos
+- Senderos y paseos · Pirineo · Sorogaingo pagadiaren bidexka · 2.8 km · +54 m · Fácil · MIDE 1 · máx. 17 % · Sorogain-Lastur · senda/pista/asfalto [48, 3, 49] · 2 puntos
 - Senderos y paseos · Pirineo · Tres hayas - Irupagoeta desde Auritz / Burguete · 7.5 km · +180 m · Fácil · MIDE 2 · máx. 12 % · Auritz · 2 puntos
-- Senderos y paseos · Pirineo · Urepelbide zaharra · 21.5 km · +901 m · Difícil · MIDE 4 · máx. 58 % · Sorogain-Lastur · senda/pista/asfalto [34, 23, 43] · 30 puntos
-- Senderos y paseos · Pirineo · Zilbeti - Sorogain · 7.9 km · +436 m · Moderada · MIDE 2 · máx. 17 % · Zilbeti · senda/pista/asfalto [26, 59, 15] · 8 puntos
+- Senderos y paseos · Pirineo · Urepelbide zaharra · 21.5 km · +901 m · Difícil · MIDE 4 · máx. 58 % · Sorogain-Lastur · senda/pista/asfalto [34, 23, 43] · 12 puntos
+- Senderos y paseos · Pirineo · Zilbeti - Sorogain · 7.9 km · +436 m · Moderada · MIDE 2 · máx. 17 % · Zilbeti · senda/pista/asfalto [26, 59, 15] · 4 puntos
 - Senderos y paseos · Pirineo · Zilbeti - Tiratun · 5.2 km · +511 m · Moderada · MIDE 2 · máx. 37 % · Zilbeti · senda/pista/asfalto [15, 71, 14] · 2 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Artikutzako antzeko trenbide arrastoak (1905-1918) · 7.8 km · +25 m · Fácil · MIDE 2 · máx. 10 % · Berazkun · senda/pista/asfalto [0, 100, 0] · 2 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · Camino de Santiago baztanés y dolmen de Lantz · 5.5 km · +200 m · Fácil · MIDE 2 · máx. 22 % · Lantz · 5 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · Castillo de Aixita - Dos Hermanas · 9.5 km · +419 m · Moderada · MIDE 3 · máx. 30 % · Etxeberri · senda/pista/asfalto [48, 42, 10] · 9 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · Egukizko Muinoa - Leitza - Ezkurra · 8.2 km · +411 m · Moderada · MIDE 2 · máx. 19 % · Gorriztaran · 6 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · Camino de Santiago baztanés y dolmen de Lantz · 5.5 km · +200 m · Fácil · MIDE 2 · máx. 22 % · Lantz · 4 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · Castillo de Aixita - Dos Hermanas · 9.5 km · +419 m · Moderada · MIDE 3 · máx. 30 % · Etxeberri · senda/pista/asfalto [48, 42, 10] · 8 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · Egukizko Muinoa - Leitza - Ezkurra · 8.2 km · +408 m · Moderada · MIDE 2 · máx. 19 % · Gorriztaran · 5 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Elosta y Malkorraundi desde Gorriti · 7.3 km · +420 m · Moderada · MIDE 2 · máx. 30 % · Gorriti · 6 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · Irusoko megalitoak · 2.4 km · +121 m · Fácil · MIDE 1 · máx. 22 % · Arkiskil · senda/pista/asfalto [58, 19, 23] · 8 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · La Vuelta de Belate · 8.8 km · +326 m · Fácil · MIDE 2 · máx. 26 % · Almandoz · senda/pista/asfalto [48, 48, 4] · 12 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · Irusoko megalitoak · 2.4 km · +121 m · Fácil · MIDE 1 · máx. 22 % · Arkiskil · senda/pista/asfalto [58, 19, 23] · 5 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · La Vuelta de Belate · 8.8 km · +326 m · Fácil · MIDE 2 · máx. 26 % · Almandoz · senda/pista/asfalto [48, 48, 4] · 9 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Madalen desde Hiriberri · 11.9 km · +463 m · Moderada · MIDE 3 · máx. 38 % · Hiriberri Arakil · 3 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · Mendizaleen ibilbidea · 3.7 km · +224 m · Fácil · MIDE 2 · máx. 21 % · Olazti · senda/pista/asfalto [95, 5, 0] · 5 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · Mendizaleen ibilbidea · 3.7 km · +224 m · Fácil · MIDE 2 · máx. 21 % · Olazti · senda/pista/asfalto [95, 5, 0] · 4 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Oderizko trikuharrien ibilbidea · 2.7 km · +58 m · Fácil · MIDE 1 · máx. 14 % · Oderitz · senda/pista/asfalto [79, 21, 0] · 4 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Orgiko basoaren ibilaldia · 3.8 km · +16 m · Fácil · MIDE 1 · máx. 9 % · Lizaso · senda/pista/asfalto [25, 60, 15] · 2 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-GI 2007 · Zarateko bira · 7.5 km · +355 m · Fácil · MIDE 2 · máx. 25 % · Azkarate · senda/pista/asfalto [20, 62, 18] · 4 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-GI 2008 · Malloetako zeharkaldia · 13.5 km · +339 m · Moderada · MIDE 3 · máx. 37 % · Gaintza · senda/pista/asfalto [84, 7, 9] · 7 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 100 · Kornieta · 10.3 km · +602 m · Moderada · MIDE 3 · máx. 46 % · Gorriztaran · senda/pista/asfalto [55, 39, 6] · 10 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 100 · Kornieta · 10.3 km · +602 m · Moderada · MIDE 3 · máx. 46 % · Gorriztaran · senda/pista/asfalto [55, 39, 6] · 9 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 124 · Eskas - Artikutza · 10.3 km · +377 m · Moderada · MIDE 3 · máx. 34 % · Artikutza · senda/pista/asfalto [82, 7, 11] · 4 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 125 · Eskas-Pagolleta-Izu-Artikutza-Eskas · 16.0 km · +557 m · Moderada · MIDE 3 · máx. 34 % · Artikutza · senda/pista/asfalto [94, 2, 4] · 22 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 125 · Eskas-Pagolleta-Izu-Artikutza-Eskas · 16.0 km · +557 m · Moderada · MIDE 3 · máx. 34 % · Artikutza · senda/pista/asfalto [94, 2, 4] · 16 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 130 · Santa Marina ermita, Urbasa · 3.9 km · +0 m · Fácil · MIDE 2 · máx. 2 % · Iturmendi · senda/pista/asfalto [20, 52, 28] · 3 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 133 · Trikuharrien ibilbidea · 14.1 km · +632 m · Moderada · MIDE 3 · máx. 32 % · Bakaiku · senda/pista/asfalto [55, 42, 3] · 20 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 133 · Trikuharrien ibilbidea · 14.1 km · +632 m · Moderada · MIDE 3 · máx. 32 % · Bakaiku · senda/pista/asfalto [55, 42, 3] · 17 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 133.1 · Trikuharrien ibilbidea - bariantea · 4.1 km · +0 m · Fácil · MIDE 2 · máx. 4 % · Lizarragabengoa · senda/pista/asfalto [62, 38, 0]
-- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 193 · Leitza-Ixkibar-Aitzmurdi · 11.8 km · +524 m · Moderada · MIDE 3 · máx. 21 % · Leitza · senda/pista/asfalto [20, 64, 16] · 11 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 82 · Aralarko Done Mikel · 18.9 km · +618 m · Difícil · MIDE 4 · máx. 25 % · Baraibar · senda/pista/asfalto [66, 21, 13] · 10 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 193 · Leitza-Ixkibar-Aitzmurdi · 11.8 km · +524 m · Moderada · MIDE 3 · máx. 21 % · Leitza · senda/pista/asfalto [20, 64, 16] · 10 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 82 · Aralarko Done Mikel · 18.9 km · +618 m · Difícil · MIDE 4 · máx. 25 % · Baraibar · senda/pista/asfalto [66, 21, 13] · 9 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · PR-NA 86 · Albiasuko behatokia · 11.4 km · +159 m · Moderada · MIDE 3 · máx. 13 % · Lekunberri · senda/pista/asfalto [27, 30, 43] · 4 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Roble milenario de Orkin - MN43 · 3.1 km · +33 m · Fácil · MIDE 1 · máx. 9 % · Arraitz-Orkin
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL NA-138 · 1.2 km · +66 m · Fácil · MIDE 1 · máx. 23 % · Irurtzun · senda/pista/asfalto [100, 0, 0] · 1 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 121 · Urtegiari Bira (Artikutza) · 5.7 km · +60 m · Fácil · MIDE 2 · máx. 15 % · Artikutza · senda/pista/asfalto [4, 96, 0] · 1 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 131 · Aixita ibilbidea · 3.9 km · +194 m · Fácil · MIDE 2 · máx. 29 % · Etxeberri · senda/pista/asfalto [86, 0, 14] · 5 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 131 · Aixita ibilbidea · 3.9 km · +194 m · Fácil · MIDE 2 · máx. 29 % · Etxeberri · senda/pista/asfalto [86, 0, 14] · 4 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 136 · Haritz monumentalak · 3.6 km · +243 m · Fácil · MIDE 2 · máx. 16 % · Irañeta · senda/pista/asfalto [25, 64, 11]
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 137 · Etxarriko haritz zaharren ibilbidea · 3.6 km · +58 m · Fácil · MIDE 2 · máx. 9 % · Etxarri Aranatz · senda/pista/asfalto [100, 0, 0]
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 140 · Senda de los Pescadores · 1.4 km · +26 m · Fácil · MIDE 1 · máx. 19 % · Goldaratz · senda/pista/asfalto [27, 73, 0] · 2 puntos
-- Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 284 · Izaieta · 6.3 km · +186 m · Fácil · MIDE 2 · máx. 19 % · Arkiskil · senda/pista/asfalto [33, 37, 30] · 6 puntos
+- Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 284 · Izaieta · 6.3 km · +186 m · Fácil · MIDE 2 · máx. 19 % · Arkiskil · senda/pista/asfalto [33, 37, 30] · 5 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 285 · Lapurren kaltzada · 6.1 km · +241 m · Fácil · MIDE 2 · máx. 20 % · Erreka · senda/pista/asfalto [22, 78, 0] · 1 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · SL-NA 302 · Iribasko iturburuak · 4.9 km · +77 m · Fácil · MIDE 2 · máx. 11 % · Baraibar · senda/pista/asfalto [48, 47, 5] · 5 puntos
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Saien balkoiaren ibilbidea · 3.6 km · +253 m · Fácil · MIDE 2 · máx. 31 % · Irurtzun · senda/pista/asfalto [88, 4, 8] · 2 puntos
@@ -398,23 +398,23 @@ Tamaño de rutas.json: 1367 KB
 - Senderos y paseos · Plazaola-Sakana-Ultzama · Uitzi - Dolmen Goldaburu - Mergelu - Atume · 8.9 km · +369 m · Moderada · MIDE 3 · máx. 34 % · Uitzi · 7 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · Aita Santuaren ibilbidea - Agur Harria · 12.3 km · +229 m · Moderada · MIDE 3 · máx. 15 % · Javier · senda/pista/asfalto [1, 92, 7] · 2 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · Alto de las Ripas y Farrandillo desde Javier · 13.6 km · +457 m · Moderada · MIDE 3 · máx. 36 % · Javier · 1 puntos
-- Senderos y paseos · Sangüesa-Prepirineo · Ermita de San Román y el nevero de Aoiz · 8.6 km · +347 m · Fácil · MIDE 2 · máx. 36 % · Aoiz · 4 puntos
+- Senderos y paseos · Sangüesa-Prepirineo · Ermita de San Román y el nevero de Aoiz · 8.6 km · +354 m · Fácil · MIDE 2 · máx. 36 % · Aoiz · 4 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · Ermita de la Trinidad - Acantilados de la Piedra y San Adrián - Foz de Lumbier · 12.0 km · +613 m · Moderada · MIDE 3 · máx. 80 % · Lumbier · 6 puntos
-- Senderos y paseos · Sangüesa-Prepirineo · Foz de Aspurz y Foz de Santa Colomba SL.NA - 111 · 3.1 km · +200 m · Fácil · MIDE 2 · máx. 34 % · Aspurz
+- Senderos y paseos · Sangüesa-Prepirineo · Foz de Aspurz y Foz de Santa Colomba SL.NA - 111 · 3.1 km · +201 m · Fácil · MIDE 2 · máx. 34 % · Aspurz
 - Senderos y paseos · Sangüesa-Prepirineo · Foz de Lumbier (ruta corta) · 1.7 km · +126 m · Fácil · MIDE 1 · máx. 77 % · Liédena · senda/pista/asfalto [0, 79, 21] · 2 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · Higa de Monreal - subida directa · 11.5 km · +755 m · Moderada · MIDE 3 · máx. 39 % · Monreal · 3 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · Monte San Pesdro - Cáseda · 11.8 km · +551 m · Moderada · MIDE 3 · máx. 35 % · Cáseda · 3 puntos
-- Senderos y paseos · Sangüesa-Prepirineo · Nagore - Peñas de Uroa - Ermita románica de Santa María de Arce · 14.0 km · +646 m · Moderada · MIDE 3 · máx. 36 % · Nagore · 3 puntos
+- Senderos y paseos · Sangüesa-Prepirineo · Nagore - Peñas de Uroa - Ermita románica de Santa María de Arce · 14.0 km · +643 m · Moderada · MIDE 3 · máx. 36 % · Nagore · 3 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · SL-NA 113 · Foz de Lumbier · 6.2 km · +291 m · Fácil · MIDE 2 · máx. 75 % · Lumbier · senda/pista/asfalto [22, 69, 9] · 3 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · Senda de San Virila - Monasterio de Leyre · 1.9 km · +100 m · Fácil · MIDE 1 · máx. 25 % · Leire · 2 puntos
 - Senderos y paseos · Sangüesa-Prepirineo · Torre de Celigüeta e Iglesia de Guerguitiáin desde Induráin · 10.3 km · +202 m · Fácil · MIDE 2 · máx. 15 % · Induráin · 1 puntos
-- Senderos y paseos · Tierra Estella · Barranco de Obantzea · 10.6 km · +382 m · Moderada · MIDE 3 · máx. 19 % · Arguiñano · 1 puntos
+- Senderos y paseos · Tierra Estella · Barranco de Obantzea · 10.6 km · +391 m · Moderada · MIDE 3 · máx. 19 % · Arguiñano · 1 puntos
 - Senderos y paseos · Tierra Estella · Castillo de Monjardín · 3.7 km · +178 m · Fácil · MIDE 2 · máx. 15 % · Villamayor de Monjardín · senda/pista/asfalto [0, 85, 15] · 4 puntos
-- Senderos y paseos · Tierra Estella · Encina de Eraul / Eraulgo arteal - Monumento Natural 1 · 1.6 km · +44 m · Fácil · MIDE 1 · máx. 21 % · Eraul · 1 puntos
+- Senderos y paseos · Tierra Estella · Encina de Eraul / Eraulgo arteal - Monumento Natural 1 · 1.6 km · +44 m · Fácil · MIDE 1 · máx. 22 % · Eraul · 1 puntos
 - Senderos y paseos · Tierra Estella · Lokizko Santiago basilika · 1.7 km · +297 m · Fácil · MIDE 1 · máx. 40 % · Ollobarren · senda/pista/asfalto [63, 18, 19] · 3 puntos
 - Senderos y paseos · Tierra Estella · Mañeru - Markalagain - Dolmen de Morea y Menhir de Markalagain · 9.5 km · +363 m · Moderada · MIDE 3 · máx. 20 % · Mañeru · 5 puntos
-- Senderos y paseos · Tierra Estella · Mirador de Lazkua y castro de Altikogaña · 3.5 km · +137 m · Fácil · MIDE 2 · máx. 29 % · Eraul · 5 puntos
-- Senderos y paseos · Tierra Estella · Montejurra desde Dicastillo, descenso por Arellano · 12.0 km · +518 m · Moderada · MIDE 3 · máx. 35 % · Dicastillo · 7 puntos
+- Senderos y paseos · Tierra Estella · Mirador de Lazkua y castro de Altikogaña · 3.5 km · +136 m · Fácil · MIDE 2 · máx. 29 % · Eraul · 5 puntos
+- Senderos y paseos · Tierra Estella · Montejurra desde Dicastillo, descenso por Arellano · 12.0 km · +518 m · Moderada · MIDE 3 · máx. 35 % · Dicastillo · 6 puntos
 - Senderos y paseos · Tierra Estella · Nacedero del Urederra · 4.9 km · +103 m · Fácil · MIDE 2 · máx. 14 % · Baquedano · senda/pista/asfalto [9, 75, 16] · 3 puntos
 - Senderos y paseos · Tierra Estella · PR-A 54 · Bernedo-Angostina-Quintana-Urturi · 18.4 km · +446 m · Moderada · MIDE 3 · máx. 27 % · Marañón · senda/pista/asfalto [15, 68, 17]
 - Senderos y paseos · Tierra Estella · PR-A 62 · La Torca-rako ibilbidea · 10.7 km · +159 m · Moderada · MIDE 3 · máx. 16 % · Genevilla · senda/pista/asfalto [5, 86, 9] · 1 puntos
@@ -433,18 +433,18 @@ Tamaño de rutas.json: 1367 KB
 - Senderos y paseos · Zona Media · Ascenso a Montarraga - Santa María de Eunate (Obanos - Eunate) · 6.7 km · +177 m · Fácil · MIDE 2 · máx. 25 % · Obanos · 5 puntos
 - Senderos y paseos · Zona Media · Haritz monumentalak · 1.9 km · +0 m · Fácil · MIDE 1 · máx. 4 % · Jauntsarats · senda/pista/asfalto [50, 31, 19] · 1 puntos
 - Senderos y paseos · Zona Media · Manantial de Arteta y cascada de Artazul · 1.9 km · +97 m · Fácil · MIDE 1 · máx. 41 % · Aizpún · 1 puntos
-- Senderos y paseos · Zona Media · Olcoz - castro de Murugain - Ermita del Santo Cristo - Muruarte de Reta · 5.4 km · +104 m · Fácil · MIDE 2 · máx. 16 % · Olcoz · 9 puntos
+- Senderos y paseos · Zona Media · Olcoz - castro de Murugain - Ermita del Santo Cristo - Muruarte de Reta · 5.4 km · +104 m · Fácil · MIDE 2 · máx. 16 % · Olcoz · 8 puntos
 - Senderos y paseos · Zona Media · PR-NA 170 · Ollarango Itzulia · 17.3 km · +393 m · Moderada · MIDE 3 · máx. 27 % · Arteta · senda/pista/asfalto [34, 49, 17] · 4 puntos
-- Senderos y paseos · Zona Media · Peña de Unzué · 3.7 km · +315 m · Fácil · MIDE 2 · máx. 34 % · Unzué · 6 puntos
+- Senderos y paseos · Zona Media · Peña de Unzué · 3.7 km · +315 m · Fácil · MIDE 2 · máx. 34 % · Unzué · 5 puntos
 - Senderos y paseos · Zona Media · Rura por la Sierra de Bizkai - Atondo - Ochovi · 9.0 km · +342 m · Fácil · MIDE 2 · máx. 48 % · Atondo · 1 puntos
 - Senderos y paseos · Zona Media · Ruta de Eguíllor - Castillo de Garaño · 8.2 km · +249 m · Fácil · MIDE 2 · máx. 34 % · Beasoain · 3 puntos
-- Senderos y paseos · Zona Media · Ruta en Caparroso - Iglesia del Santo Cristo - Vértice geodésico de Caparroso · 4.4 km · +102 m · Fácil · MIDE 2 · máx. 27 % · Caparroso · 3 puntos
+- Senderos y paseos · Zona Media · Ruta en Caparroso - Iglesia del Santo Cristo - Vértice geodésico de Caparroso · 4.4 km · +110 m · Fácil · MIDE 2 · máx. 27 % · Caparroso · 3 puntos
 - Senderos y paseos · Zona Media · Ruta en el Valle de Ollo - Saleras, Arteta y Ultzurrun · 6.8 km · +100 m · Fácil · MIDE 2 · máx. 17 % · Arteta · senda/pista/asfalto [33, 54, 13] · 1 puntos
 - Senderos y paseos · Zona Media · San Bernabé y Peña del Abrigo - Unzué · 6.1 km · +293 m · Fácil · MIDE 2 · máx. 44 % · Unzué · 5 puntos
 - Senderos y paseos · Zona Media · San Pelayo y castro de Muruzar - La Valdorba · 14.2 km · +490 m · Moderada · MIDE 3 · máx. 20 % · Orísoain · 5 puntos
-- Senderos y paseos · Zona Media · Sierra Saldise - Cima de Mortxe · 12.7 km · +721 m · Moderada · MIDE 3 · máx. 30 % · Egillor · 8 puntos
+- Senderos y paseos · Zona Media · Sierra Saldise - Cima de Mortxe · 12.7 km · +718 m · Moderada · MIDE 3 · máx. 30 % · Egillor · 6 puntos
 - Senderos y paseos · Zona Media · Sierra del Perdón - Paseo a la ermita de Santa Águeda · 5.4 km · +137 m · Fácil · MIDE 2 · máx. 22 % · Basongaitz · senda/pista/asfalto [0, 98, 2] · 4 puntos
-- Senderos y paseos · Zona Media · Ujué - Txutxu Alto · 10.4 km · +303 m · Moderada · MIDE 3 · máx. 25 % · Ujué · 8 puntos
+- Senderos y paseos · Zona Media · Ujué - Txutxu Alto · 10.4 km · +303 m · Moderada · MIDE 3 · máx. 25 % · Ujué · 6 puntos
 - Senderos y paseos · Zona Media · Zarrantz – Zarrantzmendi. Valle de Imotz · 5.5 km · +244 m · Fácil · MIDE 2 · máx. 28 % · Zarrantz · 2 puntos
 - Vías verdes · Baztan-Bidasoa · Vía Verde del Bidasoa · 41.9 km · +611 m · Muy difícil · MIDE 5 · máx. 62 % · Endarlatsa · 13 puntos
 - Vías verdes · Baztan-Bidasoa · Vía Verde del Bidasoa · 5.0 km · +282 m · Fácil · MIDE 2 · máx. 69 % · Suspelttiki · 2 puntos
