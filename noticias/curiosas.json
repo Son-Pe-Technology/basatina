@@ -1,14 +1,7 @@
 {
-"t": "2026-11-25T20:12Z",
-"turno": "2026-11-25-n",
+"t": "2026-11-26T07:44Z",
+"turno": "2026-11-26-m",
 "dest": [
-{
-"k": "2026-11-22-m",
-"t": "Esta curiosa grulla, de plumas doradas y puntiagudas en la cabeza, aparece en la bandera de un país africano",
-"u": "https://www.eldiario.es/spin/curiosa-grulla-plumas-doradas-puntiagudas-cabeza-aparece-bandera-pais-africano-pm_1_13682297.html",
-"f": "elDiario.es",
-"d": "2026-11-22T07:00Z"
-},
 {
 "k": "2026-11-22-t",
 "t": "La coruñesa Paula Iglesias realiza los 132 'ollies' de su récord Guinness",
@@ -85,9 +78,23 @@
 "u": "https://www.20minutos.es/gonzoo/blogs/becario/dos-amigos-escalan-una-montana-6-000-m-juegan-ajedrez-para-batir-un-record-insolito_7065655_0.html",
 "f": "20minutos",
 "d": "2026-11-25T12:33Z"
+},
+{
+"k": "2026-11-26-m",
+"t": "Pan Baobao, el leopardo con sobrepeso viral de China, no volverá a estar a dieta: \"A su edad, ya no conviene que pierda peso\"",
+"u": "https://www.telecinco.es/noticias/curioso/20261125/pan-baobao-leopardo-sobrepeso-china-no-volvera-estar-dieta_18_020809542.html",
+"f": "Telecinco",
+"d": "2026-11-25T12:11Z"
 }
 ],
 "items": [
+{
+"t": "Del récord Guinness de Aitana Bonmatí a la memoria de Almudena Grandes: la agenda semanal de 'Las Top 100'",
+"u": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPN3l1UmstQXRRZTN4UmhEdDVWUmRDenRfN1VyaEJhUlpKaWo4dEpnRWMtLUVZQk5BemRQUFV0OVNRalhCNF83TWlNcjlCQ01vN1ZWT1lnZWhDdHBNZlNXMkprVVlwd0RRbUFXcEk0LURJbjlRLUxmak1qaUFpdWtvZU5WbTBmb0RqOThfRVNOVTE1RHZHZHZTMUtneGtxUWtvcnRkV0xzbU9RQl9QZGo0alZ6QlZIajVFd1VPQmI2STVlMHNOVzBRbHMxY3lSZnprdEpISzg0cldCSHpxRmxn0gHkAUFVX3lxTE5SUUlKeGxMUXBWaWZVY0JzQVVrVVZtVFlQS0tYVjN2eG9rcjk0QTlPcTlCdXY4NS1qQnd3WUotcThfRWh0ZTdKOWoyUV9GWm5tTTZXVHh0dVNITFhjSkV6V2dwSkd0V0FrUmNTODZJMWNtN0xRbWlOdG9MRGZrYmxJbE80aUlFeU0yai1iRkFiSEpqcGJkS28zVGQxdzNJRDJNUnpnS1JCLWJZSTdmdVRLNDZGczlKUXZfV0ZnNG1jellJcUktRTdUXzc5QjF3ZlRFT1NsMVBvcjlNemhDTTA5S0pJUg?oc=5",
+"f": "El Español",
+"d": "2026-11-26T06:50Z",
+"p": 6
+},
 {
 "t": "Pan Baobao, el leopardo con sobrepeso viral de China, no volverá a estar a dieta: \"A su edad, ya no conviene que pierda peso\"",
 "u": "https://www.telecinco.es/noticias/curioso/20261125/pan-baobao-leopardo-sobrepeso-china-no-volvera-estar-dieta_18_020809542.html",
@@ -96,11 +103,11 @@
 "p": 6
 },
 {
-"t": "\"El agua caliente se congela antes que la fría\": el curioso fenómeno que la ciencia sigue investigando",
-"u": "https://www.telecinco.es/noticias/curioso/20261123/agua-caliente-congela-antes-que-fria-efecto-mpemba_18_020611322.html",
-"f": "Telecinco",
-"d": "2026-11-23T05:15Z",
-"p": 5
+"t": "Amaia sorprende al público con una surrealista versión exprés del 'Superestrella' de Aitana: \"Va a ser un coñazo\"",
+"u": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPd0U3S3ZkSmxBajFEajUwdjNnZHV6VFdBSTVjOV93ZW8wY2dGNG5fYTV5MXpVZFk1bWxSR000NGJxSUlvd2Q4VkF0SlVqNUUtYldZd3FUN3FEUFNPejBZOXRUem01VFdLOElhc0stOFFVSTBoYXpRRlZmRkhnYnVzSEh5N01CM0VtMzZ0YVZld2dYR01UTC12Z2ZmTFNyN3N4cWxRcENvTUkyNkpzQ1F6RU1sLVJZbV9BZVg3cGFSOWdXcmp0T2RWNmdtVjhyM3lKQ1VNOGhka9IB3AFBVV95cUxNSVd5UzQ1Ukk2TmNuMFRmODY0VlJNbG9UdVJZck9oVkh4V0RKclU0RlB6MzZCNU9zV0JqRGpuYkI2bGtaSmlpZ2xHMldpY1pnSE1wQTBLeDJUOTVyREhqNS1xNHlkVi1hdE9QYl9YUFVuXzdRY2FDMWIzN1ZJX3MxWmJfLWFYNHZpeXpWY1oycXVIc1ZNLXlvdVFScE5lZ1ZMN2RHV2J3cHJGUnEwbXlVMm9DMXJleTB4bnJRbDBjWkR1TUpVS1BmdVpBZm1FOWQ1aHVGVEZhU1BXX3Fk?oc=5",
+"f": "Cadena 100",
+"d": "2026-11-26T07:21Z",
+"p": 4
 },
 {
 "t": "Dos amigos escalan una montaña de 6.000 m y juegan al ajedrez para batir un récord insólito",
@@ -108,6 +115,34 @@
 "f": "20minutos",
 "d": "2026-11-25T12:33Z",
 "p": 4
+},
+{
+"t": "Actrices y actores de Santiago reviven a Oscar Wilde con Ditea Teatro: \"Es una obra muy divertida\"",
+"u": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdHU3b3VEc19mTE5uRjdlLXRBNE5vUmlEOWdDblFpMEdsN1lFVjAtNkdpMEhTcDN6ZjVsUExRUTRjRU1EUTlwVlpHNTAzak54c21DMlRLMi1XZHRvT0tUTjM1djhZbURUZzYtVUctMnQ5M0QxVmw5Ny1ZTDJCaEZta3FobzRPN2I1Z3N4MWZ2ZE5nOUpUMHZoUXhsSnRTUUEwTGZWR1ZGY2XSAa4BQVVfeXFMTjJkU2YyeV9qVldxcXZKRXp6ejNGM2RSdnlFRTV0MEU3OWVSWE55bU9hX19fLTJhRU5heVVNQjdCUm4zd1FGR0xIYzhzejFXTmpkNl9nWmlwd0pTVWgzR0hZOXdpTDc2eUNQclhNdUx0cE80d3R6ZGZvS2pObE1SQ3JlV1ZuV3RDQlVIRkp4bXBGLXBWaHptYmc5NFJoc1ZYV2NXdEdLRFJoVjVBZlR3?oc=5",
+"f": "El Correo Gallego",
+"d": "2026-11-26T05:01Z",
+"p": 3
+},
+{
+"t": "¿Qué ven en las nubes? El curioso poder de la pareidolia",
+"u": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPV0VKOVRqbG1LSmx1WDZZRElJTzZFeUZEMGk1ejlULVdFeG5rb21iVTA2c3UwUVZ2ZG9hQWlQQ3ltQS14cEFoMWV4a3lXUjdwVE9wNVoxQ0lHUWNQZjRNa3JaRGdsZzh1STNUMVVpcENwbDBidmpKR1V6YVZOZmJ3MkM1SlZ2Z205S2lTdnVrZnVWSHpLM01j0gGcAUFVX3lxTE9MZEc5STB5Z2plVDhYLTRORElUWkRwNUhGRkM3WE10MFlUQVRld2VpRHB1V0ZxdnY3bnp1SWhSLVF0aHVpaENLVVkyalo1a2tKMUpadHVYQWo5bkZ2REVvTXdHZkZEOU9GSWtaLWhkUmlOc1hrWFZIMnV4MnlsbmotSndocXlVLXRKNUY0RlJYMmhpeklqaTYtSjU0bw?oc=5",
+"f": "La Vanguardia",
+"d": "2026-11-26T05:00Z",
+"p": 3
+},
+{
+"t": "Galmesán, un insólito parmesano gallego no para de ganar premios y se vende hasta en Hong Kong",
+"u": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM2dVUDRxY1ZfQnJNVnd5Z3o4bTJsSFFsQVZLSmJWaFN6U2JLUUticjRCazdHVnFraHlscnlvMm1ZNVlNd2hJSHM3UHA1N080X2lNVERUVkpwZjBGZHdkTlotSHotZ2tNeUlHMjFRZEU4WnhQMXBBc0g4WDFuVi10ZG9sM2d1MFhkZkx1aWZoeFRjR3BNbFk1NF9uS0w2OWVD?oc=5",
+"f": "El Confidencial",
+"d": "2026-11-26T04:00Z",
+"p": 3
+},
+{
+"t": "El divertido lapsus de Eva Isanta y Luis Merlo con una trama de 'Aquí no hay quien viva' olvidada",
+"u": "https://www.20minutos.es/television/divertido-lapsus-eva-isanta-luis-merlo-con-una-trama-aqui-no-hay-quien-viva-olvidada-nos-hemos-enrollado_7065923_0.html",
+"f": "20minutos",
+"d": "2026-11-25T22:27Z",
+"p": 3
 },
 {
 "t": "La divertida aventura de Soy Tribu con su madre en moto por Ibiza y Formentera: \"¿Nos arrepentiremos? Probablemente sí\"",
@@ -121,13 +156,6 @@
 "u": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOc0h3dVkxa3J2R0cwQ3otamdOUXh0UkhrSmFIaHJNSXVyWTRGMWNEQXhrcUNOV3lXUEZqSXJ0dl9yMXM5VkgtU3VCZDdFZjdDWGdXdVozS0RhVjBPU0w1SVpCWEU5ZGVrT29aREI0S2c0Sm92RnZMenhPNkROSTVDRmlpLXFxRVRrbm9EV2JoSkdnNnlsTFQ4ODc5MjZsekktN0twcnFwdlltU1VjN3JDUU8tMUtQNGtzTlotbjNmMHhZbUctcHlpSjdKTVFjZw?oc=5",
 "f": "Ayuntamiento de Dos Hermanas",
 "d": "2026-11-25T17:36Z",
-"p": 3
-},
-{
-"t": "El secador iónico ghd es el más viral y buscado: Amazon lo acaba de rebajar por el Black Friday",
-"u": "https://www.20minutos.es/ofertas-descuentos/comprar-secador-ghd-helios-oferta-black-friday_7065340_0.html",
-"f": "20minutos",
-"d": "2026-11-25T15:00Z",
 "p": 3
 },
 {
@@ -166,25 +194,25 @@
 "p": 3
 },
 {
+"t": "\"El Beagle es un perro alegre, curioso y lleno de energía\". El adiestrador Ángel Osuna habla de su carácter y cuidados",
+"u": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNcUtaM0RaX3JmZUt5SmNuWHFPS1FvZElmU3pramhhempFb19VM0t2LXhfeFlYNEZfcTgzS21oNGNpc3QwRDZxQXNCUUVlSjQyUzl1NkprY1k5Q3NDTFdKeUlKbkJoOXJqTVQyWHVFWTVfWDhqUWZhcHVpVTZXb19NRk9nbjZxbjcwM3JpaWlENDQwbzljM0VSRlBIcGl0X2ZYNUJHdlpEbXprNGV1eWc4NXdPUVJEdmtId0JrTWdCQzZJZ0dBZ2VNQVZ4MjdITm15dHlqaTIzWS1jYUFPdmsyMVhfVmUtY0R6cVhtejI4QlNGUjhQM05PLS1RNW5BNncyeS1MM25sYXRnUDZYckJyOGZtZlNMcm9XLTFoOHZBel9ud0FGSFJCU0M3VGNPV0ZzNHfSAbICQVVfeXFMTXR5ZGg1WXpMVU5LNEk0NGhwUVA3cU5yZlFpTnFuVmxXVmV5bFh0ejBXMThkLWVpQmEtX1EyV1dhd2J1aGlnZjN3ZnRyQi13RlBKMnFXbV9FTXFZUjFQd3g5aGxVMm5EZDRUeW11TGhoTFZOZHNjZ3NKRFhFZUFDX1BLaHVHVlV6UGNmZDZvM1RCNGNBNHF4c0JzVUFkUF9CZzJEVmE4SFFuN3ptZGhUempTUEpZRTI3eVhnZWFiR3pEaHdwUmJTRGlVR0lsbElWUXpyS3Q0UXcybDRQblhDa1NIOFZmTXB6bjVsTnd5LTFUbV9tSEx2UURhTDN1RVZjZXN1U3lvRWtiS2tzSVBqTnJBMVYyMU5wd0VBMzYzcy1qZjR4ajNqeDlfOUxRSHVFdWNn?oc=5",
+"f": "Onda Cero",
+"d": "2026-11-24T12:40Z",
+"p": 3
+},
+{
 "t": "El curioso hallazgo de 1960 en una imagen de la Virgen lleva a los festeros del Real de Gandia hasta Valladolid",
 "u": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNcC1NSFNSbk5lc0F3R2xlal9xZGQ4cnJxazhDUUx6eG5XUDI3anlDODhjZUF6MEI4akhGZjRmQTlxN3RJbWFpeEE1dmZKVnRPSlloZ0Q5WEpTSnNsdWNqNkRLN1pPeURoeVlxSzJHUE41OWVjdmgyZ3JkR1F3SWdhUGxUMkZTdW84ZHpEck5RakVXUXpC0gGaAUFVX3lxTFB4Qmh5UWlFaTlyVS0wd0xBM1NQclRoSDdOOVpyNUJVbWlFN0szZlgxbzZBU1laaWhEWXh3WmtkY2RFc1VsRWFpYU1HRTdXajNFX3R4YnlGQzJ1U1k0YnBtYzAyUkpSR1NUbEl5WXJUZ1hKU0ktRnZkUjI1b2g5M1A1YU5pTEJpTjdWU2FjVmVHNDdoRGpSUjYxd2c?oc=5",
 "f": "Levante-EMV",
 "d": "2026-11-25T05:01Z",
-"p": 3
+"p": 2
 },
 {
 "t": "La curiosa visita de un joven Luis Ocaña a Mallorca antes de ganar el Tour de Francia",
 "u": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQUzFNNFV4UFVEbnFMZjB3alhOTkE0aEhYdzJZZFVNbWFCQzNmN3RIUVkycHVHU1pNNUJQZl9QRy00dEFlN2VGZjdXanBCQVhPR1JZUkF3YzVUaHRBSF82MjNLc0gxRFZNMEJfZTRCTDc1NXpweHJPQWdmckV2bWhFV09DRkFjMHhyUC1vZGFGcTZRc2h5M3VJejRjMkpmZUY5b0ZpYTM2WWhZU1hWeU52S3VoWEtmWkxGaTBlbC1pTkJlMGlncUM0d0lsSENIcHh0WS00c0pR0gHWAUFVX3lxTFBTMU00VXhQVURucUxmMHdqWE5OQTRoSFh3MllkVU1tYUJDM2Y3dEhRWTJwdUdTWk01QlBmX1BHLTR0QWU3ZUZmN1dqcEJBWE9HUllSQXdjNVRodEFIXzYyM0tzSDFEVk0wQl9lNEJMNzU1enB4ck9BZ2ZyRXZtaEVXT0NGQWMweHJQLW9kYUZxNlFzaHkzdUl6NGMySmZlRjlvRmlhMzZZaFlTWFZ5TnZLdWhYS2ZaTEZpMGVsLWlOQmUwaWdxQzR3SWxIQ0hweHRZLTRzSlE?oc=5",
 "f": "Ultima Hora",
 "d": "2026-11-25T03:48Z",
-"p": 3
-},
-{
-"t": "\"El Beagle es un perro alegre, curioso y lleno de energía\". El adiestrador Ángel Osuna habla de su carácter y cuidados",
-"u": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNcUtaM0RaX3JmZUt5SmNuWHFPS1FvZElmU3pramhhempFb19VM0t2LXhfeFlYNEZfcTgzS21oNGNpc3QwRDZxQXNCUUVlSjQyUzl1NkprY1k5Q3NDTFdKeUlKbkJoOXJqTVQyWHVFWTVfWDhqUWZhcHVpVTZXb19NRk9nbjZxbjcwM3JpaWlENDQwbzljM0VSRlBIcGl0X2ZYNUJHdlpEbXprNGV1eWc4NXdPUVJEdmtId0JrTWdCQzZJZ0dBZ2VNQVZ4MjdITm15dHlqaTIzWS1jYUFPdmsyMVhfVmUtY0R6cVhtejI4QlNGUjhQM05PLS1RNW5BNncyeS1MM25sYXRnUDZYckJyOGZtZlNMcm9XLTFoOHZBel9ud0FGSFJCU0M3VGNPV0ZzNHfSAbICQVVfeXFMTXR5ZGg1WXpMVU5LNEk0NGhwUVA3cU5yZlFpTnFuVmxXVmV5bFh0ejBXMThkLWVpQmEtX1EyV1dhd2J1aGlnZjN3ZnRyQi13RlBKMnFXbV9FTXFZUjFQd3g5aGxVMm5EZDRUeW11TGhoTFZOZHNjZ3NKRFhFZUFDX1BLaHVHVlV6UGNmZDZvM1RCNGNBNHF4c0JzVUFkUF9CZzJEVmE4SFFuN3ptZGhUempTUEpZRTI3eVhnZWFiR3pEaHdwUmJTRGlVR0lsbElWUXpyS3Q0UXcybDRQblhDa1NIOFZmTXB6bjVsTnd5LTFUbV9tSEx2UURhTDN1RVZjZXN1U3lvRWtiS2tzSVBqTnJBMVYyMU5wd0VBMzYzcy1qZjR4ajNqeDlfOUxRSHVFdWNn?oc=5",
-"f": "Onda Cero",
-"d": "2026-11-24T12:40Z",
-"p": 3
+"p": 2
 },
 {
 "t": "El curioso desayuno de Robert Pattinson, el nuevo James Bond: avena y… ¿atún con Tabasco?",
@@ -212,20 +240,6 @@
 "u": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNRFJDTnhoWGV2SkFfMko2U0tscUZYUzZkMlZGa1IzMWhRSmpTYUNpRE8wUlV2cWVJY0V6ME04c1VueldReG5UcWtsTktBZkRrS2RyX01SeGVaeGhoTnpfazZzNmlWdGYyQ01fYlZTdXZ5ODRYcTNVX3dqOUdVSXNwekVhWHJSQ0lIOXc1eFY2UTFlTVVnNW5UMTA1d25JbVpEVmZYTG5UVnVkN1VwWWdENGx0LWtqanNySklGb3JZRHRORTNYbFhfY0tWaHpSeC1vN0xHMmlROGg5WWFLLXFLSS1JaFhPMXVJd0E3eXdvd2NtQdIB9wFBVV95cUxNVC1ndU1aTnZxd2JNVzgwZEI3SnhvbTl1Mjk0Vk5sZ3pIZE1yVTI0QmEtTV9mbTFYdWVCb1loMTN0ZW1za09GMGhJTjB2LXh6VzJpWDVPV2MzbVpsRnZna28xdGc2cU5FLW1lVDhyOFhGcXZLMjJrb2w1UXRuREtCdHJ1ZHAwNWdWVDVGS1VXb21VOExYRUxEVWZ5dXlUTjVMamZGckdDS1k0OGp1UVNhWFI0Qlk3SGlpalNHQWpsQ0g0ZTgtV2daRWpXQjVrSXNMYjhfdDBOZ2RFdGpzTl9UcjZpWHk2TVYtWUNhc3NxMVFXUGI5QTdZ?oc=5",
 "f": "Andalucía Información",
 "d": "2026-11-24T13:33Z",
-"p": 2
-},
-{
-"t": "Lo siento Notre Dame, pero la catedral gótica más grande del mundo está en España: el Guinness la certificó en 1988, tiene el retablo más grande de la cristiandad y guarda la tumba de Colón",
-"u": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOVld2MkxkVXFZYXA5eXVSY0s5djkxaWVZU1RqZFJFeDQ4QWxrOWdHRzlpZWc3ZDJNa0NfMGRkdnFKdEUyTG1YQmxVa3lQUXlXNFg3XzRFUlpDTWdZWDZXZkV1MGpFNUVuSVVIMG5IbGgyT0F3WWxOT3RERkFYeHBOVTI1REhDU1Zld2k1M1JMcmZ2VHgydnVtMm9YRWVZN0hCREgwaXA3eGUwcjNhU05YSDdZV0tVUjg5Rk80ZkpUdnBoOVRaTXQ3WlVZUlFiSVdPa21v0gHYAUFVX3lxTE9ESk81aHNub3pJaklGa1cwM0VkVzFRaG5nOW50d3VfUEJzaDA1Qjh6YkRHanRDQ2x2T3h5VV94MUdDQkkyRkh0TWd0THhEQ2ZobFl0ZFlDTDFEdjI3bnVnVEs3NkYtX0pzUXBxS2JWbzF3c0ZwTUV5aFdKTkpVSkRMZnBGZVBiY0dqdWdyek5HaWVSd0t3TWdlR2lySGcyYi05R0FCZTAyYk9EcjNUQXJmZXk0dzlvSjlkMF9TeWVDYWdScVpoaGIzcXlWVHJyUFdBZExwUUkxUg?oc=5",
-"f": "Viajar",
-"d": "2026-11-24T13:15Z",
-"p": 2
-},
-{
-"t": "Almassora celebra el Día Mundial de la Infancia con una divertida jornada de actividades",
-"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQUjJieTFIOXdUMGZGQXlZTnJydUtTZV9JZEhQMmZxcVAtUE54anZyd2JYdXZRTUgyV3RpcUF1S3A3OHBnU05Hd0F1TWxKZFd2cURHRHMzSjVqWTY0UDU0NlhBRlNaT3Q2blBVeEhJZDF2Y2RZQW81ek5SaFFDN1ZWdmRoZlN2VFp4eG9GZWcteGtPZlRlXzJhaGdJQ2JfQjBqZDJMb190S00tZmYyU0Y0X1lMSThIRUVLQWx6U3F2amhyVTVw?oc=5",
-"f": "Almassora",
-"d": "2026-11-24T12:35Z",
 "p": 2
 }
 ]
