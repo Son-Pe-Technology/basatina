@@ -233,7 +233,7 @@ function bienvenida(){if(ses()||lsGet('cuBienv',0)||$('cuBv'))return;
   lsSet('cuBienv',1);const o=document.createElement('div');o.id='cuBv';o.className='nvMu';
   o.innerHTML=`<div><div style="text-align:center"><img src="logo.png" alt="" style="width:72px;height:auto;object-fit:contain"><h2 style="margin:6px 0 2px">Bienvenido a Basati<span style="color:#DD4826">NA</span></h2><div class="note">Navarra en tu bolsillo</div></div>
     <div class="note" style="margin-top:12px;line-height:1.5">Crea tu cuenta gratis y podrás:</div>
-    <ul class="note" style="margin:4px 0 0;padding-left:20px;line-height:1.5"><li>📣 <b>Avisar y votar</b> en las Alertas ciudadanas.</li><li>☁️ Tener <b>Mi Espacio</b> (sitios, diario, calendarios…) en todos tus móviles.</li></ul>
+    <ul class="note" style="margin:4px 0 0;padding-left:20px;line-height:1.5"><li>👥 Entrar en la <b>Cuadrilla BasatiNA</b>: alertas ciudadanas, fotos, refranes y buzón.</li><li>☁️ Tener <b>Mi Espacio</b> (sitios, diario, calendarios…) en todos tus móviles.</li></ul>
     <div class="note" style="margin-top:8px">Los ríos, el tiempo y todo lo demás funcionan igual sin cuenta.</div>
     <button class="btn pri" id="cuBvA" style="width:100%;margin-top:14px">Crear cuenta</button>
     <button class="btn" id="cuBvE" style="width:100%;margin-top:8px">Ya tengo cuenta: entrar</button>

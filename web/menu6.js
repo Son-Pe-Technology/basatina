@@ -27,7 +27,9 @@ const M6_GRUPOS=[
  ['Naturaleza y salidas','foto-biodiv-pedro.webp',['biodiversidad','monte']],
  ['Moverse','foto-incid-burguete.webp',['incid','gas','bus']],
  ['Vivir en Navarra','foto-esc-pueblo.webp',['comer','super','salud','vivienda','empleo','voluntariado','mascotas']],
- ['Ocio','foto-agenda-cabecera.webp',['cultura','juegos']]];
+ ['Ocio','foto-agenda-cabecera.webp',['cultura','juegos']],
+ /* 26 nov. 2026 (Pedro): la Cuadrilla sale de «Lo mío» y va al menú; para entrar hace falta cuenta con el correo confirmado (cuadrilla.js) */
+ ['Cuadrilla BasatiNA','foto-prev-valle.webp',['comunidad','fotos','buzon','refranes','enviar']]];
 /* familias: la primera es la que sale en el menú; las demás, como pestañas dentro */
 const M6_FAM={
  tiempo:[['tiempo','Ahora'],['radar','Radar'],['nieve','Nieve'],['astro','Cielo y Luna'],['energia','Energía'],['clima','Histórico']],
@@ -49,9 +51,11 @@ const M6_SUB={mtiempo:['Inicio','Lo de hoy en Navarra'],noticias:['Noticias','Ti
  pueblos:['Localidades','Pueblos, comarcas y valles'],comer:['Comer y dormir','Restaurantes, alojamientos, cocina y museos'],super:['Compras','Supermercados, mercadillos y productos de temporada'],
  salud:['Salud','Farmacias, centros y tiempo y salud'],vivienda:['Vivienda','Alquiler, venta e hipotecas'],empleo:['Empleo','Webs con ofertas en Navarra'],
  voluntariado:['Voluntariado','Echa una mano en Navarra'],mascotas:['Mascotas','Veterinarios y sitios para ir con ellas'],
- cultura:['Agenda','Cultura, cine, deporte y peques'],juegos:['Juegos','Todos los juegos y la clasificación']};
+ cultura:['Agenda','Cultura, cine, deporte y peques'],juegos:['Juegos','Todos los juegos y la clasificación'],
+ comunidad:['Alertas ciudadanas','Avisos de la gente: árboles caídos, desprendimientos…'],fotos:['Fotos de la Cuadrilla','Las fotos de Navarra que manda la gente'],
+ buzon:['Buzón de sugerencias','Cuéntanos qué mejorarías'],refranes:['Refranes de tu pueblo','Los dichos de cada pueblo']};
 /* 👤 Lo mío */
-const M6_MIO=[['Tu cuenta',['cuenta','diario','sitios','misdep','mivias']],['Cuadrilla BasatiNA',['comunidad','fotos','buzon','refranes','enviar']],['Ajustes',['ajustes','about']]];
+const M6_MIO=[['Tu cuenta',['cuenta','diario','sitios','misdep','mivias']],['Ajustes',['ajustes','about']]];
 /* fuera del menú (las pantallas siguen existiendo) */
 const M6_MIOSUB={cuenta:'Tu cuenta de BasatiNA',diario:'Tus salidas al monte',sitios:'Tus rincones guardados',misdep:'Tus equipos y partidos',mivias:'Tus carreteras de siempre',
  comunidad:'Avisos de la gente',fotos:'Las fotos de la Cuadrilla',buzon:'Cuéntanos qué mejorarías',refranes:'Los dichos de cada pueblo',enviar:'Solo administradores',ajustes:'Avisos, letra e iconos',about:'Quiénes somos, fuentes y créditos'};
@@ -79,6 +83,10 @@ body.bna #bnaDGrid>.dgroup.m6G[data-m6="Tiempo y ríos"]{background-image:linear
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Naturaleza y salidas"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-nat.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Moverse"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-mov.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Vivir en Navarra"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-vivir.webp') !important}
+/* «BasatiNA» lleva el «NA» en otro trozo: sin hueco entre «Basati» y «NA» (el icono lleva su propio margen) */
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Cuadrilla BasatiNA"]>span{gap:0 !important}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Cuadrilla BasatiNA"]>span>:first-child{margin-right:8px}
+body.bna #bnaDGrid>.dgroup.m6G[data-m6="Cuadrilla BasatiNA"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-prev-valle.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G[data-m6="Ocio"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-ocio.webp') !important}
 body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span{color:#fff !important;font-size:20px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 body.bna #bnaDGrid>.dgroup.m6G.m6Ft>i{color:#fff !important;text-shadow:0 1px 4px rgba(0,0,0,.6)}
@@ -139,7 +147,7 @@ function pintaJuegos(){const g=$('m6Jg');if(!g)return;
 
 /* ---------- iconos (23 nov. 2026: Pedro quiere iconos en vez de fotos en el menú) ---------- */
 const M6_ICO={'g:Hoy':['i-inicio','g','house'],'g:Tiempo y ríos':['i-tiempo','b','cloud-sun'],'g:Naturaleza y salidas':['i-hoja','g','tree'],
- 'g:Moverse':['i-carretera','r','car'],'g:Vivir en Navarra':['i-casa','g','buildings'],'g:Ocio':['i-agenda','r','calendar'],'g:Localidades':['i-pin','g','map-pin'],juegos:['i-juego','b','game-controller'],super:['i-cesta','r','basket'],lomio:['i-ajustes','b','user']};
+ 'g:Moverse':['i-carretera','r','car'],'g:Vivir en Navarra':['i-casa','g','buildings'],'g:Ocio':['i-agenda','r','calendar'],'g:Localidades':['i-pin','g','map-pin'],'g:Cuadrilla BasatiNA':['i-manos','b','users-three'],juegos:['i-juego','b','game-controller'],super:['i-cesta','r','basket'],lomio:['i-ajustes','b','user']};
 try{Object.entries(M6_ICO).forEach(([k,[n,f,ic]])=>{BNK[k]=n;BNF[k]=f;if(!ICK[k])ICK[k]=ic;if(!ICC[k])ICC[k]={g:'#2e7d32',b:'#1565c0',r:'#e53935'}[f];});}catch(e){}
 function iconos(){try{applyIcons((CFG.iconos||'pro')==='pro');}catch(e){}}
 /* línea corta debajo del nombre de cada apartado */
@@ -163,7 +171,7 @@ function coloca(){let nuevos=false;
     grid.insertAdjacentHTML('afterbegin',M6_GRUPOS.map(([k,f])=>grupoHTML(k,f)).join(''));
     // Localidades suelta en el menú (24 nov. 2026, Pedro): va directa, sin desplegable
     grid.querySelector('.dsub[data-m6s="Hoy"]').insertAdjacentHTML('afterend','<div class="dgroup m6G m6Solo" data-m6="Localidades"><span data-k="Localidades">Localidades</span><i>▸</i></div>');
-    ['Hoy','Localidades','Tiempo y ríos','Naturaleza y salidas','Moverse','Vivir en Navarra','Ocio'].forEach(k=>{const g=grid.querySelector(`.dgroup.m6G[data-m6="${k}"]`);if(g)g.classList.add('m6Ft');});
+    ['Hoy','Localidades','Tiempo y ríos','Naturaleza y salidas','Moverse','Vivir en Navarra','Ocio','Cuadrilla BasatiNA'].forEach(k=>{const g=grid.querySelector(`.dgroup.m6G[data-m6="${k}"]`);if(g)g.classList.add('m6Ft');});
     iconos();
     { const l=grid.querySelector('.m6Solo');l.onclick=e=>{e.stopPropagation();showTab('pueblos');try{menu(false);}catch(x){}};}
     // foto de arriba del menú

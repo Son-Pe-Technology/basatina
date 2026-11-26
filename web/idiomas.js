@@ -2263,3 +2263,13 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Deportes":["Kirolak","Sport","Sport"],"Economía":["Ekonomia","Economy","Économie"],"Sociedad":["Gizartea","Society","Société"],"Salud":["Osasuna","Health","Santé"],
  "Educación":["Hezkuntza","Education","Éducation"],"Medio ambiente":["Ingurumena","Environment","Environnement"],"Laboral":["Lana","Work","Travail"],"Administración":["Administrazioa","Administration","Administration"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
+
+// 👥 Cuadrilla solo con cuenta (web/cuadrilla.js, 26 nov. 2026)
+(function(){const T={
+ "Cuadrilla BasatiNA":["BasatiNA kuadrilla","BasatiNA Crew","La bande BasatiNA"],"Solo para la gente registrada":["Erregistratutakoentzat bakarrik","Registered users only","Réservé aux inscrits"],
+ "Inicia sesión con tu usuario o regístrate para entrar en la Cuadrilla":["Hasi saioa zure erabiltzailearekin edo erregistratu Kuadrillan sartzeko","Sign in or sign up to join the Crew","Connecte-toi ou inscris-toi pour entrer dans la bande"],
+ "Iniciar sesión":["Saioa hasi","Sign in","Se connecter"],"Crear mi cuenta":["Nire kontua sortu","Create my account","Créer mon compte"],
+ "Te falta confirmar tu correo":["Zure posta baieztatzea falta zaizu","You still need to confirm your email","Il te reste à confirmer ton e-mail"],"Ir a Mi cuenta para confirmarlo":["Joan Nire kontura baieztatzeko","Go to My account to confirm it","Aller à Mon compte pour le confirmer"],
+ "Alertas ciudadanas":["Herritarren alertak","Citizen alerts","Alertes citoyennes"],"Fotos de la Cuadrilla":["Kuadrillaren argazkiak","Crew photos","Photos de la bande"],
+ "Buzón de sugerencias":["Iradokizun-postontzia","Suggestion box","Boîte à idées"],"Refranes de tu pueblo":["Zure herriko esaerak","Sayings from your village","Dictons de ton village"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
