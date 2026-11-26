@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "07b40b49e7bd",
+   "pub": "2026-11-26T03:58Z",
+   "titulo": "A10 Inmobiliaria, mejor valorada por clientes en toda España",
+   "texto": "La empresa pamplonesa A10 Inmobiliaria ha ganado el premio a mayor reputación en los Premios IAGestión 2026, basado en las opiniones de usuarios en Google. También logró posicionarse entre las tres mejores agencias del país por volumen de transacciones. Elena Larraya, agente comercial de la firma, fue reconocida como la profesional con mejor puntuación a nivel nacional, seguida por su compañera Arantxa Molinero en quinta posición. El CEO Esteban Calahorra destacó que estos logros confirman «la apuesta por las personas y la tecnología». Los galardones se entregaron el 12 de noviembre en Avilés durante el III Congreso nacional del software inmobiliario IAGestión.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/la-navarra-a10-inmobiliaria-reconocida-como-la-agencia-con-mejor-reputacion-de-espana/"
+    }
+   ]
+  },
+  {
    "id": "957627d0c570",
    "pub": "2026-11-26T03:57Z",
    "titulo": "Pamplona impulsa medidas contra la violencia machista en mujeres mayores",
