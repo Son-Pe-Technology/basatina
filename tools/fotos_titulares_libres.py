@@ -92,6 +92,18 @@ QUITAR = {   # fotos de Commons que no queremos (revisadas a mano el 26 nov. 202
  'File:Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1161.jpg',
  'File:Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1338.jpg',
  'File:Clínica Universidad de Navarra-Oratorio 02.jpg',
+ 'File:24 Denboraldia. Donostia - 53364063220.jpg',
+ 'File:4X-CHN ErezS.jpg',
+ 'File:CHN ENERGY 20250909.jpg',
+ 'File:Copia de IMG 2349 09.jpg',
+ 'File:El Lehendakari Urkullu participa en la manifestación de Barcelona contra los atentados terroristas y en solidaridad con las víctimas 01.jpg',
+ 'File:Ihurbain mendia eta Unanu herria Urbasatik ikusita.jpg',
+ 'File:Lot-8235-15 (30536047861).jpg',
+ 'File:Oratorio de la Clínica Universidad de Navarra 07.jpg',
+ 'File:The Web Conference 2019 May 15, 11 50 44 AM.jpg',
+ 'File:Vicente Espinel Library Mural (Flores, 2023) 01.jpg',
+ 'File:Vicente Espinel Library Mural (Flores, 2023) 03.jpg',
+ 'File:Vicente Espinel Library Mural (Flores, 2023) 04.jpg',
 }
 LIBRES = re.compile(r"^(cc0|public domain|pd|cc by(-sa)? ?[0-9.]*( [a-z]+)?|cc-by(-sa)?-[0-9.]+)", re.I)
 NO_VALE = re.compile(r"mapa|map\b|plano|escudo|coat of arms|logo|bandera|flag|diagram|grabado|dibujo|pintura|cuadro|retrato|portrait|"
