@@ -46,7 +46,8 @@ async function refresca(rt){const j=await fbAuthPost('https://securetoken.google
   return {uid:j.user_id,it:j.id_token,rt:j.refresh_token,exp:Date.now()+(+j.expires_in-60)*1000};}
 async function cmTok(){let a=lsGet('cmAuth',null);
   if(a&&a.it&&a.exp>Date.now())return a;
-  try{if(a&&a.rt){a=Object.assign(a,await refresca(a.rt));lsSet('cmAuth',a);return a;}}catch(e){}
+  // 26 nov. 2026: si mientras se renovaba la llave se cerró la sesión, no se vuelve a guardar (antes «resucitaba» la sesión)
+  try{if(a&&a.rt){const uid=a.uid;a=Object.assign(a,await refresca(a.rt));const ya=lsGet('cmAuth',null);if(ya&&ya.uid===uid)lsSet('cmAuth',a);return a;}}catch(e){}
   const j=await fbAuthPost('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='+FB.key,{returnSecureToken:true});
   a={uid:j.localId,it:j.idToken,rt:j.refreshToken,exp:Date.now()+(+j.expiresIn-60)*1000};lsSet('cmAuth',a);return a;}
 // marca anónima del colaborador (para «ocultar sus avisos»): no permite saber quién es ni su código

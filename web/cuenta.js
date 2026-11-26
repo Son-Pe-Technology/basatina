@@ -40,7 +40,7 @@ const perfil=()=>{const a=ses(),p=lsGet('cuPerfil',null);return a&&p&&p.uid===a.
 async function post(m,body,loc){const h={'Content-Type':'application/json'};if(loc)h['X-Firebase-Locale']='es';
   const r=await fetch(IT+m+'?key='+FB.key,{method:'POST',headers:h,body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));
   if(!r.ok){const e=new Error((j.error&&j.error.message)||('HTTP '+r.status));e.code=e.message.split(/[ :]/)[0];throw e;}return j;}
-const guarda=j=>{const a={uid:j.localId,it:j.idToken,rt:j.refreshToken,exp:Date.now()+(+j.expiresIn-60)*1000};lsSet('cmAuth',a);return a;};
+const guarda=j=>{const a={uid:j.localId,it:j.idToken,rt:j.refreshToken,exp:Date.now()+(+j.expiresIn-60)*1000};lsSet('cmAuth',a);setTimeout(()=>{try{window.dispatchEvent(new Event('bnSesion'));}catch(e){}},0);return a;};
 async function tok(forzar){if(forzar){const a=lsGet('cmAuth',null);if(a){a.exp=0;lsSet('cmAuth',a);}}return X.cmTok();}
 const MSG={EMAIL_EXISTS:'Ya hay una cuenta con ese correo. Entra con ella (pestaña «Entrar»).',INVALID_LOGIN_CREDENTIALS:'Correo o contraseña incorrectos.',
   INVALID_PASSWORD:'Correo o contraseña incorrectos.',EMAIL_NOT_FOUND:'Correo o contraseña incorrectos.',INVALID_EMAIL:'Ese correo no es válido.',
@@ -88,7 +88,10 @@ async function alta(email,pass,apodo){
   lsSet('cuSync',null);}
 async function entra(email,pass){const j=await post('signInWithPassword',{email,password:pass,returnSecureToken:true});guarda(j);lsSet('cuSync',null);
   await cargaPerfil().catch(()=>null);if(verif())await cuSync(1).catch(()=>{});}
-function sale(){lsSet('cmAuth',null);lsSet('cuPerfil',null);lsSet('cuSync',null);}
+/* 26 nov. 2026: al salir (o entrar) se avisa a toda la app con el evento «bnSesion», para que la figura de arriba,
+   el modo administrador y la Cuadrilla se enteren al momento y no al cambiar de pantalla o al cerrar la app */
+const avisaSesion=()=>{try{window.dispatchEvent(new Event('bnSesion'));}catch(e){}};
+function sale(){lsSet('cmAuth',null);lsSet('cuPerfil',null);lsSet('cuSync',null);try{sessionStorage.removeItem('cmAdm');}catch(e){}avisaSesion();}
 async function borraCuenta(pass){const a=ses();const email=jwt(a.it).email;
   const j=await post('signInWithPassword',{email,password:pass,returnSecureToken:true});const it=j.idToken,uid=j.localId;
   let mios=[];try{mios=await X.fsQuery('avisos_priv','autor',uid,it);}catch(e){}

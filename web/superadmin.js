@@ -215,6 +215,7 @@ if(TECH&&!yo()){TECH=false;ss.set('tech',null);ss.set('techSuper',null);try{tech
 // al abrir, al cambiar de pantalla (entrar/salir de la cuenta pasa en «Mi cuenta»), al volver a la app y cada 2 min
 const _s=showTab;showTab=function(t){_s.apply(this,arguments);if(t!=='superadm')setTimeout(sync,400);};
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(()=>{PEND_T=0;sync();},800);});
+window.addEventListener('bnSesion',()=>setTimeout(sync,50));   // 26 nov. 2026: al cerrar o abrir sesión, al momento
 setInterval(sync,120000);
 setTimeout(sync,1500);
 })();

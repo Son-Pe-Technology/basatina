@@ -69,6 +69,33 @@ window.showTab=showTab;
 // después de entrar en «Mi cuenta»: si estaba esperando para entrar en la Cuadrilla, la lleva
 setInterval(()=>{if(document.hidden||!ss.get('cuadQuiere'))return;const on=document.querySelector('section.on');
   if(on&&(on.id==='t-cuenta'||on.id==='t-cuadpuerta')&&ok())vuelve();},1500);
+/* ---------- en el menú: al desplegar «Cuadrilla BasatiNA» sin cuenta, sale el aviso en vez de la lista ---------- */
+document.head.insertAdjacentHTML('beforeend',`<style>
+#bnaDGrid .dsub.cpCerr>button[data-t]:not(.tech){display:none!important}
+#bnaDGrid .cpMini{grid-column:1/-1;margin:4px 4px 8px;padding:14px;border-radius:16px;background:#f4f8f1;border:1px solid #dfe9da}
+#bnaDGrid .cpMini b{display:block;font-size:15px;line-height:1.3;color:#1d2b22}
+#bnaDGrid .cpMini p{margin:5px 0 0;font-size:13px;line-height:1.4;color:#4f5b54}
+#bnaDGrid .cpMini .cpMb{display:flex;gap:8px;margin-top:10px}
+#bnaDGrid .cpMini .cpMb button{flex:1;border:0;border-radius:12px;padding:10px 8px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;min-height:0}
+#bnaDGrid .cpMini .cpMb .p{background:#2e6b2a;color:#fff}#bnaDGrid .cpMini .cpMb .s{background:#fff;color:#2e6b2a;border:1.5px solid #2e6b2a}
+</style>`);
+function menuPuerta(){const sub=document.querySelector('#bnaDGrid .dsub[data-m6s="Cuadrilla BasatiNA"]');if(!sub)return;
+  const cerr=!ok(),sinCta=!ses();let c=sub.querySelector(':scope>.cpMini');sub.classList.toggle('cpCerr',cerr);
+  if(!cerr){if(c)c.remove();return;}
+  if(!c){c=document.createElement('div');c.className='cpMini';sub.prepend(c);}
+  const k=sinCta?'a':'v';if(c.dataset.k===k)return;c.dataset.k=k;
+  c.innerHTML=sinCta?`<b>🔒 <span>Inicia sesión con tu usuario o regístrate para entrar en la Cuadrilla</span></b><p><span>Alertas ciudadanas, fotos, refranes y buzón: solo para la gente registrada. Es gratis.</span></p>
+    <div class="cpMb"><button class="p" data-v="entrar"><span>Iniciar sesión</span></button><button class="s" data-v="alta"><span>Registrarme</span></button></div>`
+   :`<b>📧 <span>Te falta confirmar tu correo</span></b><p><span>Pulsa el enlace del correo que te mandamos y entra en la Cuadrilla.</span></p>
+    <div class="cpMb"><button class="p" data-v="cuenta"><span>Ir a Mi cuenta</span></button></div>`;
+  c.querySelectorAll('button[data-v]').forEach(b=>b.onclick=e=>{e.stopPropagation();const v=b.dataset.v;try{menu(false);}catch(x){}
+    if(v==='cuenta')showTab('cuenta');else{try{CU.ir(v);}catch(x){showTab('cuenta');}}});}
+// antes de que se despliegue el grupo (captura: va antes que el clic del menú)
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#bnaDGrid .dgroup[data-m6="Cuadrilla BasatiNA"]'))menuPuerta();},true);
+setTimeout(menuPuerta,1500);setInterval(menuPuerta,3000);
+// al cerrar o abrir sesión: todo al momento
+window.addEventListener('bnSesion',()=>{setTimeout(()=>{menuPuerta();const on=document.querySelector('section.on');
+  if(on&&CUAD.includes(on.id.slice(2))&&!ok())showTab(on.id.slice(2));else if(on&&on.id==='t-cuadpuerta'){if(!vuelve())pinta();}},80);});
 // si alguien estaba dentro de la Cuadrilla y cierra la sesión, fuera
 setInterval(()=>{const on=document.querySelector('section.on');if(on&&CUAD.includes(on.id.slice(2))&&!ok())showTab(on.id.slice(2));},4000);
 })();

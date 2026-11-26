@@ -59,7 +59,10 @@ window.bnPerfilImg=s=>imagen(s)||`<span style="font-size:${Math.round(s*.8)}px;l
 /* ---------- la figura de arriba a la derecha ---------- */
 const FIG='<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></g></svg>';
 let ULT='';
-function figura(){const b=$('m6Mio');if(!b)return;const h=imagen(40);const k=h||'fig';if(k===ULT&&b.dataset.pf)return;
+// 26 nov. 2026: sin sesión de cuenta, la figura vuelve a ser el muñequito (antes seguía saliendo la foto o el avatar)
+const conSesion=()=>{try{return !!(window.CU&&CU.sesion());}catch(e){return false;}};
+window.addEventListener('bnSesion',()=>{ULT='';setTimeout(figura,60);});
+function figura(){const b=$('m6Mio');if(!b)return;const h=conSesion()?imagen(40):null;const k=h||'fig';if(k===ULT&&b.dataset.pf)return;
   ULT=k;b.dataset.pf=1;b.innerHTML=h||FIG;b.style.padding=h?'0':'';b.style.overflow='hidden';}
 setInterval(figura,3000);[300,1500,4000].forEach(d=>setTimeout(figura,d));
 
