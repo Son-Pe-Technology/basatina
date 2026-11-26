@@ -1,0 +1,44 @@
+/* =====================================================================
+   🎂 ZORIONAK: TARJETA DE CUMPLEAÑOS EN EL INICIO (26 nov. 2026, lo pidió Pedro) — se carga el último
+   Arriba del Inicio, el día del cumpleaños, una tarjeta alegre con confeti:
+     - ZN_FIJAS: felicitaciones que ponen Pedro y Sonia (fecha AAAA-MM-DD, nombre, texto y enlace opcional
+       a una página de felicitación). La ve todo el que abre la app ese día.
+     - window.bnZorionak(nombre, texto, enlace): la misma tarjeta para usarla desde otras partes
+       (p. ej., más adelante, el cumpleaños de cada usuario con cuenta, que solo vería él).
+   Se puede cerrar con ×; una vez cerrada no vuelve a salir ese día en ese móvil.
+   ===================================================================== */
+(function(){
+const ZN_FIJAS=[
+  {f:'2026-11-27',n:'Josal',t:'Hoy es tu día, y desde Zubiri hasta el último rincón de Navarra lo celebramos contigo. ¡Un abrazo enorme del equipo BasatiNA!',u:'https://basatina.es/zorionak-josal-7k2p/'}
+];
+const hoy=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
+const st=document.createElement('style');st.textContent=`
+.znC{position:relative;overflow:hidden;margin:10px 0 12px;border-radius:20px;padding:16px 46px 16px 16px;color:#fff;cursor:pointer;
+  background:linear-gradient(135deg,#c62828 0%,#e2582c 45%,#f0a030 100%);box-shadow:0 6px 18px rgba(198,40,40,.3);display:flex;gap:14px;align-items:center}
+.znC .zi{font-size:44px;line-height:1;flex:none;animation:znB 1.6s ease-in-out infinite}
+@keyframes znB{50%{transform:translateY(-5px) rotate(-5deg)}}
+.znC b{display:block;font-family:Montserrat,system-ui,sans-serif;font-weight:900;font-size:22px;line-height:1.1}
+.znC span.zt{display:block;font-size:14px;line-height:1.4;margin-top:4px;opacity:.96}
+.znC small{display:block;margin-top:6px;font-weight:700;font-size:12.5px;opacity:.9}
+.znC .zx{position:absolute;top:8px;right:10px;width:30px;height:30px;border-radius:15px;border:0;background:rgba(255,255,255,.22);color:#fff;font-size:18px;line-height:30px;padding:0}
+.znC canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}`;
+document.head.appendChild(st);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function confeti(cv){const x=cv.getContext('2d'),k=window.devicePixelRatio||1,W=cv.clientWidth,H=cv.clientHeight;cv.width=W*k;cv.height=H*k;x.scale(k,k);
+  const col=['#fff','#ffd55a','#2e6b2f','#1e88e5','#8e24aa'],P=[];for(let i=0;i<70;i++)P.push({x:Math.random()*W,y:-Math.random()*H,v:1+Math.random()*2,r:3+Math.random()*3,a:Math.random()*6,c:col[i%5]});
+  let t=0;(function f(){x.clearRect(0,0,W,H);for(const p of P){p.y+=p.v;p.a+=.1;x.save();x.translate(p.x+Math.sin(p.a)*3,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore();}
+    if(++t<240)requestAnimationFrame(f);else x.clearRect(0,0,W,H);})();}
+function abre(u){try{if(typeof APP!=='undefined'&&APP&&window.AndroidNet&&window.AndroidNet.openUrl)window.AndroidNet.openUrl(u);else window.open(u,'_blank');}catch(e){}}
+function tarjeta(id,nombre,texto,url){
+  const S=document.getElementById('t-mtiempo');if(!S||document.getElementById(id))return;
+  try{if(localStorage.getItem('znCerrada')===id+hoy)return;}catch(e){}
+  S.insertAdjacentHTML('afterbegin',`<div class="znC" id="${id}"><canvas></canvas><span class="zi">🎂</span><div><b>Zorionak, ${esc(nombre)}!</b><span class="zt">${esc(texto)}</span>${url?'<small>Toca para abrir tu felicitación 🎉</small>':''}</div><button class="zx" aria-label="Cerrar">×</button></div>`);
+  const c=document.getElementById(id);
+  c.querySelector('.zx').onclick=e=>{e.stopPropagation();c.remove();try{localStorage.setItem('znCerrada',id+hoy);}catch(e){}};
+  c.onclick=()=>{if(url)abre(url);else confeti(c.querySelector('canvas'));};
+  setTimeout(()=>confeti(c.querySelector('canvas')),400);
+  // otras partes del Inicio se pintan después y se ponen arriba: la tarjeta vuelve a subir al primer puesto
+  let n=0;const sube=setInterval(()=>{const s=document.getElementById('t-mtiempo');if(s&&c.isConnected&&s.firstElementChild!==c)s.prepend(c);if(++n>8)clearInterval(sube);},700);}
+window.bnZorionak=(nombre,texto,url)=>tarjeta('znU',nombre,texto,url);
+ZN_FIJAS.filter(z=>z.f===hoy).forEach((z,i)=>tarjeta('znF'+i,z.n,z.t,z.u));
+})();
