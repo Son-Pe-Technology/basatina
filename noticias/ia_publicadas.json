@@ -1,6 +1,28 @@
 {
  "items": [
   {
+   "id": "423ca3fb8735",
+   "pub": "2026-11-26T13:46Z",
+   "titulo": "Detenido en Milagro tras apuñalar a otro por una discusión sobre dinero",
+   "texto": "La Guardia Civil ha arrestado a un hombre acusado de herir con arma blanca a otro en Milagro. Los hechos sucedieron cuando ambos discutieron tras una petición intimidatoria de cinco euros que fue rechazada. La víctima resultó con una herida en la pierna y fue atendida primero en el Centro de Salud local; después fue trasladada al Hospital Reina Sofía de Tudela para recibir puntos de sutura y finalmente le dieron el alta. El presunto agresor fue identificado y detenido pocas horas después en la zona del embarcadero, según informó la Guardia Civil.",
+   "pueblo": "Milagro",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "COPE",
+     "u": "https://www.cope.es/emisoras/navarra/noticias/detienen-hombre-apunalar-milagro-discusion-cinco-euros-20261126_3482630.html"
+    },
+    {
+     "f": "COPE",
+     "u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/detenido-hombre-milagro-apunalar-negarse-darle-cinco-euros-20261126_3482648.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-zona-media/detenido-en-milagro-un-hombre-por-herir-con-un-arma-blanca-a-otro-tras-pedirle-cinco-euros/"
+    }
+   ]
+  },
+  {
    "id": "7520f5c0b994",
    "pub": "2026-11-26T13:18Z",
    "titulo": "Cuatro heridos en un accidente de tráfico en la NA-2410 de Olazti",
@@ -727,25 +749,6 @@
     {
      "f": "COPE",
      "u": "https://www.cope.es/emisoras/navarra/noticias/recuperan-reino-unido-talla-romanica-erik-belga-robo-navarra-47-anos-20261123_3480072.html"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "c839a6f8a8aa",
-   "pub": "2026-11-24T09:30Z",
-   "titulo": "Mintzakide supera los 500 participantes con nueva modalidad para nivel A2",
-   "texto": "El programa de conversación en euskera Mintzakide, impulsado por el Ayuntamiento de Pamplona y Taupa Euskaltzaleen Mugimendua, ha alcanzado más de 500 participantes en el curso 2026-2027. Desde la apertura de inscripciones en septiembre se han sumado cien nuevos integrantes, y el plazo continúa abierto. La principal novedad es la incorporación de personas con nivel A2 que comprendan euskera, mediante un grupo específico llamado «Ulerlagun». Con más de dos décadas de trayectoria, Mintzakide organiza encuentros semanales de una a hora y media para mayores de 16 años en lugares públicos elegidos por los participantes. Funcionan nuevos núcleos en cinco barrios de Pamplona, diez grupos en modalidad telemática, y propuestas temáticas sobre senderismo, teatro y artesanía. Entre las actividades previstas destacan una visita al mercado de Durango el 6 de diciembre y el primer Mintzodromo itinerante de Pamplona en enero.",
-   "pueblo": "Pamplona",
-   "cat": "Educación",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/mas-de-500-personas-practican-euskera-en-mintzakide-que-este-curso-se-abre-a-quienes-tienen-nivel-a2/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/mas-de-500-personas-participan-en-la-edicion-2026-2027-del-programa-de-practica"
     }
    ],
    "auto": true
