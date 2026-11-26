@@ -6,6 +6,18 @@
  },
  "instagram": "basatina.es",
  "hashtag": "#BasatiNA",
- "fotos": [],
+ "fotos": [
+  {
+   "id": "g2sxrvsgublbnnqfbmxp",
+   "url": "https://res.cloudinary.com/ylu8eqgl/image/upload/v1795684774/g2sxrvsgublbnnqfbmxp.jpg",
+   "cat": "rio",
+   "lugar": "Iruña",
+   "alias": "Pedrito",
+   "desc": "Un buen desayuno para comenzar el día",
+   "d": "2026-11-26",
+   "ok": "v1 · noviembre 2026",
+   "ts": "2026-11-26T09:19:33.114Z"
+  }
+ ],
  "descartadas": []
 }
