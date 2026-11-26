@@ -418,6 +418,12 @@
   ]
  },
  "creditos": {
+  "tit-osasuna-c250826eec7.webp": {
+   "a": "No machine-readable author provided. Mgoni4 assumed (based on copyright claims).",
+   "l": "Public domain",
+   "u": "https://commons.wikimedia.org/wiki/File:ReynodeNavarra.JPG",
+   "t": "ReynodeNavarra.JPG"
+  },
   "tit-osasuna-c2d12c98ce9.webp": {
    "a": "en:User:Macdstu (Stuart MacDonald)",
    "l": "CC BY 3.0",
@@ -429,12 +435,6 @@
    "l": "CC BY-SA 4.0",
    "u": "https://commons.wikimedia.org/wiki/File:Estadio_El_Sadar.jpg",
    "t": "Estadio El Sadar.jpg"
-  },
-  "tit-osasuna-c250826eec7.webp": {
-   "a": "No machine-readable author provided. Mgoni4 assumed (based on copyright claims).",
-   "l": "Public domain",
-   "u": "https://commons.wikimedia.org/wiki/File:ReynodeNavarra.JPG",
-   "t": "ReynodeNavarra.JPG"
   },
   "tit-osasuna-c1b390b9b6c.webp": {
    "a": "Esuescucre1",
@@ -454,41 +454,23 @@
    "u": "https://commons.wikimedia.org/wiki/File:Areso_-_Front%C3%B3n_01.jpg",
    "t": "Areso - Frontón 01.jpg"
   },
+  "tit-pelota-c5ec7a2aebd.webp": {
+   "a": "Basotxerri",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Ira%C3%B1eta_-_Front%C3%B3n_01.jpg",
+   "t": "Irañeta - Frontón 01.jpg"
+  },
   "tit-pelota-cf5740f882c.webp": {
    "a": "Basotxerri",
    "l": "CC BY-SA 4.0",
    "u": "https://commons.wikimedia.org/wiki/File:Nazar_-_Front%C3%B3n_01.jpg",
    "t": "Nazar - Frontón 01.jpg"
   },
-  "tit-pelota-c4cacb70890.webp": {
-   "a": "Basotxerri",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Bidaurreta_-_Front%C3%B3n_01.jpg",
-   "t": "Bidaurreta - Frontón 01.jpg"
-  },
-  "tit-balonmano-baloncesto-cb8f1450a18.webp": {
-   "a": "Navarrarena",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:4F1A6886.jpg",
-   "t": "4F1A6886.jpg"
-  },
-  "tit-balonmano-baloncesto-c7157864ada.webp": {
-   "a": "Asier Azpilikueta",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Jendetza_Nafarroa_Arenan.jpg",
-   "t": "Jendetza Nafarroa Arenan.jpg"
-  },
-  "tit-balonmano-baloncesto-cc4d9a873fe.webp": {
-   "a": "Sarigueyacolorefd500",
-   "l": "CC BY 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Groove_Music_Festival,_Navarra_Arena,_13_de_septiembre_de_2025.jpg",
-   "t": "Groove Music Festival, Navarra Arena, 13 de septiembre de 2025.jpg"
-  },
-  "tit-balonmano-baloncesto-c803cc2d1fe.webp": {
-   "a": "Sarigueyacolorefd500",
-   "l": "CC BY 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Equipo_en_el_Groove_Music_Festival,_Navarra_Arena,_13_de_septiembre_de_2025.jpg",
-   "t": "Equipo en el Groove Music Festival, Navarra Arena, 13 de septiembre de 2025.jpg"
+  "tit-balonmano-baloncesto-c7be76ab89d.webp": {
+   "a": "Bildu",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Anaitasuna.jpg",
+   "t": "Anaitasuna.jpg"
   },
   "tit-ciclismo-carreras-c52bbe1262e.webp": {
    "a": "Txapisotegi",
@@ -496,23 +478,23 @@
    "u": "https://commons.wikimedia.org/wiki/File:XXVI_Miguel_Indurain_Sari_Nagusiko_txirrindulariak_Ma%C3%B1erun_(60447).jpg",
    "t": "XXVI Miguel Indurain Sari Nagusiko txirrindulariak Mañerun (60447).jpg"
   },
-  "tit-ciclismo-carreras-cbe4aa1fb34.webp": {
-   "a": "Txapisotegi",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:XXVI_Miguel_Indurain_Sari_Nagusiko_txirrindulariak_Ma%C3%B1erun_(20832).jpg",
-   "t": "XXVI Miguel Indurain Sari Nagusiko txirrindulariak Mañerun (20832).jpg"
-  },
-  "tit-ciclismo-carreras-c6c9e87ad98.webp": {
-   "a": "Txapisotegi",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:XXVI_Miguel_Indurain_Sari_Nagusiko_txirrindulariak_Ma%C3%B1erun_(84596).jpg",
-   "t": "XXVI Miguel Indurain Sari Nagusiko txirrindulariak Mañerun (84596).jpg"
-  },
   "tit-ciclismo-carreras-c52bcfe9a20.webp": {
    "a": "Txapisotegi",
    "l": "CC BY-SA 4.0",
    "u": "https://commons.wikimedia.org/wiki/File:XXVI_Miguel_Indurain_Sari_Nagusiko_txirrindulariak_Ma%C3%B1erun.jpg",
    "t": "XXVI Miguel Indurain Sari Nagusiko txirrindulariak Mañerun.jpg"
+  },
+  "tit-ciclismo-carreras-c8038758724.webp": {
+   "a": "Txapisotegi",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:XXVI_Miguel_Indurain_Sari_Nagusiko_podiuma_(87932).jpg",
+   "t": "XXVI Miguel Indurain Sari Nagusiko podiuma (87932).jpg"
+  },
+  "tit-ciclismo-carreras-cac8210f4ce.webp": {
+   "a": "Txapisotegi",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:XXVI_Miguel_Indurain_Sari_Nagusiko_txirrindulariak_Ma%C3%B1erun_(24164).jpg",
+   "t": "XXVI Miguel Indurain Sari Nagusiko txirrindulariak Mañerun (24164).jpg"
   },
   "tit-deporte-c7705a284cb.webp": {
    "a": "Zarateman",
@@ -544,17 +526,17 @@
    "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_San_Ferm%C3%ADn_2013_-_panoramio.jpg",
    "t": "Pamplona - San Fermín 2013 - panoramio.jpg"
   },
-  "tit-sanfermines-c73a5d0e76a.webp": {
-   "a": "Vicente Maza Gómez",
-   "l": "CC BY-SA 3.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_San_Ferm%C3%ADn_2013_-_panoramio_(3).jpg",
-   "t": "Pamplona - San Fermín 2013 - panoramio (3).jpg"
-  },
   "tit-sanfermines-ce994f6be6b.webp": {
    "a": "Vicente Maza Gómez",
    "l": "CC BY-SA 3.0",
    "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_San_Ferm%C3%ADn_2013_-_panoramio_(2).jpg",
    "t": "Pamplona - San Fermín 2013 - panoramio (2).jpg"
+  },
+  "tit-sanfermines-c73a5d0e76a.webp": {
+   "a": "Vicente Maza Gómez",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_San_Ferm%C3%ADn_2013_-_panoramio_(3).jpg",
+   "t": "Pamplona - San Fermín 2013 - panoramio (3).jpg"
   },
   "tit-sanfermines-ccc89ab3b75.webp": {
    "a": "Michael Newman",
@@ -604,11 +586,11 @@
    "u": "https://commons.wikimedia.org/wiki/File:Black_Friday_durante_una_actuaci%C3%B3n_en_Pamplona_en_junio_de_2024.jpg",
    "t": "Black Friday durante una actuación en Pamplona en junio de 2024.jpg"
   },
-  "tit-concierto-cd0d26308f0.webp": {
-   "a": "Ignacio Coyne Lapetra",
-   "l": "Public domain",
-   "u": "https://commons.wikimedia.org/wiki/File:1908-10-17,_Blanco_y_Negro,_Concierto_por_la_tarde_en_uno_de_los_paseos_de_la_Exposici%C3%B3n,_Coyne.jpg",
-   "t": "1908-10-17, Blanco y Negro, Concierto por la tarde en uno de los paseos de la Exposición, Coyne.jpg"
+  "tit-concierto-c5d39ed3442.webp": {
+   "a": "EuskadikoOrkestra",
+   "l": "CC BY 2.0",
+   "u": "https://commons.wikimedia.org/wiki/File:24_Denboraldia._Donostia.jpg",
+   "t": "24 Denboraldia. Donostia.jpg"
   },
   "tit-teatro-cbf74f6c47d.webp": {
    "a": "Eaeaea",
@@ -622,17 +604,17 @@
    "u": "https://commons.wikimedia.org/wiki/File:Gaiarre_antzokia.JPG",
    "t": "Gaiarre antzokia.JPG"
   },
-  "tit-teatro-cae448239ac.webp": {
-   "a": "Zarateman",
-   "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_Baluarte,_Palacio_de_Congresos_y_Auditorio_de_Navarra_07.jpg",
-   "t": "Pamplona - Baluarte, Palacio de Congresos y Auditorio de Navarra 07.jpg"
-  },
   "tit-teatro-c4e295bc7d0.webp": {
    "a": "Zarateman",
    "l": "CC0",
    "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_Baluarte,_Palacio_de_Congresos_y_Auditorio_de_Navarra_10.jpg",
    "t": "Pamplona - Baluarte, Palacio de Congresos y Auditorio de Navarra 10.jpg"
+  },
+  "tit-teatro-cae448239ac.webp": {
+   "a": "Zarateman",
+   "l": "CC0",
+   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_Baluarte,_Palacio_de_Congresos_y_Auditorio_de_Navarra_07.jpg",
+   "t": "Pamplona - Baluarte, Palacio de Congresos y Auditorio de Navarra 07.jpg"
   },
   "tit-museo-c527b2c375d.webp": {
    "a": "Kent Wang",
@@ -706,6 +688,30 @@
    "u": "https://commons.wikimedia.org/wiki/File:HACIA_LA_MESA_DE_LOS_TRES_REYES_-_panoramio.jpg",
    "t": "HACIA LA MESA DE LOS TRES REYES - panoramio.jpg"
   },
+  "tit-bomberos-incendio-ca611d939f5.webp": {
+   "a": "Vanbasten 23",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Parque_de_bomberos_de_Pamplona.jpg",
+   "t": "Parque de bomberos de Pamplona.jpg"
+  },
+  "tit-bomberos-incendio-c07a48c7cc7.webp": {
+   "a": "Rjcastillo",
+   "l": "CC BY 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Cami%C3%B3n_de_Bomberos,_Santiago_A74181820240526.jpg",
+   "t": "Camión de Bomberos, Santiago A74181820240526.jpg"
+  },
+  "tit-bomberos-incendio-c48a5991f4b.webp": {
+   "a": "Rjcastillo",
+   "l": "CC BY 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Antiguo_Cami%C3%B3n_de_Bomberos_A74181920240526.jpg",
+   "t": "Antiguo Camión de Bomberos A74181920240526.jpg"
+  },
+  "tit-bomberos-incendio-ce43ee5de09.webp": {
+   "a": "Sergio Moises Panei Pitrau",
+   "l": "CC BY 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Cuartel_de_Bomberos_de_la_Boca_03_cami%C3%B3n_de_bomberos_antiguo.jpg",
+   "t": "Cuartel de Bomberos de la Boca 03 camión de bomberos antiguo.jpg"
+  },
   "tit-policia-c34f73bffc4.webp": {
    "a": "Vasyatka1",
    "l": "CC BY-SA 4.0",
@@ -724,11 +730,11 @@
    "u": "https://commons.wikimedia.org/wiki/File:Palacio_de_Navarra.JPG",
    "t": "Palacio de Navarra.JPG"
   },
-  "tit-policia-cc3c4defe60.webp": {
-   "a": "Jialxv",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Javierada_2020_09.jpg",
-   "t": "Javierada 2020 09.jpg"
+  "tit-policia-cb829332d57.webp": {
+   "a": "Ekinklik",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:2013ko_Sanferminak_4.jpg",
+   "t": "2013ko Sanferminak 4.jpg"
   },
   "tit-ambulancia-hospital-c08a7760ffc.webp": {
    "a": "Agazzr",
@@ -748,17 +754,11 @@
    "u": "https://commons.wikimedia.org/wiki/File:Hospital_de_Navarra.jpg",
    "t": "Hospital de Navarra.jpg"
   },
-  "tit-ambulancia-hospital-c995cecc774.webp": {
-   "a": "S5A-0043",
-   "l": "CC BY 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:(CHN-Hubei)_Showcar_Luxeed_R7_No-plate_rear_2024-12-04.jpg",
-   "t": "(CHN-Hubei) Showcar Luxeed R7 No-plate rear 2024-12-04.jpg"
-  },
-  "tit-carretera-c0f9e67ebf2.webp": {
-   "a": "Zarateman",
-   "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Alsasua_-_Autov%C3%ADa_A-1_(2).jpg",
-   "t": "Alsasua - Autovía A-1 (2).jpg"
+  "tit-ambulancia-hospital-c7cb2a70735.webp": {
+   "a": "wiltshirespotter",
+   "l": "CC BY-SA 2.0",
+   "u": "https://commons.wikimedia.org/wiki/File:PH-CHN_(16429449098).jpg",
+   "t": "PH-CHN (16429449098).jpg"
   },
   "tit-carretera-c02e715496a.webp": {
    "a": "Ihuer",
@@ -766,17 +766,23 @@
    "u": "https://commons.wikimedia.org/wiki/File:A-15_Navarra.jpg",
    "t": "A-15 Navarra.jpg"
   },
-  "tit-carretera-ccba13ed73c.webp": {
-   "a": "Hansueli Krapf This file was uploaded with Commonist.",
-   "l": "CC BY-SA 3.0",
-   "u": "https://commons.wikimedia.org/wiki/File:2012-01-20_17-34-13_Spain_Canarias_Jand%C3%ADa.jpg",
-   "t": "2012-01-20 17-34-13 Spain Canarias Jandía.jpg"
+  "tit-carretera-c7920c00e2b.webp": {
+   "a": "Desconocido",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:A15_errepidea_1_-_94-001.jpg",
+   "t": "A15 errepidea 1 - 94-001.jpg"
   },
-  "tit-carretera-cde08dda0db.webp": {
-   "a": "Hansueli Krapf This file was uploaded with Commonist.",
+  "tit-carretera-ccb410c7b08.webp": {
+   "a": "José Ibáñez",
+   "l": "CC BY 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Camino_Soria_-_panoramio.jpg",
+   "t": "Camino Soria - panoramio.jpg"
+  },
+  "tit-carretera-c348918fcda.webp": {
+   "a": "Sir James",
    "l": "CC BY-SA 3.0",
-   "u": "https://commons.wikimedia.org/wiki/File:2012-01-20_17-34-13_Spain_Canarias_Jand%C3%ADa_2.jpg",
-   "t": "2012-01-20 17-34-13 Spain Canarias Jandía 2.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:2007-08-15_Spain_Mallorca_Palma_Port_Costa_Concordia.JPG",
+   "t": "2007-08-15 Spain Mallorca Palma Port Costa Concordia.JPG"
   },
   "tit-rio-crecida-ca0fa09d953.webp": {
    "a": "Jialxv",
@@ -796,11 +802,11 @@
    "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_R%C3%ADo_Arga_03.jpg",
    "t": "Pamplona - Río Arga 03.jpg"
   },
-  "tit-rio-crecida-c454ecff297.webp": {
+  "tit-rio-crecida-c24ad302b04.webp": {
    "a": "Zarateman",
    "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_R%C3%ADo_Arga_06.jpg",
-   "t": "Pamplona - Río Arga 06.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_R%C3%ADo_Arga_02.jpg",
+   "t": "Pamplona - Río Arga 02.jpg"
   },
   "tit-nieve-c9bbe0364c8.webp": {
    "a": "No machine-readable author provided. Mgoni4 assumed (based on copyright claims).",
@@ -808,23 +814,23 @@
    "u": "https://commons.wikimedia.org/wiki/File:Nieve_Upna.JPG",
    "t": "Nieve Upna.JPG"
   },
-  "tit-nieve-c3149921d43.webp": {
-   "a": "Batix Ezeiza",
+  "tit-nieve-cfe1def55df.webp": {
+   "a": "LBM1948",
    "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Elurretako_amabirjinaren_baseliza_02.jpg",
-   "t": "Elurretako amabirjinaren baseliza 02.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:Aralar,_%C3%A1rboles_1990_04.jpg",
+   "t": "Aralar, árboles 1990 04.jpg"
   },
-  "tit-nieve-c180bc1b416.webp": {
-   "a": "Egpena",
-   "l": "CC BY-SA 3.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Pasaje_de_invierno_Esain,_Navarra_40x50_Julio_Garcia_de_la_Pe%C3%B1a_Oller.jpg",
-   "t": "Pasaje de invierno Esain, Navarra 40x50 Julio Garcia de la Peña Oller.jpg"
+  "tit-nieve-cb7065b3d8d.webp": {
+   "a": "Txemari - Argazki.",
+   "l": "CC0",
+   "u": "https://commons.wikimedia.org/wiki/File:En_la_%22frontera%22.jpg",
+   "t": "En la \"frontera\".jpg"
   },
-  "tit-nieve-c4ac35d97c7.webp": {
-   "a": "Casa rural Basaula",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Lokiz_Aramendia_nieve.jpg",
-   "t": "Lokiz Aramendia nieve.jpg"
+  "tit-nieve-cae5ac540c0.webp": {
+   "a": "Yoseph Walker",
+   "l": "CC BY-SA 3.0 es",
+   "u": "https://commons.wikimedia.org/wiki/File:Copia_de_IMG_2349_07.jpg",
+   "t": "Copia de IMG 2349 07.jpg"
   },
   "tit-niebla-frio-c9f29b249a2.webp": {
    "a": "José Antonio Larrasoaña Zunzarren from Pamplona, Navarra",
@@ -850,29 +856,53 @@
    "u": "https://commons.wikimedia.org/wiki/File:Across_The_Forest_(109458339).jpeg",
    "t": "Across The Forest (109458339).jpeg"
   },
+  "tit-viento-temporal-c9339a01379.webp": {
+   "a": "Ricardo Fernández from Barcelona, España",
+   "l": "CC BY 2.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Alto_del_Perd%C3%B3n-richardfdez-02.jpg",
+   "t": "Alto del Perdón-richardfdez-02.jpg"
+  },
+  "tit-viento-temporal-c60e11d4d3a.webp": {
+   "a": "José Ibáñez",
+   "l": "CC BY 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Nubes_de_tormenta_-_panoramio.jpg",
+   "t": "Nubes de tormenta - panoramio.jpg"
+  },
+  "tit-viento-temporal-c95c48357b2.webp": {
+   "a": "Djambalawa",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Hector_cloud_from_Gunn_Point.jpg",
+   "t": "Hector cloud from Gunn Point.jpg"
+  },
+  "tit-viento-temporal-c3073a6b58f.webp": {
+   "a": "Djambalawa",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:HectorCloud.jpg",
+   "t": "HectorCloud.jpg"
+  },
   "tit-lluvia-c31b27c8a3c.webp": {
    "a": "Manuel Velazquez",
    "l": "CC BY 3.0",
    "u": "https://commons.wikimedia.org/wiki/File:CAMINO_DE_SANTIAGO_ABRIL_2012,_ALTO_DEL_PERDON_CON_LLUVIA_-_panoramio.jpg",
    "t": "CAMINO DE SANTIAGO ABRIL 2012, ALTO DEL PERDON CON LLUVIA - panoramio.jpg"
   },
-  "tit-lluvia-c585bbfad4a.webp": {
-   "a": "JLVwiki",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Belen_jard%C3%ADn_Diputaci%C3%B3n_Navarra_2.jpg",
-   "t": "Belen jardín Diputación Navarra 2.jpg"
-  },
-  "tit-lluvia-c299ca69bed.webp": {
+  "tit-lluvia-c583a5dc67f.webp": {
    "a": "Santiago Mazzarovich",
    "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Tanque_de_amortiguacion_de_lluvias_en_Av._Ramon_Anador_entre_Navarra_y_Maipu_-_20220517dicimouysm1217.jpg",
-   "t": "Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1217.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:Tanque_de_amortiguacion_de_lluvias_en_Av._Ramon_Anador_entre_Navarra_y_Maipu_-_20220517dicimouysm1065.jpg",
+   "t": "Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1065.jpg"
   },
-  "tit-lluvia-ce44e816bb7.webp": {
+  "tit-lluvia-ca79ef03029.webp": {
    "a": "Santiago Mazzarovich",
    "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Tanque_de_amortiguacion_de_lluvias_en_Av._Ramon_Anador_entre_Navarra_y_Maipu_-_20220517dicimouysm1182.jpg",
-   "t": "Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1182.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:Tanque_de_amortiguacion_de_lluvias_en_Av._Ramon_Anador_entre_Navarra_y_Maipu_-_20220517dicimouysm1161.jpg",
+   "t": "Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1161.jpg"
+  },
+  "tit-lluvia-ce0f266f411.webp": {
+   "a": "Santiago Mazzarovich",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Tanque_de_amortiguacion_de_lluvias_en_Av._Ramon_Anador_entre_Navarra_y_Maipu_-_20220517dicimouysm1338.jpg",
+   "t": "Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1338.jpg"
   },
   "tit-calor-sol-cccedc26e83.webp": {
    "a": "Diego Delso",
@@ -904,12 +934,6 @@
    "u": "https://commons.wikimedia.org/wiki/File:Parlamento_de_Navarra_2021.JPG",
    "t": "Parlamento de Navarra 2021.JPG"
   },
-  "tit-parlamento-gobierno-c8e64f4c662.webp": {
-   "a": "El Justicia de Aragón",
-   "l": "Public domain",
-   "u": "https://commons.wikimedia.org/wiki/File:Charla_del_Justicia_en_el_Parlamento_de_Navarra_(46562979485).jpg",
-   "t": "Charla del Justicia en el Parlamento de Navarra (46562979485).jpg"
-  },
   "tit-parlamento-gobierno-c77968b0449.webp": {
    "a": "Zarateman",
    "l": "CC0",
@@ -922,65 +946,71 @@
    "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_Parlamento_de_Navarra_1.jpg",
    "t": "Pamplona - Parlamento de Navarra 1.jpg"
   },
+  "tit-parlamento-gobierno-c11972f5623.webp": {
+   "a": "JLVwiki",
+   "l": "CC BY 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Edificio_del_Parlamento_de_Navarra_1.jpg",
+   "t": "Edificio del Parlamento de Navarra 1.jpg"
+  },
   "tit-universidad-cc208489ed8.webp": {
    "a": "Carlos Octavio Uranga",
    "l": "CC0",
    "u": "https://commons.wikimedia.org/wiki/File:Universidad_P%C3%BAblica_de_Navarra_-_Campus_de_Arrosad%C3%ADa.jpg",
    "t": "Universidad Pública de Navarra - Campus de Arrosadía.jpg"
   },
-  "tit-universidad-c6f0eed3157.webp": {
-   "a": "Anass Sedrati",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Green_trees_at_University_of_Navarra_campus_-_Pamplona_-_April_2024.jpg",
-   "t": "Green trees at University of Navarra campus - Pamplona - April 2024.jpg"
+  "tit-universidad-c5e0a8e0d9d.webp": {
+   "a": "Stegop",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Clinica_Universidad_Navarra-2011-04-21-12-1.jpg",
+   "t": "Clinica Universidad Navarra-2011-04-21-12-1.jpg"
   },
-  "tit-universidad-c1ed34f454d.webp": {
-   "a": "JLVwiki",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Campus_Universidad_Navarra-Madrid-05.jpg",
-   "t": "Campus Universidad Navarra-Madrid-05.jpg"
-  },
-  "tit-universidad-c6afd4aac46.webp": {
-   "a": "JLVwiki",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Campus_Universidad_Navarra-Madrid-02.jpg",
-   "t": "Campus Universidad Navarra-Madrid-02.jpg"
-  },
-  "tit-colegio-c12ed5111da.webp": {
+  "tit-universidad-c861d9e2d73.webp": {
    "a": "Zarateman",
    "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_Instituto_Navarro_de_Administraci%C3%B3n_P%C3%BAblica_(INAP)_1.jpg",
-   "t": "Pamplona - Instituto Navarro de Administración Pública (INAP) 1.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_Cl%C3%ADnica_Universidad_de_Navarra.jpg",
+   "t": "Pamplona - Clínica Universidad de Navarra.jpg"
   },
-  "tit-colegio-ccbdeb6b5f1.webp": {
-   "a": "Jl FilpoC",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Interior_del_Instituto_Navarro_de_Administraci%C3%B3n_P%C3%BAblica_(Pamplona).jpg",
-   "t": "Interior del Instituto Navarro de Administración Pública (Pamplona).jpg"
-  },
-  "tit-colegio-c4d3dd63bc3.webp": {
-   "a": "Millars",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Instituto_Navarro_de_Administraci%C3%B3n_P%C3%BAblica_(INAP).jpg",
-   "t": "Instituto Navarro de Administración Pública (INAP).jpg"
-  },
-  "tit-colegio-c5dfb737d9a.webp": {
-   "a": "Zarateman",
-   "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Pamplona_-_Instituto_Navarro_de_Administraci%C3%B3n_P%C3%BAblica_(INAP)_2.jpg",
-   "t": "Pamplona - Instituto Navarro de Administración Pública (INAP) 2.jpg"
-  },
-  "tit-vivienda-cf3b54afc6f.webp": {
+  "tit-universidad-cf7c06a7c15.webp": {
    "a": "JLVwiki",
    "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Bloque_viviendas_Buztintxuri_Pamplona_4.jpg",
-   "t": "Bloque viviendas Buztintxuri Pamplona 4.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:Cl%C3%ADnica_Universidad_de_Navarra-Oratorio_02.jpg",
+   "t": "Clínica Universidad de Navarra-Oratorio 02.jpg"
+  },
+  "tit-colegio-cdb5d5ff64e.webp": {
+   "a": "Miguillen",
+   "l": "CC BY-SA 3.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Colegio_p%C3%BAblico_Ezcaba.JPG",
+   "t": "Colegio público Ezcaba.JPG"
+  },
+  "tit-colegio-ce6cd3fc67d.webp": {
+   "a": "Zarateman",
+   "l": "CC0",
+   "u": "https://commons.wikimedia.org/wiki/File:Peralta_-_Colegio_P%C3%BAblico_Juan_Bautista_Irurzun.jpg",
+   "t": "Peralta - Colegio Público Juan Bautista Irurzun.jpg"
+  },
+  "tit-colegio-c57fc2f116e.webp": {
+   "a": "Chaluco",
+   "l": "Public domain",
+   "u": "https://commons.wikimedia.org/wiki/File:SanSalvador.jpg",
+   "t": "SanSalvador.jpg"
+  },
+  "tit-colegio-c061b5645dd.webp": {
+   "a": "JLVwiki",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Ikastola_Ptxi_Larrainzar_Pamplona.jpg",
+   "t": "Ikastola Ptxi Larrainzar Pamplona.jpg"
   },
   "tit-vivienda-c7ba0d88c82.webp": {
    "a": "JLVwiki",
    "l": "CC BY-SA 4.0",
    "u": "https://commons.wikimedia.org/wiki/File:Bloque_viviendas_Buztintxuri_Pamplona_2.jpg",
    "t": "Bloque viviendas Buztintxuri Pamplona 2.jpg"
+  },
+  "tit-vivienda-cf3b54afc6f.webp": {
+   "a": "JLVwiki",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Bloque_viviendas_Buztintxuri_Pamplona_4.jpg",
+   "t": "Bloque viviendas Buztintxuri Pamplona 4.jpg"
   },
   "tit-vivienda-c9d4b4b2b99.webp": {
    "a": "JLVwiki",
@@ -1036,11 +1066,11 @@
    "u": "https://commons.wikimedia.org/wiki/File:Alsasua_-_Pol%C3%ADgono_Industrial_Ondarria_04.jpg",
    "t": "Alsasua - Polígono Industrial Ondarria 04.jpg"
   },
-  "tit-empresa-industria-c94e1e9865b.webp": {
+  "tit-empresa-industria-cfd1f9e1baf.webp": {
    "a": "Zarateman",
    "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Alsasua_-_Pol%C3%ADgono_Industrial_Ondarria_02.jpg",
-   "t": "Alsasua - Polígono Industrial Ondarria 02.jpg"
+   "u": "https://commons.wikimedia.org/wiki/File:Alsasua_-_Pol%C3%ADgono_Industrial_Ondarria_07.jpg",
+   "t": "Alsasua - Polígono Industrial Ondarria 07.jpg"
   },
   "tit-comercio-c7d1cb7af17.webp": {
    "a": "D.Rovchak",
@@ -1084,11 +1114,11 @@
    "u": "https://commons.wikimedia.org/wiki/File:Tudela_(Navarra)_Espa%C3%B1a._-_Flickr_-_Txemai_Argazki.jpg",
    "t": "Tudela (Navarra) España. - Flickr - Txemai Argazki.jpg"
   },
-  "tit-tudela-c09a14d83e5.webp": {
-   "a": "Zarateman",
-   "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Tudela_-_Hotel_Santa_Ana_Tudela_2.jpg",
-   "t": "Tudela - Hotel Santa Ana Tudela 2.jpg"
+  "tit-tudela-cc2b80a2b0c.webp": {
+   "a": "Miguel Ángel García.",
+   "l": "CC BY 2.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Tudela_.Navarra_-_52516305632.jpg",
+   "t": "Tudela .Navarra - 52516305632.jpg"
   },
   "tit-estella-c69e1b77054.webp": {
    "a": "Krzysztof Golik",
@@ -1102,17 +1132,17 @@
    "u": "https://commons.wikimedia.org/wiki/File:Ega_river_in_Estella-Lizarra_(2).jpg",
    "t": "Ega river in Estella-Lizarra (2).jpg"
   },
-  "tit-estella-c471e9c1b1d.webp": {
-   "a": "Krzysztof Golik",
-   "l": "CC BY-SA 4.0",
-   "u": "https://commons.wikimedia.org/wiki/File:Puente_de_la_Carcel_in_Estella-Lizarra_(4).jpg",
-   "t": "Puente de la Carcel in Estella-Lizarra (4).jpg"
-  },
   "tit-estella-c92132f0061.webp": {
    "a": "Krzysztof Golik",
    "l": "CC BY-SA 4.0",
    "u": "https://commons.wikimedia.org/wiki/File:Saint_Clare_convent_in_Estella-Lizarra_(4).jpg",
    "t": "Saint Clare convent in Estella-Lizarra (4).jpg"
+  },
+  "tit-estella-c471e9c1b1d.webp": {
+   "a": "Krzysztof Golik",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Puente_de_la_Carcel_in_Estella-Lizarra_(4).jpg",
+   "t": "Puente de la Carcel in Estella-Lizarra (4).jpg"
   },
   "tit-pamplona-c48992ce237.webp": {
    "a": "Krzysztof Golik",
@@ -1138,12 +1168,6 @@
    "u": "https://commons.wikimedia.org/wiki/File:Plaza_del_Castillo_in_Pamplona_-_April_2024.jpg",
    "t": "Plaza del Castillo in Pamplona - April 2024.jpg"
   },
-  "tit-pueblo-cbaba1d9b1e.webp": {
-   "a": "El Justicia de Aragón",
-   "l": "CC0",
-   "u": "https://commons.wikimedia.org/wiki/File:Toma_de_Posesi%C3%B3n_del_Defensor_del_Pueblo_de_Navarra_(51979120772).jpg",
-   "t": "Toma de Posesión del Defensor del Pueblo de Navarra (51979120772).jpg"
-  },
   "tit-pueblo-cc7370afb9d.webp": {
    "a": "Inma Gasteiz",
    "l": "CC BY-SA 4.0",
@@ -1156,6 +1180,12 @@
    "u": "https://commons.wikimedia.org/wiki/File:Navarra,_pueblos_1990_03.jpg",
    "t": "Navarra, pueblos 1990 03.jpg"
   },
+  "tit-pueblo-c7a0cf8d575.webp": {
+   "a": "LBM1948",
+   "l": "CC BY-SA 4.0",
+   "u": "https://commons.wikimedia.org/wiki/File:Navarra,_pueblos_1990_04.jpg",
+   "t": "Navarra, pueblos 1990 04.jpg"
+  },
   "tit-pueblo-c766c48723b.webp": {
    "a": "LBM1948",
    "l": "CC BY-SA 4.0",
@@ -1166,28 +1196,25 @@
  "_info": "Lo genera tools/fotos_titulares.py. Fotos propias por tema para los titulares.",
  "libres": {
   "osasuna": [
+   "tit-osasuna-c250826eec7.webp",
    "tit-osasuna-c2d12c98ce9.webp",
    "tit-osasuna-c191ade6ac2.webp",
-   "tit-osasuna-c250826eec7.webp",
    "tit-osasuna-c1b390b9b6c.webp"
   ],
   "pelota": [
    "tit-pelota-c1baccb5a9b.webp",
    "tit-pelota-cbb0f262621.webp",
-   "tit-pelota-cf5740f882c.webp",
-   "tit-pelota-c4cacb70890.webp"
+   "tit-pelota-c5ec7a2aebd.webp",
+   "tit-pelota-cf5740f882c.webp"
   ],
   "balonmano-baloncesto": [
-   "tit-balonmano-baloncesto-cb8f1450a18.webp",
-   "tit-balonmano-baloncesto-c7157864ada.webp",
-   "tit-balonmano-baloncesto-cc4d9a873fe.webp",
-   "tit-balonmano-baloncesto-c803cc2d1fe.webp"
+   "tit-balonmano-baloncesto-c7be76ab89d.webp"
   ],
   "ciclismo-carreras": [
    "tit-ciclismo-carreras-c52bbe1262e.webp",
-   "tit-ciclismo-carreras-cbe4aa1fb34.webp",
-   "tit-ciclismo-carreras-c6c9e87ad98.webp",
-   "tit-ciclismo-carreras-c52bcfe9a20.webp"
+   "tit-ciclismo-carreras-c52bcfe9a20.webp",
+   "tit-ciclismo-carreras-c8038758724.webp",
+   "tit-ciclismo-carreras-cac8210f4ce.webp"
   ],
   "deporte": [
    "tit-deporte-c7705a284cb.webp",
@@ -1197,8 +1224,8 @@
   ],
   "sanfermines": [
    "tit-sanfermines-c41ed774d79.webp",
-   "tit-sanfermines-c73a5d0e76a.webp",
    "tit-sanfermines-ce994f6be6b.webp",
+   "tit-sanfermines-c73a5d0e76a.webp",
    "tit-sanfermines-ccc89ab3b75.webp"
   ],
   "fiestas-pueblo": [
@@ -1211,13 +1238,13 @@
    "tit-concierto-c0e40869d86.webp",
    "tit-concierto-c2fe313d5d5.webp",
    "tit-concierto-ce53a136b34.webp",
-   "tit-concierto-cd0d26308f0.webp"
+   "tit-concierto-c5d39ed3442.webp"
   ],
   "teatro": [
    "tit-teatro-cbf74f6c47d.webp",
    "tit-teatro-c877499866c.webp",
-   "tit-teatro-cae448239ac.webp",
-   "tit-teatro-c4e295bc7d0.webp"
+   "tit-teatro-c4e295bc7d0.webp",
+   "tit-teatro-cae448239ac.webp"
   ],
   "museo": [
    "tit-museo-c527b2c375d.webp",
@@ -1237,35 +1264,41 @@
    "tit-rescate-monte-c3432e61dd0.webp",
    "tit-rescate-monte-c07bb86cd91.webp"
   ],
+  "bomberos-incendio": [
+   "tit-bomberos-incendio-ca611d939f5.webp",
+   "tit-bomberos-incendio-c07a48c7cc7.webp",
+   "tit-bomberos-incendio-c48a5991f4b.webp",
+   "tit-bomberos-incendio-ce43ee5de09.webp"
+  ],
   "policia": [
    "tit-policia-c34f73bffc4.webp",
    "tit-policia-c494d820d21.webp",
    "tit-policia-c21402cf574.webp",
-   "tit-policia-cc3c4defe60.webp"
+   "tit-policia-cb829332d57.webp"
   ],
   "ambulancia-hospital": [
    "tit-ambulancia-hospital-c08a7760ffc.webp",
    "tit-ambulancia-hospital-cf18ca2992d.webp",
    "tit-ambulancia-hospital-ce6d495e117.webp",
-   "tit-ambulancia-hospital-c995cecc774.webp"
+   "tit-ambulancia-hospital-c7cb2a70735.webp"
   ],
   "carretera": [
-   "tit-carretera-c0f9e67ebf2.webp",
    "tit-carretera-c02e715496a.webp",
-   "tit-carretera-ccba13ed73c.webp",
-   "tit-carretera-cde08dda0db.webp"
+   "tit-carretera-c7920c00e2b.webp",
+   "tit-carretera-ccb410c7b08.webp",
+   "tit-carretera-c348918fcda.webp"
   ],
   "rio-crecida": [
    "tit-rio-crecida-ca0fa09d953.webp",
    "tit-rio-crecida-c2128ac2015.webp",
    "tit-rio-crecida-c3c2a20f040.webp",
-   "tit-rio-crecida-c454ecff297.webp"
+   "tit-rio-crecida-c24ad302b04.webp"
   ],
   "nieve": [
    "tit-nieve-c9bbe0364c8.webp",
-   "tit-nieve-c3149921d43.webp",
-   "tit-nieve-c180bc1b416.webp",
-   "tit-nieve-c4ac35d97c7.webp"
+   "tit-nieve-cfe1def55df.webp",
+   "tit-nieve-cb7065b3d8d.webp",
+   "tit-nieve-cae5ac540c0.webp"
   ],
   "niebla-frio": [
    "tit-niebla-frio-c9f29b249a2.webp",
@@ -1273,11 +1306,17 @@
    "tit-niebla-frio-c37f509239a.webp",
    "tit-niebla-frio-cb08f0d02b1.webp"
   ],
+  "viento-temporal": [
+   "tit-viento-temporal-c9339a01379.webp",
+   "tit-viento-temporal-c60e11d4d3a.webp",
+   "tit-viento-temporal-c95c48357b2.webp",
+   "tit-viento-temporal-c3073a6b58f.webp"
+  ],
   "lluvia": [
    "tit-lluvia-c31b27c8a3c.webp",
-   "tit-lluvia-c585bbfad4a.webp",
-   "tit-lluvia-c299ca69bed.webp",
-   "tit-lluvia-ce44e816bb7.webp"
+   "tit-lluvia-c583a5dc67f.webp",
+   "tit-lluvia-ca79ef03029.webp",
+   "tit-lluvia-ce0f266f411.webp"
   ],
   "calor-sol": [
    "tit-calor-sol-cccedc26e83.webp",
@@ -1287,25 +1326,25 @@
   ],
   "parlamento-gobierno": [
    "tit-parlamento-gobierno-c1b2a525fad.webp",
-   "tit-parlamento-gobierno-c8e64f4c662.webp",
    "tit-parlamento-gobierno-c77968b0449.webp",
-   "tit-parlamento-gobierno-ce5d4408e31.webp"
+   "tit-parlamento-gobierno-ce5d4408e31.webp",
+   "tit-parlamento-gobierno-c11972f5623.webp"
   ],
   "universidad": [
    "tit-universidad-cc208489ed8.webp",
-   "tit-universidad-c6f0eed3157.webp",
-   "tit-universidad-c1ed34f454d.webp",
-   "tit-universidad-c6afd4aac46.webp"
+   "tit-universidad-c5e0a8e0d9d.webp",
+   "tit-universidad-c861d9e2d73.webp",
+   "tit-universidad-cf7c06a7c15.webp"
   ],
   "colegio": [
-   "tit-colegio-c12ed5111da.webp",
-   "tit-colegio-ccbdeb6b5f1.webp",
-   "tit-colegio-c4d3dd63bc3.webp",
-   "tit-colegio-c5dfb737d9a.webp"
+   "tit-colegio-cdb5d5ff64e.webp",
+   "tit-colegio-ce6cd3fc67d.webp",
+   "tit-colegio-c57fc2f116e.webp",
+   "tit-colegio-c061b5645dd.webp"
   ],
   "vivienda": [
-   "tit-vivienda-cf3b54afc6f.webp",
    "tit-vivienda-c7ba0d88c82.webp",
+   "tit-vivienda-cf3b54afc6f.webp",
    "tit-vivienda-c9d4b4b2b99.webp",
    "tit-vivienda-c22a4e758dc.webp"
   ],
@@ -1319,7 +1358,7 @@
    "tit-empresa-industria-ce91daefc55.webp",
    "tit-empresa-industria-c0e4120e076.webp",
    "tit-empresa-industria-c18de293d35.webp",
-   "tit-empresa-industria-c94e1e9865b.webp"
+   "tit-empresa-industria-cfd1f9e1baf.webp"
   ],
   "comercio": [
    "tit-comercio-c7d1cb7af17.webp",
@@ -1331,13 +1370,13 @@
    "tit-tudela-c0f07b53d05.webp",
    "tit-tudela-c2f5c61b1fe.webp",
    "tit-tudela-c119259b965.webp",
-   "tit-tudela-c09a14d83e5.webp"
+   "tit-tudela-cc2b80a2b0c.webp"
   ],
   "estella": [
    "tit-estella-c69e1b77054.webp",
    "tit-estella-ca2b2056a82.webp",
-   "tit-estella-c471e9c1b1d.webp",
-   "tit-estella-c92132f0061.webp"
+   "tit-estella-c92132f0061.webp",
+   "tit-estella-c471e9c1b1d.webp"
   ],
   "pamplona": [
    "tit-pamplona-c48992ce237.webp",
@@ -1346,9 +1385,9 @@
    "tit-pamplona-cbe5c55cfcc.webp"
   ],
   "pueblo": [
-   "tit-pueblo-cbaba1d9b1e.webp",
    "tit-pueblo-cc7370afb9d.webp",
    "tit-pueblo-c82a2b61bec.webp",
+   "tit-pueblo-c7a0cf8d575.webp",
    "tit-pueblo-c766c48723b.webp"
   ]
  }
