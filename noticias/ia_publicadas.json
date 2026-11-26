@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "40d8391c5555",
+   "pub": "2026-11-26T03:57Z",
+   "titulo": "Navarra detecta 794 casos de violencia contra mujeres en siete meses",
+   "texto": "El Servicio Navarro de Salud ha identificado 794 casos de violencia machista entre enero y julio de 2026, un 11% más que en el mismo período de 2025 (715 casos). Los datos se presentaron en una jornada sobre detección sanitaria de la violencia, con presencia del consejero de Salud Fernando Domínguez. La violencia física es la más frecuente (68% de los casos detectados en 2025), seguida de la sexual y psicológica. El incremento se atribuye a la Estrategia de Detección Temprana implantada en marzo de 2024, que incluye cribado a todas las mujeres mayores de 15 años en centros de salud y servicios de maternidad.",
+   "pueblo": "Navarra",
+   "cat": "Salud",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-navarra/salud-detecta-794-casos-de-violencia-contra-las-mujeres-hasta-julio-un-11-mas-que-en-el-mismo-periodo-de-2025/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-salud-detecta-794-casos-violencia-contra-mujeres-siete-primeros-meses-2026-11-mas-20261124132134.html"
+    }
+   ]
+  },
+  {
    "id": "7184ab4dbb1e",
    "pub": "2026-11-26T03:57Z",
    "titulo": "El Cima descubre cómo potenciar un anticuerpo contra tumores avanzados",
