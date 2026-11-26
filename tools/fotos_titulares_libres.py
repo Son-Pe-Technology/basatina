@@ -30,7 +30,7 @@ BUSCA = {
  "museo": ["Museo de Navarra Pamplona", "Museo Universidad de Navarra"],
  "libros": ["Biblioteca de Navarra", "biblioteca Pamplona"],
  "rescate-monte": ["Pirineo navarro montaña", "Mesa de los Tres Reyes"],
- "bomberos-incendio": ["Bomberos de Navarra", "parque de bomberos Pamplona", "camión de bomberos", "incendio forestal humo"],
+ "bomberos-incendio": ["Bomberos de Navarra", "parque de bomberos Navarra", "incendio forestal humo España"],
  "policia": ["Policía Foral de Navarra", "Policía Municipal de Pamplona", "Guardia Civil coche patrulla"],
  "ambulancia-hospital": ["Complejo Hospitalario de Navarra", "Hospital de Navarra Pamplona", "ambulancia Navarra", "ambulancia España"],
  "carretera": ["Autovía A-15 Navarra", "autovía Navarra", "carretera Navarra", "N-121 Navarra"],
@@ -38,7 +38,7 @@ BUSCA = {
  "nieve": ["nieve Belagua", "nieve Navarra", "nieve Pirineo navarro", "Larra nieve"],
  "niebla-frio": ["niebla Navarra", "helada Navarra"],
  "viento-temporal": ["parque eólico Navarra", "aerogeneradores Navarra", "Sierra del Perdón molinos", "nubes de tormenta"],
- "lluvia": ["lluvia Pamplona", "lluvia Navarra", "paraguas lluvia calle", "lluvia ventana gotas"],
+ "lluvia": ["lluvia Pamplona", "paraguas lluvia calle", "gotas de lluvia"],
  "calor-sol": ["Bardenas Reales", "verano Navarra campo"],
  "parlamento-gobierno": ["Parlamento de Navarra", "Palacio de Navarra Pamplona"],
  "universidad": ["Universidad Pública de Navarra campus", "Universidad de Navarra Pamplona edificio", "Universidad de Navarra campus Pamplona"],
@@ -76,10 +76,26 @@ QUITAR = {   # fotos de Commons que no queremos (revisadas a mano el 26 nov. 202
  'File:Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1217.jpg',
  'File:Toma de Posesión del Defensor del Pueblo de Navarra (51979120772).jpg',
  'File:Tudela - Hotel Santa Ana Tudela 2.jpg',
+ 'File:24 Denboraldia. Donostia.jpg',
+ 'File:Camión de Bomberos, Santiago A74181820240526.jpg',
+ 'File:Antiguo Camión de Bomberos A74181920240526.jpg',
+ 'File:Cuartel de Bomberos de la Boca 03 camión de bomberos antiguo.jpg',
+ 'File:2013ko Sanferminak 4.jpg',
+ 'File:Hospital de Navarra.jpg',
+ 'File:PH-CHN (16429449098).jpg',
+ 'File:A15 errepidea 1 - 94-001.jpg',
+ 'File:2007-08-15 Spain Mallorca Palma Port Costa Concordia.JPG',
+ 'File:Aralar, árboles 1990 04.jpg',
+ 'File:En la "frontera".jpg',
+ 'File:HectorCloud.jpg',
+ 'File:Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1065.jpg',
+ 'File:Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1161.jpg',
+ 'File:Tanque de amortiguacion de lluvias en Av. Ramon Anador entre Navarra y Maipu - 20220517dicimouysm1338.jpg',
+ 'File:Clínica Universidad de Navarra-Oratorio 02.jpg',
 }
 LIBRES = re.compile(r"^(cc0|public domain|pd|cc by(-sa)? ?[0-9.]*( [a-z]+)?|cc-by(-sa)?-[0-9.]+)", re.I)
 NO_VALE = re.compile(r"mapa|map\b|plano|escudo|coat of arms|logo|bandera|flag|diagram|grabado|dibujo|pintura|cuadro|retrato|portrait|"
-                     r"selfie|toma de posesi|charla|reunión|reunion|bel[eé]n|nativ|ermita|baseliza|iglesia|church|capilla|hotel|showcar|\bniñ[oa]s?\b|children|kids|desnud|nude|cartel|poster|panel|captura|screenshot", re.I)
+                     r"selfie|toma de posesi|charla|reunión|reunion|bel[eé]n|nativ|ermita|baseliza|iglesia|church|capilla|hotel|showcar|altar|retablo|crucero|cruise|aeropuerto|airport|avión|t[uú]nel|alcantarill|\bniñ[oa]s?\b|children|kids|desnud|nude|cartel|poster|panel|captura|screenshot", re.I)
 
 
 def get(u):
