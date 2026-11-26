@@ -41,4 +41,10 @@ function tarjeta(id,nombre,texto,url){
   let n=0;const sube=setInterval(()=>{const s=document.getElementById('t-mtiempo');if(s&&c.isConnected&&c.parentNode===s&&s.firstElementChild!==c)s.prepend(c);if(++n>8)clearInterval(sube);},700);}
 window.bnZorionak=(nombre,texto,url)=>tarjeta('znU',nombre,texto,url);
 ZN_FIJAS.filter(z=>z.f===hoy).forEach((z,i)=>tarjeta('znF'+i,z.n,z.t,z.u));
+// 🎂 el cumpleaños de cada usuario (Mi cuenta → «Mi cumpleaños», guardado como «MM-DD» en bnCumple): solo con la
+// sesión abierta y solo en sus móviles. El 29 de febrero se felicita el 28 los años que no son bisiestos.
+function miCumple(){let c='',p=null,ses=null;try{c=localStorage.getItem('bnCumple')||'';p=JSON.parse(localStorage.getItem('cuPerfil')||'null');ses=localStorage.getItem('cmAuth');}catch(e){}
+  if(!c||!ses||!p||!p.apodo)return;const md=hoy.slice(5),y=+hoy.slice(0,4),bis=(y%4===0&&y%100!==0)||y%400===0;
+  if(c===md||(c==='02-29'&&!bis&&md==='02-28'))tarjeta('znU',p.apodo,'¡Feliz cumpleaños! Que pases un día estupendo. Un abrazo de todo el equipo BasatiNA.','');}
+miCumple();setTimeout(miCumple,4000);   // por si la sesión o el perfil se cargan un poco después
 })();

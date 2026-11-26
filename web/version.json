@@ -1,5 +1,5 @@
 {
- "version": 598,
+ "version": 599,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -28,7 +28,7 @@
   "claves.js": "91e6cd855a6b88c3b97602fbded040e6266af997",
   "comunidad.js": "81665073553781413553dc898619750970bdf5fa",
   "cuadrilla.js": "f8852c6c03478b80eb8131aa6d7979bbcbe48337",
-  "cuenta.js": "23eeaa961ffe9b20786e90b2b4a2308a6cb771ea",
+  "cuenta.js": "4d9bc83347b90084db617fda039825a6ca296554",
   "curiosas.js": "7291e3870bd25337b93b2f079825a2ca2c8302cc",
   "deporte-rural.js": "2ea48eebce5c0e9dbc9431ff5563697718aa2d3e",
   "efemerides.js": "b4dea96ea7390c02d0e634b7f745f9f463bdba7a",
@@ -196,7 +196,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "6a7e2a1934d4ec046a278b22d63456352fdfa1a8",
-  "index.html": "e7822df207b1a0895399cdee6d7a623e52154afc",
+  "index.html": "07c8be6e38d2fd2bb7af11e5a0a9e370826241b0",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "e87919c68afd9ce60be3914681e43c6b1a7ffe5e",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
@@ -386,7 +386,7 @@
   "viaje.js": "eb7e77764e36f34236e97a2e8a03f92a2c44310f",
   "vivienda.js": "ce3e6e7063d10a77745f92621c0474b4b4355dc3",
   "voluntariado.js": "30e1b2f4a98a9fa5c46773ab5e80e809b36294c0",
-  "zorionak.js": "631a1536c24f10e37136008f5869596c243e2b2d"
+  "zorionak.js": "1ebf6cb4191b39859bf65fa87dd6f3320f8f42c9"
  },
  "apkUrl": "https://github.com/Son-Pe-Technology/basatina/releases/latest/download/BasatiNA.apk"
 }
