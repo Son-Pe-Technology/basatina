@@ -105,7 +105,7 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
 - Juego online (fase 2: parchís, UNO, chinchón contra la máquina; fase 3: online entre personas, mus al final): propuesto a Pedro el 21 nov. 2026.
 
 - **Asistente con IA dentro de la app**: solo con la clave protegida en un servidor, nunca en el repositorio público.
-- **Radar con previsión (Rainbow.ai)**: preparado, pero sin clave, porque pide tarjeta.
+- **Radar con previsión (Rainbow.ai), caché central (26 nov. 2026)**: los móviles **ya no llaman nunca a Rainbow** (en 12 días gastaron 8.100 de las 10.000 llamadas gratis del mes). El robot `tools/radar_rainbow.py` (`radar.yml`, cada 30 min) es el único que lo hace: pide la previsión de 4 h (6 fotogramas, zoom 7, 2 teselas) solo si RainViewer ve lluvia a menos de 250 km de Pamplona, le pone los colores de `RD_PAL` y la deja en la rama **`radar`** (`rainbow.json` + `radar/…png`, un solo commit que se sustituye). Lleva la cuenta en `estado.json` y reparte el cupo del ciclo (del 14 al 14): tope 8.500/mes (1.200 en el ciclo del 14 nov. al 14 dic. 2026). La clave la lee de Firestore `claves/app` con `FIREBASE_SA` (o del secreto `RAINBOW_KEY`). En la app, `web/radar-central.js` junta el pasado de RainViewer con esa previsión. **No volver a pedir teselas de Rainbow desde el móvil.**
 
 - **Novedades 13 nov. 2026** (`web/novedades.js`, versión de la APK 3.8 / código 18):
   - «BasatiNA» sale siempre con la **NA en rojo** (un vigilante cambia el texto en cualquier pantalla; en la web, `naRojo()` en `docs/index.html`).

@@ -1,0 +1,43 @@
+# 🌧️ Radar con previsión de Rainbow.ai pedido UNA vez para todos los móviles (tools/radar_rainbow.py). Cada 30 min.
+# El propio programa decide si toca pedir (reparte el cupo del mes y no pide si no llueve cerca).
+# Publica las teselas y rainbow.json en la rama «radar» (un solo commit que se sustituye cada vez, para no
+# llenar el repositorio de imágenes). Los móviles las leen con web/radar-central.js.
+name: Radar Rainbow (caché central)
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: radar-rainbow
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - name: Bajar la rama «radar» (lo publicado y la cuenta de llamadas)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: radar
+          path: prev
+      - name: Pedir la previsión a Rainbow si toca
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
+          RAINBOW_KEY: ${{ secrets.RAINBOW_KEY }}
+        run: |
+          pip install --quiet google-auth requests pillow
+          python3 tools/radar_rainbow.py
+      - name: Publicar en la rama «radar»
+        run: |
+          [ -f cambio ] || { echo "Nada nuevo que publicar"; exit 0; }
+          cd pub
+          git init -q -b radar
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -qm "Radar Rainbow: $(cat ../cambio)"
+          git push -f -q "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" radar
