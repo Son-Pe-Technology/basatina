@@ -1,6 +1,69 @@
 {
-"t": "2026-11-26T03:15Z",
+"t": "2026-11-26T04:28Z",
 "items": [
+{
+"t": "Un año después del incendio en Marcelo Celayeta, los vecinos siguen sin poder volver a sus casas: \"Es una faena que nos haya pasado esto a nuestra edad\"",
+"u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/26/ano-incendio-marcelo-celayeta-vecinos-siguen-volver-casas-faena-haya-pasado-esto-nuestra-edad-843781-16.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Sucesos"
+},
+{
+"t": "El Gobierno contradice la resolución por los 3 ceses en Medio Ambiente",
+"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/26/gobierno-contradice-resolucion-3-ceses-medio-ambiente-843792-15.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "Las obras del TAV avanzan, pero a un ritmo que aleja su puesta en marcha",
+"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/26/obras-tav-avanzan-ritmo-aleja-puesta-marcha-843767-15.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "Imanol Arregui: \"Es extraño preparar un partido contra el Xota. Nunca he tenido esa sensación\"",
+"u": "https://www.diariodenavarra.es/noticias/deportes/futbol-sala/2026/11/26/imanol-arregui-extrano-preparar-partido-xota-nunca-he-tenido-sensacion-843789-41.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "En venta un precioso dúplex para vivir en un entorno natural muy cerca de Pamplona",
+"u": "https://www.diariodenavarra.es/noticias/negocios/dn-inmo/2026/11/26/venta-precioso-duplex-vivir-entorno-natural-cerca-pamplona-843679-101.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Economía"
+},
+{
+"t": "El salmón, a examen: alternativas a un pescado que muere de éxito",
+"u": "https://www.diariodenavarra.es/noticias/vivir/vida-sana/2026/11/26/salmon-examen-alternativas-pescado-muere-exito-843770-115.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Sucesos"
+},
+{
+"t": "Egüés iniciará este jueves la colocación de cámaras en Gorraiz, Olaz y Sarriguren",
+"u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/26/eguees-iniciara-jueves-colocacion-camaras-gorraiz-olaz-sarriguren-843790-16.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "Los ayuntamientos navarros podrán cobrar más impuestos a los pisos turísticos",
+"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/26/ayuntamientos-navarros-podran-cobrar-impuestos-pisos-turisticos-843772-15.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "\"La comunicación forma parte de la labor asistencial y social del Hospital San Juan de Dios\"",
+"u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/2026/11/26/comunicacion-forma-parte-labor-asistencial-social-hospital-san-juan-dios-843736-84.html",
+"f": "Diario de Navarra",
+"d": "2026-11-26T04:00Z",
+"c": "Navarra"
+},
 {
 "t": "25 NOV 2026 | EL PARTIDAZO DE COPE",
 "u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/25-nov-2026-partidazo-cope-20261126_3482325.html",
@@ -42,13 +105,6 @@
 "f": "Navarra Capital",
 "d": "2026-11-25T21:45Z",
 "c": "Cultura"
-},
-{
-"t": "Clamor en Navarra contra la violencia machista",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/25/clamor-navarra-violencia-machista-843787-15.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T20:23Z",
-"c": "Navarra"
 },
 {
 "t": "La CNMV da luz verde a la OPA de Ohmnia Electronics por el total de Azkoyen",
@@ -114,6 +170,13 @@
 "c": "Navarra"
 },
 {
+"t": "Goles marcados con el corazón para Alma",
+"u": "https://www.diariodenavarra.es/noticias/navarra/tudela-ribera/2026/11/25/goles-marcados-corazon-alma-dnexclusivo-843740-22.html",
+"f": "Diario de Navarra",
+"d": "2026-11-25T18:00Z",
+"c": "Navarra"
+},
+{
 "t": "El Gobierno Foral destina 34,6 millones a escuelas infantiles municipales para 2026-2027",
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-educacion/el-gobierno-autoriza-un-gasto-de-346-millones-de-euros-para-financiar-la-gestion-de-las-escuelas-infantiles-navarras-de/",
 "f": "Pamplona Actual",
@@ -142,25 +205,11 @@
 "c": "Navarra"
 },
 {
-"t": "Los pasatiempos y los enigmas inundan la lista de libros más vendidos en Navarra",
-"u": "https://www.diariodenavarra.es/noticias/cultura-ocio/cultura/2026/11/25/pasatiempos-enigmas-inundan-lista-libros-vendidos-navarra-843759-104.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T17:27Z",
-"c": "El tiempo"
-},
-{
 "t": "Incendio impacta en vivienda de edificio de dos plantas en Villafranca",
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/un-incendio-afecta-a-una-vivienda-de-un-edificio-de-dos-plantas-en-villafranca/",
 "f": "Pamplona Actual",
 "d": "2026-11-25T17:10Z",
 "c": "Sucesos"
-},
-{
-"t": "La portuguesa Casais compra el 80% de la constructora navarra ACR",
-"u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/2026/11/25/portuguesa-casais-compra-80-constructora-navarra-acr-843754-84.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T16:49Z",
-"c": "Navarra"
 },
 {
 "t": "El potencial del vehículo autónomo Mula para aplicar tratamientos fitosanitarios en los viñedos",
@@ -175,13 +224,6 @@
 "f": "Pamplona Actual",
 "d": "2026-11-25T16:24Z",
 "c": "Economía"
-},
-{
-"t": "Herido grave un hombre de 55 años tras sufrir un accidente laboral en Artica",
-"u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/25/herido-grave-hombre-55-anos-sufrir-accidente-laboral-artica-843749-16.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T16:14Z",
-"c": "Sucesos"
 },
 {
 "t": "Compro Oro La Central Pamplona aterriza en Tafalla para revitalizar tus joyas y tesoros valiosos",
@@ -275,13 +317,6 @@
 "c": "Navarra"
 },
 {
-"t": "Tanto 23: \"Peio Etxeberria entró en modo supervivencia y ahí demostró madera de campeón\"",
-"u": "https://www.diariodenavarra.es/noticias/deportes/pelota/2026/11/25/tanto-23-peio-etxeberria-entro-supervivencia-demostro-madera-campeon-843721-47.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T12:18Z",
-"c": "Navarra"
-},
-{
 "t": "El Gobierno de Navarra recuerda la \"red pública de apoyo\" a las víctimas de violencia de género: \"No están solas\"",
 "u": "https://www.europapress.es/navarra/noticia-gobierno-navarra-recuerda-red-publica-apoyo-victimas-violencia-genero-no-estan-solas-20261125131632.html",
 "f": "Europa Press",
@@ -352,6 +387,13 @@
 "c": "Navarra"
 },
 {
+"t": "Especialistas del Cancer Center Clínica Universidad de Navarra trabajan en una nueva generación de protonterapia más precisa y adaptada a cada paciente",
+"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/25/especialistas-cancer-center-clinica-universidad-navarra-trabajan-nueva-generacion-protonterapia-precisa-adaptada-paciente-843692-15.html",
+"f": "Diario de Navarra",
+"d": "2026-11-25T09:44Z",
+"c": "Navarra"
+},
+{
 "t": "La Policía Foral destaca la \"atención y protección en cadena\" de sus unidades contra la violencia de género",
 "u": "https://www.europapress.es/navarra/noticia-policia-foral-destaca-atencion-proteccion-cadena-unidades-contra-violencia-genero-20261125102704.html",
 "f": "Europa Press",
@@ -364,13 +406,6 @@
 "f": "Ayuntamiento de Pamplona",
 "d": "2026-11-25T09:14Z",
 "c": "Navarra"
-},
-{
-"t": "Un hombre se descuelga con una cuerda de una vivienda tras discutir con su pareja",
-"u": "https://www.diariodenavarra.es/noticias/navarra/tudela-ribera/2026/11/25/hombre-descuelga-cuerda-vivienda-discutir-pareja-843685-22.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T09:07Z",
-"c": "Economía"
 },
 {
 "t": "Abierto el plazo para solicitar la inscripción en el Registro de Demandantes de Vivienda Municipal",
@@ -391,41 +426,6 @@
 "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-de-pamplona-conmemora-el-dia-internacional-contra-la-violencia",
 "f": "Ayuntamiento de Pamplona",
 "d": "2026-11-25T08:51Z",
-"c": "Navarra"
-},
-{
-"t": "El juez decomisa cuatro coches a Lázaro y su familia: dos para que los use la policía y dos para venderlos ya",
-"u": "https://www.diariodenavarra.es/noticias/navarra/tudela-ribera/2026/11/25/juez-decomisa-cuatro-coches-lazaro-familia-dos-use-policia-dos-venderlos-843639-22.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T04:00Z",
-"c": "Sucesos"
-},
-{
-"t": "Desayunar con pan recién hecho sin salir de casa: así funciona A Tu Puerta",
-"u": "https://www.diariodenavarra.es/noticias/vivir/gastronomia/2026/11/25/desayunar-pan-recien-hecho-salir-casa-asi-funciona-puerta-843596-109.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T04:00Z",
-"c": "Navarra"
-},
-{
-"t": "El 29N, inauguración de un gran buffet y barbacoa coreana en la comarca de Pamplona",
-"u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/25/29n-inauguracion-gran-buffet-barbacoa-coreana-comarca-pamplona-843636-16.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T04:00Z",
-"c": "Navarra"
-},
-{
-"t": "Las gafas de Visual Eyes: diseño y visión",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/25/gafas-visual-eyes-diseno-vision-811168-15.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T04:00Z",
-"c": "Navarra"
-},
-{
-"t": "Videncia sin cartas: Sonia Arrieta explica cómo trabaja con péndulo y runas",
-"u": "https://www.diariodenavarra.es/noticias/vivir/2026/11/25/videncia-cartas-sonia-arrieta-explica-trabaja-pendulo-runas-843476-108.html",
-"f": "Diario de Navarra",
-"d": "2026-11-25T04:00Z",
 "c": "Navarra"
 },
 {
@@ -457,17 +457,17 @@
 "c": "Navarra"
 },
 {
-"t": "Los Corresponsales Informativos de la Casa de la Juventud visitan los recursos culturales de Pamplona para conocer de primera mano la oferta de ocio y tiempo libre",
-"u": "https://www.pamplona.es/actualidad/noticias/los-corresponsales-informativos-de-la-casa-de-la-juventud-visitan-los-recursos",
+"t": "Los primeros datos de funcionamiento del sector 11 revelan que más de la mitad de las plazas disponibles han quedado a disposición para uso de las personas residentes",
+"u": "https://www.pamplona.es/actualidad/noticias/los-primeros-datos-de-funcionamiento-del-sector-11-revelan-que-mas-de-la-mitad",
 "f": "Ayuntamiento de Pamplona",
-"d": "2026-11-24T10:55Z",
-"c": "El tiempo"
+"d": "2026-11-24T14:18Z",
+"c": "Navarra"
 },
 {
-"t": "Adjudicado el contrato para desarrollar el programa educativo dirigido a estudiantes de Educación Primaria ‘Conozcamos Pamplona’",
-"u": "https://www.pamplona.es/actualidad/noticias/adjudicado-el-contrato-para-desarrollar-el-programa-educativo-dirigido",
+"t": "El Ayuntamiento de Pamplona refuerza el dispositivo de limpieza para retirar las 220 toneladas mensuales de hojas que se recogen durante los meses de otoño",
+"u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-de-pamplona-refuerza-el-dispositivo-de-limpieza-para-retirar",
 "f": "Ayuntamiento de Pamplona",
-"d": "2026-11-24T09:56Z",
+"d": "2026-11-24T10:44Z",
 "c": "Navarra"
 },
 {
