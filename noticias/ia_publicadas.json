@@ -1,6 +1,29 @@
 {
  "items": [
   {
+   "id": "5242c1ce29af",
+   "pub": "2026-11-26T16:02Z",
+   "titulo": "Comienzan las obras de la A-15 con paso para fauna entre Cintruénigo y Tudela",
+   "texto": "Ya se ejecutan los trabajos en el primer tramo de la autovía A-15 entre Cintruénigo y Tudela, con un presupuesto total de 143,7 millones de euros. Las tareas iniciales incluyen la reposición de caminos, drenaje y preparación de zonas de extracción de material. El elemento más destacado es un paso superior multifuncional sobre la actual AP-15 con una sección de seis metros dedicada al cruce de fauna, que se construirá en un año por 10,68 millones. Este paso permitirá mantener la circulación mientras avanzan las demás obras. Los siguientes tramos están en diferentes fases, según el Gobierno de Navarra y el Ministerio de Transportes.",
+   "pueblo": "Cintruénigo, Tudela",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/26/marcha-obras-autovia-15-conectara-navarra-madrid-843872-15.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/arrancan-las-obras-de-la-a-15-entre-cintruenigo-y-tudela-con-un-paso-de-fauna-de-1068-millones/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/magazine/sociedad/2026/11/26/alerta-posible-presencia-trozos-vidrio-bolsas-frutos-secos-marcas-843856-106.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "423ca3fb8735",
    "pub": "2026-11-26T13:46Z",
    "titulo": "Detenido en Milagro tras apuñalar a otro por una discusión sobre dinero",
@@ -733,26 +756,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "e70f7c847215",
-   "pub": "2026-11-24T09:30Z",
-   "titulo": "Recuperan en Reino Unido una virgen románica robada en Navarra en 1979",
-   "texto": "La Policía Nacional ha localizado en el Reino Unido una escultura de madera del siglo XIII que fue sustraída hace casi cinco décadas de una iglesia navarra. La talla, que mide 54,7 centímetros de alto, representa a una figura mariana con el Niño, aunque carece de antebrazos y conserva parte de su dorado original. Según las investigaciones, el robo fue atribuido a Erik el Belga, especializado en hurtos de obras religiosas en templos rurales españoles. La pieza fue expuesta en una feria de arte en Maastricht en 2020 antes de llegar a manos de un coleccionista británico, quien la entregó de forma voluntaria. La colaboración de la Policía Metropolitana de Londres permitió su regreso a España.",
-   "pueblo": "Meoz",
-   "cat": "Cultura",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-navarra/la-policia-nacional-recupera-en-reino-unido-una-virgen-romanica-del-siglo-xiii-robada-en-1979-en-la-iglesia-de-meoz/"
-    },
-    {
-     "f": "COPE",
-     "u": "https://www.cope.es/emisoras/navarra/noticias/recuperan-reino-unido-talla-romanica-erik-belga-robo-navarra-47-anos-20261123_3480072.html"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-26T13:18Z"
+ "t": "2026-11-26T16:02Z"
 }
