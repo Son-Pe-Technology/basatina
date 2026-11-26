@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "11567e48c0b2",
+   "pub": "2026-11-26T11:25Z",
+   "titulo": "Ysium Medical busca socios europeos para proyectos de formación sanitaria",
+   "texto": "La empresa navarra de simuladores médicos Ysium Medical se ha inscrito en la plataforma EDF Partner Pool para acceder a financiación del Fondo Europeo de Defensa. Paula Romano, con experiencia en ensayos clínicos, coordenará la búsqueda de aliados internacionales para desarrollar propuestas de investigación. La compañía, que fabrica dispositivos de alto realismo para entrenar profesionales sanitarios, aspira a liderar un consorcio europeo en 2027. El programa europeo dotado con casi 7.300 millones hasta 2027 financia proyectos colaborativos entre entidades de varios países.",
+   "pueblo": "Navarra",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/la-navarra-ysium-medical-ficha-a-paula-romano-como-responsable-de-proyectos-europeos/"
+    }
+   ]
+  },
+  {
    "id": "9c652b53d4e9",
    "pub": "2026-11-26T09:20Z",
    "titulo": "Grupo Virto gana la primera edición de 'La Voz de la Empresa Familiar'",
@@ -741,29 +755,6 @@
     {
      "f": "Pamplona Actual",
      "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/guardia-civil-detecta-irregularidades-sanitarias-en-una-venta-ambulante-de-pescado-en-castejon/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "9c923bf1e5ab",
-   "pub": "2026-11-23T21:52Z",
-   "titulo": "Budimir destaca la importancia de cerrar encuentros tras vencer al Málaga",
-   "texto": "Ante Budimir, autor del gol en la victoria de Osasuna ante el Málaga (1-0) del domingo, analizó el partido en declaraciones a DAZN. El delantero reconoció que el conjunto andaluz presentó una defensa más sólida en los últimos encuentros, lo que complicó el desarrollo del partido. Budimir lamentó no haber aprovechado las ocasiones del primer tiempo para sentenciar, evitando así el sufrimiento posterior. Pidió más efectividad en ataque para cerrar los encuentros antes. El jugador ve la victoria como un impulso anímico de cara al próximo duelo ante el Valencia.",
-   "pueblo": "Pamplona",
-   "cat": "Deportes",
-   "fuentes": [
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/22/reflexion-budimir-fuego-nace-chispa-pequena-final-grande-843418-32.html"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/22/civil-budimir-843405-32.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/budimir-hay-que-tener-mas-maldad-en-el-ultimo-cuarto-de-campo-para-cerrar-los-partidos/"
     }
    ],
    "auto": true
