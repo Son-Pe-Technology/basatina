@@ -1,5 +1,5 @@
 {
- "version": 595,
+ "version": 596,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -196,7 +196,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "6a7e2a1934d4ec046a278b22d63456352fdfa1a8",
-  "index.html": "06866e3f3f9cf3ecc9cb3f4b460fe3ebef7c6c39",
+  "index.html": "d10fdb17aeab228c6c26882223c24a92a3b4404d",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "e87919c68afd9ce60be3914681e43c6b1a7ffe5e",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
@@ -209,6 +209,7 @@
   "juegos3.js": "ddc739b99ded24ba97d43fe775c39436598b98ae",
   "legal.js": "2aecf61d0b765f548ed1366a60f701a1bd53b4c0",
   "lluvia-aviso.js": "23b0066fcbe71220cd8fecaa6377a9f1a9119e83",
+  "lluvia-pueblos.js": "43d0cb946f88174931583834551cb4cc5747640e",
   "logo.jpg": "442927f2c4c5495089c0bd56e454ddc6a4223411",
   "logo.png": "5a4acff3ebac8e7b2e2be74d99bf5a3652086fe3",
   "mapa-elevado.js": "9e3bae6222c198cdabbcd93a099f0634b4ade856",

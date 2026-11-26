@@ -1,0 +1,36 @@
+# 🌧️ Lluvia de las próximas 6 horas, de 15 en 15 minutos, en ~260 puntos de Navarra (tools/lluvia_pueblos.py). Cada hora.
+# Publica lluvia.json en la rama «lluvia» (un solo commit que se sustituye cada vez). La app lo lee con web/lluvia-pueblos.js.
+name: Lluvia en los pueblos (Open-Meteo)
+on:
+  schedule:
+    - cron: '12 * * * *'
+  push:
+    branches: [main]
+    paths: ['tools/lluvia_pueblos.py', '.github/workflows/lluvia.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: lluvia-pueblos
+jobs:
+  lluvia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools
+            web/pueblos.js
+          sparse-checkout-cone-mode: false
+      - name: Pedir la lluvia a Open-Meteo
+        run: python3 tools/lluvia_pueblos.py
+      - name: Publicar en la rama «lluvia»
+        run: |
+          [ -f cambio ] || { echo "Nada nuevo que publicar"; exit 0; }
+          cd pub
+          git init -q -b lluvia
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -qm "Lluvia en los pueblos (Open-Meteo)"
+          git push -f -q "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" lluvia
