@@ -504,6 +504,10 @@ public class MainActivity extends Activity {
             PushService.mostrar(MainActivity.this, "avisos", "📲 Prueba de aviso al momento", "Así te llegarán los avisos de BasatiNA.", "ajustes");
         }
 
+        /** 🔔 Probar avisos (26 nov. 2026): un aviso de prueba de cada tipo, por su canal de verdad (RiverJob.probar) */
+        @JavascriptInterface
+        public void probarAviso(String tipo) { RiverJob.probar(MainActivity.this, tipo); }
+
         @JavascriptInterface
         public void testAlert() {
             RiverJob.notify(MainActivity.this, "🔔 Prueba de aviso", "Así te llegarán los avisos del río Arga.", 9);

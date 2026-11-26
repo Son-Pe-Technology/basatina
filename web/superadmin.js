@@ -105,6 +105,10 @@ svSec('superadm',`<div id="sadBody"></div>`);
 Object.assign(TITLES,{superadm:'⭐ Panel de administración'});
 try{PVS_ESC.superadm='pueblo';}catch(e){}
 
+/* 🔔 Probar avisos (26 nov. 2026, lo pidió Pedro): un botón por tipo de aviso → AndroidNet.probarAviso (APK 5.8) */
+const PA=[['lluvia','🌧️ Lluvia'],['tormenta','⛈️ Lluvia fuerte'],['viento','💨 Viento'],['helada','🥶 Helada'],['calor','🥵 Calor y UV'],['niebla','🌫️ Niebla'],
+  ['rio','🌊 Río, carreteras y monte'],['sismo','🌍 Terremoto'],['desaparecidos','🆘 Desaparecidos'],['push','📲 Avisos de BasatiNA'],['admin','⭐ Algo por revisar'],
+  ['dato','💡 Dato del día'],['curiosa','😄 Noticia curiosa']];
 function abrirMod(){showTab('comunidad');setTimeout(()=>{const b=$('cmModB');if(b)b.click();},250);}
 function abrirIA(){showTab('noticias');setTimeout(()=>{const a=$('iaAdm');if(a)a.scrollIntoView({behavior:'smooth',block:'start'});},900);}
 
@@ -127,6 +131,8 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
    <div class="card" id="sadPush"><b>🔔 Avisarme en el móvil</b><div class="note" style="margin-top:4px;line-height:1.5">Te llega un aviso en cuanto haya algo nuevo por revisar (noticias de la IA, refranes, fotos, alertas ciudadanas o denuncias), aunque tengas la app cerrada. Al tocarlo se abre este panel. De 23:00 a 7:00 no suena: lo que entre de noche te llega a las 7.</div>
      ${window.puAdmin&&puAdmin.puede()?`<label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="sadPu" ${puAdmin.on()?'checked':''}><b>Avisarme de lo pendiente</b></label>`:'<div class="note" style="margin-top:6px">⚠️ Hace falta la app 5.7 o más nueva (Google Play).</div>'}
      <div class="note" style="margin-top:6px">También avisa de las fotos que manda la gente (y además llegan por correo a participa@basatina.es).</div></div>
+   <div class="card" id="sadPA"><b>🔔 Probar avisos</b><div class="note" style="margin-top:4px;line-height:1.5">Toca uno y te llega al momento un aviso de prueba, con su sonido de verdad. Si alguno no suena, mira en los ajustes del móvil (Aplicaciones → BasatiNA → Notificaciones) que esa categoría no esté silenciada, y que el volumen de notificaciones esté subido.</div>
+     ${window.AndroidNet&&AndroidNet.probarAviso?`<div class="sadHerr">${PA.map(([k,t])=>`<button data-pa="${k}">${t}</button>`).join('')}</div>`:'<div class="note" style="margin-top:6px">⚠️ Hace falta la app 5.8 o más nueva (Google Play).</div>'}</div>
    <div class="card" id="sadRfC"><b>🗣️ Refranes por aprobar</b>${(P.rfL||[]).length?P.rfL.map(r=>`<div class="sadFila" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${X(r.t)}»</div>${r.s?`<div class="note">${X(r.s)}</div>`:''}<div class="note">📍 ${X(r.p||'sin pueblo')}${r.creado?' · '+X(new Date(r.creado).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})):''}</div>
      <div class="row" style="gap:6px;margin-top:6px"><button class="btn pri" data-rfok="${X(r.id)}">✅ Publicar</button><button class="btn" data-rfno="${X(r.id)}">🗑️ Eliminar</button></div></div>`).join(''):`<div class="note" style="margin-top:6px">${P.refranes==null?'No se han podido mirar (¿están publicadas las reglas nuevas de Firestore?).':'No hay ninguno esperando. 👍'}</div>`}</div>
    <div class="card"><b>🛠️ Herramientas</b><div class="sadHerr">
@@ -145,6 +151,7 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
     try{await fn();toast(txt);}catch(e){toast('❌ '+e.message);}await pendientes(true);panel();};
   el.querySelectorAll('[data-rfok]').forEach(b=>b.onclick=()=>rfHecho(b,()=>window.RFX.aprobar(b.dataset.rfok),'✅ Refrán publicado'));
   el.querySelectorAll('[data-rfno]').forEach(b=>b.onclick=()=>{if(confirm('¿Eliminar este refrán? No se publicará.'))rfHecho(b,()=>window.RFX.eliminar(b.dataset.rfno),'🗑️ Refrán eliminado');});
+  el.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>{try{AndroidNet.probarAviso(b.dataset.pa);toast('🔔 Prueba enviada: '+b.textContent);}catch(e){toast('❌ No se pudo lanzar la prueba');}});
   const pu=$('sadPu');if(pu)pu.onchange=()=>{puAdmin.pon(pu.checked);toast(pu.checked?'🔔 Te avisaremos de lo pendiente':'🔕 Avisos de lo pendiente apagados');};
   el.querySelectorAll('[data-hx]').forEach(b=>b.onclick=()=>{const h=herr[+b.dataset.hx];if(h)h.click();try{menu(false);}catch(e){}});
   $('sadRf').onclick=async()=>{$('sadRf').disabled=true;await pendientes(true);panel();claves();gastoIA();};
