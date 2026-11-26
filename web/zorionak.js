@@ -24,10 +24,19 @@ const st=document.createElement('style');st.textContent=`
 .znC canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}`;
 document.head.appendChild(st);
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function confeti(cv){const x=cv.getContext('2d'),k=window.devicePixelRatio||1,W=cv.clientWidth,H=cv.clientHeight;cv.width=W*k;cv.height=H*k;x.scale(k,k);
-  const col=['#c62828','#ffb300','#2e6b2f','#1e88e5','#8e24aa'],P=[];for(let i=0;i<70;i++)P.push({x:Math.random()*W,y:-Math.random()*H,v:1+Math.random()*2,r:3+Math.random()*3,a:Math.random()*6,c:col[i%5]});
-  let t=0;(function f(){x.clearRect(0,0,W,H);for(const p of P){p.y+=p.v;p.a+=.1;x.save();x.translate(p.x+Math.sin(p.a)*3,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore();}
-    if(++t<240)requestAnimationFrame(f);else x.clearRect(0,0,W,H);})();}
+// confeti en movimiento: una lluvia fuerte al salir y después cae suave sin parar mientras se ve la tarjeta
+function confeti(cv){if(cv._on){cv._mas=70;return;}cv._on=1;const x=cv.getContext('2d'),k=window.devicePixelRatio||1;let W=0,H=0;
+  const col=['#c62828','#ffb300','#2e6b2f','#1e88e5','#8e24aa'],P=[];
+  const nuevo=arriba=>({x:Math.random()*W,y:arriba?-10-Math.random()*20:-Math.random()*H,v:.6+Math.random()*1.6,r:3+Math.random()*3,a:Math.random()*6,va:(Math.random()-.5)*.2,c:col[(Math.random()*5)|0]});
+  (function f(){if(!cv.isConnected)return;
+    if(cv.clientWidth!==W||cv.clientHeight!==H){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*k;cv.height=H*k;x.setTransform(k,0,0,k,0,0);}
+    if(!P.length)for(let i=0;i<70;i++)P.push(nuevo(false));
+    if(cv._mas){for(let i=0;i<cv._mas;i++)P.push(nuevo(true));cv._mas=0;}
+    x.clearRect(0,0,W,H);
+    for(let i=P.length-1;i>=0;i--){const p=P[i];p.y+=p.v;p.a+=p.va;
+      if(p.y>H+10){if(P.length>28)P.splice(i,1);else Object.assign(p,nuevo(true));continue;}   // se queda en unos 28 trocitos cayendo
+      x.save();x.translate(p.x+Math.sin(p.a*2)*3,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore();}
+    requestAnimationFrame(f);})();}
 function abre(u){try{if(typeof APP!=='undefined'&&APP&&window.AndroidNet&&window.AndroidNet.openUrl)window.AndroidNet.openUrl(u);else window.open(u,'_blank');}catch(e){}}
 function tarjeta(id,nombre,texto,url){
   const S=document.getElementById('t-mtiempo');if(!S||document.getElementById(id))return;
