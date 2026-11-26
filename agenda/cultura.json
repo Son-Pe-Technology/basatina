@@ -183,19 +183,6 @@
    "src": "Cultura Navarra"
   },
   {
-   "id": "cneltxokodelacooperacion20261109",
-   "t": "El txoko de la cooperación",
-   "cat": "expo",
-   "f": "2026-11-09",
-   "ff": "2026-11-25",
-   "h": "",
-   "lugar": "Biblioteca de Navarra. Pasillo Planta 1",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-09/exposiciones/el-txoko-de-la-cooperacion",
-   "desc": "Exposición",
-   "src": "Cultura Navarra"
-  },
-  {
    "id": "paexposicionkanthoriaetaautotuneaunviajepo20261111",
    "t": "Kanthoria eta auto-tunea: un viaje por la historia de la música en euskera",
    "cat": "concierto",
@@ -235,81 +222,16 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "padiainternacionaldelaeliminaciondelaviole20261125",
-   "t": "Día Internacional de la Eliminación de la Violencia contra las Mujeres 2026",
-   "cat": "otros",
-   "f": "2026-11-25",
-   "ff": "",
-   "h": "11:00",
-   "lugar": "",
+   "id": "paexposicionelbondehace100anosduela100urte20261124",
+   "t": "El BON de hace 100 años / Duela 100 urteko NAO",
+   "cat": "expo",
+   "f": "2026-11-24",
+   "ff": "2026-12-16",
+   "h": "",
+   "lugar": "Parlamento de Navarra - Oficinas Generales",
    "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/dia-internacional-de-la-eliminacion-de-la-violencia-contra-las-mujeres-2026",
-   "desc": "",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "patallercienciaparatodostallerdenanocapsul20261125",
-   "t": "Ciencia para todos: Taller de nanocápsulas",
-   "cat": "otros",
-   "f": "2026-11-25",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Biblioteca Pública de Iturrama",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/taller-ciencia-para-todos-taller-de-nanocapsulas-biblioteca-de-iturrama-0",
-   "desc": "Taller",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cnkamishibai4020261125",
-   "t": "Kamishibai",
-   "cat": "teatro",
-   "f": "2026-11-25",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Biblioteca de Navarra. Sala infantil",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-25/cuentacuentos/kamishibai-40",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "papresentaciondepoemarionadirbibliotecayam20261125",
-   "t": "Nadir",
-   "cat": "charla",
-   "f": "2026-11-25",
-   "ff": "",
-   "h": "18:30",
-   "lugar": "Biblioteca Pública de Yamaguchi",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/presentacion-de-poemario-nadir-biblioteca-yamaguchi",
-   "desc": "Presentación de poemario",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paciclolaciudadenelcineclasicoiicineunodos20261125",
-   "t": "Cine - Uno, dos, tres",
-   "cat": "cine",
-   "f": "2026-11-25",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Filmoteca de Navarra",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/ciclo-la-ciudad-en-el-cine-clasico-ii-cine-uno-dos-tres-filmoteca-de-navarra",
-   "desc": "Ciclo La ciudad en el cine clásico II",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "papresentacionlibroloquenavarraesconde50hi20261125",
-   "t": "Lo que Navarra esconde. 50 historias, curiosidades y secretos de nuestra tierra",
-   "cat": "charla",
-   "f": "2026-11-25",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "El Corte Inglés",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/presentacion-libro-lo-que-navarra-esconde-50-historias-curiosidades-y-secretos",
-   "desc": "Presentación libro",
+   "url": "https://www.pamplona.es/actualidad/eventos/exposicion-el-bon-de-hace-100-anos-duela-100-urteko-nao-parlamento-de-navarra",
+   "desc": "Exposición",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -2016,6 +1938,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "panavidad2026lanochedelbelenbaluarte20261226",
+   "t": "La Noche del Belén",
+   "cat": "otros",
+   "f": "2026-12-26",
+   "ff": "",
+   "h": "",
+   "lugar": "Baluarte - Palacio de Congresos y Auditorio de Navarra",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/navidad-2026-la-noche-del-belen-baluarte",
+   "desc": "Navidad 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "panavidadenlacalleactuaciondeoskiatxistula20261226",
    "t": "Navidad en la calle. Actuación de Oskia Txistulari Taldea",
    "cat": "otros",
@@ -2237,6 +2172,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "panavidadenlacalleactuaciondegaiterosdesan20261227",
+   "t": "Navidad en la calle. Actuación de Gaiteros de Sandua",
+   "cat": "otros",
+   "f": "2026-12-27",
+   "ff": "",
+   "h": "",
+   "lugar": "",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/navidad-en-la-calle-actuacion-de-gaiteros-de-sandua-0",
+   "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "panavidadenlacalleactuaciondegaiterosdulza20261227",
    "t": "Navidad en la calle. Actuación de Gaiteros-Dulzaineros de Pamplona Ezpelur",
    "cat": "otros",
@@ -2315,6 +2263,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "panavidadenlacalleactuaciondelgrupofolclor20261227",
+   "t": "Navidad en la calle. Actuación del Grupo folclórico Raíces y Brotes del Hogar Extremeño de Navarra",
+   "cat": "otros",
+   "f": "2026-12-27",
+   "ff": "",
+   "h": "",
+   "lugar": "",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/navidad-en-la-calle-actuacion-del-grupo-folclorico-raices-y-brotes-del-hogar-0",
+   "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "panavidadconciertovocesahotsakgaztelu20261227",
    "t": "Navidad. Concierto Voces Ahotsak Gaztelu",
    "cat": "concierto",
@@ -2325,6 +2286,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/navidad-concierto-voces-ahotsak-gaztelu",
    "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pafestivalsantaspascuas2026conciertoenaute20261228",
+   "t": "Concierto",
+   "cat": "concierto",
+   "f": "2026-12-28",
+   "ff": "",
+   "h": "20:30",
+   "lugar": "Zentral Café Teatro",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/festival-santas-pascuas-2026-concierto-enaut-elorrieta",
+   "desc": "Festival Santas Pascuas 2026",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -2354,5 +2328,5 @@
    "src": "Cultura Navarra"
   }
  ],
- "act": "2026-11-25 06:27"
+ "act": "2026-11-26 06:25"
 }
