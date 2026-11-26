@@ -1,5 +1,5 @@
 {
- "version": 594,
+ "version": 595,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -196,7 +196,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "6a7e2a1934d4ec046a278b22d63456352fdfa1a8",
-  "index.html": "d8793feff6900e8f99a52106bbf368911662d902",
+  "index.html": "06866e3f3f9cf3ecc9cb3f4b460fe3ebef7c6c39",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "e87919c68afd9ce60be3914681e43c6b1a7ffe5e",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
@@ -233,6 +233,7 @@
   "pnoa14.jpg": "f0f3b88c53d5b4d1b7c3c4c6a46279842323a159",
   "pueblos.js": "30709b22fd587e33202739919cf9ddd8892104d4",
   "push.js": "34a3c0122f5a6856516c62e20472f0a6e659260c",
+  "radar-central.js": "b9edd89bcd2289670ef3b1b0d0231e84a5a25699",
   "radar-viva.js": "a98485eeea6553baac6e2be77263faa5bcc61838",
   "relax.js": "5da061a10b6e516428eeb8e968478e323614b20a",
   "rios-plus.js": "5192291277dd6af85ec7d7205cb10b82fdd929fa",
