@@ -772,4 +772,46 @@ public class RiverJob extends JobService {
                 .setContentIntent(pi).setAutoCancel(true);
         try { nm.notify(id, b.build()); } catch (SecurityException ignored) {}
     }
+    /* ---------- 🔔 Probar avisos (26 nov. 2026, lo pidió Pedro; APK 5.8 / código 38) ----------
+       Lanza al momento un aviso de prueba de cada tipo POR SU CANAL DE VERDAD, para oír exactamente cómo suena en el móvil
+       (mismo sonido, mismo volumen, y si el canal está silenciado en los ajustes del móvil, tampoco suena: así se nota).
+       Se usan números de aviso propios (900+) para no pisar avisos reales. Lo llama AndroidNet.probarAviso(tipo). */
+    static void probar(Context c, String tipo) {
+        String P = "🔔 Prueba · ";
+        switch (tipo == null ? "" : tipo) {
+            case "lluvia": notifySonido(c, CH_LLUVIA_S, "Aviso de lluvia", "Cuando va a llover en la zona que eliges (suena a lluvia)",
+                    P + "🌧️ Lluvia", "Así suena el aviso de lluvia.", 900, R.raw.lluvia); break;
+            case "tormenta": notifySonido(c, CH_TORMENTA, "Aviso de lluvia fuerte", "Lluvia fuerte o muy fuerte en la zona que eliges (suena a tormenta)",
+                    P + "⛈️ Lluvia fuerte", "Así suena el aviso de lluvia fuerte (con truenos).", 901, R.raw.tormenta); break;
+            case "viento": notifySonido(c, CH_VIENTO, "Aviso de viento", "Rachas de viento fuertes en la zona que eliges (suena a viento)",
+                    P + "💨 Viento", "Así suena el aviso de viento.", 902, R.raw.viento); break;
+            case "helada": notifySonido(c, CH_HELADA, "Aviso de helada", "Cuando va a helar esta noche donde estás (suena a hielo)",
+                    P + "🥶 Helada", "Así suena el aviso de helada.", 903, R.raw.helada); break;
+            case "calor": notifySonido(c, CH_CALOR, "Aviso de calor y UV", "Calor fuerte o índice UV muy alto donde estás (suena a chicharras)",
+                    P + "🥵 Calor y UV", "Así suena el aviso de calor y UV.", 904, R.raw.calor); break;
+            case "niebla": notifySonido(c, CH_NIEBLA, "Aviso de niebla", "Niebla por la mañana donde estás (suena a sirena de niebla)",
+                    P + "🌫️ Niebla", "Así suena el aviso de niebla.", 905, R.raw.niebla); break;
+            case "rio": notify(c, P + "🌊 Río, carreteras, nieve y monte", "Así suenan los avisos del río, las carreteras, la nieve en los puertos y el buen finde para el monte.", 906); break;
+            case "sismo": notifyCh(c, CH_SISMO, "Actividad sísmica", "Aviso cuando hay un terremoto en Navarra o alrededores",
+                    P + "🌍 Terremoto", "Así suena el aviso de terremoto.", 907); break;
+            case "dato": canal(c, CH_DATO, "Dato del día", "Un dato histórico o curioso de Navarra cada mañana", NotificationManager.IMPORTANCE_DEFAULT, R.raw.suave);
+                prueba(c, CH_DATO, P + "💡 Dato del día", "Así suena el dato del día.", 908); break;
+            case "curiosa": canal(c, CH_CUR, "Noticia curiosa", "Una noticia simpática por la mañana, por la tarde y por la noche", NotificationManager.IMPORTANCE_DEFAULT, R.raw.suave);
+                prueba(c, CH_CUR, P + "😄 Noticia curiosa", "Así suena la noticia curiosa.", 909); break;
+            case "push": canales(c); prueba(c, "push_avisos_2", P + "📲 Avisos de BasatiNA", "Así suenan los avisos al momento de BasatiNA.", 910); break;
+            case "desaparecidos": canales(c); prueba(c, "push_desaparecidos_2", P + "🆘 Personas desaparecidas", "Así suena la alerta de personas desaparecidas.", 911); break;
+            case "admin": canales(c); prueba(c, "push_avisos_2", P + "⭐ Algo por revisar", "Así suena el aviso a los administradores cuando hay algo pendiente.", 912); break;
+        }
+    }
+
+    /** Aviso de prueba en un canal que ya existe (lo crea antes quien llama, con su sonido) */
+    static void prueba(Context c, String ch, String title, String text, int id) {
+        NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+        PendingIntent pi = PendingIntent.getActivity(c, 0, new Intent(c, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
+        android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, ch) : new android.app.Notification.Builder(c);
+        b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(title).setContentText(text)
+                .setStyle(new android.app.Notification.BigTextStyle().bigText(text))
+                .setContentIntent(pi).setAutoCancel(true);
+        try { nm.notify(id, b.build()); } catch (SecurityException ignored) {}
+    }
 }
