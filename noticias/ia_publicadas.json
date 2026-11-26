@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "9b507c45d26f",
+   "pub": "2026-11-26T04:01Z",
+   "titulo": "Robos en Gorráiz generan malestar vecinal por falta de respuestas",
+   "texto": "La Asociación de Vecinos de Gorráiz ha expresado su preocupación tras nuevos robos en el barrio. Según el Diario de Navarra, se han producido sustracciones de joyas y dinero. Los vecinos denuncian la falta de actuaciones concretas de la Policía Municipal y el Ayuntamiento ante esta situación. La asociación ha pedido soluciones preventivas y mayor presencia de fuerzas de seguridad en la zona.",
+   "pueblo": "Pamplona",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/25/nueva-robo-joyas-dinero-gorraiz-gota-colmado-vaso-843710-15.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-opinion/politicamente-incorrectos-gorraiz-se-blinda/"
+    }
+   ]
+  },
+  {
    "id": "b2dd6cf31d6c",
    "pub": "2026-11-26T04:00Z",
    "titulo": "Navarra ofertará 1.314 empleos públicos en 2026 tras acuerdo con sindicatos",
@@ -777,25 +795,6 @@
     {
      "f": "Ayuntamiento de Pamplona",
      "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-sorteara-461-abonos-anuales-para-las-instalaciones-deportivas"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "c1b6225970ce",
-   "pub": "2026-11-23T19:45Z",
-   "titulo": "Osasuna visitará al Amorebieta en segunda ronda de Copa del Rey",
-   "texto": "El sorteo de la Copa del Rey celebrado este lunes ha emparejado a Osasuna con la SD Amorebieta para disputar la segunda eliminatoria. El encuentro será en el Campo Municipal de Urritxe entre el 1 y el 3 de diciembre, con el conjunto navarro como visitante. El Amorebieta, que compite en Segunda Federación, accedió a esta ronda tras vencer 1-0 a Logroñés. El sorteo, dirigido por Rafael Louzán, aplicó criterios de proximidad geográfica dividiendo a los participantes en dos grupos según su ubicación en España.",
-   "pueblo": "Pamplona",
-   "cat": "deporte",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/la-copa-del-rey-mapfre-define-el-camino-hacia-los-dieciseisavos-de-final/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/23/osasuna-equipo-2a-rfef-enfrentara-segunda-ronda-copa-rey-843478-32.html"
     }
    ],
    "auto": true
