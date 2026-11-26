@@ -545,10 +545,10 @@ def puntos_interes(lin):
             key = (tp, nm or f"{it[0]:.4f},{it[1]:.4f}")
             if key not in vistos or d < vistos[key][0]: vistos[key] = (d, k * 0.025, tp, nm, it[0], it[1], ele)
     out = sorted(vistos.values(), key=lambda v: v[1])
-    # sin nombre y repetidos muy juntos (p. ej. tres fuentes en 100 m): se queda uno
+    # del mismo tipo y muy juntos (p. ej. cinco dólmenes del mismo collado o tres fuentes en 100 m): se queda uno
     res = []
     for d, kmx, tp, nm, la, lo, ele in out:
-        if not nm and any(r[1] == tp and abs(r[0] - kmx) < 0.3 for r in res): continue
+        if any(r[1] == tp and abs(r[0] - kmx) < 0.3 for r in res): continue
         res.append([round(kmx, 1), tp, nm or NOM_POI[tp], round(la, 5), round(lo, 5)])
     return res[:30]
 

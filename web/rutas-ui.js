@@ -188,6 +188,8 @@ function ruLista(mas) {
 
 // ---------- ficha de una ruta ----------
 function ruFicha(r) {
+  // puntos de interés: del mismo tipo y a menos de 300 m (p. ej. cinco dólmenes del mismo collado) sale solo el primero
+  if (r.wp && !r._wpf) {const o = []; r.wp.forEach(w => {if (!o.some(v => v[1] === w[1] && Math.abs(v[0] - w[0]) < 0.3)) o.push(w);}); r.wp = o; r._wpf = 1;}
   RU.sel = r; RU.pt = null; RU.scroll = window.scrollY;
   // la ficha ocupa un paso en el historial: el «atrás» del móvil la cierra y vuelve a la lista
   if (!(history.state && history.state.ruta)) history.pushState({t: 'monte', ruta: 1}, '');
