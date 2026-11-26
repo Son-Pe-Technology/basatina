@@ -1,5 +1,5 @@
 {
- "version": 582,
+ "version": 583,
  "apk": 37,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -194,9 +194,9 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "6a7e2a1934d4ec046a278b22d63456352fdfa1a8",
-  "index.html": "a91576b081178a85a27d6eb423f569d56b1691db",
+  "index.html": "f95e4bf25ac93d211f2dc790bab237fbf09e3ae1",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
-  "inicio-foto.js": "3a24af8048df70db56ced8a8ad32236d59808bcd",
+  "inicio-foto.js": "e87919c68afd9ce60be3914681e43c6b1a7ffe5e",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
   "inicio-vivo.js": "cc153909045bc9d63e176ea21a235c218248f790",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
