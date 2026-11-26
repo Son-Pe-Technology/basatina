@@ -63,6 +63,11 @@ async function pendientes(forzar){const s=yo();if(!s||PEND_BUSY)return PEND;if(!
   }catch(e){P.err.push(e.message);}
   if(ghTok()){try{const r=await fetch(BR_API+'?t='+Date.now(),{headers:{Authorization:'Bearer '+ghTok(),Accept:'application/vnd.github.raw+json'},cache:'no-store'});
       if(r.ok){const j=await r.json();P.ia=(j.items||[]).filter(x=>x.estado==='borrador'||x.estado==='duda').length;}else if(r.status===404)P.ia=0;}catch(e){}}
+  // 📸 fotos que ha mandado la gente por «Envía tu foto» (26 nov. 2026): las de Cloudinary que aún no están ni publicadas ni descartadas
+  try{if(typeof cldCfg==='function'){const c=await cldCfg();if(c.cloud){
+    const r=await fetch(`https://res.cloudinary.com/${encodeURIComponent(c.cloud)}/image/list/${FO_TAG}.json?t=${Date.now()}`,{cache:'no-store'});
+    const L=r.ok?((await r.json()).resources||[]):[];const G=await glLoad(true),hecho=new Set([...(G.fotos||[]).map(f=>f.id),...(G.descartadas||[])]);
+    P.fotos=L.filter(x=>!hecho.has(x.public_id)).length;}}}catch(e){P.err.push('fotos: '+e.message);}
   PEND=P;PEND_T=Date.now();PEND_BUSY=false;pinta();return P;}
 const total=()=>PEND?(PEND.alertas||0)+(PEND.denuncias||0)+(PEND.ia||0)+(PEND.refranes||0):0;
 
@@ -113,12 +118,13 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
      <div class="sadFila"><span class="sadI">📣</span><span class="sadT"><b>Alertas ciudadanas</b><small>Avisos de la gente esperando a ser publicados</small></span>${num(P.alertas)}<button class="btn" data-ir="mod">Revisar</button></div>
      <div class="sadFila"><span class="sadI">🚩</span><span class="sadT"><b>Denuncias</b><small>Avisos publicados que alguien ha denunciado</small></span>${num(P.denuncias)}<button class="btn" data-ir="mod">Revisar</button></div>
      <div class="sadFila"><span class="sadI">🗣️</span><span class="sadT"><b>Refranes</b><small>Los que ha mandado la gente (abajo)</small></span>${num(P.refranes)}<button class="btn" data-ir="rfAbajo">Ver</button></div>
+     <div class="sadFila"><span class="sadI">📸</span><span class="sadT"><b>Fotos de la gente</b><small>Las que han mandado por «Envía tu foto»</small></span>${num(P.fotos)}<button class="btn" data-ir="fotosRev">Revisar</button></div>
      <div class="sadFila"><span class="sadI">🤖</span><span class="sadT"><b>Noticias de la IA</b><small>Borradores que la IA no ha publicado sola</small></span>${num(P.ia)}<button class="btn" data-ir="ia">Revisar</button></div>
      ${P.err&&P.err.length?`<div class="note" style="margin-top:6px">⚠️ No se ha podido mirar todo (${X(P.err.join('; '))}). ¿Están publicadas las reglas nuevas de Firestore?</div>`:''}
      ${P.ia==null?'<div class="note" style="margin-top:6px">Para ver las noticias de la IA hace falta la llave de GitHub (abajo).</div>':''}</div>
    <div class="card" id="sadPush"><b>🔔 Avisarme en el móvil</b><div class="note" style="margin-top:4px;line-height:1.5">Te llega un aviso en cuanto haya algo nuevo por revisar (noticias de la IA, refranes, alertas ciudadanas o denuncias), aunque tengas la app cerrada. Al tocarlo se abre este panel. De 23:00 a 7:00 no suena: lo que entre de noche te llega a las 7.</div>
      ${window.puAdmin&&puAdmin.puede()?`<label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="sadPu" ${puAdmin.on()?'checked':''}><b>Avisarme de lo pendiente</b></label>`:'<div class="note" style="margin-top:6px">⚠️ Hace falta la app 5.7 o más nueva (Google Play).</div>'}
-     <div class="note" style="margin-top:6px">Las fotos llegan por correo a participa@basatina.es, así que esas no avisan aquí.</div></div>
+     <div class="note" style="margin-top:6px">Las fotos que manda la gente salen arriba, en «Fotos de la gente», y además llegan por correo a participa@basatina.es.</div></div>
    <div class="card" id="sadRfC"><b>🗣️ Refranes por aprobar</b>${(P.rfL||[]).length?P.rfL.map(r=>`<div class="sadFila" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${X(r.t)}»</div>${r.s?`<div class="note">${X(r.s)}</div>`:''}<div class="note">📍 ${X(r.p||'sin pueblo')}${r.creado?' · '+X(new Date(r.creado).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})):''}</div>
      <div class="row" style="gap:6px;margin-top:6px"><button class="btn pri" data-rfok="${X(r.id)}">✅ Publicar</button><button class="btn" data-rfno="${X(r.id)}">🗑️ Eliminar</button></div></div>`).join(''):`<div class="note" style="margin-top:6px">${P.refranes==null?'No se han podido mirar (¿están publicadas las reglas nuevas de Firestore?).':'No hay ninguno esperando. 👍'}</div>`}</div>
    <div class="card"><b>🛠️ Herramientas</b><div class="sadHerr">
@@ -130,7 +136,8 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
      Si la guardáis en la nube, vuestros otros móviles la cogen solos al entrar con vuestra cuenta. Solo la podéis leer Sonia y tú.</div>
      <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px">${ghTok()?'<button class="btn pri" id="sadGu">☁️ Guardar en la nube</button>':''}<button class="btn" id="sadQu">🗑️ Quitar de la nube</button>${ghTok()?'':'<button class="btn" id="sadPeg">📋 Pegar llave</button>'}</div><div class="note" id="sadKm"></div></div>
    <div class="card"><div class="note" style="line-height:1.5">El modo Administrador solo se abre con vuestras cuentas y se cierra solo si sales de la cuenta. Ya no hay PIN.</div></div>`;
-  el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;if(v==='rfAbajo'){const c=$('sadRfC');if(c)c.scrollIntoView({behavior:'smooth',block:'start'});return;}v==='mod'?abrirMod():v==='ia'?abrirIA():showTab(v);});
+  el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;if(v==='rfAbajo'){const c=$('sadRfC');if(c)c.scrollIntoView({behavior:'smooth',block:'start'});return;}
+    if(v==='fotosRev'){showTab('fotos');setTimeout(()=>{const b=$('foPendB');if(b){b.click();b.scrollIntoView({behavior:'smooth',block:'start'});}},500);return;}v==='mod'?abrirMod():v==='ia'?abrirIA():showTab(v);});
   // 🗣️ publicar o eliminar refranes con un toque
   const rfHecho=async(b,fn,txt)=>{el.querySelectorAll('[data-rfok],[data-rfno]').forEach(x=>x.disabled=true);
     try{await fn();toast(txt);}catch(e){toast('❌ '+e.message);}await pendientes(true);panel();};
