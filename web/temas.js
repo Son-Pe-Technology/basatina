@@ -127,7 +127,12 @@ function pdHoy(){const d=new Date(),n=Math.floor((Date.UTC(d.getFullYear(),d.get
   return PD_L[(n*7)%PD_L.length];}
 /* Tarjeta pequeña (19 nov. 2026): una sola línea; si tiene explicación, se abre al tocarla */
 function pdDraw(){const el=$('pdCard');if(!el)return;const p=pdHoy();
-  el.innerHTML=`<div class="pdI">🗣️</div><div class="pdX"><div class="pdK">Palabra del día en euskera</div><div class="pdP"><b>${E(p[0])}</b> = ${E(p[1])}</div>${p[2]?`<div class="pdN">${E(p[2])}</div>`:''}</div>${p[2]?'<div class="pdF">💡</div>':''}`;
+  /* 26 nov. 2026 (Pedro): «con vida»: franja verde con lauburu que gira despacio, hojas que caen y la palabra
+     entrando letra a letra (los estilos están en inicio-vivo.js) */
+  const letras=[...p[0]].map((c,i)=>`<i style="animation-delay:${200+i*70}ms">${E(c)}</i>`).join('');
+  el.classList.add('viv');
+  el.innerHTML=`<div class="vvBand"><div class="pdK">Palabra del día en euskera</div><span class="vvHoja h1"></span><span class="vvHoja h2"></span></div>
+   <div class="pdX"><div class="pdP"><b class="vvW">${letras}</b><span class="vvEq">${E(p[1])}</span></div>${p[2]?`<div class="pdN">${E(p[2])}</div><div class="vvMas"><span>Toca para saber más</span></div>`:''}</div>`;
   el.onclick=()=>{if(p[2])el.classList.toggle('abierta');};}
 
 /* 🗣️ Refrán del día (19 nov. 2026): sale de los refranes que manda la gente desde «Refranes de tu pueblo»
@@ -137,9 +142,13 @@ async function rfHoyDraw(){const el=$('rfCard');if(!el||typeof jsLoad!=='functio
   try{L=window.RFX?await window.RFX.publicados():((await jsLoad('participa/refranes.json',{refranes:[]}))||{}).refranes||[];}catch(e){}
   L=L.slice().sort((a,b)=>String(a.id).localeCompare(String(b.id)));
   const env='<button class="rfB" aria-label="Envía el refrán de tu pueblo">Envía el tuyo ›</button>';
-  if(!L.length){el.innerHTML=`<div class="rfI">🗣️</div><div class="rfX"><div class="rfK">Refrán del día</div><div class="rfT">¿Qué se dice en tu pueblo? Manda tu refrán y saldrá aquí para toda Navarra.</div></div>${env}`;}
+  /* 26 nov. 2026 (Pedro): «con vida»: franja lila con comillas grandes que flotan y el refrán apareciendo palabra a palabra */
+  const pal=t=>String(t).split(/\s+/).map((w,i)=>`<i style="animation-delay:${250+i*90}ms">${E(w)}</i>`).join(' ');
+  const band='<div class="vvBand"><div class="rfK">Refrán del día</div><span class="vvCom">“</span><span class="vvCom c2">”</span></div>';
+  el.classList.add('viv');
+  if(!L.length){el.innerHTML=`${band}<div class="rfX"><div class="rfT">${pal('¿Qué se dice en tu pueblo? Manda tu refrán y saldrá aquí para toda Navarra.')}</div></div>${env}`;}
   else{const d=new Date(),n=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),r=L[(n*5)%L.length];
-    el.innerHTML=`<div class="rfI">🗣️</div><div class="rfX"><div class="rfK">Refrán del día</div><div class="rfT">«${E(r.t)}»</div><div class="rfM">📍 ${E(r.p||'Navarra')} · lo mandó la cuadrilla</div></div>${env}`;}
+    el.innerHTML=`${band}<div class="rfX"><div class="rfT">${pal('«'+r.t+'»')}</div><div class="rfM"><span class="vvPin"></span>${E(r.p||'Navarra')} · <span>lo mandó la cuadrilla</span></div></div>${env}`;}
   el.onclick=()=>showTab('refranes');}
 
 /* tarjetas del Inicio: palabra del día + titulares */

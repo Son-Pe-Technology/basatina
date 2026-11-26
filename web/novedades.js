@@ -249,6 +249,11 @@ async function hoyNw(){if(Date.now()-HOY.t<20*60e3)return;HOY.t=Date.now();
     const L=(D.items||[]).filter(x=>x&&x.t&&x.d&&x.c!=='Sucesos'&&ymd(new Date(x.d))===h).sort((a,b)=>b.d.localeCompare(a.d));
     const G={};L.forEach(x=>(G[x.f]=G[x.f]||[]).push(x));const M=Object.values(G),out=[];
     for(let k=0;out.length<12&&M.some(g=>g.length);k++){const g=M[k%M.length];if(g.length)out.push(g.shift());}
+    /* 26 nov. 2026 (Pedro): de madrugada apenas hay titulares de hoy → se completa hasta 4 con los últimos de ayer (llevan «ayer») */
+    if(out.length<4){const ay=(D.items||[]).filter(x=>x&&x.t&&x.d&&x.c!=='Sucesos'&&ymd(new Date(x.d))!==h&&Date.now()-Date.parse(x.d)<36*3600e3)
+      .sort((a,b)=>b.d.localeCompare(a.d));const vis=new Set(out.map(x=>x.f));
+      ay.sort((a,b)=>(vis.has(a.f)-vis.has(b.f)));   // primero medios que aún no salen
+      for(const x of ay){if(out.length>=4)break;out.push(Object.assign({ayer:1},x));vis.add(x.f);}}
     HOY.nw=out;}catch(e){HOY.t=0;}
   rzDraw();}
 const hoyHace=d=>{const m=Math.round((Date.now()-Date.parse(d))/60e3);return !(m>=0)?'':m<60?'hace '+Math.max(1,m)+' min':'hace '+Math.round(m/60)+' h';};
@@ -302,7 +307,7 @@ function rzDraw(){const el=$('rzTk');if(!el)return;const R=rzRios(),L=hoyLista(R
     el.innerHTML=`<div class="anC hoyX hoyC"><span class="anE">🎬</span><div><small class="anW"><span>Cartelera de hoy</span> · ${x.n} <span>películas</span> · ${x.c} <span>cines</span></small><b>${E(x.top.join(' · '))}</b></div><span class="bdg az"><span>Cine</span></span></div>`+pie;
     el.querySelector('.anC').onclick=()=>showTab('cines');}
   else if(it.k==='nw'){const x=it.x;
-    el.innerHTML=`<div class="anC hoyX hoyN"><span class="anE">📰</span><div><small class="anW"><span>Titulares de hoy</span></small><b>${E(x.t)}</b><small>${E(x.f)} · ${hoyHace(x.d)}</small></div><span class="bdg az"><span>Noticia</span></span></div>`+pie;
+    el.innerHTML=`<div class="anC hoyX hoyN"><span class="anE">📰</span><div><small class="anW"><span>${x.ayer?'Titulares de ayer':'Titulares de hoy'}</span></small><b>${E(x.t)}</b><small>${E(x.f)} · ${x.ayer?'<span>ayer</span>':hoyHace(x.d)}</small></div><span class="bdg az"><span>Noticia</span></span></div>`+pie;
     el.querySelector('.anC').onclick=()=>{if(window.amAbre)amAbre(x.u);else showTab('noticias');};}
   else{const x=it.x;
     const tit=x.tl?`<span>${E(x.tl[0])}</span>${x.tl[1]?': '+E(x.tl[1]):''}`:E(x.t);

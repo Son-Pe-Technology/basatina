@@ -2254,3 +2254,12 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Cerca":["Hurbil","Nearby","À côté"],"Ríos":["Ibaiak","Rivers","Rivières"],"Carreteras":["Errepideak","Roads","Routes"],"Gasolina":["Gasolina","Fuel","Carburant"],"Transporte":["Garraioa","Transport","Transports"],
  "Salir":["Irten","Go out","Sortir"],"Comer":["Jan","Eat","Manger"],"Compras":["Erosketak","Shopping","Courses"],"Terremotos":["Lurrikarak","Earthquakes","Séismes"],"Agenda":["Agenda","What's on","Agenda"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
+
+// ✨ Inicio con vida (web/inicio-vivo.js, temas.js, novedades.js · 26 nov. 2026)
+(function(){const T={
+ "Últimas noticias":["Azken albisteak","Latest news","Dernières nouvelles"],"de BasatiNA":["BasatiNAkoak","from BasatiNA","de BasatiNA"],"Ver todas":["Denak ikusi","See all","Tout voir"],
+ "Titulares de ayer":["Atzoko izenburuak","Yesterday's headlines","Les titres d’hier"],"Toca para saber más":["Ukitu gehiago jakiteko","Tap to learn more","Touche pour en savoir plus"],
+ "lo mandó la cuadrilla":["koadrilak bidalia","sent by the crew","envoyé par la bande"],
+ "Deportes":["Kirolak","Sport","Sport"],"Economía":["Ekonomia","Economy","Économie"],"Sociedad":["Gizartea","Society","Société"],"Salud":["Osasuna","Health","Santé"],
+ "Educación":["Hezkuntza","Education","Éducation"],"Medio ambiente":["Ingurumena","Environment","Environnement"],"Laboral":["Lana","Work","Travail"],"Administración":["Administrazioa","Administration","Administration"]};
+ Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
