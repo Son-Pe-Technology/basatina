@@ -1,6 +1,25 @@
 {
  "items": [
   {
+   "id": "7520f5c0b994",
+   "pub": "2026-11-26T13:18Z",
+   "titulo": "Cuatro heridos en un accidente de tráfico en la NA-2410 de Olazti",
+   "texto": "Un choque entre dos vehículos ha dejado cuatro personas heridas este jueves por la mañana en la NA-2410, a la altura del kilómetro 32 en la zona de la Barranca. El aviso llegó a las 06:30 al teléfono de emergencias. Bomberos de Alsasua, equipos médicos, ambulancias y la Guardia Civil se desplazaron hasta el lugar y trasladaron a los afectados al Hospital Universitario de Navarra. Según la Guardia Civil, todos presentan pronóstico reservado.",
+   "pueblo": "Olazti",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-zona-norte/cuatro-heridos-al-chocar-dos-vehiculos-en-una-rotonda-de-la-na-2410-en-olazti/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-cuatro-personas-trasladadas-colisionar-dos-vehiculos-na-2410-olazagutia-20261126103024.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "4a9dc991b20b",
    "pub": "2026-11-26T11:25Z",
    "titulo": "Cira World gana el Architecture MasterPrize 2026 por su colección Lar",
@@ -730,26 +749,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "2daff0b90956",
-   "pub": "2026-11-24T09:30Z",
-   "titulo": "Lesión de ligamento en la rodilla de un futbolista de Osasuna",
-   "texto": "Un futbolista de Osasuna sufrió un esguince en el ligamento lateral interno de la rodilla derecha durante un entrenamiento del sábado, según confirmaron pruebas médicas realizadas el lunes en la Clínica Universidad de Navarra. El jugador iniciará su recuperación este martes, con su regreso al grupo condicionado a su evolución.",
-   "pueblo": "Pamplona",
-   "cat": "Deportes",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/rockson-yeboah-sufre-un-esguince-del-ligamento-lateral-interno-de-la-rodilla-derecha/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/deportes/futbol/osasuna/2026/11/23/rockson-yeboah-sufre-esguince-rodilla-derecha-843507-32.html"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-25T21:56Z"
+ "t": "2026-11-26T13:18Z"
 }
