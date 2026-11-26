@@ -5,6 +5,8 @@ Cada 10 minutos (GitHub Actions, .github/workflows/admin-avisos.yml) mira qué h
   · 🗣️ refranes que ha mandado la gente (Firestore «refranes», estado pendiente)
   · 📣 alertas ciudadanas esperando revisión (Firestore «avisos», estado pendiente)
   · 🚩 denuncias de avisos publicados (Firestore «denuncias»)
+  · 📸 fotos que ha mandado la gente por «Envía tu foto» (Cloudinary, etiqueta basatina_recibida) que aún no
+    están ni publicadas ni descartadas en fotos/galeria.json (26 nov. 2026)
 Si hay algo NUEVO desde la última vez, manda un aviso push al tema «admin» (solo se apuntan Pedro y Sonia,
 desde el ⭐ Panel de administración). Al tocarlo se abre el panel.
 
@@ -16,7 +18,7 @@ desde el ⭐ Panel de administración). Al tocarlo se abre el panel.
 Necesita los secretos FIREBASE_SA (Firestore y push) y BORRADORES_TOKEN (para bajar los borradores, lo hace el workflow).
 Con PUSH_PRUEBA=1 manda el aviso al tema «admin-prueba».
 """
-import json, os, sys, datetime, urllib.request
+import json, os, sys, datetime, urllib.request, urllib.error
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -61,12 +63,41 @@ def borradores():
     return ['ia:' + str(x.get('id')) for x in D.get('items', []) if x.get('estado') in ('borrador', 'duda')]
 
 
+RAW = 'https://raw.githubusercontent.com/Son-Pe-Technology/basatina/main/'
+
+
+def fotos():
+    """Fotos recibidas en Cloudinary que no están ni publicadas ni descartadas (None si no se puede mirar)."""
+    def js(u):
+        with urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'BasatiNA-avisos'}), timeout=60) as f:
+            return json.loads(f.read())
+    try:
+        cloud = (js(RAW + 'config/cloudinary.json').get('key') or '').strip()
+    except Exception:
+        return []                       # Cloudinary sin configurar: no hay fotos
+    if not cloud:
+        return []
+    try:
+        G = js(RAW + 'fotos/galeria.json')
+        hecho = set(f.get('id') for f in G.get('fotos', [])) | set(G.get('descartadas', []))
+        try:
+            L = js(f'https://res.cloudinary.com/{cloud}/image/list/basatina_recibida.json').get('resources', [])
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return []               # aún no ha llegado ninguna
+            raise
+        return ['foto:' + x['public_id'] for x in L if x.get('public_id') not in hecho]
+    except Exception as e:
+        print('No se pudo mirar fotos', type(e).__name__)
+        return None
+
+
 def main():
     sa = os.environ.get('FIREBASE_SA')
     if not sa:
         print('Sin el secreto FIREBASE_SA: nada.'); return
     tok = token(json.loads(sa))
-    G = {'ia': borradores()}
+    G = {'ia': borradores(), 'fotos': fotos()}
     for k, col, est in (('refranes', 'refranes', 'pendiente'), ('alertas', 'avisos', 'pendiente'), ('denuncias', 'denuncias', None)):
         try:
             G[k] = ids(tok, col, est)
@@ -89,7 +120,8 @@ def main():
         print('Hay %d nuevo(s), pero es de noche (%d h): se avisa a partir de las 7.' % (n, h)); return
     if n:
         NOM = {'ia': ('noticia de la IA', 'noticias de la IA'), 'refranes': ('refrán', 'refranes'),
-               'alertas': ('alerta ciudadana', 'alertas ciudadanas'), 'denuncias': ('denuncia', 'denuncias')}
+               'alertas': ('alerta ciudadana', 'alertas ciudadanas'), 'denuncias': ('denuncia', 'denuncias'),
+               'fotos': ('foto de la gente', 'fotos de la gente')}
         partes = ['%d %s' % (len(v), NOM[k][len(v) != 1]) for k, v in nuevos.items() if v]
         total = len(ahora)
         titulo = '⭐ BasatiNA: tienes cosas por revisar'
