@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "9c652b53d4e9",
+   "pub": "2026-11-26T09:20Z",
+   "titulo": "Grupo Virto gana la primera edición de 'La Voz de la Empresa Familiar'",
+   "texto": "El coro de Grupo Virto se llevó el premio principal en la gala final de 'La Voz de la Empresa Familiar', celebrada en el Hotel Tres Reyes de Pamplona. La iniciativa, impulsada por ADEFAN y Acción Social de Caja Rural de Navarra, reunió a más de 70 participantes de empresas y organizaciones que formaron varios coros. En la final compitieron Grupo Virto, Zabala Innovation, Jacar Navarra y Navarrabiomed, además del coro de Caja Rural de Navarra. El proyecto buscaba reforzar vínculos entre compañeros a través de la música, bajo la dirección de StudioCarlota.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/grupo-virto-gana-la-gran-final-de-la-voz-de-la-empresa-familiar/"
+    }
+   ]
+  },
+  {
    "id": "9b2f3783847c",
    "pub": "2026-11-26T09:20Z",
    "titulo": "Una pareja navarra cría 600 ovejas y ponis en Lizarraga con música",
@@ -750,33 +764,6 @@
     {
      "f": "Pamplona Actual",
      "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-osasuna/budimir-hay-que-tener-mas-maldad-en-el-ultimo-cuarto-de-campo-para-cerrar-los-partidos/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "7b8eca7909b1",
-   "pub": "2026-11-23T21:52Z",
-   "titulo": "Pamplona aprueba presupuestos de 299,6 millones para 2027, un nuevo récord",
-   "texto": "El Ayuntamiento de Pamplona ha aprobado su propuesta presupuestaria para 2027 por 299.607.465,56 euros, un 1,9% más que en 2026 y la cifra más alta de su historia por tercer año consecutivo. La concejala de Hacienda, Garbiñe Bueno Zabalza, presentó las cuentas el lunes, que serán debatidas en comisiones esta semana con votación prevista a mediados de diciembre. Las prioridades incluyen terminar obras como la reforma de Sarasate (7,3 millones), invertir 2,7 millones en vivienda asequible y 900.000 euros en el servicio de bicicleta eléctrica. El gasto en personal subirá un 5,7% hasta 129,8 millones, mientras que cerca del 38% del presupuesto se dedicará a políticas sociales.",
-   "pueblo": "Pamplona",
-   "cat": "Administración",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-presupuesta-2996-millones-para-2027-un-19-mas-y-la-cifra-mas-alta-de-su-historia/"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-proyecto-presupuestos-ayuntamiento-pamplona-2027-alcanza-2996-millones-euros-19-mas-20261123113112.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/presentacion-del-proyecto-de-presupuesto-del-ayuntamiento-de-pamplona-para-2027/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/el-proyecto-de-presupuesto-del-ayuntamiento-para-2027-alcanza-los-2996-millones"
     }
    ],
    "auto": true
