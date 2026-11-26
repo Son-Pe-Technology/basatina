@@ -25,8 +25,8 @@ const IT='https://identitytoolkit.googleapis.com/v1/accounts:';
 const PRIV_URL='https://basatina.es/privacidad.html#cuentas',NORMAS_URL='https://basatina.es/normas-comunidad.html',BORRAR_URL='https://basatina.es/borrar-cuenta.html';
 const CU_NORMAS=2;   // versión de docs/normas-comunidad.html
 // lo que se guarda en la cuenta (claves de localStorage). «roads» = Mis carreteras (va dentro de CFG).
-const CU_K=['sitios','diario','notas','agendaMia','dpFav','dpMios','cmMios','cmOcultos','cmVotos','roads','bnaAvatar','bnaFoto'];   // bnaAvatar/bnaFoto: imagen de perfil (perfil-foto.js)
-const CU_NOM={sitios:'Mis sitios secretos',diario:'Mi diario de salidas (sin fotos)',notas:'Notas',agendaMia:'Mi calendario',dpFav:'Equipos y ligas favoritos',dpMios:'Mi calendario deportivo',
+const CU_K=['bnCumple','sitios','diario','notas','agendaMia','dpFav','dpMios','cmMios','cmOcultos','cmVotos','roads','bnaAvatar','bnaFoto'];   // bnaAvatar/bnaFoto: imagen de perfil (perfil-foto.js)
+const CU_NOM={bnCumple:'Tu cumpleaños',sitios:'Mis sitios secretos',diario:'Mi diario de salidas (sin fotos)',notas:'Notas',agendaMia:'Mi calendario',dpFav:'Equipos y ligas favoritos',dpMios:'Mi calendario deportivo',
   cmMios:'Mis avisos',cmOcultos:'Colaboradores ocultos',cmVotos:'Mis votos',roads:'Mis carreteras',bnaAvatar:'Tu avatar',bnaFoto:'Tu foto'};
 // palabras que no se aceptan en el apodo (además de las de las reglas de Firestore)
 // (se comparan sin tildes y cambiando 0→o, 1→i, 3→e, 4→a, 5→s, 7→t; los administradores pueden quitar cualquier otro)
@@ -162,6 +162,10 @@ async function cuRender(){const el=$('cuBody');if(!el)return;const a=ses();
   const m=meta(),email=jwt(a.it).email;
   el.innerHTML=`<div class="card"><div class="row" style="align-items:center;gap:10px"><div id="cuAvT">${window.bnPerfilImg?window.bnPerfilImg(48):'<span style="font-size:40px">👤</span>'}</div><div style="flex:1"><b style="font-size:19px">${esc(p.apodo)}</b><div class="note">${esc(email)} · ✅ correo confirmado</div></div></div>
      ${p.quitado&&/^Vecino\d{4}$/.test(p.apodo)?`<div class="note" style="margin-top:6px;color:#b71c1c">🏷️ Un administrador cambió tu apodo anterior porque no cumplía las normas. Puedes elegir otro.</div>`:''}</div>
+   <div class="card"><b>🎂 Mi cumpleaños</b><div class="note" style="margin-top:4px">Opcional. Ese día te felicitamos en el Inicio (solo lo ves tú). Solo día y mes: no guardamos el año.</div>
+     <div class="row" style="margin-top:6px;gap:6px;flex-wrap:wrap;align-items:center"><select id="cuCD" class="town" style="width:auto;margin:0"><option value="">Día</option>${Array.from({length:31},(_,i)=>`<option value="${String(i+1).padStart(2,'0')}">${i+1}</option>`).join('')}</select>
+       <select id="cuCM" class="town" style="width:auto;margin:0"><option value="">Mes</option>${['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'].map((n,i)=>`<option value="${String(i+1).padStart(2,'0')}">${n}</option>`).join('')}</select>
+       <button class="btn pri" id="cuCG">Guardar</button><button class="btn" id="cuCQ">Quitar</button></div><div class="note" id="cuCX"></div></div>
    <div class="card"><b>☁️ Mi Espacio en la cuenta</b><div class="note" style="margin-top:4px;line-height:1.5">Se guarda solo: ${CU_K.filter(k=>k!=='bnaFoto'||(window.bnSuper&&window.bnSuper())).map(k=>CU_NOM[k]).join(', ')}.<br>Las <b>fotos</b> del diario y el <b>diario de dolores</b> se quedan solo en este móvil.</div>
      <div class="note" id="cuSy" style="margin-top:4px">${m.ult?'Última vez: '+new Date(m.ult).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'Todavía no se ha guardado.'}</div>
      <div class="row" style="margin-top:6px"><button class="btn" id="cuSn">🔄 Guardar y traer ahora</button></div></div>
@@ -170,6 +174,12 @@ async function cuRender(){const el=$('cuBody');if(!el)return;const a=ses();
      <div class="row" style="margin-top:6px"><button class="btn" id="cuDel" style="color:#b71c1c">Borrar mi cuenta</button></div><div id="cuDX"></div></div>`;
   $('cuSn').onclick=async()=>{$('cuSy').textContent='Guardando…';try{const r=await cuSync(1);$('cuSy').textContent='✅ Hecho'+(r&&r.baja?' (se han traído cambios de la cuenta)':'');}catch(e){$('cuSy').textContent='❌ '+msg(e);}};
   $('cuOut').onclick=()=>{if(!confirm('¿Cerrar sesión en este móvil? Lo que tienes en Mi Espacio se queda en el móvil.'))return;sale();toast('🚪 Sesión cerrada');cuRender();};
+  // 🎂 cumpleaños (26 nov. 2026): se guarda como «MM-DD» en localStorage (bnCumple) y viaja con Mi Espacio
+  try{const c=localStorage.getItem('bnCumple')||'';if(c){$('cuCM').value=c.slice(0,2);$('cuCD').value=c.slice(3,5);}}catch(e){}
+  $('cuCG').onclick=()=>{const d=$('cuCD').value,mo=$('cuCM').value;if(!d||!mo){$('cuCX').textContent='Elige el día y el mes.';return;}
+    if(+d>[31,29,31,30,31,30,31,31,30,31,30,31][+mo-1]){$('cuCX').textContent='Ese mes no tiene ese día.';return;}
+    try{localStorage.setItem('bnCumple',mo+'-'+d);}catch(e){}$('cuCX').textContent='✅ Guardado. ¡Ese día te felicitamos!';};
+  $('cuCQ').onclick=()=>{try{localStorage.removeItem('bnCumple');}catch(e){}$('cuCD').value='';$('cuCM').value='';$('cuCX').textContent='Quitado.';};
   $('cuCA').onclick=()=>cuApodo($('cuX'),p);
   $('cuCP').onclick=()=>{$('cuX').innerHTML=`<div class="card" style="margin-top:6px">${pwd('cuOP','Contraseña actual')}${pwd('cuNP','Contraseña nueva (8 o más caracteres)')}<div class="row" style="margin-top:6px"><button class="btn pri" id="cuPok">Guardar</button></div><div class="note" id="cuPm"></div></div>`;ojos($('cuX'));
     $('cuPok').onclick=async()=>{const n=$('cuNP').value;if(n.length<8)return $('cuPm').textContent='La contraseña nueva tiene que tener 8 caracteres o más.';$('cuPm').textContent='Guardando…';
