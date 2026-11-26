@@ -1,6 +1,44 @@
 {
  "items": [
   {
+   "id": "6d1b2965f0c0",
+   "pub": "2026-11-26T21:54Z",
+   "titulo": "Pacientes de clínica dental protestan en Pamplona por cierre repentino",
+   "texto": "Alrededor de 600 personas afectadas por el cierre de una clínica dental se concentraron en la plaza del Ayuntamiento de Pamplona para exigir soluciones a las instituciones públicas. El centro, adquirido por el Grupo Oralis en 2018, entró recientemente en concurso de acreedores. Los pacientes denuncian varios perjuicios: algunos pagaron tratamientos completos por adelantado sin poder recuperar el dinero, otros continúan pagando préstamos bancarios por intervenciones sin terminar, y muchos tienen dificultades para acceder a sus historiales clínicos. Bajo el lema «¡Solución ya!», la concentración reclama intervención de las autoridades sanitarias y de Consumo.",
+   "pueblo": "Pamplona",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-sociedad/solucion-ya-los-afectados-por-el-cierre-de-los-arcos-deprit-alzan-la-voz-en-una-concentracion-en-pamplona/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/26/afectados-cierre-clinica-dental-arcos-deprit-piden-solucion-pamplona-843907-16.html"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "3a1e356a0143",
+   "pub": "2026-11-26T21:54Z",
+   "titulo": "Bomberos de Navarra incorpora seis suboficiales y treinta cabos",
+   "texto": "El Servicio de Bomberos de Navarra ha incorporado recientemente a seis nuevos suboficiales y treinta cabos en diversos parques de la región. Los suboficiales se distribuyen entre la Sección Operativa (tres), Formación (uno), Sangüesa (uno) y Lodosa (uno). La mayoría de los cabos, dieciséis, se destinan al parque de Lodosa-Peralta, mientras que el resto se reparte entre Sangüesa, Oronoz, Altsasu, Estella y Tudela. Además, el Gobierno foral y los sindicatos han acordado convocar cuarenta plazas de bombero en la Oferta Pública de Empleo de 2026 para anticiparse a futuras jubilaciones.",
+   "pueblo": "Navarra",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-navarra/seis-nuevos-suboficiales-y-30-cabos-del-servicio-de-bomberos-de-navarra-toman-posesion-de-su-cargo/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/26/seis-nuevos-suboficiales-30-cabos-servicio-bomberos-navarra-toman-posesion-cargo-843841-15.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "ad849b8814e2",
    "pub": "2026-11-26T18:57Z",
    "titulo": "Konekta arranca su cuarta edición para mejorar la empleabilidad de 270 personas",
@@ -718,45 +756,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "51f1b6d77f09",
-   "pub": "2026-11-24T09:51Z",
-   "titulo": "Detenido tras intentar robar en un bar y huir con patinete",
-   "texto": "La Policía Municipal de Pamplona detuvo el fin de semana a un varón presuntamente responsable de dos delitos. Intentó sustraer la caja registradora de un bar del Casco Viejo mediante la fuerza, enfrentándose con una trabajadora, pero no logró llevársela. Los responsables del local facilitaron a los agentes datos sobre el sospechoso. Horas después, en San Juan, reportaron que alguien había abandonado un patinete eléctrico en el suelo y se había marchado. Los policías identificaron al mismo individuo por su descripción y lo arrestaron por ambas acciones.",
-   "pueblo": "Pamplona",
-   "cat": "Sucesos",
-   "fuentes": [
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/23/intenta-llevarse-caja-registradora-bar-pamplona-e-intenta-huir-patinete-robado-843490-16.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/detenido-un-joven-de-27-anos-por-intentar-robar-la-caja-de-un-bar-del-casco-viejo-y-hurtar-un-patinete/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "e5d8076a15b8",
-   "pub": "2026-11-24T09:51Z",
-   "titulo": "Pamplona inicia reparaciones en el Parque de las Pioneras con inversión de 122.422 euros",
-   "texto": "El Ayuntamiento comienza este lunes los trabajos de recuperación del Parque de las Pioneras en Lezkairu, que se prolongarán durante aproximadamente un mes. La empresa Lacunza Hnos. subsanará defectos detectados en pavimentos, sistemas de riego y elementos de jardinería tras una década de uso desde la finalización del proyecto en 2014. La inversión alcanza 122.422,61 euros e incluye reparación de losas, sellado de juntas y rehabilitación de bordillos. Además, en diciembre se replantarán 75 arces en la pradera central con un presupuesto de 37.852,99 euros a cargo de Eulen. El contrato exige subcontratación con empresas sociales y uso de hormigón reciclado.",
-   "pueblo": "Pamplona",
-   "cat": "Navarra",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-lezkairu-santa-maria-la-real/comienzan-las-obras-de-reparacion-del-parque-de-las-pioneras-de-lezkairu-con-un-presupuesto-de-122423-euros/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/este-lunes-comienzan-las-obras-de-reparacion-del-parque-de-las-pioneras-en"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-26T18:57Z"
+ "t": "2026-11-26T21:54Z"
 }
