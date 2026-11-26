@@ -1,5 +1,5 @@
 {
-"t": "2026-11-26T22:39Z",
+"t": "2026-11-26T23:39Z",
 "items": [
 {
 "t": "La empresa de Cascante Sola Cocinas abre su primera tienda en Pamplona",
@@ -23,7 +23,7 @@
 "c": "Navarra"
 },
 {
-"t": "Siguen los enfrentamientos, ahora con las políticas sociales",
+"t": "El debate a cuatro deja dos frentes claros para el 29-N",
 "u": "https://www.diariodenavarra.es/noticias/actualidad/nacional/2026/11/26/sanchez-feijoo-colau-abascal-protagonizan-ultimo-debate-campana-843925-28.html",
 "f": "Diario de Navarra",
 "d": "2026-11-26T20:53Z",
@@ -303,6 +303,27 @@
 "c": "Navarra"
 },
 {
+"t": "Arranca la cuarta edición del proyecto Konekta, que busca la activación laboral y la mejora de la empleabilidad de 270 personas demandantes de empleo",
+"u": "https://www.pamplona.es/actualidad/noticias/arranca-la-cuarta-edicion-del-proyecto-konekta-que-busca-la-activacion-laboral",
+"f": "Ayuntamiento de Pamplona",
+"d": "2026-11-26T09:25Z",
+"c": "Economía"
+},
+{
+"t": "57 jóvenes emprendedores se forman en finanzas, estrategia, redes sociales, inteligencia artificial y bienestar para impulsar sus proyectos empresariales",
+"u": "https://www.pamplona.es/actualidad/noticias/57-jovenes-emprendedores-se-forman-en-finanzas-estrategia-redes-sociales",
+"f": "Ayuntamiento de Pamplona",
+"d": "2026-11-26T09:20Z",
+"c": "Economía"
+},
+{
+"t": "Pamplona celebra el domingo la festividad de su patrón San Saturnino con la salida de los Gigantes y Cabezudos, procesión, misa y bailes en honor a la ciudad",
+"u": "https://www.pamplona.es/actualidad/noticias/pamplona-celebra-el-domingo-la-festividad-de-su-patron-san-saturnino-con-la",
+"f": "Ayuntamiento de Pamplona",
+"d": "2026-11-26T09:03Z",
+"c": "Navarra"
+},
+{
 "t": "El Gobierno de Navarra critica que el Ejecutivo vasco no le haya informado de los planes sobre Azkoyen",
 "u": "https://www.europapress.es/navarra/noticia-gobierno-navarra-critica-ejecutivo-vasco-no-le-haya-informado-planes-azkoyen-20261126100244.html",
 "f": "Europa Press",
@@ -321,6 +342,13 @@
 "u": "https://navarracapital.es/la-navarra-cira-world-prodein-gana-el-architecture-masterprize-2026-de-illumination/",
 "f": "Navarra Capital",
 "d": "2026-11-26T08:56Z",
+"c": "Navarra"
+},
+{
+"t": "El proyecto Eguzkilore, de Collectif Ninika (Baiona), obra elegida en Karrikan Etorkizuna 2026-2028, para colectivos, artistas y compañías emergentes de artes de calle",
+"u": "https://www.pamplona.es/actualidad/noticias/el-proyecto-eguzkilore-de-collectif-ninika-baiona-obra-elegida-en-karrikan",
+"f": "Ayuntamiento de Pamplona",
+"d": "2026-11-26T08:51Z",
 "c": "Navarra"
 },
 {
@@ -408,10 +436,31 @@
 "c": "Economía"
 },
 {
+"t": "El proyecto para medir la calidad del aire en el barrio de San Jorge concluye su primera fase con la entrega de las macetas para su análisis científico",
+"u": "https://www.pamplona.es/actualidad/noticias/el-proyecto-para-medir-la-calidad-del-aire-en-el-barrio-de-san-jorge-concluye",
+"f": "Ayuntamiento de Pamplona",
+"d": "2026-11-25T12:08Z",
+"c": "Navarra"
+},
+{
+"t": "Declaraciones aprobadas en la Comisión de Urbanismo del miércoles 25 de noviembre de 2026",
+"u": "https://www.pamplona.es/actualidad/noticias/declaraciones-aprobadas-en-la-comision-de-urbanismo-del-miercoles-25-de",
+"f": "Ayuntamiento de Pamplona",
+"d": "2026-11-25T11:45Z",
+"c": "Navarra"
+},
+{
 "t": "Golpe a la estafa del 'hijo en apuros': siete investigados en Navarra tras defraudar 48.000 euros alegando un cambio de número de teléfono o avería en el terminal",
 "u": "https://www.cope.es/emisoras/navarra/noticias/golpe-estafa-hijo-apuros-siete-investigados-navarra-defraudar-48-000-euros-alegando-cambio-numero-telefono-averia-terminal-20261125_3481767.html",
 "f": "COPE",
 "d": "2026-11-25T11:36Z",
+"c": "Economía"
+},
+{
+"t": "Abierto el plazo para solicitar la inscripción en el Registro de Demandantes de Vivienda Municipal",
+"u": "https://www.pamplona.es/actualidad/noticias/abierto-el-plazo-para-solicitar-la-inscripcion-en-el-registro-de-demandantes-de",
+"f": "Ayuntamiento de Pamplona",
+"d": "2026-11-25T09:03Z",
 "c": "Economía"
 }
 ]
