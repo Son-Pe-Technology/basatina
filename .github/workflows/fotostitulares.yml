@@ -1,9 +1,7 @@
-# Fotos libres para los titulares mientras no haya propias (tools/fotos_titulares_libres.py). Al cambiar ese archivo o a mano desde Actions.
+# Fotos libres para los titulares mientras no haya propias (tools/fotos_titulares_libres.py). Solo a mano desde Actions (las fotos se revisaron a mano).
 name: "Fotos libres para los titulares (Wikimedia Commons)"
 on:
-  push:
-    paths: ['tools/fotos_titulares_libres.py', '.github/workflows/fotostitulares.yml']
-  workflow_dispatch:
+  workflow_dispatch:   # solo a mano: las fotos ya están revisadas una a una (26 nov. 2026)
 permissions:
   contents: write
 jobs:
