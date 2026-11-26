@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Zorionak, Josal! 🎉</title>
+<meta property="og:title" content="Zorionak, Josal! 🎉">
+<meta property="og:description" content="Una felicitación de cumpleaños de parte de Pedro (y BasatiNA)">
+<meta property="og:image" content="https://basatina.es/img/icono-basatina.png">
+<link rel="icon" href="/img/icono-basatina.png">
+<!-- 27 nov. 2026: felicitación de cumpleaños de Pedro a su hermano Josal. Página suelta, sin enlace desde la app. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#1d2a20;overflow-x:hidden;
+  background:linear-gradient(180deg,#7ec4ef 0%,#bfe3f5 38%,#f6e7c8 72%,#f3d7a6 100%);min-height:100vh}
+#cf{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.sol{position:fixed;top:7vh;right:12vw;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,#fff6c9 0,#ffd55a 45%,rgba(255,213,90,0) 72%);z-index:0;animation:lat 4s ease-in-out infinite}
+@keyframes lat{50%{transform:scale(1.08)}}
+.nube{position:fixed;background:#fff;border-radius:50px;opacity:.85;z-index:0;animation:mueve 60s linear infinite}
+.nube::before,.nube::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.n1{top:12vh;left:-160px;width:140px;height:40px}.n1::before{width:60px;height:60px;top:-30px;left:20px}.n1::after{width:50px;height:50px;top:-22px;left:65px}
+.n2{top:24vh;left:-220px;width:180px;height:46px;animation-duration:85s;animation-delay:-30s}.n2::before{width:70px;height:70px;top:-36px;left:30px}.n2::after{width:56px;height:56px;top:-26px;left:90px}
+@keyframes mueve{to{transform:translateX(calc(100vw + 400px))}}
+svg.monte{position:fixed;left:0;right:0;bottom:0;width:100%;height:42vh;z-index:1}
+main{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:64px 18px 26vh}
+.card{background:rgba(255,255,255,.93);backdrop-filter:blur(6px);border-radius:26px;max-width:460px;width:100%;padding:30px 26px 26px;text-align:center;
+  box-shadow:0 18px 50px rgba(29,45,35,.22);transform:translateY(30px) scale(.96);opacity:0;animation:entra .9s .2s cubic-bezier(.2,.9,.3,1.2) forwards}
+@keyframes entra{to{transform:none;opacity:1}}
+.logo{width:84px;height:84px;border-radius:22px;padding:4px;box-shadow:0 4px 14px rgba(0,0,0,.18);margin:-66px auto 10px;display:block;background:#fff}
+.tarta{font-size:54px;line-height:1;margin:6px 0 4px;animation:bote 1.6s ease-in-out infinite}
+@keyframes bote{50%{transform:translateY(-8px) rotate(-4deg)}}
+h1{font-family:Montserrat,system-ui,sans-serif;font-weight:900;font-size:clamp(32px,9vw,44px);line-height:1.05;color:#c62828;letter-spacing:-.5px}
+h1 span{display:block;color:#2e6b2f;font-size:.62em;margin-top:6px}
+p{font-size:17.5px;line-height:1.55;margin-top:16px;color:#2c3a2f}
+.firma{margin-top:20px;font-weight:800;font-size:18px;color:#1d2a20}
+.firma small{display:block;font-weight:600;font-size:13px;color:#5b6660;margin-top:2px}
+.btns{display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+button,a.btn{border:0;border-radius:24px;padding:12px 20px;font-weight:800;font-size:15px;cursor:pointer;text-decoration:none;font-family:inherit}
+#otra{background:#c62828;color:#fff;box-shadow:0 4px 12px rgba(198,40,40,.35)}
+a.btn{background:#e8f2e4;color:#2e6b2f}
+.pie{margin-top:16px;font-size:12px;color:#7a847d}
+.pie b{color:#c62828}
+</style>
+</head>
+<body>
+<div class="sol"></div><div class="nube n1"></div><div class="nube n2"></div>
+<svg class="monte" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 250 L120 150 L210 210 L330 90 L430 190 L520 120 L640 220 L760 110 L880 200 L1000 140 L1000 420 L0 420Z" fill="#8fb39a"/>
+  <path d="M330 90 L360 118 L345 122 L330 108 L312 124 L300 118Z M760 110 L785 135 L770 138 L760 126 L745 140 L735 134Z" fill="#fff" opacity=".9"/>
+  <path d="M0 300 L150 230 L280 290 L420 220 L560 300 L700 240 L850 300 L1000 250 L1000 420 L0 420Z" fill="#5d8c55"/>
+  <path d="M0 360 Q250 320 500 360 T1000 350 L1000 420 L0 420Z" fill="#3f6e3c"/>
+  <path d="M0 395 Q300 370 560 392 T1000 388" fill="none" stroke="#7ec4ef" stroke-width="7" opacity=".85"/>
+</svg>
+<canvas id="cf"></canvas>
+<main>
+  <div class="card">
+    <img class="logo" src="/img/icono-basatina.png" alt="BasatiNA">
+    <div class="tarta">🎂</div>
+    <h1>Zorionak, Josal!<span>¡Feliz cumpleaños!</span></h1>
+    <p>Hoy es tu día, y desde Zubiri hasta el último rincón de Navarra lo celebramos contigo.</p>
+    <p>Que este año venga cargado de buenas rutas, buen tiempo y mejores momentos.</p>
+    <div class="firma">Un abrazo enorme,<br>Pedro<small>(y todo el equipo de BasatiNA 💚)</small></div>
+    <div class="btns"><button id="otra">🎉 ¡Más confeti!</button><a class="btn" href="https://basatina.es/">🌿 Abrir BasatiNA</a></div>
+    <div class="pie">Hecho con cariño en Navarra · Basati<b>NA</b></div>
+  </div>
+</main>
+<script>
+(function(){
+  const c=document.getElementById('cf'),x=c.getContext('2d');let W,H,P=[];
+  const col=['#c62828','#2e6b2f','#ffd55a','#1e88e5','#ff8f00','#8e24aa','#ffffff'];
+  function tam(){const k=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;c.width=W*k;c.height=H*k;x.setTransform(k,0,0,k,0,0);}
+  addEventListener('resize',tam);tam();
+  function lanza(n,desdeArriba){for(let i=0;i<n;i++){P.push({x:desdeArriba?Math.random()*W:W/2+(Math.random()-.5)*60,y:desdeArriba?-20-Math.random()*H*.5:H*.45,
+    vx:desdeArriba?(Math.random()-.5)*1.5:(Math.random()-.5)*12,vy:desdeArriba?2+Math.random()*3:-6-Math.random()*9,
+    r:4+Math.random()*5,a:Math.random()*6.3,va:(Math.random()-.5)*.3,c:col[i%col.length],f:Math.random()<.3});}}
+  function paso(){x.clearRect(0,0,W,H);P=P.filter(p=>p.y<H+30);
+    for(const p of P){p.vy+=.12;p.vx*=.99;p.x+=p.vx+Math.sin(p.a)*.6;p.y+=Math.min(p.vy,5.5);p.a+=p.va;
+      x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;
+      if(p.f){x.beginPath();x.arc(0,0,p.r*.55,0,7);x.fill();}else x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore();}
+    requestAnimationFrame(paso);}
+  paso();setTimeout(()=>lanza(180,true),500);setTimeout(()=>lanza(120,false),1300);
+  setInterval(()=>{if(P.length<40)lanza(25,true);},5000);
+  document.getElementById('otra').onclick=()=>{lanza(160,false);try{navigator.vibrate&&navigator.vibrate([60,40,60]);}catch(e){}};
+})();
+</script>
+</body>
+</html>
