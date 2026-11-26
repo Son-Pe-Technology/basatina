@@ -57,6 +57,7 @@ const st=document.createElement('style');st.textContent=`
 #inNw .inF .inT{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:6px;font-size:18px;font-weight:900;line-height:1.22;text-shadow:0 1px 8px rgba(0,0,0,.45)}
 #inNw .inF .inM{font-size:12px;opacity:.92;margin-top:4px}
 #inNw .inX{padding:10px 14px 13px;font-size:14px;line-height:1.42;color:#2a302c}#inNw .inX>span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#inNw .inCr{padding:0 14px 9px;margin-top:-6px;font-size:10.5px;color:#8a938d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #inNw .inBar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:rgba(0,0,0,.06)}
 #inNw .inBar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--c1),var(--c2));animation:inProg 10s linear forwards}
 #inNw .inLs{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -144,7 +145,7 @@ function pinta(){const el=sitio();if(!el)return;const L=lista();
    <article class="inL" data-id="${X(x.id)}" style="--c1:${c[0]};--c2:${c[1]}">
     <div class="inF${f?'':' sin'}"><i${f?` style="background-image:url('${X(f)}')"`:''}></i>
      <div class="inTx"><span class="inChip"><span>${X(x.cat||'Navarra')}</span></span><div class="inT">${X(x.titulo)}</div><div class="inM">${meta(x)}</div></div></div>
-    <div class="inX"><span>${X(x.texto)}</span></div>${L.length>1?'<div class="inBar"><i></i></div>':''}</article>
+    <div class="inX"><span>${X(x.texto)}</span></div>${(()=>{const k=f&&window.tfCred?tfCred(f):null;return k?`<div class="inCr">${X(k.txt)}</div>`:'';})()}${L.length>1?'<div class="inBar"><i></i></div>':''}</article>
    <div class="inLs">${otras.map((y,i)=>{const k=col(y.cat),g=foto(y);
      return `<div class="inR" data-id="${X(y.id)}" style="--c1:${k[0]};--c2:${k[1]};animation-delay:${150+i*110}ms">
       <span class="inMin"${g?` style="background-image:url('${X(g)}')"`:''}>${g?'':X((y.cat||'N')[0])}</span>

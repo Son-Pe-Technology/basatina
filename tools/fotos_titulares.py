@@ -88,7 +88,8 @@ def main(base):
             nombre = f"tit-{tema}-{h}.webp"
             recorta(p, os.path.join(out_dir, nombre)); L.append(nombre)
         if L: fotos[tema] = L; print(tema, len(L))
-    json.dump({"temas": {k: v for k, v in TEMAS.items()}, "fotos": fotos, "creditos": cred,
+    # las fotos libres (tools/fotos_titulares_libres.py) se conservan: la app solo las usa en temas sin fotos propias
+    json.dump({"temas": {k: v for k, v in TEMAS.items()}, "fotos": fotos, "libres": viejo.get("libres", {}), "creditos": cred,
                "_info": "Lo genera tools/fotos_titulares.py. Fotos propias por tema para los titulares."},
               open(os.path.join(out_dir, "titulares-fotos.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 

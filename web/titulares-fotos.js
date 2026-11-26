@@ -17,7 +17,20 @@ async function carga(){if(TF)return TF;
   return TF;}
 const hash=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h;};
 function tema(t){const n=N(t);for(const [k,L] of TF.claves)if(L.some(w=>w&&n.includes(w)))return k;return null;}
-window.tfFoto=function(titulo,url){if(!TF)return null;const k=tema(titulo);const F=k&&TF.fotos&&TF.fotos[k];if(!F||!F.length)return null;return F[hash(url||titulo)%F.length];};
+/* 26 nov. 2026: si el tema aún no tiene fotos propias, se usa una LIBRE de Wikimedia Commons (tools/fotos_titulares_libres.py) */
+window.tfFoto=function(titulo,url){if(!TF)return null;const k=tema(titulo);if(!k)return null;
+  let F=TF.fotos&&TF.fotos[k];if(!F||!F.length)F=TF.libres&&TF.libres[k];if(!F||!F.length)return null;return F[hash(url||titulo)%F.length];};
+/* crédito de una foto libre («Foto: autor · licencia»); las propias no llevan */
+window.tfCred=function(f){const c=TF&&TF.creditos&&TF.creditos[f];return c&&c.a?{txt:'Foto: '+c.a+' · '+c.l+' · Wikimedia Commons',u:c.u}:null;};
+/* en Créditos: la lista de fotos libres de los titulares, con autor, licencia y enlace */
+async function creditos(){const sec=document.getElementById('t-creditos');if(!sec)return;await carga();
+  const C=Object.entries(TF.creditos||{}).filter(([f,c])=>c&&c.a&&/-c[0-9a-f]{10}\.webp$/.test(f));if(!C.length)return;
+  let el=document.getElementById('tfCred');if(!el){el=document.createElement('div');el.className='card';el.id='tfCred';sec.appendChild(el);}
+  const X=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  el.innerHTML='<b>📰 Fotos de los titulares y noticias</b><div class="note">Mientras no tenemos fotos nuestras de cada tema, usamos fotos libres de Wikimedia Commons:</div>'+
+    C.map(([f,c])=>`<div class="note" style="margin-top:4px">${X(c.t)} · ${X(c.a)} · ${X(c.l)} · <a href="#" data-u="${X(c.u)}">ver</a></div>`).join('');
+  el.querySelectorAll('a[data-u]').forEach(a=>a.onclick=e=>{e.preventDefault();const u=a.dataset.u;if(window.amAbre)amAbre(u);else window.open(u,'_blank');});}
+if(typeof showTab==='function'){const _s=showTab;showTab=function(t){_s.apply(this,arguments);if(t==='creditos')setTimeout(creditos,80);};}
 const st=document.createElement('style');st.textContent=`
 .tmNews.tfF{display:flex!important;gap:12px;align-items:center}
 .tmNews.tfF>img{width:84px;height:63px;border-radius:12px;object-fit:cover;flex:none;background:#eef3ec}
