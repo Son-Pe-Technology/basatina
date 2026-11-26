@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "7184ab4dbb1e",
+   "pub": "2026-11-26T03:57Z",
+   "titulo": "El Cima descubre cómo potenciar un anticuerpo contra tumores avanzados",
+   "texto": "Científicos del Cima, en colaboración con la farmacéutica Genmab, han identificado el mecanismo que explica la eficacia de acasunlimab, un fármaco biespecífico que estimula las defensas del organismo frente al cáncer. El hallazgo, publicado en la revista «Immunity», revela que unas células especializadas llamadas dendríticas de tipo 1 resultan clave para que el anticuerpo funcione, pese a ser una proporción muy pequeña del sistema inmunitario en los tumores. El equipo, liderado por el doctor Carlos Luri-Rey, comprobó que al aumentar la presencia de estas células mediante un factor llamado Flt3L, se mejoraba notablemente la eficacia del tratamiento en modelos preclínicos. El anticuerpo ya ha demostrado actividad en pacientes con cáncer avanzado que no respondieron a otras inmunoterapias, lo que abre la puerta a nuevas combinaciones de tratamiento.",
+   "pueblo": "Pamplona",
+   "cat": "Salud",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-ciencia/el-cima-identifica-en-celulas-dendriticas-la-clave-de-un-anticuerpo-que-mejora-la-inmunoterapia-contra-el-cancer/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/24/investigadores-cima-identifican-nuevo-mecanismo-rearmar-celulas-inmunitarias-mejorar-eficacia-inmunoterapia-oncologica-843571-15.html"
+    }
+   ]
+  },
+  {
    "id": "37f19a918a46",
    "pub": "2026-11-26T03:56Z",
    "titulo": "Ane Sagüés presenta 'Un exorcismo pop' tras ganar el Premio de Talento 2025",
