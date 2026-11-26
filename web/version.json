@@ -1,5 +1,5 @@
 {
- "version": 575,
+ "version": 576,
  "apk": 37,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -193,7 +193,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "594333a288c03f266a71d44d9c96891a111c6612",
-  "index.html": "a9474ccee30a0a25df932e55483e8f4859f64f81",
+  "index.html": "f212d7230907f29b95fa4a1782c33ef7c9549331",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
   "inicio-vivo.js": "cc153909045bc9d63e176ea21a235c218248f790",
@@ -203,7 +203,7 @@
   "juegos.js": "146763b412b0022104f869f504e679ee9930f822",
   "juegos2.js": "a6391aacfba802fe8e7eb11298c1494beeb8e619",
   "juegos3.js": "ddc739b99ded24ba97d43fe775c39436598b98ae",
-  "legal.js": "cd4b65b6782a0046a853b5716c8510faee7b4009",
+  "legal.js": "2aecf61d0b765f548ed1366a60f701a1bd53b4c0",
   "lluvia-aviso.js": "23b0066fcbe71220cd8fecaa6377a9f1a9119e83",
   "logo.jpg": "442927f2c4c5495089c0bd56e454ddc6a4223411",
   "logo.png": "5a4acff3ebac8e7b2e2be74d99bf5a3652086fe3",
@@ -219,7 +219,7 @@
   "novedades.js": "db6197f68f751342b62b34c38eae6f3c100bd06f",
   "ocio-ui.js": "ab9daac1d3288a07fee43a4588f4548aa619ce5e",
   "ocio.js": "3790ebcfa38ea6953afc5e06358d1d897e24745b",
-  "oficial.js": "46ac7c138053015c79616283cade6121cf6c7403",
+  "oficial.js": "e5fa935e024c951d26349ca2fcb367630d9441d3",
   "padel-ui.js": "d2dd507f21c4f4210f267617956dd04b2e507c21",
   "padel.js": "323b700256fba14f8a8e70f8ff5d305b96829ccd",
   "perfil-foto.js": "a96a66fda187c3eb1f453c9ce05ced74a1a5d3be",

@@ -105,6 +105,7 @@
 .bnaOfi b{display:block;margin-bottom:4px}.bnaOfiBtn{margin-top:8px;border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:700;background:#ffb020;color:#1b1b1b;cursor:pointer}
 #bnaOfiModal{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:18px}
 #bnaOfiModal>div{max-width:440px;background:var(--bg,#fff);color:var(--txt,#111);border-radius:16px;padding:18px;box-shadow:0 10px 40px rgba(0,0,0,.4);font-size:15px;line-height:1.5}
+#t-mtiempo>.bnaPie:not(.bnaPieSrc){margin:10px 18px 2px;padding:8px 0 0;font-size:10.5px;line-height:1.45;opacity:.7}#t-mtiempo>.bnaPie a{color:inherit!important;text-decoration:underline}#t-mtiempo>.bnaPieSrc{display:none!important}
 .bnaPie{margin:18px 14px 6px;padding:8px 10px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.5;opacity:.85;text-align:center}
 .bnaFList a{display:block;padding:10px 0;border-bottom:1px solid var(--line);color:var(--acc);text-decoration:none}.bnaFList small{display:block;color:var(--txt);opacity:.75}`;
   document.head.appendChild(st);
@@ -142,7 +143,9 @@
   // Inicio: aviso pequeño abajo del todo (petición de Pedro, 18 nov. 2026)
   function pie(){const s=document.getElementById('t-mtiempo');if(!s)return;let d=s.querySelector(':scope>.bnaPie');
     if(!d){d=document.createElement('div');d.className='bnaPie';
-      d.innerHTML=`ℹ️ ${AVISO} Fuentes oficiales: ${['aemet','saih','navarra'].map(enlace).join(' · ')} · <a href="#" onclick="showTab('fuentes');return false" style="color:var(--acc);text-decoration:underline">ver todas</a>${datosTxt('mtiempo')}`;}
+      /* 26 nov. 2026 (Pedro): más discreto: dos líneas cortas (el aviso entero está en «Fuentes oficiales» y al abrir la app por primera vez) */
+      const fu=k=>`<a href="#" data-url="${FUENTES[k][1]}" class="bnaSrcA">${FUENTES[k][0].split(' · ')[0]}</a>`;
+      d.innerHTML=`ℹ️ BasatiNA es una app independiente y no oficial: no está vinculada a ningún organismo público. <a href="#" onclick="showTab('fuentes');return false">Fuentes oficiales</a>: ${['aemet','saih','navarra'].map(fu).join(' · ')}${DATOS.mtiempo?`<br>Datos: ${DATOS.mtiempo}.`:''}`;}
     s.appendChild(d);}
   const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo')pie();if(t==='about')tarjeta('t-about');franjaLuego(t);}catch(e){}};
   pie();setTimeout(pie,1500);setTimeout(pie,5000);tarjeta('t-about');

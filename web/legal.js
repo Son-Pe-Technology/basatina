@@ -141,7 +141,15 @@
 .bnaLegOpt input{width:18px;height:18px;vertical-align:middle}
 .bnaLegOpt label{font-size:12.5px;color:inherit;opacity:1}.bnaLegOpt b{font-size:12.5px}
 .bnaLeg .bnaOfiBtn{font-size:12px;padding:6px 10px;margin-top:6px}
-.bnaLeg .bnaLegFecha{text-align:center;font-size:10.5px;opacity:.6;margin-top:8px}`;
+.bnaLeg .bnaLegFecha{text-align:center;font-size:10.5px;opacity:.6;margin-top:8px}
+/* 26 nov. 2026 (Pedro): en el Inicio, más discreto: los apartados en una línea de enlaces pequeños, sin cuadros ni iconos */
+#t-mtiempo>.bnaLeg{margin:4px 18px 10px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+#t-mtiempo>.bnaLeg h4{font-size:11px!important;margin:0 0 3px!important;text-align:center;opacity:.7;font-weight:700}
+#t-mtiempo>.bnaLeg .bnaLegGrid{display:flex!important;flex-wrap:wrap;justify-content:center;gap:0 4px}
+#t-mtiempo>.bnaLeg .bnaLegBtn{border:0!important;background:none!important;padding:3px 4px!important;min-height:0!important;font-size:11px!important;font-weight:400!important;opacity:.75;text-decoration:underline;box-shadow:none!important;display:inline!important;width:auto!important}
+#t-mtiempo>.bnaLeg .bnaLegBtn.on{opacity:1;font-weight:700!important}
+#t-mtiempo>.bnaLeg .bnaLegBtn .ic{display:none!important}
+#t-mtiempo>.bnaLeg .bnaLegFecha{font-size:10px;margin-top:4px}`;
   document.head.appendChild(st);
 
   // rejilla de 4 por fila; al tocar un apartado su texto se abre debajo, a todo el ancho
