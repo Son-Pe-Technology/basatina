@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "9b2f3783847c",
+   "pub": "2026-11-26T09:20Z",
+   "titulo": "Una pareja navarra cría 600 ovejas y ponis en Lizarraga con música",
+   "texto": "Leire y Jon dejaron sus trabajos como maestra de inglés y operario de fundición para dedicarse a la ganadería en Lizarraga. Gestionan Lurzuri Elkartea, una explotación con 600 ovejas, 17 ponis, 4 vacas, un caballo y otras especies que el año pasado produjo 55.000 litros de leche. Ambos reconocen las dificultades del sector: costes altos, burocracia, falta de relevo generacional y trabajo sin descanso. A pesar de ello, planean ampliar su producción y abrir una quesería y un espacio educativo para escolares. «Incluso les ponemos música a los animales para que estén tranquilos», cuentan.",
+   "pueblo": "Lizarraga",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/la-pareja-que-dejo-las-aulas-y-una-fundicion-para-cuidar-con-musica-a-600-ovejas-y-una-manada-de-ponis-en-lizarraga/"
+    }
+   ]
+  },
+  {
    "id": "fc4f7e600c91",
    "pub": "2026-11-26T04:01Z",
    "titulo": "Navarra homenajea a 33 pelotaris tras triunfar en el Mundial",
@@ -763,33 +777,6 @@
     {
      "f": "Ayuntamiento de Pamplona",
      "u": "https://www.pamplona.es/actualidad/noticias/el-proyecto-de-presupuesto-del-ayuntamiento-para-2027-alcanza-los-2996-millones"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "85ed07b4aee3",
-   "pub": "2026-11-23T21:52Z",
-   "titulo": "Acuerdo de 15 millones entre sindicatos y SNS para mejorar condiciones laborales",
-   "texto": "La Intersindical de Salud, que agrupa LAB, SATSE, SAE, UGT y AFAPNA, ha alcanzado un pacto con el Servicio Navarro de Salud tras meses de negociación. El acuerdo moviliza 15 millones de euros destinados a reforzar plantillas con más de 120 profesionales sanitarios, eximir de turnos nocturnos a trabajadores mayores de 55 años y compensar excesos de jornada. También incluye oportunidades de formación ampliada y estudios para convertir puestos a tiempo parcial en jornada completa. Un millón de euros se reserva para cubrir bajas derivadas de la exención de noches, con plazo extraordinario para solicitarla hasta marzo de 2027.",
-   "pueblo": "Navarra",
-   "cat": "Laboral",
-   "fuentes": [
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-intersindical-salud-cifra-15-millones-acuerdo-sns-hemos-conseguido-mejoras-derechos-laborales-20261123113854.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/los-sindicatos-firmante-del-acuerdo-con-el-sns-o-valoran-el-acuerdo-por-15-millones-para-reforzar-la-plantilla-y-eximir-de-noches-a-mayores-de-55-anos/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/23/mejorar-guardias-noches-mayores-55-anos-medidas-acordadas-salud-sindicatos-843451-15.html"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-salud-alcanza-acuerdo-cinco-sindicatos-mejorar-condiciones-laborales-profesionales-20261123090920.html"
     }
    ],
    "auto": true
