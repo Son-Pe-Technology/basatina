@@ -44,6 +44,29 @@ public abstract class Pantalla extends Activity {
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) v.getLayoutParams(); lp.topMargin = dp(6); v.setLayoutParams(lp);
         v.setOnClickListener(cl); return v;
     }
+    /** Pone una vista (el paisaje animado) detrás de la columna, que pasa a ser transparente */
+    void conFondo(View fondo) {
+        ((android.view.ViewGroup) sv.getParent()).removeView(sv);
+        android.widget.FrameLayout f = new android.widget.FrameLayout(this); f.setBackgroundColor(Color.BLACK);
+        f.addView(fondo); sv.setBackgroundColor(Color.TRANSPARENT); f.addView(sv); setContentView(f);
+    }
+    /** Texto con sombra, para que se lea encima del paisaje */
+    TextView ts(String s, int sp, int color, boolean negrita) {TextView v = t(s, sp, color, negrita); v.setShadowLayer(dp(3), 0, dp(1), 0xCC000000); return v;}
+    /** Una fila de accesos: icono en cuadrado de color con el nombre debajo */
+    LinearLayout fila() {
+        LinearLayout f = new LinearLayout(this); f.setOrientation(LinearLayout.HORIZONTAL); f.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.topMargin = dp(8); caja.addView(f, lp); return f;
+    }
+    Icono acceso(LinearLayout fila, int tipo, int color, String nombre, View.OnClickListener cl) {
+        LinearLayout a = new LinearLayout(this); a.setOrientation(LinearLayout.VERTICAL); a.setGravity(Gravity.CENTER_HORIZONTAL);
+        Icono i = new Icono(this, tipo, color); a.addView(i, new LinearLayout.LayoutParams(dp(52), dp(52)));
+        TextView n = new TextView(this); n.setText(nombre); n.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11); n.setTextColor(Color.WHITE);
+        n.setGravity(Gravity.CENTER_HORIZONTAL); n.setShadowLayer(dp(2), 0, dp(1), 0xCC000000); n.setPadding(0, dp(3), 0, 0); a.addView(n);
+        a.setOnClickListener(cl);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dp(74), LinearLayout.LayoutParams.WRAP_CONTENT); fila.addView(a, lp);
+        return i;
+    }
     void hueco(int d) {View v = new View(this); caja.addView(v, new LinearLayout.LayoutParams(1, dp(d)));}
     int dp(int d) {return (int) (d * getResources().getDisplayMetrics().density);}
     static String dur(long ms) {long m = Math.max(0, ms / 60000); return m < 60 ? m + " min" : (m / 60) + " h " + String.format(Datos.ES, "%02d", m % 60) + " min";}

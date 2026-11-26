@@ -41,6 +41,8 @@
         <activity android:name=".RutasCerca" android:exported="false" />
         <activity android:name=".Seguir" android:exported="false" android:launchMode="singleTop" />
         <activity android:name=".Brujula" android:exported="false" />
+        <!-- 26 nov. 2026: mapa (IGN) con tu posición, la ruta y el radar de lluvia -->
+        <activity android:name=".Mapa" android:exported="false" />
 
         <!-- grabación de la ruta/actividad con la pantalla apagada (GPS + pulsómetro + pasos) -->
         <service android:name=".Grabacion" android:exported="false" android:foregroundServiceType="location|health" />
