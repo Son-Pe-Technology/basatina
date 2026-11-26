@@ -2273,3 +2273,30 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
  "Alertas ciudadanas":["Herritarren alertak","Citizen alerts","Alertes citoyennes"],"Fotos de la Cuadrilla":["Kuadrillaren argazkiak","Crew photos","Photos de la bande"],
  "Buzón de sugerencias":["Iradokizun-postontzia","Suggestion box","Boîte à idées"],"Refranes de tu pueblo":["Zure herriko esaerak","Sayings from your village","Dictons de ton village"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
+
+// 26 nov. 2026: ficha de ruta «profesional» (pendientes, MIDE, tipo de camino, puntos de interés)
+(function () {
+  const T = {
+    'Pendiente máx.': ['Malda handiena', 'Max. gradient', 'Pente max.'],
+    'Esfuerzo (MIDE)': ['Ahalegina (MIDE)', 'Effort (MIDE)', 'Effort (MIDE)'],
+    'Por dónde va': ['Nondik doan', 'Terrain', 'Type de chemin'],
+    'Senda': ['Bidezidorra', 'Footpath', 'Sentier'], 'Pista': ['Pista', 'Track', 'Piste'], 'Asfalto': ['Asfaltoa', 'Paved', 'Bitume'],
+    'Tramo más difícil (escala SAC)': ['Zatirik zailena (SAC eskala)', 'Hardest section (SAC scale)', 'Passage le plus difficile (échelle SAC)'],
+    'T1 · Senderismo': ['T1 · Mendi-ibilaldia', 'T1 · Hiking', 'T1 · Randonnée'],
+    'T2 · Senderismo de montaña': ['T2 · Mendi-ibilaldia', 'T2 · Mountain hiking', 'T2 · Randonnée en montagne'],
+    'T3 · Senderismo de montaña exigente': ['T3 · Mendi-ibilaldi zorrotza', 'T3 · Demanding mountain hiking', 'T3 · Randonnée en montagne exigeante'],
+    'T4 · Senderismo alpino': ['T4 · Ibilaldi alpinoa', 'T4 · Alpine hiking', 'T4 · Randonnée alpine'],
+    'T5 · Senderismo alpino exigente': ['T5 · Ibilaldi alpino zorrotza', 'T5 · Demanding alpine hiking', 'T5 · Randonnée alpine exigeante'],
+    'T6 · Senderismo alpino difícil': ['T6 · Ibilaldi alpino zaila', 'T6 · Difficult alpine hiking', 'T6 · Randonnée alpine difficile'],
+    'Qué te vas a encontrar': ['Zer aurkituko duzun', 'What you will find', 'Ce que vous trouverez'],
+    'Toca uno para verlo en el mapa y en el perfil.': ['Ukitu bat mapan eta profilean ikusteko.', 'Tap one to see it on the map and the profile.', 'Touchez-en un pour le voir sur la carte et le profil.'],
+    'Cima': ['Gailurra', 'Summit', 'Sommet'], 'Collado': ['Lepoa', 'Pass', 'Col'], 'Fuente': ['Iturria', 'Spring', 'Source'],
+    'Agua potable': ['Edateko ura', 'Drinking water', 'Eau potable'], 'Refugio': ['Aterpea', 'Hut', 'Refuge'], 'Mirador': ['Begiratokia', 'Viewpoint', 'Belvédère'],
+    'Cueva': ['Kobazuloa', 'Cave', 'Grotte'], 'Cascada': ['Ur-jauzia', 'Waterfall', 'Cascade'], 'Patrimonio': ['Ondarea', 'Heritage', 'Patrimoine'],
+    'Tiempo orientativo sin paradas (método MIDE: 4 km/h en llano, 400 m/h subiendo, 600 m/h bajando). Alturas y pendientes con el modelo del terreno de 5 m del IGN. La dificultad sale de la distancia, el desnivel y la escala SAC de los tramos: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.': [
+      'Gutxi gorabeherako denbora, geldialdirik gabe (MIDE metodoa: 4 km/h lauan, 400 m/h igotzean, 600 m/h jaistean). Altuerak eta maldak IGNren 5 m-ko lur-ereduarekin. Zailtasuna distantziatik, desnibeletik eta zatien SAC eskalatik dator: informatu irten aurretik, begiratu abisuak eta eraman ura, arropa beroa eta mugikorra kargatuta. Larrialdiak: 112.',
+      'Approximate time without stops (MIDE method: 4 km/h on the flat, 400 m/h uphill, 600 m/h downhill). Heights and gradients from the IGN 5 m terrain model. Difficulty comes from distance, elevation gain and the SAC scale of the sections: check before you go, look at the warnings and take water, warm clothes and a charged phone. Emergencies: 112.',
+      'Durée indicative sans pauses (méthode MIDE : 4 km/h à plat, 400 m/h en montée, 600 m/h en descente). Altitudes et pentes avec le modèle de terrain de 5 m de l’IGN. La difficulté dépend de la distance, du dénivelé et de l’échelle SAC des tronçons : renseignez-vous avant de partir, consultez les alertes et emportez de l’eau, des vêtements chauds et un téléphone chargé. Urgences : 112.']};
+  const R = window.I18N_RU = window.I18N_RU || {};
+  ['eu', 'en', 'fr'].forEach((l, k) => {R[l] = R[l] || {}; for (const s in T) if (!(s in R[l])) R[l][s] = T[s][k];});
+})();

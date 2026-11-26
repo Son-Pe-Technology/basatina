@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Preparar
-        run: pip install rasterio numpy
+        run: pip install rasterio numpy tifffile
       - name: Descargar y preparar las rutas
         run: python3 tools/rutas.py
       - name: Guardar en el repositorio

@@ -13,6 +13,13 @@ const RU_GRP = [['', 'Todas', '🥾'], ['Senderos y paseos', 'Senderos y paseos'
   ['Camino de Santiago', 'Camino de Santiago', '🐚'], ['Vías verdes', 'Vías verdes', '🚲']];
 const RU_ICO = {'Senderos y paseos': '🌿', 'Grandes travesías': '🏔️', 'Camino de Santiago': '🐚', 'Vías verdes': '🚲'};
 const RU_ZON = ['Pirineo', 'Baztan-Bidasoa', 'Plazaola-Sakana-Ultzama', 'Pamplona y Comarca', 'Tierra Estella', 'Zona Media', 'Sangüesa-Prepirineo', 'La Ribera'];
+// 26 nov. 2026 (rutas «profesionales»): puntos de interés del recorrido, tipo de camino y pendientes
+const RU_WP = {cima: ['🏔️', 'Cima'], collado: ['🌄', 'Collado'], fuente: ['💧', 'Fuente'], agua: ['🚰', 'Agua potable'], refugio: ['🛖', 'Refugio'],
+  mirador: ['👁️', 'Mirador'], cueva: ['🕳️', 'Cueva'], cascada: ['🌊', 'Cascada'], historia: ['🏛️', 'Patrimonio']};
+const RU_SAC = ['', 'T1 · Senderismo', 'T2 · Senderismo de montaña', 'T3 · Senderismo de montaña exigente', 'T4 · Senderismo alpino', 'T5 · Senderismo alpino exigente', 'T6 · Senderismo alpino difícil'];
+// colores de la pendiente (en %): llano, suave, media, fuerte, muy fuerte
+const RU_PEN = [[5, '#4caf50'], [10, '#c0ca33'], [15, '#ffa000'], [20, '#f4511e'], [999, '#b71c1c']];
+const ruPenCol = g => (RU_PEN.find(([m]) => Math.abs(g) < m) || RU_PEN[4])[1];
 // Cartografía de fondo del mapa de la ficha (IGN): topográfico, mapa base y foto aérea
 const RU_WMS = {
   topo: b => `https://www.ign.es/wms-inspire/mapa-raster?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=mtn_rasterizado&STYLES=&CRS=EPSG:4326&BBOX=${b.s},${b.w},${b.n},${b.e}&WIDTH=${Math.round(b.W * 1.5)}&HEIGHT=${Math.round(b.H * 1.5)}&FORMAT=image/jpeg`,
@@ -69,6 +76,13 @@ document.head.insertAdjacentHTML('beforeend', `<style>
 .ruBase{position:absolute;left:8px;bottom:8px;display:flex;gap:4px}
 .ruBase button{padding:5px 9px;font-size:12px;border-radius:99px}
 .ruPasa{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.ruPasa span{background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:2px 9px;font-size:12.5px;color:var(--txt)}
+.ruKpi>div.w2{grid-column:span 2}
+.ruPenL{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px;font-size:11px;color:var(--mut)}.ruPenL i,.ruCompL i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.ruComp{display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:8px;background:var(--line)}.ruComp i{display:block;height:100%}
+.ruCompL{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;font-size:12.5px;color:var(--txt)}
+.ruWp>div{display:flex;align-items:center;gap:10px;padding:7px 2px;border-top:1px solid var(--line);cursor:pointer}.ruWp>div:first-child{border-top:0}
+.ruWp .i{font-size:20px;width:26px;text-align:center;flex:none}.ruWp .n{flex:1;min-width:0;font-size:14px;color:var(--txt)}.ruWp .n small{display:block;font-size:11.5px;color:var(--mut)}
+.ruWp .k{font-size:12.5px;font-weight:700;color:var(--txt);white-space:nowrap}
 .ruWx{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:6px 0 10px}
 .ruWx>div{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:6px 2px;text-align:center;font-size:12px;color:var(--txt)}
 .ruWx .i{font-size:22px;display:block}
@@ -188,12 +202,16 @@ function ruFicha(r) {
     <div><span>${ruT('Distancia')}</span><b>${ruF(r.km)} km</b></div><div><span>${ruT('Desnivel +')}</span><b>${r.up} m</b></div>
     <div><span>${ruT('Desnivel −')}</span><b>${r.dn} m</b></div><div><span>${ruT('Dificultad')}</span><b style="color:${RU_DIF[r.dif]}">${ruT(r.dif)}</b></div>
     <div><span>${ruT('Altitud máx.')}</span><b>${r.mx} m</b></div><div><span>${ruT('Altitud mín.')}</span><b>${r.mn} m</b></div>
-    <div><span>${ruT('Tiempo')}</span><b>${ruH(r.h)}</b></div><div><span>${ruT('Tipo')}</span><b>${r.circ ? '🔁 ' + ruT('Circular') : '➡️ ' + ruT('Lineal')}</b></div></div>
+    <div><span>${ruT('Tiempo')}${r.mide ? ' (MIDE)' : ''}</span><b>${ruH(r.h)}</b></div><div><span>${ruT('Tipo')}</span><b>${r.circ ? '🔁 ' + ruT('Circular') : '➡️ ' + ruT('Lineal')}</b></div>
+    ${r.ps ? `<div class="w2"><span>${ruT('Pendiente máx.')}</span><b><span style="color:${ruPenCol(r.ps[0])}">↗ ${r.ps[0]} %</span> · <span style="color:${ruPenCol(r.pb[0])}">↘ ${r.pb[0]} %</span></b></div>` : ''}
+    ${r.mide ? `<div class="w2"><span>${ruT('Esfuerzo (MIDE)')}</span><b>${'●'.repeat(r.mide)}<span style="opacity:.25">${'●'.repeat(5 - r.mide)}</span> ${r.mide}/5</b></div>` : ''}</div>
    <div class="ruMapBox"><canvas id="ruMapa" height="300"></canvas>
     <div class="ruMapBtn"><button class="btn mtb" id="ruIn">＋</button><button class="btn mtb" id="ruOut">－</button><button class="btn mtb" id="ruAll">⤢</button></div>
     <div class="ruBase">${[['topo', '🏔️', 'Topo'], ['mapa', '🗺️', 'Mapa'], ['sat', '🛰️', 'Satélite']].map(([k, i, t]) => `<button class="btn${RU.base === k ? ' on' : ''}" data-b="${k}">${i} ${ruT(t)}</button>`).join('')}</div></div>
    <div class="card" style="padding:10px 8px 8px"><b>⛰️ ${ruT('Perfil del recorrido')}</b>${ruPerfil(r)}
-    <div id="ruPfT" class="note" style="min-height:2.9em;margin-top:2px">👆 ${ruT('Desliza el dedo por la gráfica (o toca la ruta en el mapa) para ver la altitud de cada punto.')}</div></div>
+    <div id="ruPfT" class="note" style="min-height:2.9em;margin-top:2px">👆 ${ruT('Desliza el dedo por la gráfica (o toca la ruta en el mapa) para ver la altitud de cada punto.')}</div>
+    ${r.ps ? `<div class="ruPenL">${RU_PEN.map(([m, c], i) => `<span><i style="background:${c}"></i>${i ? (i < 4 ? RU_PEN[i - 1][0] + '–' + m : '+' + RU_PEN[3][0]) : '0–' + m} %</span>`).join('')}</div>` : ''}</div>
+   ${ruCaminoHtml(r)}${ruWpHtml(r)}
    <div class="card"><b>📝 ${ruT('La ruta')}</b><div style="margin-top:6px;font-size:14.5px;line-height:1.5;color:var(--txt)">${ruE(ruDesc(r))}</div>
     ${r.destaca ? `<div class="note" style="margin-top:6px">⭐ ${ruT('Destacado')}: ${ruE(r.destaca)}</div>` : ''}
     ${r.pasa && r.pasa.length ? `<div class="note" style="margin-top:8px">${ruT('Pueblos por los que pasa:')}</div><div class="ruPasa">${r.pasa.map(p => `<span>${ruE(p)}</span>`).join('')}</div>` : ''}</div>
@@ -202,7 +220,7 @@ function ruFicha(r) {
     ${r.osm ? `<button class="btn" id="ruOsm">🗺️ ${ruT('Ver en OpenStreetMap')}</button>` : ''}${r.web ? `<button class="btn" id="ruWeb">🔗 ${ruT('Web de la ruta')}</button>` : ''}
     <button class="btn" id="ruSh">📤 ${ruT('Compartir')}</button></div>
    <div class="card" id="ruTiempo"><b>🌦️ ${ruT('El tiempo en el recorrido')}</b><div class="note">${ruT('Cargando la previsión…')}</div></div>
-   <div class="card" style="border-color:#ffb020"><div class="note">⚠️ ${ruT('Tiempo orientativo sin paradas (norma DIN 33466: 4 km/h en llano, 300 m/h subiendo, 500 m/h bajando). La dificultad está calculada con la distancia y el desnivel, no con el terreno: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.')}</div></div>`;
+   <div class="card" style="border-color:#ffb020"><div class="note">⚠️ ${r.mide ? ruT('Tiempo orientativo sin paradas (método MIDE: 4 km/h en llano, 400 m/h subiendo, 600 m/h bajando). Alturas y pendientes con el modelo del terreno de 5 m del IGN. La dificultad sale de la distancia, el desnivel y la escala SAC de los tramos: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.') : ruT('Tiempo orientativo sin paradas (norma DIN 33466: 4 km/h en llano, 300 m/h subiendo, 500 m/h bajando). La dificultad está calculada con la distancia y el desnivel, no con el terreno: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.')}</div></div>`;
   const $ = id => document.getElementById(id);
   $('ruVolver').onclick = () => {if (history.state && history.state.ruta) history.back(); else ruCerrar();};
   $('ruGpx').onclick = () => ruGpx(r);
@@ -211,11 +229,27 @@ function ruFicha(r) {
   if ($('ruWeb')) $('ruWeb').onclick = () => ruOpen(r.web);
   $('ruSh').onclick = () => {const t = `🥾 ${r.n}\n📏 ${ruF(r.km)} km · ↗ ${r.up} m · ↘ ${r.dn} m · ${ruT(r.dif)} · ⏱️ ${ruH(r.h)}\n📍 ${ruT('Salida')}: https://www.google.com/maps/search/?api=1&query=${r.lin[0][0]},${r.lin[0][1]}\n(BasatiNA · basatina.es)`;
     if (APP) window.AndroidNet.share(t); else if (navigator.share) navigator.share({text: t}).catch(() => {}); else navigator.clipboard && navigator.clipboard.writeText(t);};
+  fi.querySelectorAll('.ruWp>div[data-k]').forEach(d => d.onclick = () => {ruCursor(r, +d.dataset.k / r.km); const m = document.getElementById('ruMapa');
+    if (m) window.scrollTo(0, Math.max(0, m.getBoundingClientRect().top + window.scrollY - 90));});
   fi.querySelectorAll('.ruBase button').forEach(b => b.onclick = () => {RU.base = b.dataset.b; fi.querySelectorAll('.ruBase button').forEach(x => x.classList.toggle('on', x === b));
     if (RU.map) {RU.map.wms = RU_WMS[RU.base]; RU.map.img = null; RU.map.base();}});
   window.scrollTo(0, Math.max(0, fi.getBoundingClientRect().top + window.scrollY - 100));
   setTimeout(() => {ruMapa(r); ruPerfilTouch(r);}, 30);
   ruTiempo(r);
+}
+// tipo de camino: senda / pista / asfalto (de OpenStreetMap) y escala SAC
+function ruCaminoHtml(r) {
+  if (!r.comp && !r.sac) return '';
+  const C = [['Senda', '#5d8c3a'], ['Pista', '#c49a5a'], ['Asfalto', '#6b7075']];
+  return `<div class="card"><b>🛤️ ${ruT('Por dónde va')}</b>${r.comp ? `<div class="ruComp">${r.comp.map((v, i) => v ? `<i style="width:${v}%;background:${C[i][1]}"></i>` : '').join('')}</div>
+    <div class="ruCompL">${r.comp.map((v, i) => `<span><i style="background:${C[i][1]}"></i>${ruT(C[i][0])} <b>${v} %</b></span>`).join('')}</div>` : ''}
+    ${r.sac ? `<div class="note" style="margin-top:8px">${ruT('Tramo más difícil (escala SAC)')}: <b>${ruT(RU_SAC[r.sac])}</b></div>` : ''}</div>`;
+}
+// puntos de interés del recorrido, en orden
+function ruWpHtml(r) {
+  if (!r.wp || !r.wp.length) return '';
+  return `<div class="card"><b>📍 ${ruT('Qué te vas a encontrar')}</b><div class="note" style="margin:2px 0 6px">${ruT('Toca uno para verlo en el mapa y en el perfil.')}</div><div class="ruWp">${r.wp.map(w =>
+    `<div data-k="${w[0]}"><span class="i">${(RU_WP[w[1]] || ['📍'])[0]}</span><span class="n">${ruE(w[2])}<small>${ruT((RU_WP[w[1]] || ['', ''])[1])}${w[5] ? ' · ' + w[5] + ' m' : ''}</small></span><span class="k">km ${ruF(w[0])}</span></div>`).join('')}</div></div>`;
 }
 function ruCerrar() {RU.sel = null; document.getElementById('ruFicha').style.display = 'none'; document.getElementById('ruFicha').innerHTML = '';
   document.getElementById('ruLista').style.display = ''; RU.map = null; setTimeout(() => window.scrollTo(0, RU.scroll), 20);}
@@ -233,6 +267,9 @@ function ruMapa(r) {
       x.save(); x.translate(a, c); x.rotate(an); x.beginPath(); x.moveTo(5, 0); x.lineTo(-4, -4); x.lineTo(-4, 4); x.closePath(); x.fill(); x.restore();}
     const mk = (p, col, t) => {const [a, c] = P(p[0], p[1]); x.fillStyle = col; x.strokeStyle = '#fff'; x.lineWidth = 2.5; x.beginPath(); x.arc(a, c, 9, 0, 7); x.fill(); x.stroke();
       x.fillStyle = '#fff'; x.font = 'bold 10px system-ui'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(t, a, c + .5);};
+    if (r.wp) {x.font = '15px system-ui'; x.textAlign = 'center'; x.textBaseline = 'middle';
+      r.wp.forEach(w => {const [a, c] = P(w[3], w[4]); x.fillStyle = 'rgba(255,255,255,.92)'; x.strokeStyle = 'rgba(0,0,0,.35)'; x.lineWidth = 1; x.beginPath(); x.arc(a, c, 10, 0, 7); x.fill(); x.stroke();
+        x.fillStyle = '#000'; x.fillText((RU_WP[w[1]] || ['📍'])[0], a, c + 1);});}
     if (!r.circ) mk(L[L.length - 1], '#d32f2f', 'F');
     mk(L[0], '#2e9e4f', r.circ ? '⟳' : 'S');
     if (RU.pt) {const [a, c] = P(RU.pt[0], RU.pt[1]); x.fillStyle = '#ffeb3b'; x.strokeStyle = '#222'; x.lineWidth = 2; x.beginPath(); x.arc(a, c, 7, 0, 7); x.fill(); x.stroke();}
@@ -260,9 +297,16 @@ function ruPerfil(r) {
   const ks = r.km <= 4 ? 1 : r.km <= 10 ? 2 : r.km <= 25 ? 5 : r.km <= 60 ? 10 : 20;
   for (let k = 0; k <= r.km + 1e-9; k += ks) gr += `<text x="${(L + k / r.km * (W - L)).toFixed(1)}" y="${H + 13}" text-anchor="middle" font-size="9" fill="currentColor" fill-opacity=".6">${k}${k ? '' : ' km'}</text>`;
   RU_PF.y = Y;
+  // línea coloreada según la pendiente de cada tramo (si la ruta trae pendientes; si no, de un color)
+  let lin = `<polyline points="${pl}" fill="none" stroke="${col}" stroke-width="2.4" stroke-linejoin="round"/>`;
+  if (r.ps) {const dk = r.km * 1000 / (p.length - 1); lin = '';
+    for (let i = 1; i < p.length; i++) {const a = Math.max(0, i - 2), b = Math.min(p.length - 1, i + 1), g = (p[b] - p[a]) / ((b - a) * dk) * 100;
+      lin += `<line x1="${X(i - 1).toFixed(1)}" y1="${Y(p[i - 1]).toFixed(1)}" x2="${X(i).toFixed(1)}" y2="${Y(p[i]).toFixed(1)}" stroke="${ruPenCol(g)}" stroke-width="2.8" stroke-linecap="round"/>`;}}
+  const wp = (r.wp || []).map(w => {const xx = L + w[0] / r.km * (W - L), i = Math.round(w[0] / r.km * (p.length - 1)), yy = Y(p[Math.max(0, Math.min(p.length - 1, i))]);
+    return `<line x1="${xx.toFixed(1)}" x2="${xx.toFixed(1)}" y1="${(yy - 4).toFixed(1)}" y2="${Math.max(10, yy - 16).toFixed(1)}" stroke="currentColor" stroke-opacity=".35"/><text x="${xx.toFixed(1)}" y="${Math.max(10, yy - 17).toFixed(1)}" font-size="11" text-anchor="middle">${(RU_WP[w[1]] || ['📍'])[0]}</text>`;}).join('');
   return `<svg id="ruPf" viewBox="0 0 ${W} ${H + 17}" style="width:100%;touch-action:pan-y;display:block;margin-top:6px;color:var(--txt)">
-   <defs><linearGradient id="ruGr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".55"/><stop offset="1" stop-color="${col}" stop-opacity=".05"/></linearGradient></defs>${gr}
-   <polygon points="${L},${H} ${pl} ${W},${H}" fill="url(#ruGr)"/><polyline points="${pl}" fill="none" stroke="${col}" stroke-width="2.4" stroke-linejoin="round"/>
+   <defs><linearGradient id="ruGr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".45"/><stop offset="1" stop-color="${col}" stop-opacity=".04"/></linearGradient></defs>${gr}
+   <polygon points="${L},${H} ${pl} ${W},${H}" fill="url(#ruGr)"/>${lin}${wp}
    <line id="ruPfC" x1="0" x2="0" y1="0" y2="${H}" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3" visibility="hidden"/>
    <circle id="ruPfD" r="5" fill="#ffeb3b" stroke="#222" stroke-width="1.5" visibility="hidden"/>
    <g id="ruPfB" visibility="hidden"><rect id="ruPfR" rx="5" height="18" fill="#222" fill-opacity=".82"/><text id="ruPfX" font-size="11" font-weight="700" fill="#fff" y="13"></text></g></svg>`;
@@ -293,6 +337,7 @@ function ruGpx(r) {
   const x = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const gpx = `<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="BasatiNA (basatina.es)" xmlns="http://www.topografix.com/GPX/1/1">\n<metadata><name>${x(r.n)}</name><desc>${x((r.fuente || []).join(' · '))}</desc></metadata>\n`
     + `<wpt lat="${L[0][0]}" lon="${L[0][1]}"><ele>${ele(0)}</ele><name>${x(ruT('Salida'))}</name></wpt>\n`
+    + (r.wp || []).map(w => `<wpt lat="${w[3]}" lon="${w[4]}">${w[5] ? `<ele>${w[5]}</ele>` : ''}<name>${x(w[2])}</name><type>${x(ruT((RU_WP[w[1]] || ['', ''])[1]))}</type></wpt>\n`).join('')
     + (r.circ ? '' : `<wpt lat="${L[L.length - 1][0]}" lon="${L[L.length - 1][1]}"><ele>${ele(L.length - 1)}</ele><name>${x(ruT('Llegada'))}</name></wpt>\n`)
     + `<trk><name>${x(r.n)}</name><trkseg>\n${L.map((q, i) => `<trkpt lat="${q[0]}" lon="${q[1]}"><ele>${ele(i)}</ele></trkpt>`).join('\n')}\n</trkseg></trk>\n</gpx>\n`;
   const nom = SV_N(r.n).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) + '.gpx';
