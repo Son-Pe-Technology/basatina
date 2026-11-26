@@ -61,7 +61,7 @@ const M6_MIOSUB={cuenta:'Tu cuenta de BasatiNA',diario:'Tus salidas al monte',si
  comunidad:'Avisos de la gente',fotos:'Las fotos de la Cuadrilla',buzon:'Cuéntanos qué mejorarías',refranes:'Los dichos de cada pueblo',enviar:'Solo administradores',ajustes:'Avisos, letra e iconos',about:'Quiénes somos, fuentes y créditos'};
 const M6_FUERA=['desaparecidos','hist','relax','natura','libre','comarcas','mercados','curiosas','padel','rural'];
 /* juegos: todos en una pantalla */
-const M6_JUEGOS=['jcadenas','jdonde','jlugar','jsopa','jcruci','jsudoku','jchinchon','jparejas','jsoli','jnutria','psombras','pcontar','ptruchas','jclasif'];
+const M6_JUEGOS=['jcadenas','jdonde','jlugar','jsopa','jcruci','jsudoku','jchinchon','jparejas','jsoli','jnutria','jaita','psombras','pcontar','ptruchas','jclasif'];
 
 const FAM_DE={};Object.entries(M6_FAM).forEach(([k,L])=>L.forEach(([t])=>{if(!FAM_DE[t])FAM_DE[t]=k;}));
 const btn=t=>dr.querySelector(`button[data-t="${t}"]:not(.m6Tab)`);
