@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "f712ab8bc668",
+   "pub": "2026-11-26T03:56Z",
+   "titulo": "Nueve detenidos y 26 accidentes en Pamplona durante controles del fin de semana",
+   "texto": "La Policía Municipal de Pamplona realizó 612 pruebas de alcohol y drogas el fin de semana, sancionando a 10 conductores e investigando a 3 por tasas penales. Entre los incidentes destaca el de un conductor que chocó un vehículo en Buztintxuri y dio positivo en etilometría. Los agentes atendieron 26 accidentes con 7 heridos leves. En operativos de seguridad, detuvieron a 9 personas: 6 varones por robo, hurto y otros delitos, y 3 mujeres por maltrato en el ámbito familiar. Uno de los detenidos, de 27 años, intentó robar la caja de un bar en el Casco Viejo y fue identificado tras abandonar un patinete en San Juan.",
+   "pueblo": "Pamplona",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/policia-municipal-de-pamplona-detiene-a-9-personas-por-diversos-delitos-durante-el-pasado-fin-de-semana/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/23/detenidas-3-mujeres-maltrato-parejas-semana-pamplona-843489-16.html"
+    }
+   ]
+  },
+  {
    "id": "ec47e16290bf",
    "pub": "2026-11-25T21:56Z",
    "titulo": "La CNMV autoriza la OPA de Ohmnia sobre Azkoyen por 244,5 millones",
