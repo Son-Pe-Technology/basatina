@@ -1,6 +1,25 @@
 {
  "items": [
   {
+   "id": "ad849b8814e2",
+   "pub": "2026-11-26T18:57Z",
+   "titulo": "Konekta arranca su cuarta edición para mejorar la empleabilidad de 270 personas",
+   "texto": "El Ayuntamiento de Pamplona y el Gobierno de Navarra impulsan una nueva fase del programa de activación laboral Konekta, dirigida a buscadores de empleo inscritos en el Servicio Navarro de Empleo. El proyecto, dotado con 382.031 euros, combina diagnósticos personalizados, tutorías individuales y formación en competencias digitales y laborales. Los participantes recibirán clases de informática básica, búsqueda de información online y manejo de herramientas digitales en grupos de máximo 20 personas. En la edición anterior, que terminó en octubre tras 13 meses, 101 de los 270 participantes consiguieron empleo con 116 contratos suscritos.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/konekta-busca-activar-laboralmente-a-270-demandantes-de-empleo-de-pamplona/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/arranca-la-cuarta-edicion-del-proyecto-konekta-que-busca-la-activacion-laboral"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "5242c1ce29af",
    "pub": "2026-11-26T16:02Z",
    "titulo": "Comienzan las obras de la A-15 con paso para fauna entre Cintruénigo y Tudela",
@@ -737,26 +756,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "9a576de9f2f8",
-   "pub": "2026-11-24T09:30Z",
-   "titulo": "Rafael Moneo presenta el proyecto de Casa de Cultura en el Cuartel de Sementales",
-   "texto": "El arquitecto Rafael Moneo ha visitado Tudela para mostrar el diseño actualizado de la futura Casa de Cultura, que se ubicará en el antiguo Cuartel de Sementales. Durante su estancia, se reunió con el alcalde y presentó la propuesta ante la Comisión de Urbanismo, explicando las líneas generales de la intervención prevista en el edificio histórico. El Ayuntamiento de Tudela y el Gobierno de Navarra colaboran en esta iniciativa para recuperar y adaptar el edificio a nuevos usos culturales. La Junta de Gobierno Local está prevista que apruebe el documento el 27 de noviembre.",
-   "pueblo": "Tudela",
-   "cat": "Cultura",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/rafael-moneo-presenta-en-tudela-el-proyecto-actualizado-de-la-casa-de-cultura-del-antiguo-cuartel-de-sementales/"
-    },
-    {
-     "f": "COPE",
-     "u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/sueno-casa-cultura-tudela-toma-forma-rafael-moneo-presenta-proyecto-sementales-20261123_3480296.html"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-26T16:02Z"
+ "t": "2026-11-26T18:57Z"
 }
