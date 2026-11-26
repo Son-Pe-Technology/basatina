@@ -16,7 +16,7 @@ Con --prueba (o PUSH_PRUEBA=1) se manda al tema «<tema>-prueba»: así se puede
 import json, os, sys, urllib.request
 
 PROYECTO = "basatina-9a8b5"
-TEMAS = ("desaparecidos", "avisos")
+TEMAS = ("desaparecidos", "avisos", "admin")   # admin: solo Pedro y Sonia (tools/admin_pendientes.py)
 
 
 def _token(sa):

@@ -14,7 +14,11 @@ const $=id=>document.getElementById(id);
 const PU_T=[['desaparecidos','🔎 Personas desaparecidas en Navarra','En cuanto sale una alerta de «se busca» en los medios navarros.'],
             ['avisos','📢 Avisos importantes de BasatiNA','Muy pocos: novedades grandes de la app o algo que debas saber.']];
 const nat=()=>typeof APP!=='undefined'&&APP&&window.AndroidNet&&typeof window.AndroidNet.setPush==='function';
-const P=()=>Object.assign({desaparecidos:false,avisos:false},CFG.push||{});
+const P=()=>Object.assign({desaparecidos:false,avisos:false,admin:false},CFG.push||{});
+/* 🔔 26 nov. 2026: aviso a los administradores de lo pendiente (tema «admin», necesita la app 5.7 / código 37).
+   Solo se puede encender desde el ⭐ Panel de administración (superadmin.js), con la cuenta de Pedro o Sonia. */
+window.puAdmin={puede:()=>{try{return nat()&&!!window.AndroidNet.pushTemas&&JSON.parse(window.AndroidNet.pushTemas()).includes('admin');}catch(e){return false;}},
+  on:()=>!!P().admin,pon:v=>{CFG.push=Object.assign(P(),{admin:!!v});cfgSave();manda();}};
 function manda(){try{if(nat())window.AndroidNet.setPush(JSON.stringify(P()));}catch(e){}}
 
 // pantalla que se abre al tocar un aviso

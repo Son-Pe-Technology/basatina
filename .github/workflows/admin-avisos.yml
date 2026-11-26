@@ -1,0 +1,35 @@
+# 🔔 Aviso a Pedro y Sonia cuando hay algo nuevo por revisar (tools/admin_pendientes.py). Cada 10 minutos.
+# Las horas de silencio (23:00–7:00, hora de Madrid) las controla el propio programa.
+name: Avisos de lo pendiente (administradores)
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+    inputs:
+      prueba:
+        description: 'Solo prueba (tema «admin-prueba»)'
+        type: boolean
+        default: false
+concurrency: admin-avisos
+jobs:
+  avisos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - name: Bajar los borradores de la IA (repositorio privado)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: Son-Pe-Technology/basatina-borradores
+          token: ${{ secrets.BORRADORES_TOKEN }}
+          path: priv
+      - name: Mirar lo pendiente y avisar
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
+          PUSH_PRUEBA: ${{ github.event.inputs.prueba == 'true' && '1' || '0' }}
+        run: |
+          pip install --quiet google-auth requests
+          python3 tools/admin_pendientes.py

@@ -484,6 +484,12 @@ public class MainActivity extends Activity {
             PushService.aplicar(MainActivity.this);
         }
 
+        /** 📲 Temas de push que sabe manejar esta versión de la app (26 nov. 2026: para saber si ya tiene «admin») */
+        @JavascriptInterface
+        public String pushTemas() {
+            return new org.json.JSONArray(java.util.Arrays.asList(PushService.TEMAS)).toString();
+        }
+
         /** 📲 Pantalla que hay que abrir porque se ha tocado un aviso push (se entrega una vez) */
         @JavascriptInterface
         public String takePushTab() {

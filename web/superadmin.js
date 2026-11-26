@@ -45,6 +45,7 @@ async function sync(){const s=yo();
   }else if(TECH||ss.get('techSuper')==='1'){
     // sin cuenta de súper administrador no hay modo administrador (desde el 24 nov. 2026 ya no hay PIN)
     TECH=false;ss.set('tech',null);ss.set('techSuper',null);
+    try{if(window.puAdmin&&puAdmin.on())puAdmin.pon(false);}catch(e){}   // sin cuenta de administrador, fuera los avisos de lo pendiente
     try{const ad=JSON.parse(ss.get('cmAdm')||'null');if(ad&&SA_MAILS[ad.email])ss.set('cmAdm',null);}catch(e){}
     try{techApply();}catch(e){}AVISADO=false;PEND=null;pinta();
   }}
@@ -115,6 +116,9 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
      <div class="sadFila"><span class="sadI">🤖</span><span class="sadT"><b>Noticias de la IA</b><small>Borradores que la IA no ha publicado sola</small></span>${num(P.ia)}<button class="btn" data-ir="ia">Revisar</button></div>
      ${P.err&&P.err.length?`<div class="note" style="margin-top:6px">⚠️ No se ha podido mirar todo (${X(P.err.join('; '))}). ¿Están publicadas las reglas nuevas de Firestore?</div>`:''}
      ${P.ia==null?'<div class="note" style="margin-top:6px">Para ver las noticias de la IA hace falta la llave de GitHub (abajo).</div>':''}</div>
+   <div class="card" id="sadPush"><b>🔔 Avisarme en el móvil</b><div class="note" style="margin-top:4px;line-height:1.5">Te llega un aviso en cuanto haya algo nuevo por revisar (noticias de la IA, refranes, alertas ciudadanas o denuncias), aunque tengas la app cerrada. Al tocarlo se abre este panel. De 23:00 a 7:00 no suena: lo que entre de noche te llega a las 7.</div>
+     ${window.puAdmin&&puAdmin.puede()?`<label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="sadPu" ${puAdmin.on()?'checked':''}><b>Avisarme de lo pendiente</b></label>`:'<div class="note" style="margin-top:6px">⚠️ Hace falta la app 5.7 o más nueva (Google Play).</div>'}
+     <div class="note" style="margin-top:6px">Las fotos llegan por correo a participa@basatina.es, así que esas no avisan aquí.</div></div>
    <div class="card" id="sadRfC"><b>🗣️ Refranes por aprobar</b>${(P.rfL||[]).length?P.rfL.map(r=>`<div class="sadFila" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${X(r.t)}»</div>${r.s?`<div class="note">${X(r.s)}</div>`:''}<div class="note">📍 ${X(r.p||'sin pueblo')}${r.creado?' · '+X(new Date(r.creado).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})):''}</div>
      <div class="row" style="gap:6px;margin-top:6px"><button class="btn pri" data-rfok="${X(r.id)}">✅ Publicar</button><button class="btn" data-rfno="${X(r.id)}">🗑️ Eliminar</button></div></div>`).join(''):`<div class="note" style="margin-top:6px">${P.refranes==null?'No se han podido mirar (¿están publicadas las reglas nuevas de Firestore?).':'No hay ninguno esperando. 👍'}</div>`}</div>
    <div class="card"><b>🛠️ Herramientas</b><div class="sadHerr">
@@ -132,6 +136,7 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
     try{await fn();toast(txt);}catch(e){toast('❌ '+e.message);}await pendientes(true);panel();};
   el.querySelectorAll('[data-rfok]').forEach(b=>b.onclick=()=>rfHecho(b,()=>window.RFX.aprobar(b.dataset.rfok),'✅ Refrán publicado'));
   el.querySelectorAll('[data-rfno]').forEach(b=>b.onclick=()=>{if(confirm('¿Eliminar este refrán? No se publicará.'))rfHecho(b,()=>window.RFX.eliminar(b.dataset.rfno),'🗑️ Refrán eliminado');});
+  const pu=$('sadPu');if(pu)pu.onchange=()=>{puAdmin.pon(pu.checked);toast(pu.checked?'🔔 Te avisaremos de lo pendiente':'🔕 Avisos de lo pendiente apagados');};
   el.querySelectorAll('[data-hx]').forEach(b=>b.onclick=()=>{const h=herr[+b.dataset.hx];if(h)h.click();try{menu(false);}catch(e){}});
   $('sadRf').onclick=async()=>{$('sadRf').disabled=true;await pendientes(true);panel();claves();gastoIA();};
   const km=t=>{$('sadKm').textContent=t;};

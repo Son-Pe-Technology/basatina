@@ -22,12 +22,12 @@ import java.util.Map;
  * con temas, Firebase sabe a quién entregar y nosotros no.
  *
  * El mensaje llega con datos (no con «notification»), así lo pinta siempre esta clase con su canal:
- *   tema = desaparecidos | avisos     titulo, texto: lo que se ve     tab: pantalla que se abre al tocar
+ *   tema = desaparecidos | avisos | admin     titulo, texto: lo que se ve     tab: pantalla que se abre al tocar
  */
 public class PushService extends FirebaseMessagingService {
 
     /** Temas que existen. Deben ser iguales que TEMAS en tools/push.py y PU_T en web/push.js */
-    static final String[] TEMAS = {"desaparecidos", "avisos"};
+    static final String[] TEMAS = {"desaparecidos", "avisos", "admin"};   // admin (26 nov. 2026): solo Pedro y Sonia, lo pendiente de revisar
 
     @Override
     public void onMessageReceived(RemoteMessage m) {
@@ -69,7 +69,8 @@ public class PushService extends FirebaseMessagingService {
         Intent i = new Intent(c, MainActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         if (tab != null && !tab.isEmpty()) i.putExtra("pushTab", tab);
-        int id = 700 + (int) (System.currentTimeMillis() / 1000 % 200);
+        // admin: siempre el mismo número de aviso, así el nuevo sustituye al anterior en vez de amontonarse
+        int id = "admin".equals(tema) ? 699 : 700 + (int) (System.currentTimeMillis() / 1000 % 200);
         PendingIntent pi = PendingIntent.getActivity(c, id, i, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new android.app.Notification.Builder(c, ch) : new android.app.Notification.Builder(c);
         b.setSmallIcon(R.drawable.ic_stat_river).setContentTitle(titulo).setContentText(texto)
