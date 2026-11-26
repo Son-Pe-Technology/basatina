@@ -1,6 +1,28 @@
 {
  "items": [
   {
+   "id": "957627d0c570",
+   "pub": "2026-11-26T03:57Z",
+   "titulo": "Pamplona impulsa medidas contra la violencia machista en mujeres mayores",
+   "texto": "Con motivo del 25 de noviembre, Día Internacional contra la Violencia hacia las Mujeres, la comisión de Asuntos Sociales de Pamplona ha adoptado un documento que centra la atención en un grupo frecuentemente ignorado: las mujeres de edad avanzada. Bajo el lema «Ni olvidadas, ni invisibilizadas», el texto reconoce esta forma de violencia como un problema específico que requiere políticas públicas de prevención y atención. Los siete compromisos incluyen mejorar la formación de profesionales sanitarios, policiales y de servicios sociales; garantizar acceso a recursos de protección adaptados a diferentes situaciones; reforzar las redes de apoyo comunitario, y escuchar las propias experiencias de estas mujeres en el diseño de políticas. Según otros medios, también Tudela se ha sumado a esta iniciativa.",
+   "pueblo": "Pamplona",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-pide-visibilizar-la-violencia-machista-contra-las-mujeres-mayores-bajo-el-lema-ni-olvidadas-ni-invisibilizadas/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-ayuntamiento-pamplona-acuerda-25n-combatir-normalizacion-violencia-mujeres-mayores-20261124133412.html"
+    },
+    {
+     "f": "COPE",
+     "u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/tudela-navarra-alza-voz-mujeres-mayores-victimas-violencia-genero-olvidadas-invisibilizadas-20261124_3480866.html"
+    }
+   ]
+  },
+  {
    "id": "40d8391c5555",
    "pub": "2026-11-26T03:57Z",
    "titulo": "Navarra detecta 794 casos de violencia contra mujeres en siete meses",
