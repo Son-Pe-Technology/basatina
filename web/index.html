@@ -509,7 +509,7 @@ body.bna #pinBox input{background:#F3F6F1!important;border-radius:14px!important
   </div>
   <div class="dgroup"><span>Participa</span><i>▸</i></div>
   <div class="dsub">
-    <button data-t="enviar" class="tech" style="display:none">📤 Envía tu foto</button>
+    <button data-t="enviar">📤 Envía tu foto</button>
     <button data-t="fotos">🖼️ Fotos y reto del mes</button>
     <button data-t="buzon">💬 Buzón de sugerencias</button>
   </div>
@@ -1021,7 +1021,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <div class="seg" id="foVista"><button class="btn on" data-v="g">🖼️ Galería</button><button class="btn" data-v="m">🗺️ Mapa</button></div>
 <div id="foGal"></div>
 <div class="card" id="foMapC" style="display:none"><div style="position:relative"><canvas id="foc" height="380"></canvas><div style="position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px"><button class="btn mtb" id="focIn">＋</button><button class="btn mtb" id="focOut">－</button></div></div><div class="note" id="foMapN" style="margin-top:6px">Toca un punto para ver la foto.</div></div>
-<div class="row tech" style="display:none"><button class="btn pri" style="flex:1" onclick="showTab('enviar')">📤 Envía tu foto (formulario, en pausa para el público)</button></div>
+<div class="row"><button class="btn pri" style="flex:1" onclick="showTab('enviar')">📤 Envía tu foto</button></div>
 <div class="card tech" style="display:none;border:2px solid #c13584"><b>🔧 Subir foto de paisaje de Instagram</b>
  <div class="note">Solo administradores. Para ir llenando la galería mientras el envío de fotos de la gente está parado. Se publica directamente, <b>sin pedir ni guardar datos personales</b>: solo el crédito (@usuario) que sale con la foto.</div>
  <div class="row" style="margin-top:8px"><label class="btn pri" style="flex:1;text-align:center">📷 Elegir foto<input type="file" id="igF" accept="image/*" style="display:none"></label></div>
@@ -4313,8 +4313,9 @@ async function igSend(){const m=document.getElementById('igM'),b=document.getEle
   catch(x){m.textContent='❌ No se pudo subir ('+x.message+').';}
   b.disabled=false;}
 
-const FO_PRIV=['enviar'];   // «Fotos de la gente» ya es pública; «Envía tu foto» sigue solo para administradores
-const _showTabFo=showTab;showTab=function(t){if(FO_PRIV.includes(t)&&!TECH)t='sim';_showTabFo(t);if(t==='enviar')setTimeout(envInit,40);if(t==='fotos')setTimeout(foInit,40);};
+const FO_PRIV=['enviar'];   // 27 nov. 2026: «Envía tu foto» abierto a quien tenga cuenta con el correo confirmado (como la Cuadrilla) y a los administradores
+const foPuede=()=>{try{return TECH||!!(window.CU&&CU.ok());}catch(e){return !!TECH;}};
+const _showTabFo=showTab;showTab=function(t){if(FO_PRIV.includes(t)&&!foPuede())t='fotos';_showTabFo(t);if(t==='enviar')setTimeout(envInit,40);if(t==='fotos')setTimeout(foInit,40);};
 
 /* =====================================================================
    📦 LISTAS QUE EDITÁIS VOSOTROS (agenda cultural, partidos, avisos de escapadas)
@@ -5172,7 +5173,7 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="ia-noticias.js?v=bb253b9d"></script>
 <script src="inicio-vivo.js?v=cc153909"></script>
 <script src="menu6.js?v=28398059"></script>
-<script src="cuadrilla.js?v=f8852c6c"></script>
+<script src="cuadrilla.js?v=e1a9d1fe"></script>
 <script src="superadmin.js?v=6792a79e"></script>
 <script src="perfil-foto.js?v=1fb34f35"></script>
 <script src="cabeceras-fotos.js?v=e9d1ea59"></script>

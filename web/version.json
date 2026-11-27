@@ -1,5 +1,5 @@
 {
- "version": 619,
+ "version": 620,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -28,7 +28,7 @@
   "claves.js": "91e6cd855a6b88c3b97602fbded040e6266af997",
   "comunidad.js": "81665073553781413553dc898619750970bdf5fa",
   "cristal.js": "335b5a5ead9cfef2972837e233086dfb8dc92e2e",
-  "cuadrilla.js": "f8852c6c03478b80eb8131aa6d7979bbcbe48337",
+  "cuadrilla.js": "e1a9d1fe6963cf82b14025114a4cc0b874552de6",
   "cuenta.js": "4d9bc83347b90084db617fda039825a6ca296554",
   "curiosas.js": "7291e3870bd25337b93b2f079825a2ca2c8302cc",
   "deporte-rural.js": "2ea48eebce5c0e9dbc9431ff5563697718aa2d3e",
@@ -198,7 +198,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "5cd76eea53b53450623ab7288f4f4cfaa9f60a3b",
+  "index.html": "3ac4511750f2c1e210cc31e462272d18e7de4b31",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "41f915728d3343673acd987493af6919cf30c1d6",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
