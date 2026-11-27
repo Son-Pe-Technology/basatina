@@ -21,7 +21,9 @@ const st=document.createElement('style');st.textContent=`
 .znC span.zt{display:block;font-size:14px;line-height:1.4;margin-top:4px}
 .znC small{display:block;margin-top:6px;font-weight:800;font-size:12.5px;color:#2e6b2f}
 .znC .zx{position:absolute;top:8px;right:10px;width:30px;height:30px;border-radius:15px;border:0;background:rgba(0,0,0,.07);color:#5b6660;font-size:18px;line-height:30px;padding:0}
-.znC canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}`;
+.znC canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;background:transparent!important;filter:none!important}
+.znC>div,.znC .zi{position:relative;z-index:1}.znC .zx{z-index:2}
+.znC{background:linear-gradient(135deg,#fffaf2 0%,#ffeedd 100%)!important;color:#2c3a2f!important}`;
 document.head.appendChild(st);
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 // confeti en movimiento: una lluvia fuerte al salir y después cae suave sin parar mientras se ve la tarjeta
