@@ -1,6 +1,25 @@
 {
  "items": [
   {
+   "id": "a0eaf8a1588c",
+   "pub": "2026-11-27T15:59Z",
+   "titulo": "Grupo AN factura 1.568 millones y crea 220 empleos en zonas rurales",
+   "texto": "La cooperativa agroalimentaria navarra cerró su ejercicio entre julio de 2025 y junio de 2026 con una facturación de 1.568 millones de euros, un 13,62 % más que el año anterior. La plantilla creció en 220 personas, llegando a 2.263 trabajadores, principalmente en áreas rurales. Los recursos propios aumentaron un 9,14 % hasta 179 millones de euros, mientras que el beneficio alcanzó 14,88 millones. El Grupo AN, que agrupa 177 cooperativas socias e integra a unos 35.000 agricultores y ganaderos, atribuyó este crecimiento a la buena cosecha de cereal de 2025 y al aumento de ventas en secciones como Carburantes y Avícola.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/el-grupo-navarro-an-factura-1-568-millones-un-1362-mas-y-crea-220-nuevos-empleos/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/2026/11/27/grupo-an-177-cooperativas-8-comunidades-cierra-ejercicio-25-26-ventas-1-568-millones-843910-84.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "75cb8f0d7483",
    "pub": "2026-11-27T14:56Z",
    "titulo": "Corte de tráfico en Concepción Benítez el lunes y martes por obras de asfaltado",
@@ -713,26 +732,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "0241448dc905",
-   "pub": "2026-11-25T13:19Z",
-   "titulo": "720 alumnos de Pamplona participan en talleres sobre convivencia y pluralismo",
-   "texto": "Siete colegios pamploneses desarrollan durante el último trimestre del año el programa municipal «Bidaia. Una vida conviviendo», dirigido al alumnado de tercer ciclo de Primaria. La iniciativa, que llega a 720 escolares, propone reflexionar críticamente sobre estereotipos, prejuicios raciales y culturales mediante actividades dinámicas y participativas. Los talleres, impartidos en euskera y castellano por la asociación Lantxotegi Elkartea, combinan trabajo intelectual con experiencias corporales y emocionales que culminan en una creación artística expuesta en cada centro. El Ayuntamiento financia el proyecto mediante una enmienda presupuestaria del grupo Socialista.",
-   "pueblo": "Pamplona",
-   "cat": "Educación",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/720-escolares-de-siete-centros-de-pamplona-participan-en-bidaia-un-programa-para-trabajar-la-diversidad-cultural/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/un-total-de-720-escolares-de-siete-centros-participan-en-el-programa-educativo"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-27T13:14Z"
+ "t": "2026-11-27T15:59Z"
 }
