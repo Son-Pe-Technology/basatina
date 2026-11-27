@@ -69,7 +69,7 @@ async function pendientes(forzar){const s=yo();if(!s||PEND_BUSY)return PEND;if(!
     const L=r.ok?((await r.json()).resources||[]):[];const G=await glLoad(true),hecho=new Set([...(G.fotos||[]).map(f=>f.id),...(G.descartadas||[])]);
     P.fotos=L.filter(x=>!hecho.has(x.public_id)).length;}}}catch(e){P.err.push('fotos: '+e.message);}
   PEND=P;PEND_T=Date.now();PEND_BUSY=false;pinta();return P;}
-const total=()=>PEND?(PEND.alertas||0)+(PEND.denuncias||0)+(PEND.ia||0)+(PEND.refranes||0):0;
+const total=()=>PEND?(PEND.alertas||0)+(PEND.denuncias||0)+(PEND.ia||0)+(PEND.refranes||0)+(PEND.fotos||0):0;   // 27 nov. 2026: también las fotos
 
 /* ---------- avisos a la vista: Inicio y menú ---------- */
 function pinta(){const n=yo()?total():0;
