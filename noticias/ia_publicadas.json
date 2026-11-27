@@ -1,6 +1,29 @@
 {
  "items": [
   {
+   "id": "e7607dfe3267",
+   "pub": "2026-11-27T21:55Z",
+   "titulo": "Navarra inicia vacunación contra el VRS en adultos vulnerables",
+   "texto": "El Servicio Navarro de Salud ha puesto en marcha esta semana la inmunización frente al virus respiratorio sincitial en población adulta de riesgo. La campaña se dirige primero a aproximadamente 870 personas con patologías que las hacen especialmente vulnerables, seguidas de mayores de 80 años institucionalizados. El VRS provoca infecciones respiratorias graves en ancianos y personas con condiciones de riesgo, especialmente en otoño e invierno. Las vacunas se administrarán en hospitales de Pamplona, Tudela y Estella-Lizarra, así como en centros de salud, con previsión de completar la primera fase durante diciembre. Las reacciones adversas más frecuentes son leves: dolor en el lugar de punción, cansancio, dolor de cabeza y molestias musculares que ceden en uno o dos días.",
+   "pueblo": "Navarra",
+   "cat": "Salud",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/navarra-empieza-a-vacunar-contra-el-vrs-a-adultos-con-unas-870-personas-de-muy-alto-riesgo-como-primeras-destinatarias/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/27/navarra-inicia-vacunacion-frente-virus-respiratorio-sincitial-vrs-adultos-mayor-riesgo-enfermedad-grave-844023-15.html"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-navarra-inicia-vacunacion-frente-virus-respiratorio-sincitial-adultos-mayor-riesgo-enfermedad-grave-20261127135212.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "1ffcd4d70c98",
    "pub": "2026-11-27T18:57Z",
    "titulo": "Estreno de 'Berriro Mundu Berri Bat', ganadora del concurso teatral infantil",
@@ -690,26 +713,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "bf91d810c42d",
-   "pub": "2026-11-25T18:52Z",
-   "titulo": "Accidente laboral grave en una obra de Artica",
-   "texto": "Un trabajador sufrió una caída desde aproximadamente cinco metros el miércoles en una obra de Artica (Berrioplano) y resultó herido de gravedad. Los servicios de emergencia se desplazaron al lugar tras recibir el aviso a las 14:08 horas y trasladaron al herido al Hospital Universitario de Navarra, donde quedó ingresado con politraumatismos graves. La Policía Foral investiga las causas del accidente.",
-   "pueblo": "Berrioplano",
-   "cat": "Sucesos",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-berrioplano/herido-grave-un-trabajador-de-55-anos-tras-caer-desde-unos-5-metros-en-una-obra-de-artica/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/25/herido-grave-hombre-55-anos-sufrir-accidente-laboral-artica-843749-16.html"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-27T18:57Z"
+ "t": "2026-11-27T21:55Z"
 }
