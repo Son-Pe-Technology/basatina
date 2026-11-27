@@ -3073,15 +3073,19 @@ function pbLoad(cb){if(window.PUEBLOS)return cb();if(PBLOAD)return;PBLOAD=true;c
 function pbList(){if(PB)return PB;const P=window.PUEBLOS;if(!P)return [];
   PB=P.pueblos.map((p,i)=>({i,n:p.n,m:P.municipios[p.m]||{n:''},lat:p.pt[0],lon:p.pt[1],alt:p.alt,slug:slugify(p.n)+'-'+(p.m||'x')}))
     .sort((a,b)=>a.n.localeCompare(b.n,'es'));return PB;}
+// 27 nov. 2026 (Pedro): ya no salen todas desplegadas; se elige una letra y salen solo las que empiezan por ella (PBLET). Al buscar, salen todas las que coinciden.
+let PBLET='A';
+const pbIni=n=>n.normalize('NFD')[0].toUpperCase();
 function pbRenderList(){const q=(document.getElementById('pbQ').value||'').trim().toLowerCase(),L=pbList(),el=document.getElementById('pbList');
   const nq=q.normalize('NFD').replace(/[̀-ͯ]/g,'');
-  const F=nq?L.filter(p=>(p.n+' '+p.m.n).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(nq)):L;
-  let h='',last='';F.slice(0,nq?200:2000).forEach(p=>{const l=p.n.normalize('NFD')[0].toUpperCase();if(l!==last&&!nq){h+=`<div id="pbL_${l}" style="font-weight:700;color:var(--acc);margin:10px 0 2px">${l}</div>`;last=l;}
+  const LET=[...new Set(L.map(p=>pbIni(p.n)))];if(LET.length&&!LET.includes(PBLET))PBLET=LET[0];
+  const F=nq?L.filter(p=>(p.n+' '+p.m.n).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(nq)):L.filter(p=>pbIni(p.n)===PBLET);
+  let h='';F.slice(0,nq?200:2000).forEach(p=>{
     h+=`<div class="st" data-i="${p.i}" style="cursor:pointer"><div><b>${p.n}</b><div class="s">${p.m.n&&p.m.n!==p.n?p.m.n+' · ':''}${p.alt!=null?p.alt+' m':''}</div></div><span class="note">›</span></div>`;});
-  el.innerHTML=`<div class="note">${F.length} localidades</div>`+h;
+  el.innerHTML=(nq?`<div class="note">${F.length} localidades</div>`:`<div style="font-weight:700;color:var(--acc);font-size:20px;margin:2px 0">${PBLET}</div><div class="note">${F.length} localidades empiezan por ${PBLET}</div>`)+h;
   el.querySelectorAll('[data-i]').forEach(d=>d.onclick=()=>pbOpen(+d.dataset.i));
-  document.getElementById('pbAZ').innerHTML=nq?'':[...new Set(L.map(p=>p.n.normalize('NFD')[0].toUpperCase()))].map(l=>`<button class="btn" data-l="${l}" style="padding:4px 7px">${l}</button>`).join('');
-  document.querySelectorAll('#pbAZ button').forEach(b=>b.onclick=()=>{const t=document.getElementById('pbL_'+b.dataset.l);if(t)t.scrollIntoView({behavior:'smooth'});});}
+  document.getElementById('pbAZ').innerHTML=nq?'':LET.map(l=>`<button class="btn${l===PBLET?' pri':''}" data-l="${l}" style="padding:4px 7px;min-width:30px">${l}</button>`).join('');
+  document.querySelectorAll('#pbAZ button').forEach(b=>b.onclick=()=>{PBLET=b.dataset.l;pbRenderList();el.scrollIntoView({behavior:'smooth',block:'start'});});}
 // lectura del contenido propio del pueblo (historia, fotos…)
 async function pbRead(slug){const tok=ghTok();
   try{if(tok){const r=await fetch(GH_API+'pueblos/'+slug+'.json?ref=main',{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'}});
