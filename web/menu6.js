@@ -102,12 +102,15 @@ body.bna #drawer .dhead.m6Foto b{color:#1d2b22!important}body.bna #drawer .dhead
 #bnaDGrid .dsub[data-m6s]>button>span:not(.bt){display:block;text-align:left}
 #m6Mio{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#2f4a2a;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
 #m6Mio svg{width:22px;height:22px}
-body.bna #m6Acc{margin:4px 12px 12px;background:#fff;border:1px solid #e3e9e0;border-radius:18px;padding:12px 8px 10px;box-shadow:0 2px 8px rgba(29,45,35,.05)}
+body.bna #m6Acc{margin:4px 12px 12px}
 body.bna #m6Acc .m6AccT{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5b6660;margin:0 4px 8px}
-body.bna #m6Acc .m6AccF{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
-body.bna #m6Acc button{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;padding:2px 0;font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;color:#1d2b22;cursor:pointer;min-height:44px;text-align:center}
-body.bna #m6Acc button .bt{border-radius:50%!important;box-shadow:0 2px 8px rgba(0,0,0,.14)}
-body.bna #m6Acc button:active .bt{transform:scale(.94)}
+/* 27 nov. 2026 (Pedro): botoncitos con el nombre, como Cultura / Cine / Deporte / Peques, sin círculos */
+body.bna #m6Acc .m6AccF{display:flex;gap:8px;overflow-x:auto;padding:0 2px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+body.bna #m6Acc .m6AccF::-webkit-scrollbar{display:none}
+body.bna #m6Acc button{flex:none!important;width:auto!important;margin:0!important;display:inline-flex!important;align-items:center;white-space:nowrap;min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid #d5dfd2;background:#fff;
+  font-family:inherit;font-size:15px;font-weight:700;color:#2b4a24;cursor:pointer;box-shadow:0 1px 3px rgba(29,45,35,.06)}
+body.bna #m6Acc button:active{background:#3d7031;border-color:#3d7031;color:#fff}
+body.bna #m6Acc button .bt{display:none!important}
 #m6AccCfg .m6AccN{font-size:13px;color:#5b6660;padding:0 10px 8px}
 #m6AccCfg .m6AccM{display:flex;gap:6px;padding:0 8px 8px}
 #m6AccCfg .m6AccM button{flex:1;min-height:40px;border-radius:12px;border:1px solid #d5dfd2;background:#fff;font-family:inherit;font-size:14px;font-weight:700;color:#1d2b22}
