@@ -1,6 +1,67 @@
 {
  "items": [
   {
+   "id": "642f288086e0",
+   "pub": "2026-11-27T13:14Z",
+   "titulo": "Pamplona activa su plan invernal con cuatro fases de respuesta",
+   "texto": "El Ayuntamiento de Pamplona ha puesto en marcha su Plan de Actuación ante Nevadas para 2026-2027, un dispositivo con cuatro niveles progresivos según la intensidad de las precipitaciones y heladas. El nivel 0 se activa ante predicciones adversas; el nivel 1 ante nieve o hielo leve; el nivel 2 ante acumulaciones de 2 a 20 centímetros, y el nivel 3 ante más de 20 centímetros con graves disrupciones. La campaña cuenta con 660 toneladas de sal almacenadas, tres tractores, un camión, cuatro pick-ups y barredoras para casi 200 kilómetros de vías, además de 252 sacos de sal para escuelas, centros de salud e instalaciones deportivas. Este año, empleados de programas sociales municipales han participado en la preparación de los recursos. El plan coordina a múltiples organismos públicos y privados, y pide a vecinos y comercios colaborar limpiando aceras y priorizando el transporte público en episodios de mal tiempo.",
+   "pueblo": "Pamplona",
+   "cat": "Pamplona",
+   "fuentes": [
+    {
+     "f": "Cadena SER",
+     "u": "https://cadenaser.com/navarra/2026/11/27/pamplona-pone-en-marcha-el-plan-de-actuacion-ante-nevadas-26-27-con-4-niveles-de-emergencia-radio-pamplona/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-ayuntamiento-pamplona-pone-marcha-plan-actuacion-nevadas-26-27-preve-niveles-emergencia-20261127131358.html"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/el-plan-de-actuacion-ante-nevadas-del-ayuntamiento-de-pamplona-preve-cuatro"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "4ed14e95485b",
+   "pub": "2026-11-27T13:14Z",
+   "titulo": "Biziki lanza el sistema de bicicletas eléctricas en Pamplona y comarca",
+   "texto": "El Ayuntamiento de Pamplona y la Mancomunidad de la Comarca presentaron las tarifas y normas del nuevo servicio de bicicletas eléctricas compartidas Biziki, gestionado por Nextbike. El sistema funciona 24 horas diarios en 14 municipios, con acceso desde aplicación móvil desde los 16 años. Los primeros 30 minutos son gratuitos; después hay cinco tramos tarifarios. Los abonos cuestan 35 euros anuales o 15 euros mensuales, mientras que el pago por uso suma 30 céntimos de desanclaje más tarifa por tramos. Las bicicletas deben devolverse en 24 horas máximo. Una hora de uso con abono cuesta 90 céntimos, frente a 1,40 euros del anterior sistema Ride On.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/el-nuevo-servicio-biziki-funcionara-con-tarifa-por-tramos-tanto-para-los-abonos-anual-o-mensual-como-para-el-sistema-de/"
+    },
+    {
+     "f": "Cadena SER",
+     "u": "https://cadenaser.com/navarra/2026/11/27/como-funcionara-el-nuevo-servicio-biziki-en-pamplona-y-comarca-radio-pamplona/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "2c31079c54c7",
+   "pub": "2026-11-27T13:14Z",
+   "titulo": "Nueve creadoras navarras muestran cine y arte audiovisual en 'Azalerak'",
+   "texto": "El Pabellón de Mixtos de la Ciudadela acoge desde hoy viernes la exposición colectiva 'Azalerak' hasta el 14 de febrero. La muestra reúne trabajos audiovisuales y cinematográficos de nueve artistas navarras y un colectivo que exploran la materialidad de las imágenes desde distintos enfoques: territorio, cuidados, cuerpos y memoria. El espacio combina proyecciones en bucle con una sala de cine que ofrece películas en sesiones matinales (11:30 y 12:30 h.) y de tarde (18:00 y 19:15 h.), de martes a sábado, con matinales también los domingos y festivos. Las autoras colaboran entre sí no solo en la dirección, sino en funciones como fotografía y montaje.",
+   "pueblo": "Pamplona",
+   "cat": "Cultura",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/nueve-creadoras-navarras-exploran-el-cine-y-el-audiovisual-en-azalerak-nueva-exposicion-del-pabellon-de-mixtos/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/el-pabellon-de-mixtos-acoge-la-exposicion-colectiva-azalerak-que-reune-las"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "001886a960ae",
    "pub": "2026-11-27T10:55Z",
    "titulo": "Un incendio daña dos vehículos y la fachada de un edificio en Pitillas",
@@ -681,64 +742,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "ea30af7e5bd6",
-   "pub": "2026-11-25T05:03Z",
-   "titulo": "Nil Moliner lleva su gira mundial a Pamplona el 16 de abril",
-   "texto": "El músico navarro Nil Moliner actuará en la sala Zentral de Pamplona el 16 de abril dentro del NEXO World Tour, su primer recorrido internacional. La gira iniciará en febrero con actuaciones en Ámsterdam, París, Londres y Dublín, proseguirá por ciudades españolas en abril y mayo, y finalizará con fechas en Chile, Colombia y México. Las entradas se comercializarán a partir del 27 de noviembre a las 12:00 horas a través de nilmoliner.com. El concierto reunirá temas de su carrera junto a canciones del álbum «NEXO», que ha alcanzado más de 60 millones de reproducciones en plataformas digitales.",
-   "pueblo": "Pamplona",
-   "cat": "Cultura",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/nil-moliner-vuelve-a-pamplona-el-16-de-abril-con-su-gira-nexo-la-primera-de-alcance-mundial/"
-    },
-    {
-     "f": "Navarra Capital",
-     "u": "https://navarracapital.es/endika-landa-nuevo-presidente-de-la-navarra-natur-all-grupo-iparlat-y-kaiku/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "8dd414f621db",
-   "pub": "2026-11-24T18:58Z",
-   "titulo": "Navarra acogerá una planta de almacenamiento energético de 380 MW",
-   "texto": "Las empresas Sungrow Renewables y Actuate Energy anunciaron este martes una inversión de 300 millones de euros en siete plantas de almacenamiento de energía con baterías en distintos puntos de España. El proyecto navarro, denominado Navarra Cluster, se ubicará en Olite y Cordovilla y formará parte de esta iniciativa que sumará 380 MW de potencia y 1,5 GWh de capacidad. Será la mayor operación de este tipo realizada hasta ahora en el país. Algunos activos ya están en construcción, mientras que el resto comenzará las obras en los próximos meses, con previsión de estar operativos entre 2027 y el primer semestre de 2028.",
-   "pueblo": "Olite, Cordovilla",
-   "cat": "Economía",
-   "fuentes": [
-    {
-     "f": "Navarra Capital",
-     "u": "https://navarracapital.es/olite-y-cordovilla-en-el-macroproyecto-nacional-de-almacenamiento-energetico-de-sungrow-y-actuate/"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/negocios-al-dia/tres-alumnis-de-creanavarra-llevan-el-talento-del-diseno-navarro-a-talentu-gazteak-2026/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "896eca29b4ef",
-   "pub": "2026-11-24T16:07Z",
-   "titulo": "Dos heridos en colisión frontal en la NA-122 en Cárcar",
-   "texto": "Dos personas resultaron heridas este martes en un choque frontal entre dos turismos en la carretera NA-122 de Cárcar, según informó la Policía Foral. El accidente ocurrió a las 12:08 horas en el kilómetro 28, cuando los vehículos circulaban en sentidos opuestos. Uno de los conductores quedó atrapado y fue rescatado por los bomberos, siendo trasladado en estado grave al Hospital Universitario de Navarra. El otro conductor sufrió heridas leves. El Grupo de Atestados de Tudela investiga las causas del siniestro.",
-   "pueblo": "Cárcar",
-   "cat": "Sucesos",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-merindad-de-estella/dos-heridos-uno-grave-tras-una-colision-frontal-entre-dos-turismos-en-la-na-122-en-carcar/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/tierra-estella/2026/11/24/dos-heridos-caracter-grave-colision-frontal-dos-vehiculos-carcar-843605-19.html"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-27T10:55Z"
+ "t": "2026-11-27T13:14Z"
 }
