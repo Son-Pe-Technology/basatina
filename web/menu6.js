@@ -105,10 +105,10 @@ body.bna #drawer .dhead.m6Foto b{color:#1d2b22!important}body.bna #drawer .dhead
 body.bna #m6Acc{margin:4px 12px 12px}
 body.bna #m6Acc .m6AccT{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5b6660;margin:0 4px 8px}
 /* 27 nov. 2026 (Pedro): botoncitos con el nombre, como Cultura / Cine / Deporte / Peques, sin círculos */
-body.bna #m6Acc .m6AccF{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 2px 4px}   /* 2 filas de 2: se ven todos sin deslizar */
+body.bna #m6Acc .m6AccF{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:0 2px 4px}   /* 2 filas de 3: se ven todos sin deslizar */
 body.bna #m6Acc .m6AccF::-webkit-scrollbar{display:none}
-body.bna #m6Acc button{flex:none!important;width:auto!important;min-width:0;margin:0!important;display:inline-flex!important;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:36px;padding:0 12px;border-radius:999px;border:1.5px solid #d5dfd2;background:#fff;
-  font-family:inherit;font-size:13.5px;font-weight:700;color:#2b4a24;cursor:pointer;box-shadow:0 1px 3px rgba(29,45,35,.06)}
+body.bna #m6Acc button{flex:none!important;width:auto!important;min-width:0;margin:0!important;display:inline-flex!important;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:32px;padding:0 6px;border-radius:999px;border:1.5px solid #d5dfd2;background:#fff;
+  font-family:inherit;font-size:12.5px;font-weight:700;color:#2b4a24;cursor:pointer;box-shadow:0 1px 3px rgba(29,45,35,.06)}
 body.bna #m6Acc button:active{background:#3d7031;border-color:#3d7031;color:#fff}
 body.bna #m6Acc button .bt{display:none!important}
 #m6AccCfg .m6AccN{font-size:13px;color:#5b6660;padding:0 10px 8px}
@@ -264,8 +264,9 @@ function riadas(){const s=$('t-prev');if(!s||$('m6Riadas'))return;s.insertAdjace
    · Por defecto salen las 4 pantallas que más usa cada persona: cada vez que abres una
      se suma 1 en el móvil (localStorage «bnaUso»; no sale del teléfono).
    · En 👤 Lo mío › «Accesos rápidos del menú» se pueden elegir a mano (localStorage «bnaAcc»). */
-const ACC_DEF=['tiempo','caudal','incid','gas'];
-const ACC_CORTO={mtiempo:'Inicio',noticias:'Noticias',cerca:'Cerca',tiempo:'El tiempo',caudal:'Ríos',sismo:'Terremotos',biodiversidad:'Flora y fauna',monte:'Salir',
+const ACC_DEF=['tiempo','caudal','incid','gas','cultura','monte'];
+const ACC_N=6;   // 27 nov. 2026: 6 accesos (2 filas de 3); antes eran 4
+const ACC_CORTO={mtiempo:'Inicio',noticias:'Noticias',cerca:'Cerca',tiempo:'El tiempo',caudal:'Ríos',sismo:'Terremotos',biodiversidad:'Flora y fauna',monte:'NA a Pie',
  incid:'Carreteras',gas:'Gasolina',bus:'Transporte',pueblos:'Localidades',comer:'Comer',super:'Compras',salud:'Salud',vivienda:'Vivienda',empleo:'Empleo',
  voluntariado:'Voluntariado',mascotas:'Mascotas',cultura:'Agenda',juegos:'Juegos'};
 const ACC_TODAS=Object.keys(ACC_CORTO);
@@ -275,10 +276,10 @@ const TR=t=>typeof window.trT==='function'?trT(t):t;
 function accUso(t){const k=FAM_DE[t]||t;if(!ACC_CORTO[k]||k==='mtiempo')return;const u=lsJ('bnaUso',{});u[k]=(u[k]||0)+1;lsP('bnaUso',u);}
 function accLista(){const yo=lsJ('bnaAcc',null);
   // automático: los más usados; si hay empate (o aún no hay uso), manda el orden de ACC_DEF
-  const u=lsJ('bnaUso',{}),peso=t=>(u[t]||0)*10-(ACC_DEF.includes(t)?ACC_DEF.indexOf(t)-5:0);
+  const u=lsJ('bnaUso',{}),peso=t=>(u[t]||0)*10-(ACC_DEF.includes(t)?ACC_DEF.indexOf(t)-ACC_DEF.length:0);
   const auto=ACC_TODAS.filter(t=>t!=='mtiempo').sort((a,b)=>peso(b)-peso(a));
-  if(!Array.isArray(yo))return auto.slice(0,4);
-  const L=yo.filter(t=>ACC_CORTO[t]).slice(0,4);auto.forEach(t=>{if(L.length<4&&!L.includes(t))L.push(t);});return L;}
+  if(!Array.isArray(yo))return auto.slice(0,ACC_N);
+  const L=yo.filter(t=>ACC_CORTO[t]).slice(0,ACC_N);auto.forEach(t=>{if(L.length<ACC_N&&!L.includes(t))L.push(t);});return L;}
 function icoAcc(t,s,box){let h='';try{h=bnTile(t,s,box);}catch(e){}return h||`<span class="bt g" style="width:${box}px;height:${box}px"></span>`;}
 function pintaAcc(){const sr=$('bnaSRes')||$('bnaSearch');if(!sr)return;let r=$('m6Acc');
   if(!r){sr.insertAdjacentHTML('afterend','<div id="m6Acc"><b class="m6AccT">Lo que más usas</b><div class="m6AccF"></div></div>');r=$('m6Acc');}
@@ -291,12 +292,12 @@ function pintaAccCfg(){const L=$('m6MioL');if(!L)return;let c=$('m6AccCfg');
     c.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{lsP('bnaAcc',b.dataset.m==='yo'?accLista():null);if(b.dataset.m==='auto')try{localStorage.removeItem('bnaAcc');}catch(e){}pintaAccCfg();pintaAcc();});}
   const yo=lsJ('bnaAcc',null),esYo=Array.isArray(yo),act=accLista();
   c.querySelectorAll('[data-m]').forEach(b=>b.classList.toggle('on',(b.dataset.m==='yo')===esYo));
-  c.querySelector('.m6AccN').textContent=TR(esYo?'Toca para poner o quitar. Caben 4: el orden es el orden en que los tocas.':'Los 4 círculos de arriba del menú se ponen solos con las pantallas que más abres.');
+  c.querySelector('.m6AccN').textContent=TR(esYo?'Toca para poner o quitar. Caben 6: el orden es el orden en que los tocas.':'Los 6 accesos de arriba del menú se ponen solos con las pantallas que más abres.');
   const ch=c.querySelector('.m6AccC');
   ch.innerHTML=esYo?ACC_TODAS.map(t=>{const i=yo.indexOf(t);return `<button data-c="${t}" class="${i>=0?'on':''}">${icoAcc(t,16,28)}<span>${X(TR(ACC_CORTO[t]))}</span>${i>=0?`<em>${i+1}</em>`:''}</button>`;}).join('')
     :`<div class="m6AccP">${act.map(t=>`<span>${icoAcc(t,16,28)}${X(TR(ACC_CORTO[t]))}</span>`).join('')}</div>`;
   ch.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{let y=lsJ('bnaAcc',[]);if(!Array.isArray(y))y=[];const t=b.dataset.c;
-    if(y.includes(t))y=y.filter(x=>x!==t);else{if(y.length>=4)y.shift();y.push(t);}lsP('bnaAcc',y);pintaAccCfg();pintaAcc();});}
+    if(y.includes(t))y=y.filter(x=>x!==t);else{if(y.length>=ACC_N)y.shift();y.push(t);}lsP('bnaAcc',y);pintaAccCfg();pintaAcc();});}
 /* ---------- enganches ---------- */
 let CUR='';
 const _s=showTab;showTab=function(t){const r=_s.apply(this,arguments);

@@ -2249,10 +2249,10 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
 (function(){const T={
  "Lo que más usas":["Gehien erabiltzen duzuna","Most used","Le plus utilisé"],"Tus accesos":["Zure lasterbideak","Your shortcuts","Tes raccourcis"],
  "Accesos rápidos del menú":["Menuko lasterbideak","Menu shortcuts","Raccourcis du menu"],"Los que más uso":["Gehien erabiltzen ditudanak","The ones I use most","Les plus utilisés"],"Elegirlos yo":["Nik aukeratu","Choose them myself","Les choisir moi-même"],
- "Toca para poner o quitar. Caben 4: el orden es el orden en que los tocas.":["Ukitu jartzeko edo kentzeko. 4 sartzen dira: ukitzen dituzun ordenan.","Tap to add or remove. Up to 4, in the order you tap them.","Touche pour ajouter ou retirer. 4 maximum, dans l’ordre où tu les touches."],
- "Los 4 círculos de arriba del menú se ponen solos con las pantallas que más abres.":["Menuko goiko 4 zirkuluak gehien irekitzen dituzun pantailekin jartzen dira berez.","The 4 circles at the top of the menu fill in by themselves with the screens you open most.","Les 4 cercles en haut du menu se remplissent tout seuls avec les écrans que tu ouvres le plus."],
+ "Toca para poner o quitar. Caben 6: el orden es el orden en que los tocas.":["Ukitu jartzeko edo kentzeko. 6 sartzen dira: ukitzen dituzun ordenan.","Tap to add or remove. Up to 6, in the order you tap them.","Touche pour ajouter ou retirer. 6 maximum, dans l’ordre où tu les touches."],
+ "Los 6 accesos de arriba del menú se ponen solos con las pantallas que más abres.":["Menuko goiko 6 lasterbideak gehien irekitzen dituzun pantailekin jartzen dira berez.","The 6 shortcuts at the top of the menu fill in by themselves with the screens you open most.","Les 6 raccourcis en haut du menu se remplissent tout seuls avec les écrans que tu ouvres le plus."],
  "Cerca":["Hurbil","Nearby","À côté"],"Ríos":["Ibaiak","Rivers","Rivières"],"Carreteras":["Errepideak","Roads","Routes"],"Gasolina":["Gasolina","Fuel","Carburant"],"Transporte":["Garraioa","Transport","Transports"],
- "Salir":["Irten","Go out","Sortir"],"Comer":["Jan","Eat","Manger"],"Compras":["Erosketak","Shopping","Courses"],"Terremotos":["Lurrikarak","Earthquakes","Séismes"],"Agenda":["Agenda","What's on","Agenda"]};
+ "Salir":["Irten","Go out","Sortir"],"NA a Pie":["NA oinez","NA on foot","NA à pied"],"Comer":["Jan","Eat","Manger"],"Compras":["Erosketak","Shopping","Courses"],"Terremotos":["Lurrikarak","Earthquakes","Séismes"],"Agenda":["Agenda","What's on","Agenda"]};
  Object.entries(T).forEach(([k,[eu,en,fr]])=>{window.I18N.eu[k]=window.I18N.eu[k]||eu;window.I18N.en[k]=window.I18N.en[k]||en;window.I18N.fr[k]=window.I18N.fr[k]||fr;});})();
 
 // ✨ Inicio con vida (web/inicio-vivo.js, temas.js, novedades.js · 26 nov. 2026)
