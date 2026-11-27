@@ -1780,7 +1780,10 @@ document.getElementById('dRefresh').onclick=async()=>{menu(false);toast('Actuali
 function apkInstalar(url){toast('⬇️ Descargando la versión nueva…');window.__apk=(t,x)=>{const b=document.getElementById('updBar');
   if(t==='prog'){document.getElementById('updTxt').textContent='⬇️ Descargando la versión nueva… '+(+x>=0?x+' %':'');document.getElementById('updBtn').style.display='none';b.style.display='flex';}
   else if(x)toast('⚠️ '+x,'Reintentar',()=>apkInstalar(url));else b.style.display='none';};window.AndroidNet.installApk(url);}
-function updWeb(){return new Promise(res=>{const id='u'+Date.now();window.__netCbs[id]=r=>{try{res(JSON.parse(r.body));}catch(e){res({ok:false});}};window.AndroidNet.updateWeb(id);});}
+// 27 nov. 2026: nunca dos actualizaciones a la vez (en las APK hasta la 38 se pisaban y el móvil se quedaba sin pantalla)
+let UPDP=null;
+function updWeb(){if(UPDP)return UPDP;UPDP=Promise.race([updWeb1(),new Promise(r=>setTimeout(()=>r({ok:false}),300e3))]).finally(()=>{UPDP=null;});return UPDP;}
+function updWeb1(){return new Promise(res=>{const id='u'+Date.now();window.__netCbs[id]=r=>{try{res(JSON.parse(r.body));}catch(e){res({ok:false});}};window.AndroidNet.updateWeb(id);});}
 async function checkUpdate(manual){if(!APP||!window.AndroidNet.updateWeb)return;if(manual){menu(false);toast('Buscando actualizaciones…');}
   const r=await updWeb();if(!r.ok){if(manual)toast('No se pudo comprobar ahora (¿sin internet?)');return;}
   if(r.apk>r.myApk&&r.apkUrl){if(typeof bnMudanza==='function'&&bnMudanza())return;   // la app antigua (es.pedrito.controlarga) se muda a la nueva
