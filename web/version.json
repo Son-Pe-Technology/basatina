@@ -1,5 +1,5 @@
 {
- "version": 603,
+ "version": 604,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -383,7 +383,7 @@
   "tit-vivienda-cf3b54afc6f.webp": "342e9044e8c0164f1cd1dd62d49867f2f441f566",
   "titulares-fotos.js": "84579637a46f9baf3de33c91784b1d8e51f6f602",
   "titulares-fotos.json": "0fce3acf19ad9894f83bb6454425d7e24c6bf6ad",
-  "viaje.js": "eb7e77764e36f34236e97a2e8a03f92a2c44310f",
+  "viaje.js": "b1b0b74105f493bad8931d6c4de5b7f4f39fca36",
   "vivienda.js": "ce3e6e7063d10a77745f92621c0474b4b4355dc3",
   "voluntariado.js": "30e1b2f4a98a9fa5c46773ab5e80e809b36294c0",
   "zorionak.js": "a9fec4e16eb8f929e914a46858b916ce90040fc1"
