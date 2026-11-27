@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "efc0b1118c99",
+   "pub": "2026-11-27T16:52Z",
+   "titulo": "Gurpea Group aspira a facturar 45 millones en 2027",
+   "texto": "Pedro Odériz dirige desde hace casi una década Gurpea Group, firma pamplonesa dedicada a procesos de automatización y labores de mantenimiento en sector industrial. La compañía, fundada en 2004, cuenta actualmente con unos 400 trabajadores y ronda los 38 millones de euros de ingresos anuales. Recientemente adquirió Teknics, empresa catalana que atravesaba dificultades, e integró a su cincuentena de empleados. Con delegaciones en Barbatáin, Tafalla, Vitoria, Barcelona y México, Gurpea Group ya ha ejecutado proyectos en Francia, Polonia, Estados Unidos, Australia y Alemania. El grupo trabaja ahora por superar los 45 millones de euros de facturación el próximo año y estudia nuevas líneas de negocio para diversificar su actividad.",
+   "pueblo": "Pamplona",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/el-pamplones-que-sono-con-ser-michael-jordan-y-hoy-gerencia-gurpea-group/"
+    }
+   ]
+  },
+  {
    "id": "a0eaf8a1588c",
    "pub": "2026-11-27T15:59Z",
    "titulo": "Grupo AN factura 1.568 millones y crea 220 empleos en zonas rurales",
@@ -710,25 +724,6 @@
     {
      "f": "Ayuntamiento de Pamplona",
      "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-de-pamplona-conmemora-el-dia-internacional-contra-la-violencia"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "a4e07379bec0",
-   "pub": "2026-11-25T13:19Z",
-   "titulo": "San Jorge concluye medición de contaminación con análisis de plantas",
-   "texto": "Vecinos del barrio han entregado las macetas utilizadas en un proyecto de ciencia ciudadana para evaluar la calidad del aire. Durante cinco semanas, 43 plantas de raigrás —25 en balcones de hogares y 18 en rotondas— acumularon partículas contaminantes que analizará el Instituto de Agrobiotecnología (IdAB-CSIC). Los laboratorios determinarán la presencia de metales pesados y otros elementos para conocer los niveles de polución. Los participantes recibieron formación sobre contaminación atmosférica en las instalaciones científicas. El Ayuntamiento de Pamplona y el IdAB-CSIC presentarán los resultados el 23 de febrero de 2027 en Civivox San Jorge, que servirán de referencia para comparar datos tras los cambios en la reorganización del tráfico previstos en la zona.",
-   "pueblo": "Pamplona",
-   "cat": "Medio ambiente",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-san-jorge/los-vecinos-de-san-jorge-cierran-la-fase-de-campo-del-estudio-sobre-la-calidad-del-aire-de-su-barrio/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/el-proyecto-para-medir-la-calidad-del-aire-en-el-barrio-de-san-jorge-concluye"
     }
    ],
    "auto": true
