@@ -34,10 +34,29 @@ def _apunta(uso):
     json.dump(g, open(GASTO, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 
+DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def fecha_de_hoy():
+    """Frase con la fecha y hora de hoy en Madrid, para ponerla delante de cada instrucción a la IA."""
+    try:
+        from zoneinfo import ZoneInfo
+        a = datetime.datetime.now(ZoneInfo("Europe/Madrid"))
+    except Exception:
+        a = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
+    return (f"FECHA DE HOY: {DIAS[a.weekday()]}, {a.day} de {MESES[a.month - 1]} de {a.year}, {a:%H:%M} (hora de Madrid). "
+            f"Estamos en {a.year}: fechas de {a.year} o de {a.year - 1} son normales y NO son un error. "
+            "Usa esta fecha para «hoy», «ayer», «el viernes»… y no supongas nunca otro año.")
+
+
 def llamar(sistema, texto, max_tokens=1200, reintentos=3):
     clave = os.environ.get("ANTHROPIC_API_KEY")
     if not clave:
         raise IAError("sin_clave")
+    # 27 nov. 2026: la IA no sabe qué día es (cree que sigue en el año en que la entrenaron y marcaba como
+    # «error» noticias con fechas de 2026). Le decimos siempre la fecha de hoy, en hora de Madrid.
+    sistema = fecha_de_hoy() + "\n\n" + sistema
     cuerpo = json.dumps({"model": MODELO, "max_tokens": max_tokens, "system": sistema,
                          "messages": [{"role": "user", "content": texto}]}).encode()
     for n in range(reintentos):

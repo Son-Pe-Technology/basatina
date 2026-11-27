@@ -102,7 +102,7 @@ body.bna #drawer .dhead.m6Foto b{color:#1d2b22!important}body.bna #drawer .dhead
 #bnaDGrid .dsub[data-m6s]>button>span:not(.bt){display:block;text-align:left}
 #m6Mio{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#2f4a2a;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
 #m6Mio svg{width:22px;height:22px}
-body.bna #m6Acc{margin:4px 12px 10px}
+body.bna #m6Acc{margin:4px 12px 12px;background:#fff;border:1px solid #e3e9e0;border-radius:18px;padding:12px 8px 10px;box-shadow:0 2px 8px rgba(29,45,35,.05)}
 body.bna #m6Acc .m6AccT{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5b6660;margin:0 4px 8px}
 body.bna #m6Acc .m6AccF{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
 body.bna #m6Acc button{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;padding:2px 0;font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;color:#1d2b22;cursor:pointer;min-height:44px;text-align:center}

@@ -3911,7 +3911,8 @@ const icoBox=(k,s,b)=>ICK[k]?`<span class="icb" style="background:${ICC[k]};widt
 const EMO=/^(?:[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2190}-\u{21FF}\u{2300}-\u{23FF}\u{2139}\u{24C2}\u{3297}\u{3299}][\u{FE0F}\u{200D}\u{20E3}]*)+\s*/u;
 function applyIcons(pro){
  document.body.classList.toggle('pro',pro);
- document.querySelectorAll('#drawer button').forEach(b=>{const k=b.dataset.t||b.id;
+ document.querySelectorAll('#drawer button').forEach(b=>{if(b.closest('#m6Acc,#m6AccCfg'))return;   // 27 nov. 2026: los accesos rápidos ya traen su icono (menu6.js): no borrárselo
+  const k=b.dataset.t||b.id;
   if(b.dataset.emo===undefined){const m=b.textContent.match(EMO);b.dataset.emo=m?m[0]:'';b.dataset.txt=b.textContent.replace(EMO,'');}
   if(pro&&ICK[k])b.innerHTML=icoBox(k,16,28)+'<span>'+arEsc(b.dataset.txt)+'</span>';else b.textContent=b.dataset.emo+b.dataset.txt;});
  document.querySelectorAll('#drawer .dgroup span').forEach(s=>{const k='g:'+(s.dataset.k||(s.dataset.k=s.textContent.replace(EMO,'').trim()));
@@ -4781,7 +4782,7 @@ function bnDrawer(on){const dr=document.getElementById('drawer');let g=document.
 function bnIcons(){if(!isBna()||!document.body.classList.contains('pro'))return;
   document.querySelectorAll('#drawer button').forEach(b=>{const k=b.dataset.t||b.id,ic=b.querySelector('.icb');if(ic){const t=bnTile(k,20,34);if(t)ic.outerHTML=t;}});
   document.querySelectorAll('#drawer .dgroup>span').forEach(s=>{const k='g:'+s.dataset.k;s.querySelectorAll('span[style],.bt').forEach(x=>x.remove());const t=bnTile(k,22,38);if(t)s.insertAdjacentHTML('afterbegin',t);});}
-const _bnAI=applyIcons;applyIcons=function(p){document.querySelectorAll('#drawer .bt,#secTitle .bt').forEach(x=>x.remove());if(!isBna()){const t=document.getElementById('secTitle');if(t)delete t.dataset.done;}_bnAI(p);bnIcons();};
+const _bnAI=applyIcons;applyIcons=function(p){document.querySelectorAll('#drawer .bt,#secTitle .bt').forEach(x=>{if(!x.closest('#m6Acc,#m6AccCfg'))x.remove();});if(!isBna()){const t=document.getElementById('secTitle');if(t)delete t.dataset.done;}_bnAI(p);bnIcons();};
 const _bnSI=secIco;secIco=function(){_bnSI();const t=document.getElementById('secTitle');if(!isBna()||!t)return;const ic=t.querySelector('.icb');
   if(ic){const k=Object.keys(TITLES).find(x=>TITLES[x]&&TITLES[x].replace(EMO,'')===t.textContent);const tl=k?bnTile(k,13,20):'';if(tl){t.__busy=true;ic.outerHTML=tl;t.dataset.done=t.textContent;t.__busy=false;}}};
 // ---------- inicio: accesos directos (cada usuario elige los suyos) ----------
@@ -5170,7 +5171,7 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="inicio-centro.js?v=d748e248"></script>
 <script src="ia-noticias.js?v=bb253b9d"></script>
 <script src="inicio-vivo.js?v=cc153909"></script>
-<script src="menu6.js?v=1c5674e5"></script>
+<script src="menu6.js?v=ee4847fc"></script>
 <script src="cuadrilla.js?v=f8852c6c"></script>
 <script src="superadmin.js?v=0daa8d1e"></script>
 <script src="perfil-foto.js?v=1fb34f35"></script>
@@ -5182,6 +5183,7 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="radar-central.js?v=b9edd89b"></script>
 <script src="lluvia-pueblos.js?v=43d0cb94"></script>
 <script src="monte-avisos.js?v=d7015b70"></script>
+<script src="filtros-qhacer.js?v=650f8e43"></script>
 
 </body>
 </html>
