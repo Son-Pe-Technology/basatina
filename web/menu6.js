@@ -105,10 +105,10 @@ body.bna #drawer .dhead.m6Foto b{color:#1d2b22!important}body.bna #drawer .dhead
 body.bna #m6Acc{margin:4px 12px 12px}
 body.bna #m6Acc .m6AccT{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5b6660;margin:0 4px 8px}
 /* 27 nov. 2026 (Pedro): botoncitos con el nombre, como Cultura / Cine / Deporte / Peques, sin círculos */
-body.bna #m6Acc .m6AccF{display:flex;gap:8px;overflow-x:auto;padding:0 2px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+body.bna #m6Acc .m6AccF{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 2px 4px}   /* 2 filas de 2: se ven todos sin deslizar */
 body.bna #m6Acc .m6AccF::-webkit-scrollbar{display:none}
-body.bna #m6Acc button{flex:none!important;width:auto!important;margin:0!important;display:inline-flex!important;align-items:center;white-space:nowrap;min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid #d5dfd2;background:#fff;
-  font-family:inherit;font-size:15px;font-weight:700;color:#2b4a24;cursor:pointer;box-shadow:0 1px 3px rgba(29,45,35,.06)}
+body.bna #m6Acc button{flex:none!important;width:auto!important;min-width:0;margin:0!important;display:inline-flex!important;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:36px;padding:0 12px;border-radius:999px;border:1.5px solid #d5dfd2;background:#fff;
+  font-family:inherit;font-size:13.5px;font-weight:700;color:#2b4a24;cursor:pointer;box-shadow:0 1px 3px rgba(29,45,35,.06)}
 body.bna #m6Acc button:active{background:#3d7031;border-color:#3d7031;color:#fff}
 body.bna #m6Acc button .bt{display:none!important}
 #m6AccCfg .m6AccN{font-size:13px;color:#5b6660;padding:0 10px 8px}
