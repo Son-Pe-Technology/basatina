@@ -358,6 +358,7 @@ if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=f
   checkUpdate=async function(manual){if(manual){if(PEND){menu(false);toast('✨ BasatiNA actualizada');setTimeout(recargar,1200);return;}return _cu(true);}   // ya descargada: recargar en vez de «Ya tienes la última versión»
     if(Date.now()-LAST<60e3)return;LAST=Date.now();
     const r=await updWeb().catch(()=>({ok:false}));if(!r||!r.ok)return;
+    if(r.changed>0)PEND=true;   // 27 nov. 2026: la pantalla nueva se aplica en silencio aunque haya también APK nueva pendiente
     if(r.apk>r.myApk&&r.apkUrl){if(typeof bnMudanza==='function'&&bnMudanza())return;
       if(r.play)return;   // Google Play ya actualiza la app sola
       if(window.AndroidNet.installApk&&typeof apkInstalar==='function'){toast('📲 Hay una versión nueva de la app ('+r.apk+')','Instalar',()=>apkInstalar(r.apkUrl));return;}   // app 21+: se instala desde dentro
