@@ -1,8 +1,9 @@
 {
- "version": 625,
+ "version": 626,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
+  "accesos-libres.js": "06f160cbe68aaf70502b90a33a9f1b95b660a42a",
   "agenda.js": "d217eb1da429425e2cfb8a4c63541f3568df3541",
   "aitaball-mesa.webp": "f974a2f72d10f17465d523896aaa6b5ddd5dfabb",
   "aitaball.js": "52213ae8dded242c2d4c4f9943fa90dda377cb06",
@@ -198,10 +199,10 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "ddbd4989536c7662b654ad165fa21b7ec5f83db1",
+  "index.html": "3fabe0fa2f1a21b031da7d749479f0b30933c39c",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "41f915728d3343673acd987493af6919cf30c1d6",
-  "inicio-fotos.js": "574a4b57e1c38c0a59c84bef168f61b070ff6854",
+  "inicio-fotos.js": "1b4caac465b809c5d9235f461b64a8aee442288b",
   "inicio-vivo.js": "cc153909045bc9d63e176ea21a235c218248f790",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",

@@ -95,7 +95,9 @@ const enIni=()=>typeof isBna==='function'&&isBna()&&(typeof BNTAB==='undefined'|
 function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top&&(IF_FOTOS||(IF_CAB_INI&&on)));
   if(top)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
 // 27 nov. 2026: si el acceso no tiene foto en IF_ACC, coge la de la cabecera de su sección (cabeceras-fotos.js)
-const ifAccF=k=>IF_ACC[k]||(window.cfFoto&&cfFoto(k))||null;
+// y si tampoco hay cabecera, una foto libre provisional (accesos-libres.js, robot tools/fotos_accesos_libres.py)
+const ifLib=k=>(window.ACC_LIBRES&&ACC_LIBRES[k])||null;
+const ifAccF=k=>IF_ACC[k]||(window.cfFoto&&cfFoto(k))||(ifLib(k)&&ifLib(k)[0])||null;
 function ifAcc(){if(!IF_FOTOS&&!IF_ACC_ON)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=ifAccF(b.dataset.go);
   if(!f||b.classList.contains('ifF'))return;b.classList.add('ifF');b.style.backgroundImage=`url("${f}")`;});}
 function ifRio(){const el=$('rzTk');if(!el)return;const e=el.querySelector('.anE');if(!e)return;
@@ -109,7 +111,7 @@ function ifSem(){const b=$('seBody');if(!b||b.dataset.if)return;b.dataset.if=1;
   b.addEventListener('click',e=>{if(enIni()&&e.target.closest('.card')&&!e.target.closest('a,button'))showTab('semana');});}
 function ifCred(){if(!IF_FOTOS&&!IF_ACC_ON)return;const sec=$('t-mtiempo');if(!sec)return;const old=sec.querySelector('.ifCred'),key=(typeof bnAcc==='function'?bnAcc():[]).join();if(old&&old.dataset.k===key)return;if(old)old.remove();const d=document.createElement('details');d.className='ifCred';d.dataset.k=key;
   // créditos de las fotos de cabecera que se usan en los accesos elegidos
-  const ext=[];try{(typeof bnAcc==='function'?bnAcc():[]).forEach(k=>{if(IF_ACC[k]||!window.cfCred)return;const c=cfCred(k);if(c)ext.push([(BNL[k]||k)+': '+String(c[1]).replace(/\s*\(foto libre\)$/,''),c[2]||'foto libre',c[3]||'uso libre',c[4]]);});}catch(e){}
+  const ext=[];try{(typeof bnAcc==='function'?bnAcc():[]).forEach(k=>{if(IF_ACC[k])return;const c=(window.cfCred&&cfCred(k))||ifLib(k);if(c)ext.push([(BNL[k]||k)+': '+String(c[1]).replace(/\s*\(foto libre\)$/,''),c[2]||'foto libre',c[3]||'uso libre',c[4]]);});}catch(e){}
   d.innerHTML='<summary>📷 Fotos del Inicio: autores y licencias</summary>'+IF_CRED.concat(ext).map(([q,a,l,u])=>`${q}: ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l})`).join(' · ')+'.';
   const pie=sec.querySelector('.bnaPie');pie?sec.insertBefore(d,pie):sec.appendChild(d);
   d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
