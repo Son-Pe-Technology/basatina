@@ -1,22 +1,23 @@
 {
  "items": [
   {
-   "id": "d648fb609b3d",
+   "id": "001886a960ae",
    "pub": "2026-11-27T10:55Z",
-   "titulo": "Detenida en Tudela por estafar en alquileres de pisos",
-   "texto": "La Policía Nacional ha arrestado el viernes a una mujer en Tudela acusada de múltiples engaños relacionados con la oferta fraudulenta de viviendas en la Ribera. Según los investigadores, la sospechosa se fingía trabajadora de una inmobiliaria: enviaba imágenes de supuestos inmuebles y desaparecía tras recibir transferencias de reserva. La investigación partió de una denuncia en la comisaría tudelana: una persona había pagado 500 euros para reservar un piso que nunca vio. Al revisar su cuenta bancaria, los agentes hallaron un patrón similar en otros casos con denuncias de 2025 y 2026, en los que pedía dinero como adelanto pero jamás mostraba el inmueble presencialmente. La Policía Nacional recomienda visitar las viviendas antes de abonar cantidades, usar plataformas seguras y desconfiar de ofertas sospechosas.",
-   "pueblo": "Tudela",
+   "titulo": "Un incendio daña dos vehículos y la fachada de un edificio en Pitillas",
+   "texto": "Un incendio afectó a dos coches y la fachada de un inmueble en Pitillas la madrugada de hoy. El aviso llegó a las 05:48 horas. Según las primeras investigaciones, el fuego se originó en un vehículo antiguo y se propagó al otro coche estacionado cerca, alcanzando también el edificio próximo. No se registraron heridos. La Guardia Civil y los bomberos actuaron en el lugar.",
+   "pueblo": "Pitillas",
    "cat": "Sucesos",
    "fuentes": [
     {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/detenida-en-tudela-una-mujer-que-simulaba-alquilar-pisos-para-estafar-a-personas-que-buscaban-vivienda/"
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/tafalla-zona-media/2026/11/27/incendio-dos-vehiculos-pitillas-afecta-fachada-edificio-843970-24.html"
     },
     {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-detenida-mujer-tudela-simulaba-alquilar-pisos-realizar-estafas-20261127092500.html"
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-zona-media/un-incendio-calcina-dos-vehiculos-en-pitillas-y-dana-la-fachada-de-un-edificio/"
     }
-   ]
+   ],
+   "auto": true
   },
   {
    "id": "19541b93f955",
@@ -739,5 +740,5 @@
    "auto": true
   }
  ],
- "t": "2026-11-27T10:06Z"
+ "t": "2026-11-27T10:55Z"
 }
