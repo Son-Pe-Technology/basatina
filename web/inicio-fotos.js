@@ -26,7 +26,9 @@ const IF_ACC={tiempo:'foto-inicio-acc-tiempo.webp',caudal:'foto-inicio-acc-rios.
   monte:'foto-inicio-acc-pie.webp',deporte:'foto-inicio-acc-deporte.webp',cultura:'foto-inicio-acc-agenda.webp',natura:'foto-inicio-acc-recol.webp',
   // 23 nov. 2026: para los accesos que se pueden añadir con «Editar»
   mtiempo:'foto-inicio-acc-inicio.webp',noticias:'foto-inicio-acc-prensa.webp',curiosas:'foto-inicio-acc-prensa.webp',sismo:'foto-inicio-acc-sismo.webp',
-  gas:'foto-inicio-acc-gas.webp',pueblos:'foto-inicio-acc-localidades.webp',cocina:'foto-inicio-acc-comidas.webp',comer:'foto-inicio-acc-comidas.webp',vivienda:'foto-inicio-acc-vivienda.webp',empleo:'foto-inicio-acc-empleo.webp',salud:'foto-inicio-acc-salud.webp',farmacia:'foto-inicio-acc-salud.webp',centros:'foto-inicio-acc-salud.webp',voluntariado:'foto-inicio-acc-voluntariado.webp'};
+  gas:'foto-inicio-acc-gas.webp',pueblos:'foto-inicio-acc-localidades.webp',cocina:'foto-inicio-acc-comidas.webp',comer:'foto-inicio-acc-comidas.webp',vivienda:'foto-inicio-acc-vivienda.webp',empleo:'foto-inicio-acc-empleo.webp',salud:'foto-inicio-acc-salud.webp',farmacia:'foto-inicio-acc-salud.webp',centros:'foto-inicio-acc-salud.webp',voluntariado:'foto-inicio-acc-voluntariado.webp',
+  // 27 nov. 2026: fotos vuestras que ya estaban en la app, para los que no tenían
+  temporada:'foto-temporada-miren.webp',semana:'foto-inicio-primavera.webp',psombras:'foto-cab2-astro.webp'};
 // río del carrusel (RZ_RIOS de novedades.js + arga) → foto
 const IF_RIO={arga:'foto-inicio-rio-arga.webp',irati:'foto-inicio-rio-irati.webp',ega:'foto-inicio-rio-ega.webp',aragon:'foto-inicio-rio-aragon.webp',ebro:'foto-inicio-rio-ebro.webp'};
 const IF_CRED=[
@@ -51,6 +53,9 @@ const IF_CRED=[
  ['Empleo: obra de viviendas, Pamplona','Pedro Iglesias Goñi','foto propia (retocada con IA)',''],
  ['Salud: cruz de farmacia y su sombra','[autor por confirmar]','[licencia por confirmar]',''],
  ['Voluntariado: recogiendo basura junto al agua','[autor por confirmar]','[licencia por confirmar]',''],
+ ['Productos de temporada: campo de trigo','Miren I.G.','foto propia',''],
+ ['La semana: doble arcoíris','Pedro Iglesias Goñi','foto propia',''],
+ ['Las sombras: Luna entre los árboles','Pedro Iglesias Goñi','foto propia',''],
  ['Agenda: Sanfermines','San Fermín Pamplona (Flickr)','CC0','https://commons.wikimedia.org/wiki/File:San_Ferm%C3%ADn_la_fiesta_est%C3%A1_en_la_calle_(42031343420).jpg'],
  ['Recolección: setas en el bosque','GenGH','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Oudemansiella_mucida,_Asturias_04.jpg']];
 
@@ -95,7 +100,9 @@ const enIni=()=>typeof isBna==='function'&&isBna()&&(typeof BNTAB==='undefined'|
 function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top&&(IF_FOTOS||(IF_CAB_INI&&on)));
   if(top)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
 // 27 nov. 2026: si el acceso no tiene foto en IF_ACC, coge la de la cabecera de su sección (cabeceras-fotos.js)
-const ifAccF=k=>IF_ACC[k]||(window.cfFoto&&cfFoto(k))||null;
+// y si tampoco hay cabecera, una foto libre provisional (accesos-libres.js, robot tools/fotos_accesos_libres.py)
+const ifLib=k=>(window.ACC_LIBRES&&ACC_LIBRES[k])||null;
+const ifAccF=k=>IF_ACC[k]||(window.cfFoto&&cfFoto(k))||(ifLib(k)&&ifLib(k)[0])||null;
 function ifAcc(){if(!IF_FOTOS&&!IF_ACC_ON)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=ifAccF(b.dataset.go);
   if(!f||b.classList.contains('ifF'))return;b.classList.add('ifF');b.style.backgroundImage=`url("${f}")`;});}
 function ifRio(){const el=$('rzTk');if(!el)return;const e=el.querySelector('.anE');if(!e)return;
@@ -109,7 +116,7 @@ function ifSem(){const b=$('seBody');if(!b||b.dataset.if)return;b.dataset.if=1;
   b.addEventListener('click',e=>{if(enIni()&&e.target.closest('.card')&&!e.target.closest('a,button'))showTab('semana');});}
 function ifCred(){if(!IF_FOTOS&&!IF_ACC_ON)return;const sec=$('t-mtiempo');if(!sec)return;const old=sec.querySelector('.ifCred'),key=(typeof bnAcc==='function'?bnAcc():[]).join();if(old&&old.dataset.k===key)return;if(old)old.remove();const d=document.createElement('details');d.className='ifCred';d.dataset.k=key;
   // créditos de las fotos de cabecera que se usan en los accesos elegidos
-  const ext=[];try{(typeof bnAcc==='function'?bnAcc():[]).forEach(k=>{if(IF_ACC[k]||!window.cfCred)return;const c=cfCred(k);if(c)ext.push([(BNL[k]||k)+': '+String(c[1]).replace(/\s*\(foto libre\)$/,''),c[2]||'foto libre',c[3]||'uso libre',c[4]]);});}catch(e){}
+  const ext=[];try{(typeof bnAcc==='function'?bnAcc():[]).forEach(k=>{if(IF_ACC[k])return;const c=(window.cfCred&&cfCred(k))||ifLib(k);if(c)ext.push([(BNL[k]||k)+': '+String(c[1]).replace(/\s*\(foto libre\)$/,''),c[2]||'foto libre',c[3]||'uso libre',c[4]]);});}catch(e){}
   d.innerHTML='<summary>📷 Fotos del Inicio: autores y licencias</summary>'+IF_CRED.concat(ext).map(([q,a,l,u])=>`${q}: ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l})`).join(' · ')+'.';
   const pie=sec.querySelector('.bnaPie');pie?sec.insertBefore(d,pie):sec.appendChild(d);
   d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
