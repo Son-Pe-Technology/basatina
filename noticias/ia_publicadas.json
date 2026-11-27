@@ -1,6 +1,25 @@
 {
  "items": [
   {
+   "id": "1ffcd4d70c98",
+   "pub": "2026-11-27T18:57Z",
+   "titulo": "Estreno de 'Berriro Mundu Berri Bat', ganadora del concurso teatral infantil",
+   "texto": "La Escuela Navarra de Teatro presenta este domingo, 29 de noviembre, a las 18 horas la obra 'Berriro Mundu Berri Bat', de May Gorostiaga, ganadora en euskera del XXXV Concurso de Textos Teatrales para público infantil. La compañía del autor dirigirá la función, recomendada a partir de 4 años con una duración de una hora. Los personajes Sorkun y Ekine inventan en el ático mientras luchan contra el Sr. Oscuro, que intenta apagar su creatividad. Las entradas cuestan 8 euros en taquilla o web de la ENT; grupos superiores a cinco personas pagan 6 euros.",
+   "pueblo": "Pamplona",
+   "cat": "Cultura",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/la-escuela-navarra-de-teatro-estrena-este-domingo-berriro-mundu-berri-bat-de-may-gorostiaga-obra-ganadora-del-concurso/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/la-escuela-navarra-de-teatro-estrena-este-domingo-berriro-mundu-berri-bat-de"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "00ee7e5082d1",
    "pub": "2026-11-27T16:53Z",
    "titulo": "Navarra registra solo 13 casos de VIH en diez meses de 2026, cifra histórica",
@@ -690,26 +709,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "5ab6c585ed7a",
-   "pub": "2026-11-25T16:05Z",
-   "titulo": "Navarra aprueba el Plan de Salud 2030 con enfoque en prevención y equidad",
-   "texto": "El Gobierno navarro aprobó este miércoles el Plan de Salud Horizonte 2030, documento que orientará la política sanitaria hasta 2030. El plan debe ser votado en el Parlamento antes de su implementación. Responde a retos como el envejecimiento demográfico, las enfermedades crónicas y los problemas de salud mental, reconociendo que el bienestar depende también de factores educativos, laborales y ambientales. Se estructura en cinco objetivos: políticas saludables e inclusivas; atención a lo largo de todas las edades; reducción de enfermedades graves; modernización del sistema sanitario; e impulso de la investigación e innovación. Su elaboración ha contado con participación de profesionales, administraciones locales, universidades y ciudadanía.",
-   "pueblo": "Navarra",
-   "cat": "Salud",
-   "fuentes": [
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/25/licitadas-obras-ampliacion-centro-salud-txantrea-843733-16.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/el-gobierno-de-navarra-aprueba-el-plan-de-salud-horizonte-2030-con-cinco-objetivos-para-una-sanidad-mas-preventiva-y-equitativa/"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-27T15:59Z"
+ "t": "2026-11-27T18:57Z"
 }
