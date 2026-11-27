@@ -36,12 +36,8 @@
 - GEOM_AREA: 84 · [('486133.25', 1), ('17251.13', 1), ('31293.64', 1), ('4538.1', 1), ('9943.27', 1), ('142889.27', 1), ('392991.02', 1), ('38129.83', 1)]
 - GEOM_PERI: 84 · [('4233.54', 1), ('661.12', 1), ('859.45', 1), ('326.75', 1), ('587.83', 1), ('1893.77', 1), ('3123.37', 1), ('1047.39', 1)]
 - BEGINLIFE: 1 · [('29/10/2026', 84)]
-overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Network is unreachable>
-overpass https://overpass.private.coffee/api/interpreter HTTP Error 504: Gateway Timeout
-overpass https://overpass.kumi.systems/api/interpreter The read operation timed out
-overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Network is unreachable>
 
-## OSM centrales: Counter({'hydro': 93, 'solar': 74, 'wind': 53, 'biomass': 3, 'gas': 3, 'biogas': 2, '?': 2})
+## OSM centrales: Counter({'hydro': 100, 'solar': 75, 'wind': 53, 'biomass': 3, 'gas': 3, 'biogas': 2, '?': 2})
  * {'src': 'hydro', 'n': 'Electra Cárcar', 'mw': '', 'op': '', 'pt': [42.4615, -2.338], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [43.1417, -1.6071], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.3583, -2.0527], 'w': ''}
@@ -49,19 +45,25 @@ overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Netw
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.801, -1.3598], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': '', 'op': '', 'pt': [43.1398, -1.8451], 'w': ''}
  * {'src': 'hydro', 'n': 'Central hidroeléctrica Lorente', 'mw': '0.7 MW', 'op': 'Saltos del Ega', 'pt': [42.6608, -2.0091], 'w': ''}
+ * {'src': 'hydro', 'n': 'Domikoko zentral hidroelektrikoa', 'mw': 'yes', 'op': '', 'pt': [43.2539, -1.7654], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica Irabia', 'mw': '1.36 MW', 'op': 'Acciona', 'pt': [42.985, -1.1583], 'w': ''}
+ * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [43.278, -1.7736], 'w': ''}
  * {'src': 'hydro', 'n': 'Arranbideko zentrala', 'mw': '1.956 MW', 'op': 'Gestión de Centrales del Añarbe S.A.', 'pt': [43.2097, -1.8726], 'w': ''}
  * {'src': 'hydro', 'n': 'Arranbideko zentrala', 'mw': '1.125 MW', 'op': 'Iberdrola', 'pt': [43.2087, -1.875], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica Urroz-Oitz', 'mw': '1.12 MW', 'op': 'Iberdrola', 'pt': [43.1076, -1.6862], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Eléctrica Itoiz', 'mw': '28.40 MW', 'op': 'Canal De Navarra, S.A.', 'pt': [42.801, -1.3598], 'w': ''}
+ * {'src': 'hydro', 'n': 'Igantziko zentrala I', 'mw': '2.36 MW', 'op': 'Iberdrola', 'pt': [43.2303, -1.6765], 'w': ''}
+ * {'src': 'hydro', 'n': 'Igantzi Zantrala II', 'mw': 'yes', 'op': '', 'pt': [43.2283, -1.6801], 'w': ''}
  * {'src': 'hydro', 'n': 'Leurza-Urroz Zentrala', 'mw': '1.10 MW', 'op': 'Iberdrola', 'pt': [43.0831, -1.7005], 'w': ''}
  * {'src': 'hydro', 'n': 'Central de Betolegi', 'mw': '2.8 MW', 'op': 'Acciona Energía', 'pt': [42.9598, -1.2527], 'w': ''}
  * {'src': 'hydro', 'n': 'Central hidroeléctrica de Mourgues', 'mw': 'yes', 'op': '', 'pt': [43.2153, -1.6709], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidroeléctrica Sartaguda', 'mw': '4.2 MW', 'op': 'Acciona', 'pt': [42.3764, -2.0578], 'w': ''}
+ * {'src': 'hydro', 'n': 'Goiko zentrala', 'mw': '1.46 MW', 'op': 'Reysalde S.L.', 'pt': [43.229, -1.6223], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica El Ferial', 'mw': 'yes', 'op': '', 'pt': [42.2914, -1.5877], 'w': ''}
  * {'src': 'biogas', 'n': 'Cogeneración Cabanillas', 'mw': '', 'op': '', 'pt': [42.0478, -1.5321], 'w': ''}
  * {'src': 'hydro', 'n': 'Urkizu zentrala', 'mw': '', 'op': '', 'pt': [43.1103, -1.9191], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Hijos de Martínez', 'mw': 'yes', 'op': '', 'pt': [42.6685, -2.0232], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central Saltos del Bidasoa', 'mw': '1.088 MW', 'op': 'Electra Navasturen S.A.', 'pt': [43.2616, -1.6848], 'w': ''}
  * {'src': 'hydro', 'n': 'Ituren II - Aurtitz', 'mw': '0.746 MW', 'op': 'Central y Coogeneración de Ituren S.A.', 'pt': [43.1329, -1.7247], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica Mugaire', 'mw': '1.32 MW', 'op': 'Marin Mugaire S.L.', 'pt': [43.132, -1.6079], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica de Mañeru', 'mw': '4.8 MW', 'op': 'Iberdrola', 'pt': [42.6392, -1.8607], 'w': ''}
@@ -89,8 +91,8 @@ overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Netw
  * {'src': 'hydro', 'n': 'Central Hidráulica Artesiaga', 'mw': '1.15 MW', 'op': 'Iberdrola', 'pt': [43.1105, -1.5324], 'w': ''}
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': '', 'pt': [42.8948, -1.3012], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica Irurtzun', 'mw': '0.98 MW', 'op': 'Hidroelectrica Dos Hermanas', 'pt': [42.9249, -1.8309], 'w': ''}
- * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Olaldea', 'mw': '3.29 MW', 'op': 'Acciona', 'pt': [42.917, -1.2921], 'w': ''}
- * {'src': 'hydro', 'n': 'Central Hidráulica de Olaldea II', 'mw': '0.72 MW', 'op': 'Acciona', 'pt': [42.9161, -1.2909], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Olaldea', 'mw': '3.29 MW', 'op': 'Hidráulicas de la Cuenca del Norte', 'pt': [42.917, -1.2921], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central Hidroeléctrica Olaldea 2', 'mw': '0,75 MW', 'op': 'Hidráulicas de la Cuenca del Norte', 'pt': [42.9166, -1.2894], 'w': ''}
  * {'src': 'hydro', 'n': 'Barazpea', 'mw': 'small_installation', 'op': '', 'pt': [42.8025, -1.7784], 'w': ''}
  * {'src': 'hydro', 'n': 'Urdaizko Zentral Hidroelektrikoa', 'mw': 'small_installation', 'op': '', 'pt': [42.9089, -1.5324], 'w': ''}
  * {'src': 'hydro', 'n': 'Ubaun', 'mw': '', 'op': '', 'pt': [43.1017, -1.6212], 'w': ''}
@@ -101,6 +103,7 @@ overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Netw
  * {'src': 'hydro', 'n': 'Central hidroeléctrica Cabués', 'mw': '2.24 MW', 'op': 'Sodena', 'pt': [42.4683, -1.8122], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidroeléctrica de Garde', 'mw': 'yes', 'op': '', 'pt': [42.7985, -0.9597], 'w': ''}
  * {'src': 'hydro', 'n': 'Zentrala', 'mw': 'yes', 'op': '', 'pt': [42.8493, -1.5847], 'w': ''}
+ * {'src': 'hydro', 'n': 'Central hidroeléctrica de Las Nazas', 'mw': '1.08 MW', 'op': 'Electra Irún Endara S.A.', 'pt': [43.2888, -1.7119], 'w': ''}
  * {'src': 'hydro', 'n': 'Granada Zentrala', 'mw': '1.16 MW', 'op': 'Andueza Generación Eléctrica S.L.', 'pt': [43.088, -1.3013], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica de Viana II', 'mw': '4.79 MW', 'op': 'Acciona', 'pt': [42.4629, -2.3378], 'w': ''}
  * {'src': 'hydro', 'n': 'Central Hidráulica de Viana I Recajo', 'mw': '3.42 MW', 'op': '', 'pt': [42.4613, -2.3381], 'w': ''}
@@ -146,10 +149,12 @@ overpass https://overpass-api.de/api/interpreter <urlopen error [Errno 101] Netw
  * {'src': 'hydro', 'n': '', 'mw': 'yes', 'op': 'Electra Irun-Endara', 'pt': [42.7771, -2.1299], 'w': ''}
  * {'src': 'hydro', 'n': 'Central hidroeléctrica de Andión', 'mw': '0.9 MW', 'op': 'Sociedad Corralizas y Electra', 'pt': [42.5987, -1.8542], 'w': ''}
 
-## REE meses 92 ['2019-01'] ['2026-08'] ['Hidráulica', 'Ciclo combinado', 'Eólica', 'Solar fotovoltaica', 'Otras renovables', 'Cogeneración', 'Generación total']
+## REE meses 92 ['2019-01'] ['2026-08'] ['Hidráulica', 'Ciclo combinado', 'Eólica', 'Solar fotovoltaica', 'Biocombustibles', 'Cogeneración', 'Generación total']
 REE fallo generacion/estructura-generacion?start_date=2026-09-01T00:00&end_date=2026-09-30T23:59&tim HTTP Error 500: Internal Server Error
 ## REE días: 0
 REE fallo generacion/potencia-instalada?start_date=2025-01-01T00:00&end_date=2025-12-31T23:59&time_t HTTP Error 500: Internal Server Error
 ## REE potencia instalada: {}
 ## calibración eólica {'eol': 1.043, 'eolMW': 1775.2} [('2025-11', 355893, 390571.9), ('2025-12', 155101, 215047.6), ('2026-01', 292132, 310122.9), ('2026-02', 294375, 266250.0), ('2026-03', 359444, 301917.5), ('2026-04', 258566, 240368.8), ('2026-05', 162121, 169512.7), ('2026-06', 201179, 206508.3), ('2026-07', 250218, 261649.7), ('2026-08', 163556, 237102.1), ('2026-09', 211222, None), ('2026-10', 175775, None)]
+open-meteo reintento 0 <urlopen error _ssl.c:1063: The handshake operation timed out>
+open-meteo reintento 0 <urlopen error _ssl.c:1063: The handshake operation timed out>
 ## calibración solar {'eol': 1.043, 'eolMW': 1775.2, 'sol': 0.726, 'solMW': 453.9}
