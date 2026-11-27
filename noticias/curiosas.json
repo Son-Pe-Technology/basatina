@@ -1,14 +1,7 @@
 {
-"t": "2026-11-27T13:39Z",
-"turno": "2026-11-27-t",
+"t": "2026-11-27T19:20Z",
+"turno": "2026-11-27-n",
 "dest": [
-{
-"k": "2026-11-23-n",
-"t": "\"El agua caliente se congela antes que la fría\": el curioso fenómeno que la ciencia sigue investigando",
-"u": "https://www.telecinco.es/noticias/curioso/20261123/agua-caliente-congela-antes-que-fria-efecto-mpemba_18_020611322.html",
-"f": "Telecinco",
-"d": "2026-11-23T05:15Z"
-},
 {
 "k": "2026-11-24-m",
 "t": "A Coruña entra en el Libro Guinness de los récords con un 'pequeño' gesto: 'Lo conseguí a la segunda. No me lo tomo como un juego'",
@@ -85,6 +78,13 @@
 "u": "https://www.huffingtonpost.es/virales/ada-colau-gana-debate-memes-sin-ada-hay-peter-f202611.html",
 "f": "HuffPost",
 "d": "2026-11-27T00:10Z"
+},
+{
+"k": "2026-11-27-n",
+"t": "\"Einstein suspendía Matemáticas\": un bulo que lleva décadas circulando pese a estar desmentido por la historia",
+"u": "https://www.telecinco.es/noticias/curioso/20261127/einstein-suspendia-matematicas-origen-bulo-historico_18_020611548.html",
+"f": "Telecinco",
+"d": "2026-11-27T19:00Z"
 }
 ],
 "items": [
@@ -96,17 +96,17 @@
 "p": 6
 },
 {
-"t": "“Un perro me mordió”: la surrealista anécdota de David Broncano cuando fue a votar por correo",
-"u": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPdnFwT3FzMEZfdEExeGhMRVFvQS04SEdzeHZlQ3NYVVF5ZkcyOTBQazNMazRpS1RHRUZQMVhsRFR5YV9kRFk4Znh1Y19udWVMQ081Nm1wQjRzSHZ2ZFExOHdWbzF6WUlSWm5adHhqY3BoeEYxZGEzbjJZY29pWlI3VkFDc09qckRkNEpVMFdCb1ZCRkpMWkZ6blVVZjNXajkyOU1TdGtUV29IZXBaejR5YnRUeThOdWVZT0FzRUdIeTRhdWZqd0tMQzFlZkdQXzNTMVMyStIB2gFBVV95cUxOQXhDekczR19kcW0zNWY4d3NzMFZ6S1h1bWIwdXhDcGtpbmRFV2pUOFNXczlCd2h6Y3ktZ0FBaVBUdFRMRG5ubmgxQVN2WEt0Q250WlhkandFUzg1NHZwaTZ6WWNlWm42SXc2VDZXRmNJRmFnWHlfRkloMjFadkNYRXlWUW5FZlBxV1c3Y3hZTGNuYlFhYU0wS2lyMkpvaU9CQzc2SWNjRTctN1hNdnByVWk0MkhpYmw5eU5DOWNJakJ6Zmo3V1RaWVAwemN5QWlORWJMajM1SzVYUQ?oc=5",
-"f": "Diario de Noticias de Álava",
-"d": "2026-11-26T16:30Z",
-"p": 6
-},
-{
 "t": "Ada Colau también gana el debate de los memes: \"Sin Ada no hay Peter\"",
 "u": "https://www.huffingtonpost.es/virales/ada-colau-gana-debate-memes-sin-ada-hay-peter-f202611.html",
 "f": "HuffPost",
 "d": "2026-11-27T00:10Z",
+"p": 5
+},
+{
+"t": "“Un perro me mordió”: la surrealista anécdota de David Broncano cuando fue a votar por correo",
+"u": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPdnFwT3FzMEZfdEExeGhMRVFvQS04SEdzeHZlQ3NYVVF5ZkcyOTBQazNMazRpS1RHRUZQMVhsRFR5YV9kRFk4Znh1Y19udWVMQ081Nm1wQjRzSHZ2ZFExOHdWbzF6WUlSWm5adHhqY3BoeEYxZGEzbjJZY29pWlI3VkFDc09qckRkNEpVMFdCb1ZCRkpMWkZ6blVVZjNXajkyOU1TdGtUV29IZXBaejR5YnRUeThOdWVZT0FzRUdIeTRhdWZqd0tMQzFlZkdQXzNTMVMyStIB2gFBVV95cUxOQXhDekczR19kcW0zNWY4d3NzMFZ6S1h1bWIwdXhDcGtpbmRFV2pUOFNXczlCd2h6Y3ktZ0FBaVBUdFRMRG5ubmgxQVN2WEt0Q250WlhkandFUzg1NHZwaTZ6WWNlWm42SXc2VDZXRmNJRmFnWHlfRkloMjFadkNYRXlWUW5FZlBxV1c3Y3hZTGNuYlFhYU0wS2lyMkpvaU9CQzc2SWNjRTctN1hNdnByVWk0MkhpYmw5eU5DOWNJakJ6Zmo3V1RaWVAwemN5QWlORWJMajM1SzVYUQ?oc=5",
+"f": "Diario de Noticias de Álava",
+"d": "2026-11-26T16:30Z",
 "p": 5
 },
 {
@@ -124,10 +124,45 @@
 "p": 5
 },
 {
-"t": "Ibai Gómez: \"Nuestro objetivo debe ser ganar y conseguir el mayor de los récords de la categoría\"",
-"u": "https://cadenaser.com/aragon/2026/11/27/ibai-gomez-nuestro-objetivo-debe-ser-ganar-y-conseguir-el-mayor-de-los-records-de-la-categoria-radio-zaragoza/",
-"f": "Cadena SER",
-"d": "2026-11-27T13:25Z",
+"t": "\"Einstein suspendía Matemáticas\": un bulo que lleva décadas circulando pese a estar desmentido por la historia",
+"u": "https://www.telecinco.es/noticias/curioso/20261127/einstein-suspendia-matematicas-origen-bulo-historico_18_020611548.html",
+"f": "Telecinco",
+"d": "2026-11-27T19:00Z",
+"p": 4
+},
+{
+"t": "Azúcar Moreno aclara que sí son hermanas después de su broma viral en un pódcast",
+"u": "https://www.20minutos.es/gente/azucar-moreno-aclaran-que-si-son-hermanas-tras-su-broma-viral-un-podcast-entramos-juego-por-divertirnos_7066784_0.html",
+"f": "20minutos",
+"d": "2026-11-27T14:03Z",
+"p": 4
+},
+{
+"t": "Malinin establece un nuevo récord mundial en un Programa Corto de patinaje artístico sobre hielo",
+"u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNRmw5OTJsYkN3MDc0S1NRVmFfNGRKU1ZLdUpfVVN4ZUVSQ2xGTGllU053LWdjM2FNVWlXY19zVHEwdWk0el82OVdHNDNRY2J0cTFyRl9hS1pKcndFazZtVDMyNWhrODhXaDdQZDJnb3UzNVBJRGNmRjUzOEFsOTBXVE9iRFZKM1p5SjgzVW1JcTRfeGFsbk1WeGZxMVZHYkRBS3JZbmxRZEFIU1pXbVRmZ1k3eFRheEdYSDQySFpDWk55SXpINTB4Vm5FMDZjM2cxZlN0NHVleXFGUQ?oc=5",
+"f": "Europa Press",
+"d": "2026-11-27T13:49Z",
+"p": 4
+},
+{
+"t": "El estadio del sur de Madrid que llevó al Getafe por toda Europa y que esconde una curiosa historia",
+"u": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNNGdOeDNhbzYySDNHUzN3QkNNcGJzeXRIZzZORHdmZ1NuLTVLZWI3WUlZWFR2Q0RldEJtRWZGeGxHcnc1TmNZaEJvUnhBUm1iaW82Y1ZYLUxaRWI3aU53R1FhTUtaUEdUREpKNnlKSEx3VlJtajV6Szhvc2hTWEVDYW9pZ2V6REZYMnNoZ0YySWhvejBlVFBCNGhtUGVEZmw3eFdMSWNib2xCX0RVRF9tNG42MEdBSnRkUVZPaGJuWHFleDQ?oc=5",
+"f": "Madridinforma",
+"d": "2026-11-27T19:02Z",
+"p": 3
+},
+{
+"t": "Un muñeco lleno de granos y espinillas para explotar: el regalo viral de una juguetería vasca esta Navidad",
+"u": "https://www.elcorreo.com/bizkaiadmoda/moda/muneco-lleno-granos-espinillas-explotar-regalo-viral-jugueteria-vasca-navidad-20261126190508-nt.html",
+"f": "El Correo",
+"d": "2026-11-27T18:23Z",
+"p": 3
+},
+{
+"t": "El Curiosity de la NASA capta imágenes de unas extrañas rocas con forma de patatas fritas y los científicos no saben qué es",
+"u": "https://www.20minutos.es/tecnologia/actualidad/rover-curiosity-nasa-capta-imagenes-extranas-rocas-forma-patatas-fritas-cientificos-no-saben-que-puede-ser_7066881_0.html",
+"f": "20minutos",
+"d": "2026-11-27T17:33Z",
 "p": 3
 },
 {
@@ -145,17 +180,10 @@
 "p": 3
 },
 {
-"t": "Tapicería Crespo, Zarata Records, Nere Sustraiak y Etxarte, premios 'Nik Gernikan'",
-"u": "https://www.elcorreo.com/bizkaia/costa/tapiceria-crespo-zarata-records-nere-sustraiak-etxarte-20261127120622-nt.html",
-"f": "El Correo",
-"d": "2026-11-27T11:06Z",
-"p": 3
-},
-{
-"t": "Swatch lanza el reloj más divertido de la Navidad: colorido y con una correa que parece de caramelo",
-"u": "https://www.20minutos.es/theluxonomist/lujo/joyas-relojes/swatch-lanza-reloj-mas-divertido-navidad-colorido-con-una-correa-que-parece-caramelo_7066134_0.html",
-"f": "20minutos",
-"d": "2026-11-27T09:09Z",
+"t": "De George Washington a 'Matrix': las referencias culturales del insólito atuendo de Ada Colau en el debate",
+"u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQVjF6bDlyNUFRb1NFdThHekhmdFRiNGFxWmk3LWhpeXptcmNhRzd2UWRLNmlxLUc2S2oycGxuM25YY25WRjNFSjJoQ3JTYjBHR0FIWjJIcDhmRDZRTGVoQWd2UnZXTTFmdnIyVGlEVTNNQU5SRmJQZ2wxNklfLXhyM1FjZGRzdEw4eTV6SHpQTEt0YVI1RGdzbnQzV3FYaU9OZ2h0TnhoN29YLVc5N0xZSUJkYnhUNmNvU2h0V09hcEk2M0FTSXhpWDVhaWt6NGxj0gHWAUFVX3lxTE02MFM4RXR3ekQ2ODh0ZmNXODE2MU11bmdUMjdmWTFoLUFiN0JMcGNWcFRkRHNhbnlTYlg0czJDZVdKU1NsaXFtSWhSLXp2YmFGLXVYNm53MlllR3c2VHBiaUd2alNHYk5WUXhQTEtzOEtISzZZV1pNQlMtNkdjZWxQV0tNTTZLV0FGZG43Qzl6aGt5VGxMUFprTFQyWFpjV29yZ01qSXlRYVN6bUtXRnBDdVV5Z2VEeXdXdC1hQUJURFVrTmZKMWtLN0gzTEdOSXM2azk3b3c?oc=5",
+"f": "El Debate",
+"d": "2026-11-27T11:04Z",
 "p": 3
 },
 {
@@ -194,13 +222,6 @@
 "p": 3
 },
 {
-"t": "Este doctor le dio a su paciente la desgarradora noticia de que le quedaban solo unas horas de vida, y la respuesta del hombre se hace viral",
-"u": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MM0dVODhfZV9HVmtVQmVfdkNqQ2FHTnNTRHRjT085cEtIcHppY0t4UjJMbTRHbFl5MFM0d0xNa01XS3RRNy1JcnRXNWU3Z2RoNkw2N0EtOUFQSU1kT0JLeU02d0ZBVGdVcGJZMjVGc3YzNzZTSGpHVQ?oc=5",
-"f": "Panda Curioso",
-"d": "2026-11-26T14:19Z",
-"p": 3
-},
-{
 "t": "Cuidar burros a cambio de alojamiento y comida: la curiosa experiencia que se ofrece en un pueblo de Zaragoza",
 "u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPVnh3MmpjLUp0S0RmR1NidEJGNXJEVDZmaWg4TEVmdlVXa3o3dkNzSk8yelVNd1ZfclJDa2ptem56Vk1LeHpUUC1zZWhNYXhkQlVVM1NrNGU5eW9na0RtVGo4QUllSHBvUzFzVk12TlBPRXdRbnVYazUwdjRoWGsxS1pheWJjblhydUhuRDZua2tMYlh1N2FLUHZ1eUNxWjFDdFZYTGt4X0RERHQ0UEtNQlZBa2stU1l2NVp4VERtd3RlRTZUTkc1MXRfOW9ndG5jbGVZMXNEMlFNYWtscmwzUGdrX0tfY1VPMXBhQ3I5QjFkb0JFSFHSAfsBQVVfeXFMT0tENmpTdHktWWJobEgwb21zSklGYjUyOWJvV1FJYXduc25YMUV6TmQyS2ZmN0JJRU11YXV4M2ttN3d3ZzFXZl9SZHZmSUU2UERGTzFkbGxocHA2T3Fxb1BRTXdPazlIbjlQUmFQZGhtTU1GRUU4YUpqYWJEbmNXVmRLYXlyRXdGdHVhS2FjMkxULWRBbWIwSUlEYnJVNFhDYW5LWkNoWWluV3dCVUlkWDNaUlpHWnBNS3ZpdXpOZV9VMVVTWFBvenlaamlOYXlFSGM2d1YxWHVtYnBXTEowZUxkTVhKSGZLX21qejkwTDE4a2lwNEZOcUJMMms?oc=5",
 "f": "Aragón Digital",
@@ -222,17 +243,17 @@
 "p": 3
 },
 {
+"t": "Este doctor le dio a su paciente la desgarradora noticia de que le quedaban solo unas horas de vida, y la respuesta del hombre se hace viral",
+"u": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MM0dVODhfZV9HVmtVQmVfdkNqQ2FHTnNTRHRjT085cEtIcHppY0t4UjJMbTRHbFl5MFM0d0xNa01XS3RRNy1JcnRXNWU3Z2RoNkw2N0EtOUFQSU1kT0JLeU02d0ZBVGdVcGJZMjVGc3YzNzZTSGpHVQ?oc=5",
+"f": "Panda Curioso",
+"d": "2026-11-26T14:19Z",
+"p": 2
+},
+{
 "t": "La divertida reacción de Alaska al imaginarse a Mario Vaquerizo como presidente: \"Yo me veo como primera dama\"",
 "u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNakgzVjZjNkI2Z3ZlcnM3YUxnSW5LQktfTDNJSjJFTFFwb3d1RHlaZDhMakJ2Y2FSejc4RVktaHNLcWE3TFVqM2VyZDhuX19VSDRRMVFoR1ZObHZFd0phODF6MS14TnlNeVdnU291LS02cmh1b3dIcnNfbzhFaHZFZVA1bTN4UkJ2MUpGendjR2EzeF9jYTd3Wjg2eVBqN2VJY25nUEZvME54VncyWW5TTGZIcFNVdF9nZzlWdmZmN091ZTMwd2tYWVlISVFOWVlyUkt6WThTU29tQQ?oc=5",
 "f": "20 Minutos",
 "d": "2026-11-26T13:13Z",
-"p": 2
-},
-{
-"t": "El Centro Dramático Nacional representa en el Rialto la \"brutal y divertida\" 'Al final de las cosas'",
-"u": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPV256MWFlTjRYUkk0ckhUUUF5YUdBeDZ5TFZwSG9Md1NFUGh2X3lra0pndlpPN1VZcnVzVDNkR2xoQTlZSW9qTlpLMUYyMjV6ZjJUdUNSTnQ3VG5qeEF0dkZCNjBuZ2o5MGtpRF9xZnpPN0NaUkxFTXBSRFRzbm9aUDNFNldfaVBFa3NGcG9wLUg5RURrYUFPZ1JkX3JXM3B0SUFhR1h2RjZEZmdzUHVxZHZpelZKd1A2dGNLZHl1Q3hmYVJCS0xsSnRMUGoxMnJkeHdWZEJCaTROd0Nld2djX1R3?oc=5",
-"f": "Europa Press",
-"d": "2026-11-26T13:05Z",
 "p": 2
 },
 {
@@ -282,20 +303,6 @@
 "u": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM2dVUDRxY1ZfQnJNVnd5Z3o4bTJsSFFsQVZLSmJWaFN6U2JLUUticjRCazdHVnFraHlscnlvMm1ZNVlNd2hJSHM3UHA1N080X2lNVERUVkpwZjBGZHdkTlotSHotZ2tNeUlHMjFRZEU4WnhQMXBBc0g4WDFuVi10ZG9sM2d1MFhkZkx1aWZoeFRjR3BNbFk1NF9uS0w2OWVD?oc=5",
 "f": "El Confidencial",
 "d": "2026-11-26T04:00Z",
-"p": 2
-},
-{
-"t": "La divertida aventura de Soy Tribu con su madre en moto por Ibiza y Formentera: \"¿Nos arrepentiremos? Probablemente sí\"",
-"u": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPN09hYTh1SGxlQ3hRUkV1VHNoQS1LTlU4YkpwZ21GLUFMemFJUUQ5c0o4ZktXT2E0eTA4a3FNdS10QWJETnI3bVNFcE9UMEhMQjd2LVp0cDEzVzZRdzRBVW5fN081VnJvdG1mNHQ5bXJrQzM4dmgxc0czSUU4ekFiNWpSMXpYR0dMSm1hNy1xSm1xY0M2OVV6N1ZRekFsMmtoam5QN9IBqgFBVV95cUxOMWExZDRDWGo0dWsyU0tjeUg4S04zU0RXWWJxaWhjSmZhR1JWUG52YmlNRnljTXdfLWtQSVJjM2hBbTAxMnJHY3Q2UGJneExZWndlb2NhN3RWMzdHcy1GS2dtUWN1V0FoZ0tBdU9VN09DLWtXNnloSE1tQmdkRHk5RC1BMF9BY3E4eGtHT3Nfck9oVWJRNlk3SXRnMTExY2c3SDFlejNzNzgydw?oc=5",
-"f": "Diario de Ibiza",
-"d": "2026-11-25T19:00Z",
-"p": 2
-},
-{
-"t": "SIGUIENTE RUTA DE SENDERISMO JOVEN DEL PROGRAMA DOS HERMANAS DIVERTIDA",
-"u": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOc0h3dVkxa3J2R0cwQ3otamdOUXh0UkhrSmFIaHJNSXVyWTRGMWNEQXhrcUNOV3lXUEZqSXJ0dl9yMXM5VkgtU3VCZDdFZjdDWGdXdVozS0RhVjBPU0w1SVpCWEU5ZGVrT29aREI0S2c0Sm92RnZMenhPNkROSTVDRmlpLXFxRVRrbm9EV2JoSkdnNnlsTFQ4ODc5MjZsekktN0twcnFwdlltU1VjN3JDUU8tMUtQNGtzTlotbjNmMHhZbUctcHlpSjdKTVFjZw?oc=5",
-"f": "Ayuntamiento de Dos Hermanas",
-"d": "2026-11-25T17:36Z",
 "p": 2
 }
 ]
