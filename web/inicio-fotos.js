@@ -94,7 +94,9 @@ const enIni=()=>typeof isBna==='function'&&isBna()&&(typeof BNTAB==='undefined'|
 // 22 nov. 2026: la barra de arriba (logo y hora) lleva el paisaje de la estación en TODAS las pantallas (más baja fuera del Inicio)
 function ifCab(){const on=enIni(),top=typeof isBna==='function'&&isBna();document.body.classList.toggle('ifIni',on);document.body.classList.toggle('ifTop',top&&(IF_FOTOS||(IF_CAB_INI&&on)));
   if(top)document.body.style.setProperty('--ifCab',`url("${IF_CAB[ifEst()]}")`);}
-function ifAcc(){if(!IF_FOTOS&&!IF_ACC_ON)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=IF_ACC[b.dataset.go];
+// 27 nov. 2026: si el acceso no tiene foto en IF_ACC, coge la de la cabecera de su sección (cabeceras-fotos.js)
+const ifAccF=k=>IF_ACC[k]||(window.cfFoto&&cfFoto(k))||null;
+function ifAcc(){if(!IF_FOTOS&&!IF_ACC_ON)return;document.querySelectorAll('#bnaHome .bnaQ button[data-go]').forEach(b=>{const f=ifAccF(b.dataset.go);
   if(!f||b.classList.contains('ifF'))return;b.classList.add('ifF');b.style.backgroundImage=`url("${f}")`;});}
 function ifRio(){const el=$('rzTk');if(!el)return;const e=el.querySelector('.anE');if(!e)return;
   let r=null,n='';try{const R=rzRios();if(R.length){const x=R[RZ.i%R.length];r=x.r;n=x.rio;}}catch(x){}
@@ -105,8 +107,10 @@ function ifPar(){const pd=$('pdCard'),rf=$('rfCard');if(!pd||!rf)return;let w=$(
   if(pd.parentNode!==w)w.appendChild(pd);if(rf.parentNode!==w)w.appendChild(rf);}
 function ifSem(){const b=$('seBody');if(!b||b.dataset.if)return;b.dataset.if=1;
   b.addEventListener('click',e=>{if(enIni()&&e.target.closest('.card')&&!e.target.closest('a,button'))showTab('semana');});}
-function ifCred(){if(!IF_FOTOS&&!IF_ACC_ON)return;const sec=$('t-mtiempo');if(!sec||sec.querySelector('.ifCred'))return;const d=document.createElement('details');d.className='ifCred';
-  d.innerHTML='<summary>📷 Fotos del Inicio: autores y licencias</summary>'+IF_CRED.map(([q,a,l,u])=>`${q}: ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l})`).join(' · ')+'.';
+function ifCred(){if(!IF_FOTOS&&!IF_ACC_ON)return;const sec=$('t-mtiempo');if(!sec)return;const old=sec.querySelector('.ifCred'),key=(typeof bnAcc==='function'?bnAcc():[]).join();if(old&&old.dataset.k===key)return;if(old)old.remove();const d=document.createElement('details');d.className='ifCred';d.dataset.k=key;
+  // créditos de las fotos de cabecera que se usan en los accesos elegidos
+  const ext=[];try{(typeof bnAcc==='function'?bnAcc():[]).forEach(k=>{if(IF_ACC[k]||!window.cfCred)return;const c=cfCred(k);if(c)ext.push([(BNL[k]||k)+': '+String(c[1]).replace(/\s*\(foto libre\)$/,''),c[2]||'foto libre',c[3]||'uso libre',c[4]]);});}catch(e){}
+  d.innerHTML='<summary>📷 Fotos del Inicio: autores y licencias</summary>'+IF_CRED.concat(ext).map(([q,a,l,u])=>`${q}: ${u?`<a href="${u}" target="_blank" rel="noopener">${a}</a>`:a} (${l})`).join(' · ')+'.';
   const pie=sec.querySelector('.bnaPie');pie?sec.insertBefore(d,pie):sec.appendChild(d);
   d.querySelectorAll('a').forEach(a=>a.onclick=e=>{if(window.amAbre){e.preventDefault();amAbre(a.href);}});}
 function ifTodo(){try{ifCab();if(!enIni())return;ifAcc();ifRio();ifPar();ifSem();ifCred();}catch(e){console.log('inicio-fotos',e);}}
@@ -114,7 +118,7 @@ function ifTodo(){try{ifCab();if(!enIni())return;ifAcc();ifRio();ifPar();ifSem()
 // cada vez que se redibuja algo del Inicio
 if(typeof rzDraw==='function'){const _rz=rzDraw;window.rzDraw=rzDraw=function(){_rz.apply(this,arguments);try{if(enIni())ifRio();}catch(e){}};}
 const _st=showTab;showTab=function(){_st.apply(this,arguments);ifTodo();};
-const H=$('bnaHome');if(H)new MutationObserver(()=>{ifAcc();ifRio();}).observe(H,{childList:true,subtree:true});
+const H=$('bnaHome');if(H)new MutationObserver(()=>{ifAcc();ifRio();try{if(enIni())ifCred();}catch(e){}}).observe(H,{childList:true,subtree:true});
 const T=$('t-mtiempo');if(T)new MutationObserver(()=>ifPar()).observe(T,{childList:true});
 ifTodo();setTimeout(ifTodo,600);setTimeout(ifTodo,2500);
 try{Object.assign(window.BNA_DATOS||{},{fotosInicio:'fotos del Inicio: Wikimedia Commons (autores al final del Inicio) y Pedro Iglesias Goñi'});}catch(e){}

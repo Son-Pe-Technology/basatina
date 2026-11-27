@@ -56,6 +56,8 @@ body.bna #pvSec.cfFoto:before{content:"";position:absolute;inset:0;z-index:0;bac
 #pvSec.cfFoto .pvsT small{font-size:11.5px!important;margin-top:1px}
 .cfCred{font-size:11px;color:var(--mut);margin:0 8px 12px;line-height:1.45}.cfCred a{color:inherit}`;
 document.head.appendChild(st);
+// 27 nov. 2026 (Pedro): los accesos directos del Inicio sin foto propia cogen la de la cabecera de su sección (inicio-fotos.js)
+window.cfFoto=t=>CF[t]?CF[t][0]:null;window.cfCred=t=>CF[t]||null;
 // precarga suave para que la foto salga al momento
 setTimeout(()=>{for(const k in CF){const i=new Image();i.src=CF[k][0];}},8000);
 function cab(t){const el=$('pvSec');if(!el)return;const f=CF[t];
