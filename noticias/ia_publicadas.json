@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "00ee7e5082d1",
+   "pub": "2026-11-27T16:53Z",
+   "titulo": "Navarra registra solo 13 casos de VIH en diez meses de 2026, cifra histórica",
+   "texto": "Navarra continúa reduciendo nuevas infecciones de VIH. Entre enero y octubre de 2026 se diagnosticaron 13 casos, frente a 19 en el mismo periodo de 2025, según el Instituto de Salud Pública y Laboral de Navarra. En 2025, la comunidad registró 21 nuevas infecciones, muy por debajo de la tasa nacional de 6,6 casos por 100.000 habitantes. Con motivo del Día Mundial de la Lucha contra el Sida, el Departamento de Salud destaca programas de prevención como la profilaxis pre-exposición, que actualmente siguen 262 personas. Pese a los avances, el diagnóstico tardío sigue siendo un desafío: el 53% de los casos se detectan en etapas avanzadas.",
+   "pueblo": "Navarra",
+   "cat": "Salud",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/salud-insiste-en-la-prevencion-deteccion-precoz-y-educacion-afectivo-sexual-para-prevenir-las-infecciones-de-vih-que/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-2025-diagnosticaron-navarra-21-casos-vih-cuatro-sida-20261127101844.html"
+    }
+   ]
+  },
+  {
    "id": "1564c039704c",
    "pub": "2026-11-27T16:52Z",
    "titulo": "Kunak gana el premio internacional de Cepyme por su expansión global",
@@ -688,25 +706,6 @@
     {
      "f": "Pamplona Actual",
      "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/el-gobierno-de-navarra-aprueba-el-plan-de-salud-horizonte-2030-con-cinco-objetivos-para-una-sanidad-mas-preventiva-y-equitativa/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "850fcb97f38d",
-   "pub": "2026-11-25T16:05Z",
-   "titulo": "Pamplona abre inscripciones para vivienda municipal con la ordenanza Aukera",
-   "texto": "El Ayuntamiento de Pamplona ha iniciado el registro de demandantes de vivienda municipal con la entrada en vigor de Aukera, la nueva ordenanza que regula el acceso a las viviendas públicas. El programa ofrece tres modalidades: emergencia habitacional económica, estabilización y transición. Las dos primeras requieren valoración previa de servicios sociales y son principalmente viviendas compartidas con acompañamiento obligatorio. La modalidad de transición permite solicitud directa telemática o presencial en la Oficina de Vivienda. La inscripción es gratuita y afecta a 215 viviendas con carácter público, transitorio y temporal. El objetivo es favorecer la inclusión social mediante itinerarios personalizados y acompañamiento profesional.",
-   "pueblo": "Pamplona",
-   "cat": "Sociedad",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/ya-te-puedes-inscribir-en-el-registro-de-demandantes-de-vivienda-municipal-de-pamplona/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/abierto-el-plazo-para-solicitar-la-inscripcion-en-el-registro-de-demandantes-de"
     }
    ],
    "auto": true
