@@ -14,8 +14,14 @@ const RU_GRP = [['', 'Todas', '🥾'], ['Senderos y paseos', 'Senderos y paseos'
 const RU_ICO = {'Senderos y paseos': '🌿', 'Grandes travesías': '🏔️', 'Camino de Santiago': '🐚', 'Vías verdes': '🚲'};
 const RU_ZON = ['Pirineo', 'Baztan-Bidasoa', 'Plazaola-Sakana-Ultzama', 'Pamplona y Comarca', 'Tierra Estella', 'Zona Media', 'Sangüesa-Prepirineo', 'La Ribera'];
 // 26 nov. 2026 (rutas «profesionales»): puntos de interés del recorrido, tipo de camino y pendientes
-const RU_WP = {cima: ['🏔️', 'Cima'], collado: ['🌄', 'Collado'], fuente: ['💧', 'Fuente'], agua: ['🚰', 'Agua potable'], refugio: ['🛖', 'Refugio'],
-  mirador: ['👁️', 'Mirador'], cueva: ['🕳️', 'Cueva'], cascada: ['🌊', 'Cascada'], historia: ['🏛️', 'Patrimonio']};
+const RU_WP = {cima: ['🏔️', 'Cima', 'mountains'], collado: ['🌄', 'Collado', 'arrows-down-up'], fuente: ['💧', 'Fuente', 'drop'], agua: ['🚰', 'Agua potable', 'drop-half'], refugio: ['🛖', 'Refugio', 'house-line'],
+  mirador: ['👁️', 'Mirador', 'binoculars'], cueva: ['🕳️', 'Cueva', 'door-open'], cascada: ['🌊', 'Cascada', 'waves'], historia: ['🏛️', 'Patrimonio', 'bank']};
+// 27 nov. 2026 (ficha «profesional»): iconos de línea en vez de emojis. Son de Phosphor Icons (licencia MIT), estilo «regular».
+const RU_IC = {"ruler":"M235.32,73.37,182.63,20.69a16,16,0,0,0-22.63,0L20.68,160a16,16,0,0,0,0,22.63l52.69,52.68a16,16,0,0,0,22.63,0L235.32,96A16,16,0,0,0,235.32,73.37ZM84.68,224,32,171.31l32-32,26.34,26.35a8,8,0,0,0,11.32-11.32L75.31,128,96,107.31l26.34,26.35a8,8,0,0,0,11.32-11.32L107.31,96,128,75.31l26.34,26.35a8,8,0,0,0,11.32-11.32L139.31,64l32-32L224,84.69Z","clock":"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z","trend-up":"M240,56v64a8,8,0,0,1-16,0V75.31l-82.34,82.35a8,8,0,0,1-11.32,0L96,123.31,29.66,189.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0L136,140.69,212.69,64H168a8,8,0,0,1,0-16h64A8,8,0,0,1,240,56Z","trend-down":"M240,128v64a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h44.69L136,107.31l-34.34,34.35a8,8,0,0,1-11.32,0l-72-72A8,8,0,0,1,29.66,58.34L96,124.69l34.34-34.35a8,8,0,0,1,11.32,0L224,172.69V128a8,8,0,0,1,16,0Z","arrow-left":"M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z","navigation-arrow":"M237.33,106.21,61.41,41l-.16-.05A16,16,0,0,0,40.9,61.25a1,1,0,0,0,.05.16l65.26,175.92A15.77,15.77,0,0,0,121.28,248h.3a15.77,15.77,0,0,0,15-11.29l.06-.2,21.84-78,78-21.84.2-.06a16,16,0,0,0,.62-30.38ZM149.84,144.3a8,8,0,0,0-5.54,5.54L121.3,232l-.06-.17L56,56l175.82,65.22.16.06Z","download-simple":"M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z","car":"M240,104H229.2L201.42,41.5A16,16,0,0,0,186.8,32H69.2a16,16,0,0,0-14.62,9.5L26.8,104H16a8,8,0,0,0,0,16h8v80a16,16,0,0,0,16,16H64a16,16,0,0,0,16-16V184h96v16a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V120h8a8,8,0,0,0,0-16ZM69.2,48H186.8l24.89,56H44.31ZM64,200H40V184H64Zm128,0V184h24v16Zm24-32H40V120H216ZM56,144a8,8,0,0,1,8-8H80a8,8,0,0,1,0,16H64A8,8,0,0,1,56,144Zm112,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,144Z","share-network":"M176,160a39.89,39.89,0,0,0-28.62,12.09l-46.1-29.63a39.8,39.8,0,0,0,0-28.92l46.1-29.63a40,40,0,1,0-8.66-13.45l-46.1,29.63a40,40,0,1,0,0,55.82l46.1,29.63A40,40,0,1,0,176,160Zm0-128a24,24,0,1,1-24,24A24,24,0,0,1,176,32ZM64,152a24,24,0,1,1,24-24A24,24,0,0,1,64,152Zm112,72a24,24,0,1,1,24-24A24,24,0,0,1,176,224Z","map-trifold":"M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z","arrow-square-out":"M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z","mountains":"M164,80a28,28,0,1,0-28-28A28,28,0,0,0,164,80Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,40Zm90.88,155.92-54.56-92.08A15.87,15.87,0,0,0,186.55,96h0a15.85,15.85,0,0,0-13.76,7.84L146.63,148l-44.84-76.1a16,16,0,0,0-27.58,0L1.11,195.94A8,8,0,0,0,8,208H248a8,8,0,0,0,6.88-12.08ZM88,80l23.57,40H64.43ZM22,192l33-56h66l18.74,31.8,0,0L154,192Zm150.57,0-16.66-28.28L186.55,112,234,192Z","path":"M200,168a32.06,32.06,0,0,0-31,24H72a32,32,0,0,1,0-64h96a40,40,0,0,0,0-80H72a8,8,0,0,0,0,16h96a24,24,0,0,1,0,48H72a48,48,0,0,0,0,96h97a32,32,0,1,0,31-40Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,200,216Z","map-pin":"M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z","cloud-sun":"M164,72a76.2,76.2,0,0,0-20.26,2.73,55.63,55.63,0,0,0-9.41-11.54l9.51-13.57a8,8,0,1,0-13.11-9.18L121.22,54A55.9,55.9,0,0,0,96,48c-.58,0-1.16,0-1.74,0L91.37,31.71a8,8,0,1,0-15.75,2.77L78.5,50.82A56.1,56.1,0,0,0,55.23,65.67L41.61,56.14a8,8,0,1,0-9.17,13.11L46,78.77A55.55,55.55,0,0,0,40,104c0,.57,0,1.15,0,1.72L23.71,108.6a8,8,0,0,0,1.38,15.88,8.24,8.24,0,0,0,1.39-.12l16.32-2.88a55.74,55.74,0,0,0,5.86,12.42A52,52,0,0,0,84,224h80a76,76,0,0,0,0-152ZM56,104a40,40,0,0,1,72.54-23.24,76.26,76.26,0,0,0-35.62,40,52.14,52.14,0,0,0-31,4.17A40,40,0,0,1,56,104ZM164,208H84a36,36,0,1,1,4.78-71.69c-.37,2.37-.63,4.79-.77,7.23a8,8,0,0,0,16,.92,58.91,58.91,0,0,1,1.88-11.81c0-.16.09-.32.12-.48A60.06,60.06,0,1,1,164,208Z","warning":"M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z","arrows-clockwise":"M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z","arrow-right":"M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z","binoculars":"M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,0,93.2-16.13ZM76.71,59.75a16,16,0,0,1,19.29-1v73.51a47.9,47.9,0,0,0-46.79-9.92ZM64,200a32,32,0,1,1,32-32A32,32,0,0,1,64,200ZM160,58.74a16,16,0,0,1,19.29,1l27.5,62.58A47.9,47.9,0,0,0,160,132.25ZM192,200a32,32,0,1,1,32-32A32,32,0,0,1,192,200Z","house-line":"M240,208H224V136l2.34,2.34A8,8,0,0,0,237.66,127L139.31,28.68a16,16,0,0,0-22.62,0L18.34,127a8,8,0,0,0,11.32,11.31L32,136v72H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM48,120l80-80,80,80v88H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48Zm96,88H112V160h32Z","drop":"M174,47.75a254.19,254.19,0,0,0-41.45-38.3,8,8,0,0,0-9.18,0A254.19,254.19,0,0,0,82,47.75C54.51,79.32,40,112.6,40,144a88,88,0,0,0,176,0C216,112.6,201.49,79.32,174,47.75ZM128,216a72.08,72.08,0,0,1-72-72c0-57.23,55.47-105,72-118,16.53,13,72,60.75,72,118A72.08,72.08,0,0,1,128,216Zm55.89-62.66a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z","drop-half":"M174,47.75a254.19,254.19,0,0,0-41.45-38.3,8,8,0,0,0-9.18,0A254.19,254.19,0,0,0,82,47.75C54.51,79.32,40,112.6,40,144a88,88,0,0,0,176,0C216,112.6,201.49,79.32,174,47.75ZM200,144a70.57,70.57,0,0,1-.46,8H136V136h63.64Q200,140,200,144ZM183.39,88H136V72h36.89A175.85,175.85,0,0,1,183.39,88ZM136,200h37.19A71.67,71.67,0,0,1,136,215.54Zm0-16V168h59.87a72,72,0,0,1-8,16Zm0-64V104h55.39a116.84,116.84,0,0,1,5.45,16Zm23.89-64H136V32.6A257.22,257.22,0,0,1,159.89,56ZM56,144c0-50,42.26-92.71,64-111.4V215.54A72.08,72.08,0,0,1,56,144Z","waves":"M222.16,177.25a8,8,0,0,1-1,11.25c-17.36,14.39-32.86,19.5-47,19.5-18.58,0-34.82-8.82-49.93-17-25.35-13.76-47.24-25.64-79.07.74a8,8,0,1,1-10.22-12.31c40.17-33.28,70.32-16.92,96.93-2.48,25.35,13.75,47.24,25.63,79.07-.74A8,8,0,0,1,222.16,177.25Zm-11.27-57c-31.83,26.38-53.72,14.5-79.07.74-26.61-14.43-56.76-30.79-96.93,2.49a8,8,0,0,0,10.22,12.31c31.83-26.38,53.72-14.5,79.07-.74,15.11,8.19,31.35,17,49.93,17,14.14,0,29.64-5.11,47-19.5a8,8,0,1,0-10.22-12.31ZM45.11,79.8c31.83-26.37,53.72-14.49,79.07-.74,15.11,8.2,31.35,17,49.93,17,14.14,0,29.64-5.12,47-19.5a8,8,0,1,0-10.22-12.31c-31.83,26.38-53.72,14.5-79.07.74C105.21,50.58,75.06,34.22,34.89,67.5A8,8,0,1,0,45.11,79.8Z","bank":"M24,104H48v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16H208V104h24a8,8,0,0,0,4.19-14.81l-104-64a8,8,0,0,0-8.38,0l-104,64A8,8,0,0,0,24,104Zm40,0H96v64H64Zm80,0v64H112V104Zm48,64H160V104h32ZM128,41.39,203.74,88H52.26ZM248,208a8,8,0,0,1-8,8H16a8,8,0,0,1,0-16H240A8,8,0,0,1,248,208Z","door-open":"M232,216H208V40a16,16,0,0,0-16-16H64A16,16,0,0,0,48,40V216H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm-40,0H176V40h16ZM64,40h96V216H64Zm80,92a12,12,0,1,1-12-12A12,12,0,0,1,144,132Z","arrows-down-up":"M117.66,170.34a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L72,188.69V48a8,8,0,0,1,16,0V188.69l18.34-18.35A8,8,0,0,1,117.66,170.34Zm96-96-32-32a8,8,0,0,0-11.32,0l-32,32a8,8,0,0,0,11.32,11.32L168,67.31V208a8,8,0,0,0,16,0V67.31l18.34,18.35a8,8,0,0,0,11.32-11.32Z","gauge":"M207.06,72.67A111.24,111.24,0,0,0,128,40h-.4C66.07,40.21,16,91,16,153.13V176a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V152A111.25,111.25,0,0,0,207.06,72.67ZM224,176H119.71l54.76-75.3a8,8,0,0,0-12.94-9.42L99.92,176H32V153.13c0-3.08.15-6.12.43-9.13H56a8,8,0,0,0,0-16H35.27c10.32-38.86,44-68.24,84.73-71.66V80a8,8,0,0,0,16,0V56.33A96.14,96.14,0,0,1,221,128H200a8,8,0,0,0,0,16h23.67c.21,2.65.33,5.31.33,8Z","sneaker-move":"M231.16,166.63l-28.63-14.31A47.74,47.74,0,0,1,176,109.39V80a8,8,0,0,0-8-8,48.05,48.05,0,0,1-48-48,8,8,0,0,0-12.83-6.37L30.13,76l-.2.16a16,16,0,0,0-1.24,23.75L142.4,213.66a8,8,0,0,0,5.66,2.34H224a16,16,0,0,0,16-16V180.94A15.92,15.92,0,0,0,231.16,166.63ZM224,200H151.37L40,88.63l12.87-9.76,38.79,38.79A8,8,0,0,0,103,106.34L65.74,69.11l40-30.31A64.15,64.15,0,0,0,160,87.5v21.89a63.65,63.65,0,0,0,35.38,57.24L224,180.94ZM70.8,184H32a8,8,0,0,1,0-16H70.8a8,8,0,1,1,0,16Zm40,24a8,8,0,0,1-8,8H48a8,8,0,0,1,0-16h54.8A8,8,0,0,1,110.8,208Z"};
+const ruI = (n, s = 18) => RU_IC[n] ? `<svg class="ruI" width="${s}" height="${s}" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="${RU_IC[n]}"/></svg>` : '';
+const RU_P2 = {};   // los mismos iconos para dibujarlos en el mapa (canvas)
+const ruP2 = n => RU_P2[n] || (RU_IC[n] && window.Path2D ? (RU_P2[n] = new Path2D(RU_IC[n])) : null);
+const ruWpI = (w, s) => ruI((RU_WP[w[1]] || [])[2] || 'map-pin', s);
 const RU_SAC = ['', 'T1 · Senderismo', 'T2 · Senderismo de montaña', 'T3 · Senderismo de montaña exigente', 'T4 · Senderismo alpino', 'T5 · Senderismo alpino exigente', 'T6 · Senderismo alpino difícil'];
 // colores de la pendiente (en %): llano, suave, media, fuerte, muy fuerte
 const RU_PEN = [[5, '#4caf50'], [10, '#c0ca33'], [15, '#ffa000'], [20, '#f4511e'], [999, '#b71c1c']];
@@ -64,7 +70,7 @@ document.head.insertAdjacentHTML('beforeend', `<style>
 .ruMini{width:84px;height:84px;border-radius:12px;flex:none;background:linear-gradient(160deg,rgba(60,180,120,.18),rgba(41,198,242,.16));border:1px solid var(--line)}
 .ruTx{flex:1;min-width:0;display:flex;flex-direction:column}
 .ruNom{font-size:15px;line-height:1.25;color:var(--txt)}
-.ruDat{display:flex;flex-wrap:wrap;gap:3px 10px;font-size:13px;margin-top:5px;color:var(--txt);align-items:center}
+.ruDat{display:flex;flex-wrap:wrap;gap:3px 8px;font-size:12.5px;margin-top:5px;color:var(--txt);align-items:center}.ruDat>span{white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
 .ruDif{color:#fff;border-radius:99px;padding:1px 9px;font-size:12px;font-weight:700}
 .ruSpark{width:100%;height:26px;margin-top:auto;display:block}
 .ruTit{font-size:21px;line-height:1.2;margin:8px 0 3px;color:var(--txt)}
@@ -87,20 +93,50 @@ document.head.insertAdjacentHTML('beforeend', `<style>
 .ruWx>div{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:6px 2px;text-align:center;font-size:12px;color:var(--txt)}
 .ruWx .i{font-size:22px;display:block}
 .ruBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+/* ---- ficha «profesional» (27 nov. 2026) ---- */
+.ruI{display:inline-block;vertical-align:-3px;flex:none}
+#ruFicha .ruVol{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;font-size:14px}
+#ruFicha .ruMapBox{margin-top:8px;border-radius:18px}
+#ruFicha .ruMapBox canvas{display:block;width:100%}
+.ruHead{padding:12px 2px 2px}
+.ruZona{font-size:12.5px;color:var(--mut);margin:0}
+#ruFicha .ruTit{font-size:23px;margin:2px 0 8px}
+.ruTags{display:flex;flex-wrap:wrap;gap:6px}
+.ruTag{font-size:12.5px;padding:4px 10px;border-radius:8px;background:var(--panel);border:1px solid var(--line);color:var(--txt);display:inline-flex;align-items:center;gap:5px}
+.ruTag.dif{color:#fff;border:0;font-weight:700}
+.ruBig{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.ruBig>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.ruBig span{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--mut)}
+.ruBig b{display:block;font-size:22px;line-height:1.2;margin-top:3px;color:var(--txt);font-weight:700}
+.ruAcc{display:flex;flex-direction:column;gap:8px;margin:4px 0 12px}
+.ruAcc .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.ruAcc2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ruAcc3{display:flex;justify-content:center;gap:18px;margin-top:2px}
+.ruAcc3 button{background:none;border:0;color:var(--mut);font-size:12.5px;display:inline-flex;align-items:center;gap:5px;padding:4px}
+.ruSec{font-size:16px;margin:0 0 6px;color:var(--txt);display:flex;align-items:center;gap:7px}
+.ruTec>div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;color:var(--txt)}
+.ruTec>div:first-of-type{border-top:0}
+.ruTec .l{color:var(--mut);flex:none}
+.ruTec .v{text-align:right;font-weight:600}
+.ruMide{display:inline-flex;gap:3px;align-items:center;vertical-align:middle;margin-right:6px}.ruMide i{width:16px;height:6px;border-radius:3px;background:var(--line)}
+.ruTec .ruComp{width:100%;margin-top:0}
+.ruWp .i{color:var(--acc);font-size:0}
+#ruFicha .card{border-radius:16px}
+#ruAcc #rgBox{margin:0}#ruAcc #rgGo{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#2e7d32;border-color:#2e7d32;color:#fff}
 </style>`);
 
 // ---------- montaje en la sección Escapadas ----------
 (function () {
   const box = document.getElementById('ruBox'); if (!box) return;
   box.innerHTML = `<div id="ruLista">
-    <div class="ruBusca"><input id="ruQ" class="town" type="search" placeholder="🔎 ${ruT('Busca ruta, pueblo o sendero (Zubiri, PR-NA 120…)')}" autocomplete="off"></div>
-    <div class="ruChips" id="ruG">${RU_GRP.map(([v, t, i]) => `<button class="btn${v ? '' : ' on'}" data-g="${v}">${i} ${ruT(t)}</button>`).join('')}</div>
+    <div class="ruBusca"><input id="ruQ" class="town" type="search" placeholder="${ruT('Busca ruta, pueblo o sendero (Zubiri, PR-NA 120…)')}" autocomplete="off"></div>
+    <div class="ruChips" id="ruG">${RU_GRP.map(([v, t]) => `<button class="btn${v ? '' : ' on'}" data-g="${v}">${ruT(t)}</button>`).join('')}</div>
     <div class="ruFil">
-      <select id="ruZ" class="town"><option value="">📍 ${ruT('Todas las zonas')}</option>${RU_ZON.map(z => `<option value="${z}">${ruT(z)}</option>`).join('')}</select>
-      <select id="ruD" class="town"><option value="">💪 ${ruT('Cualquier dificultad')}</option>${Object.keys(RU_DIF).map(d => `<option value="${d}">${ruT(d)}</option>`).join('')}</select>
-      <select id="ruK" class="town"><option value="">📏 ${ruT('Cualquier distancia')}</option>${[['0-5', 'Hasta 5 km'], ['5-10', 'De 5 a 10 km'], ['10-20', 'De 10 a 20 km'], ['20-999', 'Más de 20 km']].map(([v, t]) => `<option value="${v}">${ruT(t)}</option>`).join('')}</select>
-      <select id="ruO" class="town">${[['nombre', '↕️ ', 'Por nombre'], ['cerca', '📍 ', 'Más cerca de mí'], ['km', '', 'Más cortas primero'], ['kmd', '', 'Más largas primero'], ['up', '', 'Menos desnivel primero']].map(([v, i, t]) => `<option value="${v}">${i}${ruT(t)}</option>`).join('')}</select>
-      <label><input type="checkbox" id="ruC"> 🔁 ${ruT('Solo rutas circulares')}</label>
+      <select id="ruZ" class="town"><option value="">${ruT('Todas las zonas')}</option>${RU_ZON.map(z => `<option value="${z}">${ruT(z)}</option>`).join('')}</select>
+      <select id="ruD" class="town"><option value="">${ruT('Cualquier dificultad')}</option>${Object.keys(RU_DIF).map(d => `<option value="${d}">${ruT(d)}</option>`).join('')}</select>
+      <select id="ruK" class="town"><option value="">${ruT('Cualquier distancia')}</option>${[['0-5', 'Hasta 5 km'], ['5-10', 'De 5 a 10 km'], ['10-20', 'De 10 a 20 km'], ['20-999', 'Más de 20 km']].map(([v, t]) => `<option value="${v}">${ruT(t)}</option>`).join('')}</select>
+      <select id="ruO" class="town">${[['nombre', '', 'Por nombre'], ['cerca', '', 'Más cerca de mí'], ['km', '', 'Más cortas primero'], ['kmd', '', 'Más largas primero'], ['up', '', 'Menos desnivel primero']].map(([v, i, t]) => `<option value="${v}">${i}${ruT(t)}</option>`).join('')}</select>
+      <label><input type="checkbox" id="ruC"> ${ruT('Solo rutas circulares')}</label>
     </div>
     <div class="note" id="ruN">${ruT('Cargando rutas…')}</div>
     <div id="ruL"></div>
@@ -149,8 +185,8 @@ function ruCardHtml(r) {
   const d = RU.o === 'cerca' && r._d != null ? ' · ' + ruT('a {d} km', {d: ruF(r._d, r._d < 10 ? 1 : 0)}) : '';
   return `<div class="card ruCard" data-i="${r.i}"><canvas class="ruMini" data-i="${r.i}"></canvas>
    <div class="ruTx"><b class="ruNom">${ruE(r.n)}</b>
-    <div class="note">${RU_ICO[r.grupo] || '🥾'} ${ruE(ruT(r.zona))} · ${ruE(ruT(r.circ ? 'circular desde {p}' : 'sale de {p}', {p: r.pueblo}))}${d}</div>
-    <div class="ruDat"><span>📏 ${ruF(r.km)} km</span><span>↗ ${r.up} m</span><span>⏱️ ${ruH(r.h)}</span><span class="ruDif" style="background:${RU_DIF[r.dif]}">${ruT(r.dif)}</span></div>
+    <div class="note">${ruE(ruT(r.zona))} · ${ruE(ruT(r.circ ? 'circular desde {p}' : 'sale de {p}', {p: r.pueblo}))}${d}</div>
+    <div class="ruDat"><span class="ruDif" style="background:${RU_DIF[r.dif]}">${ruT(r.dif)}</span><span>${ruI('ruler', 14)} ${ruF(r.km)} km</span><span>${ruI('trend-up', 14)} ${r.up} m</span><span>${ruI('clock', 14)} ${ruH(r.h)}</span></div>
     ${ruSpark(r)}</div></div>`;
 }
 function ruSpark(r) {const p = r.pf, mn = Math.min(...p), mx = Math.max(...p), rg = Math.max(30, mx - mn), W = 200, H = 26;
@@ -197,32 +233,42 @@ function ruFicha(r) {
   const fi = document.getElementById('ruFicha'), li = document.getElementById('ruLista');
   li.style.display = 'none'; fi.style.display = '';
   const ref = r.ref && !SV_N(r.n).includes(SV_N(r.ref)) ? ruE(r.ref) + ' · ' : '';
-  fi.innerHTML = `<button class="btn" id="ruVolver">← ${ruT('Volver a las rutas')}</button>
-   <h2 class="ruTit">${ruE(r.n)}</h2>
-   <div class="note">${RU_ICO[r.grupo] || '🥾'} ${ref}${ruE(ruT(r.grupo))} · ${ruE(ruT(r.zona))} · ${ruE(r.muni || r.pueblo)}</div>
-   <div class="ruKpi">
-    <div><span>${ruT('Distancia')}</span><b>${ruF(r.km)} km</b></div><div><span>${ruT('Desnivel +')}</span><b>${r.up} m</b></div>
-    <div><span>${ruT('Desnivel −')}</span><b>${r.dn} m</b></div><div><span>${ruT('Dificultad')}</span><b style="color:${RU_DIF[r.dif]}">${ruT(r.dif)}</b></div>
-    <div><span>${ruT('Altitud máx.')}</span><b>${r.mx} m</b></div><div><span>${ruT('Altitud mín.')}</span><b>${r.mn} m</b></div>
-    <div><span>${ruT('Tiempo')}${r.mide ? ' (MIDE)' : ''}</span><b>${ruH(r.h)}</b></div><div><span>${ruT('Tipo')}</span><b>${r.circ ? '🔁 ' + ruT('Circular') : '➡️ ' + ruT('Lineal')}</b></div>
-    ${r.ps ? `<div class="w2"><span>${ruT('Pendiente máx.')}</span><b><span style="color:${ruPenCol(r.ps[0])}">↗ ${r.ps[0]} %</span> · <span style="color:${ruPenCol(r.pb[0])}">↘ ${r.pb[0]} %</span></b></div>` : ''}
-    ${r.mide ? `<div class="w2"><span>${ruT('Esfuerzo (MIDE)')}</span><b>${'●'.repeat(r.mide)}<span style="opacity:.25">${'●'.repeat(5 - r.mide)}</span> ${r.mide}/5</b></div>` : ''}</div>
-   <div class="ruMapBox"><canvas id="ruMapa" height="300"></canvas>
+  const difCol = RU_DIF[r.dif] || '#888', mideBar = r.mide ? `<span class="ruMide">${[1, 2, 3, 4, 5].map(n => `<i style="${n <= r.mide ? 'background:' + difCol : ''}"></i>`).join('')}</span>${r.mide}/5` : '';
+  const C = [['Senda', '#5d8c3a'], ['Pista', '#c49a5a'], ['Asfalto', '#6b7075']];
+  fi.innerHTML = `<button class="btn ruVol" id="ruVolver">${ruI('arrow-left', 16)} ${ruT('Volver a las rutas')}</button>
+   <div class="ruMapBox"><canvas id="ruMapa" height="320"></canvas>
     <div class="ruMapBtn"><button class="btn mtb" id="ruIn">＋</button><button class="btn mtb" id="ruOut">－</button><button class="btn mtb" id="ruAll">⤢</button></div>
-    <div class="ruBase">${[['topo', '🏔️', 'Topo'], ['mapa', '🗺️', 'Mapa'], ['sat', '🛰️', 'Satélite']].map(([k, i, t]) => `<button class="btn${RU.base === k ? ' on' : ''}" data-b="${k}">${i} ${ruT(t)}</button>`).join('')}</div></div>
-   <div class="card" style="padding:10px 8px 8px"><b>⛰️ ${ruT('Perfil del recorrido')}</b>${ruPerfil(r)}
-    <div id="ruPfT" class="note" style="min-height:2.9em;margin-top:2px">👆 ${ruT('Desliza el dedo por la gráfica (o toca la ruta en el mapa) para ver la altitud de cada punto.')}</div>
+    <div class="ruBase">${[['topo', 'Topo'], ['mapa', 'Mapa'], ['sat', 'Satélite']].map(([k, t]) => `<button class="btn${RU.base === k ? ' on' : ''}" data-b="${k}">${ruT(t)}</button>`).join('')}</div></div>
+   <div class="ruHead"><p class="ruZona">${ref}${ruE(ruT(r.zona))} · ${ruE(r.muni || r.pueblo)}</p>
+    <h2 class="ruTit">${ruE(r.n)}</h2>
+    <div class="ruTags"><span class="ruTag dif" style="background:${difCol}">${ruT(r.dif)}</span>
+     <span class="ruTag">${ruI(r.circ ? 'arrows-clockwise' : 'arrow-right', 14)} ${ruT(r.circ ? 'Circular' : 'Lineal')}</span>
+     ${r.sac ? `<span class="ruTag">SAC ${RU_SAC[r.sac].split(' ')[0]}</span>` : ''}<span class="ruTag">${ruE(ruT(r.grupo))}</span></div></div>
+   <div class="ruBig">
+    <div><span>${ruI('ruler', 16)} ${ruT('Distancia')}</span><b>${ruF(r.km)} km</b></div>
+    <div><span>${ruI('clock', 16)} ${ruT(r.mide ? 'Tiempo MIDE' : 'Tiempo')}</span><b>${ruH(r.h)}</b></div>
+    <div><span>${ruI('trend-up', 16)} ${ruT('Subida')}</span><b>${r.up} m</b></div>
+    <div><span>${ruI('trend-down', 16)} ${ruT('Bajada')}</span><b>${r.dn} m</b></div></div>
+   <div class="ruAcc" id="ruAcc">
+    <div class="ruAcc2"><button class="btn" id="ruGpx">${ruI('download-simple', 17)} ${ruT('GPX')}</button><button class="btn" id="ruIr">${ruI('car', 17)} ${ruT('Cómo llegar')}</button></div>
+    <div class="ruAcc3"><button id="ruSh">${ruI('share-network', 15)} ${ruT('Compartir')}</button>${r.osm ? `<button id="ruOsm">${ruI('map-trifold', 15)} OpenStreetMap</button>` : ''}${r.web ? `<button id="ruWeb">${ruI('arrow-square-out', 15)} ${ruT('Web oficial')}</button>` : ''}</div></div>
+   <div class="card" style="padding:12px 10px 10px"><h3 class="ruSec">${ruI('mountains')} ${ruT('Perfil')}</h3>${ruPerfil(r)}
+    <div id="ruPfT" class="note" style="min-height:2.9em;margin-top:2px">${ruT('Desliza el dedo por la gráfica (o toca la ruta en el mapa) para ver la altitud de cada punto.')}</div>
     ${r.ps ? `<div class="ruPenL">${RU_PEN.map(([m, c], i) => `<span><i style="background:${c}"></i>${i ? (i < 4 ? RU_PEN[i - 1][0] + '–' + m : '+' + RU_PEN[3][0]) : '0–' + m} %</span>`).join('')}</div>` : ''}</div>
-   ${ruCaminoHtml(r)}${ruWpHtml(r)}
-   <div class="card"><b>📝 ${ruT('La ruta')}</b><div style="margin-top:6px;font-size:14.5px;line-height:1.5;color:var(--txt)">${ruE(ruDesc(r))}</div>
-    ${r.destaca ? `<div class="note" style="margin-top:6px">⭐ ${ruT('Destacado')}: ${ruE(r.destaca)}</div>` : ''}
+   <div class="card ruTec"><h3 class="ruSec">${ruI('gauge')} ${ruT('Ficha técnica')}</h3>
+    ${r.mide ? `<div><span class="l">${ruT('Esfuerzo MIDE')}</span><span class="v">${mideBar}</span></div>` : ''}
+    <div><span class="l">${ruT('Dificultad')}</span><span class="v" style="color:${difCol}">${ruT(r.dif)}</span></div>
+    ${r.ps ? `<div><span class="l">${ruT('Pendiente máx.')}</span><span class="v"><span style="color:${ruPenCol(r.ps[0])}">${r.ps[0]} %</span> ${ruT('sube')} · <span style="color:${ruPenCol(r.pb[0])}">${r.pb[0]} %</span> ${ruT('baja')}</span></div>` : ''}
+    <div><span class="l">${ruT('Altitud')}</span><span class="v">${r.mn} – ${r.mx} m</span></div>
+    ${r.sac ? `<div><span class="l">${ruT('Tramo más difícil (escala SAC)')}</span><span class="v">${ruT(RU_SAC[r.sac])}</span></div>` : ''}
+    ${r.comp ? `<div style="flex-direction:column;align-items:stretch;gap:6px"><span class="l">${ruT('Terreno')}</span><div class="ruComp">${r.comp.map((v, i) => v ? `<i style="width:${v}%;background:${C[i][1]}"></i>` : '').join('')}</div>
+     <div class="ruCompL">${r.comp.map((v, i) => `<span><i style="background:${C[i][1]}"></i>${ruT(C[i][0])} <b>${v} %</b></span>`).join('')}</div></div>` : ''}</div>
+   ${ruWpHtml(r)}
+   <div class="card"><h3 class="ruSec">${ruI('sneaker-move')} ${ruT('La ruta')}</h3><div style="font-size:14.5px;line-height:1.55;color:var(--txt)">${ruE(ruDesc(r))}</div>
+    ${r.destaca ? `<div class="note" style="margin-top:6px">${ruT('Destacado')}: ${ruE(r.destaca)}</div>` : ''}
     ${r.pasa && r.pasa.length ? `<div class="note" style="margin-top:8px">${ruT('Pueblos por los que pasa:')}</div><div class="ruPasa">${r.pasa.map(p => `<span>${ruE(p)}</span>`).join('')}</div>` : ''}</div>
-   <div class="ruBtns">
-    <button class="btn pri" id="ruGpx">⬇️ ${ruT('Descargar GPS (GPX)')}</button><button class="btn" id="ruIr">🚗 ${ruT('Cómo llegar a la salida')}</button>
-    ${r.osm ? `<button class="btn" id="ruOsm">🗺️ ${ruT('Ver en OpenStreetMap')}</button>` : ''}${r.web ? `<button class="btn" id="ruWeb">🔗 ${ruT('Web de la ruta')}</button>` : ''}
-    <button class="btn" id="ruSh">📤 ${ruT('Compartir')}</button></div>
-   <div class="card" id="ruTiempo"><b>🌦️ ${ruT('El tiempo en el recorrido')}</b><div class="note">${ruT('Cargando la previsión…')}</div></div>
-   <div class="card" style="border-color:#ffb020"><div class="note">⚠️ ${r.mide ? ruT('Tiempo orientativo sin paradas (método MIDE: 4 km/h en llano, 400 m/h subiendo, 600 m/h bajando). Alturas y pendientes con el modelo del terreno de 5 m del IGN. La dificultad sale de la distancia, el desnivel y la escala SAC de los tramos: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.') : ruT('Tiempo orientativo sin paradas (norma DIN 33466: 4 km/h en llano, 300 m/h subiendo, 500 m/h bajando). La dificultad está calculada con la distancia y el desnivel, no con el terreno: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.')}</div></div>`;
+   <div class="card" id="ruTiempo"><h3 class="ruSec">${ruI('cloud-sun')} ${ruT('El tiempo en el recorrido')}</h3><div class="note">${ruT('Cargando la previsión…')}</div></div>
+   <div class="card" style="border-color:#ffb020"><div class="note" style="display:flex;gap:8px"><span style="color:#d89b00">${ruI('warning')}</span><span>${r.mide ? ruT('Tiempo orientativo sin paradas (método MIDE: 4 km/h en llano, 400 m/h subiendo, 600 m/h bajando). Alturas y pendientes con el modelo del terreno de 5 m del IGN. La dificultad sale de la distancia, el desnivel y la escala SAC de los tramos: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.') : ruT('Tiempo orientativo sin paradas (norma DIN 33466: 4 km/h en llano, 300 m/h subiendo, 500 m/h bajando). La dificultad está calculada con la distancia y el desnivel, no con el terreno: infórmate antes de salir, mira los avisos y lleva agua, ropa de abrigo y el móvil cargado. Emergencias: 112.')}</span></div></div>`;
   const $ = id => document.getElementById(id);
   $('ruVolver').onclick = () => {if (history.state && history.state.ruta) history.back(); else ruCerrar();};
   $('ruGpx').onclick = () => ruGpx(r);
@@ -250,8 +296,8 @@ function ruCaminoHtml(r) {
 // puntos de interés del recorrido, en orden
 function ruWpHtml(r) {
   if (!r.wp || !r.wp.length) return '';
-  return `<div class="card"><b>📍 ${ruT('Qué te vas a encontrar')}</b><div class="note" style="margin:2px 0 6px">${ruT('Toca uno para verlo en el mapa y en el perfil.')}</div><div class="ruWp">${r.wp.map(w =>
-    `<div data-k="${w[0]}"><span class="i">${(RU_WP[w[1]] || ['📍'])[0]}</span><span class="n">${ruE(w[2])}<small>${ruT((RU_WP[w[1]] || ['', ''])[1])}${w[5] ? ' · ' + w[5] + ' m' : ''}</small></span><span class="k">km ${ruF(w[0])}</span></div>`).join('')}</div></div>`;
+  return `<div class="card"><h3 class="ruSec">${ruI('map-pin')} ${ruT('Qué te vas a encontrar')}</h3><div class="note" style="margin:-2px 0 6px">${ruT('Toca uno para verlo en el mapa y en el perfil.')}</div><div class="ruWp">${r.wp.map(w =>
+    `<div data-k="${w[0]}"><span class="i">${ruWpI(w, 20)}</span><span class="n">${ruE(w[2])}<small>${ruT((RU_WP[w[1]] || ['', ''])[1])}${w[5] ? ' · ' + w[5] + ' m' : ''}</small></span><span class="k">km ${ruF(w[0])}</span></div>`).join('')}</div></div>`;
 }
 function ruCerrar() {RU.sel = null; document.getElementById('ruFicha').style.display = 'none'; document.getElementById('ruFicha').innerHTML = '';
   document.getElementById('ruLista').style.display = ''; RU.map = null; setTimeout(() => window.scrollTo(0, RU.scroll), 20);}
@@ -270,8 +316,9 @@ function ruMapa(r) {
     const mk = (p, col, t) => {const [a, c] = P(p[0], p[1]); x.fillStyle = col; x.strokeStyle = '#fff'; x.lineWidth = 2.5; x.beginPath(); x.arc(a, c, 9, 0, 7); x.fill(); x.stroke();
       x.fillStyle = '#fff'; x.font = 'bold 10px system-ui'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(t, a, c + .5);};
     if (r.wp) {x.font = '15px system-ui'; x.textAlign = 'center'; x.textBaseline = 'middle';
-      r.wp.forEach(w => {const [a, c] = P(w[3], w[4]); x.fillStyle = 'rgba(255,255,255,.92)'; x.strokeStyle = 'rgba(0,0,0,.35)'; x.lineWidth = 1; x.beginPath(); x.arc(a, c, 10, 0, 7); x.fill(); x.stroke();
-        x.fillStyle = '#000'; x.fillText((RU_WP[w[1]] || ['📍'])[0], a, c + 1);});}
+      r.wp.forEach(w => {const [a, c] = P(w[3], w[4]); x.fillStyle = '#fff'; x.strokeStyle = 'rgba(0,0,0,.3)'; x.lineWidth = 1; x.beginPath(); x.arc(a, c, 11, 0, 7); x.fill(); x.stroke();
+        const ic = ruP2((RU_WP[w[1]] || [])[2] || 'map-pin');
+        if (ic) {x.save(); x.translate(a - 7, c - 7); x.scale(14 / 256, 14 / 256); x.fillStyle = '#1f5f8b'; x.fill(ic); x.restore();} else {x.fillStyle = '#000'; x.fillText((RU_WP[w[1]] || ['📍'])[0], a, c + 1);}});}
     if (!r.circ) mk(L[L.length - 1], '#d32f2f', 'F');
     mk(L[0], '#2e9e4f', r.circ ? '⟳' : 'S');
     if (RU.pt) {const [a, c] = P(RU.pt[0], RU.pt[1]); x.fillStyle = '#ffeb3b'; x.strokeStyle = '#222'; x.lineWidth = 2; x.beginPath(); x.arc(a, c, 7, 0, 7); x.fill(); x.stroke();}
@@ -305,7 +352,7 @@ function ruPerfil(r) {
     for (let i = 1; i < p.length; i++) {const a = Math.max(0, i - 2), b = Math.min(p.length - 1, i + 1), g = (p[b] - p[a]) / ((b - a) * dk) * 100;
       lin += `<line x1="${X(i - 1).toFixed(1)}" y1="${Y(p[i - 1]).toFixed(1)}" x2="${X(i).toFixed(1)}" y2="${Y(p[i]).toFixed(1)}" stroke="${ruPenCol(g)}" stroke-width="2.8" stroke-linecap="round"/>`;}}
   const wp = (r.wp || []).map(w => {const xx = L + w[0] / r.km * (W - L), i = Math.round(w[0] / r.km * (p.length - 1)), yy = Y(p[Math.max(0, Math.min(p.length - 1, i))]);
-    return `<line x1="${xx.toFixed(1)}" x2="${xx.toFixed(1)}" y1="${(yy - 4).toFixed(1)}" y2="${Math.max(10, yy - 16).toFixed(1)}" stroke="currentColor" stroke-opacity=".35"/><text x="${xx.toFixed(1)}" y="${Math.max(10, yy - 17).toFixed(1)}" font-size="11" text-anchor="middle">${(RU_WP[w[1]] || ['📍'])[0]}</text>`;}).join('');
+    return `<line x1="${xx.toFixed(1)}" x2="${xx.toFixed(1)}" y1="${(yy - 4).toFixed(1)}" y2="${Math.max(10, yy - 16).toFixed(1)}" stroke="currentColor" stroke-opacity=".35"/><circle cx="${xx.toFixed(1)}" cy="${Math.max(6, yy - 19).toFixed(1)}" r="4" fill="#1f5f8b" stroke="#fff" stroke-width="1.5"/>`;}).join('');
   return `<svg id="ruPf" viewBox="0 0 ${W} ${H + 17}" style="width:100%;touch-action:pan-y;display:block;margin-top:6px;color:var(--txt)">
    <defs><linearGradient id="ruGr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".45"/><stop offset="1" stop-color="${col}" stop-opacity=".04"/></linearGradient></defs>${gr}
    <polygon points="${L},${H} ${pl} ${W},${H}" fill="url(#ruGr)"/>${lin}${wp}
@@ -322,7 +369,7 @@ function ruCursor(r, fr) {
   const B = document.getElementById('ruPfB'); document.getElementById('ruPfR').setAttribute('width', bw); document.getElementById('ruPfX').textContent = tx;
   document.getElementById('ruPfX').setAttribute('x', 5); B.setAttribute('transform', `translate(${bx.toFixed(1)},${by.toFixed(1)})`); B.setAttribute('visibility', 'visible');
   const dk = r.km / (n - 1) * 1000, a = Math.max(0, i - 2), b = Math.min(n - 1, i + 2), g = (p[b] - p[a]) / ((b - a) * dk) * 100;
-  document.getElementById('ruPfT').innerHTML = '📍 ' + ruT('Km {a} de {b} · altitud {c} · pendiente {d}', {a: `<b>${ruF(i / (n - 1) * r.km)}</b>`, b: ruF(r.km), c: `<b>${p[i]} m</b>`, d: `<b>${g > 0 ? '+' : ''}${Math.round(g)} %</b>`});
+  document.getElementById('ruPfT').innerHTML = ruT('Km {a} de {b} · altitud {c} · pendiente {d}', {a: `<b>${ruF(i / (n - 1) * r.km)}</b>`, b: ruF(r.km), c: `<b>${p[i]} m</b>`, d: `<b>${g > 0 ? '+' : ''}${Math.round(g)} %</b>`});
   RU.pt = ruPunto(r, i / (n - 1)); if (RU.map) RU.map.draw();
 }
 function ruPerfilTouch(r) {
@@ -352,14 +399,14 @@ function ruGpx(r) {
 async function ruTiempo(r) {
   const el = document.getElementById('ruTiempo'); if (!el) return;
   const L = r.lin, k = r.pf.indexOf(r.mx), cima = ruPunto(r, k / (r.pf.length - 1));
-  const P = [['🟢 ' + ruT('Salida') + ' · ' + r.pueblo, L[0], r.pf[0]]];
-  if (k > 2 && k < r.pf.length - 3 && r.mx - Math.max(r.pf[0], r.pf[r.pf.length - 1]) > 80) P.push(['⛰️ ' + ruT('Punto más alto'), cima, r.mx]);
-  if (!r.circ && ruKm(L[0], L[L.length - 1]) > 2) P.push(['🏁 ' + ruT('Llegada') + ' · ' + r.fin, L[L.length - 1], r.pf[r.pf.length - 1]]);
+  const P = [[ruT('Salida') + ' · ' + r.pueblo, L[0], r.pf[0]]];
+  if (k > 2 && k < r.pf.length - 3 && r.mx - Math.max(r.pf[0], r.pf[r.pf.length - 1]) > 80) P.push([ruT('Punto más alto'), cima, r.mx]);
+  if (!r.circ && ruKm(L[0], L[L.length - 1]) > 2) P.push([ruT('Llegada') + ' · ' + r.fin, L[L.length - 1], r.pf[r.pf.length - 1]]);
   const J = await Promise.all(P.map(([, q, alt]) => getJSON(`${OM}?latitude=${q[0].toFixed(4)}&longitude=${q[1].toFixed(4)}&elevation=${alt}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&forecast_days=4${TZ}`)));
   if (RU.sel !== r || !document.getElementById('ruTiempo')) return;
-  if (J.every(j => !j || !j.daily)) {el.innerHTML = `<b>🌦️ ${ruT('El tiempo en el recorrido')}</b><div class="note">${ruT('No se pudo cargar la previsión ahora.')}</div>`; return;}
+  if (J.every(j => !j || !j.daily)) {el.innerHTML = `<h3 class="ruSec">${ruI('cloud-sun')} ${ruT('El tiempo en el recorrido')}</h3><div class="note">${ruT('No se pudo cargar la previsión ahora.')}</div>`; return;}
   const h = new Date().getHours();
-  el.innerHTML = `<b>🌦️ ${ruT('El tiempo en el recorrido')}</b>` + P.map(([t, , alt], n) => {const j = J[n]; if (!j || !j.daily) return ''; const d = j.daily;
+  el.innerHTML = `<h3 class="ruSec">${ruI('cloud-sun')} ${ruT('El tiempo en el recorrido')}</h3>` + P.map(([t, , alt], n) => {const j = J[n]; if (!j || !j.daily) return ''; const d = j.daily;
     return `<div style="margin-top:8px;font-size:13.5px;color:var(--txt)"><b>${ruE(t)}</b> <span class="note">(${alt} m) · ${ruT('ahora')} ${wxIcon(j.current.weather_code, h)} ${Math.round(j.current.temperature_2m)}°</span></div>
      <div class="ruWx">${d.time.map((x, i) => {const dt = new Date(x + 'T12:00'); return `<div><b>${i ? DOW[dt.getDay()] + ' ' + dt.getDate() : ruT('Hoy')}</b><span class="i">${wxIcon(d.weather_code[i], 12)}</span>
       <b>${Math.round(d.temperature_2m_max[i])}°</b> <span class="note">${Math.round(d.temperature_2m_min[i])}°</span><br><span class="note">${d.precipitation_sum[i] > 0.1 ? '💧' + ruF(d.precipitation_sum[i]) + ' mm' : '☀️ ' + ruT('seco')}</span><br><span class="note">💨 ${Math.round(d.wind_speed_10m_max[i])} km/h</span></div>`;}).join('')}</div>`;}).join('');

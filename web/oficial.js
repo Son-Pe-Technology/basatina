@@ -67,7 +67,7 @@
     prev:'lluvia prevista: Open‑Meteo · caudal: SAIH Ebro (Burlada) · ríos: GloFAS (Copernicus)',
     caudal:'SAIH Ebro, datos provisionales cada 15 minutos', emb:'SAIH Ebro, datos provisionales cada 15 minutos',
     caza:'Planes de Ordenación Cinegética · © Gobierno de Navarra · IDENA (CC BY 4.0)', pesca:'Gobierno de Navarra · IDENA (CC BY 4.0)',
-    monte:'rutas: © OpenStreetMap (ODbL), IDENA y Turismo de Navarra · alturas: Copernicus DEM GLO-30 · mapas: © IGN · tiempo: Open‑Meteo',
+    monte:'rutas: © OpenStreetMap (ODbL), IDENA y Turismo de Navarra · alturas: MDT de 5 m del IGN (y Copernicus DEM donde no llega) · mapas: © IGN · tiempo: Open‑Meteo',
     transp:'recarga: © OpenStreetMap (ODbL) · red ciclista, aparcabicis, EuroVelo y puntos de riesgo: IDENA',
     energia:'Red Eléctrica (REData), Gobierno de Navarra (IDENA), © OpenStreetMap y Open‑Meteo',
     camaras:'Gobierno de Navarra (cámaras de carreteras) y alberguesyrefugios.com (Refugio de Belagua); las imágenes son de sus dueños',

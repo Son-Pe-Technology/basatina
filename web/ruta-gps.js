@@ -200,9 +200,10 @@ const _ficha = ruFicha;
 ruFicha = function (r) {
   if (G.on && G.r !== r) para(true);
   const res = _ficha.apply(this, arguments);
-  const mb = document.querySelector('#ruFicha .ruMapBox'); if (!mb) return res;
-  mb.insertAdjacentHTML('beforebegin', `<div id="rgBox">
-    <button class="btn pri" id="rgGo">▶️ ${T('Seguir esta ruta con el GPS')}</button>
+  // 27 nov. 2026: el botón va el primero de las acciones de la ficha (#ruAcc); si no está, encima del mapa como antes
+  const acc = document.querySelector('#ruFicha #ruAcc'), mb = acc || document.querySelector('#ruFicha .ruMapBox'); if (!mb) return res;
+  mb.insertAdjacentHTML(acc ? 'afterbegin' : 'beforebegin', `<div id="rgBox">
+    <button class="btn pri" id="rgGo">${typeof ruI === 'function' ? ruI('navigation-arrow', 18) : '▶️'} ${T('Seguir esta ruta con el GPS')}</button>
     <div class="card" id="rgPanel" style="display:none"><div class="rgTop"><b>🧭 ${T('Siguiendo la ruta')}</b><span id="rgPrec"></span></div>
      <div id="rgEst"></div><div id="rgDat"></div>
      <div class="rgBt"><button class="btn on" id="rgSig">🎯 ${T('Centrar en mí')}</button><button class="btn" id="rgStop">⏹️ ${T('Terminar')}</button></div>
