@@ -22,6 +22,16 @@ body.bna #drawer .dsub.mfLs>button::after{content:'›';font-size:24px;line-heig
 body.bna #drawer .dsub.mfLs>button:active{background:#eef5ea!important;border-color:#3d7031!important}
 /* «Cuadrilla BasatiNA»: sin hueco entre Basati y NA (el hueco iba entre los trozos del nombre) */
 body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span{gap:0!important}
-body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span::after{margin-left:8px}`;
+body.bna #bnaDGrid>.dgroup.m6G.m6Ft>span::after{margin-left:8px}
+/* 📍 Localidades (27 nov. 2026, Pedro): cada pueblo es un botón blanco, uno por fila (los nombres y la línea de debajo son largos) */
+#pbList.card{background:none!important;box-shadow:none!important;border:0!important;padding:0!important}
+#pbList>.st{background:#fff!important;border:1.5px solid #d5dfd2!important;border-radius:16px!important;padding:10px 14px 10px 16px!important;margin:0 0 8px!important;
+  box-shadow:0 1px 3px rgba(29,45,35,.06)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px}
+#pbList>.st b{color:#2b4a24;font-weight:800;font-size:16px}
+#pbList>.st .s{color:#5b6660;font-size:13.5px;margin-top:1px}
+#pbList>.st>.note{font-size:24px!important;line-height:1;color:#3d7031!important;flex:none}
+#pbList>.st:active{background:#eef5ea!important;border-color:#3d7031!important}
+#pbList>div[id^="pbL_"]{font-size:18px;font-weight:900!important;color:#3d7031!important;margin:14px 4px 6px!important}
+#pbList>.note:first-child{margin:2px 4px 8px}`;
   document.head.appendChild(st);
 })();
