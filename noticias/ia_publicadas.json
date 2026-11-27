@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "75cb8f0d7483",
+   "pub": "2026-11-27T14:56Z",
+   "titulo": "Corte de tráfico en Concepción Benítez el lunes y martes por obras de asfaltado",
+   "texto": "El Ayuntamiento de Pamplona interrumpirá la circulación en Concepción Benítez a partir del lunes 30 de noviembre desde las 7.30 horas para renovar el pavimento del tramo entre Aróstegui y Teodoro Ochoa de Alda. Las tareas de asfaltado se extenderán hasta el martes por la tarde, cuando está previsto reabrir la vía si las condiciones meteorológicas lo permiten. El consistorio ha elegido una jornada festiva para minimizar molestias a conductores. Los trabajos incluirán fresado del firme el lunes y señalización vial el martes, con especial cuidado en una curva de pronunciada pendiente. La inversión alcanza 64.710 euros y ejecutará la empresa Asfaltos Biurrun SA. Esta es la segunda fase del proyecto; en 2025 se completó la primera, y la tercera está prevista para 2027.",
+   "pueblo": "Pamplona",
+   "cat": "Pamplona",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-echavacoiz/la-calle-concepcion-benitez-se-cortara-al-trafico-el-lunes-y-el-martes-por-el-asfaltado-de-su-tramo-sur/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/la-calle-concepcion-benitez-se-cortara-al-trafico-el-lunes-y-el-martes-para"
+    }
+   ]
+  },
+  {
    "id": "4684c318ea7a",
    "pub": "2026-11-27T14:47Z",
    "titulo": "Desmantelan red de distribución de droga en Tudela con dos detenidos",
@@ -711,25 +729,6 @@
     {
      "f": "Ayuntamiento de Pamplona",
      "u": "https://www.pamplona.es/actualidad/noticias/un-total-de-720-escolares-de-siete-centros-participan-en-el-programa-educativo"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "7f72189f9e84",
-   "pub": "2026-11-25T13:19Z",
-   "titulo": "Pamplona elaborará una ordenanza para regular el vaso reutilizable único",
-   "texto": "El Ayuntamiento de Pamplona desarrolla un proceso participativo para crear una ordenanza que unifique la gestión del vaso reutilizable, inicialmente en la ciudad y con posibilidad de extenderse a toda Navarra. Tres sesiones de trabajo durante noviembre, diciembre y enero permitirán diagnosticar la situación actual, definir un modelo de gestión y presentar la propuesta final. La norma regulará obligaciones para garantizar la devolución de fianzas, el lavado, recuperación y reutilización efectiva de los vasos, estableciendo un sistema de depósito retornable transparente. Participarán representantes de hostelería, entidades gestoras de espacios públicos y asociaciones que utilizan vasos en fiestas y eventos. Hasta ahora se han aplicado solo recomendaciones y campañas, sin garantizar un circuito homogéneo de reutilización.",
-   "pueblo": "Pamplona",
-   "cat": "Sociedad",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-abre-un-proceso-participativo-para-regular-un-vaso-reutilizable-unico-con-devolucion-de-fianzas/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-propone-un-proceso-participativo-para-definir-en-el-mes-de"
     }
    ],
    "auto": true
