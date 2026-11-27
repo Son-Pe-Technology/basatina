@@ -19,43 +19,48 @@ WEB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "web")
 # clave del acceso (BNL de index.html): [qué es, búsquedas en Commons por orden de preferencia]
 BUSCA = {
  "mascotas":  ["perro", ["Euskal artzain txakurra", "perro pastor vasco", "perro en el monte", "dog meadow"]],
- "temporada": ["huerta", ["Tudela huerta", "pimientos del piquillo", "espárragos blancos", "verduras mercado"]],
- "fotos":     ["cámara de fotos", ["vintage camera", "cámara fotográfica antigua", "photographer landscape"]],
+ "temporada": ["verduras de temporada", ["verduras mercado", "pimientos rojos", "espárragos blancos", "vegetables market stall"]],
+ "fotos":     ["cámara de fotos", ["rangefinder camera", "Leica camera", "cámara fotográfica antigua"]],
  "buzon":     ["buzón", ["buzón de Correos España", "buzón amarillo Correos", "mailbox Spain"]],
- "refranes":  ["libro antiguo", ["libro antiguo abierto", "old book open pages", "old books shelf"]],
+ "refranes":  ["libro antiguo", ["old book open pages", "old books shelf", "libros antiguos"]],
  "hist":      ["río crecido", ["río Arga crecida", "río Ebro crecida", "riada Navarra", "río crecido"]],
  "camaras":   ["cámara de tráfico", ["cámara de tráfico", "traffic camera highway", "autovía Navarra"]],
  "vias3":     ["carretera", ["carretera Navarra", "carretera de montaña Navarra", "N-135 Navarra"]],
- "transp":    ["autobús urbano", ["villavesa Pamplona", "autobús urbano Pamplona", "transporte comarcal Pamplona", "estación de autobuses Pamplona"]],
+ "transp":    ["autobús urbano", ["villavesa Pamplona autobús", "autobús urbano Pamplona", "Transporte Urbano Comarcal Pamplona autobús", "city bus Spain"]],
  "diario":    ["cuaderno", ["cuaderno de campo", "notebook pen table", "diario cuaderno"]],
  "sitios":    ["mirador", ["mirador Navarra", "Urbasa mirador", "Navarra paisaje"]],
  "mivias":    ["carretera de montaña", ["puerto de Belagua carretera", "carretera montaña Navarra", "Larrau carretera"]],
- "semana":    ["calendario", ["calendario de pared", "wall calendar", "calendar desk"]],
+ "semana":    ["calendario", ["desk calendar", "wall calendar photo", "calendario de pared"]],
  "ajustes":   ["engranajes", ["engranajes", "gears machine", "gear wheels"]],
- "about":     ["Pamplona", ["Pamplona vista panorámica", "Pamplona desde San Cristóbal", "Pamplona murallas"]],
- "creditos":  ["cámara y fotos", ["photographs prints table", "old photographs", "film camera"]],
+ "about":     ["Pamplona", ["Pamplona Navarra panorámica", "Murallas de Pamplona", "Pamplona desde San Cristóbal Navarra"]],
+ "creditos":  ["objetivo de cámara", ["camera lens", "photographic film roll", "film camera"]],
  # juegos
  "jcadenas":  ["Navarra", ["Palacio de Navarra Pamplona", "Plaza del Castillo Pamplona"]],
  "jdonde":    ["paisaje de Navarra", ["Bardenas Reales", "valle de Baztan"]],
  "jlugar":    ["paisaje de Navarra", ["Selva de Irati", "Nacedero del Urederra", "Foz de Lumbier"]],
- "jsopa":     ["letras", ["letras de imprenta", "wooden letters", "letterpress type"]],
- "jcruci":    ["crucigrama", ["crucigrama", "crossword puzzle"]],
- "jsudoku":   ["sudoku", ["sudoku", "sudoku puzzle"]],
+ "jsopa":     ["letras", ["wooden alphabet letters", "Scrabble tiles", "letterpress type"]],
+ "jcruci":    ["crucigrama", ["crossword newspaper pen", "crossword puzzle newspaper", "crucigrama"]],
+ "jsudoku":   ["sudoku", ["sudoku newspaper", "sudoku pencil", "sudoku puzzle"]],
  "jchinchon": ["baraja española", ["baraja española", "naipes españoles", "Spanish playing cards"]],
- "jparejas":  ["cartas", ["playing cards table", "cartas sobre la mesa", "memory game cards"]],
+ "jparejas":  ["cartas", ["playing cards spread", "playing cards table", "naipes"]],
  "jsoli":     ["cartas", ["solitaire cards", "playing cards", "baraja de póker"]],
  "jnutria":   ["nutria", ["Lutra lutra", "nutria europea", "Eurasian otter"]],
  "jaita":     ["pinball", ["pinball machine", "pinball", "máquina de pinball"]],
- "psombras":  ["sombras", ["sombras chinescas", "hand shadow puppets", "shadow play"]],
- "pcontar":   ["contar", ["ábaco", "abacus colorful", "colored counting blocks"]],
+ "psombras":  ["sombras", ["teatro de sombras", "shadow puppet theatre", "silhouette sunset tree"]],
+ "pcontar":   ["contar", ["abacus beads", "colorful abacus", "wooden counting toy"]],
  "ptruchas":  ["trucha", ["Salmo trutta", "trucha común", "brown trout river"]],
 }
-QUITAR = set()   # fotos de Commons que no queremos («File:...»)
+QUITAR = {   # fotos de Commons que no queremos (revisadas a mano el 27 nov. 2026)
+ 'File:Pamplona, Colombia panorámica (4).jpg', 'File:Picnic table - Diergaarde Blijdorp - Rotterdam - with information board.jpg',
+ 'File:UCB Playing Cards.png', 'File:Sudoku-Domino.jpg', 'File:Bahamas 1989 (410) Abaco (24797713915).jpg',
+ 'File:Sombras chinescas (2444775233).jpg', 'File:CIUDAD DE REYES Y VERDURAS.jpg', 'File:Eskualdeko Hiri Garraioa - Maiztasunak etorbideak.png',
+ 'File:Sello Biblioteca Luz y Progreso.jpg', 'File:Facade of the Vintage Camera Museum 20170820.jpg',
+}
 LIBRES = re.compile(r"^(cc0|public domain|pd|cc by(-sa)? ?[0-9.]*( [a-z]+)?|cc-by(-sa)?-[0-9.]+)", re.I)
 NO_VALE = re.compile(r"mapa|map\b|plano|coat of arms|logo|bandera|flag|diagram|grabado|pintura|cuadro|retrato|portrait|"
                      r"selfie|bel[eé]n|nativ|ermita|baseliza|iglesia|church|cathedral|catedral|capilla|altar|retablo|"
                      r"\bniñ[oa]s?\b|children|\bkids?\b|desnud|nude|cartel|poster|captura|screenshot|accident|muert|dead|blood|sangre|"
-                     r"casino|gambling|apuesta|poker chips|cigar|tabaco|beer|cerveza|wine|vino", re.I)
+                     r"colombia|christmas|navidad|ilustra|drawing|dibujo|alcalde|elecci|election|partido|casino|gambling|apuesta|poker chips|cigar|tabaco|beer|cerveza|wine|vino", re.I)
 
 
 def get(u):
@@ -96,7 +101,7 @@ def elige(qs, usados):
             t = p.get("title", "")
             if t in usados or t in QUITAR or NO_VALE.search(t): continue
             ii = (p.get("imageinfo") or [{}])[0]
-            if ii.get("mime") not in ("image/jpeg", "image/webp", "image/png"): continue
+            if ii.get("mime") not in ("image/jpeg", "image/webp"): continue   # sin png: suelen ser mapas, esquemas o textos
             w, h = ii.get("width", 0), ii.get("height", 0)
             if w < 800 or not h or not (1.0 <= w / h <= 2.2): continue
             m = ii.get("extmetadata", {})
