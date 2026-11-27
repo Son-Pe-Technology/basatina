@@ -26,7 +26,9 @@ const IF_ACC={tiempo:'foto-inicio-acc-tiempo.webp',caudal:'foto-inicio-acc-rios.
   monte:'foto-inicio-acc-pie.webp',deporte:'foto-inicio-acc-deporte.webp',cultura:'foto-inicio-acc-agenda.webp',natura:'foto-inicio-acc-recol.webp',
   // 23 nov. 2026: para los accesos que se pueden añadir con «Editar»
   mtiempo:'foto-inicio-acc-inicio.webp',noticias:'foto-inicio-acc-prensa.webp',curiosas:'foto-inicio-acc-prensa.webp',sismo:'foto-inicio-acc-sismo.webp',
-  gas:'foto-inicio-acc-gas.webp',pueblos:'foto-inicio-acc-localidades.webp',cocina:'foto-inicio-acc-comidas.webp',comer:'foto-inicio-acc-comidas.webp',vivienda:'foto-inicio-acc-vivienda.webp',empleo:'foto-inicio-acc-empleo.webp',salud:'foto-inicio-acc-salud.webp',farmacia:'foto-inicio-acc-salud.webp',centros:'foto-inicio-acc-salud.webp',voluntariado:'foto-inicio-acc-voluntariado.webp'};
+  gas:'foto-inicio-acc-gas.webp',pueblos:'foto-inicio-acc-localidades.webp',cocina:'foto-inicio-acc-comidas.webp',comer:'foto-inicio-acc-comidas.webp',vivienda:'foto-inicio-acc-vivienda.webp',empleo:'foto-inicio-acc-empleo.webp',salud:'foto-inicio-acc-salud.webp',farmacia:'foto-inicio-acc-salud.webp',centros:'foto-inicio-acc-salud.webp',voluntariado:'foto-inicio-acc-voluntariado.webp',
+  // 27 nov. 2026: fotos vuestras que ya estaban en la app, para los que no tenían
+  temporada:'foto-temporada-miren.webp',semana:'foto-inicio-primavera.webp',psombras:'foto-cab2-astro.webp'};
 // río del carrusel (RZ_RIOS de novedades.js + arga) → foto
 const IF_RIO={arga:'foto-inicio-rio-arga.webp',irati:'foto-inicio-rio-irati.webp',ega:'foto-inicio-rio-ega.webp',aragon:'foto-inicio-rio-aragon.webp',ebro:'foto-inicio-rio-ebro.webp'};
 const IF_CRED=[
@@ -51,6 +53,9 @@ const IF_CRED=[
  ['Empleo: obra de viviendas, Pamplona','Pedro Iglesias Goñi','foto propia (retocada con IA)',''],
  ['Salud: cruz de farmacia y su sombra','[autor por confirmar]','[licencia por confirmar]',''],
  ['Voluntariado: recogiendo basura junto al agua','[autor por confirmar]','[licencia por confirmar]',''],
+ ['Productos de temporada: campo de trigo','Miren I.G.','foto propia',''],
+ ['La semana: doble arcoíris','Pedro Iglesias Goñi','foto propia',''],
+ ['Las sombras: Luna entre los árboles','Pedro Iglesias Goñi','foto propia',''],
  ['Agenda: Sanfermines','San Fermín Pamplona (Flickr)','CC0','https://commons.wikimedia.org/wiki/File:San_Ferm%C3%ADn_la_fiesta_est%C3%A1_en_la_calle_(42031343420).jpg'],
  ['Recolección: setas en el bosque','GenGH','CC BY-SA 4.0','https://commons.wikimedia.org/wiki/File:Oudemansiella_mucida,_Asturias_04.jpg']];
 

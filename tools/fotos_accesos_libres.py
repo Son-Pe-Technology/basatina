@@ -17,9 +17,9 @@ from PIL import Image, ImageOps
 UA = {"User-Agent": "BasatiNA/1.0 (https://basatina.es; participa@basatina.es)"}
 WEB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "web")
 # clave del acceso (BNL de index.html): [qué es, búsquedas en Commons por orden de preferencia]
+# (temporada, semana y psombras llevan foto vuestra en IF_ACC de inicio-fotos.js)
 BUSCA = {
  "mascotas":  ["perro", ["Euskal artzain txakurra", "perro pastor vasco", "perro en el monte", "dog meadow"]],
- "temporada": ["verduras de temporada", ["fresh vegetables", "tomates huerta", "vegetables basket", "pimientos rojos"]],
  "fotos":     ["cámara de fotos", ["rangefinder camera", "Leica camera", "cámara fotográfica antigua"]],
  "buzon":     ["buzón", ["buzón de Correos España", "buzón amarillo Correos", "mailbox Spain"]],
  "refranes":  ["libro antiguo", ["old book open pages", "old books shelf", "libros antiguos"]],
@@ -30,7 +30,6 @@ BUSCA = {
  "diario":    ["cuaderno", ["cuaderno de campo", "notebook pen table", "diario cuaderno"]],
  "sitios":    ["mirador", ["mirador Navarra", "Urbasa mirador", "Navarra paisaje"]],
  "mivias":    ["carretera de montaña", ["puerto de Belagua carretera", "carretera montaña Navarra", "Larrau carretera"]],
- "semana":    ["calendario", ["calendar pages close-up", "planner notebook calendar", "calendar month page"]],
  "ajustes":   ["engranajes", ["engranajes", "gears machine", "gear wheels"]],
  "about":     ["Pamplona", ["Plaza del Castillo Pamplona", "Murallas de Pamplona", "Pamplona Casco Antiguo"]],
  "creditos":  ["objetivo de cámara", ["camera lens", "photographic film roll", "film camera"]],
@@ -46,7 +45,6 @@ BUSCA = {
  "jsoli":     ["cartas", ["solitaire cards", "playing cards", "baraja de póker"]],
  "jnutria":   ["nutria", ["Lutra lutra", "nutria europea", "Eurasian otter"]],
  "jaita":     ["pinball", ["pinball machine", "pinball", "máquina de pinball"]],
- "psombras":  ["sombras", ["tree shadow on grass", "shadows of trees", "long shadows sunset"]],
  "pcontar":   ["contar", ["abacus beads", "colorful abacus", "wooden counting toy"]],
  "ptruchas":  ["trucha", ["Salmo trutta", "trucha común", "brown trout river"]],
 }
