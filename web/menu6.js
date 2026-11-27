@@ -127,10 +127,15 @@ body.bna #m6Acc button .bt{display:none!important}
 #t-lomio button[data-t]{display:flex;align-items:center;gap:12px;width:100%;border:none;background:none;padding:9px 10px;border-radius:14px;font:inherit;text-align:left;color:inherit;cursor:pointer}
 #t-lomio button[data-t]:active{background:#eef3ec}
 #t-lomio button[data-t] .icb{display:none!important}#t-lomio .m6Bt{flex:none;display:inline-flex!important;align-items:center;justify-content:center}
-.m6Jg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.m6Jg button{display:flex;flex-direction:column;align-items:center;gap:6px;border:none;background:#fff;border-radius:18px;padding:12px 6px;box-shadow:0 2px 10px rgba(29,45,35,.08);font:inherit;font-size:13px;font-weight:700;color:#2a302c;cursor:pointer;text-align:center;line-height:1.2}
-.m6Jg button:active{transform:scale(.96)}
-.m6Jg .m6Ji{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:28px;background-size:cover;background-position:center}
+.m6Jg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+/* 27 nov. 2026 (Pedro): botonera de 2 en 2, como el menú: nombre y ›, sin dibujos; los juegos de los peques llevan su osito */
+.m6Jg button{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;min-width:0;background:#fff;border:1.5px solid #d5dfd2;border-radius:14px;padding:11px 12px;
+  box-shadow:0 1px 3px rgba(29,45,35,.06);font:inherit;font-size:14px;font-weight:800;color:#2b4a24;text-align:left;line-height:1.2;cursor:pointer}
+.m6Jg button::after{content:'›';font-size:22px;line-height:1;color:#3d7031;flex:none}
+.m6Jg button>span:last-child{flex:1;min-width:0}
+.m6Jg button:active{background:#eef5ea;border-color:#3d7031}
+.m6Jg .m6Ji{display:none}
+.m6Jg button[data-j^="p"] .m6Ji{display:flex;flex:none;width:32px;height:32px;border-radius:10px;align-items:center;justify-content:center;font-size:20px}
 .m6Tm .st{cursor:default}.m6Tm .m6T{font-size:12.5px;color:#3d7031;font-weight:700;margin-top:2px}.m6Tm .m6Ya{color:#e65100}`;
 document.head.appendChild(st);
 
