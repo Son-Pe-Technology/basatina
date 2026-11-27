@@ -11,11 +11,11 @@
    ===================================================================== */
 (function(){
 const $=id=>document.getElementById(id);
-const CUAD=['comunidad','fotos','buzon','refranes'];
+const CUAD=['comunidad','fotos','buzon','refranes','enviar'];   // 27 nov. 2026: también «Envía tu foto»
 const ok=()=>{try{return !!(window.CU&&CU.ok());}catch(e){return false;}};
 const ses=()=>{try{return !!(window.CU&&CU.sesion());}catch(e){return false;}};
 const ss={get:k=>{try{return sessionStorage.getItem(k);}catch(e){return null;}},set:(k,v)=>{try{v==null?sessionStorage.removeItem(k):sessionStorage.setItem(k,v);}catch(e){}}};
-const NOM={comunidad:'Alertas ciudadanas',fotos:'Fotos de la Cuadrilla',buzon:'Buzón de sugerencias',refranes:'Refranes de tu pueblo'};
+const NOM={comunidad:'Alertas ciudadanas',fotos:'Fotos de la Cuadrilla',buzon:'Buzón de sugerencias',refranes:'Refranes de tu pueblo',enviar:'Envía tu foto'};
 
 const st=document.createElement('style');st.textContent=`
 #t-cuadpuerta .cpC{position:relative;overflow:hidden;border-radius:22px;background:#fff;box-shadow:0 8px 26px -10px rgba(29,45,35,.35);margin:12px 0}
