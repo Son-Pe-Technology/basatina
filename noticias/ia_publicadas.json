@@ -1,6 +1,63 @@
 {
  "items": [
   {
+   "id": "19541b93f955",
+   "pub": "2026-11-27T10:06Z",
+   "titulo": "Herido leve en colisión entre dos vehículos en Lodosa",
+   "texto": "Una persona resultó herida leve en una colisión entre dos coches la noche del jueves en Lodosa, en la intersección de avenida de la Ribera y paseo El Ferial, a las 21:36 horas. El herido presentaba contusión facial y fue trasladado al Hospital García Orcoyen de Estella, mientras otras dos personas recibieron atención en el lugar. Bomberos, ambulancia, equipo médico y Guardia Civil acudieron al suceso, que también afectó al cableado eléctrico.",
+   "pueblo": "Lodosa",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-merindad-de-estella/herido-leve-un-joven-de-22-anos-tras-una-colision-entre-dos-vehiculos-en-lodosa/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/tierra-estella/2026/11/27/herido-leve-colision-dos-vehiculos-lodosa-843953-19.html"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "5cd93ee799d2",
+   "pub": "2026-11-27T10:06Z",
+   "titulo": "Bomberos extingue un incendio en una empresa de Astráin sin heridos",
+   "texto": "Un incendio se declaró en la madrugada del viernes en una empresa de Astráin, movilizando a los Bomberos de Navarra y la Guardia Civil. El fuego comenzó a las 01:58 horas en el filtro de una máquina y fue controlado a las 03:30 horas. Aproximadamente 15 trabajadores evacuaron las instalaciones sin registrarse daños personales. Según los primeros indicios, el incendio se originó por un mal funcionamiento del equipo. Las llamas no se propagaron a otras zonas de la nave, aunque el humo generado requirió ventilación de las instalaciones.",
+   "pueblo": "Astráin",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/27/extinguido-incendio-empresa-astrain-843950-15.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-cendea-de-cizur/extinguido-un-incendio-en-una-empresa-de-astrain/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "8988471d5ac7",
+   "pub": "2026-11-27T10:06Z",
+   "titulo": "Tres entidades galardonadas en los Premios de Innovación Social de Pamplona 2026",
+   "texto": "La Fundación Koine-Aequalitas, Médicos del Mundo Navarra y la Fundación ASPACE Navarra han recibido los Premios de Innovación Social del Ayuntamiento de Pamplona en su edición 2026, cuya entrega tuvo lugar el jueves en Civivox Condestable. Koine-Aequalitas obtuvo el primer premio de 1.500 euros por un proyecto que incorpora mediadores migrantes en las Unidades de Barrio para mejorar la atención de los servicios públicos. Médicos del Mundo y ASPACE Navarra recibieron sendos accésits de 750 euros por iniciativas de empoderamiento de mujeres jóvenes afrodescendientes y promoción de vocaciones STEM en personas con parálisis cerebral, respectivamente. La Asociación Navarra de Laringectomizados fue reconocida con una mención especial por su aplicación gratuita de comunicación aumentativa. La convocatoria reunió 11 candidaturas sobre inclusión social, convivencia intercultural y accesibilidad.",
+   "pueblo": "Pamplona",
+   "cat": "Sociedad",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/los-premios-de-innovacion-social-de-pamplona-distinguen-a-koine-aequalitas-medicos-del-mundo-y-aspace-navarra/"
+    },
+    {
+     "f": "Ayuntamiento de Pamplona",
+     "u": "https://www.pamplona.es/actualidad/noticias/los-premios-de-innovacion-social-2026-del-ayuntamiento-de-pamplona-distinguen"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "043361540893",
    "pub": "2026-11-27T07:45Z",
    "titulo": "National Geographic premia la exposición sobre templarios en Navarra",
@@ -681,68 +738,7 @@
     }
    ],
    "auto": true
-  },
-  {
-   "id": "bfe0e650fcf1",
-   "pub": "2026-11-24T13:14Z",
-   "titulo": "Pamplona enciende la iluminación navideña el 30 de noviembre con espectáculo musical",
-   "texto": "El Ayuntamiento de Pamplona adelanta el encendido de las luces navideñas al lunes 30 de noviembre, desplazado de su fecha tradicional por coincidir con las elecciones del domingo 29. El acto, con inversión de 49.000 euros, comenzará a las 17:15 en la Plaza Consistorial con un concierto de estudiantes del Conservatorio Superior de Música de Navarra. A las 18:00, la cantante Anne Etchegoyen y el coro infantil Paz de Ziganda actuarán desde los balcones de la Casa Consistorial. El espectáculo concluirá a las 18:25 con «Argiluna», una composición interpretada con txalaparta, violín y percusión. A las 18:35 se encenderán más de 200 arcos de luz en 87 plazas y calles del Casco Antiguo y Ensanches, permaneciendo iluminadas hasta el 6 de enero en horario nocturno de 17:45 a 23:00.",
-   "pueblo": "Pamplona",
-   "cat": "Cultura",
-   "fuentes": [
-    {
-     "f": "Cadena SER",
-     "u": "https://cadenaser.com/navarra/2026/11/24/como-encendera-pamplona-sus-luces-de-navidad-el-lunes-30-de-noviembre-radio-pamplona/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/24/asi-sera-acto-encendido-iluminacion-navidena-pamplona-843591-16.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/argiluna-envolvera-el-lunes-toda-la-plaza-consistorial-con-actuaciones-desde-el-ayuntamiento-y-casa-seminario-para/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "c083b3da5088",
-   "pub": "2026-11-24T13:14Z",
-   "titulo": "El servicio de atención domiciliaria del Reina Sofía de Tudela cumple 20 años",
-   "texto": "La Unidad de Hospitalización a Domicilio del Hospital Reina Sofía celebró el 20 de noviembre dos décadas de funcionamiento. Pionera en Navarra, ha expandido su capacidad desde 10 camas hasta 30, con cobertura continua de profesionales sanitarios. Durante 2025 realizó 1.206 ingresos domiciliarios, equivalentes al 13,6% de la actividad hospitalaria total. Dispone de telemonitorización remota que registra constantes vitales e identifica cambios anómalos. A principios de 2027 mudará sus instalaciones, donde se integrará con la unidad de pacientes crónicos.",
-   "pueblo": "Tudela",
-   "cat": "Salud",
-   "fuentes": [
-    {
-     "f": "COPE",
-     "u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/hospitalizacion-domicilio-hospital-tudela-celebra-20-anos-vista-puesta-nueva-unidad-20261124_3481054.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-salud-y-bienestar/la-hospitalizacion-a-domicilio-del-reina-sofia-de-tudela-cumple-20-anos-con-30-camas-y-nueva-sede-en-2027/"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "a55ce68af37a",
-   "pub": "2026-11-24T13:14Z",
-   "titulo": "Pamplona refuerza la limpieza de hojas otoñales con más personal",
-   "texto": "El Ayuntamiento de Pamplona ha ampliado su equipo de limpieza un 10% para gestionar los residuos vegetales que caen durante el otoño de los más de 120.000 árboles de la ciudad. Se estima recoger alrededor de 220 toneladas mensuales en esta época, tres veces más que en el resto del año. El dispositivo moviliza a más de 130 trabajadores en turnos de mañana, tarde y noche, usando barredoras, sopladoras y rastrillos. Los residuos se compactan en los viveros de Miluce y se convierten en abono, generando entre 250 y 300 metros cúbicos anuales de materia orgánica para los jardines municipales. Este proceso reduce gastos de vertido y compras de fertilizantes.",
-   "pueblo": "Pamplona",
-   "cat": "Sociedad",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-refuerza-la-plantilla-de-limpieza-para-retirar-220-toneladas-de-hojas-al-mes/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-de-pamplona-refuerza-el-dispositivo-de-limpieza-para-retirar"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-26T21:54Z"
+ "t": "2026-11-27T10:06Z"
 }
