@@ -800,7 +800,7 @@ Los textos, fotos, marcas y logotipos de terceros son de sus dueños; si quieres
 <!-- ============ SALIR AL MONTE ============ -->
 <section id="t-monte">
 <div class="card" id="moAv" style="border-left:5px solid #ff8a3d"><b>⚠️ Antes de salir hoy</b><div class="note">Cargando avisos…</div></div>
-<div class="card tech" style="display:none;border:2px solid #ff8a3d" id="moAvAdm"></div>
+<div class="card tech" style="display:none;border:1px dashed #ff8a3d;padding:10px 14px" id="moAvAdm"></div>
 <div id="ruBox"></div>
 <details id="moViejo" class="card"><summary><b>🗺️ Mapa de cuevas, miradores, fuentes, zonas de baño y bici</b></summary>
 <input id="moQ" class="town" placeholder="🔎 Buscar ruta, cueva, mirador, pueblo…" style="margin-bottom:6px;width:100%;box-sizing:border-box"><div id="moRes"></div>
@@ -4500,11 +4500,12 @@ async function moAvisos(){const el=document.getElementById('moAv'),hoy=hoyYmd(),
 async function moCortes(){try{let j=null;if(APP){const r=await netGet(INC_URL+'?t='+Date.now());if(r.code===200)j=JSON.parse(r.body);}else{const r=await fetch(INC_URL);if(r.ok)j=await r.json();}
   if(!j||!j.incidencia)return null;return j.incidencia.filter(x=>x.publicable!==false&&x.CERRADA).map(x=>((x.cod_carretera_actual||'')+' '+(x.titulo||'')).trim());}catch(e){return null;}}
 function moAvAdmin(){const el=document.getElementById('moAvAdm');
-  el.innerHTML=`<b>🔧 Añadir aviso de última hora</b><div class="note">Para cortes de caminos, senderos cerrados, batidas anunciadas en un sitio concreto, incendios… Sale arriba en «Escapadas» para todos.</div>
+  // 27 nov. 2026 (Pedro): plegado; solo se abre al tocarlo (solo lo ven los administradores)
+  el.innerHTML=`<details><summary style="cursor:pointer;font-weight:700">🔧 Añadir aviso de última hora</summary><div class="note">Para cortes de caminos, senderos cerrados, batidas anunciadas en un sitio concreto, incendios… Sale arriba en «Escapadas» para todos.</div>
    <label class="note" style="display:block;margin-top:6px">Aviso *<input id="maT" class="town" maxlength="100" placeholder="p. ej. Cerrado el camino al nacedero del Urederra" style="width:100%;box-sizing:border-box"></label>
    <label class="note" style="display:block;margin-top:6px">Detalle (opcional)<input id="maX" class="town" maxlength="250" style="width:100%;box-sizing:border-box"></label>
    <label class="note" style="display:block;margin-top:6px">Quitarlo solo el día (opcional)<input id="maH" type="date" class="town" style="width:100%;box-sizing:border-box"></label>
-   <div class="row" style="margin-top:8px"><button class="btn pri" id="maS" style="flex:1">📢 Publicar aviso</button></div><div class="note" id="maM"></div>`;
+   <div class="row" style="margin-top:8px"><button class="btn pri" id="maS" style="flex:1">📢 Publicar aviso</button></div><div class="note" id="maM"></div></details>`;
   document.getElementById('maS').onclick=async()=>{const a={id:'a'+Date.now().toString(36),t:document.getElementById('maT').value.trim(),txt:document.getElementById('maX').value.trim(),hasta:document.getElementById('maH').value};
     const m=document.getElementById('maM');if(a.t.length<5){m.textContent='❌ Escribe el aviso.';return;}
     m.textContent='💾 Guardando…';try{await jsEdit(MA_PATH,MA_DEF,G=>{G.avisos=(G.avisos||[]).filter(x=>!x.hasta||x.hasta>=hoyYmd());G.avisos.push(a);},'Escapadas: aviso');moAvisos();}catch(x){m.textContent='❌ '+x.message;}};}
