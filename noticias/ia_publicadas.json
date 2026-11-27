@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "d648fb609b3d",
+   "pub": "2026-11-27T10:55Z",
+   "titulo": "Detenida en Tudela por estafar en alquileres de pisos",
+   "texto": "La Policía Nacional ha arrestado el viernes a una mujer en Tudela acusada de múltiples engaños relacionados con la oferta fraudulenta de viviendas en la Ribera. Según los investigadores, la sospechosa se fingía trabajadora de una inmobiliaria: enviaba imágenes de supuestos inmuebles y desaparecía tras recibir transferencias de reserva. La investigación partió de una denuncia en la comisaría tudelana: una persona había pagado 500 euros para reservar un piso que nunca vio. Al revisar su cuenta bancaria, los agentes hallaron un patrón similar en otros casos con denuncias de 2025 y 2026, en los que pedía dinero como adelanto pero jamás mostraba el inmueble presencialmente. La Policía Nacional recomienda visitar las viviendas antes de abonar cantidades, usar plataformas seguras y desconfiar de ofertas sospechosas.",
+   "pueblo": "Tudela",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/detenida-en-tudela-una-mujer-que-simulaba-alquilar-pisos-para-estafar-a-personas-que-buscaban-vivienda/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-detenida-mujer-tudela-simulaba-alquilar-pisos-realizar-estafas-20261127092500.html"
+    }
+   ]
+  },
+  {
    "id": "19541b93f955",
    "pub": "2026-11-27T10:06Z",
    "titulo": "Herido leve en colisión entre dos vehículos en Lodosa",
@@ -716,25 +734,6 @@
     {
      "f": "Diario de Navarra",
      "u": "https://www.diariodenavarra.es/noticias/navarra/tierra-estella/2026/11/24/dos-heridos-caracter-grave-colision-frontal-dos-vehiculos-carcar-843605-19.html"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "04dedec3cbc6",
-   "pub": "2026-11-24T16:07Z",
-   "titulo": "Sector 11: el 56,9% de plazas de Pamplona van para residentes tras la zona azul",
-   "texto": "El Ayuntamiento ha puesto en marcha el 1 de noviembre la zona de estacionamiento regulado en torno al Sadar, denominada Sector 11. Según datos municipales de un estudio realizado entre el 9 y el 15 de noviembre, más de la mitad de las plazas están ocupadas por residentes con tarjeta de acceso, mientras el resto funcionan como aparcamiento de rotación. Las calles más pobladas registran ocupación significativamente superior: Labiano y travesía Ana Velasco superan el 90%, mientras que zonas con menos viviendas como Mari Abrigo apenas alcanzan el 7,7%. La ocupación general de la zona ha disminuido respecto a antes de la medida, con un 83,7% de los vehículos realizando rotación.",
-   "pueblo": "Pamplona",
-   "cat": "Sociedad",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-milagrosa-arrosadia/los-primeros-datos-de-funcionamiento-del-sector-11-revelan-que-mas-de-la-mitad-de-las-plazas-disponibles-han-quedado-a/"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/los-primeros-datos-de-funcionamiento-del-sector-11-revelan-que-mas-de-la-mitad"
     }
    ],
    "auto": true
