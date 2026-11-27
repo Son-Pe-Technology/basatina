@@ -1787,6 +1787,8 @@ function updWeb1(){return new Promise(res=>{const id='u'+Date.now();window.__net
 async function checkUpdate(manual){if(!APP||!window.AndroidNet.updateWeb)return;if(manual){menu(false);toast('Buscando actualizaciones…');}
   const r=await updWeb();if(!r.ok){if(manual)toast('No se pudo comprobar ahora (¿sin internet?)');return;}
   if(r.apk>r.myApk&&r.apkUrl){if(typeof bnMudanza==='function'&&bnMudanza())return;   // la app antigua (es.pedrito.controlarga) se muda a la nueva
+    // 27 nov. 2026: instalada desde Google Play → no se avisa (la versión de GitHub puede no estar aún aprobada en Play; Play la actualiza sola)
+    if(r.play){if(r.changed>0){toast('✨ Pantalla actualizada','Recargar',()=>(window.bnaRecargar||window.AndroidNet.reload)());return;}if(manual)toast('✅ Ya tienes la última versión. Las nuevas versiones de la app llegan solas por Google Play.');return;}
     const u=r.play?'https://play.google.com/store/apps/details?id=es.sonpe.basatina':r.apkUrl;   // instalada desde Google Play → se actualiza allí
     if(!r.play&&window.AndroidNet.installApk){toast('📲 Hay una versión nueva de la app ('+r.apk+')','Instalar',()=>apkInstalar(r.apkUrl));return;}   // app 21+: se descarga e instala desde dentro
     toast('📲 Hay una versión nueva de la app ('+r.apk+')',r.play?'Actualizar':'Descargar',()=>window.AndroidNet.openUrl(u));return;}
