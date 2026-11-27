@@ -1,14 +1,7 @@
 {
-"t": "2026-11-27T07:44Z",
-"turno": "2026-11-27-m",
+"t": "2026-11-27T13:39Z",
+"turno": "2026-11-27-t",
 "dest": [
-{
-"k": "2026-11-23-t",
-"t": "Un camarero recibe una inesperada carta de un cliente y se hace viral",
-"u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOdmExS0NEc0JDbHR3SmRWTGtSMFM3X2lvdEJOTUdLQ01mc1Fwam0wU1paTldNRXdPeFdteml6M1dpTk5DZFRmLWxaVEo4VW9nbmhTcVJHZWRLMGpDUjVhLTFvSm9tSnBqcTdMcUNBTDAwNndWdkJqTVI3VnFrdjc5OXdaaEc3cndCZWhDX21Xb05vdml5V1RrSEpJZE1kYnFyZmfSAacBQVVfeXFMT09KaS0yYjNMRDFBN2FQQTFzdk5QQXNzYUJnS2g2OUk4b1lfMnRaWnlmTWJqc2hqeEswMklUZGVTbEV3RkJDSGtrc3JvSmdyaFktUWNmYkN2TWJDVm9lekcyUzdQdi14dmxwX3ZpY05DNnBHazVkT2xISGxDbEJtTFV0NndRT19vZDROdDA3bFVjbC1FcHBqUmlGMUdSQVpKWXNZWUlTSVk?oc=5",
-"f": "Deia",
-"d": "2026-11-22T19:58Z"
-},
 {
 "k": "2026-11-23-n",
 "t": "\"El agua caliente se congela antes que la fría\": el curioso fenómeno que la ciencia sigue investigando",
@@ -85,6 +78,13 @@
 "u": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNb1VDXzlCX3ozSGl4aHhfVk1fREdzY2EzQ25IWUowMW9YVlRrdW9wb3NSTDBkRURYRW1CVURSM2NtZ3dNSlM2dnJFeFoyd21DeURJZ3VsMkh3cnY5cDdkMnAzNUtLZ1FqblNKSklMSnpzWk1LOVBQRjlnLU53dEdzSEFoVXpNTjFsYkZMZkZxMUdzV1k3dk9TYzJOUUtjYU9VNXRFZXBHMk5nTmZodVlMUllISW13OUpIZVJWTEZyOGZ4TEVpZ0phUnZoaTVfamJIX1M3ZzRhMGpaZXIwYTJScHc1TTdveDdwWk5v0gHwAUFVX3lxTE9PWXVMOUItUi1ESHV0LS1DUl94M0JPaEVBejZlY1pHYVF6MlktQ2VoVzFYbk14UVdYTVY3Y0p3YjI5ZG5RVEhkR3ZFbWRGbmo3aU0xbXFLdHZnajVqc1dieGZvaHVyODNZNFN1dzJoYUNCeHZpdnh4bkh6RGVCakMxa0tuVjMxNnp5LVBUbWRRbkY4Y1c0aWxTOVBlSkY2MHg2eFdBMS1sRHV3NFhvTG1KaXpGcWRPSTRLSjNscF9JVmw2VXpQUDc1a2RnUDFlaEtoU3hNcGViWXluWjBJT2dnNVZ0b20wSURIN19vdjFtYg?oc=5",
 "f": "Heraldo de Aragón",
 "d": "2026-11-27T04:00Z"
+},
+{
+"k": "2026-11-27-t",
+"t": "Ada Colau también gana el debate de los memes: \"Sin Ada no hay Peter\"",
+"u": "https://www.huffingtonpost.es/virales/ada-colau-gana-debate-memes-sin-ada-hay-peter-f202611.html",
+"f": "HuffPost",
+"d": "2026-11-27T00:10Z"
 }
 ],
 "items": [
@@ -124,11 +124,46 @@
 "p": 5
 },
 {
-"t": "Cuidar burros a cambio de alojamiento y comida: la curiosa experiencia que se ofrece en un pueblo de Zaragoza",
-"u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPVnh3MmpjLUp0S0RmR1NidEJGNXJEVDZmaWg4TEVmdlVXa3o3dkNzSk8yelVNd1ZfclJDa2ptem56Vk1LeHpUUC1zZWhNYXhkQlVVM1NrNGU5eW9na0RtVGo4QUllSHBvUzFzVk12TlBPRXdRbnVYazUwdjRoWGsxS1pheWJjblhydUhuRDZua2tMYlh1N2FLUHZ1eUNxWjFDdFZYTGt4X0RERHQ0UEtNQlZBa2stU1l2NVp4VERtd3RlRTZUTkc1MXRfOW9ndG5jbGVZMXNEMlFNYWtscmwzUGdrX0tfY1VPMXBhQ3I5QjFkb0JFSFHSAfsBQVVfeXFMT0tENmpTdHktWWJobEgwb21zSklGYjUyOWJvV1FJYXduc25YMUV6TmQyS2ZmN0JJRU11YXV4M2ttN3d3ZzFXZl9SZHZmSUU2UERGTzFkbGxocHA2T3Fxb1BRTXdPazlIbjlQUmFQZGhtTU1GRUU4YUpqYWJEbmNXVmRLYXlyRXdGdHVhS2FjMkxULWRBbWIwSUlEYnJVNFhDYW5LWkNoWWluV3dCVUlkWDNaUlpHWnBNS3ZpdXpOZV9VMVVTWFBvenlaamlOYXlFSGM2d1YxWHVtYnBXTEowZUxkTVhKSGZLX21qejkwTDE4a2lwNEZOcUJMMms?oc=5",
-"f": "Aragón Digital",
-"d": "2026-11-26T09:38Z",
-"p": 4
+"t": "Ibai Gómez: \"Nuestro objetivo debe ser ganar y conseguir el mayor de los récords de la categoría\"",
+"u": "https://cadenaser.com/aragon/2026/11/27/ibai-gomez-nuestro-objetivo-debe-ser-ganar-y-conseguir-el-mayor-de-los-records-de-la-categoria-radio-zaragoza/",
+"f": "Cadena SER",
+"d": "2026-11-27T13:25Z",
+"p": 3
+},
+{
+"t": "La curiosa historia del francés que enseñó a la primera familia champiñonera cómo cultivar esta joya de La Rioja",
+"u": "https://www.eldiario.es/spin/curiosa-historia-frances-enseno-primera-familia-champinonera-cultivar-joya-rioja-pm_1_13698866.html",
+"f": "elDiario.es",
+"d": "2026-11-27T12:30Z",
+"p": 3
+},
+{
+"t": "¿Qué compra Leticia cuando nadie la ve? La cesta más extravagante",
+"u": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUi1rc00wYzhaVmZlMER3cmtybE1LSnR2ZE5FN3cweVVoWTRSTm9lZThYMW1PNEE0MUx2R0F5VUN2eUpjRnI4cUFzU18wWUJGWjUzVE5wV01GNmNNWkhwWVFkaE1OVnl1V28xbVMyOW04WDVRRDNrOEplVk9tTU9OV2hsUnN5Z3VmUC1iaWZXX0NWSG5UNHdoNG5DZEM5eEpURWlZZDln?oc=5",
+"f": "El Món",
+"d": "2026-11-27T12:03Z",
+"p": 3
+},
+{
+"t": "Tapicería Crespo, Zarata Records, Nere Sustraiak y Etxarte, premios 'Nik Gernikan'",
+"u": "https://www.elcorreo.com/bizkaia/costa/tapiceria-crespo-zarata-records-nere-sustraiak-etxarte-20261127120622-nt.html",
+"f": "El Correo",
+"d": "2026-11-27T11:06Z",
+"p": 3
+},
+{
+"t": "Swatch lanza el reloj más divertido de la Navidad: colorido y con una correa que parece de caramelo",
+"u": "https://www.20minutos.es/theluxonomist/lujo/joyas-relojes/swatch-lanza-reloj-mas-divertido-navidad-colorido-con-una-correa-que-parece-caramelo_7066134_0.html",
+"f": "20minutos",
+"d": "2026-11-27T09:09Z",
+"p": 3
+},
+{
+"t": "El surrealista motivo por el que los Mossos tuvieron que desalojar una estación de tren en Barcelona",
+"u": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOVlp0R1owbnVzd0o1SUV0dHhIRTVmZXlpLXNKc3h3cE81QVdYcThjWHRpQWtoUHZOSjZEUnVvRWluVWZ6T0NraXRlYXNyejZ4M0VabklaSUVQYzdRMUU3TU1QR0VEdmloRFZRbFZfZkdPb0ZSdHN3aUx0MFMxMWlaeFRIWEJRQWVIVWhoNFdBTlZHNmJfelQxZEZnTmJJRUdaM3l5c1R0NTVSeWtmeHhtRkFUT3c3WDFXLVJJY0RzQkxvLThMNXFEZHJLMEdtOFRmcHhHSDhTRC1MZHNVdFdRWHpNTFEzd0ZlRXg0S9IB8gFBVV95cUxOcHd6UFFsa1hrMW1yYWNvbGlVLWZUeGs0V1FCX0xSTW9aTHlsNV9mZXc4RWEwcGltYnA4cUZrb3g4Y2hyUHRDc0hDZkc2ZXVtY3JwTE1sMEV1ZVpZTl9SMHc0LW01Qk1XQUlkSHRQZm1ZZTJNblB3TVRTUEI1NTdjZjFaREF3ZUFYQ1FaTWdERFhySnRzWGNlUkJ6Rkk4Q2pQdVJiaWhIUlc3UXc0bkhLZmw0OTFuQUhpdlhXMVhBVEtJZ0JweE1JWEhuYTZaQWt0VGVKT08tOVFuNGNYcThoVUxJaEo5S1Z2ODM0LXVaV2JCUQ?oc=5",
+"f": "Cadena 100",
+"d": "2026-11-27T07:35Z",
+"p": 3
 },
 {
 "t": "El curioso cartel que ha aparecido en un pueblo de Burgos",
@@ -166,73 +201,10 @@
 "p": 3
 },
 {
-"t": "El divertido momento de la reina jugando a la boccia en la Zarzuela con 'El Langui'",
-"u": "https://www.20minutos.es/deportes/divertido-momento-reina-letizia-jugando-boccia-zarzuela-con-langui_7066224_0.html",
-"f": "20minutos",
-"d": "2026-11-26T13:17Z",
-"p": 3
-},
-{
-"t": "La divertida reacción de Alaska al imaginarse a Mario Vaquerizo como presidente: \"Me veo primera dama\"",
-"u": "https://www.20minutos.es/gente/divertida-reaccion-alaska-imaginarse-mario-vaquerizo-como-presidente-yo-me-veo-como-primera-dama_7066215_0.html",
-"f": "20minutos",
-"d": "2026-11-26T13:13Z",
-"p": 3
-},
-{
-"t": "El Centro Dramático Nacional representa en el Rialto la \"brutal y divertida\" 'Al final de las cosas'",
-"u": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPV256MWFlTjRYUkk0ckhUUUF5YUdBeDZ5TFZwSG9Md1NFUGh2X3lra0pndlpPN1VZcnVzVDNkR2xoQTlZSW9qTlpLMUYyMjV6ZjJUdUNSTnQ3VG5qeEF0dkZCNjBuZ2o5MGtpRF9xZnpPN0NaUkxFTXBSRFRzbm9aUDNFNldfaVBFa3NGcG9wLUg5RURrYUFPZ1JkX3JXM3B0SUFhR1h2RjZEZmdzUHVxZHZpelZKd1A2dGNLZHl1Q3hmYVJCS0xsSnRMUGoxMnJkeHdWZEJCaTROd0Nld2djX1R3?oc=5",
-"f": "Europa Press",
-"d": "2026-11-26T13:05Z",
-"p": 3
-},
-{
-"t": "Alaska y Mario Vaquerizo, su divertida reacción al imaginarse como presidente y primera dama",
-"u": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdHo4azBxUkhHYlZELWRxWEJoNXdISXE3SjVFbDNBTURTWkhnY0FjWG5YNWFmeGRtcGZWZ2FvcTB4Uk9LMkhtbmNOWUhmU3RKdFdiSTBBSWVjSEY0eDJMZHY4RktUa2RoVWR4aGsweWpQbGI1NnptRzVFbi1yQVRsejFiSC1RV1F6aG5pTlpsRDNDMGZFdnFic2hxNmxaOTF1R0xDV1V5TGxndUUzalVXLdIBtgFBVV95cUxNQWVMdzJpcjV4djVNLWtST1h3ZWJnR1F2aXdVSzAtbmh4djctcU12WDA1TWhCemRZQ2tkdThDTk9TZGJSV0lxZUR2LXUyeUFGWEMyTzl6d1lheWViMExtSFBwNjVhTTAwUmlfREhZTURncUtaaHFOSlBLUnRYTWdRY0xwZGhFbGdHLXdKaUlRb0wxdHpOYjlJWWVWX0E1SVpnVFZfUW5QczlNbjB4MVBvMzRpdlV2QQ?oc=5",
-"f": "ABC",
-"d": "2026-11-26T12:18Z",
-"p": 3
-},
-{
-"t": "Los mejores momentos de Amaia Romero en 'Cara al show': de cantar a jugar a un peculiar 'quién es quién'",
-"u": "https://www.20minutos.es/television/los-mejores-momentos-amaia-romero-cara-show-cantar-superestrella-jugar-un-peculiar-quien-es-quien_7066128_0.html",
-"f": "20minutos",
-"d": "2026-11-26T11:59Z",
-"p": 3
-},
-{
-"t": "De las urnas a las risas: Zentral propone un tardeo de humor con Saturrisas el domingo",
-"u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/26/urnas-risas-zentral-propone-tardeo-humor-saturrisas-domingo-843848-16.html",
-"f": "Diario de Navarra",
-"d": "2026-11-26T11:49Z",
-"p": 3
-},
-{
-"t": "Cuando la salud se hace viral",
-"u": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTHFLQ3I5b3RtdG1QZWNzZTRvSGpPV0FzVi14UmkyWkdzdDFUV3RWSGJfdXgwcDRvVVB5MHQyUEEyTldNSk9KME9laF95Rk1VLUdmYy10MjctYVdtcEFrWERDc2gxY0otalRfWnRZWkZVb1UxYTI2QkhXc2Z4Ql9neTdhRFVsNktQQUg0eWRvTlAzdzFtZV9YMNIBngFBVV95cUxNMElieTgwWkVoclVHVzl1RWdxcXU2TFZKREk3TmdHakVxc3IyZGJ5WFlsOEthQlNJOXZDZVlJbkdlSFJYUGdZTUh0LTU2enpXb0pPckVoSk1ERy03VzBQcmhLWUhiVXl0LUJrTURzem1nR3U2OThhOVhZU1RmSUZScGE0dGh4aW84SXFOYU9QSmlPb0h5cDR1WHEwRFlSUQ?oc=5",
-"f": "Revista El Farmacéutico",
-"d": "2026-11-26T10:41Z",
-"p": 3
-},
-{
-"t": "La mascota también elige casa: así influyen perros y gatos en dónde vivimos",
-"u": "https://www.20minutos.es/animaleros/cuando-mascota-tambien-elige-casa-asi-influyen-perros-gatos-donde-vivimos_7037396_0.html",
-"f": "20minutos",
-"d": "2026-11-26T08:52Z",
-"p": 3
-},
-{
-"t": "Lo que realmente dice la etiqueta del pienso de tu perro o gato",
-"u": "https://www.20minutos.es/animaleros/que-realmente-dice-etiqueta-pienso-tu-perro-gato-que-deberias-fijarte_7028062_0.html",
-"f": "20minutos",
-"d": "2026-11-26T08:52Z",
-"p": 3
-},
-{
-"t": "David Broncano revela en 'La Revuelta' el surrealista incidente por el que estuvo a punto de no votar",
-"u": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQRWo0ekJEcHVwZWpRbldYSExpdmRFQ0JkT3hzcXZtSkEzUGVSV1JjeUw5aU1jc0llWnBLYnRqenQwcll4dzFEdGZ6TTdOckNnTHpzeGt0SjlPSkFnRnRleE9IeEdzeTFSV0pTdDBTVzlxdXk4b1JwZDR3YjVRMi16eXhnaE91NFJheEJCVHgtbDB6VWZpODJEQjJSMnM0NXVxNmlnOE1KX0p0eEVIcTBQTEtTR2I1OHRRYkoyb2RjNkFkVndmZFBWM0ptbzhPZnRTbm0xY9IB2gFBVV95cUxOcUZrc1A4V0dhblI5ZENtOG5SbnJaWEgtc1oxSHpNZUVsM2lzejNhVVF4X1phYW85eXdwNGZic2ZOcV90SHRoSnk3YzBqS2c3VE1hNUItTnZUODNzWTFKUFFaZVhXRmhvMllGbF9aNzBWbHBXQkFSSGU3c3Bva0stWFpaUkc5VW1xbWtSV1ZxMXJIWE1SQi1vaXVTcXplYjJVZHdpRmdWR21tbHhSRVQzeThiV2tvY1h3VkEzM3ZaRHRjc0w5REh0S2JBakZ3NzQ0MGtReE9zN0FyZw?oc=5",
-"f": "Elplural.com",
-"d": "2026-11-26T07:55Z",
+"t": "Cuidar burros a cambio de alojamiento y comida: la curiosa experiencia que se ofrece en un pueblo de Zaragoza",
+"u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPVnh3MmpjLUp0S0RmR1NidEJGNXJEVDZmaWg4TEVmdlVXa3o3dkNzSk8yelVNd1ZfclJDa2ptem56Vk1LeHpUUC1zZWhNYXhkQlVVM1NrNGU5eW9na0RtVGo4QUllSHBvUzFzVk12TlBPRXdRbnVYazUwdjRoWGsxS1pheWJjblhydUhuRDZua2tMYlh1N2FLUHZ1eUNxWjFDdFZYTGt4X0RERHQ0UEtNQlZBa2stU1l2NVp4VERtd3RlRTZUTkc1MXRfOW9ndG5jbGVZMXNEMlFNYWtscmwzUGdrX0tfY1VPMXBhQ3I5QjFkb0JFSFHSAfsBQVVfeXFMT0tENmpTdHktWWJobEgwb21zSklGYjUyOWJvV1FJYXduc25YMUV6TmQyS2ZmN0JJRU11YXV4M2ttN3d3ZzFXZl9SZHZmSUU2UERGTzFkbGxocHA2T3Fxb1BRTXdPazlIbjlQUmFQZGhtTU1GRUU4YUpqYWJEbmNXVmRLYXlyRXdGdHVhS2FjMkxULWRBbWIwSUlEYnJVNFhDYW5LWkNoWWluV3dCVUlkWDNaUlpHWnBNS3ZpdXpOZV9VMVVTWFBvenlaamlOYXlFSGM2d1YxWHVtYnBXTEowZUxkTVhKSGZLX21qejkwTDE4a2lwNEZOcUJMMms?oc=5",
+"f": "Aragón Digital",
+"d": "2026-11-26T09:38Z",
 "p": 3
 },
 {
@@ -248,6 +220,48 @@
 "f": "20minutos",
 "d": "2026-11-25T12:33Z",
 "p": 3
+},
+{
+"t": "La divertida reacción de Alaska al imaginarse a Mario Vaquerizo como presidente: \"Yo me veo como primera dama\"",
+"u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNakgzVjZjNkI2Z3ZlcnM3YUxnSW5LQktfTDNJSjJFTFFwb3d1RHlaZDhMakJ2Y2FSejc4RVktaHNLcWE3TFVqM2VyZDhuX19VSDRRMVFoR1ZObHZFd0phODF6MS14TnlNeVdnU291LS02cmh1b3dIcnNfbzhFaHZFZVA1bTN4UkJ2MUpGendjR2EzeF9jYTd3Wjg2eVBqN2VJY25nUEZvME54VncyWW5TTGZIcFNVdF9nZzlWdmZmN091ZTMwd2tYWVlISVFOWVlyUkt6WThTU29tQQ?oc=5",
+"f": "20 Minutos",
+"d": "2026-11-26T13:13Z",
+"p": 2
+},
+{
+"t": "El Centro Dramático Nacional representa en el Rialto la \"brutal y divertida\" 'Al final de las cosas'",
+"u": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPV256MWFlTjRYUkk0ckhUUUF5YUdBeDZ5TFZwSG9Md1NFUGh2X3lra0pndlpPN1VZcnVzVDNkR2xoQTlZSW9qTlpLMUYyMjV6ZjJUdUNSTnQ3VG5qeEF0dkZCNjBuZ2o5MGtpRF9xZnpPN0NaUkxFTXBSRFRzbm9aUDNFNldfaVBFa3NGcG9wLUg5RURrYUFPZ1JkX3JXM3B0SUFhR1h2RjZEZmdzUHVxZHZpelZKd1A2dGNLZHl1Q3hmYVJCS0xsSnRMUGoxMnJkeHdWZEJCaTROd0Nld2djX1R3?oc=5",
+"f": "Europa Press",
+"d": "2026-11-26T13:05Z",
+"p": 2
+},
+{
+"t": "Alaska y Mario Vaquerizo, su divertida reacción al imaginarse como presidente y primera dama",
+"u": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdHo4azBxUkhHYlZELWRxWEJoNXdISXE3SjVFbDNBTURTWkhnY0FjWG5YNWFmeGRtcGZWZ2FvcTB4Uk9LMkhtbmNOWUhmU3RKdFdiSTBBSWVjSEY0eDJMZHY4RktUa2RoVWR4aGsweWpQbGI1NnptRzVFbi1yQVRsejFiSC1RV1F6aG5pTlpsRDNDMGZFdnFic2hxNmxaOTF1R0xDV1V5TGxndUUzalVXLdIBtgFBVV95cUxNQWVMdzJpcjV4djVNLWtST1h3ZWJnR1F2aXdVSzAtbmh4djctcU12WDA1TWhCemRZQ2tkdThDTk9TZGJSV0lxZUR2LXUyeUFGWEMyTzl6d1lheWViMExtSFBwNjVhTTAwUmlfREhZTURncUtaaHFOSlBLUnRYTWdRY0xwZGhFbGdHLXdKaUlRb0wxdHpOYjlJWWVWX0E1SVpnVFZfUW5QczlNbjB4MVBvMzRpdlV2QQ?oc=5",
+"f": "ABC",
+"d": "2026-11-26T12:18Z",
+"p": 2
+},
+{
+"t": "Cuando la salud se hace viral",
+"u": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTHFLQ3I5b3RtdG1QZWNzZTRvSGpPV0FzVi14UmkyWkdzdDFUV3RWSGJfdXgwcDRvVVB5MHQyUEEyTldNSk9KME9laF95Rk1VLUdmYy10MjctYVdtcEFrWERDc2gxY0otalRfWnRZWkZVb1UxYTI2QkhXc2Z4Ql9neTdhRFVsNktQQUg0eWRvTlAzdzFtZV9YMNIBngFBVV95cUxNMElieTgwWkVoclVHVzl1RWdxcXU2TFZKREk3TmdHakVxc3IyZGJ5WFlsOEthQlNJOXZDZVlJbkdlSFJYUGdZTUh0LTU2enpXb0pPckVoSk1ERy03VzBQcmhLWUhiVXl0LUJrTURzem1nR3U2OThhOVhZU1RmSUZScGE0dGh4aW84SXFOYU9QSmlPb0h5cDR1WHEwRFlSUQ?oc=5",
+"f": "Revista El Farmacéutico",
+"d": "2026-11-26T10:41Z",
+"p": 2
+},
+{
+"t": "Lo que realmente dice la etiqueta del pienso de tu perro o gato",
+"u": "https://www.20minutos.es/animaleros/que-realmente-dice-etiqueta-pienso-tu-perro-gato-que-deberias-fijarte_7028062_0.html",
+"f": "20minutos",
+"d": "2026-11-26T08:52Z",
+"p": 2
+},
+{
+"t": "David Broncano revela en 'La Revuelta' el surrealista incidente por el que estuvo a punto de no votar",
+"u": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQRWo0ekJEcHVwZWpRbldYSExpdmRFQ0JkT3hzcXZtSkEzUGVSV1JjeUw5aU1jc0llWnBLYnRqenQwcll4dzFEdGZ6TTdOckNnTHpzeGt0SjlPSkFnRnRleE9IeEdzeTFSV0pTdDBTVzlxdXk4b1JwZDR3YjVRMi16eXhnaE91NFJheEJCVHgtbDB6VWZpODJEQjJSMnM0NXVxNmlnOE1KX0p0eEVIcTBQTEtTR2I1OHRRYkoyb2RjNkFkVndmZFBWM0ptbzhPZnRTbm0xY9IB2gFBVV95cUxOcUZrc1A4V0dhblI5ZENtOG5SbnJaWEgtc1oxSHpNZUVsM2lzejNhVVF4X1phYW85eXdwNGZic2ZOcV90SHRoSnk3YzBqS2c3VE1hNUItTnZUODNzWTFKUFFaZVhXRmhvMllGbF9aNzBWbHBXQkFSSGU3c3Bva0stWFpaUkc5VW1xbWtSV1ZxMXJIWE1SQi1vaXVTcXplYjJVZHdpRmdWR21tbHhSRVQzeThiV2tvY1h3VkEzM3ZaRHRjc0w5REh0S2JBakZ3NzQ0MGtReE9zN0FyZw?oc=5",
+"f": "Elplural.com",
+"d": "2026-11-26T07:55Z",
+"p": 2
 },
 {
 "t": "Actrices y actores de Santiago reviven a Oscar Wilde con Ditea Teatro: \"Es una obra muy divertida\"",
@@ -282,48 +296,6 @@
 "u": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOc0h3dVkxa3J2R0cwQ3otamdOUXh0UkhrSmFIaHJNSXVyWTRGMWNEQXhrcUNOV3lXUEZqSXJ0dl9yMXM5VkgtU3VCZDdFZjdDWGdXdVozS0RhVjBPU0w1SVpCWEU5ZGVrT29aREI0S2c0Sm92RnZMenhPNkROSTVDRmlpLXFxRVRrbm9EV2JoSkdnNnlsTFQ4ODc5MjZsekktN0twcnFwdlltU1VjN3JDUU8tMUtQNGtzTlotbjNmMHhZbUctcHlpSjdKTVFjZw?oc=5",
 "f": "Ayuntamiento de Dos Hermanas",
 "d": "2026-11-25T17:36Z",
-"p": 2
-},
-{
-"t": "Wilco actuará en INSÓLITO el 16 de junio con su gira ‘WilcoWorld Tour 2027’",
-"u": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOY0JjN3V2aGlpNmJPVmhuT3dXa1NDcHNrczFzbnc4LWtzS0tBMlpWbXhlTDJ2akJTeXltVjhkQWZwVVg2MmFJbUZGekZtZ0x4bXhpS3RCOGFWU1BLMkpRNkduVGNkeDlhcEVQOTc0Smk5dkdYcTBxVGZBelhwUERPWXhFS0VmTkxwdURwZXZvQ04xZ3VvQ0dHWGlkN1NORkRjT2JlamZ5aGxSZ0tWVER2S2hadEhVVDJaZHZV0gHAAUFVX3lxTE5LNVpQWldudUExTHM3VzVJUTRmQmpDUi1xbmFkanZmOWhjZWdock1OMXhkVzFOWHBremtZNWNyOXEyZ2FPM0xxalotQmc2d2JYTERMcnUwLV92eHlXN3JJbkpIQm8wNFRVX001NFNWQmlYLXZBYnVSbHFUU1EzanVyXzhycnUzai1ZcXkwUE9sdTNBTlNIeVlDd1J5ak51OGhrQ1VvMG9VZi00Z1hBR09fd3pkQjZvQWkza2tpNmFXZg?oc=5",
-"f": "El Español",
-"d": "2026-11-25T13:36Z",
-"p": 2
-},
-{
-"t": "El cubano Reinaldo Ortega despliega su pop surrealista en una exposición en Alicante",
-"u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNR3hRaldUUFlJZ0l1TzRLUlp3X2MwUThITWNvTDNfbDhnSUppT0lxNklJRjhMNVMycHMtb0R5RWVmTENpd3Zid0JBRnpoR3VHYWFrNm9ULTh3d0dydUFuNWhqTEQwOWZqVkx4MHRKNGR4aGhIeFVZYm5KU2ZUWEtCcEUxY3pzNGhGZlBmclFFZVBZVjFFeVRFTFZPWlVTOVhpZldiN0hFMGUxd9IBrwFBVV95cUxQaTVQbTFfdDFOMFA1ZU4yeTNpYlRDdjUwaWc4bTZ6eWhaX01tWXZPLWItTGNIZFB2ZldBOFByYzV0S1k0Q2lfUHVlNkttNXdWV1ZwUUhJQ0VZMVVDcHpFN18yUVVSTTJwTzhwU2xtVXZXOGJfdEkzQm8zNHFQeEE5RTlRbGlRZVVtLWduX2hxeHZSYnhmSzVWQm5ReTI4QWtnTVZoVEZXM0JGNEdnc2JF?oc=5",
-"f": "Información",
-"d": "2026-11-25T11:59Z",
-"p": 2
-},
-{
-"t": "La San Silvestre Endurera vuelve a Guadalajara para despedir 2026 sobre dos ruedas: \"Es sencilla y divertida, para todos los niveles\"",
-"u": "https://news.google.com/rss/articles/CBMivwJBVV95cUxPQ3lrbGluY3ZBYTRBWjFmcjBNWGRTbGZMZlo2NTdES0dNOVFndlppMXVCeXgtYW1yMk5SRy1tNTRLV0VDR2FXdWRpcVlFWEdKXzBrYkJTVm5TbkJ2Z1EtQU5maXgxcnlUQXlmZ3Nibkk1NzRLcl9LQnZ6OWJfelgyVk5mcDNpN3VRQnU4XzIyb0IyN3lEYkJGMDNpVUhkRGkxTlJkaG1rZVI4ZWpfYTY5akpoUmFDbTNEYXdlbEFON0lKdFFNb0V1bWZLd0Zjb1VyQzF0QXk1OG5CY3NfVHdHMzRQcWRPSlR3RW9JVS1PMzZOS1BkZnF4MnUwSHlUalFXN2FvMzNOQlMzU0tDdUY1LW1qUXQxUjZEajg0VURlVmJHNUVjQjNEQURwelZ2NW91NEs0NlVGOU1ZcDFRR1hz0gHEAkFVX3lxTE5lUlU3UXIySGZNbS10M05md2JWdVRtLVNfUEtodUpKRDBiQklaWTNfMXFSa0VRVHZMNy1pOUJEUW1naVZITHZTaVhWa3A5Y1MxLUxMTjI3RlViemttaDZXd0lWOUlQSjdkcWx2Q2hGUk41cHR6dDF3QkoxWnRuSEVpU25kTV9UQkZHaHZHb19WajIwdHpBRWllVEVqSldOMVRqTENMa0UtMU1nZTZNQnpfcXBoRVU0UUQxVlRvMExMNjFuSzR6ckkxamU4SWM5VDYzRV9LZ2cxYjZEVTRPck9ma09MbzRTR1ZWS1lWNmJHbjBEVFBlNmlnakJ0SnNxbU53cmowUGliOWdYZm41ZklPYk05SlltUVl2TUZGOFdHZlFXa05fNG9tV0lIR0JVTXEyUEhEVUhmbkotSnhETFMwQldfVw?oc=5",
-"f": "COPE",
-"d": "2026-11-25T11:31Z",
-"p": 2
-},
-{
-"t": "Visita un rastro de Alicante y encuentra una curiosa moneda de un Franco punk fumándose un porro: \"Es una locura\"",
-"u": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPdmFOZTZlX0ljWEQ5UEdJUWVvdW9tdVpRMTRwLTlSYkI3My1uMjZfM3BtamdJT2VvWnBPbnE5U3AyTTZGV19BV3lCbjJIQ2ZxSGJGbXNXekxrVklORG9UZGY5aE1DRWRNNGN3UWVZRmlxOUhKUGI0cW95N0ZmYzd4cURUYTRzVUYxRzd2NnZ6OExCUmg4STExRGtGZzRUMUJlNU5yd9IBqgFBVV95cUxNa1dMYThFUGlNWGN1M0JwWUJnZ2NnLTRXLWlmRUNpYUhhMGVaOEJwLVRMY2JTQUF5SkZIYkNhZFl1SVhVU19tTnJLQ0N3SmpZQkJPQkFJOUdueXd4WFRLbVZ6Z2dTcEhUNnhBRmpFVUxrWHk4RFNENzJvczhtM3lIUjVyVndvT2wyZkhEM0ZVOXozLXRjeUxmbzBacFUyZFBFaERUUUZIcXJPdw?oc=5",
-"f": "Información",
-"d": "2026-11-25T10:54Z",
-"p": 2
-},
-{
-"t": "Un robot baila en Algeciras y deja a los periodistas con esta divertida respuesta",
-"u": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTXlpNVFDdzVISzZfUDI3NVMtdS1MZWo3dERpWjRRTFRwQ2pYdXZPZk8xTERTbUc4c2hVMWVFMjVXcWZrWFVLSk54VnA1cTBaRmtyZUNXcXpZNG9yVjk1OG1uLVBSUUFVX0xkbGN6N3VQM1RFdGNGM2RkbC1INW9KaVpmWGNRWUw4Q3d3a0hXdUVTY0tNVFRFZngwQzl1ejlPSzE4d0NENDVVVkhYdGfSAbMBQVVfeXFMT0liRDhQS0hmc1h5azdDdEtQVXdMeVgxcTBFMG5PcngyRGIwV19kR04wYkVTQ3hlaklweW00aEJlZG5wLXNReVA4ejBIMlZUb2RSS2x1UEFVYy0yQ2xndXNnVS1ISzVNQkJVcDF5OVlCMjc0LWJSS282SEZyRmVyNzU1R3dWMVlxek9yeFBFT211MS14dDgtSmZuMnNRaTVzaDdnODBQekRCYjJPTmktem5xaXM?oc=5",
-"f": "Europa Sur",
-"d": "2026-11-25T09:21Z",
-"p": 2
-},
-{
-"t": "Lo siento Notre Dame, pero la catedral gótica más grande del mundo está en España: el Guinness la certificó en 1988, tiene el retablo más grande de la cristiandad y guarda la tumba de Colón",
-"u": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOVld2MkxkVXFZYXA5eXVSY0s5djkxaWVZU1RqZFJFeDQ4QWxrOWdHRzlpZWc3ZDJNa0NfMGRkdnFKdEUyTG1YQmxVa3lQUXlXNFg3XzRFUlpDTWdZWDZXZkV1MGpFNUVuSVVIMG5IbGgyT0F3WWxOT3RERkFYeHBOVTI1REhDU1Zld2k1M1JMcmZ2VHgydnVtMm9YRWVZN0hCREgwaXA3eGUwcjNhU05YSDdZV0tVUjg5Rk80ZkpUdnBoOVRaTXQ3WlVZUlFiSVdPa21v0gHYAUFVX3lxTE9ESk81aHNub3pJaklGa1cwM0VkVzFRaG5nOW50d3VfUEJzaDA1Qjh6YkRHanRDQ2x2T3h5VV94MUdDQkkyRkh0TWd0THhEQ2ZobFl0ZFlDTDFEdjI3bnVnVEs3NkYtX0pzUXBxS2JWbzF3c0ZwTUV5aFdKTkpVSkRMZnBGZVBiY0dqdWdyek5HaWVSd0t3TWdlR2lySGcyYi05R0FCZTAyYk9EcjNUQXJmZXk0dzlvSjlkMF9TeWVDYWdScVpoaGIzcXlWVHJyUFdBZExwUUkxUg?oc=5",
-"f": "Viajar",
-"d": "2026-11-24T13:15Z",
 "p": 2
 }
 ]
