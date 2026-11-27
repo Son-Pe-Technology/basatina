@@ -19,7 +19,7 @@ WEB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "web")
 # clave del acceso (BNL de index.html): [qué es, búsquedas en Commons por orden de preferencia]
 BUSCA = {
  "mascotas":  ["perro", ["Euskal artzain txakurra", "perro pastor vasco", "perro en el monte", "dog meadow"]],
- "temporada": ["verduras de temporada", ["verduras mercado", "pimientos rojos", "espárragos blancos", "vegetables market stall"]],
+ "temporada": ["verduras de temporada", ["fresh vegetables", "tomates huerta", "vegetables basket", "pimientos rojos"]],
  "fotos":     ["cámara de fotos", ["rangefinder camera", "Leica camera", "cámara fotográfica antigua"]],
  "buzon":     ["buzón", ["buzón de Correos España", "buzón amarillo Correos", "mailbox Spain"]],
  "refranes":  ["libro antiguo", ["old book open pages", "old books shelf", "libros antiguos"]],
@@ -30,23 +30,23 @@ BUSCA = {
  "diario":    ["cuaderno", ["cuaderno de campo", "notebook pen table", "diario cuaderno"]],
  "sitios":    ["mirador", ["mirador Navarra", "Urbasa mirador", "Navarra paisaje"]],
  "mivias":    ["carretera de montaña", ["puerto de Belagua carretera", "carretera montaña Navarra", "Larrau carretera"]],
- "semana":    ["calendario", ["desk calendar", "wall calendar photo", "calendario de pared"]],
+ "semana":    ["calendario", ["calendar pages close-up", "planner notebook calendar", "calendar month page"]],
  "ajustes":   ["engranajes", ["engranajes", "gears machine", "gear wheels"]],
- "about":     ["Pamplona", ["Pamplona Navarra panorámica", "Murallas de Pamplona", "Pamplona desde San Cristóbal Navarra"]],
+ "about":     ["Pamplona", ["Plaza del Castillo Pamplona", "Murallas de Pamplona", "Pamplona Casco Antiguo"]],
  "creditos":  ["objetivo de cámara", ["camera lens", "photographic film roll", "film camera"]],
  # juegos
  "jcadenas":  ["Navarra", ["Palacio de Navarra Pamplona", "Plaza del Castillo Pamplona"]],
  "jdonde":    ["paisaje de Navarra", ["Bardenas Reales", "valle de Baztan"]],
  "jlugar":    ["paisaje de Navarra", ["Selva de Irati", "Nacedero del Urederra", "Foz de Lumbier"]],
  "jsopa":     ["letras", ["wooden alphabet letters", "Scrabble tiles", "letterpress type"]],
- "jcruci":    ["crucigrama", ["crossword newspaper pen", "crossword puzzle newspaper", "crucigrama"]],
+ "jcruci":    ["crucigrama", ["crossword puzzle pen", "solved crossword", "crossword pencil"]],
  "jsudoku":   ["sudoku", ["sudoku newspaper", "sudoku pencil", "sudoku puzzle"]],
  "jchinchon": ["baraja española", ["baraja española", "naipes españoles", "Spanish playing cards"]],
  "jparejas":  ["cartas", ["playing cards spread", "playing cards table", "naipes"]],
  "jsoli":     ["cartas", ["solitaire cards", "playing cards", "baraja de póker"]],
  "jnutria":   ["nutria", ["Lutra lutra", "nutria europea", "Eurasian otter"]],
  "jaita":     ["pinball", ["pinball machine", "pinball", "máquina de pinball"]],
- "psombras":  ["sombras", ["teatro de sombras", "shadow puppet theatre", "silhouette sunset tree"]],
+ "psombras":  ["sombras", ["tree shadow on grass", "shadows of trees", "long shadows sunset"]],
  "pcontar":   ["contar", ["abacus beads", "colorful abacus", "wooden counting toy"]],
  "ptruchas":  ["trucha", ["Salmo trutta", "trucha común", "brown trout river"]],
 }
@@ -54,13 +54,14 @@ QUITAR = {   # fotos de Commons que no queremos (revisadas a mano el 27 nov. 202
  'File:Pamplona, Colombia panorámica (4).jpg', 'File:Picnic table - Diergaarde Blijdorp - Rotterdam - with information board.jpg',
  'File:UCB Playing Cards.png', 'File:Sudoku-Domino.jpg', 'File:Bahamas 1989 (410) Abaco (24797713915).jpg',
  'File:Sombras chinescas (2444775233).jpg', 'File:CIUDAD DE REYES Y VERDURAS.jpg', 'File:Eskualdeko Hiri Garraioa - Maiztasunak etorbideak.png',
- 'File:Sello Biblioteca Luz y Progreso.jpg', 'File:Facade of the Vintage Camera Museum 20170820.jpg',
+ 'File:Sello Biblioteca Luz y Progreso.jpg', 'File:Mercado de Frutas y Verduras - Madrid Rio (Arganzuela).JPG', 'File:Desk calendar 2022 July 11 - 03-53PM.jpeg',
+ 'File:Stone entranceway, Duke Chronicle 1984-05-10 page 12.jpg', 'File:Teatro de sombras, Le Chat Noir.jpg', 'File:Facade of the Vintage Camera Museum 20170820.jpg',
 }
 LIBRES = re.compile(r"^(cc0|public domain|pd|cc by(-sa)? ?[0-9.]*( [a-z]+)?|cc-by(-sa)?-[0-9.]+)", re.I)
 NO_VALE = re.compile(r"mapa|map\b|plano|coat of arms|logo|bandera|flag|diagram|grabado|pintura|cuadro|retrato|portrait|"
                      r"selfie|bel[eé]n|nativ|ermita|baseliza|iglesia|church|cathedral|catedral|capilla|altar|retablo|"
                      r"\bniñ[oa]s?\b|children|\bkids?\b|desnud|nude|cartel|poster|captura|screenshot|accident|muert|dead|blood|sangre|"
-                     r"colombia|christmas|navidad|ilustra|drawing|dibujo|alcalde|elecci|election|partido|casino|gambling|apuesta|poker chips|cigar|tabaco|beer|cerveza|wine|vino", re.I)
+                     r"colombia|chronicle|roldán|christmas|navidad|ilustra|drawing|dibujo|alcalde|elecci|election|partido|casino|gambling|apuesta|poker chips|cigar|tabaco|beer|cerveza|wine|vino", re.I)
 
 
 def get(u):
