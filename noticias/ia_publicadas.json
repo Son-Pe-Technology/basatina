@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "4684c318ea7a",
+   "pub": "2026-11-27T14:47Z",
+   "titulo": "Desmantelan red de distribución de droga en Tudela con dos detenidos",
+   "texto": "La Policía Foral ha detenido a dos personas en una operación contra el tráfico de drogas en Tudela. Los arrestos ocurrieron el 19 de noviembre tras una investigación iniciada en octubre que detectó movimiento sospechoso en un huerto cercano a la localidad. Durante los registros en sus domicilios, los agentes hallaron 11 kilos de marihuana, cocaína, ketamina, MDMA y aceite de hachís, junto con material de envasado, básculas y documentación con registros de ventas. Según cálculos policiales, estas sustancias hubieran generado más de 70.000 euros en el mercado ilícito. También se incautaron efectivo, teléfonos y otros objetos. El juzgado de Tudela ha ordenado su puesta en disposición a la espera de juicio.",
+   "pueblo": "Tudela",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/la-policia-foral-desarticula-un-punto-de-venta-de-droga-en-tudela-y-detiene-a-dos-personas/"
+    },
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/tudela-ribera/2026/11/27/desmantelan-punto-venta-droga-tudela-70-000-euros-estupefacientes-machete-843987-22.html"
+    }
+   ]
+  },
+  {
    "id": "642f288086e0",
    "pub": "2026-11-27T13:14Z",
    "titulo": "Pamplona activa su plan invernal con cuatro fases de respuesta",
@@ -712,33 +730,6 @@
     {
      "f": "Ayuntamiento de Pamplona",
      "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-propone-un-proceso-participativo-para-definir-en-el-mes-de"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "006a7d805f08",
-   "pub": "2026-11-25T10:11Z",
-   "titulo": "Siete investigados por estafas del 'hijo en apuros' en Navarra",
-   "texto": "La Guardia Civil ha investigado a siete presuntos integrantes de un grupo criminal que realizó cuatro estafas mediante el método del «hijo en apuros» en varias localidades de Navarra, causando perjuicios superiores a 48.000 euros. Los estafadores contactaban por SMS o WhatsApp suplantando la identidad de familiares, argumentando cambios de teléfono o dispositivos averiados, para solicitar transferencias urgentes por supuestos problemas personales. La investigación reveló una estructura con «mulas bancarias» que proporcionaban cuentas para recibir y trasladar el dinero, así como documentos de identidad falsificados. Se han recuperado 10.903 euros. La Guardia Civil recomienda verificar la identidad mediante una llamada al teléfono conocido antes de realizar cualquier envío de dinero.",
-   "pueblo": "Pamplona, Zizur Mayor, Estella, Castejón",
-   "cat": "Sucesos",
-   "fuentes": [
-    {
-     "f": "COPE",
-     "u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/investigan-siete-personas-estafar-48-000-euros-timo-hijo-apuros-navarra-20261125_3481608.html"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/25/investigadas-7-personas-4-estafas-hijo-apuros-navarra-perjuicio-economico-48-000-euros-843684-15.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-sociedad/siete-investigados-en-navarra-por-cuatro-estafas-del-hijo-en-apuros-que-alcanzan-los-48000-euros/"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-siete-investigados-cuatro-estafas-hijo-apuros-cizur-mayor-estella-castejon-pamplona-20261125092729.html"
     }
    ],
    "auto": true
