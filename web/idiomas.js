@@ -2300,3 +2300,17 @@ Object.assign(window.I18N.fr, {"La Luna y el campo": "La Lune et la campagne", "
   const R = window.I18N_RU = window.I18N_RU || {};
   ['eu', 'en', 'fr'].forEach((l, k) => {R[l] = R[l] || {}; for (const s in T) if (!(s in R[l])) R[l][s] = T[s][k];});
 })();
+
+/* 27 nov. 2026 · ficha «profesional» de las rutas (NA a Pie): textos nuevos [euskera, inglés, francés] */
+(function () {
+  const T = {
+    'Tiempo MIDE': ['MIDE denbora', 'MIDE time', 'Durée MIDE'],
+    'Subida': ['Igoera', 'Ascent', 'Montée'], 'Bajada': ['Jaitsiera', 'Descent', 'Descente'],
+    'GPX': ['GPX', 'GPX', 'GPX'], 'Cómo llegar': ['Nola iritsi', 'Directions', 'Itinéraire'], 'Web oficial': ['Web ofiziala', 'Official website', 'Site officiel'],
+    'Perfil': ['Profila', 'Profile', 'Profil'], 'Ficha técnica': ['Fitxa teknikoa', 'Technical data', 'Fiche technique'],
+    'Esfuerzo MIDE': ['MIDE ahalegina', 'MIDE effort', 'Effort MIDE'], 'sube': ['igo', 'up', 'montée'], 'baja': ['jaitsi', 'down', 'descente'],
+    'Altitud': ['Altitudea', 'Altitude', 'Altitude'], 'Terreno': ['Lurra', 'Terrain', 'Terrain']
+  };
+  const R = window.I18N_RU = window.I18N_RU || {};
+  ['eu', 'en', 'fr'].forEach((l, k) => {R[l] = R[l] || {}; for (const s in T) if (!(s in R[l])) R[l][s] = T[s][k];});
+})();
