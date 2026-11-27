@@ -1,5 +1,5 @@
 {
- "version": 634,
+ "version": 635,
  "apk": 39,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -226,7 +226,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "f5f867d1dad58246b59396ed05f104962e2915c7",
+  "index.html": "7cbd863c17cbda0a8e91c3904fa156b155c11af7",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "41f915728d3343673acd987493af6919cf30c1d6",
   "inicio-fotos.js": "43e094b5a678203c304dd03af2b300c61e3a2e0f",
@@ -253,7 +253,7 @@
   "monte-avisos.js": "d7015b708f30b81fd041a4604ffac3c22b561a59",
   "monte.js": "dbbaf7ee02f606c015065c828518c6e4b7d68026",
   "naturaleza-catalogo.js": "d0b255c1220641a4c60ca0430c7ac66c43e87b12",
-  "novedades.js": "db6197f68f751342b62b34c38eae6f3c100bd06f",
+  "novedades.js": "e5a2890d7bec7ba7e29bab110c98035a3b2aa0a1",
   "ocio-ui.js": "ab9daac1d3288a07fee43a4588f4548aa619ce5e",
   "ocio.js": "ceb8ddc43ab2d2380e8e152345162c5cf4d98c5e",
   "oficial.js": "473fde5ef3fecd002eb56b9f8264b48013556d4a",
