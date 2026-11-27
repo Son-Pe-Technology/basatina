@@ -1,5 +1,5 @@
 {
- "version": 602,
+ "version": 603,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -196,7 +196,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "d8e6f86325080aae0c2322a612335bc375015e96",
-  "index.html": "e518031d2fa660c1367c125328f25c871aa8a4df",
+  "index.html": "ea1bc5ff2c4296421bc4a1e86e143661e0fb0b3f",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "e87919c68afd9ce60be3914681e43c6b1a7ffe5e",
   "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
@@ -386,7 +386,7 @@
   "viaje.js": "eb7e77764e36f34236e97a2e8a03f92a2c44310f",
   "vivienda.js": "ce3e6e7063d10a77745f92621c0474b4b4355dc3",
   "voluntariado.js": "30e1b2f4a98a9fa5c46773ab5e80e809b36294c0",
-  "zorionak.js": "1cb7d8fa5eaea4a257ef6ce7e95a360287c21848"
+  "zorionak.js": "a9fec4e16eb8f929e914a46858b916ce90040fc1"
  },
  "apkUrl": "https://github.com/Son-Pe-Technology/basatina/releases/latest/download/BasatiNA.apk"
 }
