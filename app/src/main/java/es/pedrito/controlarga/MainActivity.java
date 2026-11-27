@@ -212,9 +212,19 @@ public class MainActivity extends Activity {
         try { bundled = versionOf(getAssets().open("version.json")); } catch (Exception ignored) {}
         File m = new File(getFilesDir(), "web/version.json");
         if (m.exists()) try { downloaded = versionOf(new FileInputStream(m)); } catch (Exception ignored) {}
-        if (downloaded > bundled) return "file://" + new File(getFilesDir(), "web/index.html").getAbsolutePath();
+        File idx = new File(getFilesDir(), "web/index.html");
+        if (downloaded > bundled) {
+            if (idx.exists() && idx.length() > 0) return "file://" + idx.getAbsolutePath();
+            // 27 nov. 2026: si falta index.html (actualización a medias), se usa la pantalla del APK y se
+            // borra la lista local para que la próxima actualización vuelva a bajar lo que falte.
+            m.delete();
+        }
         return "file:///android_asset/index.html";
     }
+
+    /** 27 nov. 2026: dos actualizaciones a la vez se pisaban los archivos «.part» y podían dejar el móvil sin index.html
+     *  («Página web no disponible»). Ahora solo puede haber una a la vez. */
+    static final Object UPD_LOCK = new Object();
 
     /** true si la app se instaló desde Google Play (entonces las versiones nuevas llegan por Play, no por el APK) */
     private boolean fromPlay() {
@@ -344,7 +354,7 @@ public class MainActivity extends Activity {
         /** Descarga solo los archivos de la pantalla que han cambiado y avisa a la página */
         @JavascriptInterface
         public void updateWeb(final String id) {
-            new Thread(() -> {
+            new Thread(() -> { synchronized (UPD_LOCK) {
                 try {
                     // 20 nov. 2026: raw.githubusercontent.com guarda copias hasta 5 minutos y NO hace caso del «?t=…»,
                     // así que justo después de subir un cambio podía dar la lista vieja o, peor, un archivo viejo
@@ -362,7 +372,9 @@ public class MainActivity extends Activity {
                     JSONObject lf = local.optJSONObject("files"), bf = bundled.optJSONObject("files");
                     int current = Math.max(local.optInt("version", 0), bundled.optInt("version", 0));
                     int changed = 0;
-                    if (remote.optInt("version", 0) > current) {
+                    boolean falta = false;   // 27 nov. 2026: si falta algún archivo (actualización a medias), se vuelve a bajar
+                    if (lm.exists() && lf != null) { java.util.Iterator<String> k = lf.keys(); while (k.hasNext()) { String n = k.next(); if (n.matches("[A-Za-z0-9._-]+") && !new File(dir, n).exists()) { falta = true; break; } } }
+                    if (remote.optInt("version", 0) > current || falta) {
                         // 1) se descarga todo a archivos «.part» y se comprueba la huella; si algo falla, no se toca nada
                         java.util.List<String> nuevos = new java.util.ArrayList<>();
                         java.util.Iterator<String> it = rf.keys();
@@ -403,7 +415,7 @@ public class MainActivity extends Activity {
                 } catch (Exception e) {
                     callback(id, 0, "{\"ok\":false,\"error\":" + JSONObject.quote(e.toString()) + "}");
                 }
-            }).start();
+            } }).start();
         }
 
         /** Tamaño de letra: 100 normal, 115 grande, 130 muy grande */
