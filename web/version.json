@@ -1,5 +1,5 @@
 {
- "version": 624,
+ "version": 625,
  "apk": 38,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -20,7 +20,7 @@
   "bna-montserrat.woff2": "a5ec54920b589ebe2af3bc3bb7754a476db68abf",
   "c12.jpg": "ac3fa4c4bc823c0b64c7c69990cf891eb00e6319",
   "c14.jpg": "00f5a26af1b6c701d5ffd8b64b9832f8c3b3fe03",
-  "cabeceras-fotos.js": "e9d1ea59ab9b41041a1479a9f937f62369c4b239",
+  "cabeceras-fotos.js": "8a70ce4b51e1621bc5c1791bf6e1fc5a50fe15e2",
   "caza.js": "b3e1118f68338647c8ef2068f9a92c5c2545774f",
   "chinchon.js": "b45c8fb64fd79aa3e3993f1dc4e6ade151490161",
   "cierre.js": "88ceb10fe0332f0ccfa5aaa66a7304efc2b16935",
@@ -198,10 +198,10 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "bb253b9de68bd7499b756fcaa2e69b6aa4e97b1b",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "bfc338786d288839d79b1d358217639db5de73b4",
+  "index.html": "ddbd4989536c7662b654ad165fa21b7ec5f83db1",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "41f915728d3343673acd987493af6919cf30c1d6",
-  "inicio-fotos.js": "1b31ce7052304b9dacbe4af30a7c7779bbf19231",
+  "inicio-fotos.js": "574a4b57e1c38c0a59c84bef168f61b070ff6854",
   "inicio-vivo.js": "cc153909045bc9d63e176ea21a235c218248f790",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
   "juego-fijo.js": "5cd1df00d4ff6c20b12c406a27ff0fe3c00a04f9",
