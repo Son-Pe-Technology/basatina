@@ -1,6 +1,20 @@
 {
  "items": [
   {
+   "id": "043361540893",
+   "pub": "2026-11-27T07:45Z",
+   "titulo": "National Geographic premia la exposición sobre templarios en Navarra",
+   "texto": "La muestra Templarios y hospitalarios en la Navarra medieval ha ganado el premio a Mejor exposición sobre Historia en España en la III edición de los Premios +Historia de National Geographic. Los lectores de la revista eligieron entre treinta candidaturas el ganador de esta categoría. La exposición, promovida por el Archivo Real y General de Navarra y la Universidad de Navarra, se pudo ver entre noviembre de 2024 y abril de 2025. Julia Pavón, catedrática de Historia Medieval y decana de Filosofía y Letras de la Universidad de Navarra, resaltó que el galardón visibiliza la investigación sobre órdenes militares. La gala de entrega de premios tendrá lugar en febrero en Córdoba.",
+   "pueblo": "Pamplona",
+   "cat": "Cultura",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/la-exposicion-sobre-los-templarios-del-archivo-de-navarra-y-la-universidad-galardonada-en-los-premios-de-national/"
+    }
+   ]
+  },
+  {
    "id": "c810f72f76bc",
    "pub": "2026-11-26T22:38Z",
    "titulo": "Grosso, elegida mejor cadena de pizza artesanal del mundo",
@@ -725,29 +739,6 @@
     {
      "f": "Ayuntamiento de Pamplona",
      "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-de-pamplona-refuerza-el-dispositivo-de-limpieza-para-retirar"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "8c0b2b802147",
-   "pub": "2026-11-24T10:08Z",
-   "titulo": "Etxeberria conquista su segunda txapela consecutiva del Cuatro y Medio",
-   "texto": "El pelotari de Zenotz se impuso a Javier Zabala por 22-20 en la final del Cuatro y Medio Eusko Label 2026, disputada en el Bizkaia Frontoia de Bilbao. El encuentro duró 1 hora y 14 minutos y se definió en los últimos puntos con casi 2.700 espectadores presenciando un partido muy igualado. Etxeberria remontó desde una salida irregular y pese a sufrir un problema físico en mitad del partido. Con esta victoria, el navarro suma su segundo título consecutivo en la especialidad.",
-   "pueblo": "Bilbao",
-   "cat": "Deportes",
-   "fuentes": [
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/deportes/pelota/2026/11/22/etxeberria-he-seguido-he-creido-843413-47.html"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/deportes/pelota/2026/11/22/zabala-me-he-visto-campeon-hay-levantarse-843412-47.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-deportes/peio-etxeberria-revalida-la-txapela-del-cuatro-y-medio-tras-imponerse-a-zabala-por-22-20/"
     }
    ],
    "auto": true
