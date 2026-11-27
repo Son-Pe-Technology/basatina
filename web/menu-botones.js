@@ -10,7 +10,9 @@
 (function () {
   const st = document.createElement('style');
   st.textContent = `
-body.bna #drawer .dsub.mfLs{background:none!important;box-shadow:none!important;border:0!important;padding:6px 2px 4px!important;display:flex!important;flex-direction:column!important;gap:8px!important}
+body.bna #drawer .dsub.mfLs{background:none!important;box-shadow:none!important;border:0!important;padding:6px 2px 4px!important;flex-direction:column;gap:8px}
+/* solo se ven al tocar la tarjeta grande del grupo (.dgroup.open), como antes */
+body.bna #drawer .dgroup.open+.dsub.mfLs{display:flex!important}
 body.bna #drawer .dsub.mfLs>button .bt{display:none!important}
 body.bna #drawer .dsub.mfLs>button{background:#fff!important;border:1.5px solid #d5dfd2!important;border-radius:16px!important;padding:10px 14px 10px 16px!important;margin:0!important;
   box-shadow:0 1px 3px rgba(29,45,35,.06)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;min-height:0!important;width:100%!important;text-align:left!important}
