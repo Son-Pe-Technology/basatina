@@ -235,110 +235,6 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
-   "id": "cncrianzapositiva36anos720261126",
-   "t": "Crianza positiva 3-6 años",
-   "cat": "otros",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "17:00",
-   "lugar": "Biblioteca de Navarra. Sala Planta 1",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-26/taller/crianza-positiva-3-6-anos-7",
-   "desc": "",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "patallerbizitxokoreparatubicinoviembrecivi20261126",
-   "t": "Bizitxoko, repara tu bici - Noviembre",
-   "cat": "otros",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Civivox Mendillorri",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/taller-bizitxoko-repara-tu-bici-noviembre-civivox-mendillorri",
-   "desc": "Taller",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pacuentacuentoseneuskeraipuinkontaketabibl20261126",
-   "t": "Ipuin Kontaketa",
-   "cat": "teatro",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Biblioteca Pública de la Milagrosa",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/cuentacuentos-en-euskera-ipuin-kontaketa-biblioteca-milagrosa-4",
-   "desc": "Cuentacuentos en euskera",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "cnquehariastuenlugardeodiseo20261126",
-   "t": "¿Qué harías tú en lugar de Odiseo?",
-   "cat": "otros",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "18:00",
-   "lugar": "Biblioteca de Navarra. Sala infantil",
-   "pueblo": "Pamplona",
-   "url": "https://www.culturanavarra.es/es/agenda/2026-11-26/ocio-infantil/que-harias-tu-en-lugar-de-odiseo",
-   "desc": "Actividad infantil",
-   "src": "Cultura Navarra"
-  },
-  {
-   "id": "pafestivalderemonte2611202620261126",
-   "t": "26/11/2026",
-   "cat": "otros",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Frontón Labrit",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/festival-de-remonte-26112026",
-   "desc": "Festival de Remonte",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paconciertogospelbibliotecasanpedro20261126",
-   "t": "Gospel",
-   "cat": "concierto",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "19:00",
-   "lugar": "Biblioteca Pública de San Pedro",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/concierto-gospel-biblioteca-san-pedro",
-   "desc": "Concierto",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "paconciertoorquestasinfonicadenavarrabalua20261126",
-   "t": "Orquesta Sinfónica de Navarra - Baluarte",
-   "cat": "concierto",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "19:30",
-   "lugar": "Baluarte - Palacio de Congresos y Auditorio de Navarra",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/concierto-orquesta-sinfonica-de-navarra-baluarte-261126",
-   "desc": "Concierto",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
-   "id": "pamusicaltigerlilliesmacbethsongteatrogaya20261126",
-   "t": "The Tiger Lillies in a Macbeth Song",
-   "cat": "concierto",
-   "f": "2026-11-26",
-   "ff": "",
-   "h": "20:00",
-   "lugar": "Teatro Gayarre",
-   "pueblo": "Pamplona",
-   "url": "https://www.pamplona.es/actualidad/eventos/musical-tiger-lillies-macbeth-song-teatro-gayarre",
-   "desc": "Musical",
-   "src": "Ayuntamiento de Pamplona"
-  },
-  {
    "id": "paencuentrojuvenilelefectomatildacasadelaj20261127",
    "t": "El Efecto Matilda",
    "cat": "charla",
@@ -388,6 +284,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/teatro-manos-arriba-sociedad-limitada-ent",
    "desc": "Teatro",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "pamonologoalexodoghertyteatrogayarre20261127",
+   "t": "Alex O\"Dogherty",
+   "cat": "teatro",
+   "f": "2026-11-27",
+   "ff": "",
+   "h": "20:30",
+   "lugar": "Teatro Gayarre",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/monologo-alex-odogherty-teatro-gayarre",
+   "desc": "Monólogo",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -703,6 +612,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "patallertarjetatunelbibliotecadesanfrancis20261211",
+   "t": "Tarjeta Túnel",
+   "cat": "otros",
+   "f": "2026-12-11",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Biblioteca Pública de San Francisco",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/taller-tarjeta-tunel-biblioteca-de-san-francisco",
+   "desc": "Taller",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "paciclodehumordateprisayosobrevivilaegbent20261211",
    "t": "Yo sobreviví a la EGB",
    "cat": "otros",
@@ -781,6 +703,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "pafan26festivaldeanimedenavarra20261214",
+   "t": "Festival de Anime de Navarra",
+   "cat": "otros",
+   "f": "2026-12-14",
+   "ff": "2026-12-20",
+   "h": "",
+   "lugar": "Civivox Condestable",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/fan-26-festival-de-anime-de-navarra",
+   "desc": "FAN 26",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "panavidadconciertocorovocesgraves20261214",
    "t": "Navidad. Concierto Coro Voces Graves",
    "cat": "coro",
@@ -791,6 +726,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/navidad-concierto-coro-voces-graves",
    "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "paconferencia100anosdefiestadeernestheming20261215",
+   "t": "100 años de Fiesta de Ernest Hemingway",
+   "cat": "charla",
+   "f": "2026-12-15",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Biblioteca Pública de San Francisco",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/conferencia-100-anos-de-fiesta-de-ernest-hemingway-biblioteca-de-san-francisco",
+   "desc": "Conferencia",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -817,6 +765,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/navidad-concierto-spolem-girls",
    "desc": "",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "patallercollagebibliotecadesanfrancisco20261216",
+   "t": "Collage",
+   "cat": "otros",
+   "f": "2026-12-16",
+   "ff": "",
+   "h": "17:30",
+   "lugar": "Biblioteca Pública de San Francisco",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/taller-collage-biblioteca-de-san-francisco",
+   "desc": "Taller",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -2289,6 +2250,19 @@
    "src": "Ayuntamiento de Pamplona"
   },
   {
+   "id": "pateatrolabelladurmienteelmusicaldetusrecu20261228",
+   "t": "La Bella durmiente. El musical de tus recuerdos",
+   "cat": "concierto",
+   "f": "2026-12-28",
+   "ff": "",
+   "h": "18:00",
+   "lugar": "Teatro Gayarre",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/teatro-la-bella-durmiente-el-musical-de-tus-recuerdos-teatro-gayarre",
+   "desc": "Teatro",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
    "id": "pafestivalsantaspascuas2026conciertoenaute20261228",
    "t": "Concierto",
    "cat": "concierto",
@@ -2299,6 +2273,19 @@
    "pueblo": "Pamplona",
    "url": "https://www.pamplona.es/actualidad/eventos/festival-santas-pascuas-2026-concierto-enaut-elorrieta",
    "desc": "Festival Santas Pascuas 2026",
+   "src": "Ayuntamiento de Pamplona"
+  },
+  {
+   "id": "panavidadtallerdeartesanialossimbolosperdi20261228",
+   "t": "Navidad. Taller de artesanía: Los símbolos perdidos",
+   "cat": "otros",
+   "f": "2026-12-28",
+   "ff": "",
+   "h": "",
+   "lugar": "Civivox Iturrama",
+   "pueblo": "Pamplona",
+   "url": "https://www.pamplona.es/actualidad/eventos/navidad-taller-de-artesania-los-simbolos-perdidos",
+   "desc": "",
    "src": "Ayuntamiento de Pamplona"
   },
   {
@@ -2328,5 +2315,5 @@
    "src": "Cultura Navarra"
   }
  ],
- "act": "2026-11-26 06:25"
+ "act": "2026-11-27 06:28"
 }
