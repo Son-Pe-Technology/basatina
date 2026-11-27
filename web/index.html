@@ -384,10 +384,10 @@ body.bna .btn:active{transform:scale(.96)}
 body.bna .btn.pri{background:linear-gradient(135deg,#4a8a3c,#3D7031 45%,#0a6f95);box-shadow:0 8px 18px -8px rgba(13,98,133,.65),inset 0 1px 0 rgba(255,255,255,.25);border:none}
 body.bna .btn.red{background:linear-gradient(135deg,#ff7a50,#d03a1a);border:none;box-shadow:0 8px 18px -8px rgba(221,72,38,.6)}
 body.bna .btn[disabled]{opacity:.45;box-shadow:none}
-/* control segmentado tipo iOS */
-body.bna .seg{background:rgba(29,45,35,.065);padding:4px;border-radius:16px;gap:3px}
-body.bna .seg button,body.bna .seg .btn{border:none;background:transparent;box-shadow:none;border-radius:12px;color:#4d5c55;padding:8px 10px}
-body.bna .seg button.on,body.bna .seg .btn.on{background:#fff;color:#1D1D1D;box-shadow:0 2px 8px rgba(29,45,35,.14),0 0 0 .5px rgba(29,45,35,.06)}
+/* 28 nov. 2026 (Pedro): las pestañas ya no van juntas en una barra (control segmentado); cada una es un botón separado en la misma fila */
+body.bna .seg{background:transparent;padding:0;border-radius:0;gap:8px}
+body.bna .seg button,body.bna .seg .btn{background:#fff;border:1px solid rgba(29,45,35,.10);box-shadow:0 1px 2px rgba(29,45,35,.06),0 4px 12px -6px rgba(29,45,35,.18);border-radius:14px;color:#3d4a43;padding:9px 10px}
+body.bna .seg button.on,body.bna .seg .btn.on{background:var(--verde);border-color:var(--verde);color:#fff;box-shadow:0 4px 12px -4px rgba(61,112,49,.6)}
 /* formularios */
 body.bna select.town,body.bna input[type=text],body.bna input[type=search],body.bna input[type=number],body.bna input[type=email],body.bna input[type=date],body.bna input[type=time],body.bna textarea,body.bna input.town{
   background:#fff!important;color:#1D1D1D!important;border:1px solid rgba(29,45,35,.12)!important;border-radius:14px!important;box-shadow:inset 0 1px 2px rgba(29,45,35,.05);transition:border-color .2s,box-shadow .2s}
