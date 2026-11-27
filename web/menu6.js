@@ -46,7 +46,7 @@ const M6_FAM={
 /* nombre y línea corta de cada apartado en el menú (el resto se queda como estaba) */
 const M6_SUB={mtiempo:['Inicio','Lo de hoy en Navarra'],noticias:['Noticias','Titulares y noticias curiosas'],cerca:['Qué hay cerca','Lo que tienes alrededor'],
  tiempo:['El tiempo','Ahora, radar, nieve, cielo, energía e histórico'],caudal:['Ríos','Caudal, embalses y previsión'],sismo:['Terremotos','Últimos terremotos y fallas'],
- biodiversidad:['Flora y fauna','Especies, temporada de setas y frutos, espacios protegidos'],monte:['Salir','A pie, en bici, en moto y de picnic'],
+ biodiversidad:['Flora y fauna','Especies, temporada de setas y frutos, espacios protegidos'],monte:['NA a Pie','Rutas a pie, en bici, en moto y de picnic'],
  incid:['Carreteras','Incidencias, cámaras y tiempo en carretera'],gas:['Gasolineras y recarga eléctrica','Precios y puntos de recarga'],bus:['Transporte público','Villavesas, autobuses y tren'],
  pueblos:['Localidades','Pueblos, comarcas y valles'],comer:['Comer y dormir','Restaurantes, alojamientos, cocina y museos'],super:['Compras','Supermercados, mercadillos y productos de temporada'],
  salud:['Salud','Farmacias, centros y tiempo y salud'],vivienda:['Vivienda','Alquiler, venta e hipotecas'],empleo:['Empleo','Webs con ofertas en Navarra'],
