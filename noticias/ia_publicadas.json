@@ -1,6 +1,24 @@
 {
  "items": [
   {
+   "id": "1564c039704c",
+   "pub": "2026-11-27T16:52Z",
+   "titulo": "Kunak gana el premio internacional de Cepyme por su expansión global",
+   "texto": "La empresa navarra Kunak ha recibido el Premio Pyme Desarrollo Internacional de Cepyme por su crecimiento en mercados exteriores. La compañía, que exportaba a cinco países en 2020, opera ahora en más de 90 mercados y sus ventas internacionales representan el 77 % de su facturación total. Entre 2023 y 2025, estas ventas crecieron un 96 %, según señaló el CEO y cofundador Javier Fernández durante la entrega del galardón.",
+   "pueblo": "Navarra",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/la-navarra-kunak-gana-el-premio-pyme-desarrollo-internacional-de-cepyme/"
+    },
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/la-empresa-de-cascante-sola-cocinas-abre-su-primera-tienda-en-pamplona/"
+    }
+   ]
+  },
+  {
    "id": "efc0b1118c99",
    "pub": "2026-11-27T16:52Z",
    "titulo": "Gurpea Group aspira a facturar 45 millones en 2027",
@@ -689,41 +707,6 @@
     {
      "f": "Ayuntamiento de Pamplona",
      "u": "https://www.pamplona.es/actualidad/noticias/abierto-el-plazo-para-solicitar-la-inscripcion-en-el-registro-de-demandantes-de"
-    }
-   ],
-   "auto": true
-  },
-  {
-   "id": "a50e4a5d4cc1",
-   "pub": "2026-11-25T13:19Z",
-   "titulo": "Pamplona conmemora el 25-N enfocado en la violencia hacia mujeres mayores",
-   "texto": "El Ayuntamiento de Pamplona celebró este miércoles en la Plaza Consistorial un acto institucional por el Día Internacional contra la Violencia hacia las Mujeres con la lectura de la declaración «Ni olvidadas ni invisibilizadas», suscrita por cuarenta entidades navarras. Este año la conmemoración puso el foco en las mujeres mayores, que sufren violencias agravadas por dependencia económica, brecha digital y falta de visibilidad. Según la Delegación del Gobierno, el 5% de las mujeres de más de 65 años ha padecido violencia física de pareja, el 2,9% violencia sexual y el 8,8% violencia económica. El Consistorio se comprometió a mejorar la detección y prevención, reforzar la formación de profesionales y garantizar acceso a recursos adaptados a cada situación.",
-   "pueblo": "Pamplona",
-   "cat": "Sociedad",
-   "fuentes": [
-    {
-     "f": "Cadena SER",
-     "u": "https://cadenaser.com/navarra/2026/11/25/navarra-se-suma-al-25-n-con-un-llamamiento-a-combatir-la-violencia-machista-y-reforzar-la-atencion-a-las-victimas-radio-pamplona/"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-gobierno-navarra-recuerda-red-publica-apoyo-victimas-violencia-genero-no-estan-solas-20261125131632.html"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-ayuntamiento-pamplona-conmemora-dia-contra-violencia-mujeres-acto-plaza-consistorial-20261125115026.html"
-    },
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-dedica-el-25n-a-las-mujeres-mayores-con-la-declaracion-ni-olvidadas-ni-invisibilizadas/"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-policia-foral-destaca-atencion-proteccion-cadena-unidades-contra-violencia-genero-20261125102704.html"
-    },
-    {
-     "f": "Ayuntamiento de Pamplona",
-     "u": "https://www.pamplona.es/actualidad/noticias/el-ayuntamiento-de-pamplona-conmemora-el-dia-internacional-contra-la-violencia"
     }
    ],
    "auto": true
