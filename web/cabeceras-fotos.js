@@ -56,13 +56,18 @@ body.bna #pvSec.cfFoto:before{content:"";position:absolute;inset:0;z-index:0;bac
 #pvSec.cfFoto .pvsT{z-index:1;left:14px;right:14px;bottom:9px;gap:0;display:block}
 #pvSec.cfFoto .pvsT b{font-size:16.5px!important;line-height:1.15}
 #pvSec.cfFoto .pvsT small{font-size:11.5px!important;margin-top:1px}
+#pvSec .cfFirma{position:absolute;right:48px;top:12px;z-index:2;font-size:12px;font-style:normal;font-weight:700;color:#fff;opacity:.92;text-shadow:0 1px 3px rgba(0,0,0,.75);pointer-events:none}
 .cfCred{font-size:11px;color:var(--mut);margin:0 8px 12px;line-height:1.45}.cfCred a{color:inherit}`;
 document.head.appendChild(st);
 // 27 nov. 2026 (Pedro): los accesos directos del Inicio sin foto propia cogen la de la cabecera de su sección (inicio-fotos.js)
 window.cfFoto=t=>CF[t]?CF[t][0]:null;window.cfCred=t=>CF[t]||null;
 // precarga suave para que la foto salga al momento
 setTimeout(()=>{for(const k in CF){const i=new Image();i.src=CF[k][0];}},8000);
-function cab(t){const el=$('pvSec');if(!el)return;const f=CF[t];
+// 28 nov. 2026 (Pedro): la firma de cada foto en su esquina, como en el menú («© Sonia»)
+const FIRMA={[P]:'Pedrito',[S]:'Sonia'};
+function firma(el,f){let e=el.querySelector(':scope>.cfFirma');if(!f){if(e)e.remove();return;}
+  if(!e){e=document.createElement('em');e.className='cfFirma';el.appendChild(e);}e.textContent='© '+(f[2]?(FIRMA[f[2]]||f[2]):'Foto libre');}
+function cab(t){const el=$('pvSec');if(!el)return;const f=CF[t];firma(el,f);
   if(f){el.classList.add('cfFoto');el.style.backgroundImage=`url("${f[0]}")`;try{if(PVSraf){cancelAnimationFrame(PVSraf);PVSraf=0;}}catch(e){}}   // sin animación debajo: ahorra batería
   else if(el.classList.contains('cfFoto')){el.classList.remove('cfFoto');el.style.backgroundImage='';}}
 function cred(t){const f=CF[t];if(!f)return;const sec=document.querySelector('section.on')||$('t-'+t);if(!sec)return;
