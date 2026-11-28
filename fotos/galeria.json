@@ -8,17 +8,6 @@
  "hashtag": "#BasatiNA",
  "fotos": [
   {
-   "id": "g2sxrvsgublbnnqfbmxp",
-   "url": "https://res.cloudinary.com/ylu8eqgl/image/upload/v1795684774/g2sxrvsgublbnnqfbmxp.jpg",
-   "cat": "rio",
-   "lugar": "Iruña",
-   "alias": "Pedrito",
-   "desc": "Un buen desayuno para comenzar el día",
-   "d": "2026-11-26",
-   "ok": "v1 · noviembre 2026",
-   "ts": "2026-11-26T09:19:33.114Z"
-  },
-  {
    "id": "ypj8pv7oabcuzsnqth2u",
    "url": "https://res.cloudinary.com/ylu8eqgl/image/upload/v1795765496/ypj8pv7oabcuzsnqth2u.jpg",
    "cat": "pueblo",
@@ -42,5 +31,7 @@
    "ts": "2026-11-28T07:58:46.882Z"
   }
  ],
- "descartadas": []
+ "descartadas": [
+  "g2sxrvsgublbnnqfbmxp"
+ ]
 }
