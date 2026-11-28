@@ -1,14 +1,7 @@
 {
-"t": "2026-11-28T07:37Z",
-"turno": "2026-11-28-m",
+"t": "2026-11-28T13:24Z",
+"turno": "2026-11-28-t",
 "dest": [
-{
-"k": "2026-11-24-t",
-"t": "\"El Beagle es un perro alegre, curioso y lleno de energía\". El adiestrador Ángel Osuna habla de su carácter y cuidados",
-"u": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNcUtaM0RaX3JmZUt5SmNuWHFPS1FvZElmU3pramhhempFb19VM0t2LXhfeFlYNEZfcTgzS21oNGNpc3QwRDZxQXNCUUVlSjQyUzl1NkprY1k5Q3NDTFdKeUlKbkJoOXJqTVQyWHVFWTVfWDhqUWZhcHVpVTZXb19NRk9nbjZxbjcwM3JpaWlENDQwbzljM0VSRlBIcGl0X2ZYNUJHdlpEbXprNGV1eWc4NXdPUVJEdmtId0JrTWdCQzZJZ0dBZ2VNQVZ4MjdITm15dHlqaTIzWS1jYUFPdmsyMVhfVmUtY0R6cVhtejI4QlNGUjhQM05PLS1RNW5BNncyeS1MM25sYXRnUDZYckJyOGZtZlNMcm9XLTFoOHZBel9ud0FGSFJCU0M3VGNPV0ZzNHc?oc=5",
-"f": "Onda Cero",
-"d": "2026-11-24T12:40Z"
-},
 {
 "k": "2026-11-24-n",
 "t": "El vídeo viral de Emilio Delgado machacándose en el gimnasio \"La pelea es en las urnas, no combatimos solos\"",
@@ -85,9 +78,23 @@
 "u": "https://www.eldiario.es/tecnologia/ia-ia-campana-desata-avalancha-memes-silencia-impacto-real_1_13695902.html",
 "f": "elDiario.es",
 "d": "2026-11-27T22:26Z"
+},
+{
+"k": "2026-11-28-t",
+"t": "Azúcar Moreno aclara que sí son hermanas después de su broma viral en un pódcast",
+"u": "https://www.20minutos.es/gente/azucar-moreno-aclaran-que-si-son-hermanas-tras-su-broma-viral-un-podcast-entramos-juego-por-divertirnos_7066784_0.html",
+"f": "20minutos",
+"d": "2026-11-27T14:03Z"
 }
 ],
 "items": [
+{
+"t": "Nombres españoles que cambian por completo al viajar a otro país: las confusiones más curiosas",
+"u": "https://www.telecinco.es/noticias/curioso/20261128/nombres-espanoles-cambian-viajar-otro-pais-confusiones-curiosas_18_020611596.html",
+"f": "Telecinco",
+"d": "2026-11-28T09:00Z",
+"p": 6
+},
 {
 "t": "Todo con la IA pero sin la IA: la campaña desata una avalancha de memes y silencia su impacto real",
 "u": "https://www.eldiario.es/tecnologia/ia-ia-campana-desata-avalancha-memes-silencia-impacto-real_1_13695902.html",
@@ -117,13 +124,6 @@
 "p": 5
 },
 {
-"t": "Pan Baobao, el leopardo con sobrepeso viral de China, no volverá a estar a dieta: \"A su edad, ya no conviene que pierda peso\"",
-"u": "https://www.telecinco.es/noticias/curioso/20261125/pan-baobao-leopardo-sobrepeso-china-no-volvera-estar-dieta_18_020809542.html",
-"f": "Telecinco",
-"d": "2026-11-25T12:11Z",
-"p": 5
-},
-{
 "t": "\"Einstein suspendía Matemáticas\": un bulo que lleva décadas circulando pese a estar desmentido por la historia",
 "u": "https://www.telecinco.es/noticias/curioso/20261127/einstein-suspendia-matematicas-origen-bulo-historico_18_020611548.html",
 "f": "Telecinco",
@@ -145,6 +145,62 @@
 "p": 4
 },
 {
+"t": "El curioso caso de Koné, el extremo vinculado con el Granada CF que renovó con el Ceuta",
+"u": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdnQ3YS1XWU9zMlAxeHV5eHJMcWR6aHFnUTBYNjhwZVVVYXZ0MHRQbmg3WW5IQW5zaS0zN0otUUpOMUw2UVVkSjFaVkUwYXB2S2RhWVJzTU5WWkFNbm5HMFJDTUxXa2JjbEVBRnhJNlNtQUhaQ2RELWNGSDVkQjhXQjhGTjRFano2VFlqMW5zN3RaaG4tdFozUFhUY1NZUjJVWnMzZXREaELSAa4BQVVfeXFMTXFBUFppUno5V2oxNTVFc25sS2tDUkhnRjhHekJvWUoxVTN3RWhlVU9ZaGJEaGNRd3BKNGdScW9oejZMbzBUWmxqVGx1X1NXXzdBaGVWcUQwM3pSN21TdDlJWmtSR0lvYl9GN1hjMl95a0gxNno4X1ZWYXZfN2hQWmItTEM1cUp3dW9tZlNzX2xnSXE0MG5abl93UU1tQng5VHdzenZHUWdHQk1DOFF3?oc=5",
+"f": "Ideal",
+"d": "2026-11-28T11:55Z",
+"p": 3
+},
+{
+"t": "\"Para que las croquetas salgan perfectas, ten cuidado con echar sal por el jamón, que se encarga de soltar su propia grasa y sal\"",
+"u": "https://www.20minutos.es/gastronomia/recetas/alfonsa-cocinera-para-croquetas-salgan-perfectas-cuidado-sal-jamon-soltar-grasa-sal_7052894_0.html",
+"f": "20minutos",
+"d": "2026-11-28T11:00Z",
+"p": 3
+},
+{
+"t": "El surrealista dato que coloca a Simeone en la historia de LaLiga",
+"u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcGE4ekRDWnViTmlHWFlWdGY4MG53ZlVSeHhDSUFGbnZJalR0XzVDUE9rSnpacVZ6YTU2UHExX3F4Yk9mNmpSa21TckI1MV9xbllWOVl1N0t1MXVETnJuczFURFVOY1BfT2FfaTY3WC02YTNHLUowQy1CRUZxcTdVMVZzM1dVZzdfZTBYSWVxU3IyZ2ZUMHUyT0NCVFZBTjJ2a2fSAacBQVVfeXFMTm9IdTZOemxmbnhKOGR0NklNVzJobVJ6aHFGUXRhQ1lJT3FZZFIwYklzSkFwbXVDdFNCbVQwYVBFdWpnMFVqMVREVm56am12TERuemlVbGRUTFBsMFFBS1Bic1k0cWhIX3BEa3o3NEpyRE9aVUtGdGJlbHdtMHdKeVVQV3dzeU9SbFg4cWZQbW1jeC1CT1FqQlNPbDNZcTI1RjZWLU5MdGc?oc=5",
+"f": "Esto es Atleti",
+"d": "2026-11-28T11:00Z",
+"p": 3
+},
+{
+"t": "Del glamour de los 50 a la extravagancia de la Navidad: Katy Perry se viste de pin-up para lanzar su nuevo villancico",
+"u": "https://www.20minutos.es/mujer/moda/glamour-los-50-extravagancia-navidad-katy-perry-se-viste-pin-up-para-lanzar-su-nuevo-villancico_7066988_0.html",
+"f": "20minutos",
+"d": "2026-11-28T09:50Z",
+"p": 3
+},
+{
+"t": "Una manada de elefantes carga contra un grupo de turistas en plena excursión y uno de ellos encuentra un insólito escondite",
+"u": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQVS0xLWVxekp5Qlk0SDU5Vm5yUXNxUGZxZEluSDRlVnZoN1U3ZmprSFlLOVZsdlhhMmgxSFRiOU10Y1lJYjgxVjdGWEJvaHhRZ0hwTlNYa2FLT3J0N3lyZ3VNdlhFZ3NMeWVoYkRvQlRCOUZVczhtbTU1WkwzaGZVQ1lJRDIwN0xSaXl2eERXVGZCWUl3YXI1endkREF2SDhUTmdXd0RLcDhrZWxFckJZWXlEQ3dFNjRITGFXRS13V2ZoT3dPeWJhTkZVMGZJazliZUl2TEVSV3BjWkpwdG5xeDdoRTI3aVRvWmZmN1BzaUNFX1NYT0ZhbjdjanR3QdIBkgJBVV95cUxNTnp3aG9VQ0szVmgyTU5hTEdhMktrZ3hZQ05NaHgyMGVZLUV2Y290eHUtTk9TS281RXo2cUcxTFlHWkFrb293aUFpN0tTcDR0REtmMFlqLTZCWTJ5YmhmYmFFUGxtb1FPVnNPb3ZhcktjS1JzTk1SN1NkY1JTWnp6LXNENG9qcWduYjM3djN3RGd4bEY0Q1BNWXRiT2RSM090eFFKelZGV0dKVW5KRkd4VFlFR1JuOENIdEppWnJDQ28xQWdjMXkyN1pxdXRaQUpBZDhudnFJVFlLMkxDYnpKWE9KQnc0eFMzTnZ6ay1OZWdFM2c5N1VjYjc1Z1FqSEhCdXZUdWFNVDVCXzJsVzRYR1BB?oc=5",
+"f": "La Razón",
+"d": "2026-11-28T09:32Z",
+"p": 3
+},
+{
+"t": "Caballos que ‘sudan espuma’, la curiosa química que les ayuda a refrigerarse",
+"u": "https://www.20minutos.es/animaleros/otros-animales/caballos-que-sudan-espuma-curiosa-quimica-que-les-ayuda-refrigerarse_7050845_0.html",
+"f": "20minutos",
+"d": "2026-11-28T09:03Z",
+"p": 3
+},
+{
+"t": "De la bolsa primordial al órgano de Jacobson: cuatro curiosidades de la anatomía felina",
+"u": "https://www.20minutos.es/animaleros/gatos/bolsa-primordial-organo-jacobson-cuatro-curiosidades-anatomia-felina_7065649_0.html",
+"f": "20minutos",
+"d": "2026-11-28T09:02Z",
+"p": 3
+},
+{
+"t": "Pérez-Reverte, el Mediterráneo y un curioso repaso a la historia del siglo XX",
+"u": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPaTVNaDRwUzV3a2o4TURsYncyYU9GbjI3ZGIxcWltNW5DcWlIRThSUmhLMGpjSG1VaHRoc2hCMGRwWnkyU3M5bFVQVWdFYmRKb2ZWTVN0SVhNb2oyREZPa052RFJyX0E0cUxOcllPTlJtU2dYc25PZzJNdm96VlRTLVdoMDBHMno0UTJlbXhJT1BCdHcyR3NydjdhUEVxR0RtUURjTzhnRERrOWlDbE1HVzhfR2padjlkLXJtODk4WmwtRlNXWEHSAcsBQVVfeXFMUDhWcGNaT3lsSzZNSmdYMVk2M0tfYk1TTVk2VEJfcDBGLXZGWkRtUXkyYVZlUy04UmM1RHBKblEwdk1SSlN1cjQxM3VkQUZZVTNCUnBsRjNKVDRSYWZod3hFN1ZaUGZ4TVFaVGJ0RmRscE8wQjNEdS1pVWFINjdPQ1c0aWtTYm1yekxEemYzQllENzNGMFp3dW1aWk4yTndvRFVSaU5fZEdwNEpkUXNqZFdtY1NHQWNOcDB5amM3VXVVZlA2UUZmNFlaVUE?oc=5",
+"f": "El Norte de Castilla",
+"d": "2026-11-28T08:42Z",
+"p": 3
+},
+{
 "t": "Brazdeikis: \"La ACB es extremadamente competitiva, es divertida\"",
 "u": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObi1UeXdiejVYUUx1X0xOU3lER3hpREZzZS0zZEtzTWpqT2tUTjFiYkg4REI3eDdLWVRlNUtfNkFMUV8xczJVUGdlZ0d1YkpRUGY3aFJ4NV9zSkNIb1RBSFpNV2VDaTFUTS1tTkQzZ0VXc2FvQVNEdV9ocjZqLVZPd1NUZDZxanRnMVJ1eXFCc181RnI3YmotNTk3a2Q5REp3TnkxVA?oc=5",
 "f": "Málaga Hoy",
@@ -159,39 +215,18 @@
 "p": 3
 },
 {
-"t": "La curiosa historia del francés que enseñó a la primera familia champiñonera cómo cultivar esta joya de La Rioja",
-"u": "https://www.eldiario.es/spin/curiosa-historia-frances-enseno-primera-familia-champinonera-cultivar-joya-rioja-pm_1_13698866.html",
-"f": "elDiario.es",
-"d": "2026-11-27T12:30Z",
-"p": 3
-},
-{
 "t": "¿Qué compra Leticia cuando nadie la ve? La cesta más extravagante",
 "u": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUi1rc00wYzhaVmZlMER3cmtybE1LSnR2ZE5FN3cweVVoWTRSTm9lZThYMW1PNEE0MUx2R0F5VUN2eUpjRnI4cUFzU18wWUJGWjUzVE5wV01GNmNNWkhwWVFkaE1OVnl1V28xbVMyOW04WDVRRDNrOEplVk9tTU9OV2hsUnN5Z3VmUC1iaWZXX0NWSG5UNHdoNG5DZEM5eEpURWlZZDln?oc=5",
 "f": "El Món",
 "d": "2026-11-27T12:03Z",
-"p": 3
+"p": 2
 },
 {
 "t": "De George Washington a 'Matrix': las referencias culturales del insólito atuendo de Ada Colau en el debate",
 "u": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQVjF6bDlyNUFRb1NFdThHekhmdFRiNGFxWmk3LWhpeXptcmNhRzd2UWRLNmlxLUc2S2oycGxuM25YY25WRjNFSjJoQ3JTYjBHR0FIWjJIcDhmRDZRTGVoQWd2UnZXTTFmdnIyVGlEVTNNQU5SRmJQZ2wxNklfLXhyM1FjZGRzdEw4eTV6SHpQTEt0YVI1RGdzbnQzV3FYaU9OZ2h0TnhoN29YLVc5N0xZSUJkYnhUNmNvU2h0V09hcEk2M0FTSXhpWDVhaWt6NGxj0gHWAUFVX3lxTE02MFM4RXR3ekQ2ODh0ZmNXODE2MU11bmdUMjdmWTFoLUFiN0JMcGNWcFRkRHNhbnlTYlg0czJDZVdKU1NsaXFtSWhSLXp2YmFGLXVYNm53MlllR3c2VHBiaUd2alNHYk5WUXhQTEtzOEtISzZZV1pNQlMtNkdjZWxQV0tNTTZLV0FGZG43Qzl6aGt5VGxMUFprTFQyWFpjV29yZ01qSXlRYVN6bUtXRnBDdVV5Z2VEeXdXdC1hQUJURFVrTmZKMWtLN0gzTEdOSXM2azk3b3c?oc=5",
 "f": "El Debate",
 "d": "2026-11-27T11:04Z",
-"p": 3
-},
-{
-"t": "Cuidar burros a cambio de alojamiento y comida: la curiosa experiencia que se ofrece en un pueblo de Zaragoza",
-"u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPVnh3MmpjLUp0S0RmR1NidEJGNXJEVDZmaWg4TEVmdlVXa3o3dkNzSk8yelVNd1ZfclJDa2ptem56Vk1LeHpUUC1zZWhNYXhkQlVVM1NrNGU5eW9na0RtVGo4QUllSHBvUzFzVk12TlBPRXdRbnVYazUwdjRoWGsxS1pheWJjblhydUhuRDZua2tMYlh1N2FLUHZ1eUNxWjFDdFZYTGt4X0RERHQ0UEtNQlZBa2stU1l2NVp4VERtd3RlRTZUTkc1MXRfOW9ndG5jbGVZMXNEMlFNYWtscmwzUGdrX0tfY1VPMXBhQ3I5QjFkb0JFSFHSAfsBQVVfeXFMT0tENmpTdHktWWJobEgwb21zSklGYjUyOWJvV1FJYXduc25YMUV6TmQyS2ZmN0JJRU11YXV4M2ttN3d3ZzFXZl9SZHZmSUU2UERGTzFkbGxocHA2T3Fxb1BRTXdPazlIbjlQUmFQZGhtTU1GRUU4YUpqYWJEbmNXVmRLYXlyRXdGdHVhS2FjMkxULWRBbWIwSUlEYnJVNFhDYW5LWkNoWWluV3dCVUlkWDNaUlpHWnBNS3ZpdXpOZV9VMVVTWFBvenlaamlOYXlFSGM2d1YxWHVtYnBXTEowZUxkTVhKSGZLX21qejkwTDE4a2lwNEZOcUJMMms?oc=5",
-"f": "Aragón Digital",
-"d": "2026-11-26T09:38Z",
-"p": 3
-},
-{
-"t": "Dos amigos escalan una montaña de 6.000 m y juegan al ajedrez para batir un récord insólito",
-"u": "https://www.20minutos.es/gonzoo/blogs/becario/dos-amigos-escalan-una-montana-6-000-m-juegan-ajedrez-para-batir-un-record-insolito_7065655_0.html",
-"f": "20minutos",
-"d": "2026-11-25T12:33Z",
-"p": 3
+"p": 2
 },
 {
 "t": "El surrealista motivo por el que los Mossos tuvieron que desalojar una estación de tren en Barcelona",
@@ -215,6 +250,13 @@
 "p": 2
 },
 {
+"t": "¿De qué están hechas las bolas de la Lotería de Navidad? El curioso material que las hace únicas",
+"u": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQazdZdjA2U3pUZ2JqekJPWEVlOTh1a2k1V3NJaVU4YlQ1SEdLTXFuSnVUSFN6S0tRckZ3OXA3cEp6dEFpc1ZrWlRDQWxZXzBHbkNRT3dUQ0gzOEY1Z0Y1dzk2bm9IUEEtNGNkN3YtWGhGdGNVTU5VTUFiYldLWlo3TTlLT3ZQeVluMkFVdFdxMXVQVDhKVThNc1ZINjhzZ2k0M2piOTFUM1BGVDI5YlRqdkg0cDNiUFF2U2xjcDRvWXYtOTB2bHctNkJTTndzX3RRLWhWZHRURDBqUU1ybUJMT2Nkb1hFYUticmphV9IB8gFBVV95cUxQU3hiTHUzTWtCRHcwa1ZZd2xVU3ZELWhHMVlYVW5WR1E2ZGtwWnpVbmlMcEhlLS1nMEZSd1NrNEJmaVBPd2pITno2N3hZRko3Yzd0MWRPZW1fYlc2QXJZMkVfVU54V2lnQjJuTmxBYV9CUjBkVUh0LXRHOEFta0gwQ3VVdnZPVnByRGs1N1NLZS12bGw5WjFCWG0yN2tzUzlwSXExWDlnNW5yWncyTVVPT0xHYTJzU1cyN0xTT2QwM1RuUVgyTE9IVWNVR19lbGNSVlJlRGtnUktYRjN6SHM1dnU5MFNSQVVFbEpVQ0NfNGYydw?oc=5",
+"f": "The Objective",
+"d": "2026-11-27T04:59Z",
+"p": 2
+},
+{
 "t": "La divertida teoría de Julio Salinas sobre las canas de Roberto Leal: \"Tienes mucho estrés aquí\"",
 "u": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQUFQ0QUk1N2daM0tVakdEUUlRVXQzY3p0ZVBBd1AzOTJvb1VVS20wMUUteURBQm5BU0gxMmVMcnA1Y1FZa3JGWS1GRm1XenJiMXpOWTE4NHhrb3NqQ2R3LTVpaml4M1dmWk5zQ0NHeXNEdjdIdjJJc1FkWllIcldXSWJLazZaR29PdzA2ZzBRa3ppNTh1QTkyVGFqeXY3NXVIeExhM0VHeW1VOERLMG5qd1RGWDBwRWFxYkZITzFtWTd6eTR2OUZ1eURjaEc1dnlRcG5DVkJzVVU2VVNyc2N4NHVDdkZnXzRCTTI2NnRZQdIB7wFBVV95cUxNMjlBdVNaZTBhSnZNQWN1Ml9LbVYxOEVLU3lZY3JoU3VOcHNhc0l3bE1zdzdERG9WMG91c1FjUnl1RkliZnpBQW5NRENaTU9CTnlJazc1Z3UwQl83Q0RPVHl1UG5xY0ExQTBjeHI1TEs1MUltcFNWaG51TVFyRkVJZEtFY0lFejlTcENTV2pWQ0JzbVJhSkN5aXNpbnh5NGNOOWVfZG9BWWg0T2JPU0NqQVVycmY3RE1TZ2pIbXFKQ01BU3dtU2JFdXVjNHR3d0dBSWVLMHVWTFAtNGVGRVJtMHhFdWpaNnUwRThsanY4Yw?oc=5",
 "f": "Antena 3",
@@ -226,48 +268,6 @@
 "u": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MM0dVODhfZV9HVmtVQmVfdkNqQ2FHTnNTRHRjT085cEtIcHppY0t4UjJMbTRHbFl5MFM0d0xNa01XS3RRNy1JcnRXNWU3Z2RoNkw2N0EtOUFQSU1kT0JLeU02d0ZBVGdVcGJZMjVGc3YzNzZTSGpHVQ?oc=5",
 "f": "Panda Curioso",
 "d": "2026-11-26T14:19Z",
-"p": 2
-},
-{
-"t": "La divertida reacción de Alaska al imaginarse a Mario Vaquerizo como presidente: \"Yo me veo como primera dama\"",
-"u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNakgzVjZjNkI2Z3ZlcnM3YUxnSW5LQktfTDNJSjJFTFFwb3d1RHlaZDhMakJ2Y2FSejc4RVktaHNLcWE3TFVqM2VyZDhuX19VSDRRMVFoR1ZObHZFd0phODF6MS14TnlNeVdnU291LS02cmh1b3dIcnNfbzhFaHZFZVA1bTN4UkJ2MUpGendjR2EzeF9jYTd3Wjg2eVBqN2VJY25nUEZvME54VncyWW5TTGZIcFNVdF9nZzlWdmZmN091ZTMwd2tYWVlISVFOWVlyUkt6WThTU29tQQ?oc=5",
-"f": "20 Minutos",
-"d": "2026-11-26T13:13Z",
-"p": 2
-},
-{
-"t": "El Centro Dramático Nacional representa en el Rialto la \"brutal y divertida\" 'Al final de las cosas'",
-"u": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPV256MWFlTjRYUkk0ckhUUUF5YUdBeDZ5TFZwSG9Md1NFUGh2X3lra0pndlpPN1VZcnVzVDNkR2xoQTlZSW9qTlpLMUYyMjV6ZjJUdUNSTnQ3VG5qeEF0dkZCNjBuZ2o5MGtpRF9xZnpPN0NaUkxFTXBSRFRzbm9aUDNFNldfaVBFa3NGcG9wLUg5RURrYUFPZ1JkX3JXM3B0SUFhR1h2RjZEZmdzUHVxZHZpelZKd1A2dGNLZHl1Q3hmYVJCS0xsSnRMUGoxMnJkeHdWZEJCaTROd0Nld2djX1R3?oc=5",
-"f": "Europa Press",
-"d": "2026-11-26T13:05Z",
-"p": 2
-},
-{
-"t": "Alaska y Mario Vaquerizo, su divertida reacción al imaginarse como presidente y primera dama",
-"u": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdHo4azBxUkhHYlZELWRxWEJoNXdISXE3SjVFbDNBTURTWkhnY0FjWG5YNWFmeGRtcGZWZ2FvcTB4Uk9LMkhtbmNOWUhmU3RKdFdiSTBBSWVjSEY0eDJMZHY4RktUa2RoVWR4aGsweWpQbGI1NnptRzVFbi1yQVRsejFiSC1RV1F6aG5pTlpsRDNDMGZFdnFic2hxNmxaOTF1R0xDV1V5TGxndUUzalVXLdIBtgFBVV95cUxNQWVMdzJpcjV4djVNLWtST1h3ZWJnR1F2aXdVSzAtbmh4djctcU12WDA1TWhCemRZQ2tkdThDTk9TZGJSV0lxZUR2LXUyeUFGWEMyTzl6d1lheWViMExtSFBwNjVhTTAwUmlfREhZTURncUtaaHFOSlBLUnRYTWdRY0xwZGhFbGdHLXdKaUlRb0wxdHpOYjlJWWVWX0E1SVpnVFZfUW5QczlNbjB4MVBvMzRpdlV2QQ?oc=5",
-"f": "ABC",
-"d": "2026-11-26T12:18Z",
-"p": 2
-},
-{
-"t": "Cuando la salud se hace viral",
-"u": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTHFLQ3I5b3RtdG1QZWNzZTRvSGpPV0FzVi14UmkyWkdzdDFUV3RWSGJfdXgwcDRvVVB5MHQyUEEyTldNSk9KME9laF95Rk1VLUdmYy10MjctYVdtcEFrWERDc2gxY0otalRfWnRZWkZVb1UxYTI2QkhXc2Z4Ql9neTdhRFVsNktQQUg0eWRvTlAzdzFtZV9YMNIBngFBVV95cUxNMElieTgwWkVoclVHVzl1RWdxcXU2TFZKREk3TmdHakVxc3IyZGJ5WFlsOEthQlNJOXZDZVlJbkdlSFJYUGdZTUh0LTU2enpXb0pPckVoSk1ERy03VzBQcmhLWUhiVXl0LUJrTURzem1nR3U2OThhOVhZU1RmSUZScGE0dGh4aW84SXFOYU9QSmlPb0h5cDR1WHEwRFlSUQ?oc=5",
-"f": "Revista El Farmacéutico",
-"d": "2026-11-26T10:41Z",
-"p": 2
-},
-{
-"t": "Lo que realmente dice la etiqueta del pienso de tu perro o gato",
-"u": "https://www.20minutos.es/animaleros/que-realmente-dice-etiqueta-pienso-tu-perro-gato-que-deberias-fijarte_7028062_0.html",
-"f": "20minutos",
-"d": "2026-11-26T08:52Z",
-"p": 2
-},
-{
-"t": "David Broncano revela en 'La Revuelta' el surrealista incidente por el que estuvo a punto de no votar",
-"u": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQRWo0ekJEcHVwZWpRbldYSExpdmRFQ0JkT3hzcXZtSkEzUGVSV1JjeUw5aU1jc0llWnBLYnRqenQwcll4dzFEdGZ6TTdOckNnTHpzeGt0SjlPSkFnRnRleE9IeEdzeTFSV0pTdDBTVzlxdXk4b1JwZDR3YjVRMi16eXhnaE91NFJheEJCVHgtbDB6VWZpODJEQjJSMnM0NXVxNmlnOE1KX0p0eEVIcTBQTEtTR2I1OHRRYkoyb2RjNkFkVndmZFBWM0ptbzhPZnRTbm0xY9IB2gFBVV95cUxOcUZrc1A4V0dhblI5ZENtOG5SbnJaWEgtc1oxSHpNZUVsM2lzejNhVVF4X1phYW85eXdwNGZic2ZOcV90SHRoSnk3YzBqS2c3VE1hNUItTnZUODNzWTFKUFFaZVhXRmhvMllGbF9aNzBWbHBXQkFSSGU3c3Bva0stWFpaUkc5VW1xbWtSV1ZxMXJIWE1SQi1vaXVTcXplYjJVZHdpRmdWR21tbHhSRVQzeThiV2tvY1h3VkEzM3ZaRHRjc0w5REh0S2JBakZ3NzQ0MGtReE9zN0FyZw?oc=5",
-"f": "Elplural.com",
-"d": "2026-11-26T07:55Z",
 "p": 2
 }
 ]
