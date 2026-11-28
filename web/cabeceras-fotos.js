@@ -47,6 +47,7 @@ const CF={
  deporte:['foto-cab2-deporte.webp','partido de pelota en el frontón Labrit (Pamplona)',P,PR,''],
  peques:['foto-cab2-peques.webp','gigante en San Fermín (foto libre)','','',''],
  // 28 nov. 2026 (Pedro): Localidades y Comarcas, foto de Txus
+ mascotas:['foto-cab2-mascotas.webp','chow chow echando la siesta','',PR,''],
  pueblos:['foto-cab2-pueblos.webp','Pirineo nevado y nieblas en los valles','Txus',CE,''],
  // 28 nov. 2026: La Historia de un Reyno
  reyno:['foto-patrimonio-roncesvalles.webp','Real Colegiata de Roncesvalles',P,PR,'']
@@ -69,7 +70,9 @@ setTimeout(()=>{for(const k in CF){const i=new Image();i.src=CF[k][0];}},8000);
 const FIRMA={[P]:'Pedrito',[S]:'Sonia'};
 function firma(el,f){let e=el.querySelector(':scope>.cfFirma');if(!f){if(e)e.remove();return;}
   if(!e){e=document.createElement('em');e.className='cfFirma';el.appendChild(e);}e.textContent='© '+(f[2]?(FIRMA[f[2]]||f[2]):'Foto libre');}
+const CF_SUB={mascotas:'Los de cuatro patas también son de casa'};   // subtítulo propio (si no, el de la escena)
 function cab(t){const el=$('pvSec');if(!el)return;const f=CF[t];firma(el,f);
+  if(CF_SUB[t]){const sm=el.querySelector('.pvsT small');if(sm)sm.textContent=CF_SUB[t];}
   if(f){el.classList.add('cfFoto');el.style.backgroundImage=`url("${f[0]}")`;try{if(PVSraf){cancelAnimationFrame(PVSraf);PVSraf=0;}}catch(e){}}   // sin animación debajo: ahorra batería
   else if(el.classList.contains('cfFoto')){el.classList.remove('cfFoto');el.style.backgroundImage='';}}
 function cred(t){const f=CF[t];if(!f)return;const sec=document.querySelector('section.on')||$('t-'+t);if(!sec)return;
@@ -88,7 +91,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&typeof BN
    se enseña la de la cabecera. Para añadir una: guárdala en web/fotos-full/ y pon la sección en CF_FULL.
    ===================================================================== */
 (function(){
-const CF_FULL=new Set(['noticias','cerca','radar','nieve','astro','energia','clima','emb','prev','ident','gas','sismo','cultura','cines','deporte','peques','pueblos']);
+const CF_FULL=new Set(['noticias','cerca','radar','nieve','astro','energia','clima','emb','prev','ident','gas','sismo','cultura','cines','deporte','peques','pueblos','mascotas']);
 const st=document.createElement('style');st.textContent='body.bna #pvSec.cfFoto{cursor:zoom-in}#pvSec.cfFoto .cfLupa{position:absolute;right:10px;top:8px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;pointer-events:none}#pvSec:not(.cfFoto) .cfLupa{display:none}';
 document.head.appendChild(st);
 function abre(){const el=document.getElementById('pvSec');if(!el||!el.classList.contains('cfFoto'))return;
