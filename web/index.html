@@ -3563,18 +3563,19 @@ async function emInit(){if(!APP){document.getElementById('emSum').innerHTML='<b>
 async function ceGo(){const msg=document.getElementById('ceMsg'),el=document.getElementById('ceList');msg.textContent='Buscando dónde estás…';let P;
   try{P=await myPos();}catch(e){msg.textContent='❌ '+e.message+(APP?'. Si es la primera vez, puede que necesites actualizar la app a la versión 11.':'');return;}
   msg.textContent=`Estás en ${fmtN(P.la,4)}, ${fmtN(P.lo,4)}. Buscando…`;
-  await new Promise(r=>vjLoad(r));await new Promise(r=>pbLoad(r));await new Promise(r=>moLoad(r));if(APP&&!INC)try{await inFetch();}catch(e){}
+  await new Promise(r=>vjLoad(r));await new Promise(r=>pbLoad(r));await new Promise(r=>moLoad(r));if(APP&&!INC)try{await inFetch();}catch(e){}if(window.radLoad)await new Promise(r=>radLoad(r));
   const near=(L,pt,n,max)=>L.map(o=>({o,d:km(P.la,P.lo,...pt(o))})).filter(x=>x.d<=max).sort((a,b)=>a.d-b.d).slice(0,n);
   const row=(ico,t,s,x,act)=>`<div class="st" ${act?`data-a="${act}" style="cursor:pointer"`:''}><div><b>${ico} ${t}</b>${s?`<div class="s">${s}</div>`:''}</div><span class="note" style="white-space:nowrap">${fmtN(x.d,1)} km ${rumbo(P.la,P.lo,...x.pt)}</span></div>`;
   const blk=(t,rows)=>rows.length?`<div class="card"><b>${t}</b>${rows.join('')}</div>`:'';
   const V=window.VIAJE,pue=pbList();
-  const pb=near(pue,o=>[o.lat,o.lon],3,30),gs=near(V.gas,o=>o.pt,4,25),rc=near(V.rec||[],o=>o.pt,3,25),cm=near(CAMS,o=>o.pt,3,40),pt=near(puList(),o=>o.pt,3,40),ic=near(INC||[],o=>o.pt,4,30);
+  const pb=near(pue,o=>[o.lat,o.lon],3,30),gs=near(V.gas,o=>o.pt,4,25),rc=near(V.rec||[],o=>o.pt,3,25),cm=near(CAMS,o=>o.pt,3,40),pt=near(puList(),o=>o.pt,3,40),ic=near(INC||[],o=>o.pt,4,30);const rd=near(((window.RADARES||{}).L)||[],o=>o.pt,3,20);   // 28 nov. 2026: radares fijos y de tramo
   const mo=[];for(const L of MOL){for(const f of moFeats(L[0])){const q=f.pt||(f.r&&f.r[0]&&f.r[0][0]);if(q)mo.push({L,f,q});}}const mnc={},mn=near(mo,o=>o.q,200,15).filter(x=>(mnc[x.o.L[0]]=(mnc[x.o.L[0]]||0)+1)<=2).slice(0,8);
   const ACT={};let k=0;const act=fn=>{ACT[++k]=fn;return k;};
   const wx=await getJSON(`${OM}?latitude=${P.la}&longitude=${P.lo}&current=temperature_2m,weather_code,wind_speed_10m${TZ}`);
   el.innerHTML=(wx&&wx.current?`<div class="card"><b>🌦️ El tiempo aquí</b><div style="display:flex;gap:10px;align-items:center;margin-top:4px"><span style="font-size:32px">${wxIcon(wx.current.weather_code,new Date().getHours())}</span><b style="font-size:24px">${Math.round(wx.current.temperature_2m)}°</b><span class="note">${wDesc(wx.current.weather_code)} · viento ${Math.round(wx.current.wind_speed_10m)} km/h</span></div></div>`:'')+
    blk('🏘️ Pueblos',pb.map(x=>({...x,pt:[x.o.lat,x.o.lon]})).map(x=>row('🏘️',x.o.n,x.o.m.n&&x.o.m.n!==x.o.n?x.o.m.n:'',x,TECH?act(()=>{showTab('pueblos');pbLoad(()=>{pbRenderList();pbOpen(x.o.i);});}):0)))+
    blk('🚧 Incidencias en carretera',ic.map(x=>({...x,pt:x.o.pt})).map(x=>row(inIco(x.o.cat),x.o.car+' · '+(x.o.tit||x.o.tipo),x.o.af,x,act(()=>{showTab('incid');setTimeout(()=>{INSEL=x.o;inFicha();INM&&INM.fit(x.o.pt[0]-.05,x.o.pt[0]+.05,x.o.pt[1]-.07,x.o.pt[1]+.07);},400);}))))+
+   blk('📸 Radares',rd.map(x=>({...x,pt:x.o.pt})).map(x=>{const t=radTxt(x.o);return row('📸',t.tit,t.sub,x,act(()=>{showTab('incid');setTimeout(()=>{const i=RADARES.L.indexOf(x.o),d=document.querySelector('#radCard [data-ri="'+i+'"]');if(d)d.click();},700);}));}))+
    blk('⛽ Gasolineras',gs.map(x=>({...x,pt:x.o.pt})).map(x=>row('⛽',x.o.n,[x.o.g95?'95: '+fmtN(x.o.g95,3)+' €':'',x.o.dA?'diésel: '+fmtN(x.o.dA,3)+' €':''].filter(Boolean).join(' · '),x,act(()=>openNav(x.o.pt[0],x.o.pt[1])))))+
    blk('⚡ Recarga eléctrica',rc.map(x=>({...x,pt:x.o.pt})).map(x=>row('⚡',x.o.n||'Punto de recarga',x.o.kw,x,act(()=>openNav(x.o.pt[0],x.o.pt[1])))))+
    blk('🥾 Para salir al monte',mn.map(x=>({...x,pt:x.o.q})).map(x=>row(x.o.L[1].split(' ')[0],x.o.L[5].map(a=>x.o.f.a[a]).find(Boolean)||x.o.L[1],x.o.L[1].replace(/^\S+\s/,''),x,act(()=>showTab('monte')))))+
@@ -5239,5 +5240,6 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="retoques-28nov.js?v=d3519d0c"></script>
 <script src="botones-mapas.js?v=4393bc21"></script>
 <script src="filas-botones.js?v=1f332105"></script>
+<script src="radares-ui.js?v=9b4d6a09"></script>
 </body>
 </html>
