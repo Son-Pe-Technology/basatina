@@ -27,7 +27,10 @@ SERVIDORES = ["https://overpass-api.de/api/interpreter",
 Q = """[out:json][timeout:300];
 area["ISO3166-2"="ES-NA"]->.a;
 (node["highway"="speed_camera"](area.a);node["enforcement"="maxspeed"](area.a);relation["enforcement"~"maxspeed|average_speed"](area.a););
-out body;>;out skel qt;"""
+out body;>;out skel qt;
+node["highway"="speed_camera"](area.a)->.c;
+way(around.c:60)["highway"]["ref"];
+out tags geom;"""
 INFO = []
 def log(*a):
     s = " ".join(str(x) for x in a); print(s, flush=True); INFO.append(s)
@@ -82,20 +85,23 @@ def dgt():
         if not any(municipio(*p) for p in pts): continue
         d = {}
         for k, v in hojas: d.setdefault(k, v)
-        nombre = d.get("value", "")
-        texto = " ".join(v for k, v in hojas if k == "value")
-        car = d.get("roadNumber") or d.get("roadName") or (re.search(r"\b([A-Z]{1,3}-\d{1,4}(?:-[A-Z])?)\b", texto) or [None, ""])[1] or ""
-        pk = d.get("kilometerPoint") or d.get("referentPointDistance") or ""
-        m = re.search(r"(?:pk|p\.k\.|km)\s*([\d.,]+)", texto, re.I)
-        if not pk and m: pk = m.group(1)
-        sen = d.get("tpegDirection") or d.get("directionRelativeOnLinearSection") or d.get("direction") or ""
-        vel = ""
-        m = re.search(r"(\d{2,3})\s*km/h", texto)
-        if m: vel = m.group(1)
-        tramo = len(pts) > 1 and km(pts[0], pts[-1]) > 0.3
-        r = {"t": "tramo" if tramo else "fijo", "n": nombre[:120], "car": car, "pk": str(pk)[:12], "sen": sen[:40], "vel": vel,
-             "pt": pts[0], "f": "DGT", "mun": municipio(*pts[0]) or ""}
-        if tramo: r["fin"] = pts[-1]
+        cod = d.get("value", "")                       # p. ej. CVM_161274 (control de velocidad media = tramo)
+        car = d.get("roadNumber") or ""
+        dist = [v for k, v in hojas if k == "referencePointDistance"]
+        def pkm(v):
+            try: return f"{float(v) / 1000:.1f}".replace(".", ",").replace(",0", "")
+            except Exception: return ""
+        pk = pkm(dist[0]) if dist else ""
+        haciaN = d.get("directionNamed", "")
+        rel = {"positive": "creciente", "negative": "decreciente", "both": "ambos sentidos"}.get(d.get("directionRelative", ""), "")
+        sen = ("hacia " + haciaN.title()) if haciaN else rel
+        pueblo = d.get("townName", "")
+        tramo = (len(pts) > 1 and km(pts[0], pts[-1]) > 0.3) or cod.upper().startswith("CVM")
+        r = {"t": "tramo" if tramo else "fijo", "n": " · ".join(x for x in [car, pueblo.title()] if x) or cod, "car": car, "pk": pk, "sen": sen, "vel": "",
+             "pt": pts[0], "f": "DGT", "mun": municipio(*pts[0]) or pueblo.title(), "id": cod}
+        if tramo and len(pts) > 1:
+            r["fin"] = pts[-1]
+            if len(dist) > 1: r["pk"] = pk + "–" + pkm(dist[-1])
         out.append(r)
     log("DGT en Navarra:", len(out))
     return out
@@ -132,8 +138,19 @@ def osm():
         p = [round(n["lat"], 5), round(n["lon"], 5)]
         out.append({"t": "fijo", "n": tg.get("name", "") or "Radar fijo", "car": tg.get("ref", ""), "pk": "", "sen": "", "vel": tg.get("maxspeed", ""),
                     "pt": p, "f": "OSM", "mun": municipio(*p) or ""})
+    # carretera de cada radar: la vía con número (ref) más cercana, a menos de 60 m
+    VIAS = [(w.get("tags", {}).get("ref", ""), w.get("geometry") or []) for w in j["elements"] if w["type"] == "way"]
+    def via(p):
+        best, bd = "", 0.06
+        for ref, g in VIAS:
+            for q in g:
+                d = km(p, [q["lat"], q["lon"]])
+                if d < bd: bd, best = d, ref
+        return best.split(";")[0]
+    for r in out:
+        if not r["car"]: r["car"] = via(r["pt"])
     out = [r for r in out if r["mun"]]
-    log("OSM en Navarra:", len(out))
+    log("OSM en Navarra:", len(out), "· con carretera:", sum(1 for r in out if r["car"]))
     return out
 
 D = dgt()
