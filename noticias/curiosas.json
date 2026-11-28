@@ -1,14 +1,7 @@
 {
-"t": "2026-11-27T20:15Z",
-"turno": "2026-11-27-n",
+"t": "2026-11-28T07:37Z",
+"turno": "2026-11-28-m",
 "dest": [
-{
-"k": "2026-11-24-m",
-"t": "A Coruña entra en el Libro Guinness de los récords con un 'pequeño' gesto: 'Lo conseguí a la segunda. No me lo tomo como un juego'",
-"u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS3lWMGZjWmNrUW9Bdy1UdXFVOG1VUWFCX2daOVl1UjhpWWtIam1jLXpsaE0yT3BfSVVHN3J2WGVNYUVkRUhaaUxCNnYwYUV0RF9tbnFhRzZueFdEYVpXX25oWXZNY0QwWFhOZzJSZFgyQlNuNDdzMXZyTnhjeVhpWVczdzU1eXdiSVdNQjh6NXo1YVVqc3V1SGlkRHpxd0NyZ0JieTdiZ0phdm52N1R1UWR2Z2p4LWhRSlJra2FwdjFKdnRN?oc=5",
-"f": "La Opinión A Coruña",
-"d": "2026-11-22T09:00Z"
-},
 {
 "k": "2026-11-24-t",
 "t": "\"El Beagle es un perro alegre, curioso y lleno de energía\". El adiestrador Ángel Osuna habla de su carácter y cuidados",
@@ -85,21 +78,28 @@
 "u": "https://www.telecinco.es/noticias/curioso/20261127/einstein-suspendia-matematicas-origen-bulo-historico_18_020611548.html",
 "f": "Telecinco",
 "d": "2026-11-27T19:00Z"
+},
+{
+"k": "2026-11-28-m",
+"t": "Todo con la IA pero sin la IA: la campaña desata una avalancha de memes y silencia su impacto real",
+"u": "https://www.eldiario.es/tecnologia/ia-ia-campana-desata-avalancha-memes-silencia-impacto-real_1_13695902.html",
+"f": "elDiario.es",
+"d": "2026-11-27T22:26Z"
 }
 ],
 "items": [
+{
+"t": "Todo con la IA pero sin la IA: la campaña desata una avalancha de memes y silencia su impacto real",
+"u": "https://www.eldiario.es/tecnologia/ia-ia-campana-desata-avalancha-memes-silencia-impacto-real_1_13695902.html",
+"f": "elDiario.es",
+"d": "2026-11-27T22:26Z",
+"p": 5
+},
 {
 "t": "El pequeño pueblo de Zaragoza con un curioso récord Guinness: 29 habitantes y un reconocimiento mundial",
 "u": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNb1VDXzlCX3ozSGl4aHhfVk1fREdzY2EzQ25IWUowMW9YVlRrdW9wb3NSTDBkRURYRW1CVURSM2NtZ3dNSlM2dnJFeFoyd21DeURJZ3VsMkh3cnY5cDdkMnAzNUtLZ1FqblNKSklMSnpzWk1LOVBQRjlnLU53dEdzSEFoVXpNTjFsYkZMZkZxMUdzV1k3dk9TYzJOUUtjYU9VNXRFZXBHMk5nTmZodVlMUllISW13OUpIZVJWTEZyOGZ4TEVpZ0phUnZoaTVfamJIX1M3ZzRhMGpaZXIwYTJScHc1TTdveDdwWk5v0gHwAUFVX3lxTE9PWXVMOUItUi1ESHV0LS1DUl94M0JPaEVBejZlY1pHYVF6MlktQ2VoVzFYbk14UVdYTVY3Y0p3YjI5ZG5RVEhkR3ZFbWRGbmo3aU0xbXFLdHZnajVqc1dieGZvaHVyODNZNFN1dzJoYUNCeHZpdnh4bkh6RGVCakMxa0tuVjMxNnp5LVBUbWRRbkY4Y1c0aWxTOVBlSkY2MHg2eFdBMS1sRHV3NFhvTG1KaXpGcWRPSTRLSjNscF9JVmw2VXpQUDc1a2RnUDFlaEtoU3hNcGViWXluWjBJT2dnNVZ0b20wSURIN19vdjFtYg?oc=5",
 "f": "Heraldo de Aragón",
 "d": "2026-11-27T04:00Z",
-"p": 6
-},
-{
-"t": "Ada Colau también gana el debate de los memes: \"Sin Ada no hay Peter\"",
-"u": "https://www.huffingtonpost.es/virales/ada-colau-gana-debate-memes-sin-ada-hay-peter-f202611.html",
-"f": "HuffPost",
-"d": "2026-11-27T00:10Z",
 "p": 5
 },
 {
@@ -107,6 +107,13 @@
 "u": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPdnFwT3FzMEZfdEExeGhMRVFvQS04SEdzeHZlQ3NYVVF5ZkcyOTBQazNMazRpS1RHRUZQMVhsRFR5YV9kRFk4Znh1Y19udWVMQ081Nm1wQjRzSHZ2ZFExOHdWbzF6WUlSWm5adHhqY3BoeEYxZGEzbjJZY29pWlI3VkFDc09qckRkNEpVMFdCb1ZCRkpMWkZ6blVVZjNXajkyOU1TdGtUV29IZXBaejR5YnRUeThOdWVZT0FzRUdIeTRhdWZqd0tMQzFlZkdQXzNTMVMyStIB2gFBVV95cUxOQXhDekczR19kcW0zNWY4d3NzMFZ6S1h1bWIwdXhDcGtpbmRFV2pUOFNXczlCd2h6Y3ktZ0FBaVBUdFRMRG5ubmgxQVN2WEt0Q250WlhkandFUzg1NHZwaTZ6WWNlWm42SXc2VDZXRmNJRmFnWHlfRkloMjFadkNYRXlWUW5FZlBxV1c3Y3hZTGNuYlFhYU0wS2lyMkpvaU9CQzc2SWNjRTctN1hNdnByVWk0MkhpYmw5eU5DOWNJakJ6Zmo3V1RaWVAwemN5QWlORWJMajM1SzVYUQ?oc=5",
 "f": "Diario de Noticias de Álava",
 "d": "2026-11-26T16:30Z",
+"p": 5
+},
+{
+"t": "Del récord Guinness de Aitana Bonmatí a la memoria de Almudena Grandes: la agenda semanal de 'Las Top 100'",
+"u": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPN3l1UmstQXRRZTN4UmhEdDVWUmRDenRfN1VyaEJhUlpKaWo4dEpnRWMtLUVZQk5BemRQUFV0OVNRalhCNF83TWlNcjlCQ01vN1ZWT1lnZWhDdHBNZlNXMkprVVlwd0RRbUFXcEk0LURJbjlRLUxmak1qaUFpdWtvZU5WbTBmb0RqOThfRVNOVTE1RHZHZHZTMUtneGtxUWtvcnRkV0xzbU9RQl9QZGo0alZ6QlZIajVFd1VPQmI2STVlMHNOVzBRbHMxY3lSZnprdEpISzg0cldCSHpxRmxn0gHkAUFVX3lxTE5SUUlKeGxMUXBWaWZVY0JzQVVrVVZtVFlQS0tYVjN2eG9rcjk0QTlPcTlCdXY4NS1qQnd3WUotcThfRWh0ZTdKOWoyUV9GWm5tTTZXVHh0dVNITFhjSkV6V2dwSkd0V0FrUmNTODZJMWNtN0xRbWlOdG9MRGZrYmxJbE80aUlFeU0yai1iRkFiSEpqcGJkS28zVGQxdzNJRDJNUnpnS1JCLWJZSTdmdVRLNDZGczlKUXZfV0ZnNG1jellJcUktRTdUXzc5QjF3ZlRFT1NsMVBvcjlNemhDTTA5S0pJUg?oc=5",
+"f": "El Español",
+"d": "2026-11-26T06:50Z",
 "p": 5
 },
 {
@@ -131,24 +138,24 @@
 "p": 4
 },
 {
+"t": "Malinin establece un nuevo récord mundial en un Programa Corto de patinaje artístico sobre hielo",
+"u": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNRmw5OTJsYkN3MDc0S1NRVmFfNGRKU1ZLdUpfVVN4ZUVSQ2xGTGllU053LWdjM2FNVWlXY19zVHEwdWk0el82OVdHNDNRY2J0cTFyRl9hS1pKcndFazZtVDMyNWhrODhXaDdQZDJnb3UzNVBJRGNmRjUzOEFsOTBXVE9iRFZKM1p5SjgzVW1JcTRfeGFsbk1WeGZxMVZHYkRBS3JZbmxRZEFIU1pXbVRmZ1k3eFRheEdYSDQySFpDWk55SXpINTB4Vm5FMDZjM2cxZlN0NHVleXFGUQ?oc=5",
+"f": "Europa Press",
+"d": "2026-11-27T13:49Z",
+"p": 4
+},
+{
+"t": "Brazdeikis: \"La ACB es extremadamente competitiva, es divertida\"",
+"u": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObi1UeXdiejVYUUx1X0xOU3lER3hpREZzZS0zZEtzTWpqT2tUTjFiYkg4REI3eDdLWVRlNUtfNkFMUV8xczJVUGdlZ0d1YkpRUGY3aFJ4NV9zSkNIb1RBSFpNV2VDaTFUTS1tTkQzZ0VXc2FvQVNEdV9ocjZqLVZPd1NUZDZxanRnMVJ1eXFCc181RnI3YmotNTk3a2Q5REp3TnkxVA?oc=5",
+"f": "Málaga Hoy",
+"d": "2026-11-28T05:44Z",
+"p": 3
+},
+{
 "t": "El estadio del sur de Madrid que llevó al Getafe por toda Europa y que esconde una curiosa historia",
 "u": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNNGdOeDNhbzYySDNHUzN3QkNNcGJzeXRIZzZORHdmZ1NuLTVLZWI3WUlZWFR2Q0RldEJtRWZGeGxHcnc1TmNZaEJvUnhBUm1iaW82Y1ZYLUxaRWI3aU53R1FhTUtaUEdUREpKNnlKSEx3VlJtajV6Szhvc2hTWEVDYW9pZ2V6REZYMnNoZ0YySWhvejBlVFBCNGhtUGVEZmw3eFdMSWNib2xCX0RVRF9tNG42MEdBSnRkUVZPaGJuWHFleDQ?oc=5",
 "f": "Madridinforma",
 "d": "2026-11-27T19:02Z",
-"p": 3
-},
-{
-"t": "Un muñeco lleno de granos y espinillas para explotar: el regalo viral de una juguetería vasca esta Navidad",
-"u": "https://www.elcorreo.com/bizkaiadmoda/moda/muneco-lleno-granos-espinillas-explotar-regalo-viral-jugueteria-vasca-navidad-20261126190508-nt.html",
-"f": "El Correo",
-"d": "2026-11-27T18:23Z",
-"p": 3
-},
-{
-"t": "El Curiosity de la NASA capta imágenes de unas extrañas rocas con forma de patatas fritas y los científicos no saben qué es",
-"u": "https://www.20minutos.es/tecnologia/actualidad/rover-curiosity-nasa-capta-imagenes-extranas-rocas-forma-patatas-fritas-cientificos-no-saben-que-puede-ser_7066881_0.html",
-"f": "20minutos",
-"d": "2026-11-27T17:33Z",
 "p": 3
 },
 {
@@ -173,45 +180,10 @@
 "p": 3
 },
 {
-"t": "El surrealista motivo por el que los Mossos tuvieron que desalojar una estación de tren en Barcelona",
-"u": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOVlp0R1owbnVzd0o1SUV0dHhIRTVmZXlpLXNKc3h3cE81QVdYcThjWHRpQWtoUHZOSjZEUnVvRWluVWZ6T0NraXRlYXNyejZ4M0VabklaSUVQYzdRMUU3TU1QR0VEdmloRFZRbFZfZkdPb0ZSdHN3aUx0MFMxMWlaeFRIWEJRQWVIVWhoNFdBTlZHNmJfelQxZEZnTmJJRUdaM3l5c1R0NTVSeWtmeHhtRkFUT3c3WDFXLVJJY0RzQkxvLThMNXFEZHJLMEdtOFRmcHhHSDhTRC1MZHNVdFdRWHpNTFEzd0ZlRXg0S9IB8gFBVV95cUxOcHd6UFFsa1hrMW1yYWNvbGlVLWZUeGs0V1FCX0xSTW9aTHlsNV9mZXc4RWEwcGltYnA4cUZrb3g4Y2hyUHRDc0hDZkc2ZXVtY3JwTE1sMEV1ZVpZTl9SMHc0LW01Qk1XQUlkSHRQZm1ZZTJNblB3TVRTUEI1NTdjZjFaREF3ZUFYQ1FaTWdERFhySnRzWGNlUkJ6Rkk4Q2pQdVJiaWhIUlc3UXc0bkhLZmw0OTFuQUhpdlhXMVhBVEtJZ0JweE1JWEhuYTZaQWt0VGVKT08tOVFuNGNYcThoVUxJaEo5S1Z2ODM0LXVaV2JCUQ?oc=5",
-"f": "Cadena 100",
-"d": "2026-11-27T07:35Z",
-"p": 3
-},
-{
-"t": "El curioso cartel que ha aparecido en un pueblo de Burgos",
-"u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNemZIRDVRcVJkaUhMd3V1eGx6YWNOb1p5UUZ5ZG95MDJ2a3JpS2JjUU00eFk1cU9wUnJUN2hUTzY2MlF5amJTRVl5czg1N09TSmRfOGdsWS1hVTRLT0otNU9BNklRd0FVWmhmWHZkdi1MN0hDQ1RQWFE2Ry1wRk1FNG9IUlE2OGItRUxDYkUwZHpKSTVNV25xN21SRkNKZWR3ZmfSAacBQVVfeXFMTUc1Ri1zOWVBdGtyLUtyN3RCQXRSN0JFbVUxTDAzNF9xcENwNVZScllPeXRScFZhcFRocVo1VlJpZzk4MDJrN0Fza1BJQURMQlVlZnlSTjlRMnNGUnhvVllPbGs3Y0pjWEQ1NVVjMWxKLURUMEVNTXNvZ05RSWJtd1Y5ZkZSVGl2ekV4QUowMzZ2LU5IX0ZEZ1JsQVBvVTQ4S0ZJTTBXWTQ?oc=5",
-"f": "BURGOSconecta",
-"d": "2026-11-27T07:01Z",
-"p": 3
-},
-{
-"t": "Tarantino, Fincher y Brad Pitt decepcionan con una secuela tan divertida como irregular",
-"u": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBsMTd2R0dXZGNiamtYSjBPYXVGWDkzcTJWcXlXN09hODJiWDVWRXlKZGhxbVQtU3lSWW5lZ2pmVVZ6bXgzLXkwZG5GcGdJYVdyMlJKTQ?oc=5",
-"f": "Cadena SER",
-"d": "2026-11-27T06:29Z",
-"p": 3
-},
-{
-"t": "¿De qué están hechas las bolas de la Lotería de Navidad? El curioso material que las hace únicas",
-"u": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQazdZdjA2U3pUZ2JqekJPWEVlOTh1a2k1V3NJaVU4YlQ1SEdLTXFuSnVUSFN6S0tRckZ3OXA3cEp6dEFpc1ZrWlRDQWxZXzBHbkNRT3dUQ0gzOEY1Z0Y1dzk2bm9IUEEtNGNkN3YtWGhGdGNVTU5VTUFiYldLWlo3TTlLT3ZQeVluMkFVdFdxMXVQVDhKVThNc1ZINjhzZ2k0M2piOTFUM1BGVDI5YlRqdkg0cDNiUFF2U2xjcDRvWXYtOTB2bHctNkJTTndzX3RRLWhWZHRURDBqUU1ybUJMT2Nkb1hFYUticmphVw?oc=5",
-"f": "The Objective",
-"d": "2026-11-27T04:59Z",
-"p": 3
-},
-{
 "t": "Cuidar burros a cambio de alojamiento y comida: la curiosa experiencia que se ofrece en un pueblo de Zaragoza",
 "u": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPVnh3MmpjLUp0S0RmR1NidEJGNXJEVDZmaWg4TEVmdlVXa3o3dkNzSk8yelVNd1ZfclJDa2ptem56Vk1LeHpUUC1zZWhNYXhkQlVVM1NrNGU5eW9na0RtVGo4QUllSHBvUzFzVk12TlBPRXdRbnVYazUwdjRoWGsxS1pheWJjblhydUhuRDZua2tMYlh1N2FLUHZ1eUNxWjFDdFZYTGt4X0RERHQ0UEtNQlZBa2stU1l2NVp4VERtd3RlRTZUTkc1MXRfOW9ndG5jbGVZMXNEMlFNYWtscmwzUGdrX0tfY1VPMXBhQ3I5QjFkb0JFSFHSAfsBQVVfeXFMT0tENmpTdHktWWJobEgwb21zSklGYjUyOWJvV1FJYXduc25YMUV6TmQyS2ZmN0JJRU11YXV4M2ttN3d3ZzFXZl9SZHZmSUU2UERGTzFkbGxocHA2T3Fxb1BRTXdPazlIbjlQUmFQZGhtTU1GRUU4YUpqYWJEbmNXVmRLYXlyRXdGdHVhS2FjMkxULWRBbWIwSUlEYnJVNFhDYW5LWkNoWWluV3dCVUlkWDNaUlpHWnBNS3ZpdXpOZV9VMVVTWFBvenlaamlOYXlFSGM2d1YxWHVtYnBXTEowZUxkTVhKSGZLX21qejkwTDE4a2lwNEZOcUJMMms?oc=5",
 "f": "Aragón Digital",
 "d": "2026-11-26T09:38Z",
-"p": 3
-},
-{
-"t": "Amaia sorprende al público con una surrealista versión exprés del 'Superestrella' de Aitana: \"Va a ser un coñazo\"",
-"u": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPd0U3S3ZkSmxBajFEajUwdjNnZHV6VFdBSTVjOV93ZW8wY2dGNG5fYTV5MXpVZFk1bWxSR000NGJxSUlvd2Q4VkF0SlVqNUUtYldZd3FUN3FEUFNPejBZOXRUem01VFdLOElhc0stOFFVSTBoYXpRRlZmRkhnYnVzSEh5N01CM0VtMzZ0YVZld2dYR01UTC12Z2ZmTFNyN3N4cWxRcENvTUkyNkpzQ1F6RU1sLVJZbV9BZVg3cGFSOWdXcmp0T2RWNmdtVjhyM3lKQ1VNOGhka9IB3AFBVV95cUxNSVd5UzQ1Ukk2TmNuMFRmODY0VlJNbG9UdVJZck9oVkh4V0RKclU0RlB6MzZCNU9zV0JqRGpuYkI2bGtaSmlpZ2xHMldpY1pnSE1wQTBLeDJUOTVyREhqNS1xNHlkVi1hdE9QYl9YUFVuXzdRY2FDMWIzN1ZJX3MxWmJfLWFYNHZpeXpWY1oycXVIc1ZNLXlvdVFScE5lZ1ZMN2RHV2J3cHJGUnEwbXlVMm9DMXJleTB4bnJRbDBjWkR1TUpVS1BmdVpBZm1FOWQ1aHVGVEZhU1BXX3Fk?oc=5",
-"f": "Cadena 100",
-"d": "2026-11-26T07:21Z",
 "p": 3
 },
 {
@@ -222,10 +194,38 @@
 "p": 3
 },
 {
+"t": "El surrealista motivo por el que los Mossos tuvieron que desalojar una estación de tren en Barcelona",
+"u": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOVlp0R1owbnVzd0o1SUV0dHhIRTVmZXlpLXNKc3h3cE81QVdYcThjWHRpQWtoUHZOSjZEUnVvRWluVWZ6T0NraXRlYXNyejZ4M0VabklaSUVQYzdRMUU3TU1QR0VEdmloRFZRbFZfZkdPb0ZSdHN3aUx0MFMxMWlaeFRIWEJRQWVIVWhoNFdBTlZHNmJfelQxZEZnTmJJRUdaM3l5c1R0NTVSeWtmeHhtRkFUT3c3WDFXLVJJY0RzQkxvLThMNXFEZHJLMEdtOFRmcHhHSDhTRC1MZHNVdFdRWHpNTFEzd0ZlRXg0S9IB8gFBVV95cUxOcHd6UFFsa1hrMW1yYWNvbGlVLWZUeGs0V1FCX0xSTW9aTHlsNV9mZXc4RWEwcGltYnA4cUZrb3g4Y2hyUHRDc0hDZkc2ZXVtY3JwTE1sMEV1ZVpZTl9SMHc0LW01Qk1XQUlkSHRQZm1ZZTJNblB3TVRTUEI1NTdjZjFaREF3ZUFYQ1FaTWdERFhySnRzWGNlUkJ6Rkk4Q2pQdVJiaWhIUlc3UXc0bkhLZmw0OTFuQUhpdlhXMVhBVEtJZ0JweE1JWEhuYTZaQWt0VGVKT08tOVFuNGNYcThoVUxJaEo5S1Z2ODM0LXVaV2JCUQ?oc=5",
+"f": "Cadena 100",
+"d": "2026-11-27T07:35Z",
+"p": 2
+},
+{
+"t": "El curioso cartel que ha aparecido en un pueblo de Burgos",
+"u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNemZIRDVRcVJkaUhMd3V1eGx6YWNOb1p5UUZ5ZG95MDJ2a3JpS2JjUU00eFk1cU9wUnJUN2hUTzY2MlF5amJTRVl5czg1N09TSmRfOGdsWS1hVTRLT0otNU9BNklRd0FVWmhmWHZkdi1MN0hDQ1RQWFE2Ry1wRk1FNG9IUlE2OGItRUxDYkUwZHpKSTVNV25xN21SRkNKZWR3ZmfSAacBQVVfeXFMTUc1Ri1zOWVBdGtyLUtyN3RCQXRSN0JFbVUxTDAzNF9xcENwNVZScllPeXRScFZhcFRocVo1VlJpZzk4MDJrN0Fza1BJQURMQlVlZnlSTjlRMnNGUnhvVllPbGs3Y0pjWEQ1NVVjMWxKLURUMEVNTXNvZ05RSWJtd1Y5ZkZSVGl2ekV4QUowMzZ2LU5IX0ZEZ1JsQVBvVTQ4S0ZJTTBXWTQ?oc=5",
+"f": "BURGOSconecta",
+"d": "2026-11-27T07:01Z",
+"p": 2
+},
+{
+"t": "Tarantino, Fincher y Brad Pitt decepcionan con una secuela tan divertida como irregular",
+"u": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBsMTd2R0dXZGNiamtYSjBPYXVGWDkzcTJWcXlXN09hODJiWDVWRXlKZGhxbVQtU3lSWW5lZ2pmVVZ6bXgzLXkwZG5GcGdJYVdyMlJKTQ?oc=5",
+"f": "Cadena SER",
+"d": "2026-11-27T06:29Z",
+"p": 2
+},
+{
 "t": "La divertida teoría de Julio Salinas sobre las canas de Roberto Leal: \"Tienes mucho estrés aquí\"",
 "u": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQUFQ0QUk1N2daM0tVakdEUUlRVXQzY3p0ZVBBd1AzOTJvb1VVS20wMUUteURBQm5BU0gxMmVMcnA1Y1FZa3JGWS1GRm1XenJiMXpOWTE4NHhrb3NqQ2R3LTVpaml4M1dmWk5zQ0NHeXNEdjdIdjJJc1FkWllIcldXSWJLazZaR29PdzA2ZzBRa3ppNTh1QTkyVGFqeXY3NXVIeExhM0VHeW1VOERLMG5qd1RGWDBwRWFxYkZITzFtWTd6eTR2OUZ1eURjaEc1dnlRcG5DVkJzVVU2VVNyc2N4NHVDdkZnXzRCTTI2NnRZQdIB7wFBVV95cUxNMjlBdVNaZTBhSnZNQWN1Ml9LbVYxOEVLU3lZY3JoU3VOcHNhc0l3bE1zdzdERG9WMG91c1FjUnl1RkliZnpBQW5NRENaTU9CTnlJazc1Z3UwQl83Q0RPVHl1UG5xY0ExQTBjeHI1TEs1MUltcFNWaG51TVFyRkVJZEtFY0lFejlTcENTV2pWQ0JzbVJhSkN5aXNpbnh5NGNOOWVfZG9BWWg0T2JPU0NqQVVycmY3RE1TZ2pIbXFKQ01BU3dtU2JFdXVjNHR3d0dBSWVLMHVWTFAtNGVGRVJtMHhFdWpaNnUwRThsanY4Yw?oc=5",
 "f": "Antena 3",
 "d": "2026-11-26T19:45Z",
+"p": 2
+},
+{
+"t": "Este doctor le dio a su paciente la desgarradora noticia de que le quedaban solo unas horas de vida, y la respuesta del hombre se hace viral",
+"u": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MM0dVODhfZV9HVmtVQmVfdkNqQ2FHTnNTRHRjT085cEtIcHppY0t4UjJMbTRHbFl5MFM0d0xNa01XS3RRNy1JcnRXNWU3Z2RoNkw2N0EtOUFQSU1kT0JLeU02d0ZBVGdVcGJZMjVGc3YzNzZTSGpHVQ?oc=5",
+"f": "Panda Curioso",
+"d": "2026-11-26T14:19Z",
 "p": 2
 },
 {
@@ -268,27 +268,6 @@
 "u": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQRWo0ekJEcHVwZWpRbldYSExpdmRFQ0JkT3hzcXZtSkEzUGVSV1JjeUw5aU1jc0llWnBLYnRqenQwcll4dzFEdGZ6TTdOckNnTHpzeGt0SjlPSkFnRnRleE9IeEdzeTFSV0pTdDBTVzlxdXk4b1JwZDR3YjVRMi16eXhnaE91NFJheEJCVHgtbDB6VWZpODJEQjJSMnM0NXVxNmlnOE1KX0p0eEVIcTBQTEtTR2I1OHRRYkoyb2RjNkFkVndmZFBWM0ptbzhPZnRTbm0xY9IB2gFBVV95cUxOcUZrc1A4V0dhblI5ZENtOG5SbnJaWEgtc1oxSHpNZUVsM2lzejNhVVF4X1phYW85eXdwNGZic2ZOcV90SHRoSnk3YzBqS2c3VE1hNUItTnZUODNzWTFKUFFaZVhXRmhvMllGbF9aNzBWbHBXQkFSSGU3c3Bva0stWFpaUkc5VW1xbWtSV1ZxMXJIWE1SQi1vaXVTcXplYjJVZHdpRmdWR21tbHhSRVQzeThiV2tvY1h3VkEzM3ZaRHRjc0w5REh0S2JBakZ3NzQ0MGtReE9zN0FyZw?oc=5",
 "f": "Elplural.com",
 "d": "2026-11-26T07:55Z",
-"p": 2
-},
-{
-"t": "Actrices y actores de Santiago reviven a Oscar Wilde con Ditea Teatro: \"Es una obra muy divertida\"",
-"u": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdHU3b3VEc19mTE5uRjdlLXRBNE5vUmlEOWdDblFpMEdsN1lFVjAtNkdpMEhTcDN6ZjVsUExRUTRjRU1EUTlwVlpHNTAzak54c21DMlRLMi1XZHRvT0tUTjM1djhZbURUZzYtVUctMnQ5M0QxVmw5Ny1ZTDJCaEZta3FobzRPN2I1Z3N4MWZ2ZE5nOUpUMHZoUXhsSnRTUUEwTGZWR1ZGY2XSAa4BQVVfeXFMTjJkU2YyeV9qVldxcXZKRXp6ejNGM2RSdnlFRTV0MEU3OWVSWE55bU9hX19fLTJhRU5heVVNQjdCUm4zd1FGR0xIYzhzejFXTmpkNl9nWmlwd0pTVWgzR0hZOXdpTDc2eUNQclhNdUx0cE80d3R6ZGZvS2pObE1SQ3JlV1ZuV3RDQlVIRkp4bXBGLXBWaHptYmc5NFJoc1ZYV2NXdEdLRFJoVjVBZlR3?oc=5",
-"f": "El Correo Gallego",
-"d": "2026-11-26T05:01Z",
-"p": 2
-},
-{
-"t": "¿Qué ven en las nubes? El curioso poder de la pareidolia",
-"u": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPV0VKOVRqbG1LSmx1WDZZRElJTzZFeUZEMGk1ejlULVdFeG5rb21iVTA2c3UwUVZ2ZG9hQWlQQ3ltQS14cEFoMWV4a3lXUjdwVE9wNVoxQ0lHUWNQZjRNa3JaRGdsZzh1STNUMVVpcENwbDBidmpKR1V6YVZOZmJ3MkM1SlZ2Z205S2lTdnVrZnVWSHpLM01j0gGcAUFVX3lxTE9MZEc5STB5Z2plVDhYLTRORElUWkRwNUhGRkM3WE10MFlUQVRld2VpRHB1V0ZxdnY3bnp1SWhSLVF0aHVpaENLVVkyalo1a2tKMUpadHVYQWo5bkZ2REVvTXdHZkZEOU9GSWtaLWhkUmlOc1hrWFZIMnV4MnlsbmotSndocXlVLXRKNUY0RlJYMmhpeklqaTYtSjU0bw?oc=5",
-"f": "La Vanguardia",
-"d": "2026-11-26T05:00Z",
-"p": 2
-},
-{
-"t": "Galmesán, un insólito parmesano gallego no para de ganar premios y se vende hasta en Hong Kong",
-"u": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM2dVUDRxY1ZfQnJNVnd5Z3o4bTJsSFFsQVZLSmJWaFN6U2JLUUticjRCazdHVnFraHlscnlvMm1ZNVlNd2hJSHM3UHA1N080X2lNVERUVkpwZjBGZHdkTlotSHotZ2tNeUlHMjFRZEU4WnhQMXBBc0g4WDFuVi10ZG9sM2d1MFhkZkx1aWZoeFRjR3BNbFk1NF9uS0w2OWVD?oc=5",
-"f": "El Confidencial",
-"d": "2026-11-26T04:00Z",
 "p": 2
 }
 ]
