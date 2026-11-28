@@ -154,7 +154,7 @@ const MOV=[['foto-menu-mov.webp','Miren I.G.'],['foto-menu-mov2.webp','Archivo']
 const mv=MOV[Math.floor(Math.random()*MOV.length)];
 // url() no admite var(): se pone la regla con la foto que toca
 const cssMv=document.createElement('style');cssMv.textContent=`html body.bna #bnaDGrid>.dgroup.m6G[data-m6="Moverse"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('${mv[0]}') !important}`;document.head.appendChild(cssMv);
-const CR={'Hoy':'Sonia','Localidades':'Pedrito','Tiempo y ríos':'Pedrito','Naturaleza y salidas':'Pedrito','Moverse':mv[1],'Vivir en Navarra':'Pedrito','Ocio':'Pedrito','Cuadrilla BasatiNA':'Foto libre'};   // las demás del menú son fotos de Pedro (24 nov.)
+const CR={'Historia de un Reyno':'Pedrito','Hoy':'Sonia','Localidades':'Pedrito','Tiempo y ríos':'Pedrito','Naturaleza y salidas':'Pedrito','Moverse':mv[1],'Vivir en Navarra':'Pedrito','Ocio':'Pedrito','Cuadrilla BasatiNA':'Foto libre'};   // las demás del menú son fotos de Pedro (24 nov.)
 function creditos(){document.querySelectorAll('#bnaDGrid>.dgroup.m6G').forEach(g=>{const k=g.dataset.m6,t=CR[k];if(!t||g.querySelector(':scope>.m6Cr'))return;
   const e=document.createElement('em');e.className='m6Cr';e.textContent='© '+t;g.appendChild(e);});}
 const dg=document.getElementById('bnaDGrid')||document.getElementById('drawer');

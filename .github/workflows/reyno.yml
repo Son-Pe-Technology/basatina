@@ -1,0 +1,18 @@
+# 📜 Aviso al móvil el sábado que sale cada tomo de «La Historia de un Reyno» (tools/reyno_aviso.py).
+# Los sábados a las 9:05 UTC (10:05 en Madrid en invierno) o a mano desde Actions.
+name: Historia de un Reyno (aviso)
+on:
+  schedule:
+    - cron: '5 9 * * 6'
+  workflow_dispatch:
+jobs:
+  aviso:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install google-auth requests
+      - name: Avisar
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SA }}
+        run: python3 tools/reyno_aviso.py
