@@ -1,6 +1,82 @@
 {
  "items": [
   {
+   "id": "80dee812155b",
+   "pub": "2026-11-28T12:57Z",
+   "titulo": "Policías navarros asisten a dos pasajeros con emergencias médicas en vuelo",
+   "texto": "Dos viajeros recibieron ayuda de tres integrantes de la Policía Nacional durante un vuelo hacia República Dominicana. Los agentes, que viajaban para ejecutar una orden de expulsión judicial, intervinieron cuando uno de los pasajeros sufrió un accidente en los servicios del avión y otro experimentó un desmayo. Ambas situaciones fueron controladas mediante técnicas de emergencia, permitiendo que el vuelo llegase a su destino sin retrasos. Al aterrizar, la tripulación y los pasajeros aplaudieron a los policías y se fotografiaron con ellos como recuerdo.",
+   "pueblo": "Pamplona",
+   "cat": "Navarra",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/28/tres-policias-navarra-viajan-republica-dominicana-expulsar-persona-acaban-aplausos-844094-15.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-sociedad/tres-policias-nacionales-destinados-en-navarra-auxilian-a-dos-pasajeros-durante-un-vuelo-a-republica-dominicana/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "ad6fc2085857",
+   "pub": "2026-11-28T12:57Z",
+   "titulo": "Dos heridos al caer un coche al río Erro al esquivar jabalíes",
+   "texto": "Un vehículo con cuatro ocupantes se salió de la carretera NA-2330 en Erro en la madrugada de este sábado tras intentar evitar una manada de jabalíes, cayendo al cauce del río. El accidente ocurrió alrededor de las 01:18 horas en el punto kilométrico 14. Los bomberos de Burguete rescataron a los cuatro ocupantes; dos fueron trasladados al Hospital Universitario de Navarra con contusiones leves, mientras que los otros dos no requirieron hospitalización.",
+   "pueblo": "Erro",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/zona-norte/2026/11/28/dos-heridos-caer-coche-rio-esquivar-manada-jabalies-erro-844092-25.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-sangesa-y-pirineos/dos-heridos-tras-caer-al-rio-erro-tras-salirse-de-la-via-al-esquivar-una-manada-de-jabalies/"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "22dd8d815dae",
+   "pub": "2026-11-28T12:57Z",
+   "titulo": "Motorista herido en caída en una rotonda de Noáin",
+   "texto": "Un motorista sufrió una caída este sábado por la mañana en una rotonda de la PA-31 en Noáin, en el kilómetro 2,6. Fue trasladado al Hospital Universitario de Navarra con una contusión dorsal. Según Pamplona Actual, acudieron al lugar Bomberos de Cordovilla, Policía Foral y Policía Municipal. Su estado médico permanece en evaluación.",
+   "pueblo": "Noáin",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-noain-beriain/una-accidente-en-la-rotonda-de-la-pa-31-en-noain-deja-un-motorista-herido-de-64-anos-trasladado-al-hun/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-herido-motorista-64-anos-sufrir-caida-noain-20261128113121.html"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "91365f25cd40",
+   "pub": "2026-11-28T12:57Z",
+   "titulo": "La Guardia Civil intercepta a un conductor de moto eléctrica en Castejón",
+   "texto": "Patrullas de la Guardia Civil de Navarra interceptaron en Castejón a un conductor de motocicleta eléctrica que no obedeció las indicaciones de los agentes e intentó escapar. El vehículo fue localizado en las inmediaciones de una balsa durante un servicio de prevención, tras quejas vecinales por conducción peligrosa. Efectivos del Destacamento de Tráfico de Tudela realizaron comprobaciones y formularon varias denuncias por infracciones administrativas, según la Guardia Civil.",
+   "pueblo": "Castejón",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-la-ribera/la-guardia-civil-intercepta-en-castejon-una-moto-electrica-cuyo-conductor-trato-de-eludir-a-los-agentes/"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-denunciado-conductor-motocicleta-electrica-intento-huir-guardia-civil-castejon-20261128104836.html"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "32c286ddcf68",
    "pub": "2026-11-28T10:28Z",
    "titulo": "Dos detenidos por tráfico de drogas en la Rochapea tras quejas vecinales",
@@ -648,79 +724,7 @@
      "u": "https://navarracapital.es/alberto-linan-nuevo-director-tecnico-de-schneider-electric-en-puente-la-reina/"
     }
    ]
-  },
-  {
-   "id": "07b40b49e7bd",
-   "pub": "2026-11-26T03:58Z",
-   "titulo": "A10 Inmobiliaria, mejor valorada por clientes en toda España",
-   "texto": "La empresa pamplonesa A10 Inmobiliaria ha ganado el premio a mayor reputación en los Premios IAGestión 2026, basado en las opiniones de usuarios en Google. También logró posicionarse entre las tres mejores agencias del país por volumen de transacciones. Elena Larraya, agente comercial de la firma, fue reconocida como la profesional con mejor puntuación a nivel nacional, seguida por su compañera Arantxa Molinero en quinta posición. El CEO Esteban Calahorra destacó que estos logros confirman «la apuesta por las personas y la tecnología». Los galardones se entregaron el 12 de noviembre en Avilés durante el III Congreso nacional del software inmobiliario IAGestión.",
-   "pueblo": "Pamplona",
-   "cat": "Economía",
-   "fuentes": [
-    {
-     "f": "Navarra Capital",
-     "u": "https://navarracapital.es/la-navarra-a10-inmobiliaria-reconocida-como-la-agencia-con-mejor-reputacion-de-espana/"
-    }
-   ]
-  },
-  {
-   "id": "957627d0c570",
-   "pub": "2026-11-26T03:57Z",
-   "titulo": "Pamplona impulsa medidas contra la violencia machista en mujeres mayores",
-   "texto": "Con motivo del 25 de noviembre, Día Internacional contra la Violencia hacia las Mujeres, la comisión de Asuntos Sociales de Pamplona ha adoptado un documento que centra la atención en un grupo frecuentemente ignorado: las mujeres de edad avanzada. Bajo el lema «Ni olvidadas, ni invisibilizadas», el texto reconoce esta forma de violencia como un problema específico que requiere políticas públicas de prevención y atención. Los siete compromisos incluyen mejorar la formación de profesionales sanitarios, policiales y de servicios sociales; garantizar acceso a recursos de protección adaptados a diferentes situaciones; reforzar las redes de apoyo comunitario, y escuchar las propias experiencias de estas mujeres en el diseño de políticas. Según otros medios, también Tudela se ha sumado a esta iniciativa.",
-   "pueblo": "Pamplona",
-   "cat": "Sociedad",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-pamplona/pamplona-pide-visibilizar-la-violencia-machista-contra-las-mujeres-mayores-bajo-el-lema-ni-olvidadas-ni-invisibilizadas/"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-ayuntamiento-pamplona-acuerda-25n-combatir-normalizacion-violencia-mujeres-mayores-20261124133412.html"
-    },
-    {
-     "f": "COPE",
-     "u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/tudela-navarra-alza-voz-mujeres-mayores-victimas-violencia-genero-olvidadas-invisibilizadas-20261124_3480866.html"
-    }
-   ]
-  },
-  {
-   "id": "40d8391c5555",
-   "pub": "2026-11-26T03:57Z",
-   "titulo": "Navarra detecta 794 casos de violencia contra mujeres en siete meses",
-   "texto": "El Servicio Navarro de Salud ha identificado 794 casos de violencia machista entre enero y julio de 2026, un 11% más que en el mismo período de 2025 (715 casos). Los datos se presentaron en una jornada sobre detección sanitaria de la violencia, con presencia del consejero de Salud Fernando Domínguez. La violencia física es la más frecuente (68% de los casos detectados en 2025), seguida de la sexual y psicológica. El incremento se atribuye a la Estrategia de Detección Temprana implantada en marzo de 2024, que incluye cribado a todas las mujeres mayores de 15 años en centros de salud y servicios de maternidad.",
-   "pueblo": "Navarra",
-   "cat": "Salud",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-navarra/salud-detecta-794-casos-de-violencia-contra-las-mujeres-hasta-julio-un-11-mas-que-en-el-mismo-periodo-de-2025/"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-salud-detecta-794-casos-violencia-contra-mujeres-siete-primeros-meses-2026-11-mas-20261124132134.html"
-    }
-   ]
-  },
-  {
-   "id": "7184ab4dbb1e",
-   "pub": "2026-11-26T03:57Z",
-   "titulo": "El Cima descubre cómo potenciar un anticuerpo contra tumores avanzados",
-   "texto": "Científicos del Cima, en colaboración con la farmacéutica Genmab, han identificado el mecanismo que explica la eficacia de acasunlimab, un fármaco biespecífico que estimula las defensas del organismo frente al cáncer. El hallazgo, publicado en la revista «Immunity», revela que unas células especializadas llamadas dendríticas de tipo 1 resultan clave para que el anticuerpo funcione, pese a ser una proporción muy pequeña del sistema inmunitario en los tumores. El equipo, liderado por el doctor Carlos Luri-Rey, comprobó que al aumentar la presencia de estas células mediante un factor llamado Flt3L, se mejoraba notablemente la eficacia del tratamiento en modelos preclínicos. El anticuerpo ya ha demostrado actividad en pacientes con cáncer avanzado que no respondieron a otras inmunoterapias, lo que abre la puerta a nuevas combinaciones de tratamiento.",
-   "pueblo": "Pamplona",
-   "cat": "Salud",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-ciencia/el-cima-identifica-en-celulas-dendriticas-la-clave-de-un-anticuerpo-que-mejora-la-inmunoterapia-contra-el-cancer/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/24/investigadores-cima-identifican-nuevo-mecanismo-rearmar-celulas-inmunitarias-mejorar-eficacia-inmunoterapia-oncologica-843571-15.html"
-    }
-   ]
   }
  ],
- "t": "2026-11-28T09:53Z"
+ "t": "2026-11-28T12:57Z"
 }
