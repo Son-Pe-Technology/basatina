@@ -20,13 +20,13 @@ css.textContent=`
 #sadBody .ajPlB{display:none;margin-top:8px}
 #sadBody .card.ajPlOn .ajPlB{display:block}
 #sadBody .ajPlH .sadN{margin-left:auto}
-/* 3 · pestañas iguales en rejilla (gana a pestanas-filas.js y a menu6.js) */
-html body section div.m6Tabs.m6Tabs.m6Tabs.m6Tabs{display:grid!important;grid-template-columns:repeat(var(--pfC,3),minmax(0,1fr));gap:8px!important;overflow:visible!important}
-html body section div.m6Tabs.m6Tabs.m6Tabs.m6Tabs>button{width:100%;min-width:0;max-width:none;padding:9px 10px;text-align:center;white-space:nowrap;flex:none!important}
-html body section div.m6Tabs.m6Tabs.m6Tabs.m6Tabs.pfMide{display:flex!important;flex-wrap:nowrap!important}
-html body section div.m6Tabs.m6Tabs.m6Tabs.m6Tabs.pfMide>button{width:auto;padding:9px 10px}
-/* si una palabra no cabe ni sola en su fila, se parte en dos renglones antes que cortarse */
-html body section div.m6Tabs.m6Tabs.m6Tabs.m6Tabs.pfLargo>button{white-space:normal;line-height:1.2}
+/* 3 · filas de botones (pestañas, filtros, empresas…) todas iguales, en rejilla (gana a pestanas-filas.js, menu6.js y .seg) */
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid{display:grid!important;grid-template-columns:repeat(var(--pfC,3),minmax(0,1fr))!important;grid-auto-rows:1fr;gap:8px!important;overflow:visible!important}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid>button{width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;flex:none!important;white-space:nowrap;text-align:center;display:flex;align-items:center;justify-content:center}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid.pfMide{display:flex!important;flex-wrap:nowrap!important}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid.pfMide>button{width:auto!important;flex:none!important}
+/* si no caben en una línea, el texto se parte en dos renglones (todos los botones igual de altos) antes que cortarse */
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid.pfLargo>button{white-space:normal;line-height:1.2}
 /* 4 · ríos: cada dato, en su botón */
 body.bna #t-caudal .card .st{background:#f7faf5;border:1.5px solid #d5dfd2!important;border-radius:14px;padding:10px 12px!important;margin-top:8px}
 body.bna #t-caudal .card .st:first-of-type{margin-top:10px}`;
@@ -63,17 +63,24 @@ const ceBtn=()=>document.querySelector('#t-cerca #ceGo');
 const b0=ceBtn();if(b0)b0.textContent='🔄 Volver a buscar';
 
 /* ---------- 3 · pestañas del mismo tamaño ---------- */
-function filas(){document.querySelectorAll('section.on div.m6Tabs').forEach(r=>{
-  const B=[...r.children].filter(x=>x.tagName==='BUTTON'&&x.offsetParent!==null);if(!B.length)return;
-  r.classList.add('pfMide');r.classList.remove('pfLargo');
-  const L=Math.max(...B.map(x=>x.offsetWidth));const W=r.clientWidth;r.classList.remove('pfMide');
-  if(!W)return;
-  const gap=8,max=Math.max(1,Math.floor((W+gap)/(L+gap)));
-  const nf=Math.ceil(B.length/max),cols=Math.ceil(B.length/nf);   // filas equilibradas: 6 → 3+3, 5 → 3+2
-  r.style.setProperty('--pfC',cols);
-  if(max===1&&L>W)r.classList.add('pfLargo');});}
+// todas las filas de botones de la app: pestañas, filtros, combustibles, empresas, grupos, zonas, periodos…
+const PF_SEL='div.m6Tabs,.msFila,.emChips,.voChips,.ruChips,.pdChips,.tmChips,.clT,#agCat,#dpDep,#foCat,.bcChips,.gsChips,.seg,#biTp';
+function filas(){document.querySelectorAll('section.on').forEach(sec=>sec.querySelectorAll(PF_SEL).forEach(r=>{
+  const K=[...r.children].filter(x=>getComputedStyle(x).display!=='none');
+  if(K.length<2||K.some(x=>x.tagName!=='BUTTON'))return;          // solo filas hechas solo de botones
+  r.classList.add('pfGrid','pfMide');r.classList.remove('pfLargo');
+  const L=Math.max(...K.map(x=>x.offsetWidth));const W=r.clientWidth;r.classList.remove('pfMide');
+  if(!W||!L)return;
+  const gap=8,cw=c=>(W-gap*(c-1))/c;let max=Math.max(1,Math.floor((W+gap)/(L+gap))),largo=false;
+  // el más largo no cabe ni solo en dos columnas: con muchos botones, se ponen en 2 columnas y el texto en dos renglones
+  if(max<2&&K.length>=4&&L<=cw(2)*1.8){max=2;largo=true;}else if(max===1&&L>W)largo=true;
+  // si la última fila se queda coja (3 botones en 2 columnas → 2+1) y con una columna más quedan todas llenas, una más con el texto en dos renglones
+  if(K.length%max&&K.length%(max+1)===0&&K.length<=8&&L<=cw(max+1)*1.8){max++;largo=true;}
+  const nf=Math.ceil(K.length/max),cols=Math.ceil(K.length/nf);   // filas equilibradas: 6 → 3+3, 5 → 3+2, 17 → 2 columnas
+  r.style.setProperty('--pfC',cols);r.classList.toggle('pfLargo',largo);}));}
 let tf=0;const filasYa=()=>{clearTimeout(tf);tf=setTimeout(filas,60);};
 window.addEventListener('resize',filasYa);
+try{new MutationObserver(m=>{if(m.some(x=>x.target.nodeType===1&&x.target.matches&&x.target.matches(PF_SEL)))filasYa();}).observe(document.body,{childList:true,subtree:true});}catch(e){}
 
 const _st=showTab;showTab=function(t){_st.apply(this,arguments);
   try{filasYa();setTimeout(filas,400);}catch(e){}
