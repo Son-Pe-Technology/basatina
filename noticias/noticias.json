@@ -1,6 +1,27 @@
 {
-"t": "2026-11-28T11:06Z",
+"t": "2026-11-28T12:03Z",
 "items": [
+{
+"t": "Tres policías de Navarra viajan a República Dominicana para expulsar a una persona y acaban entre aplausos",
+"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/28/tres-policias-navarra-viajan-republica-dominicana-expulsar-persona-acaban-aplausos-844094-15.html",
+"f": "Diario de Navarra",
+"d": "2026-11-28T11:25Z",
+"c": "Sucesos"
+},
+{
+"t": "Francia condecora por primera vez en la historia a un agente de la Policía Foral",
+"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/28/francia-condecora-primera-vez-historia-agente-policia-foral-844091-15.html",
+"f": "Diario de Navarra",
+"d": "2026-11-28T11:24Z",
+"c": "Sucesos"
+},
+{
+"t": "Dos heridos al caer su coche al río para esquivar una manada de jabalíes en Erro",
+"u": "https://www.diariodenavarra.es/noticias/navarra/zona-norte/2026/11/28/dos-heridos-caer-coche-rio-esquivar-manada-jabalies-erro-844092-25.html",
+"f": "Diario de Navarra",
+"d": "2026-11-28T11:06Z",
+"c": "Sucesos"
+},
 {
 "t": "Policías Nacionales de Navarra asisten a pasajeros en vuelo a República Dominicana",
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-sociedad/tres-policias-nacionales-destinados-en-navarra-auxilian-a-dos-pasajeros-durante-un-vuelo-a-republica-dominicana/",
@@ -16,6 +37,13 @@
 "c": "Sucesos"
 },
 {
+"t": "Herido leve en una salida de vía en Arizala",
+"u": "https://www.europapress.es/navarra/noticia-herido-leve-salida-via-arizala-20261128113605.html",
+"f": "Europa Press",
+"d": "2026-11-28T10:36Z",
+"c": "Sucesos"
+},
+{
 "t": "Herido un motorista tras sufrir una caída en la ronda de Pamplona",
 "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/28/herido-motorista-sufrir-caida-ronda-pamplona-844089-16.html",
 "f": "Diario de Navarra",
@@ -27,6 +55,13 @@
 "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-comarca/pamplona-actual-noain-beriain/una-accidente-en-la-rotonda-de-la-pa-31-en-noain-deja-un-motorista-herido-de-64-anos-trasladado-al-hun/",
 "f": "Pamplona Actual",
 "d": "2026-11-28T10:32Z",
+"c": "Sucesos"
+},
+{
+"t": "Herido un motorista de 64 años al sufrir una caída en Noáin",
+"u": "https://www.europapress.es/navarra/noticia-herido-motorista-64-anos-sufrir-caida-noain-20261128113121.html",
+"f": "Europa Press",
+"d": "2026-11-28T10:31Z",
 "c": "Sucesos"
 },
 {
@@ -198,27 +233,6 @@
 "c": "Cultura"
 },
 {
-"t": "Miguel Ugarte, fisioterapeuta: \"A los pacientes les digo que, si no pueden vivir sin mí, algo estoy haciendo mal\"",
-"u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/emprendedores/2026/11/28/miguel-ugarte-fisioterapeuta-pacientes-les-digo-no-vivir-mi-haciendo-mal-843898-91.html",
-"f": "Diario de Navarra",
-"d": "2026-11-28T04:00Z",
-"c": "Navarra"
-},
-{
-"t": "Navarra blinda la deducción del 30% a vehículos eléctricos comprados antes de diciembre",
-"u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/28/navarra-blinda-deduccion-30-vehiculos-electricos-comprados-diciembre-843905-15.html",
-"f": "Diario de Navarra",
-"d": "2026-11-28T04:00Z",
-"c": "Navarra"
-},
-{
-"t": "Las lluvias de esta semana encauzan el abastecimiento y no se prevén más prórrogas del embalse de Itoiz",
-"u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/28/lluvias-semana-encauzan-abastecimiento-no-preven-prorrogas-embalse-itoiz-844064-16.html",
-"f": "Diario de Navarra",
-"d": "2026-11-28T04:00Z",
-"c": "El tiempo"
-},
-{
 "t": "40 años vistiendo historias y momentos",
 "u": "https://www.diariodenavarra.es/noticias/navarra/tafalla-zona-media/2026/11/28/40-anos-vistiendo-historias-momentos-843774-24.html",
 "f": "Diario de Navarra",
@@ -230,6 +244,13 @@
 "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/pamplona/2026/11/28/san-saturnino-2026-programa-completo-actividades-pamplona-843969-17.html",
 "f": "Diario de Navarra",
 "d": "2026-11-28T04:00Z",
+"c": "Navarra"
+},
+{
+"t": "27 NOV 2026 | EL PARTIDAZO DE COPE",
+"u": "https://www.cope.es/programas/el-partidazo-de-cope/horas-completas/27-nov-2026-partidazo-cope-20261128_3484168.html",
+"f": "COPE",
+"d": "2026-11-28T00:40Z",
 "c": "Navarra"
 },
 {
@@ -345,24 +366,10 @@
 "c": "Cultura"
 },
 {
-"t": "Navarra inicia la vacunación frente al virus respiratorio sincitial en adultos con mayor riesgo de enfermedad grave",
-"u": "https://www.europapress.es/navarra/noticia-navarra-inicia-vacunacion-frente-virus-respiratorio-sincitial-adultos-mayor-riesgo-enfermedad-grave-20261127135212.html",
-"f": "Europa Press",
-"d": "2026-11-27T12:52Z",
-"c": "Navarra"
-},
-{
 "t": "La navarra Kunak gana el Premio Pyme Desarrollo Internacional de Cepyme",
 "u": "https://navarracapital.es/la-navarra-kunak-gana-el-premio-pyme-desarrollo-internacional-de-cepyme/",
 "f": "Navarra Capital",
 "d": "2026-11-27T12:35Z",
-"c": "Navarra"
-},
-{
-"t": "El Ayuntamiento de Pamplona pone en marcha el Plan de Actuación ante Nevadas 26-27, que prevé 4 niveles de emergencia",
-"u": "https://www.europapress.es/navarra/noticia-ayuntamiento-pamplona-pone-marcha-plan-actuacion-nevadas-26-27-preve-niveles-emergencia-20261127131358.html",
-"f": "Europa Press",
-"d": "2026-11-27T12:13Z",
 "c": "Navarra"
 },
 {
@@ -422,13 +429,6 @@
 "c": "Cultura"
 },
 {
-"t": "Detenida una mujer en Tudela que simulaba alquilar pisos para realizar estafas",
-"u": "https://www.europapress.es/navarra/noticia-detenida-mujer-tudela-simulaba-alquilar-pisos-realizar-estafas-20261127092500.html",
-"f": "Europa Press",
-"d": "2026-11-27T08:25Z",
-"c": "Sucesos"
-},
-{
 "t": "«Apagar fuegos no te hace mejor jefe»: InsideOut llega a Pamplona con Mamen Fernández",
 "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/27/apagar-fuegos-no-te-mejor-jefe-insideout-llega-pamplona-mamen-fernandez-843698-15.html",
 "f": "Diario de Navarra",
@@ -462,13 +462,6 @@
 "f": "COPE",
 "d": "2026-11-26T12:54Z",
 "c": "Navarra"
-},
-{
-"t": "Detienen a un hombre por apuñalar a otro en Milagro tras una discusión por cinco euros",
-"u": "https://www.cope.es/emisoras/navarra/noticias/detienen-hombre-apunalar-milagro-discusion-cinco-euros-20261126_3482630.html",
-"f": "COPE",
-"d": "2026-11-26T11:16Z",
-"c": "Economía"
 }
 ]
 }
