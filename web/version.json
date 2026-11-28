@@ -1,5 +1,5 @@
 {
- "version": 672,
+ "version": 673,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -286,7 +286,7 @@
   "reyno-garamond-600.woff2": "cedad1a1152bd819c76f3f6cf29fc8b8f4f36334",
   "reyno-garamond-it.woff2": "881f113650429bd0f400f2dc309fe120f013c7ed",
   "reyno-garamond.woff2": "c3b16621adf8979441a09626be9f65c1a744bd6e",
-  "reyno-sello-color.png": "5282eeef1c6056d758798d3631de973465b4434c",
+  "reyno-sello-color.png": "e08df845d779b18c62755a61061f57afbbb17967",
   "reyno-sello-na.png": "4470a0b30217f0c1c4dfd4f4041cc6a4a3cad5b6",
   "reyno.js": "eb7060371fc3c3658aaa0912f3a5d7e194dd1129",
   "rios-plus.js": "80278591f6fcb6b6fd60295cb8441d2081684d30",
