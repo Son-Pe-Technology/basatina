@@ -1,5 +1,5 @@
 {
- "version": 671,
+ "version": 672,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -231,7 +231,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "f2f3b891447222aacffe9e3fc269896a91d3fcb1",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "f092e47e65bcbdefe2470fd2ea46c7c50241fa08",
+  "index.html": "17545250dea318b6238c94b22a2ac112020abec9",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "66a3ea871fb5e58987e4f6cee5b5a1645a0e3e3b",
   "inicio-fotos.js": "43e094b5a678203c304dd03af2b300c61e3a2e0f",
@@ -286,8 +286,9 @@
   "reyno-garamond-600.woff2": "cedad1a1152bd819c76f3f6cf29fc8b8f4f36334",
   "reyno-garamond-it.woff2": "881f113650429bd0f400f2dc309fe120f013c7ed",
   "reyno-garamond.woff2": "c3b16621adf8979441a09626be9f65c1a744bd6e",
+  "reyno-sello-color.png": "5282eeef1c6056d758798d3631de973465b4434c",
   "reyno-sello-na.png": "4470a0b30217f0c1c4dfd4f4041cc6a4a3cad5b6",
-  "reyno.js": "d1d9fcf79a853168a94eeb2cb1efba5cc468f6af",
+  "reyno.js": "eb7060371fc3c3658aaa0912f3a5d7e194dd1129",
   "rios-plus.js": "80278591f6fcb6b6fd60295cb8441d2081684d30",
   "rios.js": "4d50b340bbe3b5703f78995c5308add42a86273e",
   "ruta-gps.js": "1d0ab98a85e815edc3ede15214fe4a3cf116be45",
