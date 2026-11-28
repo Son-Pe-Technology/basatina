@@ -47,7 +47,9 @@ const CF={
  deporte:['foto-cab2-deporte.webp','partido de pelota en el frontón Labrit (Pamplona)',P,PR,''],
  peques:['foto-cab2-peques.webp','gigante en San Fermín (foto libre)','','',''],
  // 28 nov. 2026 (Pedro): Localidades y Comarcas, foto de Txus
- pueblos:['foto-cab2-pueblos.webp','Pirineo nevado y nieblas en los valles','Txus',CE,'']
+ pueblos:['foto-cab2-pueblos.webp','Pirineo nevado y nieblas en los valles','Txus',CE,''],
+ // 28 nov. 2026: La Historia de un Reyno
+ reyno:['foto-patrimonio-roncesvalles.webp','Real Colegiata de Roncesvalles',P,PR,'']
 };
 const st=document.createElement('style');st.textContent=`
 body.bna #pvSec.cfFoto{background:#1d2b36 center/cover no-repeat}
