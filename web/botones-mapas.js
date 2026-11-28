@@ -46,6 +46,9 @@ body.bna #coList>.st>div>*,body.bna #doList>.st>div>*,body.bna #paList>.st>div>*
 body.bna #coList>.st>div>.row,body.bna #doList>.st>div>.row,body.bna #paList>.st>div>.row{grid-column:2;grid-row:1/span 6;display:flex;flex-direction:column;gap:6px;margin:0!important;align-self:center}
 body.bna #coList>.st>div>.row>.btn,body.bna #doList>.st>div>.row>.btn,body.bna #paList>.st>div>.row>.btn{width:100%;margin:0;padding:7px 10px;font-size:13px;white-space:nowrap;justify-content:center;text-align:center}
 body.bna #coList>.note,body.bna #doList>.note,body.bna #paList>.note{margin:0 4px 8px}
+/* 28 nov. 2026 · Incidencias en carretera: cada incidencia en su botón, dentro de su recuadro */
+body.bna #inList .st{background:#f7faf5;border:1.5px solid #d5dfd2!important;border-radius:14px;padding:10px 12px!important;margin-top:8px;cursor:pointer}
+body.bna #inList .st:active{background:#e5efe1}
 /* 28 nov. 2026 · Qué hay cerca: cada cosa en su botón, dentro del recuadro de su apartado */
 body.bna #t-cerca .card .st{background:#f7faf5;border:1.5px solid #d5dfd2!important;border-radius:14px;padding:10px 12px!important;margin-top:8px;cursor:pointer}
 /* 28 nov. 2026 · fotos nuevas de los grupos del menú, con su autor en una esquina */

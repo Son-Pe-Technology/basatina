@@ -1,5 +1,5 @@
 {
- "version": 652,
+ "version": 653,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -19,7 +19,7 @@
   "bna-lato-700.woff2": "2ac78601179c3a63ba3f3f3081556b12ddcaf655",
   "bna-lato-900.woff2": "898d9808304dc157f5dcb18ca169ec6e2b96b3d7",
   "bna-montserrat.woff2": "a5ec54920b589ebe2af3bc3bb7754a476db68abf",
-  "botones-mapas.js": "6a3c810f98bf4828561137eb4559953028be3019",
+  "botones-mapas.js": "7c883de21532045223eadd992fc86e6446995a00",
   "c12.jpg": "ac3fa4c4bc823c0b64c7c69990cf891eb00e6319",
   "c14.jpg": "00f5a26af1b6c701d5ffd8b64b9832f8c3b3fe03",
   "cabeceras-fotos.js": "8d07cd2808fbd56452cc2c991cde772b14452f8b",
@@ -230,7 +230,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "f2f3b891447222aacffe9e3fc269896a91d3fcb1",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "632c39db0e1310aae6ca171b271c70c87ef91d4e",
+  "index.html": "95e4a5e11832bb1956abeb9ef22eb9a0b1592855",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "66a3ea871fb5e58987e4f6cee5b5a1645a0e3e3b",
   "inicio-fotos.js": "43e094b5a678203c304dd03af2b300c61e3a2e0f",
