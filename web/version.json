@@ -1,5 +1,5 @@
 {
- "version": 658,
+ "version": 659,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -274,6 +274,7 @@
   "push.js": "34a3c0122f5a6856516c62e20472f0a6e659260c",
   "radar-central.js": "b9edd89bcd2289670ef3b1b0d0231e84a5a25699",
   "radar-viva.js": "a98485eeea6553baac6e2be77263faa5bcc61838",
+  "radares.js": "05697e6802a8065dfd984f6e8a4d19c0c88b3220",
   "relax.js": "5da061a10b6e516428eeb8e968478e323614b20a",
   "retoques-28nov.js": "d3519d0c150c9e190c7c46a8543d2c4388b86e4c",
   "rios-plus.js": "80278591f6fcb6b6fd60295cb8441d2081684d30",
