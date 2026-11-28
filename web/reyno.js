@@ -63,6 +63,10 @@ css.textContent=`
 .ryLema{font-family:'RyFell',serif;font-style:italic;text-align:center;font-size:20px;color:#5a1712;margin:14px 0 4px}
 .ryNota{font-size:13.5px;line-height:1.45;color:#5b4527;font-style:italic;text-align:center}
 .ryFirma{font-family:'RyFell',serif;font-style:italic;text-align:right;color:#4a3218;margin-top:8px}
+.ryFirmaS{display:flex;flex-direction:column;align-items:flex-end;margin:6px 4px 0}
+.ryFirmaS .rySello2{display:block}
+.ryFirmaT{font-family:'RyFell',serif;font-style:italic;color:#4a3218;font-size:16px;margin:2px 22px 0 0}
+#ryHome .rySello2{position:absolute;left:10px;bottom:8px;opacity:.95}
 .ryVolver{font-family:'RyCinzel',serif;font-weight:700;background:#7a1f1a;color:#fbe9c4;border:0;border-radius:4px;padding:9px 14px;font-size:14px;margin:0 0 12px;cursor:pointer}
 .rySec{border-top:1px solid rgba(122,31,26,.3);padding:10px 0 0;margin:10px 0 0}
 .rySec>summary{list-style:none;cursor:pointer;font-family:'RyCinzel',serif;font-weight:700;color:#7a1f1a;font-size:18px;padding:2px 0 8px}
@@ -83,6 +87,34 @@ html body.bna #bnaDGrid>.dgroup.m6G[data-m6="Historia de un Reyno"]>span{font-fa
 /* la pantalla: fondo de pergamino oscuro alrededor */
 body.bna #t-reyno{padding-top:2px}`;
 document.head.appendChild(css);
+
+/* ---------- el sello de lacre con el logo de BasatiNA (firma de la obra) ----------
+   Lacre rojo con el borde irregular, doble aro, la leyenda alrededor y la silueta del logo
+   (web/reyno-sello-na.png: Navarra con el «NA», la hoja y el pájaro) en relieve. */
+let NS=0;
+function sello(tam,giro,id){const k=id||('rs'+(++NS));
+  // borde de lacre: un círculo con «gotas» irregulares (siempre igual, para que no cambie al repintar)
+  let d='';const N=48;for(let i=0;i<=N;i++){const a=i/N*Math.PI*2,r=92+Math.sin(i*2.7)*3.2+Math.sin(i*5.3+1)*2.1+(i%7===0?4:0);
+    d+=(i?'L':'M')+(100+r*Math.cos(a)).toFixed(1)+' '+(100+r*Math.sin(a)).toFixed(1);}d+='Z';
+  return `<svg class="rySello2" viewBox="0 0 200 200" width="${tam}" height="${tam}" style="transform:rotate(${giro||-7}deg)" role="img" aria-label="Sello del Equipo BasatiNA">
+   <defs>
+    <radialGradient id="${k}w" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#d0453a"/><stop offset=".45" stop-color="#a5241d"/><stop offset=".85" stop-color="#7c1511"/><stop offset="1" stop-color="#5a0c09"/></radialGradient>
+    <filter id="${k}s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-color="#3a1a08" flood-opacity=".55"/></filter>
+    <filter id="${k}e" x="-10%" y="-10%" width="120%" height="120%"><feColorMatrix type="matrix" values="0 0 0 0 .42  0 0 0 0 .06  0 0 0 0 .05  0 0 0 .95 0"/>
+     <feDropShadow dx="1.1" dy="1.1" stdDeviation=".4" flood-color="#2a0402" flood-opacity=".85"/><feDropShadow dx="-.8" dy="-.8" stdDeviation=".3" flood-color="#ffc2a8" flood-opacity=".55"/></filter>
+    <filter id="${k}t"><feDropShadow dx=".6" dy=".6" stdDeviation=".2" flood-color="#2a0402" flood-opacity=".9"/><feDropShadow dx="-.5" dy="-.5" stdDeviation=".2" flood-color="#ffc2a8" flood-opacity=".45"/></filter>
+    <path id="${k}c" d="M100 100 m-70 0 a70 70 0 1 1 140 0 a70 70 0 1 1 -140 0"/>
+   </defs>
+   <path d="${d}" fill="url(#${k}w)" filter="url(#${k}s)"/>
+   <circle cx="100" cy="100" r="82" fill="none" stroke="#6a100c" stroke-width="2.2" opacity=".75"/>
+   <circle cx="100" cy="100" r="80.5" fill="none" stroke="#e0705f" stroke-width=".8" opacity=".45"/>
+   <circle cx="100" cy="100" r="58" fill="none" stroke="#6a100c" stroke-width="1.6" opacity=".7"/>
+   <circle cx="100" cy="100" r="56.8" fill="none" stroke="#e0705f" stroke-width=".6" opacity=".4"/>
+   <text font-family="RyCinzel,serif" font-weight="700" font-size="15.5" letter-spacing="2.2" fill="#6e110d" filter="url(#${k}t)"><textPath href="#${k}c" startOffset="0">✠ EQUIPO BASATINA ✠ NAVARRA ✠ MMXXVI</textPath></text>
+   <image href="reyno-sello-na.png" x="58" y="58" width="84" height="84" filter="url(#${k}e)"/>
+   <ellipse cx="80" cy="66" rx="26" ry="12" fill="#fff" opacity=".10" transform="rotate(-30 80 66)"/>
+  </svg>`;}
+const firmaSello=()=>`<div class="ryFirmaS">${sello(150,-8)}<div class="ryFirmaT">${E(R().firma)}</div></div>`;
 
 /* ---------- la pantalla ---------- */
 const sec=svSec('reyno','<div id="ryV" class="noFB"></div>');
@@ -115,7 +147,7 @@ function portada(){const D=R(),P=D.pres||{},nx=prox();
    ${(P.porque||[]).map((p,i)=>`<p${i?'':' class="ryCap"'}>${E(p)}</p>`).join('')}
    <div class="ryOrn">❦</div>
    <div class="ryLema">${E(P.lema)}</div>
-   <div class="ryFirma">— ${E(D.firma)}</div>
+   ${firmaSello()}
   </div>
   <div class="ryNota" style="margin:0 10px 16px">${E(P.nota)}</div>`;}
 function cuenta(t){const ms=Date.parse(t.f)-Date.now();if(ms<=0)return '';const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5);
@@ -129,7 +161,7 @@ function tomo(t){const sx=(t.secs||[]);
    ${sx.map((s,i)=>`<details class="rySec"${i===0?' open':''}><summary>${E(s.t)}</summary>${(s.p||[]).map((p,j)=>`<p${i===0&&j===0?' class="ryCap"':''}>${p}</p>`).join('')}</details>`).join('')}
    ${(t.crono||[]).length?`<details class="rySec"><summary>Cronología</summary><div class="ryCrono">${t.crono.map(([a,b])=>`<div><b>${E(a)}</b>${E(b)}</div>`).join('')}</div></details>`:''}
    ${(t.fuentes||[]).length?`<details class="rySec"><summary>Fuentes</summary><ul class="ryLista">${t.fuentes.map(f=>`<li>${f}</li>`).join('')}</ul></details>`:''}
-   <div class="ryFirma">— ${E(R().firma)}</div>
+   ${firmaSello()}
   </div>`;}
 function pinta(){const v=$('ryV');if(!v)return;const t=VISTA!=null&&R().tomos.find(x=>x.n===VISTA&&pub(x));
   v.innerHTML=t?tomo(t):portada();
@@ -145,7 +177,7 @@ function home(){const H=$('bnaHome');if(!H)return;const now=H.querySelector('.bn
     <div class="ryTit">La Historia de un Reyno</div>
     <div class="rySub" style="font-size:16px">${u?E(u.t):'Del Reino de Pamplona a la Ley Paccionada, en 16 tomos'}</div>
     ${nx?`<div class="ryNota" style="margin-top:8px">${nx.n==='0'&&!u?'Primer tomo':'Tomo '+E(nx.n)}: ${E(fecha(nx.f))}, 10:00</div>`:''}
-    <button class="ryBtn">${u?'Leer el tomo':'Leer la presentación'}</button>`;
+    <button class="ryBtn">${u?'Leer el tomo':'Leer la presentación'}</button>${sello(54,-12,'rsHome')}`;
   if(!c){c=document.createElement('article');c.id='ryHome';c.className='ryPapel noFB';c.onclick=()=>{const l=ultimo();VISTA=l&&nuevo?l.n:null;showTab('reyno');};}
   if(c.dataset.h!==html){c.innerHTML=html;c.dataset.h=html;}
   // lo primero de la parte central del Inicio: encima del título «Ahora en Navarra»
