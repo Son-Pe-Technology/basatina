@@ -103,16 +103,19 @@ function sello(tam,giro,id){const k=id||('rs'+(++NS));
     <filter id="${k}e" x="-10%" y="-10%" width="120%" height="120%"><feColorMatrix type="matrix" values="0 0 0 0 .42  0 0 0 0 .06  0 0 0 0 .05  0 0 0 .95 0"/>
      <feDropShadow dx="1.1" dy="1.1" stdDeviation=".4" flood-color="#2a0402" flood-opacity=".85"/><feDropShadow dx="-.8" dy="-.8" stdDeviation=".3" flood-color="#ffc2a8" flood-opacity=".55"/></filter>
     <filter id="${k}t"><feDropShadow dx=".6" dy=".6" stdDeviation=".2" flood-color="#2a0402" flood-opacity=".9"/><feDropShadow dx="-.5" dy="-.5" stdDeviation=".2" flood-color="#ffc2a8" flood-opacity=".45"/></filter>
-    <path id="${k}c" d="M100 100 m-70 0 a70 70 0 1 1 140 0 a70 70 0 1 1 -140 0"/>
+    <path id="${k}a" d="M27 100 A73 73 0 0 1 173 100"/>
+    <path id="${k}b" d="M33 100 A67 67 0 0 0 167 100"/>
+    <radialGradient id="${k}p" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#f7ecd0"/><stop offset=".8" stop-color="#e9d6a8"/><stop offset="1" stop-color="#d6bb83"/></radialGradient>
    </defs>
    <path d="${d}" fill="url(#${k}w)" filter="url(#${k}s)"/>
-   <circle cx="100" cy="100" r="82" fill="none" stroke="#6a100c" stroke-width="2.2" opacity=".75"/>
-   <circle cx="100" cy="100" r="80.5" fill="none" stroke="#e0705f" stroke-width=".8" opacity=".45"/>
-   <circle cx="100" cy="100" r="58" fill="none" stroke="#6a100c" stroke-width="1.6" opacity=".7"/>
-   <circle cx="100" cy="100" r="56.8" fill="none" stroke="#e0705f" stroke-width=".6" opacity=".4"/>
-   <text font-family="RyCinzel,serif" font-weight="700" font-size="15.5" letter-spacing="2.2" fill="#6e110d" filter="url(#${k}t)"><textPath href="#${k}c" startOffset="0">✠ EQUIPO BASATINA ✠ NAVARRA ✠ MMXXVI</textPath></text>
-   <image href="reyno-sello-na.png" x="58" y="58" width="84" height="84" filter="url(#${k}e)"/>
-   <ellipse cx="80" cy="66" rx="26" ry="12" fill="#fff" opacity=".10" transform="rotate(-30 80 66)"/>
+   <circle cx="100" cy="100" r="86" fill="none" stroke="#6a100c" stroke-width="2.2" opacity=".75"/>
+   <circle cx="100" cy="100" r="84.5" fill="none" stroke="#e0705f" stroke-width=".8" opacity=".45"/>
+   <text font-family="RyCinzel,serif" font-weight="700" font-size="27" letter-spacing="1.5" text-anchor="middle" fill="#f6dcc0" filter="url(#${k}t)"><textPath href="#${k}a" startOffset="50%">Basati<tspan fill="#ffc94d">NA</tspan></textPath></text>
+   <text font-family="RyCinzel,serif" font-weight="700" font-size="14" letter-spacing="3" text-anchor="middle" fill="#f6dcc0" filter="url(#${k}t)" dy="11"><textPath href="#${k}b" startOffset="50%">✠ MMXXVI ✠</textPath></text>
+   <circle cx="100" cy="100" r="50" fill="url(#${k}p)" stroke="#6a100c" stroke-width="2.5"/>
+   <circle cx="100" cy="100" r="46.5" fill="none" stroke="#a5241d" stroke-width=".8" opacity=".6"/>
+   <image href="reyno-sello-color.png" x="61" y="61" width="78" height="78"/>
+   <ellipse cx="78" cy="62" rx="30" ry="12" fill="#fff" opacity=".10" transform="rotate(-30 78 62)"/>
   </svg>`;}
 const firmaSello=()=>`<div class="ryFirmaS">${sello(150,-8)}<div class="ryFirmaT">${E(R().firma)}</div></div>`;
 
