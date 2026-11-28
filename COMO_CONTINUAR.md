@@ -184,6 +184,7 @@ Propiedad de **Son&Pe Technology Systems** (Sonia y Pedro).
   - 🦦 **La Nutria del Arga** (`jnutria`): la culebra de los Nokia. Botón Empezar encima del río; se controla tocando el río a un lado de la cabeza (gira hacia allí), deslizando el dedo (eventos `pointer*`) o con las flechas. Truchas = puntos, cada 4 sale una piedra, se acelera con cada trucha. Se para sola al salir de la pantalla.
   - ⭕ **Tres en raya** (`jraya`): contra la máquina (minimax), niveles Fácil / Normal / Imbatible.
   - Juegos propios: no usar nombres ni diseños de marcas (Trivial Pursuit, Monopoly…).
+- **📸 Fotos al momento (28 nov. 2026)**: al publicar o quitar una foto (`glEdit` en `index.html`) se guarda con un sello `v`, el móvil que publica se queda una copia (`localStorage bnGal`, vale 15 min) y se lanza el evento `bnGaleria`: el carrusel del Inicio (`inicio-foto.js`) y el contador del Panel (`superadmin.js`) se actualizan sin volver a abrir la app. Los demás móviles leen `fotos/galeria.json` de la API de GitHub (sin caché; si falla, de raw) al volver a la app, al entrar en el Inicio o en Fotos y cada 3 minutos.
 - **📷 Instagram @basatina.es**: botón «Síguenos en Instagram» en Cuadrilla BasatiNA y tarjeta en Acerca de (`IG` en `juegos.js`), `"instagram"` en `fotos/galeria.json` (lo usa «Fotos y reto del mes»; se cambia también desde el modo administrador) y enlace en el pie de basatina.es (`docs/index.html`).
 
 - **🧩 Temas nuevos (17 nov. 2026)** (`web/temas.js`, se carga el último, después de `juegos.js`):

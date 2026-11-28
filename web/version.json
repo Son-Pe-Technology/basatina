@@ -1,5 +1,5 @@
 {
- "version": 647,
+ "version": 648,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -228,9 +228,9 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "09dfce05096f577122bb85154cdf3905e19f7218",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "1d61c90c57b28b8ebde6831333af8bbf0b7721f0",
+  "index.html": "66764295894f4f4194993cf19513e5060a2926e0",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
-  "inicio-foto.js": "41f915728d3343673acd987493af6919cf30c1d6",
+  "inicio-foto.js": "66a3ea871fb5e58987e4f6cee5b5a1645a0e3e3b",
   "inicio-fotos.js": "43e094b5a678203c304dd03af2b300c61e3a2e0f",
   "inicio-vivo.js": "cc153909045bc9d63e176ea21a235c218248f790",
   "jspdf.min.js": "d93ad20f62817f83e2f98822b1701a3024b55f3b",
@@ -292,7 +292,7 @@
   "sonpe2_ico.jpg": "9da2bcf822019ade2b5114a48b020d4586486325",
   "sonpe3.jpg": "0f31794604b30913105ca6205697811fa64826f7",
   "sonpe3_ico.jpg": "566285e1373e631847647a7a33c61e12b27b7ea4",
-  "superadmin.js": "0e45da9f54440f0f36dae7f6bb21ce8fe47861e3",
+  "superadmin.js": "db5c70d5863b9246b27a518d59a317418ac0a881",
   "temas.js": "cb4bf8f0f27f78560a25ce5475a73e5d63549443",
   "territorio.js": "fbb4202f86cc78ace2bc43ceeb1db8f98031fea7",
   "tiempo-ahora.js": "b3520c554649c2005efb9cde73127bc38a4edf60",

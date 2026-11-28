@@ -4143,14 +4143,29 @@ async function cldCfg(){if(CLD)return CLD;CLD={cloud:'',preset:''};
 
 /* --- la galería publicada: fotos/galeria.json --- */
 function glNorm(){FOG=FOG||{};FOG.fotos=FOG.fotos||[];FOG.descartadas=FOG.descartadas||[];FOG.hashtag=FOG.hashtag||'#BasatiNA';return FOG;}
+/* 28 nov. 2026 (Pedro): al publicar una foto tiene que salir AL MOMENTO, sin volver a abrir la app.
+   - Cada guardado lleva un sello «v» (hora). El móvil que publica se queda una copia (localStorage bnGal)
+     y usa siempre la más nueva, aunque raw.githubusercontent todavía dé la vieja (guarda caché ~5 minutos).
+   - Los demás móviles la piden a la API de GitHub (sin caché) y, si no se puede, a raw como antes.
+   - Al guardar se avisa con el evento «bnGaleria»: lo escuchan el Inicio (inicio-foto.js) y el Panel (superadmin.js). */
+let FOG_T=0;
+const glMejor=G=>{const L=lsGet('bnGal',null);if(L&&L.fotos&&(!G||((+L.v||0)>(+G.v||0)&&Date.now()-(+L.v||0)<15*60000)))return L;   // la copia propia solo vale 15 min: luego manda GitHub
+  if(G)lsSet('bnGal',G);return G;};
 async function glLoad(fresh){if(FOG&&!fresh)return FOG;
+  if(FOG&&!(TECH&&ghTok())&&Date.now()-FOG_T<45000)return FOG;   // como mucho una vez cada 45 s
   try{if(TECH&&ghTok()){const r=await fetch(GH_API+'fotos/galeria.json?ref=main&t='+Date.now(),{headers:{Authorization:'Bearer '+ghTok(),Accept:'application/vnd.github+json'},cache:'no-store'});
-      if(r.ok){const j=await r.json();FOSHA=j.sha;FOG=JSON.parse(ub64(j.content));return glNorm();}}
-    const r=await fetch(GH_RAW+'fotos/galeria.json?t='+Math.floor(Date.now()/120000));if(r.ok){FOG=await r.json();return glNorm();}}catch(e){}
+      if(r.ok){const j=await r.json();FOSHA=j.sha;FOG=JSON.parse(ub64(j.content));FOG_T=Date.now();return glNorm();}}
+    let G=null;
+    try{const r=await fetch(GH_API+'fotos/galeria.json?ref=main',{headers:{Accept:'application/vnd.github.raw+json'},cache:'no-store'});if(r.ok)G=await r.json();}catch(e){}
+    if(!G){const r=await fetch(GH_RAW+'fotos/galeria.json?t='+Math.floor(Date.now()/60000));if(r.ok)G=await r.json();}
+    if(G){FOG=glMejor(G);FOG_T=Date.now();return glNorm();}}catch(e){}
+  if(!FOG)FOG=glMejor(null);
   return glNorm();}
 // lee la última versión, aplica el cambio y la guarda (así no se pisa lo que haya cambiado otro móvil)
 async function glEdit(fn,msg){if(!ghTok())throw new Error('Falta la llave de edición de GitHub en este móvil');
-  await glLoad(true);fn(FOG);const r=await ghPut('fotos/galeria.json',b64u(JSON.stringify(FOG,null,1)),msg+' ('+(edName()||'app')+')',FOSHA);FOSHA=r.content&&r.content.sha;}
+  await glLoad(true);fn(FOG);FOG.v=Date.now();const r=await ghPut('fotos/galeria.json',b64u(JSON.stringify(FOG,null,1)),msg+' ('+(edName()||'app')+')',FOSHA);FOSHA=r.content&&r.content.sha;
+  FOG_T=Date.now();lsSet('bnGal',FOG);
+  try{window.dispatchEvent(new CustomEvent('bnGaleria'));}catch(e){}}
 const foReto=()=>FOG&&FOG.reto&&FOG.reto.t&&(!FOG.reto.hasta||FOG.reto.hasta>=foHoy())?FOG.reto:null;
 const foFecha=d=>{try{return new Date(d+'T12:00').toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});}catch(e){return d;}};
 
@@ -4171,7 +4186,7 @@ function envInit(){
     document.getElementById('enS').onclick=enSend;
     try{const s=lsGet('enYo',{});if(s.a)document.getElementById('enA').value=s.a;if(s.e)document.getElementById('enE').value=s.e;}catch(e){}
   }
-  glLoad().then(()=>{const r=foReto(),b=document.getElementById('enReto'),l=document.getElementById('enRtL');
+  glLoad(true).then(()=>{const r=foReto(),b=document.getElementById('enReto'),l=document.getElementById('enRtL');
     b.innerHTML=r?`<div class="note" style="margin-top:8px;padding:8px;border-radius:10px;border:1px dashed var(--acc2)">🏆 <b>Reto del mes: ${arEsc(r.t)}</b>${r.d?' · '+arEsc(r.d):''}${r.hasta?`<br>Hasta el ${foFecha(r.hasta)}.`:''}</div>`:'';
     l.style.display=r?'flex':'none';if(!r)document.getElementById('enRt').checked=false;enMias();});
   techApply();}
@@ -4265,7 +4280,7 @@ async function foInit(){
     document.querySelectorAll('#foVista button').forEach(b=>b.onclick=()=>{FOVISTA=b.dataset.v;document.querySelectorAll('#foVista button').forEach(x=>x.classList.toggle('on',x===b));foRender();});
     document.getElementById('foPendB').onclick=foPend;document.getElementById('foRS').onclick=foRetoSave;igInit();}
   document.getElementById('foGal').innerHTML='<div class="card"><div class="note">Cargando fotos…</div></div>';
-  await glLoad(TECH&&!!ghTok());foRender();techApply();
+  await glLoad(true);foRender();techApply();
   const r=FOG.reto||{};document.getElementById('foRT').value=r.t||'';document.getElementById('foRD').value=r.d||'';document.getElementById('foRH').value=r.hasta||'';
   document.getElementById('foIG').value=FOG.instagram||'';document.getElementById('foHT').value=FOG.hashtag||'#BasatiNA';}
 
@@ -4289,7 +4304,7 @@ async function foPend(){const el=document.getElementById('foPendL'),c=await cldC
     card.querySelectorAll('button').forEach(z=>z.disabled=true);
     try{if(b.dataset.a==='ok')await glEdit(G=>{if(!G.fotos.some(f=>f.id===x.public_id))G.fotos.push({id:x.public_id,url:url(x),lugar:k.lugar||'',alias:k.alias||'',desc:k.desc||'',d:(x.created_at||foHoy()).slice(0,10),...(k.la?{la:+k.la,lo:+k.lo}:{}),...(k.reto?{reto:1}:{}),ok:k.ok,...(k.ts?{ts:k.ts}:{})});},'Foto publicada: '+(k.lugar||x.public_id));
       else await glEdit(G=>{if(!G.descartadas.includes(x.public_id))G.descartadas.push(x.public_id);},'Foto descartada');
-      card.innerHTML=`<div class="note">${b.dataset.a==='ok'?'✅ Publicada. Sale en todos los móviles en unos minutos.':'🚫 Descartada. Bórrala también en Cloudinary cuando puedas.'}</div>`;foRender();}
+      card.innerHTML=`<div class="note">${b.dataset.a==='ok'?'✅ Publicada. Ya sale en la galería y en el Inicio.':'🚫 Descartada. Bórrala también en Cloudinary cuando puedas.'}</div>`;foRender();}
     catch(e){card.querySelectorAll('button').forEach(z=>z.disabled=false);toast('❌ '+e.message);}});}
 async function foRetoSave(){const m=document.getElementById('foRM'),t=document.getElementById('foRT').value.trim(),d=document.getElementById('foRD').value.trim(),h=document.getElementById('foRH').value,
   ig=document.getElementById('foIG').value.trim().replace(/^@/,'').replace(/^https?:\/\/(www\.)?instagram\.com\//,'').replace(/\/.*$/,''),ht=document.getElementById('foHT').value.trim().replace(/^#?/,'#');
@@ -5200,13 +5215,13 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 <script src="tiempo-ahora.js?v=b3520c55"></script>
 <script src="accesos-libres.js?v=f1f843a4"></script>
 <script src="inicio-fotos.js?v=43e094b5"></script>
-<script src="inicio-foto.js?v=41f91572"></script>
+<script src="inicio-foto.js?v=66a3ea87"></script>
 <script src="inicio-centro.js?v=d748e248"></script>
 <script src="ia-noticias.js?v=09dfce05"></script>
 <script src="inicio-vivo.js?v=cc153909"></script>
 <script src="menu6.js?v=7955f300"></script>
 <script src="cuadrilla.js?v=e1a9d1fe"></script>
-<script src="superadmin.js?v=0e45da9f"></script>
+<script src="superadmin.js?v=db5c70d5"></script>
 <script src="perfil-foto.js?v=1fb34f35"></script>
 <script src="cabeceras-fotos.js?v=8d07cd28"></script>
 <script src="atras.js?v=cc33948e"></script>

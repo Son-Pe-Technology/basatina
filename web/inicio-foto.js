@@ -130,5 +130,10 @@
   const recoloca=()=>{const s=document.getElementById('t-mtiempo'),d=s&&s.querySelector(':scope>.bnaFdC');if(d)coloca(d);};
   const _st=showTab;showTab=function(t){_st(t);try{if(t==='mtiempo'){recoloca();setTimeout(recoloca,1700);}}catch(e){}};
   carga(false);setTimeout(recoloca,1700);setTimeout(recoloca,5300);
-  setInterval(()=>{if(!document.hidden)carga(true);},10*60*1000);   // cada 10 minutos, por si han cambiado la foto
+  // 28 nov. 2026: al publicar o quitar una foto en este móvil, el carrusel cambia al momento (sin volver a abrir la app)
+  window.addEventListener('bnGaleria',()=>carga(false));
+  // y en los demás móviles: al volver a la app o al Inicio, y cada 3 minutos (glLoad no pide más de una vez cada 45 s)
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)carga(true);});
+  const _st2=showTab;showTab=function(t){_st2(t);try{if(t==='mtiempo')carga(true);}catch(e){}};
+  setInterval(()=>{if(!document.hidden)carga(true);},3*60*1000);
 })();
