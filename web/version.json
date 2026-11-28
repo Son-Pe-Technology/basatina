@@ -1,5 +1,5 @@
 {
- "version": 666,
+ "version": 668,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -231,7 +231,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "f2f3b891447222aacffe9e3fc269896a91d3fcb1",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "73029b50ccf394607c92d5e00a111145fea7bee8",
+  "index.html": "9e22e4057c7935702fb07008d3ce63abd8be15a5",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "66a3ea871fb5e58987e4f6cee5b5a1645a0e3e3b",
   "inicio-fotos.js": "43e094b5a678203c304dd03af2b300c61e3a2e0f",
@@ -274,7 +274,7 @@
   "push.js": "34a3c0122f5a6856516c62e20472f0a6e659260c",
   "radar-central.js": "b9edd89bcd2289670ef3b1b0d0231e84a5a25699",
   "radar-viva.js": "a98485eeea6553baac6e2be77263faa5bcc61838",
-  "radares-ui.js": "9b4d6a0938756600c4a3b0ba9a8e388111fd1224",
+  "radares-ui.js": "b325455a5080325c98052f96e962eb7dc85a3fe9",
   "radares.js": "3b728ca46d603558a27cac2643d1f19c0ebaf474",
   "relax.js": "5da061a10b6e516428eeb8e968478e323614b20a",
   "retoques-28nov.js": "d3519d0c150c9e190c7c46a8543d2c4388b86e4c",
