@@ -1,5 +1,5 @@
 {
- "version": 650,
+ "version": 652,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -230,7 +230,7 @@
   "horas-mapa.js": "6a2e11918a4dc48eaddba3730b031539d24b9731",
   "ia-noticias.js": "f2f3b891447222aacffe9e3fc269896a91d3fcb1",
   "idiomas.js": "69deb5ed474fadddad667329099fd501389301f1",
-  "index.html": "ec66a79dd1ae4e75682abd7094589e8a42e46f44",
+  "index.html": "632c39db0e1310aae6ca171b271c70c87ef91d4e",
   "inicio-centro.js": "d748e24806cf8defccc6abff4fd38a0da9c3a7d8",
   "inicio-foto.js": "66a3ea871fb5e58987e4f6cee5b5a1645a0e3e3b",
   "inicio-fotos.js": "43e094b5a678203c304dd03af2b300c61e3a2e0f",
@@ -274,7 +274,7 @@
   "radar-central.js": "b9edd89bcd2289670ef3b1b0d0231e84a5a25699",
   "radar-viva.js": "a98485eeea6553baac6e2be77263faa5bcc61838",
   "relax.js": "5da061a10b6e516428eeb8e968478e323614b20a",
-  "retoques-28nov.js": "88201ec68b0267f2855f09642b091eef368142be",
+  "retoques-28nov.js": "d3519d0c150c9e190c7c46a8543d2c4388b86e4c",
   "rios-plus.js": "5192291277dd6af85ec7d7205cb10b82fdd929fa",
   "rios.js": "4d50b340bbe3b5703f78995c5308add42a86273e",
   "ruta-gps.js": "1d0ab98a85e815edc3ede15214fe4a3cf116be45",
