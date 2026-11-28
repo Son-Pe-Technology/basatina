@@ -45,7 +45,15 @@ body.bna #coList>.st>div,body.bna #doList>.st>div,body.bna #paList>.st>div{displ
 body.bna #coList>.st>div>*,body.bna #doList>.st>div>*,body.bna #paList>.st>div>*{grid-column:1}
 body.bna #coList>.st>div>.row,body.bna #doList>.st>div>.row,body.bna #paList>.st>div>.row{grid-column:2;grid-row:1/span 6;display:flex;flex-direction:column;gap:6px;margin:0!important;align-self:center}
 body.bna #coList>.st>div>.row>.btn,body.bna #doList>.st>div>.row>.btn,body.bna #paList>.st>div>.row>.btn{width:100%;margin:0;padding:7px 10px;font-size:13px;white-space:nowrap;justify-content:center;text-align:center}
-body.bna #coList>.note,body.bna #doList>.note,body.bna #paList>.note{margin:0 4px 8px}`;
+body.bna #coList>.note,body.bna #doList>.note,body.bna #paList>.note{margin:0 4px 8px}
+/* 28 nov. 2026 · Qué hay cerca: cada cosa en su botón, dentro del recuadro de su apartado */
+body.bna #t-cerca .card .st{background:#f7faf5;border:1.5px solid #d5dfd2!important;border-radius:14px;padding:10px 12px!important;margin-top:8px;cursor:pointer}
+/* 28 nov. 2026 · fotos nuevas de los grupos del menú, con su autor en una esquina */
+html body.bna #bnaDGrid>.dgroup.m6G[data-m6="Hoy"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-hoy.webp') !important}
+html body.bna #bnaDGrid>.dgroup.m6G[data-m6="Tiempo y ríos"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-rios.webp') !important}
+html body.bna #bnaDGrid>.dgroup.m6G[data-m6="Cuadrilla BasatiNA"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('foto-menu-cuadrilla.webp') !important}
+html body.bna #bnaDGrid>.dgroup.m6G{position:relative}
+html body.bna #bnaDGrid>.dgroup.m6G>.m6Cr{position:absolute;right:10px;top:7px;font-size:10.5px;font-style:normal;color:#fff;opacity:.9;text-shadow:0 1px 3px rgba(0,0,0,.7);pointer-events:none}`;
 document.head.appendChild(css);
 
 /* ---------- 1 · mapa fijo + ampliar ---------- */
@@ -124,5 +132,16 @@ function repasa(){
   // las cajas de botones de grupo/zona se vuelven a pintar si el código cambia la elección sin avisar
   ['biGBc','biZBc','gsFuelBc','coZBc','coEBc','doZBc','paTBc','paZBc'].forEach(k=>{const b=$(k);if(b&&b._pinta)b._pinta();});}
 let tm=0;['t-biodiversidad','t-comer','t-dormir','t-cocina','t-patrimonio'].forEach(k=>{const sb=$(k);if(sb)new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(repasa,40);}).observe(sb,{childList:true,subtree:true});});
+
+/* ---------- 4 · fotos del menú: autor en la esquina; Moverse va cambiando entre sus dos fotos ---------- */
+const MOV=[['foto-menu-mov.webp','Miren I.G.'],['foto-menu-mov2.webp','Archivo']];
+const mv=MOV[Math.floor(Math.random()*MOV.length)];
+// url() no admite var(): se pone la regla con la foto que toca
+const cssMv=document.createElement('style');cssMv.textContent=`html body.bna #bnaDGrid>.dgroup.m6G[data-m6="Moverse"]{background-image:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),url('${mv[0]}') !important}`;document.head.appendChild(cssMv);
+const CR={'Hoy':'Sonia','Tiempo y ríos':'Pedrito','Moverse':mv[1],'Cuadrilla BasatiNA':'Foto libre'};
+function creditos(){document.querySelectorAll('#bnaDGrid>.dgroup.m6G').forEach(g=>{const k=g.dataset.m6,t=CR[k];if(!t||g.querySelector(':scope>.m6Cr'))return;
+  const e=document.createElement('em');e.className='m6Cr';e.textContent='© '+t;g.appendChild(e);});}
+const dg=document.getElementById('bnaDGrid')||document.getElementById('drawer');
+if(dg)new MutationObserver(creditos).observe(dg,{childList:true,subtree:true});creditos();
 repasa();
 })();

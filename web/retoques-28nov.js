@@ -21,12 +21,12 @@ css.textContent=`
 #sadBody .card.ajPlOn .ajPlB{display:block}
 #sadBody .ajPlH .sadN{margin-left:auto}
 /* 3 · filas de botones (pestañas, filtros, empresas…) todas iguales, en rejilla (gana a pestanas-filas.js, menu6.js y .seg) */
-html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid{display:grid!important;grid-template-columns:repeat(var(--pfC,3),minmax(0,1fr))!important;grid-auto-rows:1fr;gap:8px!important;overflow:visible!important}
-html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid>button{width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;flex:none!important;white-space:nowrap;text-align:center;display:flex;align-items:center;justify-content:center}
-html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid.pfMide{display:flex!important;flex-wrap:nowrap!important}
-html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid.pfMide>button{width:auto!important;flex:none!important}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid:not(#pfNo):not(#pfNo2){display:grid!important;grid-template-columns:repeat(var(--pfC,3),minmax(0,1fr))!important;grid-auto-rows:1fr;gap:8px!important;overflow:visible!important}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid:not(#pfNo):not(#pfNo2)>button,html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid:not(#pfNo):not(#pfNo2)>label.msChip{width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;flex:none!important;white-space:nowrap;text-align:center;display:flex;align-items:center;justify-content:center}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid:not(#pfNo):not(#pfNo2).pfMide{display:flex!important;flex-wrap:nowrap!important}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid:not(#pfNo):not(#pfNo2).pfMide>button,html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid:not(#pfNo):not(#pfNo2).pfMide>label.msChip{width:auto!important;flex:none!important}
 /* si no caben en una línea, el texto se parte en dos renglones (todos los botones igual de altos) antes que cortarse */
-html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid.pfLargo>button{white-space:normal;line-height:1.2}
+html body .pfGrid.pfGrid.pfGrid.pfGrid.pfGrid:not(#pfNo):not(#pfNo2).pfLargo>button{white-space:normal;line-height:1.2}
 /* 4 · ríos: cada dato, en su botón */
 body.bna #t-caudal .card .st{background:#f7faf5;border:1.5px solid #d5dfd2!important;border-radius:14px;padding:10px 12px!important;margin-top:8px}
 body.bna #t-caudal .card .st:first-of-type{margin-top:10px}`;
@@ -65,9 +65,15 @@ const b0=ceBtn();if(b0)b0.textContent='🔄 Volver a buscar';
 /* ---------- 3 · pestañas del mismo tamaño ---------- */
 // todas las filas de botones de la app: pestañas, filtros, combustibles, empresas, grupos, zonas, periodos…
 const PF_SEL='div.m6Tabs,.msFila,.emChips,.voChips,.ruChips,.pdChips,.tmChips,.clT,#agCat,#dpDep,#foCat,.bcChips,.gsChips,.seg,#biTp';
-function filas(){document.querySelectorAll('section.on').forEach(sec=>sec.querySelectorAll(PF_SEL).forEach(r=>{
+// 28 nov. 2026 (Pedro): en estas filas de botones, sin iconos (si al quitarlo el botón se queda vacío, se deja)
+const EMO=/\p{Extended_Pictographic}\uFE0F?\u200D?\s*/gu;
+function quitaIconos(K){K.forEach(b=>{const tw=document.createTreeWalker(b,NodeFilter.SHOW_TEXT);const T=[];let n;while((n=tw.nextNode()))T.push(n);
+  if(!T.some(t=>t.nodeValue.replace(EMO,'').trim()))return;T.forEach(t=>{const v=t.nodeValue.replace(EMO,'');if(v!==t.nodeValue)t.nodeValue=v;});});}
+function filas(){try{filas0();}catch(e){console.log('filas',e);}}
+function filas0(){document.querySelectorAll('section.on').forEach(sec=>sec.querySelectorAll(PF_SEL).forEach(r=>{
   const K=[...r.children].filter(x=>getComputedStyle(x).display!=='none');
-  if(K.length<2||K.some(x=>x.tagName!=='BUTTON'))return;          // solo filas hechas solo de botones
+  if(K.length<2||K.some(x=>x.tagName!=='BUTTON'&&!(x.tagName==='LABEL'&&x.classList.contains('msChip'))))return;   // solo filas de botones (o de chips Zona/Dificultad…)
+  quitaIconos(K);
   r.classList.add('pfGrid','pfMide');r.classList.remove('pfLargo');
   const L=Math.max(...K.map(x=>x.offsetWidth));const W=r.clientWidth;r.classList.remove('pfMide');
   if(!W||!L)return;
@@ -75,7 +81,7 @@ function filas(){document.querySelectorAll('section.on').forEach(sec=>sec.queryS
   // el más largo no cabe ni solo en dos columnas: con muchos botones, se ponen en 2 columnas y el texto en dos renglones
   if(max<2&&K.length>=4&&L<=cw(2)*1.8){max=2;largo=true;}else if(max===1&&L>W)largo=true;
   // si la última fila se queda coja (3 botones en 2 columnas → 2+1) y con una columna más quedan todas llenas, una más con el texto en dos renglones
-  if(K.length%max&&K.length%(max+1)===0&&K.length<=8&&L<=cw(max+1)*1.8){max++;largo=true;}
+  {const c0=Math.ceil(K.length/Math.ceil(K.length/max));if(K.length%c0&&K.length%(max+1)===0&&K.length<=8&&L<=cw(max+1)*1.8){max++;largo=true;}}
   const nf=Math.ceil(K.length/max),cols=Math.ceil(K.length/nf);   // filas equilibradas: 6 → 3+3, 5 → 3+2, 17 → 2 columnas
   r.style.setProperty('--pfC',cols);r.classList.toggle('pfLargo',largo);}));}
 let tf=0;const filasYa=()=>{clearTimeout(tf);tf=setTimeout(filas,60);};
@@ -87,5 +93,10 @@ const _st=showTab;showTab=function(t){_st.apply(this,arguments);
   if(t==='cerca'&&Date.now()-ceUlt>120000&&typeof ceGo==='function'){ceUlt=Date.now();setTimeout(()=>{try{ceGo();}catch(e){console.log('cerca',e);}},150);}};
 const b1=ceBtn();if(b1){const v=b1.onclick;b1.onclick=e=>{ceUlt=Date.now();return v&&v.call(b1,e);};}
 filasYa();
+let firma='';setInterval(()=>{const sec=document.querySelector('section.on');if(!sec)return;
+  const f=sec.id+'|'+innerWidth+'|'+[...sec.querySelectorAll(PF_SEL)].map(r=>r.children.length+(r.classList.contains('pfGrid')?'g':'')).join(',');
+  if(f!==firma){firma=f;filas();}},1000);
+// al cambiar de pantalla por cualquier camino (no solo con showTab), también
+try{new MutationObserver(m=>{if(m.some(x=>x.target.tagName==='SECTION'&&x.target.classList.contains('on')))filasYa();}).observe(document.body,{attributes:true,attributeFilter:['class'],subtree:true});}catch(e){}
 })();
 try{Object.assign(I18N.eu,{'🔄 Volver a buscar':'🔄 Berriz bilatu'});Object.assign(I18N.en,{'🔄 Volver a buscar':'🔄 Search again'});Object.assign(I18N.fr,{'🔄 Volver a buscar':'🔄 Chercher à nouveau'});}catch(e){}
