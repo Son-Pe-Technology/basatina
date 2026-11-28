@@ -1,0 +1,6 @@
+DGT falló: https://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml HTTP Error 502: Bad Gateway
+DGT falló: http://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml HTTP Error 502: Bad Gateway
+Overpass falló: https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
+Overpass falló: https://overpass.private.coffee/api/interpreter HTTP Error 504: Gateway Timeout
+OSM en Navarra: 46
+Total: 46 · fijos: 44 · tramos: 2
