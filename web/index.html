@@ -4579,7 +4579,8 @@ function doRender(){abLoad(()=>{const A=window.ABIERTOS;if(!A){document.getEleme
     document.getElementById('doZ').onchange=doRender;document.getElementById('doQ').oninput=()=>{clearTimeout(doRender.t);doRender.t=setTimeout(doRender,250);};
     document.getElementById('doC').onclick=e=>abCerca(e.target,()=>{DOCERCA=true;doRender();});}
   const z=document.getElementById('doZ').value,q=abNorm(document.getElementById('doQ').value.trim());
-  const L=A.aloj.filter(a=>(!DOT||a[0]===DOT)&&(!z||a[5]===z)&&(!q||abNorm(a[1]+' '+a[4]).includes(q))).map(a=>{a._k=abKm(a[7],a[8]);return a;});
+  const VI=new Set();
+  const L=A.aloj.filter(a=>(!DOT||a[0]===DOT)&&(!z||a[5]===z)&&(!q||abNorm(a[1]+' '+a[4]).includes(q))).filter(a=>{const k=abNorm(a[1]+'|'+a[3]+'|'+a[4]);if(VI.has(k))return false;VI.add(k);return true;}).map(a=>{a._k=abKm(a[7],a[8]);return a;});
   if(!DOCERCA)L.sort((a,b)=>a[4].localeCompare(b[4],'es')||a[1].localeCompare(b[1],'es'));
   const ico=t=>(DO_T.find(x=>x[0]===t)||DO_T[0])[2];
   abLista(document.getElementById('doList'),L,a=>`<div class="st" style="align-items:flex-start"><div style="flex:1"><b>${ico(a[0])} ${esc(a[1])}</b>
@@ -4602,7 +4603,8 @@ function coRender(){abLoad(()=>{const A=window.ABIERTOS;if(!A){document.getEleme
       `<details class="st" style="display:block"><summary><b>${esc(r.n)}</b>${r.sub?` <span class="note">· ${esc(r.sub)}</span>`:''}${r.do?' <span class="note">· 🏅 Denominación de origen</span>':''}</summary><div class="s" style="white-space:pre-line;margin-top:6px">${esc(r.txt)}</div></details>`).join('')).join('')+
       '<div class="note" style="margin-top:8px">Textos de Turismo de Navarra (datos abiertos del Gobierno de Navarra).</div>';return;}
   const z=document.getElementById('coZ').value,e=document.getElementById('coE').value,q=abNorm(document.getElementById('coQ').value.trim());
-  const L=A.rest.filter(a=>(!z||a[5]===z)&&(!e||a[2]===e)&&(!q||abNorm(a[0]+' '+a[4]).includes(q))).map(a=>{a._k=abKm(a[6],a[7]);return a;});
+  const VI=new Set();   // 28 nov. 2026: el registro trae algunos repetidos (mismo nombre y dirección): sale una vez
+  const L=A.rest.filter(a=>(!z||a[5]===z)&&(!e||a[2]===e)&&(!q||abNorm(a[0]+' '+a[4]).includes(q))).filter(a=>{const k=abNorm(a[0]+'|'+a[3]+'|'+a[4]);if(VI.has(k))return false;VI.add(k);return true;}).map(a=>{a._k=abKm(a[6],a[7]);return a;});
   if(!COCERCA)L.sort((a,b)=>a[4].localeCompare(b[4],'es')||a[0].localeCompare(b[0],'es'));
   abLista(el,L,a=>`<div class="st" style="align-items:flex-start"><div style="flex:1"><b>🍽️ ${esc(a[0])}</b>
     <div class="s">${esc(a[1])}${a[2]?' · '+esc(a[2]):''}</div><div class="s">📍 ${esc(a[3])}, ${esc(a[4])}${abKmT(a._k)}</div>
@@ -5220,6 +5222,6 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 
 <script src="pestanas-filas.js?v=49c26a4c"></script>
 <script src="retoques-28nov.js?v=785c0abb"></script>
-<script src="botones-mapas.js?v=cb2e4b82"></script>
+<script src="botones-mapas.js?v=a29eddc6"></script>
 </body>
 </html>
