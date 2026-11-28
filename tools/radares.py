@@ -159,30 +159,23 @@ def osm():
     return out
 
 D = dgt()
-O = [r for r in osm() if not any(km(r["pt"], x["pt"]) < 0.3 for x in D)]
+O = osm()
+if not O:   # Overpass caído: se mantienen los de OpenStreetMap de la última vez
+    try:
+        t0 = open("web/radares.js", encoding="utf-8").read(); O = [r for r in json.loads(t0[t0.index("{"):t0.rindex("}") + 1])["L"] if r.get("f") == "OSM"]
+        log("OSM: se mantienen los de la última vez:", len(O))
+    except Exception: O = []
+if not D:   # igual con la DGT
+    try:
+        t0 = open("web/radares.js", encoding="utf-8").read(); D = [r for r in json.loads(t0[t0.index("{"):t0.rindex("}") + 1])["L"] if r.get("f") == "DGT" and r["t"] != "movil"]
+        log("DGT: se mantienen los de la última vez:", len(D))
+    except Exception: D = []
+O = [r for r in O if not any(km(r["pt"], x["pt"]) < 0.3 for x in D)]
 # tramos INVIVE: donde la DGT intensifica la vigilancia con radar móvil (no dice dónde está el radar cada día)
 M = dgt(INVIVE, "movil")
 L = D + O + M
 
-# ---------- muestra del tiempo real de la DGT (solo para el registro, para preparar «Nieve en carreteras») ----------
-try:
-    raw = get(SITU, t=180); root = ET.fromstring(raw); log("Situaciones DGT:", len(raw), "bytes")
-    from collections import Counter
-    C = Counter(); vistos = 0
-    for el in root.iter():
-        if local(el.tag) != "situationRecord": continue
-        hojas = [(local(x.tag), (x.text or "").strip()) for x in el.iter() if len(x) == 0 and (x.text or "").strip()]
-        tipos = el.attrib.get("{http://www.w3.org/2001/XMLSchema-instance}type", "")
-        C[tipos] += 1
-        pts = []; la = None
-        for k, v in hojas:
-            if k == "latitude": la = float(v)
-            elif k == "longitude" and la is not None: pts.append((la, float(v))); la = None
-        if pts and any(municipio(*p) for p in pts):
-            C["NAVARRA " + tipos] += 1
-            if vistos < 6: log("Navarra:", tipos, hojas[:60]); vistos += 1
-    log("Tipos:", C.most_common(40))
-except Exception as e: log("Situaciones DGT falló:", e)
+
 L.sort(key=lambda r: (r["car"] or "zz", r["pt"][0]))
 if not L:
     log("No hay radares: no se cambia el archivo"); open("tools/radares_info.txt", "w", encoding="utf-8").write("\n".join(INFO) + "\n"); sys.exit(0)

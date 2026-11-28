@@ -1,0 +1,27 @@
+# Nieve, hielo y mal tiempo en las carreteras de Navarra (DGT, tiempo real; tools/dgt_vialidad.py).
+# Cada 30 minutos, al cambiar el script o a mano desde Actions. Guarda carreteras/vialidad.json solo si ha cambiado algo.
+name: Vialidad invernal (DGT)
+on:
+  push:
+    paths: ['tools/dgt_vialidad.py']
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: vialidad
+jobs:
+  vialidad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar de la DGT
+        run: python3 tools/dgt_vialidad.py
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          [ -f carreteras/vialidad.json ] && git add carreteras/
+          git commit -m "Vialidad invernal (DGT)" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs && git push && break; sleep $((i*10)); done
