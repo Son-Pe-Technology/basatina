@@ -16,12 +16,13 @@ const $=id=>document.getElementById(id);
 const css=document.createElement('style');
 css.textContent=`
 .mfFijo>canvas{touch-action:pan-y!important}
-.mfAmp{position:absolute;right:8px;bottom:8px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);font-size:20px;line-height:44px;padding:0;cursor:pointer;color:#2f4a2a}
+.mfAmp{position:absolute;left:8px;bottom:8px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);font-size:20px;line-height:44px;padding:0;cursor:pointer;color:#2f4a2a}
 #mfBox{position:fixed;inset:0;z-index:99990;background:#f3f6f1;display:flex;flex-direction:column}
 #mfBox .mfCab{display:flex;align-items:center;gap:10px;padding:10px 12px;padding-top:max(10px,env(safe-area-inset-top));background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 #mfBox .mfCab b{flex:1;font-size:16px}
 #mfBox .mfMap{flex:1;position:relative;padding:8px}
-#mfBox .mfMap>div{height:100%}
+#mfBox .mfMap>div:not(.mfFi){height:100%}
+.mfW{position:relative}
 #mfBox .mfAmp{display:none}
 #mfBox .mfFi{position:absolute;left:8px;right:8px;bottom:8px;max-height:45vh;overflow:auto;background:#fff;border-radius:16px;padding:12px;box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:3}
 #mfBox .mfFi:empty{display:none}
@@ -62,7 +63,14 @@ document.head.appendChild(css);
 /* ---------- 1 · mapa fijo + ampliar ---------- */
 let ABIERTO=null;
 function mfMapa(cid,getM,fichaId,titulo){const cv=$(cid);if(!cv||cv.dataset.mf)return;cv.dataset.mf='1';
-  const w=cv.parentElement;w.classList.add('mfFijo');
+  let w=cv.parentElement;
+  // si el mapa comparte recuadro con otras cosas (capas, textos…), se mete en una caja suya para abrir en grande solo el mapa
+  const otros=[...w.children].filter(x=>x!==cv&&getComputedStyle(x).position!=='absolute');
+  if(otros.length){const d=document.createElement('div');d.className='mfW';cv.before(d);d.appendChild(cv);w=d;}
+  if(getComputedStyle(w).position==='static')w.style.position='relative';
+  // la ficha que se rellena al tocar un punto: la que se diga o la que se llame como el mapa (inc → inFicha, coMap → coPI…)
+  if(fichaId===undefined){const pre=cid.replace(/(c|Map|Mapa|MapA)$/,'');fichaId=['Ficha','Fi','PI','Info','SelI'].map(k=>pre+k).find(k=>$(k))||null;}
+  w.classList.add('mfFijo');
   // en pequeño: arrastrar y pellizcar no mueven el mapa (así la pantalla sube y baja); tocar un punto, sí
   let x0=0,y0=0,mov=false;
   w.addEventListener('pointerdown',e=>{if(e.target===cv){x0=e.clientX;y0=e.clientY;mov=false;}},true);
@@ -73,7 +81,7 @@ function mfMapa(cid,getM,fichaId,titulo){const cv=$(cid);if(!cv||cv.dataset.mf)r
   w.addEventListener('wheel',e=>{if(e.target===cv&&w.classList.contains('mfFijo'))e.stopPropagation();},true);
   const b=document.createElement('button');b.className='mfAmp';b.type='button';b.textContent='⛶';b.setAttribute('aria-label','Ampliar el mapa');
   b.onclick=()=>abrir();w.appendChild(b);
-  function abrir(){const M=getM();if(!M||ABIERTO)return;const fi=fichaId?$(fichaId):null;
+  function abrir(){const M=getM();if(!M||ABIERTO)return;let fi=fichaId?$(fichaId):null;if(fi&&w.contains(fi))fi=null;
     const sitio=document.createComment('mapa'),sitioF=document.createComment('ficha');w.before(sitio);if(fi)fi.before(sitioF);
     const box=document.createElement('div');box.id='mfBox';
     const t=titulo||((typeof TITLES!=='undefined'&&typeof BNTAB!=='undefined'&&TITLES[BNTAB])||'Mapa');
@@ -83,11 +91,11 @@ function mfMapa(cid,getM,fichaId,titulo){const cv=$(cid);if(!cv||cv.dataset.mf)r
     let fiBox=null;if(fi){fiBox=document.createElement('div');fiBox.className='mfFi';zona.appendChild(fiBox);fiBox.appendChild(fi);
       // la ficha vacía no tapa el mapa
       const vacia=()=>fiBox.style.display=fi.textContent.trim()?'':'none';vacia();fiBox._o=new MutationObserver(vacia);fiBox._o.observe(fi,{childList:true,subtree:true});}
-    w.classList.remove('mfFijo');const h0=cv.dataset.h;
+    w.classList.remove('mfFijo');const h0=cv.dataset.h,sh0=cv.style.height;
     const alto=()=>{cv.dataset.h=Math.max(250,zona.clientHeight-16);M.draw();M.base();};
     document.documentElement.style.overflow='hidden';
     ABIERTO={cerrar:()=>{if(fiBox&&fiBox._o)fiBox._o.disconnect();sitio.replaceWith(w);if(fi)sitioF.replaceWith(fi);box.remove();
-      w.classList.add('mfFijo');cv.dataset.h=h0;document.documentElement.style.overflow='';window.removeEventListener('resize',alto);ABIERTO=null;setTimeout(()=>{M.draw();M.base();},30);}};
+      w.classList.add('mfFijo');if(h0===undefined)delete cv.dataset.h;else cv.dataset.h=h0;cv.style.height=sh0;document.documentElement.style.overflow='';window.removeEventListener('resize',alto);ABIERTO=null;setTimeout(()=>{M.draw();M.base();},30);}};
     box.querySelector('.mfCab button').onclick=ABIERTO.cerrar;window.addEventListener('resize',alto);setTimeout(alto,30);}}
 window.mfMapa=mfMapa;
 // el «atrás» del móvil cierra el mapa en grande
@@ -95,13 +103,18 @@ const _at=window.basatinaAtras;if(typeof _at==='function')window.basatinaAtras=f
 // al cambiar de pantalla, se cierra
 const _st=showTab;showTab=function(){if(ABIERTO)ABIERTO.cerrar();const r=_st.apply(this,arguments);setTimeout(repasa,300);return r;};
 
+const MF_NO=new Set(['cmPick','arpc','dipc','mtr']);   // mtr: el mapa del Inicio se queda como está
+const MF_FI={coMapA:'coSelI',prMap:'prInfo',mtr:null,rdc:null};
+try{const _NM=NavMap;NavMap=function(id){const M=_NM.apply(this,arguments);if(!MF_NO.has(id))setTimeout(()=>mfMapa(id,()=>M,id in MF_FI?MF_FI[id]:undefined),0);return M;};}catch(e){}
 mfMapa('sic',()=>typeof SIM!=='undefined'?SIM:null,'siFicha','🌍 Terremotos y fallas');
 mfMapa('gsc',()=>typeof GSM!=='undefined'?GSM:null,'gsFicha','⛽ Gasolineras');
 
 /* ---------- 2 · listas desplegables → botones ---------- */
 function bcChips(id,tit){const s=$(id);if(!s||s.dataset.bc)return;s.dataset.bc='1';
   const box=document.createElement('div');box.className='bcChips';box.id=id+'Bc';
-  const row=s.parentElement;
+  let row=s.parentElement;
+  // si el desplegable ya está metido en un chip («Zona ▾», «Grupo ▾» de filtros-chips.js), los botones van debajo de toda esa fila
+  if(row.matches('label.msChip')){row.style.display='none';row=row.closest('.msFila')||row;}
   // los botones van debajo de la fila del select (detrás de los que ya se hayan puesto ahí)
   let anc=row;while(anc.nextElementSibling&&anc.nextElementSibling.matches('.bcTit,.bcChips'))anc=anc.nextElementSibling;
   anc.after(box);if(tit)box.before(Object.assign(document.createElement('div'),{className:'bcTit',textContent:tit}));
