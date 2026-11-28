@@ -98,6 +98,13 @@ const st=document.createElement('style');st.textContent=`
 .sadNum{font-size:20px;font-weight:900;min-width:28px;text-align:right}
 .sadNum.hay{color:#d32f2f}
 .sadHerr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+/* 28 nov. 2026 (Pedro): lo pendiente, en botonera como «Probar avisos» */
+.sadPend{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.sadPend button{display:flex;align-items:center;gap:6px;text-align:left;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.1);background:#f7faf5;font:inherit;font-size:14px;cursor:pointer;color:inherit;min-height:52px}
+.sadPend button .sadI{font-size:20px;flex:none}.sadPend button .sadT{flex:1;font-weight:700;line-height:1.2}
+.sadPend button .sadNum{font-size:18px;min-width:0}
+.sadPend button.hay{background:#fff4e5;border-color:#f0b07a}
+.sadPend button.on{outline:2px solid #3d7031}
 /* 26 nov. 2026 (Pedro): «Administrador» a todo lo ancho, como las tarjetas de arriba, pero bajito */
 body.bna #bnaDGrid>#dgApp{grid-column:1/-1;min-height:52px;padding:8px 14px}
 .sadHerr button{text-align:left;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.1);background:#f7faf5;font:inherit;font-size:14px;cursor:pointer}`;
@@ -110,7 +117,7 @@ try{PVS_ESC.superadm='pueblo';}catch(e){}
 /* 🔔 Probar avisos (26 nov. 2026, lo pidió Pedro): un botón por tipo de aviso → AndroidNet.probarAviso (APK 5.8) */
 const PA=[['lluvia','🌧️ Lluvia'],['tormenta','⛈️ Lluvia fuerte'],['viento','💨 Viento'],['helada','🥶 Helada'],['calor','🥵 Calor y UV'],['niebla','🌫️ Niebla'],
   ['rio','🌊 Río, carreteras y monte'],['sismo','🌍 Terremoto'],['desaparecidos','🆘 Desaparecidos'],['push','📲 Avisos de BasatiNA'],['admin','⭐ Algo por revisar'],
-  ['dato','💡 Dato del día'],['curiosa','😄 Noticia curiosa']];
+  ['refran','🗣️ Refrán por revisar'],['dato','💡 Dato del día'],['curiosa','😄 Noticia curiosa']];   // 28 nov. 2026: «Refrán por revisar» (con la app 6.0; antes suena como «Algo por revisar», que es el mismo canal)
 function abrirMod(){showTab('comunidad');setTimeout(()=>{const b=$('cmModB');if(b)b.click();},250);}
 function abrirIA(){showTab('noticias');setTimeout(()=>{const a=$('iaAdm');if(a)a.scrollIntoView({behavior:'smooth',block:'start'});},900);}
 
@@ -122,12 +129,11 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
   const P=PEND||{},num=v=>v==null?'<span class="sadNum">–</span>':`<span class="sadNum ${v?'hay':''}">${v}</span>`;
   const herr=[...document.querySelectorAll('#dgApp + .dsub button')].filter(b=>b.id!=='sadBtn'&&b.id!=='dLock'&&b.id!=='dPin');
   el.innerHTML=`<div class="card"><div class="row" style="align-items:center;gap:10px"><div style="font-size:36px">⭐</div><div style="flex:1"><b style="font-size:18px">Hola, ${X(s.nombre)}</b><div class="note">Súper administrador · ${X(s.mail)}</div></div><button class="btn" id="sadRf">🔄</button></div></div>
-   <div class="card"><b>⏳ Pendiente de aprobar</b>
-     <div class="sadFila"><span class="sadI">📣</span><span class="sadT"><b>Alertas ciudadanas</b><small>Avisos de la gente esperando a ser publicados</small></span>${num(P.alertas)}<button class="btn" data-ir="mod">Revisar</button></div>
-     <div class="sadFila"><span class="sadI">🚩</span><span class="sadT"><b>Denuncias</b><small>Avisos publicados que alguien ha denunciado</small></span>${num(P.denuncias)}<button class="btn" data-ir="mod">Revisar</button></div>
-     <div class="sadFila"><span class="sadI">🗣️</span><span class="sadT"><b>Refranes</b><small>Los que ha mandado la gente (abajo)</small></span>${num(P.refranes)}<button class="btn" data-ir="rfAbajo">Ver</button></div>
-     <div class="sadFila"><span class="sadI">📸</span><span class="sadT"><b>Fotos de la gente</b><small>Las que han mandado por «Envía tu foto»</small></span>${num(P.fotos)}<button class="btn" data-ir="fotosRev">Revisar</button></div>
-     <div class="sadFila"><span class="sadI">🤖</span><span class="sadT"><b>Noticias de la IA</b><small>Borradores que la IA no ha publicado sola</small></span>${num(P.ia)}<button class="btn" data-ir="ia">Revisar</button></div>
+   <div class="card" id="sadPendC"><b>⏳ Pendiente de aprobar</b>
+     <div class="sadPend">${[['📣','Alertas ciudadanas',P.alertas,'mod'],['🚩','Denuncias',P.denuncias,'mod'],['🗣️','Refranes',P.refranes,'rfVer'],['📸','Fotos de la gente',P.fotos,'fotosRev'],['🤖','Noticias de la IA',P.ia,'ia']]
+       .map(([i,t,v,ir])=>`<button data-ir="${ir}" class="${v?'hay':''} ${ir==='rfVer'&&window._sadRfV?'on':''}"><span class="sadI">${i}</span><span class="sadT">${t}</span>${num(v)}</button>`).join('')}</div>
+     <div id="sadRfL" style="display:${window._sadRfV?'':'none'}"><div class="note" style="margin-top:10px"><b>🗣️ Refranes que ha mandado la gente</b></div>${(P.rfL||[]).length?P.rfL.map(r=>`<div class="sadFila" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${X(r.t)}»</div>${r.s?`<div class="note">${X(r.s)}</div>`:''}<div class="note">📍 ${X(r.p||'sin pueblo')}${r.creado?' · '+X(new Date(r.creado).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})):''}</div>
+       <div class="row" style="gap:6px;margin-top:6px"><button class="btn pri" data-rfok="${X(r.id)}">✅ Publicar</button><button class="btn" data-rfno="${X(r.id)}">🗑️ Eliminar</button></div></div>`).join(''):`<div class="note" style="margin-top:6px">${P.refranes==null?'No se han podido mirar (¿están publicadas las reglas nuevas de Firestore?).':'No hay ninguno esperando. 👍'}</div>`}</div>
      ${P.err&&P.err.length?`<div class="note" style="margin-top:6px">⚠️ No se ha podido mirar todo (${X(P.err.join('; '))}). ¿Están publicadas las reglas nuevas de Firestore?</div>`:''}
      ${P.ia==null?'<div class="note" style="margin-top:6px">Para ver las noticias de la IA hace falta la llave de GitHub (abajo).</div>':''}</div>
    <div class="card" id="sadPush"><b>🔔 Avisarme en el móvil</b><div class="note" style="margin-top:4px;line-height:1.5">Te llega un aviso en cuanto haya algo nuevo por revisar (noticias de la IA, refranes, fotos, alertas ciudadanas o denuncias), aunque tengas la app cerrada. Al tocarlo se abre este panel. De 23:00 a 7:00 no suena: lo que entre de noche te llega a las 7.</div>
@@ -135,8 +141,6 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
      <div class="note" style="margin-top:6px">También avisa de las fotos que manda la gente (y además llegan por correo a participa@basatina.es).</div></div>
    <div class="card" id="sadPA"><b>🔔 Probar avisos</b><div class="note" style="margin-top:4px;line-height:1.5">Toca uno y te llega al momento un aviso de prueba, con su sonido de verdad. Si alguno no suena, mira en los ajustes del móvil (Aplicaciones → BasatiNA → Notificaciones) que esa categoría no esté silenciada, y que el volumen de notificaciones esté subido.</div>
      ${window.AndroidNet&&AndroidNet.probarAviso?`<div class="sadHerr">${PA.map(([k,t])=>`<button data-pa="${k}">${t}</button>`).join('')}</div>`:'<div class="note" style="margin-top:6px">⚠️ Hace falta la app 5.8 o más nueva (Google Play).</div>'}</div>
-   <div class="card" id="sadRfC"><b>🗣️ Refranes por aprobar</b>${(P.rfL||[]).length?P.rfL.map(r=>`<div class="sadFila" style="display:block"><div style="font-family:Georgia,serif;font-size:16px">«${X(r.t)}»</div>${r.s?`<div class="note">${X(r.s)}</div>`:''}<div class="note">📍 ${X(r.p||'sin pueblo')}${r.creado?' · '+X(new Date(r.creado).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})):''}</div>
-     <div class="row" style="gap:6px;margin-top:6px"><button class="btn pri" data-rfok="${X(r.id)}">✅ Publicar</button><button class="btn" data-rfno="${X(r.id)}">🗑️ Eliminar</button></div></div>`).join(''):`<div class="note" style="margin-top:6px">${P.refranes==null?'No se han podido mirar (¿están publicadas las reglas nuevas de Firestore?).':'No hay ninguno esperando. 👍'}</div>`}</div>
    <div class="card"><b>🛠️ Herramientas</b><div class="sadHerr">
      <button data-ir="noticias">📰 Corregir noticias</button><button data-ir="ajustes">⚙️ Ajustes y avisos</button><button data-ir="cuenta">👤 Mi cuenta</button><button data-ir="creditos">📚 Fuentes y créditos</button>
      ${herr.map((b,i)=>`<button data-hx="${i}">${X(b.textContent.trim())}</button>`).join('')}</div></div>
@@ -146,14 +150,14 @@ async function panel(){const el=$('sadBody');if(!el)return;const s=yo();
      Si la guardáis en la nube, vuestros otros móviles la cogen solos al entrar con vuestra cuenta. Solo la podéis leer Sonia y tú.</div>
      <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:6px">${ghTok()?'<button class="btn pri" id="sadGu">☁️ Guardar en la nube</button>':''}<button class="btn" id="sadQu">🗑️ Quitar de la nube</button>${ghTok()?'':'<button class="btn" id="sadPeg">📋 Pegar llave</button>'}</div><div class="note" id="sadKm"></div></div>
    <div class="card"><div class="note" style="line-height:1.5">El modo Administrador solo se abre con vuestras cuentas y se cierra solo si sales de la cuenta. Ya no hay PIN.</div></div>`;
-  el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;if(v==='rfAbajo'){const c=$('sadRfC');if(c)c.scrollIntoView({behavior:'smooth',block:'start'});return;}
+  el.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>{const v=b.dataset.ir;if(v==='rfVer'){const c=$('sadRfL');if(c){const on=c.style.display==='none';window._sadRfV=on;c.style.display=on?'':'none';b.classList.toggle('on',on);if(on)c.scrollIntoView({behavior:'smooth',block:'nearest'});}return;}
     if(v==='fotosRev'){showTab('fotos');setTimeout(()=>{const b=$('foPendB');if(b){b.click();b.scrollIntoView({behavior:'smooth',block:'start'});}},500);return;}v==='mod'?abrirMod():v==='ia'?abrirIA():showTab(v);});
   // 🗣️ publicar o eliminar refranes con un toque
   const rfHecho=async(b,fn,txt)=>{el.querySelectorAll('[data-rfok],[data-rfno]').forEach(x=>x.disabled=true);
     try{await fn();toast(txt);}catch(e){toast('❌ '+e.message);}await pendientes(true);panel();};
   el.querySelectorAll('[data-rfok]').forEach(b=>b.onclick=()=>rfHecho(b,()=>window.RFX.aprobar(b.dataset.rfok),'✅ Refrán publicado'));
   el.querySelectorAll('[data-rfno]').forEach(b=>b.onclick=()=>{if(confirm('¿Eliminar este refrán? No se publicará.'))rfHecho(b,()=>window.RFX.eliminar(b.dataset.rfno),'🗑️ Refrán eliminado');});
-  el.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>{try{AndroidNet.probarAviso(b.dataset.pa);toast('🔔 Prueba enviada: '+b.textContent);}catch(e){toast('❌ No se pudo lanzar la prueba');}});
+  el.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>{try{let k=b.dataset.pa;if(k==='refran'){let v=0;try{v=AndroidNet.appVersion();}catch(e){}if(v<40)k='admin';}AndroidNet.probarAviso(k);toast('🔔 Prueba enviada: '+b.textContent);}catch(e){toast('❌ No se pudo lanzar la prueba');}});
   const pu=$('sadPu');if(pu)pu.onchange=()=>{puAdmin.pon(pu.checked);toast(pu.checked?'🔔 Te avisaremos de lo pendiente':'🔕 Avisos de lo pendiente apagados');};
   el.querySelectorAll('[data-hx]').forEach(b=>b.onclick=()=>{const h=herr[+b.dataset.hx];if(h)h.click();try{menu(false);}catch(e){}});
   $('sadRf').onclick=async()=>{$('sadRf').disabled=true;await pendientes(true);panel();claves();gastoIA();};

@@ -31,9 +31,14 @@ const cuando=d=>{try{return typeof hace==='function'?hace(d):new Date(d).toLocal
 const st=document.createElement('style');st.textContent=`
 #iaPub .iaN{padding:12px 0;border-top:1px solid #eef2ec}#iaPub .iaN:first-of-type{border-top:none}
 #iaPub .iaM{font-size:12.5px;color:#5b6660;margin-bottom:3px}
-#iaPub .iaT{font-weight:900;font-size:16.5px;line-height:1.25;color:#1d1d1d}
-#iaPub .iaX{font-size:14.5px;line-height:1.45;margin-top:6px;color:#2a302c;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}
-#iaPub .iaN.abierta .iaX{display:block;-webkit-line-clamp:unset}
+#iaPub .iaT{font-weight:900;font-size:16.5px;line-height:1.25;color:#1d1d1d;cursor:pointer;display:flex;gap:8px;align-items:flex-start;-webkit-tap-highlight-color:transparent}
+#iaPub .iaT>span{flex:1}
+#iaPub .iaT>i{font-style:normal;color:#3d7031;font-size:15px;flex:none;margin-top:1px;transition:transform .2s}
+#iaPub .iaN.abierta .iaT>i{transform:rotate(90deg)}
+/* 28 nov. 2026 (Pedro): solo se ve el titular; al tocarlo se despliega la noticia entera */
+#iaPub .iaX{font-size:14.5px;line-height:1.45;margin-top:6px;color:#2a302c;display:none;white-space:pre-line}
+#iaPub .iaS{display:none}
+#iaPub .iaN.abierta .iaX,#iaPub .iaN.abierta .iaS{display:block}
 #iaPub .iaS{font-size:12.5px;color:#5b6660;margin-top:6px}#iaPub .iaS a{color:#3d7031;font-weight:700;cursor:pointer}
 #iaPub .iaPie{font-size:11.5px;color:#7b857f;margin-top:8px}
 #iaAdm .iaB{border:1px solid #e3e8e1;border-radius:14px;padding:10px;margin-top:10px;background:#fff}
@@ -59,11 +64,11 @@ async function pinta(fresh){if(!sitio())return;const PD=await jsLoad(PUB_PATH,PU
   const P=(PD.items||[]).slice(0,12),pub=$('iaPub');
   pub.style.display=P.length?'':'none';
   pub.innerHTML=`<b>📰 Noticias de BasatiNA</b>`+P.map(x=>`<div class="iaN" data-id="${X(x.id)}"><div class="iaM">${X([x.pueblo,x.cat].filter(Boolean).join(' · '))}${x.pub?' · '+X(cuando(x.pub)):''}</div>
-    <div class="iaT">${X(x.titulo)}</div><div class="iaX">${X(x.texto)}</div>
+    <div class="iaT"><span>${X(x.titulo)}</span><i>▸</i></div><div class="iaX">${X(x.texto)}</div>
     <div class="iaS">Según ${(x.fuentes||[]).filter((f,i,a)=>a.findIndex(y=>y.f===f.f)===i).map(f=>`<a data-u="${X(f.u)}">${X(f.f)}</a>`).join(', ')}</div>
     ${adminOk()?`<div class="iaBt tech"><span class="iaM" style="flex:1 1 auto;align-self:center">${x.auto?'🤖 Publicada sola por la IA':'✋ Publicada a mano'}</span><button class="btn" data-cor="${X(x.id)}">✏️ Corregir</button><button class="btn" data-ret="${X(x.id)}">↩️ Retirar</button></div>`:''}</div>`).join('')+
     `<div class="iaPie">Redactadas por BasatiNA con ayuda de IA a partir de lo que cuentan al menos dos medios. Las de sucesos se revisan siempre a mano. La noticia completa está en cada medio.</div>`;
-  pub.querySelectorAll('.iaX').forEach(e=>e.onclick=()=>e.closest('.iaN').classList.toggle('abierta'));
+  pub.querySelectorAll('.iaT,.iaX').forEach(e=>e.onclick=()=>e.closest('.iaN').classList.toggle('abierta'));
   // ↩️ Retirar (solo Administrador): la quita de lo público y la marca como «retirada» en los borradores
   pub.querySelectorAll('button[data-ret]').forEach(b=>b.onclick=async()=>{const id=b.dataset.ret;
     if(!confirm('¿Retirar esta noticia? Dejará de verse en la app.'))return;b.disabled=true;

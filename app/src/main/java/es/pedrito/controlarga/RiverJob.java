@@ -801,6 +801,7 @@ public class RiverJob extends JobService {
             case "push": canales(c); prueba(c, "push_avisos_2", P + "📲 Avisos de BasatiNA", "Así suenan los avisos al momento de BasatiNA.", 910); break;
             case "desaparecidos": canales(c); prueba(c, "push_desaparecidos_2", P + "🆘 Personas desaparecidas", "Así suena la alerta de personas desaparecidas.", 911); break;
             case "admin": canales(c); prueba(c, "push_avisos_2", P + "⭐ Algo por revisar", "Así suena el aviso a los administradores cuando hay algo pendiente.", 912); break;
+            case "refran": canales(c); prueba(c, "push_avisos_2", P + "🗣️ Refrán por revisar", "Así suena el aviso cuando alguien manda un refrán para revisar.", 913); break;
         }
     }
 

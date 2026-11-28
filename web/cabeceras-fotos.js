@@ -45,7 +45,9 @@ const CF={
  cultura:['foto-cab2-cultura.webp','Plaza del Castillo de Pamplona al atardecer',S,PR,''],
  cines:['foto-cab2-cines.webp','sala de cine (foto libre)','','',''],
  deporte:['foto-cab2-deporte.webp','partido de pelota en el frontón Labrit (Pamplona)',P,PR,''],
- peques:['foto-cab2-peques.webp','gigante en San Fermín (foto libre)','','','']
+ peques:['foto-cab2-peques.webp','gigante en San Fermín (foto libre)','','',''],
+ // 28 nov. 2026 (Pedro): Localidades y Comarcas, foto de Txus
+ pueblos:['foto-cab2-pueblos.webp','Pirineo nevado y nieblas en los valles','Txus',CE,'']
 };
 const st=document.createElement('style');st.textContent=`
 body.bna #pvSec.cfFoto{background:#1d2b36 center/cover no-repeat}
@@ -79,7 +81,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&typeof BN
    se enseña la de la cabecera. Para añadir una: guárdala en web/fotos-full/ y pon la sección en CF_FULL.
    ===================================================================== */
 (function(){
-const CF_FULL=new Set(['noticias','cerca','radar','nieve','astro','energia','clima','emb','prev','ident','gas','sismo','cultura','cines','deporte','peques']);
+const CF_FULL=new Set(['noticias','cerca','radar','nieve','astro','energia','clima','emb','prev','ident','gas','sismo','cultura','cines','deporte','peques','pueblos']);
 const st=document.createElement('style');st.textContent='body.bna #pvSec.cfFoto{cursor:zoom-in}#pvSec.cfFoto .cfLupa{position:absolute;right:10px;top:8px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;pointer-events:none}#pvSec:not(.cfFoto) .cfLupa{display:none}';
 document.head.appendChild(st);
 function abre(){const el=document.getElementById('pvSec');if(!el||!el.classList.contains('cfFoto'))return;
