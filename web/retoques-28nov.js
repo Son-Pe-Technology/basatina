@@ -53,6 +53,12 @@ function plegar(card){
   h.onclick=()=>{const on=card.classList.toggle('ajPlOn');if(on)AB.add(clave);else AB.delete(clave);guarda();};}
 const box=$('sadBody');
 if(box){const todo=()=>{if(!$('sadPendC'))return;   // sin entrar con vuestra cuenta, la tarjeta de «Ir a Mi cuenta» se queda abierta
+    // pantallas que se quedaron en blanco en este móvil (para saber cuál arreglar)
+    if(!$('sadBlanco')){let L=[];try{L=JSON.parse(localStorage.getItem('bnaBlanco')||'[]');}catch(e){}
+      if(L.length){const c=document.createElement('div');c.className='card';c.id='sadBlanco';
+        c.innerHTML='<b>⚪ Pantallas en blanco en este móvil</b><div class="note">La app os llevó al Inicio porque no se veía ninguna pantalla. Mandad captura de esto a Claude para arreglarlo.</div>'+
+          L.map(x=>`<div class="note">${new Date(x.h).toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})} · pantalla «${String(x.t).replace(/[<>&"]/g,'')}»</div>`).join('');
+        const ult=box.querySelector(':scope>.card:last-child');box.insertBefore(c,ult&&!ult.querySelector(':scope>b,:scope>.ajPlH')?ult:null);}}
     box.querySelectorAll(':scope>.card').forEach(plegar);};
   // el panel se vuelve a pintar a menudo (y las claves y el gasto de la IA, por su cuenta): se pliega cada vez
   new MutationObserver(todo).observe(box,{childList:true,subtree:true});todo();}
@@ -88,11 +94,21 @@ let tf=0;const filasYa=()=>{clearTimeout(tf);tf=setTimeout(filas,60);};
 window.addEventListener('resize',filasYa);
 try{new MutationObserver(m=>{if(m.some(x=>x.target.nodeType===1&&x.target.matches&&x.target.matches(PF_SEL)))filasYa();}).observe(document.body,{childList:true,subtree:true});}catch(e){}
 
-const _st=showTab;showTab=function(t){_st.apply(this,arguments);
+const _st=showTab;showTab=function(t){window._pfUlt=t;_st.apply(this,arguments);setTimeout(blanco,700);
   try{filasYa();setTimeout(filas,400);}catch(e){}
   if(t==='cerca'&&Date.now()-ceUlt>120000&&typeof ceGo==='function'){ceUlt=Date.now();setTimeout(()=>{try{ceGo();}catch(e){console.log('cerca',e);}},150);}};
 const b1=ceBtn();if(b1){const v=b1.onclick;b1.onclick=e=>{ceUlt=Date.now();return v&&v.call(b1,e);};}
 filasYa();
+/* ---------- 5 · nunca la pantalla en blanco ----------
+   28 nov. 2026 (Pedro): a veces la app se quedaba solo con la barra de arriba, la de abajo y «Propiedad de Son&Pe»:
+   se había pedido abrir una pantalla que no existe (o aún no estaba creada, p. ej. al volver tras una
+   actualización) y se apagaban todas. Ahora, si no hay ninguna pantalla visible, se va al Inicio.
+   Queda apuntado en el móvil (localStorage «bnaBlanco») qué pantalla falló, para poder arreglarla. */
+function blanco(){const s=document.querySelector('section.on');if(s&&s.offsetHeight>0)return;
+  if(document.querySelector('#mfBox'))return;
+  try{const L=JSON.parse(localStorage.getItem('bnaBlanco')||'[]');L.unshift({t:(window._pfUlt||'?'),h:new Date().toISOString()});localStorage.setItem('bnaBlanco',JSON.stringify(L.slice(0,10)));}catch(e){}
+  try{showTab('mtiempo');}catch(e){}}
+setInterval(blanco,1500);
 let firma='';setInterval(()=>{const sec=document.querySelector('section.on');if(!sec)return;
   const f=sec.id+'|'+innerWidth+'|'+[...sec.querySelectorAll(PF_SEL)].map(r=>r.children.length+(r.classList.contains('pfGrid')?'g':'')).join(',');
   if(f!==firma){firma=f;filas();}},1000);
