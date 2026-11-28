@@ -82,7 +82,6 @@ const nwBind=el=>el.querySelectorAll('[data-u]').forEach(a=>a.onclick=e=>{e.prev
 svSec('noticias',`<div class="card"><b>📰 Titulares de Navarra</b><div class="note">Lo último de los medios de Navarra, <b>sin noticias de política</b>. Toca un titular para leer la noticia en la web del medio.</div>
  <div class="tmChips" id="nwC"></div><select class="town" id="nwF" style="width:100%;margin-top:4px"><option value="">Todos los medios</option></select></div>
  <div class="card" id="nwL"><div class="note">Cargando…</div></div>
- <div class="card"><div class="note">También puedes ir directamente al periódico (sin titulares automáticos aquí):</div><a class="btn" id="nwDN" style="display:block;margin-top:6px;text-align:center">📰 Abrir Diario de Noticias</a></div>
  <div class="note" style="margin:0 6px 12px" id="nwT"></div>`);
 {const dn=$('nwDN');if(dn)dn.onclick=e=>{e.preventDefault();abre('https://www.noticiasdenavarra.com/');};}
 nuevo('noticias','Servicios','📰 Titulares de Navarra','pueblo','i-news','b');

@@ -48,6 +48,8 @@ const st=document.createElement('style');st.textContent=`
 #iaAdm .iaD{color:#9a5b00;font-size:13px;margin-top:6px}#iaAdm .iaD li{margin:2px 0}
 #iaAdm .iaF{font-size:12.5px;color:#5b6660;margin-top:6px}#iaAdm .iaF a{color:#3d7031;cursor:pointer}
 #iaAdm .iaBt{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+/* 28 nov. 2026: Corregir y Retirar, dos botones iguales debajo de quién la publicó */
+#iaPub .iaBt.iaBt2{display:grid!important;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}#iaPub .iaBt.iaBt2 .iaM{grid-column:1/-1}#iaPub .iaBt.iaBt2 .btn{width:100%;margin:0;justify-content:center;text-align:center}
 #iaHoy{background:#fff;border-radius:20px;border:1px solid rgba(29,45,35,.06);box-shadow:0 4px 16px rgba(29,45,35,.08);padding:14px 16px;margin:0 0 12px}
 #iaHoy .iaHk{display:flex;align-items:center;gap:8px;color:#b26a00;font-weight:900;font-size:14px}
 #iaHoy .iaHt{font-weight:900;font-size:17px;margin:4px 0 6px;line-height:1.25}
@@ -66,7 +68,7 @@ async function pinta(fresh){if(!sitio())return;const PD=await jsLoad(PUB_PATH,PU
   pub.innerHTML=`<b>📰 Noticias de BasatiNA</b>`+P.map(x=>`<div class="iaN" data-id="${X(x.id)}"><div class="iaM">${X([x.pueblo,x.cat].filter(Boolean).join(' · '))}${x.pub?' · '+X(cuando(x.pub)):''}</div>
     <div class="iaT"><span>${X(x.titulo)}</span><i>▸</i></div><div class="iaX">${X(x.texto)}</div>
     <div class="iaS">Según ${(x.fuentes||[]).filter((f,i,a)=>a.findIndex(y=>y.f===f.f)===i).map(f=>`<a data-u="${X(f.u)}">${X(f.f)}</a>`).join(', ')}</div>
-    ${adminOk()?`<div class="iaBt tech"><span class="iaM" style="flex:1 1 auto;align-self:center">${x.auto?'🤖 Publicada sola por la IA':'✋ Publicada a mano'}</span><button class="btn" data-cor="${X(x.id)}">✏️ Corregir</button><button class="btn" data-ret="${X(x.id)}">↩️ Retirar</button></div>`:''}</div>`).join('')+
+    ${adminOk()?`<div class="iaBt tech iaBt2"><span class="iaM">${x.auto?'Publicada sola por la IA':'Publicada a mano'}</span><button class="btn" data-cor="${X(x.id)}">Corregir</button><button class="btn" data-ret="${X(x.id)}">Retirar</button></div>`:''}</div>`).join('')+
     `<div class="iaPie">Redactadas por BasatiNA con ayuda de IA a partir de lo que cuentan al menos dos medios. Las de sucesos se revisan siempre a mano. La noticia completa está en cada medio.</div>`;
   pub.querySelectorAll('.iaT,.iaX').forEach(e=>e.onclick=()=>e.closest('.iaN').classList.toggle('abierta'));
   // ↩️ Retirar (solo Administrador): la quita de lo público y la marca como «retirada» en los borradores
