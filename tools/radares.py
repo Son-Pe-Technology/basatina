@@ -18,6 +18,9 @@ import json, math, re, sys, time, datetime, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 
 UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)"}
+INVIVE = ["https://nap.dgt.es/datex2/dgt/PredefinedLocationsPublication/tramos_invive/content.xml",
+          "http://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/tramos_invive/content.xml"]
+SITU = "https://nap.dgt.es/datex2/v3/dgt/SituationPublication/datex2_v36.xml"
 DGT = ["https://nap.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml",
        "https://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml",
        "http://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml"]
@@ -64,9 +67,9 @@ def get(url, data=None, t=120):
 
 # ---------- 1. DGT (DATEX II) ----------
 def local(tag): return tag.rsplit("}", 1)[-1]
-def dgt():
+def dgt(URLS=DGT, tipo=None):
     raw = None
-    for u in DGT:
+    for u in URLS:
         try: raw = get(u, t=180); log("DGT:", u, len(raw), "bytes"); break
         except Exception as e: log("DGT falló:", u, e)
     if not raw: return []
@@ -97,13 +100,14 @@ def dgt():
         sen = ("hacia " + haciaN.title()) if haciaN else rel
         pueblo = d.get("townName", "")
         tramo = (len(pts) > 1 and km(pts[0], pts[-1]) > 0.3) or cod.upper().startswith("CVM")
-        r = {"t": "tramo" if tramo else "fijo", "n": " · ".join(x for x in [car, pueblo.title()] if x) or cod, "car": car, "pk": pk, "sen": sen, "vel": "",
+        if tipo: tramo = True
+        r = {"t": tipo or ("tramo" if tramo else "fijo"), "n": " · ".join(x for x in [car, pueblo.title()] if x) or cod, "car": car, "pk": pk, "sen": sen, "vel": "",
              "pt": pts[0], "f": "DGT", "mun": municipio(*pts[0]) or pueblo.title(), "id": cod}
         if tramo and len(pts) > 1:
             r["fin"] = pts[-1]
             if len(dist) > 1: r["pk"] = pk + "–" + pkm(dist[-1])
         out.append(r)
-    log("DGT en Navarra:", len(out))
+    log("DGT en Navarra" + (" (" + tipo + ")" if tipo else "") + ":", len(out))
     return out
 
 # ---------- 2. OpenStreetMap ----------
@@ -155,8 +159,23 @@ def osm():
     return out
 
 D = dgt()
-O = [r for r in osm() if not any(km(r["pt"], x["pt"]) < 0.3 for x in D)]
-L = D + O
+O = osm()
+if not O:   # Overpass caído: se mantienen los de OpenStreetMap de la última vez
+    try:
+        t0 = open("web/radares.js", encoding="utf-8").read(); O = [r for r in json.loads(t0[t0.index("{"):t0.rindex("}") + 1])["L"] if r.get("f") == "OSM"]
+        log("OSM: se mantienen los de la última vez:", len(O))
+    except Exception: O = []
+if not D:   # igual con la DGT
+    try:
+        t0 = open("web/radares.js", encoding="utf-8").read(); D = [r for r in json.loads(t0[t0.index("{"):t0.rindex("}") + 1])["L"] if r.get("f") == "DGT" and r["t"] != "movil"]
+        log("DGT: se mantienen los de la última vez:", len(D))
+    except Exception: D = []
+O = [r for r in O if not any(km(r["pt"], x["pt"]) < 0.3 for x in D)]
+# tramos INVIVE: donde la DGT intensifica la vigilancia con radar móvil (no dice dónde está el radar cada día)
+M = dgt(INVIVE, "movil")
+L = D + O + M
+
+
 L.sort(key=lambda r: (r["car"] or "zz", r["pt"][0]))
 if not L:
     log("No hay radares: no se cambia el archivo"); open("tools/radares_info.txt", "w", encoding="utf-8").write("\n".join(INFO) + "\n"); sys.exit(0)
@@ -164,5 +183,5 @@ hoy = datetime.date.today().isoformat()
 with open("web/radares.js", "w", encoding="utf-8") as f:
     f.write("// Radares de velocidad de Navarra (DGT, datos abiertos; © OpenStreetMap, ODbL). Generado por tools/radares.py\n")
     f.write("window.RADARES=" + json.dumps({"t": hoy, "L": L}, ensure_ascii=False, separators=(",", ":")) + ";\n")
-log("Total:", len(L), "· fijos:", sum(r["t"] == "fijo" for r in L), "· tramos:", sum(r["t"] == "tramo" for r in L))
+log("Total:", len(L), "· fijos:", sum(r["t"] == "fijo" for r in L), "· tramos:", sum(r["t"] == "tramo" for r in L), "· tramos de radar móvil:", sum(r["t"] == "movil" for r in L))
 open("tools/radares_info.txt", "w", encoding="utf-8").write("\n".join(INFO) + "\n")
