@@ -29,7 +29,7 @@ area["ISO3166-2"="ES-NA"]->.a;
 (node["highway"="speed_camera"](area.a);node["enforcement"="maxspeed"](area.a);relation["enforcement"~"maxspeed|average_speed"](area.a););
 out body;>;out skel qt;
 node["highway"="speed_camera"](area.a)->.c;
-way(around.c:60)["highway"]["ref"];
+way(around.c:50)["highway"]["ref"];way(around.c:30)["highway"]["name"];
 out tags geom;"""
 INFO = []
 def log(*a):
@@ -139,14 +139,15 @@ def osm():
         out.append({"t": "fijo", "n": tg.get("name", "") or "Radar fijo", "car": tg.get("ref", ""), "pk": "", "sen": "", "vel": tg.get("maxspeed", ""),
                     "pt": p, "f": "OSM", "mun": municipio(*p) or ""})
     # carretera de cada radar: la vía con número (ref) más cercana, a menos de 60 m
-    VIAS = [(w.get("tags", {}).get("ref", ""), w.get("geometry") or []) for w in j["elements"] if w["type"] == "way"]
+    VIAS = [(w.get("tags", {}).get("ref", ""), w.get("tags", {}).get("name", ""), w.get("geometry") or []) for w in j["elements"] if w["type"] == "way"]
     def via(p):
-        best, bd = "", 0.06
-        for ref, g in VIAS:
+        best, bd, calle, cd = "", 0.05, "", 0.03   # primero carretera con número; si no hay, la calle (Pamplona…)
+        for ref, nom, g in VIAS:
             for q in g:
                 d = km(p, [q["lat"], q["lon"]])
-                if d < bd: bd, best = d, ref
-        return best.split(";")[0]
+                if ref and d < bd: bd, best = d, ref
+                if nom and d < cd: cd, calle = d, nom
+        return best.split(";")[0] or calle
     for r in out:
         if not r["car"]: r["car"] = via(r["pt"])
     out = [r for r in out if r["mun"]]
