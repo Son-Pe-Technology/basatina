@@ -1,6 +1,28 @@
 {
  "items": [
   {
+   "id": "32c286ddcf68",
+   "pub": "2026-11-28T10:28Z",
+   "titulo": "Dos detenidos por tráfico de drogas en la Rochapea tras quejas vecinales",
+   "texto": "La Policía ha desmantelado un punto de venta de estupefacientes en el barrio pamplonés tras meses de investigación iniciada por denuncias de residentes. Según la Policía Municipal, se detuvo el miércoles a dos individuos: uno actuaba como vendedor y otro realizaba labores de vigilancia. En el registro de la vivienda hallaron cocaína, heroína y hachís, además de 1.900 euros en efectivo, material para empaquetar dosis y una báscula de precisión. El colaborador quedó en libertad pocas horas después; el presunto distribuidor fue puesto a disposición judicial.",
+   "pueblo": "Pamplona",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/28/alarma-vecinal-destapa-punto-venta-droga-rochapea-dos-detenidos-1-900-euros-incautados-844084-16.html"
+    },
+    {
+     "f": "Europa Press",
+     "u": "https://www.europapress.es/navarra/noticia-dos-detenidos-trafico-drogas-pamplona-20261128093221.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-barrios/pamplona-actual-rotxapea/detenidos-dos-hombres-en-la-rochapea-por-presunto-trafico-de-drogas-tras-hallar-cocaina-heroina-y-hachis/"
+    }
+   ]
+  },
+  {
    "id": "f2bcd8e11054",
    "pub": "2026-11-28T10:26Z",
    "titulo": "La Policía Foral interviene armas en un taller de toldos de Villatuerta",
@@ -696,20 +718,6 @@
     {
      "f": "Diario de Navarra",
      "u": "https://www.diariodenavarra.es/noticias/navarra/2026/11/24/investigadores-cima-identifican-nuevo-mecanismo-rearmar-celulas-inmunitarias-mejorar-eficacia-inmunoterapia-oncologica-843571-15.html"
-    }
-   ]
-  },
-  {
-   "id": "37f19a918a46",
-   "pub": "2026-11-26T03:56Z",
-   "titulo": "Ane Sagüés presenta 'Un exorcismo pop' tras ganar el Premio de Talento 2025",
-   "texto": "La poeta navarra Ane Sagüés estrenará el 1 de diciembre en el Teatro Gayarre su proyecto artístico ganador del Premio a la Promoción del Talento Artístico 2025, otorgado por el Gobierno de Navarra en junio. 'Un exorcismo pop' es un monólogo-concierto que mezcla texto, música en directo y pantallas múltiples, explorando cómo la tecnología digital ha transformado nuestras vidas desde los inicios de internet. La consejera Rebeca Esnaola destacó la originalidad de una obra que utiliza archivos personales como base para reflexionar sobre identidad e hiperconexión. Sagüés trabaja en el proyecto con su compañía Las Nenas Theatre y cuenta con la colaboración musical de Maia Ros y Lizaflor. El premio impulsa el talento emergente navarro y ha financiado anteriormente proyectos de otros artistas como el bailarín Martxel Rodríguez o la soprano Sofía Esparza.",
-   "pueblo": "Pamplona",
-   "cat": "Cultura",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/ane-sagues-presenta-su-propuesta-artistica-un-exorcismo-pop-fruto-del-premio-a-la-promocion-del-talento-artistico-2025/"
     }
    ]
   }
