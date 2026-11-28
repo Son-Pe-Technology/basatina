@@ -261,11 +261,11 @@ const MA_PRIMERAS=['Clínica veterinaria Aoiz'];
 // Datos que nos han pasado de una clínica (tienen prioridad sobre OpenStreetMap). Clave = nombre exacto de OpenStreetMap.
 const MA_DATOS={'Clínica veterinaria Aoiz':{d:'Calle Aoiz, 18, bajo (Segundo Ensanche)',p:'31004 Pamplona',tel:'948 246 912',m:'clinivetaoiz@gmail.com',
   w:'https://www.clinicaveterinariaaoiz.com',h:'Lunes a viernes 10:00–13:00 y 17:00–19:00 · Sábados 10:00–13:00',txt:'Clínica veterinaria de barrio, con trato cercano y profesional.'}};
-svSec('mascotas',`<div class="card"><b>🐾 Compañeras/os en Navarra</b><div class="note">Veterinarios, zonas para soltar al perro, protectoras y tiendas, y consejos para el campo.</div>
+svSec('mascotas',`<div class="card"><b>🐾 Peludos en Navarra</b><div class="note">Veterinarios, zonas para soltar al perro, protectoras y tiendas, y consejos para el campo.</div>
  <div class="tmChips" id="maT"></div><div class="row" id="maBus"><input id="maQ" class="town" placeholder="🔎 Buscar por pueblo o nombre…" style="flex:1;min-width:0"><button class="btn" id="maCerca">📍 Cerca de mí</button></div></div>
  <div class="card" id="maL"><div class="note">Cargando…</div></div>
  <div class="note" style="margin:0 6px 12px" id="maN">Puede faltar algún sitio o haber cambiado su horario: llama antes de ir.</div>`);
-nuevo('mascotas','Servicios','🐾 Compañeras/os','pueblo','i-pata','g');
+nuevo('mascotas','Servicios','🐾 Peludos','pueblo','i-pata','g');
 function maRender(){$('maT').innerHTML=MA_T.map(([k,l])=>`<button class="${k===MAT?'on':''}" data-k="${k}">${l}</button>`).join('');
   $('maT').querySelectorAll('button').forEach(b=>b.onclick=()=>{MAT=b.dataset.k;maRender();});
   $('maBus').style.display=MAT==='consejos'?'none':'';const el=$('maL');
@@ -391,7 +391,7 @@ try{Object.assign(BNI,{
  'i-pata':'<g fill="currentColor" fill-opacity=".85"><ellipse cx="16" cy="21" rx="6" ry="5"/><circle cx="8" cy="14" r="2.6"/><circle cx="12.5" cy="9" r="2.6"/><circle cx="19.5" cy="9" r="2.6"/><circle cx="24" cy="14" r="2.6"/></g>',
  'i-cesta':'<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h24l-3 13H7z" fill="currentColor" fill-opacity=".12"/><path d="M10 13l4-8M22 13l-4-8M12 17v5M16 17v5M20 17v5"/></g>'});
  const _a=window.applyIcons;if(typeof _a==='function')_a((CFG.iconos||'pro')==='pro');}catch(e){}
-try{Object.assign(I18N.eu,{'Titulares de Navarra':'Nafarroako izenburuak','Nieve y aludes':'Elurra eta elur-jausiak','Mascotas':'Maskotak','Compañeras/os':'Lagunak','Compañeras/os en Navarra':'Lagunak Nafarroan','Productos de temporada':'Sasoiko produktuak','¿Dónde está? (mapa de Navarra)':'Non dago? (Nafarroako mapa)','Palabra del día en euskera':'Eguneko hitza euskaraz'});
-  Object.assign(I18N.en,{'Titulares de Navarra':'Navarre headlines','Nieve y aludes':'Snow and avalanches','Mascotas':'Pets','Compañeras/os':'Pets','Compañeras/os en Navarra':'Pets in Navarre','Productos de temporada':'Seasonal produce','¿Dónde está? (mapa de Navarra)':'Where is it? (Navarre map)','Palabra del día en euskera':'Basque word of the day'});
-  Object.assign(I18N.fr,{'Titulares de Navarra':'Titres de Navarre','Nieve y aludes':'Neige et avalanches','Mascotas':'Animaux de compagnie','Compañeras/os':'Compagnons','Compañeras/os en Navarra':'Compagnons en Navarre','Productos de temporada':'Produits de saison','¿Dónde está? (mapa de Navarra)':'Où est-ce ? (carte de Navarre)','Palabra del día en euskera':'Mot basque du jour'});}catch(e){}
+try{Object.assign(I18N.eu,{'Titulares de Navarra':'Nafarroako izenburuak','Nieve y aludes':'Elurra eta elur-jausiak','Mascotas':'Maskotak','Peludos':'Lagunak','Peludos en Navarra':'Lagunak Nafarroan','Productos de temporada':'Sasoiko produktuak','¿Dónde está? (mapa de Navarra)':'Non dago? (Nafarroako mapa)','Palabra del día en euskera':'Eguneko hitza euskaraz'});
+  Object.assign(I18N.en,{'Titulares de Navarra':'Navarre headlines','Nieve y aludes':'Snow and avalanches','Mascotas':'Pets','Peludos':'Pets','Peludos en Navarra':'Pets in Navarre','Productos de temporada':'Seasonal produce','¿Dónde está? (mapa de Navarra)':'Where is it? (Navarre map)','Palabra del día en euskera':'Basque word of the day'});
+  Object.assign(I18N.fr,{'Titulares de Navarra':'Titres de Navarre','Nieve y aludes':'Neige et avalanches','Mascotas':'Animaux de compagnie','Peludos':'Compagnons','Peludos en Navarra':'Compagnons en Navarre','Productos de temporada':'Produits de saison','¿Dónde está? (mapa de Navarra)':'Où est-ce ? (carte de Navarre)','Palabra del día en euskera':'Mot basque du jour'});}catch(e){}
 })();

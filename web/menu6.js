@@ -50,7 +50,7 @@ const M6_SUB={mtiempo:['Inicio','Lo de hoy en Navarra'],noticias:['Noticias','Ti
  incid:['Carreteras','Incidencias, cámaras y tiempo en carretera'],gas:['Gasolineras y recarga eléctrica','Precios y puntos de recarga'],bus:['Transporte público','Villavesas, autobuses y tren'],
  pueblos:['Localidades','Pueblos, comarcas y valles'],comer:['Comer y dormir','Restaurantes, alojamientos, cocina y museos'],super:['Compras','Supermercados, mercadillos y productos de temporada'],
  salud:['Salud','Farmacias, centros y tiempo y salud'],vivienda:['Vivienda','Alquiler, venta e hipotecas'],empleo:['Empleo','Webs con ofertas en Navarra'],
- voluntariado:['Voluntariado','Echa una mano en Navarra'],mascotas:['Compañeras/os','Veterinarios y sitios para ir con ellas'],
+ voluntariado:['Voluntariado','Echa una mano en Navarra'],mascotas:['Peludos','Veterinarios y sitios para ir con ellas'],
  cultura:['Agenda','Cultura, cine, deporte y peques'],juegos:['Juegos','Todos los juegos y la clasificación'],
  comunidad:['Alertas ciudadanas','Avisos de la gente: árboles caídos, desprendimientos…'],fotos:['Fotos de la Cuadrilla','Las fotos de Navarra que manda la gente'],
  buzon:['Buzón de sugerencias','Cuéntanos qué mejorarías'],refranes:['Refranes de tu pueblo','Los dichos de cada pueblo']};
@@ -273,7 +273,7 @@ const ACC_DEF=['tiempo','caudal','incid','gas','cultura','monte'];
 const ACC_N=6;   // 27 nov. 2026: 6 accesos (2 filas de 3); antes eran 4
 const ACC_CORTO={mtiempo:'Inicio',noticias:'Noticias',cerca:'Cerca',tiempo:'El tiempo',caudal:'Ríos',sismo:'Terremotos',biodiversidad:'Flora y fauna',monte:'NA a Pie',
  incid:'Carreteras',gas:'Gasolina',bus:'Transporte',pueblos:'Localidades',comer:'Comer',super:'Compras',salud:'Salud',vivienda:'Vivienda',empleo:'Empleo',
- voluntariado:'Voluntariado',mascotas:'Compañeras/os',cultura:'Agenda',juegos:'Juegos'};
+ voluntariado:'Voluntariado',mascotas:'Peludos',cultura:'Agenda',juegos:'Juegos'};
 const ACC_TODAS=Object.keys(ACC_CORTO);
 const lsJ=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v;}catch(e){return d;}};
 const lsP=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
