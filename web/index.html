@@ -1788,7 +1788,7 @@ async function checkUpdate(manual){if(!APP||!window.AndroidNet.updateWeb)return;
   const r=await updWeb();if(!r.ok){if(manual)toast('No se pudo comprobar ahora (¿sin internet?)');return;}
   if(r.apk>r.myApk&&r.apkUrl){if(typeof bnMudanza==='function'&&bnMudanza())return;   // la app antigua (es.pedrito.controlarga) se muda a la nueva
     // 27 nov. 2026: instalada desde Google Play → no se avisa (la versión de GitHub puede no estar aún aprobada en Play; Play la actualiza sola)
-    if(r.play){if(r.changed>0){toast('✨ Pantalla actualizada','Recargar',()=>(window.bnaRecargar||window.AndroidNet.reload)());return;}if(manual)toast('✅ Ya tienes la última versión. Las nuevas versiones de la app llegan solas por Google Play.');return;}
+    if(r.play){if(r.changed>0){toast('✨ Pantalla actualizada','Recargar',()=>(window.bnaRecargar||window.AndroidNet.reload)());return;}if(manual)toast('📲 Hay una versión nueva de la app ('+r.apk+') en Google Play','Actualizar',()=>window.AndroidNet.openUrl('https://play.google.com/store/apps/details?id=es.sonpe.basatina'));return;}   // 28 nov. 2026 (Pedro): al buscar a mano, sí se avisa abajo, como antes
     const u=r.play?'https://play.google.com/store/apps/details?id=es.sonpe.basatina':r.apkUrl;   // instalada desde Google Play → se actualiza allí
     if(!r.play&&window.AndroidNet.installApk){toast('📲 Hay una versión nueva de la app ('+r.apk+')','Instalar',()=>apkInstalar(r.apkUrl));return;}   // app 21+: se descarga e instala desde dentro
     toast('📲 Hay una versión nueva de la app ('+r.apk+')',r.play?'Actualizar':'Descargar',()=>window.AndroidNet.openUrl(u));return;}
@@ -3444,21 +3444,36 @@ function myPos(){return new Promise((res,rej)=>{if(MYPOS&&Date.now()-MYPOS.t<5*6
 /* ---------- ⛽ gasolineras y recarga ---------- */
 let GSM=null,GSSEL=null,GSLIVE=null,GSPOS=null;
 const GSF={g95:'Gasolina 95',dA:'Diésel',g98:'Gasolina 98',dP:'Diésel premium',glp:'Autogás'};
+/* 28 nov. 2026 (Pedro): elegir empresa de gasolina. GSEMP = marca elegida ('' todas, '__otras' las pequeñas) */
+let GSEMP='',GSTOP=[];
+const GS_MARCAS=[[/REPSOL/,'Repsol'],[/CAMPSA/,'Campsa'],[/PETRONOR/,'Petronor'],[/CEPSA|MOEVE/,'Moeve (Cepsa)'],[/\bGALP\b/,'Galp'],[/\bBP\b/,'BP'],[/SHELL/,'Shell'],[/PLENERGY/,'Plenergy'],[/BALLENOIL/,'Ballenoil'],[/PETROPRIX/,'Petroprix'],[/\bAVIA\b/,'Avia'],[/EROSKI/,'Eroski'],[/CARREFOUR/,'Carrefour'],[/ALCAMPO/,'Alcampo'],[/BON\s?[AÀ]REA/,'bonÀrea'],[/GM\s?OIL/,'GM Oil'],[/\bDISA\b/,'Disa'],[/ESCLATOIL/,'Esclatoil'],[/\bQ8\b/,'Q8']];
+function gsMarca(n){const u=String(n||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();for(const [re,m] of GS_MARCAS)if(re.test(u))return m;
+  return u?u.toLowerCase().replace(/(^|[\s-])\S/g,c=>c.toUpperCase()):'Sin nombre';}
+const gsOk=g=>!GSEMP||(GSEMP==='__otras'?!GSTOP.includes(gsMarca(g.n)):gsMarca(g.n)===GSEMP);
+function gsEmpUI(f){let el=document.getElementById('gsEmp');if(!el){const ref=document.getElementById('gsFuelBc')||document.getElementById('gsNear').parentNode;ref.insertAdjacentHTML('afterend','<div class="bcTit" id="gsEmpT">Empresa</div><div class="gsChips" id="gsEmp"></div>');el=document.getElementById('gsEmp');}
+  const et=document.getElementById('gsEmpT');if(f==='rec'){el.style.display='none';if(et)et.style.display='none';return;}el.style.display='';if(et)et.style.display='';
+  const C={};(window.VIAJE.gas||[]).filter(g=>g[f]).forEach(g=>{const m=gsMarca(g.n);C[m]=(C[m]||0)+1;});
+  GSTOP=Object.entries(C).filter(([,n])=>n>=2).sort((a,b)=>b[1]-a[1]).slice(0,12).map(([m])=>m);
+  const hayOtras=Object.keys(C).some(m=>!GSTOP.includes(m));if(GSEMP&&GSEMP!=='__otras'&&!GSTOP.includes(GSEMP))GSEMP='';
+  const B=[['','Todas'],...GSTOP.map(m=>[m,m]),...(hayOtras?[['__otras','Otras']]:[])];
+  el.innerHTML=B.map(([v,t])=>`<button class="btn${v===GSEMP?' on':''}" data-e="${v.replace(/"/g,'&quot;')}">${t}</button>`).join('');
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>{GSEMP=b.dataset.e;GSSEL=null;gsFicha();gsRender();});}
 const gsNum=s=>{const v=parseFloat(String(s||'').replace(',','.'));return isNaN(v)?null:Math.round(v*1000)/1000;};
 async function gsLive(){if(!APP||GSLIVE)return;try{const r=await netGet('https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroProvincia/31');if(r.code!==200)return;
   const j=JSON.parse(r.body),L=(j.ListaEESSPrecio||[]).map(e=>({id:e.IDEESS,n:(e['Rótulo']||'').trim(),dir:(e['Dirección']||'').toLowerCase().replace(/(^|\s)\S/g,m=>m.toUpperCase()),mun:(e.Localidad||e.Municipio||'').toLowerCase().replace(/(^|\s)\S/g,m=>m.toUpperCase()),h:e.Horario||'',
     pt:[gsNum(e.Latitud),gsNum(e['Longitud (WGS84)'])],g95:gsNum(e['Precio Gasolina 95 E5']),g98:gsNum(e['Precio Gasolina 98 E5']),dA:gsNum(e['Precio Gasoleo A']),dP:gsNum(e['Precio Gasoleo Premium']),glp:gsNum(e['Precio Gases licuados del petróleo'])})).filter(x=>x.pt[0]);
   if(L.length){window.VIAJE.gas=L;window.VIAJE.gasT=j.Fecha||'';GSLIVE=Date.now();}}catch(e){}}
 function gsRender(){const V=window.VIAJE,f=document.getElementById('gsFuel').value,isR=f==='rec';
-  if(isR){const L=(V.rec||[]).map(x=>({...x,d:GSPOS?km(GSPOS.la,GSPOS.lo,x.pt[0],x.pt[1]):null})).sort((a,b)=>GSPOS?a.d-b.d:(a.n||'').localeCompare(b.n||''));
+  if(isR){gsEmpUI(f);const L=(V.rec||[]).map(x=>({...x,d:GSPOS?km(GSPOS.la,GSPOS.lo,x.pt[0],x.pt[1]):null})).sort((a,b)=>GSPOS?a.d-b.d:(a.n||'').localeCompare(b.n||''));
     document.getElementById('gsSum').innerHTML=`<b>⚡ Puntos de recarga eléctrica</b><div class="note">${L.length} puntos en Navarra.</div>`;
     document.getElementById('gsLeg').innerHTML='<b style="color:#8e24aa">●</b> Punto de recarga';document.getElementById('gsListT').textContent=GSPOS?'📋 Los más cercanos':'📋 Todos';
     document.getElementById('gsList').innerHTML=L.slice(0,40).map((x,i)=>`<div class="st" data-i="${V.rec.indexOf(x)}" style="cursor:pointer"><div><b>⚡ ${x.n||'Punto de recarga'}</b><div class="s">${[x.kw,x.cap?x.cap+' plazas':'',x.tip.join(', ')].filter(Boolean).join(' · ')}</div></div><span class="note">${x.d!=null?fmtN(x.d,1)+' km':'›'}</span></div>`).join('')||'<div class="note">Sin datos.</div>';
     document.querySelectorAll('#gsList [data-i]').forEach(d=>d.onclick=()=>{GSSEL={r:V.rec[+d.dataset.i]};gsFicha();GSM.fit(GSSEL.r.pt[0]-.03,GSSEL.r.pt[0]+.03,GSSEL.r.pt[1]-.04,GSSEL.r.pt[1]+.04);});
     if(GSM)GSM.draw();return;}
-  const L=V.gas.filter(x=>x[f]).map(x=>({...x,d:GSPOS?km(GSPOS.la,GSPOS.lo,x.pt[0],x.pt[1]):null})),pr=L.map(x=>x[f]).sort((a,b)=>a-b),avg=pr.reduce((s,v)=>s+v,0)/(pr.length||1),min=pr[0],max=pr[pr.length-1];
+  gsEmpUI(f);const EN=GSEMP?(GSEMP==='__otras'?' (otras empresas)':' · '+GSEMP):'';
+  const L=V.gas.filter(x=>x[f]&&gsOk(x)).map(x=>({...x,d:GSPOS?km(GSPOS.la,GSPOS.lo,x.pt[0],x.pt[1]):null})),pr=L.map(x=>x[f]).sort((a,b)=>a-b),avg=pr.reduce((s,v)=>s+v,0)/(pr.length||1),min=pr[0],max=pr[pr.length-1];
   const S=GSPOS?L.filter(x=>x.d<=15).sort((a,b)=>a[f]-b[f]||a.d-b.d):L.slice().sort((a,b)=>a[f]-b[f]);
-  document.getElementById('gsSum').innerHTML=`<b>⛽ ${GSF[f]} en Navarra</b><div class="kpi" style="margin-top:8px"><div><span class="note">Más barata</span><b style="color:#43a047">${fmtN(min,3)} €</b></div><div><span class="note">Media</span><b>${fmtN(avg,3)} €</b></div></div>
+  document.getElementById('gsSum').innerHTML=`<b>⛽ ${GSF[f]} en Navarra${EN}</b><div class="kpi" style="margin-top:8px"><div><span class="note">Más barata</span><b style="color:#43a047">${fmtN(min,3)} €</b></div><div><span class="note">Media</span><b>${fmtN(avg,3)} €</b></div></div>
    <div class="note" style="margin-top:4px">${L.length} gasolineras · la más cara a ${fmtN(max,3)} € · precios ${GSLIVE?'en directo':'de '+(V.gasT||V.t||'')}.</div>`;
   document.getElementById('gsLeg').innerHTML='<b style="color:#43a047">●</b> barata <b style="color:#fdd835">●</b> media <b style="color:#e53935">●</b> cara · toca una para ver sus precios';
   document.getElementById('gsListT').textContent=GSPOS?'📋 Las más baratas a menos de 15 km':'📋 Las más baratas de Navarra';
@@ -3468,12 +3483,12 @@ function gsRender(){const V=window.VIAJE,f=document.getElementById('gsFuel').val
 function gsCol(v,min,max){const t=max>min?(v-min)/(max-min):.5;return t<.33?'#43a047':t<.66?'#fdd835':'#e53935';}
 function gsDraw(x,P,b,M){const V=window.VIAJE;if(!V)return;const f=document.getElementById('gsFuel').value;
   if(f==='rec'){for(const r of V.rec||[]){const [px,py]=P(r.pt[0],r.pt[1]);if(px<-9||py<-9||px>b.W+9||py>b.H+9)continue;x.beginPath();x.arc(px,py,GSSEL&&GSSEL.r===r?9:6,0,7);x.fillStyle='#8e24aa';x.fill();x.strokeStyle='#fff';x.lineWidth=1.5;x.stroke();}}
-  else{const L=V.gas.filter(g=>g[f]),pr=L.map(g=>g[f]).sort((a,b)=>a-b),lo=pr[Math.floor(pr.length*.1)]||0,hi=pr[Math.floor(pr.length*.9)]||1;
+  else{const L=V.gas.filter(g=>g[f]&&gsOk(g)),pr=L.map(g=>g[f]).sort((a,b)=>a-b),lo=pr[Math.floor(pr.length*.1)]||0,hi=pr[Math.floor(pr.length*.9)]||1;
     for(const g of L){const [px,py]=P(g.pt[0],g.pt[1]);if(px<-9||py<-9||px>b.W+9||py>b.H+9)continue;const sel=GSSEL&&GSSEL.g===g;x.beginPath();x.arc(px,py,sel?9:6,0,7);x.fillStyle=gsCol(g[f],lo,hi);x.fill();x.strokeStyle=sel?'#000':'#fff';x.lineWidth=sel?2.5:1.5;x.stroke();
       if(M.z>=8){x.font='bold 11px sans-serif';x.fillStyle='#13202c';x.strokeStyle='rgba(255,255,255,.9)';x.lineWidth=3;const t=fmtN(g[f],3);x.strokeText(t,px+8,py+4);x.fillText(t,px+8,py+4);}}}
   if(GSPOS){const [px,py]=P(GSPOS.la,GSPOS.lo);x.beginPath();x.arc(px,py,7,0,7);x.fillStyle='#1e88e5';x.fill();x.strokeStyle='#fff';x.lineWidth=3;x.stroke();}}
 function gsTap(px,py,M){const V=window.VIAJE,f=document.getElementById('gsFuel').value;let best=null,bd=22;
-  const L=f==='rec'?(V.rec||[]).map(r=>({r,pt:r.pt})):V.gas.filter(g=>g[f]).map(g=>({g,pt:g.pt}));
+  const L=f==='rec'?(V.rec||[]).map(r=>({r,pt:r.pt})):V.gas.filter(g=>g[f]&&gsOk(g)).map(g=>({g,pt:g.pt}));
   for(const o of L){const [a,c]=M.P(o.pt[0],o.pt[1]),d=Math.hypot(a-px,c-py);if(d<bd){bd=d;best=o;}}GSSEL=best;M.draw();gsFicha();}
 function gsFicha(){const el=document.getElementById('gsFicha');if(!GSSEL){el.innerHTML='';return;}
   if(GSSEL.r){const r=GSSEL.r;el.innerHTML=`<b>⚡ ${r.n||'Punto de recarga'}</b>${r.op&&r.op!==r.n?`<div class="note">${r.op}</div>`:''}
@@ -5205,5 +5220,6 @@ pvsDrawer();const _pvsCA=cfgApply;cfgApply=function(){_pvsCA();try{pvsDrawer();p
 
 <script src="pestanas-filas.js?v=49c26a4c"></script>
 <script src="retoques-28nov.js?v=f19894bb"></script>
+<script src="botones-mapas.js?v=cb2e4b82"></script>
 </body>
 </html>
