@@ -37,7 +37,15 @@ label.bcSw.on{background:#3d7031;border-color:#3d7031;color:#fff}
 body.bna #biList .card,body.bna #gsList{background:transparent}
 body.bna #biList .st,body.bna #gsList .st{background:#fff;border:1.5px solid #d5dfd2!important;border-radius:16px;padding:10px 14px!important;margin:0 0 8px}
 body.bna #biList>.card{box-shadow:none;border:0;padding:0}
-body.bna #biList .st>div[style*="font-size:22px"]{display:none}`;
+body.bna #biList .st>div[style*="font-size:22px"]{display:none}
+/* 28 nov. 2026 · Comer y dormir: cada sitio en su botón y «Cómo llegar», «Web» y «Llamar» a la derecha */
+body.bna #coList.card,body.bna #doList.card,body.bna #paList.card{background:transparent;box-shadow:none;border:0;padding:0}
+body.bna #coList>.st,body.bna #doList>.st,body.bna #paList>.st{background:#fff;border:1.5px solid #d5dfd2!important;border-radius:16px;padding:10px 12px 10px 14px!important;margin:0 0 8px}
+body.bna #coList>.st>div,body.bna #doList>.st>div,body.bna #paList>.st>div{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;align-items:center}
+body.bna #coList>.st>div>*,body.bna #doList>.st>div>*,body.bna #paList>.st>div>*{grid-column:1}
+body.bna #coList>.st>div>.row,body.bna #doList>.st>div>.row,body.bna #paList>.st>div>.row{grid-column:2;grid-row:1/span 6;display:flex;flex-direction:column;gap:6px;margin:0!important;align-self:center}
+body.bna #coList>.st>div>.row>.btn,body.bna #doList>.st>div>.row>.btn,body.bna #paList>.st>div>.row>.btn{width:100%;margin:0;padding:7px 10px;font-size:13px;white-space:nowrap;justify-content:center;text-align:center}
+body.bna #coList>.note,body.bna #doList>.note,body.bna #paList>.note{margin:0 4px 8px}`;
 document.head.appendChild(css);
 
 /* ---------- 1 · mapa fijo + ampliar ---------- */
@@ -108,8 +116,13 @@ function repasa(){
   // Grupo y Zona: se rellenan al abrir Flora y fauna
   if($('biG')&&$('biG').options.length)bcChips('biG','Grupo');if($('biZ')&&$('biZ').options.length)bcChips('biZ','Zona');
   flora();
+  // Comer y dormir (Restaurantes, Alojamientos, Cocina tradicional, Museos): sin emoticonos en toda la pantalla
+  ['t-comer','t-dormir','t-cocina','t-patrimonio'].forEach(k=>{const sec=$(k);if(!sec)return;sinEmo(sec);
+    sec.querySelectorAll('input[placeholder]').forEach(q=>{if(/\p{Extended_Pictographic}/u.test(q.placeholder))q.placeholder=q.placeholder.replace(EMO,'');});});
+  // Comer y dormir: zona, cocina y tipo, en botones (se rellenan al abrir cada pantalla)
+  [['coZ','Zona'],['coE','Cocina'],['doZ','Zona'],['paT','Tipo'],['paZ','Zona']].forEach(([k,t])=>{const e=$(k);if(e&&e.options.length)bcChips(k,t);});
   // las cajas de botones de grupo/zona se vuelven a pintar si el código cambia la elección sin avisar
-  ['biGBc','biZBc','gsFuelBc'].forEach(k=>{const b=$(k);if(b&&b._pinta)b._pinta();});}
-const sb=$('t-biodiversidad');if(sb){let tm=0;new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(repasa,40);}).observe(sb,{childList:true,subtree:true});}
+  ['biGBc','biZBc','gsFuelBc','coZBc','coEBc','doZBc','paTBc','paZBc'].forEach(k=>{const b=$(k);if(b&&b._pinta)b._pinta();});}
+let tm=0;['t-biodiversidad','t-comer','t-dormir','t-cocina','t-patrimonio'].forEach(k=>{const sb=$(k);if(sb)new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(repasa,40);}).observe(sb,{childList:true,subtree:true});});
 repasa();
 })();
