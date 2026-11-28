@@ -168,14 +168,19 @@ function coRender(){const T=window.TERRI,G=T.grupos,V=$('pbComV');const g=G[COG]
   if(COZ!=null){const z=g.z[COZ];if(z)return coZona(z);}
   V.innerHTML=`<div class="card"><b>🗺️ Navarra por zonas</b><div class="note">Elige cómo agrupar los municipios y toca una zona para ver sus pueblos, sus datos y su mapa.</div>
     <div class="seg amSeg" id="coG">${Object.entries(G).map(([k,x])=>`<button class="btn${k===COG?' on':''}" data-g="${k}">${esc(x.t.replace(/^Zonificaciones tradicionales\.?\s*/i,'').replace(/^Zonificaci[oó]n\s*/i,''))}</button>`).join('')}</div></div>
-    <div class="card" style="padding:6px"><canvas id="coMapA" class="amMap" style="height:320px"></canvas></div>
+    <div class="card" style="padding:6px"><canvas id="coMapA" class="amMap" style="height:320px"></canvas><div id="coSelI" class="note" style="padding:6px 4px 2px">Toca una zona del mapa para ver su nombre.</div></div>
     <div class="card"><b>${g.z.length} zonas</b>${g.z.map((z,i)=>`<div class="st" data-z="${i}" style="cursor:pointer"><div><b>${esc(z.n)}</b><div class="s">${z.m.length} municipios · ${sumH(z.m).toLocaleString(LOC)} habitantes</div></div><span>›</span></div>`).join('')}</div>`;
   V.querySelectorAll('#coG button').forEach(b=>b.onclick=()=>{COG=b.dataset.g;COZ=null;coRender();});
   V.querySelectorAll('[data-z]').forEach(d=>d.onclick=()=>{COZ=+d.dataset.z;coRender();window.scrollTo(0,0);});
   const pal=['#4caf50','#2196f3','#ff9800','#9c27b0','#e91e63','#009688','#795548','#3f51b5','#cddc39','#ff5722','#607d8b','#00bcd4'];
-  const M=NavMap('coMapA',(x,P)=>{g.z.forEach((z,i)=>{z.r.forEach(r=>{ring(x,P,r);x.closePath();x.fillStyle=pal[i%pal.length]+'55';x.fill();x.strokeStyle=pal[i%pal.length];x.lineWidth=1.5;x.stroke();});});
-    g.z.forEach(z=>{const b=bboxOf(z.r),[px,py]=P((b.s+b.n)/2,(b.w+b.e)/2);x.font='bold 11px system-ui';x.textAlign='center';x.fillStyle='#10202a';x.strokeStyle='#fff';x.lineWidth=3;x.strokeText(z.n,px,py);x.fillText(z.n,px,py);});},
-    (px,py,M)=>{const b=M.box(),la=b.n-(b.n-b.s)*py/b.H,lo=b.w+(b.e-b.w)*px/b.W,i=g.z.findIndex(z=>pip(la,lo,z.r));if(i>=0){COZ=i;coRender();window.scrollTo(0,0);}});
+  /* 28 nov. 2026 (Pedro): sin nombres encima del mapa (con tantos valles no se leía nada). Al tocar una zona se marca,
+     sale su nombre en el mapa y debajo, con el botón para entrar en ella. */
+  let SEL=-1;
+  const M=NavMap('coMapA',(x,P)=>{g.z.forEach((z,i)=>{z.r.forEach(r=>{ring(x,P,r);x.closePath();x.fillStyle=pal[i%pal.length]+(i===SEL?'bb':'55');x.fill();x.strokeStyle=i===SEL?'#10202a':pal[i%pal.length];x.lineWidth=i===SEL?3:1.5;x.stroke();});});
+    if(SEL>=0){const z=g.z[SEL],b=bboxOf(z.r),[px,py]=P((b.s+b.n)/2,(b.w+b.e)/2);x.font='bold 13px system-ui';x.textAlign='center';x.fillStyle='#10202a';x.strokeStyle='#fff';x.lineWidth=4;x.strokeText(z.n,px,py);x.fillText(z.n,px,py);}},
+    (px,py,M)=>{const b=M.box(),la=b.n-(b.n-b.s)*py/b.H,lo=b.w+(b.e-b.w)*px/b.W,i=g.z.findIndex(z=>pip(la,lo,z.r));if(i<0)return;SEL=i;M.draw();
+      const z=g.z[i],el=$('coSelI');if(el){el.innerHTML=`<div class="st" style="cursor:pointer"><div><b>${esc(z.n)}</b><div class="s">${z.m.length} municipios · ${sumH(z.m).toLocaleString(LOC)} habitantes</div></div><span>Ver zona ›</span></div>`;
+        el.firstChild.onclick=()=>{const bx=$('mfBox');if(bx){const c=bx.querySelector('.mfCab button');if(c)c.click();}COZ=i;coRender();window.scrollTo(0,0);};}});
   setTimeout(()=>M.fit(41.9,43.3,-2.5,-0.7),30);}
 function coPois(z,cb){const b=bboxOf(z.r),inz=(la,lo)=>la>=b.s&&la<=b.n&&lo>=b.w&&lo<=b.e&&pip(la,lo,z.r),L=[];
   svLoad('monte.js','MONTE_GEO',()=>svLoad('abiertos.js','ABIERTOS',()=>svLoad('tiendas.js','TIENDAS',()=>svLoad('rutas.js','RUTAS',()=>svLoad('rios.js','RIOS_GEO',()=>{

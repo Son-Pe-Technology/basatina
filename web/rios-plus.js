@@ -80,15 +80,24 @@ async function prLoad(){const info=$('prInfo'),list=$('prList');
   else{try{await rivFetch(PR);}catch(e){}}
   if(!UMB){try{const u=await netGet(SAIH+'/api/info/getTablaUmbrales');UMB=JSON.parse(u.body);}catch(e){}}
   await prGlofas(L);info.textContent=`${L.length} estaciones del SAIH Ebro · previsión GloFAS`;prMap();prDraw();}
+/* 28 nov. 2026 (Pedro): el río elegido entero, de su nacimiento a su desembocadura (el Arga hasta el Aragón en Funes),
+   bien marcado encima de los demás ríos, y el mapa encuadrado a todo su recorrido. Trazado: OpenStreetMap (rios.js). */
+const PR_RE={arga:/^arga( ibaia)?$/i,irati:/^irati( ibaia)?$/i,ega:/^ega( ibaia)?$/i,aragon:/^(r[ií]o arag[oó]n|aragoi ibaia)$/i,ebro:/^(r[ií]o ebro|ebro ibaia)$/i};
+const prDelRio=w=>{const re=PR_RE[PR];return !!re&&[w.n,w.es,w.eu].some(n=>n&&re.test(String(n).trim()));};
+function prCauce(){if(!window.RIOS_GEO)return null;let s=90,n=-90,o=180,e=-180,hay=false;(RIOS_GEO.w||[]).forEach(w=>{if(!prDelRio(w))return;hay=true;
+  w.p.forEach(q=>{s=Math.min(s,q[0]);n=Math.max(n,q[0]);o=Math.min(o,q[1]);e=Math.max(e,q[1]);});});return hay?{s,n,w:o,e}:null;}
 function prMap(){if(PM)return PM.draw();PM=NavMap('prMap',(x,P,b,M)=>{const L=PST[PR]||[];
-    if(window.RIOS_GEO){x.strokeStyle='#1e88e5';x.lineWidth=1.6;x.globalAlpha=.75;(RIOS_GEO.w||[]).forEach(w=>{x.beginPath();w.p.forEach((q,i)=>{const [px,py]=P(q[0],q[1]);i?x.lineTo(px,py):x.moveTo(px,py);});x.stroke();});x.globalAlpha=1;}
+    if(window.RIOS_GEO){x.strokeStyle='#1e88e5';x.lineWidth=1.2;x.globalAlpha=.4;(RIOS_GEO.w||[]).forEach(w=>{if(prDelRio(w))return;x.beginPath();w.p.forEach((q,i)=>{const [px,py]=P(q[0],q[1]);i?x.lineTo(px,py):x.moveTo(px,py);});x.stroke();});x.globalAlpha=1;
+      x.lineCap='round';x.lineJoin='round';[['#fff',6.5],['#0d47a1',3.6]].forEach(([c,lw])=>{x.strokeStyle=c;x.lineWidth=lw;(RIOS_GEO.w||[]).forEach(w=>{if(!prDelRio(w))return;x.beginPath();w.p.forEach((q,i)=>{const [px,py]=P(q[0],q[1]);i?x.lineTo(px,py):x.moveTo(px,py);});x.stroke();});});}
     L.forEach(s=>{const e=prEstado(s,PD),[px,py]=P(s.pt[0],s.pt[1]),sel=PSEL===s.code;x.beginPath();x.arc(px,py,sel?11:8,0,7);x.fillStyle=e.c;x.fill();x.strokeStyle=sel?'#000':'#fff';x.lineWidth=sel?3:2;x.stroke();
       if(M.z>2.5||L.length<10){x.font='bold 10.5px system-ui';x.textAlign='left';x.fillStyle='#10202a';x.strokeStyle='#fff';x.lineWidth=3;x.strokeText(s.name,px+11,py+4);x.fillText(s.name,px+11,py+4);}});},
   (px,py,M)=>{let best=null,bd=22;(PST[PR]||[]).forEach(s=>{const [x,y]=M.P(s.pt[0],s.pt[1]),d=Math.hypot(x-px,y-py);if(d<bd){bd=d;best=s;}});if(best){PSEL=best.code;M.draw();const el=document.querySelector(`#prList [data-c="${best.code}"]`);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.outline='2px solid var(--acc)';setTimeout(()=>el.style.outline='',1500);}}});
-  if(!window.RIOS_GEO){const s=document.createElement('script');s.src='rios.js';s.onload=()=>PM&&PM.draw();document.body.appendChild(s);}
+  if(!window.RIOS_GEO){const s=document.createElement('script');s.src='rios.js';s.onload=()=>{if(PM){prFit();PM.draw();}};document.body.appendChild(s);}
   prFit();}
-function prFit(){const L=PST[PR]||[];if(!PM)return;if(!L.length)return PM.fit(41.9,43.3,-2.5,-0.7);const la=L.map(s=>s.pt[0]),lo=L.map(s=>s.pt[1]);
-  PM.fit(Math.min(...la)-.05,Math.max(...la)+.05,Math.min(...lo)-.08,Math.max(...lo)+.08);}
+function prFit(){const L=PST[PR]||[];if(!PM)return;const C=prCauce();
+  const la=L.map(s=>s.pt[0]).concat(C?[C.s,C.n]:[]),lo=L.map(s=>s.pt[1]).concat(C?[C.w,C.e]:[]);
+  if(!la.length)return PM.fit(41.9,43.3,-2.5,-0.7);
+  PM.fit(Math.min(...la)-.03,Math.max(...la)+.03,Math.min(...lo)-.05,Math.max(...lo)+.05);}
 function prDraw(){if(PM){prFit();PM.draw();}const L=PST[PR]||[];if(!L.length)return;
   const bar=(v,mx,c)=>`<span style="display:block;height:9px;border-radius:5px;background:rgba(127,127,127,.18);overflow:hidden;margin-top:4px"><span style="display:block;height:100%;width:${Math.max(2,Math.min(100,v/mx*100))}%;background:${c}"></span></span>`;
   $('prList').innerHTML=`<div class="card"><b>${PRIOS.find(r=>r[0]===PR)[1]} Río ${PRIOS.find(r=>r[0]===PR)[2]} · ${dName(PD).toLowerCase()}</b>${L.map(s=>{const E=[0,1,2,3].map(d=>prEstado(s,d)),e=E[PD],mx=Math.max(1,...E.map(x=>x.qp||0),e.q||0)*1.15;
