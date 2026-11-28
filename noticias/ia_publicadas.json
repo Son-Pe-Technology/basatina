@@ -1,6 +1,44 @@
 {
  "items": [
   {
+   "id": "f4bcfecf03c6",
+   "pub": "2026-11-28T09:53Z",
+   "titulo": "El Conservatorio de Tudela celebra su 50 aniversario con un homenaje a María Bayo",
+   "texto": "El Conservatorio Fernando Remacha de Tudela conmemorará el próximo 10 de enero de 2027 cinco décadas desde su fundación con un acto en el Teatro Gaztambide a las 12:00 horas. Durante la jornada se entregará el Premio Honorífico Fernando Remacha 2026 a la soprano navarra María Bayo, reconocida por su proyección internacional en la música clásica. La institución, que comenzó en 1977 con un profesor y un aula improvisada, actualmente atiende a más de 600 estudiantes con 37 docentes. El evento incluirá actuaciones de antiguos alumnos que celebrarán el legado musical de la escuela.",
+   "pueblo": "Tudela",
+   "cat": "Cultura",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/la-escuela-conservatorio-fernando-remacha-de-tudela-celebra-sus-50-anos-con-un-homenaje-a-maria-bayo/"
+    },
+    {
+     "f": "COPE",
+     "u": "https://www.cope.es/emisoras/navarra/navarra-provincia/tudela/noticias/tudela-celebra-50-aniversario-conservatorio-homenaje-soprano-maria-bayo-20261128_3483799.html"
+    }
+   ],
+   "auto": true
+  },
+  {
+   "id": "2955dcdc9c68",
+   "pub": "2026-11-28T09:53Z",
+   "titulo": "Ocho entidades navarras crean combustibles verdes desde residuos agroalimentarios",
+   "texto": "El proyecto GREENPATH, coordinado por TAFCO METAWIRELESS e integrado por ocho organismos navarros, transforma desechos de la agroindustria en energía limpia. Tras dos años de investigación, ha logrado generar gas de síntesis mediante microondas a partir de materiales como la cascarilla de avena, con resultados prometedores para su uso en pilas de combustible. La Universidad Pública de Navarra prevé comenzar la producción experimental de metanol renovable a principios de 2027 en su campus de Tudela, mientras que otras líneas avanzan en sistemas de almacenamiento energético y análisis de sostenibilidad. El proyecto, financiado por el Gobierno de Navarra y fondos FEDER, demuestra que estos residuos pueden convertirse en recursos estratégicos para una economía más circular.",
+   "pueblo": "Navarra",
+   "cat": "Economía",
+   "fuentes": [
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-medio-ambiente/ocho-entidades-navarras-avanzan-en-convertir-subproductos-agroalimentarios-en-gas-y-metanol-renovables/"
+    },
+    {
+     "f": "Navarra Capital",
+     "u": "https://navarracapital.es/greenpath-preve-producir-metanol-renovable-a-partir-de-subproductos-agroalimentarios-en-2027/"
+    }
+   ],
+   "auto": true
+  },
+  {
    "id": "e7607dfe3267",
    "pub": "2026-11-27T21:55Z",
    "titulo": "Navarra inicia vacunación contra el VRS en adultos vulnerables",
@@ -670,50 +708,7 @@
      "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/23/detenidas-3-mujeres-maltrato-parejas-semana-pamplona-843489-16.html"
     }
    ]
-  },
-  {
-   "id": "ec47e16290bf",
-   "pub": "2026-11-25T21:56Z",
-   "titulo": "La CNMV autoriza la OPA de Ohmnia sobre Azkoyen por 244,5 millones",
-   "texto": "La Comisión Nacional del Mercado de Valores ha autorizado la oferta pública de adquisición del grupo navarro Azkoyen presentada por Ohmnia Electronics. La operación valora la compañía en 244,5 millones de euros, a 10 euros por acción, y necesita la aceptación de más de la mitad de las 24.450.000 acciones en un plazo de 15 días naturales. CaixaBank y Banco de Sabadell avalan la operación con 122,25 millones de euros cada uno. Ohmnia ha anunciado que, si prospera, se fusionará con Azkoyen antes de finales de 2027 y mantendrá los empleos, centros productivos y actividades navarras.",
-   "pueblo": "Pamplona",
-   "cat": "Economía",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-economia/la-cnmv-autoriza-la-opa-de-ohmnia-electronics-sobre-el-100-de-azkoyen/"
-    },
-    {
-     "f": "Navarra Capital",
-     "u": "https://navarracapital.es/la-cnmv-autoriza-la-opa-sobre-el-grupo-navarro-azkoyen-a-10-euros-la-accion/"
-    },
-    {
-     "f": "Europa Press",
-     "u": "https://www.europapress.es/navarra/noticia-cnmv-autoriza-opa-grupo-ohmnia-azkoyen-20261125183148.html"
-    }
-   ],
-   "auto": true,
-   "corregida": "2026-11-26T03:54Z"
-  },
-  {
-   "id": "91a62179ca77",
-   "pub": "2026-11-25T21:56Z",
-   "titulo": "El grupo portugués Casais adquiere el 80% de la constructora ACR",
-   "texto": "El Grupo Casais ha cerrado la adquisición del 80% de ACR, constructora navarra. Michel Elizalde continúa como consejero delegado y mantiene su participación accionarial. La operación, segunda que Casais realiza en España en doce meses, busca reforzar la presencia del grupo portugués y potenciar la construcción industrializada y sostenible. ACR conserva su marca, equipo directivo y autonomía operativa. La colaboración entre ambas empresas comenzó en 2023 con un proyecto conjunto en Madrid y se formalizó en junio de 2026 con la creación de CREE Iberia.",
-   "pueblo": "Navarra",
-   "cat": "Economía",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-economia/el-grupo-portugues-casais-compra-el-80-de-la-constructora-acr-fundada-por-el-navarro-javier-oses/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/negocios/dn-management/2026/11/25/portuguesa-casais-compra-80-constructora-navarra-acr-843754-84.html"
-    }
-   ],
-   "auto": true
   }
  ],
- "t": "2026-11-27T21:55Z"
+ "t": "2026-11-28T09:53Z"
 }
