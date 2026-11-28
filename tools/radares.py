@@ -18,7 +18,8 @@ import json, math, re, sys, time, datetime, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 
 UA = {"User-Agent": "BasatiNA/1.0 (+https://github.com/Son-Pe-Technology/basatina)"}
-DGT = ["https://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml",
+DGT = ["https://nap.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml",
+       "https://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml",
        "http://infocar.dgt.es/datex2/dgt/PredefinedLocationsPublication/radares/content.xml"]
 SERVIDORES = ["https://overpass-api.de/api/interpreter",
               "https://overpass.private.coffee/api/interpreter",
