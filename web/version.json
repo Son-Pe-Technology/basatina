@@ -1,5 +1,5 @@
 {
- "version": 644,
+ "version": 645,
  "apk": 40,
  "files": {
   "abiertos.js": "0830fa50a1bb83b340398c10a00d3865ae7584ed",
@@ -36,7 +36,7 @@
   "deporte-rural.js": "2ea48eebce5c0e9dbc9431ff5563697718aa2d3e",
   "efemerides.js": "b4dea96ea7390c02d0e634b7f745f9f463bdba7a",
   "empleo-desap.js": "a7597bc2fee5c359f985ad9822f727708f63fed4",
-  "energia.js": "26a6a10fa467576826064f0b1451fafd0d5e36c4",
+  "energia.js": "4c8dfe4d407a76cfc451de7f1ef5adaaa18fd7fc",
   "especies.js": "14766c6ec2d2af25fa9fc68d06afc43f25e1bc8a",
   "eu.js": "8e229a636cb951e1bd9586b969d6e0270e38e9a6",
   "filtros-chips.js": "7201570651658f6532fc247b9543d31b97bd9444",
