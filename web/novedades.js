@@ -352,7 +352,7 @@ window.bnaRecargar=function(){try{if(/android_asset/.test(location.href)&&window
    - al volver a la app después de tenerla 30 segundos o más en segundo plano (recarga y vuelve a la pantalla donde estabas).
    Solo con «Buscar actualizaciones» del menú se aplica al momento. Lo de una APK nueva sigue avisando (hay que instalarla). */
 if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=false,LAST=0,OCULTA=0;
-  const ESPERA=30e3;
+  const ESPERA=3e3;   // 28 nov. 2026: al volver a la app tras unos segundos fuera (antes 30 s)
   const recargar=()=>{PEND=false;try{const sec=document.querySelector('section.on[id^="t-"]');sessionStorage.setItem('bnaTabTras',sec?sec.id.slice(2):'');}catch(e){}bnaRecargar();};
   const _cu=checkUpdate;
   checkUpdate=async function(manual){if(manual){if(PEND){menu(false);toast('✨ BasatiNA actualizada');setTimeout(recargar,1200);return;}return _cu(true);}   // ya descargada: recargar en vez de «Ya tienes la última versión»
@@ -372,7 +372,14 @@ if(typeof checkUpdate==='function'&&APP&&window.AndroidNet.updateWeb){let PEND=f
     const fuera=OCULTA?Date.now()-OCULTA:0;OCULTA=0;
     if(PEND&&fuera>=ESPERA&&!document.querySelector('input:focus,textarea:focus'))recargar();
     else if(!PEND)checkUpdate(false);});
-  setInterval(()=>checkUpdate(false),30*60e3);
+  /* 28 nov. 2026 (Pedro): que las actualizaciones lleguen casi al momento.
+     - Se mira si hay pantalla nueva cada 2 minutos si sois vosotros (súper administradores) y cada 10 para el resto.
+     - En cuanto está descargada, se aplica al cambiar de pantalla (tocas otra sección: carga ya con lo nuevo,
+       en un segundo) o al volver a la app. Nunca mientras lees o escribes en la misma pantalla. */
+  setInterval(()=>{const adm=!!(window.bnSuper&&window.bnSuper());if(adm||Date.now()-LAST>10*60e3)checkUpdate(false);},2*60e3);
+  const _sTn=showTab;showTab=function(t){
+    if(PEND&&!document.querySelector('input:focus,textarea:focus')){PEND=false;try{sessionStorage.setItem('bnaTabTras',t);}catch(e){}bnaRecargar();return;}
+    return _sTn.apply(this,arguments);};
   // después de recargar, volver a la pantalla donde estaba
   try{const t=sessionStorage.getItem('bnaTabTras');if(t){sessionStorage.removeItem('bnaTabTras');if(t!=='mtiempo'&&t!=='mapa')setTimeout(()=>{try{showTab(t);}catch(e){}},300);}}catch(e){}}
 /* =====================================================================
