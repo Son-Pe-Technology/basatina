@@ -1,6 +1,28 @@
 {
  "items": [
   {
+   "id": "f2bcd8e11054",
+   "pub": "2026-11-28T10:26Z",
+   "titulo": "La Policía Foral interviene armas en un taller de toldos de Villatuerta",
+   "texto": "Agentes de la Policía Foral inspeccionaron este jueves un establecimiento de Villatuerta autorizado para reparar toldos y localizaron numerosas armas de varios tipos: réplicas, airsoft, blancas y objetos potencialmente prohibidos. Durante el registro también hallaron indicios de que el local se utilizaba como taller de reparación de vehículos —actividad no autorizada— e indicios de consumo de drogas. El operativo, coordinado desde la Comisaría de Estella, se llevó a cabo tras comprobar hace un mes que el establecimiento funcionaba fuera de horario. La Policía Foral ha levantado actas administrativas y trasladará los hechos a las autoridades competentes.",
+   "pueblo": "Villatuerta",
+   "cat": "Sucesos",
+   "fuentes": [
+    {
+     "f": "Diario de Navarra",
+     "u": "https://www.diariodenavarra.es/noticias/navarra/tierra-estella/2026/11/28/intervenidas-armas-inspeccion-comercio-toldos-utilizaba-taller-vehiculos-villatuerta-844083-19.html"
+    },
+    {
+     "f": "COPE",
+     "u": "https://www.cope.es/emisoras/navarra/noticias/tenia-licencia-reparar-toldos-policia-encuentra-arsenal-armas-drogas-taller-20261128_3484180.html"
+    },
+    {
+     "f": "Pamplona Actual",
+     "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-merindades/pamplona-actual-merindad-de-estella/la-policia-foral-interviene-numerosas-armas-en-un-local-de-villatuerta-autorizado-para-reparar-toldos/"
+    }
+   ]
+  },
+  {
    "id": "f4bcfecf03c6",
    "pub": "2026-11-28T09:53Z",
    "titulo": "El Conservatorio de Tudela celebra su 50 aniversario con un homenaje a María Bayo",
@@ -688,24 +710,6 @@
     {
      "f": "Pamplona Actual",
      "u": "https://pamplonaactual.com/pamplona-actual/pamplona-actual-cultura/ane-sagues-presenta-su-propuesta-artistica-un-exorcismo-pop-fruto-del-premio-a-la-promocion-del-talento-artistico-2025/"
-    }
-   ]
-  },
-  {
-   "id": "f712ab8bc668",
-   "pub": "2026-11-26T03:56Z",
-   "titulo": "Nueve detenidos y 26 accidentes en Pamplona durante controles del fin de semana",
-   "texto": "La Policía Municipal de Pamplona realizó 612 pruebas de alcohol y drogas el fin de semana, sancionando a 10 conductores e investigando a 3 por tasas penales. Entre los incidentes destaca el de un conductor que chocó un vehículo en Buztintxuri y dio positivo en etilometría. Los agentes atendieron 26 accidentes con 7 heridos leves. En operativos de seguridad, detuvieron a 9 personas: 6 varones por robo, hurto y otros delitos, y 3 mujeres por maltrato en el ámbito familiar. Uno de los detenidos, de 27 años, intentó robar la caja de un bar en el Casco Viejo y fue identificado tras abandonar un patinete en San Juan.",
-   "pueblo": "Pamplona",
-   "cat": "Sucesos",
-   "fuentes": [
-    {
-     "f": "Pamplona Actual",
-     "u": "https://pamplonaactual.com/pamplona-actual/policia-municipal-de-pamplona-detiene-a-9-personas-por-diversos-delitos-durante-el-pasado-fin-de-semana/"
-    },
-    {
-     "f": "Diario de Navarra",
-     "u": "https://www.diariodenavarra.es/noticias/navarra/pamplona-comarca/2026/11/23/detenidas-3-mujeres-maltrato-parejas-semana-pamplona-843489-16.html"
     }
    ]
   }
